@@ -14,6 +14,7 @@
 		C96439A8201B15750079F7C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C96439A7201B15750079F7C0 /* Assets.xcassets */; };
 		C96439AB201B15750079F7C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96439A9201B15750079F7C0 /* LaunchScreen.storyboard */; };
 		C96439B6201B15760079F7C0 /* StoreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439B5201B15760079F7C0 /* StoreAppTests.swift */; };
+		C96439DF201C85450079F7C0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = C96439DE201C85450079F7C0 /* main.json */; };
 		F312FCC983D2FA3A26292B2E /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24152D67C11649D45C9A7A69 /* Pods_StoreApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		C96439B1201B15760079F7C0 /* StoreAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96439B5201B15760079F7C0 /* StoreAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppTests.swift; sourceTree = "<group>"; };
 		C96439B7201B15760079F7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C96439DE201C85450079F7C0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		D53753CF6F70586F6B2CD880 /* Pods-StoreAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreAppTests/Pods-StoreAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 		C964399F201B15750079F7C0 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				C96439DE201C85450079F7C0 /* main.json */,
 				C96439A0201B15750079F7C0 /* AppDelegate.swift */,
 				C96439A2201B15750079F7C0 /* ViewController.swift */,
 				C96439A4201B15750079F7C0 /* Main.storyboard */,
@@ -219,6 +222,7 @@
 			files = (
 				C96439AB201B15750079F7C0 /* LaunchScreen.storyboard in Resources */,
 				C96439A8201B15750079F7C0 /* Assets.xcassets in Resources */,
+				C96439DF201C85450079F7C0 /* main.json in Resources */,
 				C96439A6201B15750079F7C0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
