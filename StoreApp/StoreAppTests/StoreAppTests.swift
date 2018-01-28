@@ -15,22 +15,20 @@ class StoreAppTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    func test_getJSONDataFromURL() {
+        XCTAssertNotNil(DataManager.getJSONDataFromURL("main"))
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func test_number() {
+        let price = "6,750"
+        let result: Int = 6750
+        XCTAssertEqual(price.number, result)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+
+    func test_decode() {
+        let data = DataManager.getJSONDataFromURL("main")!
+        XCTAssertNoThrow(try JSONDecoder().decode([StoreItem].self, from: data))
     }
-    
+
 }

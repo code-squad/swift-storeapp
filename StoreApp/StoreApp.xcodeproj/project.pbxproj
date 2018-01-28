@@ -15,6 +15,11 @@
 		C96439AB201B15750079F7C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96439A9201B15750079F7C0 /* LaunchScreen.storyboard */; };
 		C96439B6201B15760079F7C0 /* StoreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439B5201B15760079F7C0 /* StoreAppTests.swift */; };
 		C96439DF201C85450079F7C0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = C96439DE201C85450079F7C0 /* main.json */; };
+		C96439E2201C87FC0079F7C0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439E1201C87FC0079F7C0 /* StoreItem.swift */; };
+		C96439E3201D02A70079F7C0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439E1201C87FC0079F7C0 /* StoreItem.swift */; };
+		C96439E4201D04230079F7C0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = C96439DE201C85450079F7C0 /* main.json */; };
+		C96439E6201DDADF0079F7C0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439E5201DDADF0079F7C0 /* DataManager.swift */; };
+		C96439E7201DDBFB0079F7C0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439E5201DDADF0079F7C0 /* DataManager.swift */; };
 		F312FCC983D2FA3A26292B2E /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24152D67C11649D45C9A7A69 /* Pods_StoreApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +50,8 @@
 		C96439B5201B15760079F7C0 /* StoreAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppTests.swift; sourceTree = "<group>"; };
 		C96439B7201B15760079F7C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C96439DE201C85450079F7C0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		C96439E1201C87FC0079F7C0 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		C96439E5201DDADF0079F7C0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D53753CF6F70586F6B2CD880 /* Pods-StoreAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreAppTests/Pods-StoreAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +118,7 @@
 		C964399F201B15750079F7C0 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				C96439E0201C87E00079F7C0 /* Model */,
 				C96439DE201C85450079F7C0 /* main.json */,
 				C96439A0201B15750079F7C0 /* AppDelegate.swift */,
 				C96439A2201B15750079F7C0 /* ViewController.swift */,
@@ -129,6 +137,15 @@
 				C96439B7201B15760079F7C0 /* Info.plist */,
 			);
 			path = StoreAppTests;
+			sourceTree = "<group>";
+		};
+		C96439E0201C87E00079F7C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C96439E1201C87FC0079F7C0 /* StoreItem.swift */,
+				C96439E5201DDADF0079F7C0 /* DataManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96439E4201D04230079F7C0 /* main.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +358,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96439E2201C87FC0079F7C0 /* StoreItem.swift in Sources */,
+				C96439E6201DDADF0079F7C0 /* DataManager.swift in Sources */,
 				C96439A3201B15750079F7C0 /* ViewController.swift in Sources */,
 				C96439A1201B15750079F7C0 /* AppDelegate.swift in Sources */,
 			);
@@ -349,6 +369,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96439E3201D02A70079F7C0 /* StoreItem.swift in Sources */,
+				C96439E7201DDBFB0079F7C0 /* DataManager.swift in Sources */,
 				C96439B6201B15760079F7C0 /* StoreAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
