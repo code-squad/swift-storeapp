@@ -123,6 +123,7 @@
 		C964399F201B15750079F7C0 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				C96439EE201E03890079F7C0 /* Util */,
 				C96439EB201DE6D20079F7C0 /* View */,
 				C96439E0201C87E00079F7C0 /* Model */,
 				C96439DE201C85450079F7C0 /* main.json */,
@@ -150,7 +151,6 @@
 			children = (
 				C96439E1201C87FC0079F7C0 /* StoreItem.swift */,
 				C96439E5201DDADF0079F7C0 /* DataManager.swift */,
-				C96439E8201DE4190079F7C0 /* Extension+String.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +161,14 @@
 				C96439EC201DE6F90079F7C0 /* TableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		C96439EE201E03890079F7C0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				C96439E8201DE4190079F7C0 /* Extension+String.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
