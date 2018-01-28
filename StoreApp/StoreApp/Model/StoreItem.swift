@@ -37,16 +37,4 @@ struct StoreItem: Decodable {
         s_price = s_price_string.number
         badge = try? container.decode([String].self, forKey: .badge)
     }
-
-
-}
-
-extension String {
-    var number: Int {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = NumberFormatter.Style.decimal
-        formatter.currencyCode = "KRW"
-        guard let number = formatter.number(from: self) else { return 0 }
-        return number.intValue
-    }
 }

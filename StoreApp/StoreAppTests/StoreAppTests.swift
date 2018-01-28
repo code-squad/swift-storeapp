@@ -26,6 +26,13 @@ class StoreAppTests: XCTestCase {
         XCTAssertEqual(price.number, result)
     }
 
+    func test_number_원() {
+        let price = "6,750원"
+        let result: Int = 6750
+        XCTAssertEqual(price.number, result)
+    }
+
+
     func test_decode() {
         let data = DataManager.getJSONDataFromURL("main")!
         XCTAssertNoThrow(try JSONDecoder().decode([StoreItem].self, from: data))
