@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,53 +37,53 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnV-nq-osu">
-                                                    <rect key="frame" x="139" y="15" width="226" height="22.5"/>
+                                                    <rect key="frame" x="139" y="15" width="226" height="23"/>
                                                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LX3-tA-bHC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="131.5" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="132" height="130"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtE-13-f6e">
-                                                    <rect key="frame" x="139" y="40.5" width="226" height="22.5"/>
+                                                    <rect key="frame" x="139" y="41" width="226" height="23"/>
                                                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFk-G2-6bT">
-                                                    <rect key="frame" x="139" y="67" width="186" height="22.5"/>
+                                                    <rect key="frame" x="139" y="68" width="186" height="23"/>
                                                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4c-K4-3Ld">
-                                                    <rect key="frame" x="139" y="97.5" width="42" height="22.5"/>
-                                                    <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7og-pk-DwV" customClass="BadgesView" customModule="StoreApp" customModuleProvider="target">
+                                                    <rect key="frame" x="139" y="95" width="226" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="g4c-K4-3Ld" firstAttribute="leading" secondItem="BFk-G2-6bT" secondAttribute="leading" id="0M5-tw-Cvf"/>
                                                 <constraint firstAttribute="trailing" secondItem="UtE-13-f6e" secondAttribute="trailing" constant="10" id="D1w-GR-mie"/>
                                                 <constraint firstItem="BFk-G2-6bT" firstAttribute="leading" secondItem="UtE-13-f6e" secondAttribute="leading" id="Emk-MU-ENP"/>
+                                                <constraint firstItem="7og-pk-DwV" firstAttribute="bottom" secondItem="qMK-7j-t5T" secondAttribute="bottomMargin" constant="5" id="J7K-qh-2eH"/>
                                                 <constraint firstItem="LX3-tA-bHC" firstAttribute="width" secondItem="qMK-7j-t5T" secondAttribute="width" multiplier="0.35" id="PO1-qb-yub"/>
                                                 <constraint firstAttribute="trailing" secondItem="BFk-G2-6bT" secondAttribute="trailing" constant="50" id="Po1-SW-Rqz"/>
                                                 <constraint firstItem="BFk-G2-6bT" firstAttribute="top" secondItem="UtE-13-f6e" secondAttribute="bottom" constant="4" id="RLS-8R-uLb"/>
+                                                <constraint firstItem="7og-pk-DwV" firstAttribute="leading" secondItem="BFk-G2-6bT" secondAttribute="leading" id="U9g-DZ-Lmi"/>
                                                 <constraint firstItem="ZnV-nq-osu" firstAttribute="top" secondItem="qMK-7j-t5T" secondAttribute="top" constant="15" id="cF3-lZ-mEM"/>
-                                                <constraint firstItem="g4c-K4-3Ld" firstAttribute="top" secondItem="BFk-G2-6bT" secondAttribute="bottom" constant="8" id="dGi-aS-ZbN"/>
                                                 <constraint firstItem="UtE-13-f6e" firstAttribute="top" secondItem="ZnV-nq-osu" secondAttribute="bottom" constant="3" id="g7q-xb-GbB"/>
                                                 <constraint firstItem="LX3-tA-bHC" firstAttribute="top" secondItem="qMK-7j-t5T" secondAttribute="top" id="gK8-Vv-AkI"/>
+                                                <constraint firstItem="7og-pk-DwV" firstAttribute="trailing" secondItem="UtE-13-f6e" secondAttribute="trailing" id="gM3-oW-VuR"/>
                                                 <constraint firstAttribute="bottom" secondItem="LX3-tA-bHC" secondAttribute="bottom" constant="0.5" id="gaM-wO-003"/>
                                                 <constraint firstItem="ZnV-nq-osu" firstAttribute="leading" secondItem="LX3-tA-bHC" secondAttribute="trailing" constant="7.5" id="gtI-rB-7ie"/>
                                                 <constraint firstItem="UtE-13-f6e" firstAttribute="leading" secondItem="ZnV-nq-osu" secondAttribute="leading" id="lIQ-nh-eed"/>
+                                                <constraint firstItem="7og-pk-DwV" firstAttribute="top" secondItem="BFk-G2-6bT" secondAttribute="bottom" constant="4" id="n0x-gB-jQ6"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZnV-nq-osu" secondAttribute="trailing" constant="10" id="r5U-B6-vJo"/>
                                                 <constraint firstItem="LX3-tA-bHC" firstAttribute="leading" secondItem="qMK-7j-t5T" secondAttribute="leading" id="u0r-o1-DuP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="badgeLabel" destination="g4c-K4-3Ld" id="iBb-RC-czY"/>
+                                            <outlet property="badges" destination="7og-pk-DwV" id="V72-8z-poU"/>
                                             <outlet property="descriptionLabel" destination="UtE-13-f6e" id="7j8-8n-vfy"/>
                                             <outlet property="foodimageView" destination="LX3-tA-bHC" id="MnT-Vw-58i"/>
                                             <outlet property="priceLabel" destination="BFk-G2-6bT" id="EsB-6q-ISa"/>

@@ -38,6 +38,10 @@ extension ViewController: UITableViewDataSource {
         cell.titleLabel.text = storeBoard.title
         cell.descriptionLabel.text = storeBoard.description
         cell.priceLabel?.text = storeBoard.s_price.priceString
+        let badgesInCell = cell.badges
+        if badgesInCell?.count != storeBoard.badge?.count {
+            badgesInCell?.setBadges(tags: storeBoard.badge)
+        }
         return cell
     }
 }
