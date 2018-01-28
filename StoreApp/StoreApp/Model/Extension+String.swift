@@ -26,3 +26,11 @@ extension String {
         return String(self[self.startIndex...self.index(before: startMeasureCharacter)])
     }
 }
+
+extension Int {
+    var priceString: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = NumberFormatter.Style.decimal
+        return formatter.string(from: NSNumber(value: self)) ?? "0"
+    }
+}
