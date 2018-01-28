@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TablewViewCell: UITableViewCell {
-    @IBOutlet weak var titleLable: UILabel!
+class TableViewCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var badgeLabel: UILabel!
-    @IBOutlet weak var foodimageView: UIImageView!
+    @IBOutlet weak var priceLabel: UILabel?
+    @IBOutlet weak var badgeLabel: UILabel?
+    @IBOutlet weak var foodimageView: UIImageView?
 }
