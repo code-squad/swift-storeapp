@@ -21,12 +21,16 @@ class BadgesView: UIView {
         super.init(coder: aDecoder)
     }
 
+    func setColors(_ colors: [String: UIColor]) {
+
+    }
+
     func setBadges(tags: [String]?) {
         guard let badges = tags else { return }
         badges.forEach {
             let label = BadgeLabel(text: $0)
             label.tag = count
-            label.backgroundColor = UIColor(red: 207/255, green: 151/255, blue: 215/255, alpha: 1)
+            label.backgroundColor = Badge.colors[$0]
             self.addSubview(label)
         }
         setLayout()
