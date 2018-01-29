@@ -9,17 +9,14 @@
 import Foundation
 
 struct DataManager {
-    static func getJSONDataFromURL(_ resource:String) -> Data? {
-        guard let filePath = Bundle.main.path(forResource: resource, ofType: "json") else {
-            return nil
-        }
+    static func getJSONDataFromURL(_ resource: String) throws -> Data {
+        let filePath = Bundle.main.path(forResource: resource, ofType: "json") ?? ""
         let url = URL(fileURLWithPath: filePath)
         do {
             let data = try Data(contentsOf: url, options: .uncached)
             return data
         } catch let error{
-            print(error)
+            throw error
         }
-        return nil
     }
 }

@@ -48,8 +48,6 @@ class BadgesView: UIView {
                     .isActive = true
                 previous += 1
             }
-            $0.layoutMargins.left = 5
-            $0.layoutMargins.right = 5
             $0.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         }
     }
