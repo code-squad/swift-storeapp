@@ -11,22 +11,18 @@ import UIKit
 class BadgeLabel: UILabel {
 
     struct Size {
-        static let origin = CGPoint.zero
-        static let fontSize: CGFloat = 17
-        static func size(_ textCount: Int) -> CGSize {
-            return CGSize(width: 30*textCount, height: 26)
-        }
+        static let font: CGFloat = 17
     }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
     init(text: String) {
-        let frame = CGRect(origin: Size.origin, size: Size.size(text.count))
-        super.init(frame: frame)
+        super.init(frame: CGRect(origin: CGPoint.zero, size: CGSize.zero))
         self.frame = frame
         self.text = text
-        self.font = UIFont.euphemiaUCAS(ofSize: Size.fontSize)
+        self.font = UIFont.euphemiaUCAS(ofSize: Size.font)
         self.textColor = UIColor.white
         self.textAlignment = .center
     }
