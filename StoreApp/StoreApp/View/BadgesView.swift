@@ -14,7 +14,7 @@ class BadgesView: UIView {
         return subviews.count
     }
     struct TagNumber {
-        static let first = 0
+        static let first = 999
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -25,7 +25,7 @@ class BadgesView: UIView {
         guard let badges = tags else { return }
         badges.forEach {
             let label = BadgeLabel(text: $0)
-            label.tag = count
+            if count == 0 { label.tag = TagNumber.first }
             label.backgroundColor = Badge.colors[$0]
             self.addSubview(label)
         }
