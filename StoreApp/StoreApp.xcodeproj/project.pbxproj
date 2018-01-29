@@ -12,6 +12,7 @@
 		C93B1280201E27AC00071F7C /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B127F201E27AC00071F7C /* BadgesView.swift */; };
 		C93B1282201E38BA00071F7C /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B1281201E38BA00071F7C /* Extension+UIColor.swift */; };
 		C93B1284201E3F4C00071F7C /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B1283201E3F4C00071F7C /* Badge.swift */; };
+		C93B1286201EF79400071F7C /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B1285201EF79400071F7C /* Extension+Font.swift */; };
 		C96439A1201B15750079F7C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439A0201B15750079F7C0 /* AppDelegate.swift */; };
 		C96439A3201B15750079F7C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439A2201B15750079F7C0 /* ViewController.swift */; };
 		C96439A6201B15750079F7C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96439A4201B15750079F7C0 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		C93B127F201E27AC00071F7C /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 		C93B1281201E38BA00071F7C /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		C93B1283201E3F4C00071F7C /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		C93B1285201EF79400071F7C /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
 		C964399D201B15750079F7C0 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96439A0201B15750079F7C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C96439A2201B15750079F7C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				C96439E8201DE4190079F7C0 /* Extension+String.swift */,
 				C93B1281201E38BA00071F7C /* Extension+UIColor.swift */,
+				C93B1285201EF79400071F7C /* Extension+Font.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				C93B1282201E38BA00071F7C /* Extension+UIColor.swift in Sources */,
 				C93B1284201E3F4C00071F7C /* Badge.swift in Sources */,
 				C96439E6201DDADF0079F7C0 /* DataManager.swift in Sources */,
+				C93B1286201EF79400071F7C /* Extension+Font.swift in Sources */,
 				C93B1280201E27AC00071F7C /* BadgesView.swift in Sources */,
 				C96439ED201DE6F90079F7C0 /* TableViewCell.swift in Sources */,
 				C93B127E201E1EFF00071F7C /* BadgeLabel.swift in Sources */,

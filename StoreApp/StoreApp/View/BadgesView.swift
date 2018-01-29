@@ -21,10 +21,6 @@ class BadgesView: UIView {
         super.init(coder: aDecoder)
     }
 
-    func setColors(_ colors: [String: UIColor]) {
-
-    }
-
     func setBadges(tags: [String]?) {
         guard let badges = tags else { return }
         badges.forEach {
