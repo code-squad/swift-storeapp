@@ -11,16 +11,37 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
-    var storeItems: [StoreItem] = {
-        let data = DataManager.getJSONDataFromURL("main")!
-        let items = try? JSONDecoder().decode([StoreItem].self, from: data)
-        return items ?? []
-    }()
+    var storeItems = [StoreItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        storeItems = decodeJSONData(from: "main")
+        tableView.reloadData()
+    }
+}
+
+extension ViewController {
+    private func decodeJSONData(from filename: String) -> [StoreItem] {
+        do {
+            let data = try DataManager.getJSONDataFromURL(filename)
+            let items = try JSONDecoder().decode([StoreItem].self, from: data)
+            return items
+        } catch let error {
+            showAlert(message: error.localizedDescription)
+        }
+        return []
+    }
+
+    private func showAlert(title: String = "잠깐!", message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
