@@ -11,7 +11,7 @@ import UIKit
 class BadgeLabel: UILabel {
 
     struct Size {
-        static let font: CGFloat = 17
+        static let font: CGFloat = 15
     }
 
     override init(frame: CGRect) {
