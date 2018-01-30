@@ -15,6 +15,8 @@
 		C93B1286201EF79400071F7C /* Extension+Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B1285201EF79400071F7C /* Extension+Font.swift */; };
 		C93B129220200EFB00071F7C /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = C93B129020200EFB00071F7C /* side.json */; };
 		C93B129320200EFB00071F7C /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = C93B129120200EFB00071F7C /* soup.json */; };
+		C93B12962020100300071F7C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B12942020100300071F7C /* HeaderView.swift */; };
+		C93B12972020100300071F7C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93B12952020100300071F7C /* HeaderView.xib */; };
 		C96439A1201B15750079F7C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439A0201B15750079F7C0 /* AppDelegate.swift */; };
 		C96439A3201B15750079F7C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96439A2201B15750079F7C0 /* ViewController.swift */; };
 		C96439A6201B15750079F7C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96439A4201B15750079F7C0 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		C93B1285201EF79400071F7C /* Extension+Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Font.swift"; sourceTree = "<group>"; };
 		C93B129020200EFB00071F7C /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		C93B129120200EFB00071F7C /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		C93B12942020100300071F7C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		C93B12952020100300071F7C /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		C964399D201B15750079F7C0 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C96439A0201B15750079F7C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C96439A2201B15750079F7C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				C96439A7201B15750079F7C0 /* Assets.xcassets */,
 				C96439A9201B15750079F7C0 /* LaunchScreen.storyboard */,
 				C96439AC201B15750079F7C0 /* Info.plist */,
+				C93B12942020100300071F7C /* HeaderView.swift */,
+				C93B12952020100300071F7C /* HeaderView.xib */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 				C96439DF201C85450079F7C0 /* main.json in Resources */,
 				C93B129320200EFB00071F7C /* soup.json in Resources */,
 				C96439A6201B15750079F7C0 /* Main.storyboard in Resources */,
+				C93B12972020100300071F7C /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +426,7 @@
 				C96439E6201DDADF0079F7C0 /* DataManager.swift in Sources */,
 				C93B1286201EF79400071F7C /* Extension+Font.swift in Sources */,
 				C93B1280201E27AC00071F7C /* BadgesView.swift in Sources */,
+				C93B12962020100300071F7C /* HeaderView.swift in Sources */,
 				C96439ED201DE6F90079F7C0 /* TableViewCell.swift in Sources */,
 				C93B127E201E1EFF00071F7C /* BadgeLabel.swift in Sources */,
 				C96439A3201B15750079F7C0 /* ViewController.swift in Sources */,
