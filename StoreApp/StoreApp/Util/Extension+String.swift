@@ -27,6 +27,12 @@ extension String {
     }
 }
 
+extension String {
+    static let main = "main"
+    static let soup = "soup"
+    static let side = "side"
+}
+
 extension Int {
     var priceString: String {
         let formatter = NumberFormatter()
