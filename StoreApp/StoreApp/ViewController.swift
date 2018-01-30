@@ -10,11 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+
     var storeItems = [StoreItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "HeaderView", bundle: nil) , forCellReuseIdentifier: "HeaderView")
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -51,6 +53,10 @@ extension ViewController: UITableViewDataSource {
         return storeItems.count
     }
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.numberOfSections
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "TableViewCell",
@@ -71,5 +77,36 @@ extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderView") as? HeaderView
+        let section = Section(rawValue: section)
+        headerCell?.titleLabel.text = section?.title
+        headerCell?.descriptionLabel.text = section?.description
+        return headerCell
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
+    }
+}
+
+extension ViewController {
+    enum Section: Int {
+        case main, soup, side
+        var title: String {
+            switch self {
+            case .main: return "메인반찬"
+            case .soup: return "국.찌게"
+            case .side: return "밑반찬" }
+        }
+        var description: String {
+            switch self {
+            case .main: return "메인반찬 / 한그릇 뚝딱 메인 요리"
+            case .soup: return "국.찌게 / 김이 모락모락 국.찌게"
+            case .side: return "밑반찬 / 언제 먹어도 든든한 밑반찬" }
+        }
+        static var numberOfSections: Int { return 3 }
     }
 }
