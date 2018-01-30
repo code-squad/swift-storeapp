@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,47 +23,47 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StoreApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2tR-sz-dVr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="131" id="EIk-eQ-56C" customClass="TableViewCell" customModule="StoreApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="131"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EIk-eQ-56C" id="qMK-7j-t5T">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="130.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="130.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZnV-nq-osu">
-                                                    <rect key="frame" x="122.5" y="15" width="249.5" height="20"/>
+                                                    <rect key="frame" x="123" y="15" width="249" height="20"/>
                                                     <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LX3-tA-bHC">
-                                                    <rect key="frame" x="-0.5" y="9" width="113" height="113"/>
+                                                    <rect key="frame" x="0.0" y="9" width="113" height="113"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="113" id="hDF-2c-ekf"/>
                                                         <constraint firstAttribute="width" secondItem="LX3-tA-bHC" secondAttribute="height" multiplier="1:1" id="uMS-4D-kbA"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UtE-13-f6e">
-                                                    <rect key="frame" x="122.5" y="39" width="249.5" height="20"/>
+                                                    <rect key="frame" x="123" y="39" width="249" height="20"/>
                                                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="15"/>
                                                     <color key="textColor" red="0.74384474998755856" green="0.75120954949238583" blue="0.75120954949238583" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFk-G2-6bT">
-                                                    <rect key="frame" x="122.5" y="63" width="202.5" height="23"/>
+                                                    <rect key="frame" x="123" y="63" width="202" height="23"/>
                                                     <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7og-pk-DwV" customClass="BadgesView" customModule="StoreApp" customModuleProvider="target">
-                                                    <rect key="frame" x="122.5" y="90" width="249.5" height="35"/>
+                                                    <rect key="frame" x="123" y="90" width="249" height="35"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
@@ -72,8 +71,6 @@
                                                 <constraint firstItem="UtE-13-f6e" firstAttribute="trailing" secondItem="ZnV-nq-osu" secondAttribute="trailing" id="ECO-Wq-Dsr"/>
                                                 <constraint firstItem="BFk-G2-6bT" firstAttribute="leading" secondItem="UtE-13-f6e" secondAttribute="leading" id="Emk-MU-ENP"/>
                                                 <constraint firstItem="7og-pk-DwV" firstAttribute="bottom" secondItem="qMK-7j-t5T" secondAttribute="bottomMargin" constant="5" id="J7K-qh-2eH"/>
-                                                <constraint firstItem="LX3-tA-bHC" firstAttribute="centerX" secondItem="qMK-7j-t5T" secondAttribute="centerX" multiplier="0.3" id="LE5-2m-wvV"/>
-                                                <constraint firstItem="LX3-tA-bHC" firstAttribute="centerY" secondItem="qMK-7j-t5T" secondAttribute="centerY" id="MqZ-ez-oA9"/>
                                                 <constraint firstAttribute="trailing" secondItem="BFk-G2-6bT" secondAttribute="trailing" constant="50" id="Po1-SW-Rqz"/>
                                                 <constraint firstItem="BFk-G2-6bT" firstAttribute="top" secondItem="UtE-13-f6e" secondAttribute="bottom" constant="4" id="RLS-8R-uLb"/>
                                                 <constraint firstItem="7og-pk-DwV" firstAttribute="leading" secondItem="BFk-G2-6bT" secondAttribute="leading" id="U9g-DZ-Lmi"/>
@@ -83,7 +80,9 @@
                                                 <constraint firstItem="ZnV-nq-osu" firstAttribute="leading" secondItem="LX3-tA-bHC" secondAttribute="trailing" constant="10" id="gtI-rB-7ie"/>
                                                 <constraint firstItem="UtE-13-f6e" firstAttribute="leading" secondItem="ZnV-nq-osu" secondAttribute="leading" id="lIQ-nh-eed"/>
                                                 <constraint firstItem="7og-pk-DwV" firstAttribute="top" secondItem="BFk-G2-6bT" secondAttribute="bottom" constant="4" id="n0x-gB-jQ6"/>
+                                                <constraint firstItem="LX3-tA-bHC" firstAttribute="leading" secondItem="qMK-7j-t5T" secondAttribute="leading" id="pwe-OY-uW5"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZnV-nq-osu" secondAttribute="trailing" constant="3" id="r5U-B6-vJo"/>
+                                                <constraint firstItem="LX3-tA-bHC" firstAttribute="top" secondItem="qMK-7j-t5T" secondAttribute="top" constant="9" id="tQU-w3-UNH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
