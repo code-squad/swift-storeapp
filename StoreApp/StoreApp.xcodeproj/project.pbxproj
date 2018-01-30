@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C8D01E695668B3AC1A498B5A /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01B8A08C4B30DC7A4B6CD178 /* Pods_StoreAppTests.framework */; };
+		C90A7B442020578600B8DD95 /* StoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A7B432020578600B8DD95 /* StoreDataSource.swift */; };
 		C93B127E201E1EFF00071F7C /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B127D201E1EFF00071F7C /* BadgeLabel.swift */; };
 		C93B1280201E27AC00071F7C /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B127F201E27AC00071F7C /* BadgesView.swift */; };
 		C93B1282201E38BA00071F7C /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93B1281201E38BA00071F7C /* Extension+UIColor.swift */; };
@@ -52,6 +53,7 @@
 		47E955644244C8959553E6A5 /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		74CF736BC99F5F754BF27C98 /* Pods-StoreAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreAppTests/Pods-StoreAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7DEED590D70636055082870C /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C90A7B432020578600B8DD95 /* StoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataSource.swift; sourceTree = "<group>"; };
 		C93B127D201E1EFF00071F7C /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		C93B127F201E27AC00071F7C /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 		C93B1281201E38BA00071F7C /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				C96439E1201C87FC0079F7C0 /* StoreItem.swift */,
 				C96439E5201DDADF0079F7C0 /* DataManager.swift */,
 				C93B1283201E3F4C00071F7C /* Badge.swift */,
+				C90A7B432020578600B8DD95 /* StoreDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				C93B1282201E38BA00071F7C /* Extension+UIColor.swift in Sources */,
 				C93B1284201E3F4C00071F7C /* Badge.swift in Sources */,
 				C96439E6201DDADF0079F7C0 /* DataManager.swift in Sources */,
+				C90A7B442020578600B8DD95 /* StoreDataSource.swift in Sources */,
 				C93B1286201EF79400071F7C /* Extension+Font.swift in Sources */,
 				C93B1280201E27AC00071F7C /* BadgesView.swift in Sources */,
 				C93B12962020100300071F7C /* HeaderView.swift in Sources */,

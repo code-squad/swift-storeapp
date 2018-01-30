@@ -11,10 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
-    var mainItems = [StoreItem]()
-    var soupItems = [StoreItem]()
-    var sideItems = [StoreItem]()
+    var storeDataSource = StoreDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,25 +21,18 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        mainItems = decodeJSONData(from: .main)
-        soupItems = decodeJSONData(from: .soup)
-        sideItems = decodeJSONData(from: .side)
+        let resources: [String] = [.main, .soup, .side]
+        do {
+            try storeDataSource.setItems(resources: resources)
+        } catch let error {
+            showAlert(message: error.localizedDescription)
+        }
         tableView.reloadData()
     }
 }
 
 extension ViewController {
-    private func decodeJSONData(from filename: String) -> [StoreItem] {
-        do {
-            let data = try DataManager.getJSONDataFromURL(filename)
-            let items = try JSONDecoder().decode([StoreItem].self, from: data)
-            return items
-        } catch let error {
-            showAlert(message: error.localizedDescription)
-        }
-        return []
-    }
-
+    
     private func showAlert(title: String = "잠깐!", message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -54,13 +44,7 @@ extension ViewController {
 extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var count = 0
-        switch Section(rawValue: section) {
-        case .main?: count = mainItems.count
-        case .soup?: count = soupItems.count
-        case .side?: count = sideItems.count
-        case .none: break }
-        return count
+        return storeDataSource.numberOfRowsInSection(section: section)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,18 +55,11 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: .tableViewCell,
             for: indexPath ) as! TableViewCell
-        var selectedItem: StoreItem? = nil
-        let section = indexPath.section
-        let row = indexPath.row
-        switch Section(rawValue: section) {
-        case .main?: selectedItem = mainItems[row]
-        case .soup?: selectedItem = soupItems[row]
-        case .side?: selectedItem = sideItems[row]
-        case .none: break }
-        cell.titleLabel.text = selectedItem?.title
-        cell.descriptionLabel.text = selectedItem?.description
-        cell.priceLabel?.text = selectedItem?.s_price.priceString
-        cell.badges.setBadges(tags: selectedItem?.badge)
+        let selectedItem = storeDataSource.item(indexPath: indexPath)
+        cell.titleLabel.text = selectedItem.title
+        cell.descriptionLabel.text = selectedItem.description
+        cell.priceLabel?.text = selectedItem.s_price.priceString
+        cell.badges.setBadges(tags: selectedItem.badge)
         return cell
     }
 }
