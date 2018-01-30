@@ -15,7 +15,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: .headerView, bundle: nil) , forCellReuseIdentifier: .headerView)
+        tableView.register(
+            UINib(nibName: .headerView, bundle: nil),
+            forCellReuseIdentifier: .headerView
+        )
         tableView.dataSource = self
         tableView.delegate = self
     }

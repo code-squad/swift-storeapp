@@ -10,9 +10,7 @@ import UIKit
 
 class BadgeLabel: UILabel {
 
-    struct Size {
-        static let font: CGFloat = 15
-    }
+    let fontSize: CGFloat = 15
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +20,7 @@ class BadgeLabel: UILabel {
         super.init(frame: CGRect(origin: CGPoint.zero, size: CGSize.zero))
         self.frame = frame
         self.text = text
-        self.font = UIFont.euphemiaUCAS(ofSize: Size.font)
+        self.font = UIFont.euphemiaUCAS(ofSize: fontSize)
         self.textColor = UIColor.white
         self.textAlignment = .center
     }
