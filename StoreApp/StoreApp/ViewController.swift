@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "HeaderView", bundle: nil) , forCellReuseIdentifier: "HeaderView")
+        tableView.register(UINib(nibName: .headerView, bundle: nil) , forCellReuseIdentifier: .headerView)
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -69,7 +69,7 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "TableViewCell",
+            withIdentifier: .tableViewCell,
             for: indexPath ) as! TableViewCell
         var selectedItem: StoreItem? = nil
         let section = indexPath.section
@@ -94,7 +94,7 @@ extension ViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderView") as? HeaderView
+        let headerCell = tableView.dequeueReusableCell(withIdentifier: .headerView) as? HeaderView
         let section = Section(rawValue: section)
         headerCell?.titleLabel.text = section?.title
         headerCell?.descriptionLabel.text = section?.detail
@@ -111,15 +111,15 @@ extension ViewController {
         case main, soup, side
         var title: String {
             switch self {
-            case .main: return "메인반찬"
-            case .soup: return "국.찌게"
-            case .side: return "밑반찬" }
+            case .main: return .mainTitle
+            case .soup: return .soupTitle
+            case .side: return .sideTitle }
         }
         var detail: String {
             switch self {
-            case .main: return "메인반찬 / 한그릇 뚝딱 메인 요리"
-            case .soup: return "국.찌게 / 김이 모락모락 국.찌게"
-            case .side: return "밑반찬 / 언제 먹어도 든든한 밑반찬" }
+            case .main: return .mainDetail
+            case .soup: return .soupDetail
+            case .side: return .sideDetail }
         }
         static var numberOfSections: Int { return 3 }
     }
