@@ -22,7 +22,8 @@ class BadgesView: UIView {
     }
 
     func setBadges(tags: [String]?) {
-        guard let badges = tags else { return }
+        guard let badges = tags,
+            subviews.isEmpty else { return }
         badges.forEach {
             let label = BadgeLabel(text: $0)
             if count == 0 { label.tag = TagNumber.first }

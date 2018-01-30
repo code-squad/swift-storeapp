@@ -12,7 +12,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var storeItems = [StoreItem]()
+    var mainItems = [StoreItem]()
+    var soupItems = [StoreItem]()
+    var sideItems = [StoreItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +24,9 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        storeItems = decodeJSONData(from: "main")
+        mainItems = decodeJSONData(from: .main)
+        soupItems = decodeJSONData(from: .soup)
+        sideItems = decodeJSONData(from: .side)
         tableView.reloadData()
     }
 }
@@ -50,7 +54,13 @@ extension ViewController {
 extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems.count
+        var count = 0
+        switch Section(rawValue: section) {
+        case .main?: count = mainItems.count
+        case .soup?: count = soupItems.count
+        case .side?: count = sideItems.count
+        case .none: break }
+        return count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,14 +71,18 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "TableViewCell",
             for: indexPath ) as! TableViewCell
-        let storeBoard = storeItems[indexPath.row]
-        cell.titleLabel.text = storeBoard.title
-        cell.descriptionLabel.text = storeBoard.description
-        cell.priceLabel?.text = storeBoard.s_price.priceString
-        let badgesInCell = cell.badges
-        if badgesInCell?.count != storeBoard.badge?.count {
-            badgesInCell?.setBadges(tags: storeBoard.badge)
-        }
+        var selectedItem: StoreItem? = nil
+        let section = indexPath.section
+        let row = indexPath.row
+        switch Section(rawValue: section) {
+        case .main?: selectedItem = mainItems[row]
+        case .soup?: selectedItem = soupItems[row]
+        case .side?: selectedItem = sideItems[row]
+        case .none: break }
+        cell.titleLabel.text = selectedItem?.title
+        cell.descriptionLabel.text = selectedItem?.description
+        cell.priceLabel?.text = selectedItem?.s_price.priceString
+        cell.badges.setBadges(tags: selectedItem?.badge)
         return cell
     }
 }
@@ -83,7 +97,7 @@ extension ViewController: UITableViewDelegate {
         let headerCell = tableView.dequeueReusableCell(withIdentifier: "HeaderView") as? HeaderView
         let section = Section(rawValue: section)
         headerCell?.titleLabel.text = section?.title
-        headerCell?.descriptionLabel.text = section?.description
+        headerCell?.descriptionLabel.text = section?.detail
         return headerCell
     }
 
@@ -101,7 +115,7 @@ extension ViewController {
             case .soup: return "국.찌게"
             case .side: return "밑반찬" }
         }
-        var description: String {
+        var detail: String {
             switch self {
             case .main: return "메인반찬 / 한그릇 뚝딱 메인 요리"
             case .soup: return "국.찌게 / 김이 모락모락 국.찌게"
