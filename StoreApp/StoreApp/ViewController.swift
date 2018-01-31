@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController {
 
@@ -83,5 +84,10 @@ extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 80
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedItem = storeDataSource.description(indexPath: indexPath) else { return }
+        Toast(text: selectedItem).show()
     }
 }
