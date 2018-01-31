@@ -38,6 +38,14 @@ struct StoreDataSource {
         return items[indexPath.section][indexPath.row]
     }
 
+    func description(indexPath: IndexPath) -> String? {
+        let newline = "\n"
+        let i = item(indexPath: indexPath)
+        guard let title = i?.title,
+            let price = i?.s_price.priceString else { return nil }
+        return title+newline+price
+    }
+
     private func decodeJSONData(from resourceName: String) throws -> [StoreItem] {
         do {
             let data = try DataManager.getJSONDataFromURL(resourceName)
