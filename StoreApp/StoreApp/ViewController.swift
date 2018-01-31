@@ -19,8 +19,8 @@ class ViewController: UIViewController {
             UINib(nibName: .headerView, bundle: nil),
             forCellReuseIdentifier: .headerView
         )
-        tableView.dataSource = self
         tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -59,10 +59,10 @@ extension ViewController: UITableViewDataSource {
             withIdentifier: .tableViewCell,
             for: indexPath ) as! TableViewCell
         let selectedItem = storeDataSource.item(indexPath: indexPath)
-        cell.titleLabel.text = selectedItem.title
-        cell.descriptionLabel.text = selectedItem.description
-        cell.priceLabel?.text = selectedItem.s_price.priceString
-        cell.badges.setBadges(tags: selectedItem.badge)
+        cell.titleLabel.text = selectedItem?.title
+        cell.descriptionLabel.text = selectedItem?.description
+        cell.priceLabel?.text = selectedItem?.s_price.priceString
+        cell.badges.setBadges(tags: selectedItem?.badge)
         return cell
     }
 }
