@@ -12,6 +12,19 @@
 		EE335B8E203BE59A00360A62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE335B8C203BE59A00360A62 /* Main.storyboard */; };
 		EE335B90203BE59A00360A62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE335B8F203BE59A00360A62 /* Assets.xcassets */; };
 		EE335B93203BE59A00360A62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE335B91203BE59A00360A62 /* LaunchScreen.storyboard */; };
+		EEEAAA2B203CE31F00891BCC /* PricesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAAA2A203CE31F00891BCC /* PricesContainer.swift */; };
+		EEEAAA2E203CF75900891BCC /* Appendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAAA2D203CF75900891BCC /* Appendable.swift */; };
+		EEEAAA30203CF76E00891BCC /* Resizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAAA2F203CF76E00891BCC /* Resizable.swift */; };
+		EEF2DBEF203BED2A00A455CC /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DBEE203BED2A00A455CC /* ItemCell.swift */; };
+		EEF2DBF1203BF02A00A455CC /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DBF0203BF02A00A455CC /* StoreItem.swift */; };
+		EEF2DBF3203BF16200A455CC /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DBF2203BF16200A455CC /* JSONParser.swift */; };
+		EEF2DBF5203C16A600A455CC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = EEF2DBF4203C16A600A455CC /* main.json */; };
+		EEF2DBF7203C5E0000A455CC /* BadgesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DBF6203C5E0000A455CC /* BadgesContainer.swift */; };
+		EEF2DC01203C9EA100A455CC /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DC00203C9EA100A455CC /* BadgeLabel.swift */; };
+		EEF2DC03203CA4E300A455CC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DC02203CA4E300A455CC /* UIColorExtension.swift */; };
+		EEF2DC07203CAB7F00A455CC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DC06203CAB7F00A455CC /* StringExtension.swift */; };
+		EEF2DC09203CB21A00A455CC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DC08203CB21A00A455CC /* Style.swift */; };
+		EEF2DC0B203CB7F300A455CC /* StyleConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DC0A203CB7F300A455CC /* StyleConfigurable.swift */; };
 		FCFE16B9DABDB9105408C6D1 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AC2407CFDB18502B2DE1E3 /* Pods_StoreApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +39,19 @@
 		EE335B8F203BE59A00360A62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE335B92203BE59A00360A62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE335B94203BE59A00360A62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEEAAA2A203CE31F00891BCC /* PricesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesContainer.swift; sourceTree = "<group>"; };
+		EEEAAA2D203CF75900891BCC /* Appendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appendable.swift; sourceTree = "<group>"; };
+		EEEAAA2F203CF76E00891BCC /* Resizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizable.swift; sourceTree = "<group>"; };
+		EEF2DBEE203BED2A00A455CC /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		EEF2DBF0203BF02A00A455CC /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		EEF2DBF2203BF16200A455CC /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		EEF2DBF4203C16A600A455CC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		EEF2DBF6203C5E0000A455CC /* BadgesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesContainer.swift; sourceTree = "<group>"; };
+		EEF2DC00203C9EA100A455CC /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
+		EEF2DC02203CA4E300A455CC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		EEF2DC06203CAB7F00A455CC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		EEF2DC08203CB21A00A455CC /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		EEF2DC0A203CB7F300A455CC /* StyleConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleConfigurable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +106,65 @@
 			children = (
 				EE335B88203BE59900360A62 /* AppDelegate.swift */,
 				EE335B8A203BE59A00360A62 /* ViewController.swift */,
+				EEF2DBFA203C5F2E00A455CC /* Model */,
+				EEF2DBF8203C5F1100A455CC /* View */,
+				EEF2DBF9203C5F2400A455CC /* Resources */,
+				EEF2DBFB203C5F3500A455CC /* Helper */,
 				EE335B8C203BE59A00360A62 /* Main.storyboard */,
 				EE335B8F203BE59A00360A62 /* Assets.xcassets */,
 				EE335B91203BE59A00360A62 /* LaunchScreen.storyboard */,
 				EE335B94203BE59A00360A62 /* Info.plist */,
 			);
 			path = StoreApp;
+			sourceTree = "<group>";
+		};
+		EEEAAA2C203CF6C700891BCC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EEF2DC0A203CB7F300A455CC /* StyleConfigurable.swift */,
+				EEEAAA2D203CF75900891BCC /* Appendable.swift */,
+				EEEAAA2F203CF76E00891BCC /* Resizable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		EEF2DBF8203C5F1100A455CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAAA2C203CF6C700891BCC /* Protocols */,
+				EEF2DBEE203BED2A00A455CC /* ItemCell.swift */,
+				EEF2DC00203C9EA100A455CC /* BadgeLabel.swift */,
+				EEF2DBF6203C5E0000A455CC /* BadgesContainer.swift */,
+				EEEAAA2A203CE31F00891BCC /* PricesContainer.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEF2DBF9203C5F2400A455CC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EEF2DBF4203C16A600A455CC /* main.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EEF2DBFA203C5F2E00A455CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EEF2DBF0203BF02A00A455CC /* StoreItem.swift */,
+				EEF2DC08203CB21A00A455CC /* Style.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EEF2DBFB203C5F3500A455CC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EEF2DBF2203BF16200A455CC /* JSONParser.swift */,
+				EEF2DC02203CA4E300A455CC /* UIColorExtension.swift */,
+				EEF2DC06203CAB7F00A455CC /* StringExtension.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +232,7 @@
 			files = (
 				EE335B93203BE59A00360A62 /* LaunchScreen.storyboard in Resources */,
 				EE335B90203BE59A00360A62 /* Assets.xcassets in Resources */,
+				EEF2DBF5203C16A600A455CC /* main.json in Resources */,
 				EE335B8E203BE59A00360A62 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,7 +309,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE335B8B203BE59A00360A62 /* ViewController.swift in Sources */,
+				EEF2DC03203CA4E300A455CC /* UIColorExtension.swift in Sources */,
+				EEF2DBF3203BF16200A455CC /* JSONParser.swift in Sources */,
+				EEF2DC09203CB21A00A455CC /* Style.swift in Sources */,
 				EE335B89203BE59A00360A62 /* AppDelegate.swift in Sources */,
+				EEEAAA2B203CE31F00891BCC /* PricesContainer.swift in Sources */,
+				EEF2DC0B203CB7F300A455CC /* StyleConfigurable.swift in Sources */,
+				EEF2DBF1203BF02A00A455CC /* StoreItem.swift in Sources */,
+				EEF2DBF7203C5E0000A455CC /* BadgesContainer.swift in Sources */,
+				EEF2DC01203C9EA100A455CC /* BadgeLabel.swift in Sources */,
+				EEF2DC07203CAB7F00A455CC /* StringExtension.swift in Sources */,
+				EEEAAA30203CF76E00891BCC /* Resizable.swift in Sources */,
+				EEEAAA2E203CF75900891BCC /* Appendable.swift in Sources */,
+				EEF2DBEF203BED2A00A455CC /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
