@@ -1,97 +1,191 @@
-# 진행 방법
+# 쇼핑 앱
 
-- 쇼핑 iOS 앱 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+## 테이블 커스텀 셀 구현
+- 썸네일은 아직 표시 안 함.
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+![](img/step1.png)
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+### 프로토타입 셀 구성
+- IB > Style : Custom
+- IB > Identifier : ListCell
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-storeapp
-```
+![](img/step1-1.png)
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-storeapp
-```
+### 커스텀 뷰 클래스
+- IB와 연결
+	- IB > Custom Class > Class : ItemCell
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
+```swift
+class ItemCell: UITableViewCell {
+    @IBOutlet weak var thumbnail: UIImageView!              // 썸네일
+    @IBOutlet weak var title: UILabel!                      // 제목
+    @IBOutlet weak var titleDescription: UILabel!           // 설명
+    @IBOutlet weak var pricesContainer: PricesContainer!    // 정가, 할인가
+    @IBOutlet weak var badges: BadgesContainer?             // 뱃지들
+}
 ```
 
-5. 기능 구현을 위한 브랜치 생성 (연속번호를 붙여나간다)
-```
-git checkout -b 브랜치이름
-ex) git checkout -b store-step1
-```
+### 모델 클래스
+#### 구조
 
-6. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
-
-7. 본인 원격 저장소에 올리기
-```
-git push --set-upstream origin 브랜치이름
-ex) git push --set-upstream origin store-step1
+```swift
+struct StoreItem {
+    let detailHash: String
+    let image: String
+    let alt: String
+    let deliveryTypes: [String]
+    let title: String
+    let description: String
+    let salePrice: String
+    let normalPrice: String?
+    let badges: [String]?
+}
 ```
 
-8. pull request
-	- pull request는 github 서비스에서 진행할 수 있다.
-	- pull request는 original 저장소의 브랜치(자신의 github 아이디)와 앞 단계에서 생성한 브랜치 이름을 기준으로 한다.
+#### JSON 파싱을 위해 Decodable 채택
+- json 데이터를 모델 클래스로 파싱 가능.
+- 이 때, json 데이터의 key와 coding key 이름이 다른 경우, rawData로 추가.
 
-	```
-	ex) code-squad/swift-photoframe godrm 브랜치 기준 => godrm/swift-storeapp store-step1
-	```
-	
-9. code review 및 push
-	- pull request를 통해 피드백을 받는다.
-	- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+```swift
+extension StoreItem: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case detailHash = "detail_hash"
+        case image
+        case alt
+        case deliveryTypes = "delivery_type"
+        case title
+        case description
+        case salePrice = "s_price"
+        case normalPrice = "n_price"
+        case badges = "badge"
+    }
 
-10. 기본(upstream) 브랜치 전환 및 base 저장소 추가하기(최초 시작하기 단계 한번만 하면 됨)
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.detailHash = try values.decode(String.self, forKey: .detailHash)
+        self.image = try values.decode(String.self, forKey: .image)
+        self.alt = try values.decode(String.self, forKey: .alt)
+        self.deliveryTypes = try values.decode([String].self, forKey: .deliveryTypes)
+        self.title = try values.decode(String.self, forKey: .title)
+        self.description = try values.decode(String.self, forKey: .description)
+        self.salePrice = try values.decode(String.self, forKey: .salePrice)
+        self.normalPrice = try? values.decode(String.self, forKey: .normalPrice)
+        self.badges = try? values.decode([String].self, forKey: .badges)
+    }
+}
+```
 
-	```
-	git checkout 본인_아이디
-	git remote add upstream base_저장소_url
+#### JSON 파싱 위한 헬퍼 메소드
+- getDataFromJSONFile: json 파일을 불러와 Data 타입으로 변환.
+- decode: Data 를 특정 객체의 배열로 디코딩하여 반환.
 
-	ex) git checkout godrm
-	ex) git remote add upstream https://github.com/code-squad/swift-storeapp.git
-	```
+```swift
+static func decode<T: Decodable>(data: Data?, toType type: [T].Type) -> [T] {
+    guard let data = data else { return [] }
+    let decoder = JSONDecoder()
+    var decodedData: [T] = [T]()
+    do {
+        decodedData = try decoder.decode(type, from: data)
+    } catch {
+        NSLog(error.localizedDescription)
+    }
+    return decodedData
+}
 
-	- 위와 같이 base 저장소 추가한 후 remote 브랜치 목록을 본다.
+static func getDataFromJSONFile(_ fileName: String) -> Data? {
+    guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else { return nil }
+    let url = URL(fileURLWithPath: path)
+    var data: Data?
+    do {
+        data = try Data(contentsOf: url)
+    } catch {
+        NSLog(error.localizedDescription)
+    }
+    return data
+}
+```
 
-	```
-	git remote -v
-	```
+### 뷰컨트롤러
+#### JSON 파싱 및 모델 객체 생성
 
-11. 기본 base 저장소와 sync하기 (PR 보낸 내용을 자신의 기본 저장소와 합치기)
+```swift
+class ViewController: UIViewController, UITableViewDataSource {
 
-	```
-	git fetch upstream
-	git rebase upstream/본인_아이디
-	ex) git rebase upstream/godrm
-	```
+    @IBOutlet weak var tableView: UITableView!
+    private var items = [StoreItem]()
 
-12. 다음 미션을 해결할 경우 [5단계 브랜치 생성]부터 다시 진행
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        let data = JSONParser.getDataFromJSONFile("main")
+        self.items = JSONParser.decode(data: data, toType: [StoreItem].self)
+    }
+    ...
+}
+```
 
-## 동영상을 통한 코드 리뷰() 를 통해 참고 가능
+#### 뷰에 모델 삽입
+- **[Required]** 시스템이 (특정 테이블의) 셀을 그릴 수 있도록 셀에 데이터를 삽입하여 전달.
 
-- [fork하여 코드 리뷰하기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 
-- [PR 보내고 다시 PR보낼 때 유의 사항](https://www.youtube.com/watch?v=CbLNbCUsh5c&feature=youtu.be)
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	// 현재 셀의 데이터(모델)
+    let currentRowData: StoreItem = self.items[indexPath.row]
+    // 현재 셀(뷰)
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ItemCell else {
+        return UITableViewCell()
+    }
+    // 각 셀에 데이터 삽입
+    cell.title.text = currentRowData.title
+    cell.titleDescription.text = currentRowData.description
+    cell.pricesContainer.normalPrice?.attributedText = currentRowData.normalPrice?.strike
+    cell.pricesContainer.salePrice.attributedText = currentRowData.salePrice.salesHighlight
+    cell.badges?.appendItems(with: currentRowData.badges)
+    return cell
+}
+```
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+#### 그 외 테이블 설정
+- **[Required]** 테이블 섹션 하나 당 행 개수: 모델 개수와 동일하게 제공.
+
+```swift
+func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.items.count
+}
+
+```
+
+- 데이터에 따라 자동으로 높이를 설정할 수 있도록 설정. 
+- UITableViewAutomaticDimension은 오토레이아웃 제약을 줘야 작동함. 
+- 그 전에 임시로 estimatedRowHeight를 준다.
+
+```swift
+override func viewWillAppear(_ animated: Bool) {
+    self.tableView.estimatedRowHeight = 40
+    self.tableView.rowHeight = UITableViewAutomaticDimension
+}
+```
+
+### 뱃지 컨테이너를 위한 메소드
+- 뱃지는 배열 데이터로, 몇 개가 들어올 지 모르며 가로로 차곡차곡 붙여야 함.
+- 차곡차곡 붙이기 위해 Horizontal StackView를 사용.
+- 하지만 오토레이아웃 적용을 위해 StackView의 너비가 이미 고정돼 있는 상황.
+- 이를 해결하기 위해 추가되는 arrangedSubview들의 IntrinsicContentSize를 합하여 StackView의 너비를 동적으로 변경.
+
+```swift
+func resizeContainer() {
+    var contentWidth: CGFloat = 0.0
+    var contentHeight: CGFloat = 0.0
+    self.arrangedSubviews.forEach {
+    	 // 콘텐츠들의 IntrinsicContentSize를 사용.
+        $0.invalidateIntrinsicContentSize()
+        contentWidth += $0.intrinsicContentSize.width + self.spacing
+        contentHeight = $0.intrinsicContentSize.height
+    }
+    // 기존에 적용한 오토레이아웃 제약사항을 무효화.
+    self.translatesAutoresizingMaskIntoConstraints = false
+    // 가로, 세로 제약사항 추가.
+    self.widthAnchor.constraint(equalToConstant: contentWidth).isActive = true
+    self.heightAnchor.constraint(equalToConstant: contentHeight).isActive = true
+}
+```
