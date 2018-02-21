@@ -14,7 +14,7 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!                      // 제목
     @IBOutlet weak var titleDescription: UILabel!           // 설명
     @IBOutlet weak var pricesContainer: PricesContainer!    // 정가, 할인가
-    @IBOutlet weak var badges: BadgesContainer?             // 뱃지들
+    @IBOutlet weak var badges: BadgesContainer!             // 뱃지들
 
     override func awakeFromNib() {
         self.thumbnail.tag = Tag.thumbnail.rawValue
@@ -22,6 +22,11 @@ class ItemCell: UITableViewCell {
         self.titleDescription.tag = Tag.titleDescription.rawValue
         self.badges?.tag = Tag.badges.rawValue
         configure()
+    }
+
+    override func prepareForReuse() {
+        // 셀을 재사용하기 때문에 기존 셀에 뱃지가 남아있을 수 있음.
+        badges.removeAllBadges()
     }
 
     enum Tag: Int {
