@@ -9,26 +9,45 @@
 import UIKit
 
 class BadgeLabel: UILabel, StyleConfigurable {
-    private let topInset: CGFloat = Style.Badges.topPadding
-    private let leftInset: CGFloat = Style.Badges.leftPadding
-    private let bottomInset: CGFloat = Style.Badges.bottomPadding
-    private let rightInset: CGFloat = Style.Badges.rightPadding
+    private var topInset: CGFloat = Style.Badges.topPadding
+    private var leftInset: CGFloat = Style.Badges.leftPadding
+    private var bottomInset: CGFloat = Style.Badges.bottomPadding
+    private var rightInset: CGFloat = Style.Badges.rightPadding
 
     convenience init(text: String) {
         self.init(frame: .zero)
         self.text = text
-        if let badgeType = Style.BadgeType(rawValue: text) {
-            self.backgroundColor = badgeType.color
-        }
         configure()
+        configurePriority()
     }
 
     func configure() {
         self.textAlignment = Style.Badges.textAlignment
         self.font = Style.Badges.font
         self.textColor = Style.Badges.textColor
+        if let badgeType = Style.BadgeType(rawValue: text!) {
+            self.backgroundColor = badgeType.color
+        }
         self.layer.cornerRadius = Style.Badges.cornerRadius
         self.clipsToBounds = Style.Badges.clipsToBounds
+    }
+
+    func reset() {
+        self.text = nil
+        self.font = nil
+        self.textColor = nil
+        self.backgroundColor = nil
+        self.layer.cornerRadius = 0
+        self.topInset = 0
+        self.leftInset = 0
+        self.bottomInset = 0
+        self.rightInset = 0
+    }
+
+    private func configurePriority() {
+        self.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        self.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        self.setContentCompressionResistancePriority(.init(757), for: .horizontal)
     }
 
     override init(frame: CGRect) {
