@@ -189,3 +189,28 @@ func resizeContainer() {
     self.heightAnchor.constraint(equalToConstant: contentHeight).isActive = true
 }
 ```
+
+## 오토레이아웃 적용
+<img src="img/step2-1.png" width="30%"></img><img src="img/step2-2.png" width="30%"></img><img src="img/step2-3.png" width="30%"></img>
+<img src="img/step2-4.png" width="30%"></img><img src="img/step2-5.png" width="30%"></img><img src="img/step2-6.png" width="30%"></img>
+<img src="img/step2-7.png" width="30%"></img><img src="img/step2-8.png" width="30%"></img><img src="img/step2-9.png" width="30%"></img>
+<img src="img/step2-10.png" width="30%"></img><img src="img/step2-11.png" width="30%"></img>
+### 뱃지 추가 방법 수정
+#### 뱃지 컨테이너 제약조건 변경
+- 기존: 컨테이너에 뱃지를 하나씩 붙이면서 컨테이너 크기를 늘려나감.
+- 제약조건을 수정하면서 기존 resizeContainer() 메소드 제거.
+- **widthAnchor, heightAnchor priority: 1000(required) → 750**
+	- 고정이 아닌 가변성을 띄게 됨.
+- **trailing margin: <= 20** 
+	- 아무리 너비가 늘어나더라도 가장 오른쪽에서 20만큼은 남겨둠.
+- **Content Hugging Priority (Horizontal): 250 → 751**
+	- 뱃지들의 콘텐츠 사이즈를 유지하고, 늘어나는 데 저항성 높임.
+- **Content Compression Resistance Priority (Horizontal): 750 → 751**
+	- 뱃지들의 콘텐츠 사이즈를 유지하고, 줄어드는 데 저항성 높임.
+
+#### 뱃지가 중복되어 추가되는 문제 수정
+- 문제점: 테이블뷰를 스크롤 시, 뱃지가 중복되어 추가됨.
+- 원인: **커스텀 셀을 재사용하기 때문**.
+- 해결방법: 커스텀 셀 클래스에서 **prepareForReuse()** 메소드를 오버라이드 하고, 뱃지 컨테이너의 서브뷰들을 초기화
+	- 이 때, 단순히 서브뷰를 떼어내기만 하면 다른 곳에 뱃지가 추가되는 문제가 생김.
+	- 반드시 **서브뷰의 설정돼 있던 데이터도 초기화**해줘야 한다.
