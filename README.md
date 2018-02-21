@@ -195,6 +195,7 @@ func resizeContainer() {
 <img src="img/step2-4.png" width="30%"></img><img src="img/step2-5.png" width="30%"></img><img src="img/step2-6.png" width="30%"></img>
 <img src="img/step2-7.png" width="30%"></img><img src="img/step2-8.png" width="30%"></img><img src="img/step2-9.png" width="30%"></img>
 <img src="img/step2-10.png" width="30%"></img><img src="img/step2-11.png" width="30%"></img>
+
 ### 뱃지 추가 방법 수정
 #### 뱃지 컨테이너 제약조건 변경
 - 기존: 컨테이너에 뱃지를 하나씩 붙이면서 컨테이너 크기를 늘려나감.
@@ -214,3 +215,35 @@ func resizeContainer() {
 - 해결방법: 커스텀 셀 클래스에서 **prepareForReuse()** 메소드를 오버라이드 하고, 뱃지 컨테이너의 서브뷰들을 초기화
 	- 이 때, 단순히 서브뷰를 떼어내기만 하면 다른 곳에 뱃지가 추가되는 문제가 생김.
 	- 반드시 **서브뷰의 설정돼 있던 데이터도 초기화**해줘야 한다.
+
+```swift
+override func prepareForReuse() {
+    // 셀을 재사용하기 때문에 기존 셀에 뱃지가 남아있을 수 있음.
+    badges.removeAllBadges()
+}
+```
+
+```swift
+func removeAllBadges() {
+    self.arrangedSubviews.forEach {
+        guard let label = $0 as? BadgeLabel else { return }
+        // 단순히 서브뷰만 떼어내는 게 아니라, 기존 서브뷰들의 속성을 리셋해줘야 한다.
+        label.reset()
+        self.removeArrangedSubview(label)
+    }
+}
+```
+
+```swift
+func reset() {
+    self.text = nil
+    self.font = nil
+    self.textColor = nil
+    self.backgroundColor = nil
+    self.layer.cornerRadius = 0
+    self.topInset = 0
+    self.leftInset = 0
+    self.bottomInset = 0
+    self.rightInset = 0
+}
+```
