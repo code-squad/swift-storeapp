@@ -51,10 +51,10 @@ struct Style {
         static let textColor: UIColor = .white
         static let cornerRadius: CGFloat = 5
         static let clipsToBounds: Bool = true
-        static let topPadding: CGFloat = 0
-        static let leftPadding: CGFloat = 3
-        static let bottomPadding: CGFloat = 0
-        static let rightPadding: CGFloat = 3
+        static let topPadding: CGFloat = 3
+        static let leftPadding: CGFloat = 5
+        static let bottomPadding: CGFloat = 3
+        static let rightPadding: CGFloat = 5
     }
 
     enum BadgeType: String {
