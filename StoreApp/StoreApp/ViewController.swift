@@ -8,21 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     private var items = [StoreItem]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
         let data = JSONParser.getDataFromJSONFile("main")
         self.items = JSONParser.decode(data: data, toType: [StoreItem].self)
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        self.tableView.estimatedRowHeight = 40
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
