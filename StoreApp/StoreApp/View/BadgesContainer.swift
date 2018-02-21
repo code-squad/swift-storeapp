@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BadgesContainer: UIStackView, Appendable, Resizable, StyleConfigurable {
+class BadgesContainer: UIStackView, Appendable, StyleConfigurable {
 
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -26,7 +26,14 @@ class BadgesContainer: UIStackView, Appendable, Resizable, StyleConfigurable {
             let label = BadgeLabel(text: $0)
             self.addArrangedSubview(label)
         }
-        resizeContainer()
     }
 
+    func removeAllBadges() {
+        self.arrangedSubviews.forEach {
+            guard let label = $0 as? BadgeLabel else { return }
+            // 단순히 서브뷰만 떼어내는 게 아니라, 기존 서브뷰들의 속성을 리셋해줘야 한다.
+            label.reset()
+            self.removeArrangedSubview(label)
+        }
+    }
 }
