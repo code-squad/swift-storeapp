@@ -16,6 +16,27 @@ protocol UILabelPresentable {
 }
 
 struct Style {
+    struct Header {
+        private(set) var backgroundColor: UIColor = .white
+    }
+
+    struct HeaderTitle: UILabelPresentable {
+        private(set) var fontSize: CGFloat = 12.0
+        private(set) var textColor: UIColor = .gray
+        private(set) var isBold: Bool = true
+        private(set) var textAlignment: NSTextAlignment = .center
+        private(set) var borderColor: CGColor = UIColor.lightGray.cgColor
+        private(set) var borderWidth: CGFloat = 1.0
+        private(set) var insets: UIEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
+    }
+
+    struct HeaderSubtitle: UILabelPresentable {
+        private(set) var fontSize: CGFloat = 20.0
+        private(set) var textColor: UIColor = .black
+        private(set) var isBold: Bool = true
+        private(set) var textAlignment: NSTextAlignment = .center
+    }
+
     struct Title: UILabelPresentable {
         private(set) var fontSize: CGFloat = 16.0
         private(set) var textColor: UIColor = .black
@@ -51,10 +72,7 @@ struct Style {
         static let textColor: UIColor = .white
         static let cornerRadius: CGFloat = 5
         static let clipsToBounds: Bool = true
-        static let topPadding: CGFloat = 3
-        static let leftPadding: CGFloat = 5
-        static let bottomPadding: CGFloat = 3
-        static let rightPadding: CGFloat = 5
+        static let insets: UIEdgeInsets = UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5)
     }
 
     enum BadgeType: String {
