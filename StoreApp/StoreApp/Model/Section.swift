@@ -19,8 +19,8 @@ struct Section {
         self.cell = cell
     }
 
-    init(section: TableSection, data: [StoreItem]) {
-        self.init(title: section.title, subtitle: section.subtitle, cell: data)
+    init(section: TableSection, items: [StoreItem]) {
+        self.init(title: section.title, subtitle: section.subtitle, cell: items)
     }
 }
 
