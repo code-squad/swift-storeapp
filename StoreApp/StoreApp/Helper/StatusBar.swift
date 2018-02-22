@@ -6,4 +6,12 @@
 //  Copyright © 2018년 심 승민. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct StatusBar {
+    static func setStatusBarBackgroundColor(color: UIColor) {
+        guard let statusBar =
+            UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
+        statusBar.backgroundColor = color
+    }
+}
