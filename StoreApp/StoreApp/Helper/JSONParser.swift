@@ -8,40 +8,26 @@
 
 import Foundation
 
-class JSONParser {
-//    private let urlString = "http://crong.codesquad.kr:8080/woowa/main"
+class Downloader {
+    typealias DecodeResult<T> = (Result<T>) -> Void
+    enum Result<T> {
+        case success([T])
+        case failure(Error)
+    }
 
-//    enum Result {
-//        case success([StoreItem])
-//        case failure(Error)
-//    }
-
-//    typealias DownloadResultHandler = (Result) -> Void
-
-//    func download(completionHandler: @escaping DownloadResultHandler) {
-//        guard let url = URL(string: urlString) else { return }
-//        URLSession.shared.dataTask(with: url) { (data, _, error) in
-//            guard let data = data else { return }
-//            let decoder = JSONDecoder()
-//            do {
-//                let items = try decoder.decode([StoreItem].self, from: data)
-//                completionHandler(.success(items))
-//            } catch let error {
-//                completionHandler(.failure(error))
-//            }
-//        }.resume()
-//    }
-
-    static func decode<T: Decodable>(data: Data?, toType type: [T].Type) -> [T] {
-        guard let data = data else { return [] }
-        let decoder = JSONDecoder()
-        var decodedData: [T] = [T]()
-        do {
-            decodedData = try decoder.decode(type, from: data)
-        } catch {
-            NSLog(error.localizedDescription)
-        }
-        return decodedData
+    static func download<T: Decodable>(urlString: String, toType type: [T].Type,
+                                       completionHandler: @escaping DecodeResult<T>) {
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
+            guard let data = data else { return }
+            do {
+                let decoder = JSONDecoder()
+                let items = try decoder.decode(type, from: data)
+                completionHandler(.success(items))
+            } catch let error {
+                completionHandler(.failure(error))
+            }
+        }.resume()
     }
 
     static func getDataFromJSONFile(_ fileName: String) -> Data? {
