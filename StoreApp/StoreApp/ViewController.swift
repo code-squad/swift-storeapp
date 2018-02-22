@@ -17,17 +17,37 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
-        setData(section: .main, jsonFileName: "main")
-        setData(section: .soup, jsonFileName: "soup")
-        setData(section: .side, jsonFileName: "side")
+        loadData(urlString: "http://crong.codesquad.kr:8080/woowa/main", sectionType: .main)
+        loadData(urlString: "http://crong.codesquad.kr:8080/woowa/soup", sectionType: .soup)
+        loadData(urlString: "http://crong.codesquad.kr:8080/woowa/side", sectionType: .side)
         tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
     }
 
-    private func setData(section: TableSection, jsonFileName: String) {
-        let data = JSONParser.getDataFromJSONFile(jsonFileName)
-        let item = JSONParser.decode(data: data, toType: [StoreItem].self)
-        let section = Section(section: section, data: item)
-        items.append(section)
+    private func loadData(urlString: String, sectionType: TableSection) {
+        Downloader.download(urlString: urlString, toType: [StoreItem].self) { response -> Void in
+            switch response {
+            case .success(let items):
+                let section = Section(section: sectionType, items: items)
+                self.items.append(section)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .failure(let error): NSLog(error.localizedDescription)
+            }
+        }
+    }
+
+    private func setData(jsonFileName: String, section: TableSection) {
+        guard let data = Downloader.getDataFromJSONFile(jsonFileName) else { return }
+        let decoder = JSONDecoder()
+        var items: [StoreItem] = []
+        do {
+            items = try decoder.decode([StoreItem].self, from: data)
+        } catch {
+            NSLog(error.localizedDescription)
+        }
+        let section = Section(section: section, items: items)
+        self.items.append(section)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
