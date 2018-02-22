@@ -190,6 +190,8 @@ func resizeContainer() {
 }
 ```
 
+<br/>
+
 ## 오토레이아웃 적용
 <img src="img/step2-1.png" width="30%"></img><img src="img/step2-2.png" width="30%"></img><img src="img/step2-3.png" width="30%"></img>
 <img src="img/step2-4.png" width="30%"></img><img src="img/step2-5.png" width="30%"></img><img src="img/step2-6.png" width="30%"></img>
@@ -247,6 +249,8 @@ func reset() {
     self.rightInset = 0
 }
 ```
+
+<br/>
 
 ## Custom Section Header 적용
 
@@ -333,6 +337,8 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
     return header.frame.height
 }
 ```
+
+<br/>
 
 ## 패키지 관리, CocoaPod
 
