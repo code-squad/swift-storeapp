@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -29,6 +30,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         items.append(section)
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = self.items[indexPath.section].cell[indexPath.row]
+        ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
+        let toaster = Toast(text: row.title+"\n"+row.salePrice)
+        toaster.show()
+    }
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }
@@ -47,7 +55,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row: StoreItem = self.items[indexPath.section].cell[indexPath.row]
+        let row = self.items[indexPath.section].cell[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ItemCell else {
             return UITableViewCell()
         }
