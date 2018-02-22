@@ -333,3 +333,25 @@ func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) 
     return header.frame.height
 }
 ```
+
+## 패키지 관리, CocoaPod
+
+![](img/step4.png)
+
+### Toaster 설치
+- vim Podfile → pod 'Toaster' → pod install
+- import Toaster
+
+### 테이블 셀 클릭 시, 제목 및 할인가격 토스트
+
+```swift
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let row = self.items[indexPath.section].cell[indexPath.row]
+    ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
+    let toaster = Toast(text: row.title+"\n"+row.salePrice)
+    toaster.show()
+}
+```
+
+### 학습 내용
+>- **[프로젝트 설정 용어](https://stackoverflow.com/questions/20637435/xcode-what-is-a-target-and-scheme-in-plain-language/20637892#20637892)**
