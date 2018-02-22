@@ -247,3 +247,89 @@ func reset() {
     self.rightInset = 0
 }
 ```
+
+## Custom Section Header 적용
+
+![](img/step3.png)
+
+### 섹션 구조체
+- 섹션별 제목, 부제목 및 StoreItem 모델 배열을 가짐
+
+```swift
+struct Section {
+    let title: String
+    let subtitle: String
+    let cell: [StoreItem]
+}
+```
+
+- 섹션 열거형 추가: 각 케이스별 제목, 부제목 데이터 반환 기능
+	- 추후 섹션번호에 따라 TableSection 타입 생성 가능
+
+```swift
+enum TableSection: Int {
+    case main = 0
+    case soup
+    case side
+
+    var title: String {
+        switch self {
+        case .main: return "메인반찬"
+        case .soup: return "국.찌게"
+        case .side: return "밑반찬"
+        }
+    }
+
+    var subtitle: String {
+        switch self {
+        case .main: return "한그릇 뚝딱 메인 요리"
+        case .soup: return "김이 모락모락 국.찌게"
+        case .side: return "언제 먹어도 든든한 밑반찬"
+        }
+    }
+}
+```
+
+### 헤더를 위한 커스텀 셀 구성
+- Nib 파일도 생성하여 대강의 레이아웃 구성
+- 커스텀 클래스를 설계 - 제목, 부제목 뷰로 구성
+- 재사용할 헤더셀은 Nib으로 만들었기 때문에 viewDidLoad에서 register해줘야 한다.
+
+```swift
+tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
+```
+
+>- 주의할 점: 커스텀 클래스 추가하면서 nib 파일을 동시에 만든 경우, custom class 지정 하면 안된다. identifier만 지정한다.
+
+### 뷰 컨트롤러에서 헤더 관련 메소드 오버라이드
+- 섹션별 헤더 뷰에 데이터 삽입
+
+```swift
+func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? HeaderCell else {
+        return nil
+    }
+    header.title.text = items[section].title
+    header.subtitle.text = items[section].subtitle
+    return header
+}
+```
+
+- 섹션 수
+
+```swift
+func numberOfSections(in tableView: UITableView) -> Int {
+    return items.count
+}
+```
+
+- 섹션 높이
+
+```swift
+func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    guard let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? HeaderCell else {
+        return 0.0
+    }
+    return header.frame.height
+}
+```
