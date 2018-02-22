@@ -11,34 +11,63 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    private var items = [StoreItem]()
+    private var items = [Section]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let data = JSONParser.getDataFromJSONFile("main")
-        self.items = JSONParser.decode(data: data, toType: [StoreItem].self)
         tableView.rowHeight = UITableViewAutomaticDimension
+        setData(section: .main, jsonFileName: "main")
+        setData(section: .soup, jsonFileName: "soup")
+        setData(section: .side, jsonFileName: "side")
+        tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
+    }
+
+    private func setData(section: TableSection, jsonFileName: String) {
+        let data = JSONParser.getDataFromJSONFile(jsonFileName)
+        let item = JSONParser.decode(data: data, toType: [StoreItem].self)
+        let section = Section(section: section, data: item)
+        items.append(section)
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return items.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items[section].cell.count
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? HeaderCell else {
+            return nil
+        }
+        header.title.text = items[section].title
+        header.subtitle.text = items[section].subtitle
+        return header
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row: StoreItem = self.items[indexPath.section].cell[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ItemCell else {
+            return UITableViewCell()
+        }
+        cell.title.text = row.title
+        cell.titleDescription.text = row.description
+        cell.pricesContainer.normalPrice?.attributedText = row.normalPrice?.strike
+        cell.pricesContainer.salePrice.attributedText = row.salePrice.salesHighlight
+        cell.badges?.appendItems(with: row.badges)
+        return cell
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentRowData: StoreItem = self.items[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ItemCell else {
-            return UITableViewCell()
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? HeaderCell else {
+            return 0.0
         }
-        cell.title.text = currentRowData.title
-        cell.titleDescription.text = currentRowData.description
-        cell.pricesContainer.normalPrice?.attributedText = currentRowData.normalPrice?.strike
-        cell.pricesContainer.salePrice.attributedText = currentRowData.salePrice.salesHighlight
-        cell.badges?.appendItems(with: currentRowData.badges)
-        return cell
+        return header.frame.height
     }
 
 }
