@@ -8,17 +8,25 @@
 
 import UIKit
 
-class HeaderCell: UITableViewCell {
+class HeaderCell: UITableViewCell, StyleConfigurable {
+
+    @IBOutlet weak var title: InsetLabel!
+    @IBOutlet weak var subtitle: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        configure()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configure() {
+        self.backgroundColor = Style.Header().backgroundColor
+        let titleStyle = Style.HeaderTitle()
+        title.layer.borderColor = titleStyle.borderColor
+        title.layer.borderWidth = titleStyle.borderWidth
+        title.setInsets(insets: titleStyle.insets)
+        configure(label: title, style: titleStyle)
+        configure(label: subtitle, style: Style.HeaderSubtitle())
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.lightGray.cgColor
     }
-    
 }
