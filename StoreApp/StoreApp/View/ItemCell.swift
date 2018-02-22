@@ -9,7 +9,7 @@
 import UIKit
 
 // 커스텀 셀 클래스 (뷰)
-class ItemCell: UITableViewCell {
+class ItemCell: UITableViewCell, StyleConfigurable {
     @IBOutlet weak var thumbnail: UIImageView!              // 썸네일
     @IBOutlet weak var title: UILabel!                      // 제목
     @IBOutlet weak var titleDescription: UILabel!           // 설명
@@ -17,10 +17,6 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var badges: BadgesContainer!             // 뱃지들
 
     override func awakeFromNib() {
-        self.thumbnail.tag = Tag.thumbnail.rawValue
-        self.title.tag = Tag.title.rawValue
-        self.titleDescription.tag = Tag.titleDescription.rawValue
-        self.badges?.tag = Tag.badges.rawValue
         configure()
     }
 
@@ -29,33 +25,9 @@ class ItemCell: UITableViewCell {
         badges.removeAllBadges()
     }
 
-    enum Tag: Int {
-        case thumbnail = 0
-        case title
-        case titleDescription
-        case badges
-
-        static let elements: [Tag] = [Tag.thumbnail, .title, .titleDescription, .badges]
-    }
-}
-
-extension ItemCell: StyleConfigurable {
-
     func configure() {
-        Tag.elements.forEach {
-            if let labelPresentable = labelProperties($0) {
-                guard let element = viewWithTag($0.rawValue) as? UILabel else { return }
-                configure(label: element, style: labelPresentable)
-            }
-        }
-    }
-
-    func labelProperties(_ tag: Tag) -> UILabelPresentable? {
-        switch tag {
-        case .title: return Style.Title()
-        case .titleDescription: return Style.Description()
-        default: return nil
-        }
+        configure(label: title, style: Style.Title())
+        configure(label: titleDescription, style: Style.Description())
     }
 
 }
