@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BadgesContainer: UIStackView, Appendable, StyleConfigurable {
+class BadgesContainer: UIStackView, StyleConfigurable {
 
     required init(coder: NSCoder) {
         super.init(coder: coder)
