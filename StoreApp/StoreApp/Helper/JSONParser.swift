@@ -30,6 +30,17 @@ class Downloader {
         }.resume()
     }
 
+    static func download<T: Decodable>(urlString: String, toType type: [T].Type) -> [T]? {
+        guard let url = URL(string: urlString) else { return nil }
+        do {
+            let data = try Data(contentsOf: url)
+            return try JSONDecoder().decode(type, from: data)
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+
     static func getDataFromJSONFile(_ fileName: String) -> Data? {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else { return nil }
         let url = URL(fileURLWithPath: path)
