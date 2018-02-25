@@ -16,8 +16,8 @@ class PricesContainer: UIStackView, StyleConfigurable {
         self.normalPrice = arrangedSubviews.first as? UILabel
         let secondIndex = arrangedSubviews.index(after: arrangedSubviews.startIndex)
         self.salePrice = arrangedSubviews[secondIndex] as? UILabel
-        configure(label: normalPrice, style: Style.NormalPrice())
-        configure(label: salePrice, style: Style.SalePrice())
+        normalPrice.configure(style: Style.NormalPrice())
+        salePrice.configure(style: Style.SalePrice())
         configure()
     }
 
