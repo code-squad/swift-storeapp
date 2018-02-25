@@ -10,25 +10,37 @@ import UIKit
 import Toaster
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    @IBOutlet weak var tableView: UITableView!
-    private var items = [Section]()
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
+    private var sections = [Section]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        loadData(urlString: "http://crong.codesquad.kr:8080/woowa/main", sectionType: .main)
-        loadData(urlString: "http://crong.codesquad.kr:8080/woowa/soup", sectionType: .soup)
-        loadData(urlString: "http://crong.codesquad.kr:8080/woowa/side", sectionType: .side)
-        tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "HeaderCell")
+        tableView.estimatedRowHeight = 40
+        tableView.estimatedSectionHeaderHeight = 40
+        tableView.register(HeaderCell.self, forHeaderFooterViewReuseIdentifier: HeaderCell.reuseId)
+        loadItemsFromAPI(from: .local, forSection: .main)
+        loadItemsFromAPI(from: .local, forSection: .soup)
+        loadItemsFromAPI(from: .local, forSection: .side)
     }
 
-    private func loadData(urlString: String, sectionType: TableSection) {
-        Downloader.download(urlString: urlString, toType: [StoreItem].self) { response -> Void in
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.estimatedRowHeight = 40
+        tableView.estimatedSectionHeaderHeight = 40
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.sectionHeaderHeight = UITableViewAutomaticDimension
+    }
+
+    private func loadItemsFromAPI(from server: Server, forSection section: TableSection) {
+        Downloader.download(urlString: section.api(from: server), toType: [StoreItem].self) { response -> Void in
             switch response {
             case .success(let items):
-                let section = Section(section: sectionType, items: items)
-                self.items.append(section)
+                let newSection = Section(type: section, cell: items)
+                self.sections.append(newSection)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -37,65 +49,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
-    private func setData(jsonFileName: String, section: TableSection) {
-        guard let data = Downloader.getDataFromJSONFile(jsonFileName) else { return }
-        let decoder = JSONDecoder()
-        var items: [StoreItem] = []
-        do {
-            items = try decoder.decode([StoreItem].self, from: data)
-        } catch {
-            NSLog(error.localizedDescription)
-        }
-        let section = Section(section: section, items: items)
-        self.items.append(section)
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = self.items[indexPath.section].cell[indexPath.row]
-        ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
-        let toaster = Toast(text: row.title+"\n"+row.salePrice)
-        toaster.show()
-    }
-
     func numberOfSections(in tableView: UITableView) -> Int {
-        return items.count
+        return self.sections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items[section].cell.count
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? HeaderCell else {
-            return nil
-        }
-        header.title.text = items[section].title
-        header.subtitle.text = items[section].subtitle
-        return header
+        return self.sections[section].cell.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = self.items[indexPath.section].cell[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell") as? ItemCell else {
+        let row = self.sections[indexPath.section].cell[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.reuseId) as? ItemCell else {
             return UITableViewCell()
         }
-        cell.title.text = row.title
-        cell.titleDescription.text = row.description
-        cell.pricesContainer.normalPrice?.attributedText = row.normalPrice?.strike
-        cell.pricesContainer.salePrice.attributedText = row.salePrice.salesHighlight
-        cell.badges?.appendItems(with: row.badges)
+        cell.set(item: row)
         return cell
     }
 
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderCell.reuseId) as? HeaderCell
+        header?.title.text = sections[section].type.title
+        header?.subtitle.text = sections[section].type.subtitle
+        return header
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as? HeaderCell else {
-            return 0.0
-        }
-        return header.frame.height
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = self.sections[indexPath.section].cell[indexPath.row]
+        ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
+        let toaster = Toast(text: row.title+"\n"+row.salePrice)
+        toaster.show()
     }
 
 }
