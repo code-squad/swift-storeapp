@@ -9,11 +9,11 @@
 import UIKit
 
 protocol Reusable where Self: UIView {
-    static var reuseIdentifier: String { get }
+    static var reuseId: String { get }
 }
 
 extension Reusable {
-    static var reuseIdentifier: String {
+    static var reuseId: String {
         return String(describing: self)
     }
 }
