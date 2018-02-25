@@ -361,3 +361,78 @@ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 ### 학습 내용
 >- **[프로젝트 설정 용어](https://stackoverflow.com/questions/20637435/xcode-what-is-a-target-and-scheme-in-plain-language/20637892#20637892)**
+
+<br/>
+
+## 서버 데이터 요청
+### 네트워크 연결
+- URL에서 데이터를 받아오기 위해 URLSession.shared의 dataTask 활용
+- 요청한 데이터를 받으면 특정 타입 배열(여기서는 셀 데이터 타입)로 디코딩 후, 핸들러로 결과를 보냄.
+
+```swift
+static func download(urlString: String, toType type: [T].Type, completionHandler: @escaping DecodeResult) {
+    guard let url = URL(string: urlString) else { return }
+    URLSession.shared.dataTask(with: url) { (data, _, error) in
+        guard let data = data else { return }
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(type, from: data)
+            completionHandler(.success(result))
+        } catch {
+            completionHandler(.failure(error))
+        }
+    }.resume()
+}
+```
+
+- 호출한 쪽: 셀 데이터 배열에 섹션 정보를 붙여 Section 데이터로 만든 후 섹션 배열에 붙임. 더해진 데이터만큼 메인 쓰레드에서 reloadData()를 통해 업데이트.
+
+```swift
+private func loadItemsFromAPI(from server: Server, forSection section: TableSection) {
+    Downloader.download(urlString: section.api(from: server), toType: [StoreItem].self) { response -> Void in
+        switch response {
+        case .success(let items):
+            let newSection = Section(type: section, cell: items)
+            self.sections.append(newSection)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        case .failure(let error): NSLog(error.localizedDescription)
+        }
+    }
+}
+```
+
+### 로컬 서버 생성
+- 시간 제한이 있는 api를 마음대로 사용하기 위해 로컬서버 만들어 사용.
+- nodejs, express 사용
+
+```swift
+const express = require('express');
+const app = express();
+const hostname = '127.0.0.1';
+const port = 3000;
+
+app.use(express.static('resources'))
+
+app.get('/main', (req, res) => {
+	res.sendFile(__dirname + "/resources/main.json");
+});
+
+app.get('/soup', (req, res) => {
+	res.sendFile(__dirname + "/resources/soup.json");
+});
+
+app.get('/side', (req, res) => {
+	res.sendFile(__dirname + "/resources/side.json");
+});
+
+app.listen(port, () => {
+	console.log('app listening on port \(port)');
+});
+```
+
+### 학습 내용
+>- **[Alamofire와 URLSession]()**
+>- **[TableView insert/delete 과정]()**
+>- **[Main Thread Checker](https://developer.apple.com/documentation/code_diagnostics/main_thread_checker)**
