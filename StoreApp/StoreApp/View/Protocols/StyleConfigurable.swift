@@ -10,17 +10,25 @@ import UIKit
 
 protocol StyleConfigurable {
     func configure()
-    func configure(label: UILabel, style: UILabelPresentable)
 }
 
-extension StyleConfigurable {
-    func configure(label: UILabel, style: UILabelPresentable) {
+extension UILabel {
+    func configure(style: UILabelPresentable) {
         if style.isBold {
-            label.font = UIFont.boldSystemFont(ofSize: style.fontSize)
+            self.font = UIFont.boldSystemFont(ofSize: style.fontSize)
         } else {
-            label.font.withSize(style.fontSize)
+            self.font.withSize(style.fontSize)
         }
-        label.textColor = style.textColor
-        label.textAlignment = style.textAlignment
+        self.textColor = style.textColor
+        self.textAlignment = style.textAlignment
+    }
+
+}
+
+extension UIView {
+    func configureToFitContentSize() {
+        self.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        self.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        self.setContentCompressionResistancePriority(.init(757), for: .horizontal)
     }
 }
