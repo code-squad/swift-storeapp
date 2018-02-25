@@ -8,19 +8,18 @@
 
 import Foundation
 
-struct Section {
-    let title: String
-    let subtitle: String
+class Section {
+    let type: TableSection
     let cell: [StoreItem]
 
-    init(title: String, subtitle: String, cell: [StoreItem]) {
-        self.title = title
-        self.subtitle = subtitle
-        self.cell = cell
+    init() {
+        self.type = .main
+        self.cell = []
     }
 
-    init(section: TableSection, items: [StoreItem]) {
-        self.init(title: section.title, subtitle: section.subtitle, cell: items)
+    init(type: TableSection, cell: [StoreItem]) {
+        self.type = type
+        self.cell = cell
     }
 }
 
@@ -28,6 +27,10 @@ enum TableSection: Int {
     case main = 0
     case soup
     case side
+
+    static var cases: [TableSection] {
+        return [TableSection.main, .soup, .side]
+    }
 
     var title: String {
         switch self {
@@ -42,6 +45,23 @@ enum TableSection: Int {
         case .main: return "한그릇 뚝딱 메인 요리"
         case .soup: return "김이 모락모락 국.찌게"
         case .side: return "언제 먹어도 든든한 밑반찬"
+        }
+    }
+
+    func api(from serverType: Server) -> String {
+        let serverType = serverType.api
+        switch self {
+        case .main: return serverType.main
+        case .soup: return serverType.soup
+        case .side: return serverType.side
+        }
+    }
+
+    var localFilename: String {
+        switch self {
+        case .main: return "main"
+        case .soup: return "soup"
+        case .side: return "side"
         }
     }
 }
