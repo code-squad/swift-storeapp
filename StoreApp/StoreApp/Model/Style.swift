@@ -18,6 +18,8 @@ protocol UILabelPresentable {
 struct Style {
     struct Header {
         private(set) var backgroundColor: UIColor = .white
+        private(set) var borderColor: CGColor = UIColor.lightGray.cgColor
+        private(set) var borderWidth: CGFloat = 1.0
     }
 
     struct HeaderTitle: UILabelPresentable {
