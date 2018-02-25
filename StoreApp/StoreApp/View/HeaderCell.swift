@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaderCell: UITableViewCell, StyleConfigurable {
+class HeaderCell: UITableViewHeaderFooterView, StyleConfigurable, Reusable {
 
     private(set) var title: InsetLabel = {
         let title = InsetLabel()
@@ -26,15 +26,35 @@ class HeaderCell: UITableViewCell, StyleConfigurable {
         return subtitle
     }()
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         configure()
+        setupView()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     func configure() {
-        self.backgroundColor = Style.Header().backgroundColor
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.lightGray.cgColor
+        let headerStyle = Style.Header()
+        contentView.backgroundColor = headerStyle.backgroundColor
+        contentView.layer.borderWidth = headerStyle.borderWidth
+        contentView.layer.borderColor = headerStyle.borderColor
+    }
+
+    private func setupView() {
+        contentView.addSubview(title)
+        contentView.addSubview(subtitle)
+
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25).isActive = true
+
+        subtitle.translatesAutoresizingMaskIntoConstraints = false
+        subtitle.centerXAnchor.constraint(equalTo: title.centerXAnchor).isActive = true
+        subtitle.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 6).isActive = true
+        subtitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15).isActive = true
     }
 
 }
