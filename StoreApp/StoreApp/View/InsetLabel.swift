@@ -28,7 +28,7 @@ class InsetLabel: UILabel {
         self.leftInset = insets.left
         self.bottomInset = insets.bottom
         self.rightInset = insets.right
-        configurePriority()
+        self.configureToFitContentSize()
     }
 
     override init(frame: CGRect) {
@@ -37,12 +37,6 @@ class InsetLabel: UILabel {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-
-    private func configurePriority() {
-        self.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        self.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        self.setContentCompressionResistancePriority(.init(757), for: .horizontal)
     }
 
     override func drawText(in rect: CGRect) {
