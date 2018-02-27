@@ -36,14 +36,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     private func loadItemsFromAPI(from server: Server, forSection section: TableSection) {
-        Downloader.download(urlString: section.api(from: server), toType: [StoreItem].self) { response -> Void in
+        Downloader.download(from: section.api(from: server)) { response in
             switch response {
-            case .success(let items):
-                let newSection = Section(type: section, cell: items)
-                self.sections.append(newSection)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+            case .success(let result):
+                guard let items = try? JSONDecoder().decode([StoreItem].self, from: result) else { break }
+                DispatchQueue.main.async(execute: {
+                    let newSection = Section(type: section, cell: items)
+                    self.sections.append(newSection)
+                    if let index = self.sections.index(of: newSection) {
+                        let indexSet = IndexSet(integer: index)
+                        self.tableView.insertSections(indexSet, with: .automatic)
+                    }
+                })
             case .failure(let error): NSLog(error.localizedDescription)
             }
         }
@@ -54,15 +58,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections[section].cell.count
+        return self.sections[section].cells.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = self.sections[indexPath.section].cell[indexPath.row]
+        let row = self.sections[indexPath.section].cells[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.reuseId) as? ItemCell else {
             return UITableViewCell()
         }
-        cell.set(item: row)
+        // 뷰에 데이터 삽입.
+        cell.title.text = row.title
+        cell.titleDescription.text = row.description
+        cell.pricesContainer.normalPrice?.attributedText = row.normalPrice?.strike
+        cell.pricesContainer.salePrice.attributedText = row.salePrice.salesHighlight
+        cell.badges?.appendItems(with: row.badges)
+
+        DispatchQueue.main.async {
+            cell.thumbnail.image = row.thumbnail?.image
+        }
+
         return cell
     }
 
@@ -74,7 +88,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = self.sections[indexPath.section].cell[indexPath.row]
+        let row = self.sections[indexPath.section].cells[indexPath.row]
         ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
         let toaster = Toast(text: row.title+"\n"+row.salePrice)
         toaster.show()
