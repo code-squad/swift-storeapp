@@ -436,3 +436,60 @@ app.listen(port, () => {
 >- **[Alamofire와 URLSession]()**
 >- **[TableView insert/delete 과정]()**
 >- **[Main Thread Checker](https://developer.apple.com/documentation/code_diagnostics/main_thread_checker)**
+
+<br/>
+
+## 썸네일 표시
+
+![](img/step6.png)
+
+### JSON 데이터 다운로드 중 썸네일 다운로드 쓰레드 생성
+- JSON 데이터 다운로드 중, 썸네일 url을 통해 썸네일 다운로드 쓰레드 생성하여 저장
+- 이를 위해 기존 StoreItem에 썸네일을 저장할 변수 추가
+- Thumbnail 클래스 추가: 비동기 다운로드 메소드 추가
+
+```swift
+private func loadImage() {
+    if let cachedData = CacheStorage.retrieve(url) {
+        self.image = UIImage(data: cachedData)
+    } else {
+        Downloader.download(from: url, completionHandler: { response in
+            switch response {
+            case .success(let imageData):
+                CacheStorage.save(self.url, imageData)
+                self.image = UIImage(data: imageData)
+            case .failure(let error): NSLog(error.localizedDescription)
+            }
+        })
+    }
+}
+```
+
+### 테이블 뷰 셀에 데이터 삽입 시, 이미지는 비동기로 삽입
+- 썸네일 이미지가 있는 경우, 비동기로 표시
+
+```swift
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+...
+	DispatchQueue.main.async {
+        cell.thumbnail.image = row.thumbnail?.image
+    }
+    
+    return cell
+}
+```
+
+### 섹션 데이터 로드 후, 섹션 insert 방식으로 변경
+- 기존: 비동기로 tableView.reloadData()
+- 변경: tableView.insertSection()
+
+```swift
+DispatchQueue.main.async(execute: {
+    let newSection = Section(type: section, cell: items)
+    self.sections.append(newSection)
+    if let index = self.sections.index(of: newSection) {
+        let indexSet = IndexSet(integer: index)
+        self.tableView.insertSections(indexSet, with: .automatic)
+    }
+})
+```
