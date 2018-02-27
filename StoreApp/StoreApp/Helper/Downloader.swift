@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Downloader: NSObject {
+class Downloader {
 
     typealias AfterDownload = (Result) -> Void
     enum Result {
