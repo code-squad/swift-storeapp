@@ -6,26 +6,24 @@
 //  Copyright © 2018년 심 승민. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class Downloader<T: Decodable>: NSObject {
+class Downloader: NSObject {
 
-    typealias DecodeResult = (Result) -> Void
+    typealias AfterDownload = (Result) -> Void
     enum Result {
-        case success([T])
+        case success(Data)
         case failure(Error)
     }
 
-    static func download(urlString: String, toType type: [T].Type, completionHandler: @escaping DecodeResult) {
+    static func download(from urlString: String, completionHandler: @escaping AfterDownload) {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, _, error) in
-            guard let data = data else { return }
-            do {
-                let decoder = JSONDecoder()
-                let result = try decoder.decode(type, from: data)
-                completionHandler(.success(result))
-            } catch {
+            if let error = error {
                 completionHandler(.failure(error))
+            } else {
+                guard let data = data else { return }
+                completionHandler(.success(data))
             }
         }.resume()
     }
