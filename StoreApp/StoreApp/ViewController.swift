@@ -23,9 +23,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.estimatedRowHeight = 40
         tableView.estimatedSectionHeaderHeight = 40
         tableView.register(HeaderCell.self, forHeaderFooterViewReuseIdentifier: HeaderCell.reuseId)
-        loadItemsFromAPI(from: .local, forSection: .main)
-        loadItemsFromAPI(from: .local, forSection: .soup)
-        loadItemsFromAPI(from: .local, forSection: .side)
+        loadItemsFromAPI(forSection: .main, from: .local)
+        loadItemsFromAPI(forSection: .soup, from: .local)
+        loadItemsFromAPI(forSection: .side, from: .local)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
     }
 
-    private func loadItemsFromAPI(from server: Server, forSection section: TableSection) {
+    private func loadItemsFromAPI(forSection section: TableSection, from server: Server) {
         Downloader.download(from: section.api(from: server)) { response in
             switch response {
             case .success(let result):
