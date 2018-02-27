@@ -9,19 +9,24 @@
 import Foundation
 
 class CacheStorage {
-    let cacheDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+    static let cacheUrl = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
 
-    func getData(from url: String) -> Data? {
-
+    static func retrieve(_ fileName: String) -> Data? {
+        guard FileManager.default.fileExists(atPath: cacheUrl.path) else { return nil }
+        let fileUrl = cacheUrl.appendingPathComponent(fileName)
+        return FileManager.default.contents(atPath: fileUrl.path)
     }
 
-    func setData(_ data: Data, key: URLResourceKey) {
-        let resourceValues = URLResourceValues.init()
-
-        cacheDirectory?.setResourceValues()
+    static func save(_ fileName: String, _ data: Data?) {
+        let fileUrl = cacheUrl.appendingPathComponent(fileName)
+        FileManager.default.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
     }
 
-    func loadImage() {
-
+    static func reset() throws {
+        let contents = try FileManager.default.contentsOfDirectory(atPath: cacheUrl.path)
+        for contentPath in contents {
+            try FileManager.default.removeItem(atPath: contentPath)
+        }
     }
+
 }
