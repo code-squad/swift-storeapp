@@ -10,7 +10,7 @@ import Foundation
 
 struct StoreItem: Decodable {
     let detailHash: String
-    let image: String
+    let thumbnailUrl: String
     let alt: String
     let deliveryTypes: [String]
     let title: String
@@ -18,6 +18,7 @@ struct StoreItem: Decodable {
     let salePrice: String
     let normalPrice: String?
     let badges: [String]?
+    let thumbnail: Thumbnail?
 
     enum CodingKeys: String, CodingKey {
         case detailHash = "detail_hash"
@@ -34,7 +35,7 @@ struct StoreItem: Decodable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.detailHash = try values.decode(String.self, forKey: .detailHash)
-        self.image = try values.decode(String.self, forKey: .image)
+        self.thumbnailUrl = try values.decode(String.self, forKey: .image)
         self.alt = try values.decode(String.self, forKey: .alt)
         self.deliveryTypes = try values.decode([String].self, forKey: .deliveryTypes)
         self.title = try values.decode(String.self, forKey: .title)
@@ -42,5 +43,7 @@ struct StoreItem: Decodable {
         self.salePrice = try values.decode(String.self, forKey: .salePrice)
         self.normalPrice = try? values.decode(String.self, forKey: .normalPrice)
         self.badges = try? values.decode([String].self, forKey: .badges)
+        self.thumbnail = Thumbnail(url: thumbnailUrl)
     }
+
 }
