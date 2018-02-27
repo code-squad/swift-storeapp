@@ -15,20 +15,6 @@ class ItemCell: UITableViewCell, StyleConfigurable, Reusable {
     @IBOutlet weak var titleDescription: UILabel!           // 설명
     @IBOutlet weak var pricesContainer: PricesContainer!    // 정가, 할인가
     @IBOutlet weak var badges: BadgesContainer!             // 뱃지들
-    private var item: StoreItem! {
-        didSet {
-            // 뷰에 데이터 삽입.
-            self.title.text = item.title
-            self.titleDescription.text = item.description
-            self.pricesContainer.normalPrice?.attributedText = item.normalPrice?.strike
-            self.pricesContainer.salePrice.attributedText = item.salePrice.salesHighlight
-            self.badges?.appendItems(with: item.badges)
-        }
-    }
-
-    func set(item: StoreItem) {
-        self.item = item
-    }
 
     override func awakeFromNib() {
         configure()
