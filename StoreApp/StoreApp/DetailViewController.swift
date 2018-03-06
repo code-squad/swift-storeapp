@@ -27,7 +27,7 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
     }
 
     private func loadItemsFromAPI() {
-        guard let url = URL(string: "http://crong.codesquad.kr:8080/woowa/detail/"+detailHash!) else { return }
+        guard let url = URL(string: Server.remote.api.detail!+detailHash!) else { return }
         do {
             let contents = try Data(contentsOf: url)
             self.items = try JSONDecoder().decode(ItemDetail.self, from: contents)
@@ -44,7 +44,7 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
     }
 
     func orderButtonDidTapped() {
-        let urlString = "https://hooks.slack.com/services/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"
+        let urlString = Server.remote.api.slackHook!
         let price = String(describing: items!.data.prices.first!)
         let menu = String(describing: items!.data.productDescription)
         let payload = ["text": "- 주문자: Min,\n - 가격: \(price),\n - 메뉴: \(menu)"]

@@ -8,6 +8,25 @@
 
 import Foundation
 
+struct OrderMessage {
+    static func slack(price: String, menu: String) -> String {
+        return "- 주문자: Min,\n - 가격: \(price),\n - 메뉴: \(menu)"
+    }
+}
+
+enum SlackBody {
+    case username(String)
+    case text(String)
+    case iconUrl(String)
+    case channel(String)
+    var payload: [String: String]? {
+        switch self {
+        case .text(let value): return ["text": value]
+        default: return nil
+        }
+    }
+}
+
 enum HTTPMethod: CustomStringConvertible {
     case get
     case post
