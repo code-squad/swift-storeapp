@@ -46,7 +46,7 @@ class DetailView: UIView {
 
     private func setThumbnailScrollView() {
         guard let items = items else { return }
-        layoutIfNeeded()
+        setNeedsLayout()
         for (index, thumbnailImage) in items.data.thumbnails.enumerated() {
             let thumbnailFrame = CGRect(x: CGFloat(index)+CGFloat(index)*thumbnailScrollView.frame.width,
                                         y: 0,
