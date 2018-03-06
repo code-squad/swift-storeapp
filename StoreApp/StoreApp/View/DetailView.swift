@@ -32,19 +32,19 @@ class DetailView: UIView {
 
     func setContents(_ items: ItemDetail) {
         self.items = items
-        setThumbnailScrollView()
-        setInfoLabelsContainer()
-        setDetailSection()
-        setContentSize()
+        configureThumbnailScrollView()
+        configureInfoLabelsContainer()
+        configureDetailSection()
+        configureContentSize()
     }
 
-    private func setContentSize() {
+    private func configureContentSize() {
         contentsScrollView.contentSize.height += thumbnailScrollView.bounds.height
         contentsScrollView.contentSize.height += infoLabelsContainer.bounds.height
         contentsScrollView.contentSize.height += detailSection.bounds.height
     }
 
-    private func setThumbnailScrollView() {
+    private func configureThumbnailScrollView() {
         guard let items = items else { return }
         setNeedsLayout()
         for (index, thumbnailImage) in items.data.thumbnails.enumerated() {
@@ -60,7 +60,7 @@ class DetailView: UIView {
         }
     }
 
-    private func setInfoLabelsContainer() {
+    private func configureInfoLabelsContainer() {
         guard let items = items else { return }
         title.text = items.data.productDescription
         titleDescription.text = items.data.productDescription
@@ -70,7 +70,7 @@ class DetailView: UIView {
         deliveryFee.text = items.data.deliveryFee
     }
 
-    private func setDetailSection() {
+    private func configureDetailSection() {
         guard let items = items else { return }
         items.data.detailSectionItems.forEach { [unowned self] in
             let detailImageView = UIImageView(frame:
