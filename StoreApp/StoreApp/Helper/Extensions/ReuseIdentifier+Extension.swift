@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Reusable where Self: UIView {
+protocol Reusable {
     static var reuseId: String { get }
 }
 
