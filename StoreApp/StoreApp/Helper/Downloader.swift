@@ -41,10 +41,10 @@ class Downloader {
     static func downloadToGlobalQueue(from urlString: String, completionHandler: @escaping AfterTask) {
         guard let url = URL(string: urlString) else { return }
         DispatchQueue.global().async(execute: {
-            if let nsData = NSData(contentsOf: url) {
-                let data = Data(referencing: nsData)
+            do {
+                let data = try Data.init(contentsOf: url)
                 completionHandler(.success(data))
-            } else {
+            } catch {
                 completionHandler(.failure(DownloadError.downloadFail(message: "다운로드 에러")))
             }
         })
