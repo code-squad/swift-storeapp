@@ -29,8 +29,7 @@ class BadgesContainer: UIStackView, StyleConfigurable {
     }
 
     func removeAllBadges() {
-        self.arrangedSubviews.forEach {
-            guard let label = $0 as? BadgeLabel else { return }
+        for case let label as BadgeLabel in arrangedSubviews {
             // 단순히 서브뷰만 떼어내는 게 아니라, 기존 서브뷰들의 속성을 리셋해줘야 한다.
             label.reset()
             self.removeArrangedSubview(label)
