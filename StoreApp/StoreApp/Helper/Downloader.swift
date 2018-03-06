@@ -19,9 +19,11 @@ class Downloader {
     static func post(to urlString: String, with payload: Data) {
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = HTTPMethod.post.description
+        request.setValue(HTTPContentType.Application.json.description,
+                         forHTTPHeaderField: HTTPHeaderField.contentType.description)
+        request.setValue(HTTPContentType.Application.json.description,
+                         forHTTPHeaderField: HTTPHeaderField.accept.description)
         request.httpBody = payload
         URLSession.shared.dataTask(with: request).resume()
     }

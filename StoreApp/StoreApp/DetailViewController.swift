@@ -47,7 +47,7 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
         let urlString = Server.remote.api.slackHook!
         let price = String(describing: items!.data.prices.first!)
         let menu = String(describing: items!.data.productDescription)
-        let payload = ["text": "- 주문자: Min,\n - 가격: \(price),\n - 메뉴: \(menu)"]
+        let payload = SlackBody.text(OrderMessage.slack(price: price, menu: menu))
         do {
             let payloadData = try JSONSerialization.data(withJSONObject: payload, options: .init(rawValue: 0))
             Downloader.post(to: urlString, with: payloadData)
