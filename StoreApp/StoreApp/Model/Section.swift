@@ -18,8 +18,8 @@ class Section: NSObject {
         super.init()
     }
 
-    init(type: TableSection, cell: [StoreItem]) {
+    init(type: TableSection, cells: [StoreItem]) {
         self.type = type
-        self.cells = cell
+        self.cells = cells
     }
 }

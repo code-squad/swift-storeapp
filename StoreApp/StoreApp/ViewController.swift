@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             case .success(let result):
                 guard let items = try? JSONDecoder().decode([StoreItem].self, from: result) else { break }
                 DispatchQueue.main.async(execute: {
-                    let newSection = Section(type: section, cell: items)
+                    let newSection = Section(type: section, cells: items)
                     self.sections.append(newSection)
                     if let index = self.sections.index(of: newSection) {
                         let indexSet = IndexSet(integer: index)
