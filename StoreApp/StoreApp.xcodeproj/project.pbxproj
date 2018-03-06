@@ -12,6 +12,7 @@
 		EE335B8E203BE59A00360A62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE335B8C203BE59A00360A62 /* Main.storyboard */; };
 		EE335B90203BE59A00360A62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE335B8F203BE59A00360A62 /* Assets.xcassets */; };
 		EE335B93203BE59A00360A62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE335B91203BE59A00360A62 /* LaunchScreen.storyboard */; };
+		EE71E887204F42EF002531BB /* HTTPRequstOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE71E886204F42EF002531BB /* HTTPRequstOptions.swift */; };
 		EEA5A043203E374100625813 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A042203E374100625813 /* Section.swift */; };
 		EEA5A056203E546100625813 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A054203E546100625813 /* HeaderCell.swift */; };
 		EEA5A059203E59C800625813 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A058203E59C800625813 /* StatusBar.swift */; };
@@ -49,6 +50,7 @@
 		EE335B8F203BE59A00360A62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE335B92203BE59A00360A62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE335B94203BE59A00360A62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE71E886204F42EF002531BB /* HTTPRequstOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequstOptions.swift; sourceTree = "<group>"; };
 		EEA5A042203E374100625813 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		EEA5A054203E546100625813 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		EEA5A058203E59C800625813 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				EEF2DBFA203C5F2E00A455CC /* Model */,
 				EEF2DBF8203C5F1100A455CC /* View */,
 				EEF2DBFB203C5F3500A455CC /* Helper */,
+				EE71E888204F4470002531BB /* Constants */,
 				EE5AB1D5203ED6B60022BB22 /* Supporting Files */,
 			);
 			path = StoreApp;
@@ -146,10 +149,21 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EE71E888204F4470002531BB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				EE71E886204F42EF002531BB /* HTTPRequstOptions.swift */,
+				EEF2DC08203CB21A00A455CC /* Style.swift */,
+				EEB3B28B20434ED70024CF70 /* Server.swift */,
+				EEB3B2912046044E0024CF70 /* TableSection.swift */,
+				EEF2DC02203CA4E300A455CC /* UIColor+Extension.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		EEB3B28A20415A060024CF70 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EEF2DC02203CA4E300A455CC /* UIColor+Extension.swift */,
 				EEF2DC06203CAB7F00A455CC /* String+Extension.swift */,
 			);
 			path = Extensions;
@@ -191,13 +205,10 @@
 			isa = PBXGroup;
 			children = (
 				EEA5A042203E374100625813 /* Section.swift */,
-				EEB3B2912046044E0024CF70 /* TableSection.swift */,
-				EEB3B28B20434ED70024CF70 /* Server.swift */,
 				EEF2DBF0203BF02A00A455CC /* StoreItem.swift */,
 				EEB3B293204604AA0024CF70 /* Thumbnail.swift */,
 				EEB3B299204634E60024CF70 /* ItemDetail.swift */,
 				EEFE1B89204CF9120099E8B5 /* DetailData.swift */,
-				EEF2DC08203CB21A00A455CC /* Style.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -376,6 +387,7 @@
 				EEB3B2902045B6410024CF70 /* CacheStorage.swift in Sources */,
 				EEB3B298204633190024CF70 /* DetailView.swift in Sources */,
 				EEF2DC07203CAB7F00A455CC /* String+Extension.swift in Sources */,
+				EE71E887204F42EF002531BB /* HTTPRequstOptions.swift in Sources */,
 				EEA5A05B203E6F9000625813 /* InsetLabel.swift in Sources */,
 				EEB3B28C20434ED70024CF70 /* Server.swift in Sources */,
 				EEFE1B8A204CF9120099E8B5 /* DetailData.swift in Sources */,
