@@ -9,26 +9,39 @@
 import UIKit
 
 class Thumbnail {
-    let url: String
+    private var urlString: String {
+        set {
+            url = URL(string: newValue)
+        }
+        get {
+            guard let url = url else { return "" }
+            return url.absoluteString
+        }
+    }
+    private var url: URL?
     private(set) var image: UIImage?
 
-    init(url: String) {
-        self.url = url
+    init(urlString: String) throws {
+        self.urlString = urlString
         loadImage()
     }
 
     private func loadImage() {
-        if let cachedData = CacheStorage.retrieve(url) {
+        if let cachedData = CacheStorage.retrieve(urlString) {
             self.image = UIImage(data: cachedData)
         } else {
-            Downloader.download(from: url, completionHandler: { response in
+            Downloader.downloadToGlobalQueue(from: urlString, completionHandler: { response in
                 switch response {
-                case .success(let imageData):
-                    CacheStorage.save(self.url, imageData)
-                    self.image = UIImage(data: imageData)
-                case .failure(let error): NSLog(error.localizedDescription)
+                case .success(let data):
+                    CacheStorage.save(self.urlString, data)
+                    self.image = UIImage(data: data)
+                case .failure(let error):
+                    if case let DownloadError.downloadFail(message: errorMessage) = error {
+                        NSLog(errorMessage)
+                    }
                 }
             })
         }
     }
+
 }
