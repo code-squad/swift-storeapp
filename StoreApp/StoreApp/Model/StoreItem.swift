@@ -43,7 +43,7 @@ struct StoreItem: Decodable {
         self.salePrice = try values.decode(String.self, forKey: .salePrice)
         self.normalPrice = try? values.decode(String.self, forKey: .normalPrice)
         self.badges = try? values.decode([String].self, forKey: .badges)
-        self.thumbnail = Thumbnail(url: thumbnailUrl)
+        self.thumbnail = try Thumbnail(urlString: thumbnailUrl)
     }
 
 }
