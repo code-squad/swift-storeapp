@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DetailViewDelegate: class {
+    func orderButtonDidTapped()
+}
+
 class DetailView: UIView {
     weak var orderDelegate: DetailViewDelegate?
     @IBOutlet weak var contentsScrollView: UIScrollView!
@@ -81,8 +85,4 @@ class DetailView: UIView {
         }
     }
 
-}
-
-protocol DetailViewDelegate: class {
-    func orderButtonDidTapped()
 }
