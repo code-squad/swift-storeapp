@@ -27,29 +27,13 @@ protocol ServerAPI {
 }
 
 class Local: ServerAPI {
-    var main: String {
-        return "http://localhost:3000/main"
-    }
-
-    var soup: String {
-        return "http://localhost:3000/soup"
-    }
-
-    var side: String {
-        return "http://localhost:3000/side"
-    }
+    let main: String  = "http://localhost:3000/main"
+    let soup: String = "http://localhost:3000/soup"
+    let side: String = "http://localhost:3000/side"
 }
 
 class Remote: ServerAPI {
-    var main: String {
-        return "http://crong.codesquad.kr:8080/woowa/main"
-    }
-
-    var soup: String {
-        return "http://crong.codesquad.kr:8080/woowa/soup"
-    }
-
-    var side: String {
-        return "http://crong.codesquad.kr:8080/woowa/side"
-    }
+    let main: String = "http://crong.codesquad.kr:8080/woowa/main"
+    let soup: String = "http://crong.codesquad.kr:8080/woowa/soup"
+    let side: String = "http://crong.codesquad.kr:8080/woowa/side"
 }
