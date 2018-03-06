@@ -21,6 +21,9 @@
 		EEB3B2902045B6410024CF70 /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B28F2045B6410024CF70 /* CacheStorage.swift */; };
 		EEB3B2922046044F0024CF70 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B2912046044E0024CF70 /* TableSection.swift */; };
 		EEB3B294204604AA0024CF70 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B293204604AA0024CF70 /* Thumbnail.swift */; };
+		EEB3B29620462DCE0024CF70 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B29520462DCE0024CF70 /* DetailViewController.swift */; };
+		EEB3B298204633190024CF70 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B297204633190024CF70 /* DetailView.swift */; };
+		EEB3B29A204634E70024CF70 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B299204634E60024CF70 /* ItemDetail.swift */; };
 		EEEAAA2B203CE31F00891BCC /* PricesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAAA2A203CE31F00891BCC /* PricesContainer.swift */; };
 		EEF2DBEF203BED2A00A455CC /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DBEE203BED2A00A455CC /* ItemCell.swift */; };
 		EEF2DBF1203BF02A00A455CC /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DBF0203BF02A00A455CC /* StoreItem.swift */; };
@@ -31,6 +34,7 @@
 		EEF2DC07203CAB7F00A455CC /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DC06203CAB7F00A455CC /* String+Extension.swift */; };
 		EEF2DC09203CB21A00A455CC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DC08203CB21A00A455CC /* Style.swift */; };
 		EEF2DC0B203CB7F300A455CC /* StyleConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF2DC0A203CB7F300A455CC /* StyleConfigurable.swift */; };
+		EEFE1B8A204CF9120099E8B5 /* DetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFE1B89204CF9120099E8B5 /* DetailData.swift */; };
 		FCFE16B9DABDB9105408C6D1 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AC2407CFDB18502B2DE1E3 /* Pods_StoreApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +58,9 @@
 		EEB3B28F2045B6410024CF70 /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
 		EEB3B2912046044E0024CF70 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		EEB3B293204604AA0024CF70 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		EEB3B29520462DCE0024CF70 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EEB3B297204633190024CF70 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		EEB3B299204634E60024CF70 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
 		EEEAAA2A203CE31F00891BCC /* PricesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesContainer.swift; sourceTree = "<group>"; };
 		EEF2DBEE203BED2A00A455CC /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		EEF2DBF0203BF02A00A455CC /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
@@ -64,6 +71,7 @@
 		EEF2DC06203CAB7F00A455CC /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		EEF2DC08203CB21A00A455CC /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		EEF2DC0A203CB7F300A455CC /* StyleConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleConfigurable.swift; sourceTree = "<group>"; };
+		EEFE1B89204CF9120099E8B5 /* DetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,32 +125,40 @@
 			isa = PBXGroup;
 			children = (
 				EE335B94203BE59A00360A62 /* Info.plist */,
-				EE335B8C203BE59A00360A62 /* Main.storyboard */,
 				EE335B8A203BE59A00360A62 /* ViewController.swift */,
+				EEB3B29520462DCE0024CF70 /* DetailViewController.swift */,
+				EE335B8C203BE59A00360A62 /* Main.storyboard */,
 				EEF2DBFA203C5F2E00A455CC /* Model */,
 				EEF2DBF8203C5F1100A455CC /* View */,
 				EEF2DBFB203C5F3500A455CC /* Helper */,
-				EE5AB1D5203ED6B60022BB22 /* etcs */,
+				EE5AB1D5203ED6B60022BB22 /* Supporting Files */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
 		};
-		EE5AB1D5203ED6B60022BB22 /* etcs */ = {
+		EE5AB1D5203ED6B60022BB22 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				EE335B88203BE59900360A62 /* AppDelegate.swift */,
 				EE335B8F203BE59A00360A62 /* Assets.xcassets */,
 				EE335B91203BE59A00360A62 /* LaunchScreen.storyboard */,
 			);
-			path = etcs;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		EEB3B28A20415A060024CF70 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EEB3B288204158E40024CF70 /* ReuseIdentifier+Extension.swift */,
 				EEF2DC02203CA4E300A455CC /* UIColor+Extension.swift */,
 				EEF2DC06203CAB7F00A455CC /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EEB3B29B2046E1730024CF70 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EEB3B288204158E40024CF70 /* ReuseIdentifier+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -166,6 +182,7 @@
 				EEF2DC00203C9EA100A455CC /* BadgeLabel.swift */,
 				EEF2DBF6203C5E0000A455CC /* BadgesContainer.swift */,
 				EEEAAA2A203CE31F00891BCC /* PricesContainer.swift */,
+				EEB3B297204633190024CF70 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +195,8 @@
 				EEB3B28B20434ED70024CF70 /* Server.swift */,
 				EEF2DBF0203BF02A00A455CC /* StoreItem.swift */,
 				EEB3B293204604AA0024CF70 /* Thumbnail.swift */,
+				EEB3B299204634E60024CF70 /* ItemDetail.swift */,
+				EEFE1B89204CF9120099E8B5 /* DetailData.swift */,
 				EEF2DC08203CB21A00A455CC /* Style.swift */,
 			);
 			path = Model;
@@ -186,6 +205,7 @@
 		EEF2DBFB203C5F3500A455CC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				EEB3B29B2046E1730024CF70 /* Extensions */,
 				EEF2DBF2203BF16200A455CC /* Downloader.swift */,
 				EEB3B28F2045B6410024CF70 /* CacheStorage.swift */,
 				EEA5A058203E59C800625813 /* StatusBar.swift */,
@@ -347,14 +367,18 @@
 				EEF2DC09203CB21A00A455CC /* Style.swift in Sources */,
 				EE335B89203BE59A00360A62 /* AppDelegate.swift in Sources */,
 				EEEAAA2B203CE31F00891BCC /* PricesContainer.swift in Sources */,
+				EEB3B29620462DCE0024CF70 /* DetailViewController.swift in Sources */,
 				EEF2DC0B203CB7F300A455CC /* StyleConfigurable.swift in Sources */,
+				EEB3B29A204634E70024CF70 /* ItemDetail.swift in Sources */,
 				EEF2DBF1203BF02A00A455CC /* StoreItem.swift in Sources */,
 				EEF2DBF7203C5E0000A455CC /* BadgesContainer.swift in Sources */,
 				EEF2DC01203C9EA100A455CC /* BadgeLabel.swift in Sources */,
 				EEB3B2902045B6410024CF70 /* CacheStorage.swift in Sources */,
+				EEB3B298204633190024CF70 /* DetailView.swift in Sources */,
 				EEF2DC07203CAB7F00A455CC /* String+Extension.swift in Sources */,
 				EEA5A05B203E6F9000625813 /* InsetLabel.swift in Sources */,
 				EEB3B28C20434ED70024CF70 /* Server.swift in Sources */,
+				EEFE1B8A204CF9120099E8B5 /* DetailData.swift in Sources */,
 				EEF2DBEF203BED2A00A455CC /* ItemCell.swift in Sources */,
 				EEB3B294204604AA0024CF70 /* Thumbnail.swift in Sources */,
 			);
