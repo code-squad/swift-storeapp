@@ -13,6 +13,7 @@ class PricesContainer: UIStackView, StyleConfigurable {
     weak var salePrice: UILabel!
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         self.normalPrice = arrangedSubviews.first as? UILabel
         let secondIndex = arrangedSubviews.index(after: arrangedSubviews.startIndex)
         self.salePrice = arrangedSubviews[secondIndex] as? UILabel
