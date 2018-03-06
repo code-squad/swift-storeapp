@@ -23,12 +23,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.estimatedRowHeight = 40
         tableView.estimatedSectionHeaderHeight = 40
         tableView.register(HeaderCell.self, forHeaderFooterViewReuseIdentifier: HeaderCell.reuseId)
-        loadItemsFromAPI(forSection: .main, from: .local)
-        loadItemsFromAPI(forSection: .soup, from: .local)
-        loadItemsFromAPI(forSection: .side, from: .local)
+        loadItemsFromAPI(forSection: .main, from: .remote)
+        loadItemsFromAPI(forSection: .soup, from: .remote)
+        loadItemsFromAPI(forSection: .side, from: .remote)
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
         tableView.estimatedRowHeight = 40
         tableView.estimatedSectionHeaderHeight = 40
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -36,7 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     private func loadItemsFromAPI(forSection section: TableSection, from server: Server) {
-        Downloader.download(from: section.api(from: server)) { response in
+        Downloader.downloadWithDataTask(from: section.api(from: server)) { response in
             switch response {
             case .success(let result):
                 guard let items = try? JSONDecoder().decode([StoreItem].self, from: result) else { break }
@@ -89,9 +90,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = self.sections[indexPath.section].cells[indexPath.row]
-        ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
-        let toaster = Toast(text: row.title+"\n"+row.salePrice)
-        toaster.show()
+        if let detailVC = self.storyboard?.instantiateViewController(withIdentifier: DetailViewController.reuseId)
+            as? DetailViewController {
+            detailVC.detailHash = row.detailHash
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
+
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let row = self.sections[indexPath.section].cells[indexPath.row]
+//        ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
+//        let toaster = Toast(text: row.title+"\n"+row.salePrice)
+//        toaster.show()
+//    }
 
 }
