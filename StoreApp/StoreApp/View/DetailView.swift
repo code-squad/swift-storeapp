@@ -32,9 +32,7 @@ class DetailView: UIView {
 
     func setContents(_ items: ItemDetail) {
         self.items = items
-        configureThumbnailScrollView()
         configureInfoLabelsContainer()
-        configureDetailSection()
         configureContentSize()
     }
 
@@ -44,19 +42,21 @@ class DetailView: UIView {
         contentsScrollView.contentSize.height += detailSection.bounds.height
     }
 
-    private func configureThumbnailScrollView() {
-        guard let items = items else { return }
-        setNeedsLayout()
-        for (index, thumbnailImage) in items.data.thumbnails.enumerated() {
-            let thumbnailFrame = CGRect(x: CGFloat(index)+CGFloat(index)*thumbnailScrollView.frame.width,
+    private var thumbnailScrollViewIndex: Int = 0
+    func configureThumbnailScrollView(_ thumbnail: UIImage) {
+        DispatchQueue.main.async {
+            let index = self.thumbnailScrollViewIndex
+            let thumbnailFrame = CGRect(x: CGFloat(index)+CGFloat(index)*self.thumbnailScrollView.frame.width,
                                         y: 0,
-                                        width: thumbnailScrollView.frame.width,
-                                        height: thumbnailScrollView.frame.height)
+                                        width: self.thumbnailScrollView.frame.width,
+                                        height: self.thumbnailScrollView.frame.height)
             let thumbnailView = UIImageView(frame: thumbnailFrame)
             thumbnailView.contentMode = .scaleAspectFit
-            thumbnailView.image = thumbnailImage
-            thumbnailScrollView.addSubview(thumbnailView)
-            thumbnailScrollView.contentSize.width += thumbnailScrollView.frame.width
+            thumbnailView.image = thumbnail
+            self.thumbnailScrollView.addSubview(thumbnailView)
+            self.thumbnailScrollViewIndex += 1
+            self.thumbnailScrollView.contentSize.width += self.thumbnailScrollView.frame.width
+            self.setNeedsLayout()
         }
     }
 
@@ -70,18 +70,19 @@ class DetailView: UIView {
         deliveryFee.text = items.data.deliveryFee
     }
 
-    private func configureDetailSection() {
-        guard let items = items else { return }
-        items.data.detailSectionItems.forEach { [unowned self] in
+    func configureDetailSection(_ thumbnail: UIImage) {
+        DispatchQueue.main.async {
             let detailImageView = UIImageView(frame:
                 CGRect(x: 0, y: 0, width: self.detailSection.frame.width, height: 0))
-            detailImageView.image = $0
+            detailImageView.image = thumbnail
             self.detailSection.addArrangedSubview(detailImageView)
             // 이미지뷰의 contentMode를 scaleAspectFit으로만 설정하면 이미지 사이의 간격이 넓어지므로, 제약조건으로 이미지 크기 조절.
             detailImageView.translatesAutoresizingMaskIntoConstraints = false
-            detailImageView.widthAnchor.constraint(equalTo: detailSection.widthAnchor, multiplier: 1).isActive = true
+            detailImageView.widthAnchor.constraint(equalTo: self.detailSection.widthAnchor, multiplier: 1).isActive = true
             detailImageView.heightAnchor.constraint(equalTo: detailImageView.widthAnchor,
-                                                    multiplier: $0.size.height/$0.size.width).isActive = true
+                                                    multiplier: thumbnail.size.height/thumbnail.size.width).isActive = true
+            self.configureContentSize()
+            self.setNeedsLayout()
         }
     }
 
