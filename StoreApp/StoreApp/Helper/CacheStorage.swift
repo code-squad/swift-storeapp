@@ -17,8 +17,11 @@ class CacheStorage {
         return FileManager.default.contents(atPath: fileUrl.path)
     }
 
-    static func save(_ fileName: String, _ data: Data?) {
+    static func save(_ fileName: String, _ data: Data?) throws {
         let fileUrl = cacheUrl.appendingPathComponent(fileName)
+        if FileManager.default.fileExists(atPath: fileUrl.path) {
+            try FileManager.default.removeItem(at: fileUrl)
+        }
         FileManager.default.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
     }
 
