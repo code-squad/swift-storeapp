@@ -35,7 +35,8 @@ class Thumbnail {
                 case .success(let data):
                     CacheStorage.save(self.urlString, data)
                     self.image = UIImage(data: data)
-                case .failure:
+                case .failure(let error):
+                    print(error)
                     let emptyView = UIView(frame: CGRect.zero)
                     emptyView.widthAnchor.constraint(equalToConstant: 100)
                     emptyView.heightAnchor.constraint(equalTo: emptyView.widthAnchor, multiplier: 1)
