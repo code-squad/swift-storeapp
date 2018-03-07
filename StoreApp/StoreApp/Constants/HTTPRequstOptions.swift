@@ -9,8 +9,8 @@
 import Foundation
 
 struct OrderMessage {
-    static func slack(price: String, menu: String) -> String {
-        return "- 주문자: Min,\n - 가격: \(price),\n - 메뉴: \(menu)"
+    static func slack(_ orderInfo: OrderInfo) -> String {
+        return "- 주문자: \(orderInfo.name),\n - 가격: \(orderInfo.price),\n - 메뉴: \(orderInfo.menu)"
     }
 }
 
