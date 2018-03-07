@@ -33,7 +33,7 @@ class Thumbnail {
             Downloader.downloadToGlobalQueue(from: urlString, completionHandler: { response in
                 switch response {
                 case .success(let data):
-                    CacheStorage.save(self.urlString, data)
+                    try? CacheStorage.save(self.urlString, data)
                     self.image = UIImage(data: data)
                 case .failure(let error):
                     print(error)
