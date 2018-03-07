@@ -30,7 +30,6 @@ class Downloader {
                 errorHandler(NetworkError.connectionDisable)
             }
         }.resume()
-//        URLSession.shared.dataTask(with: request).resume()
     }
 
     static func downloadWithDataTask(from urlString: String, completionHandler: @escaping AfterTask) {
