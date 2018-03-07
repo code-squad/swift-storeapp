@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
     var detailHash: String?
@@ -32,7 +33,7 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
             let contents = try Data(contentsOf: url)
             self.items = try JSONDecoder().decode(ItemDetail.self, from: contents)
         } catch {
-            NSLog(error.localizedDescription)
+            presentErrorAlert(errorType: .loadFail, shouldBackToPrevScreen: true)
         }
         presentView()
     }
@@ -47,14 +48,27 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
         let urlString = Server.remote.api.slackHook!
         let price = String(describing: items!.data.prices.first!)
         let menu = String(describing: items!.data.productDescription)
-        let payload = SlackBody.text(OrderMessage.slack(price: price, menu: menu))
+        let payload = SlackBody.text(OrderMessage.slack(price: price, menu: menu)).payload
+        var payloadData = Data()
         do {
-            let payloadData = try JSONSerialization.data(withJSONObject: payload, options: .init(rawValue: 0))
-            Downloader.post(to: urlString, with: payloadData)
+            payloadData = try JSONSerialization.data(withJSONObject: payload, options: .init(rawValue: 0))
         } catch {
-            NSLog(error.localizedDescription)
+            presentErrorAlert(errorType: .jsonDecodeFail)
+        }
+        Downloader.post(to: urlString, with: payloadData) { [unowned self] error in
+            self.presentErrorAlert(errorType: error)
         }
         self.navigationController?.popViewController(animated: true)
+    }
+
+    func presentErrorAlert(errorType: NetworkError, shouldBackToPrevScreen: Bool=false) {
+        let alert = UIAlertController(title: errorType.alert.title,
+                                      message: errorType.alert.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+            shouldBackToPrevScreen ? self.navigationController?.popViewController(animated: true) : nil
+            return
+        })
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
