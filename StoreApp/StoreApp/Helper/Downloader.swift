@@ -44,9 +44,9 @@ class Downloader {
         }.resume()
     }
 
-    static func downloadToGlobalQueue(from urlString: String, completionHandler: @escaping AfterTask) {
+    static func downloadToGlobalQueue(from urlString: String, qos: DispatchQoS.QoSClass, completionHandler: @escaping AfterTask) {
         guard let url = URL(string: urlString) else { return }
-        DispatchQueue.global().async(execute: {
+        DispatchQueue.global(qos: qos).async(execute: {
             do {
                 let data = try Data(contentsOf: url)
                 completionHandler(.success(data))

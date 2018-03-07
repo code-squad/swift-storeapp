@@ -30,7 +30,7 @@ class Thumbnail {
         if let cachedData = CacheStorage.retrieve(urlString) {
             self.image = UIImage(data: cachedData)
         } else {
-            Downloader.downloadToGlobalQueue(from: urlString, completionHandler: { response in
+            Downloader.downloadToGlobalQueue(from: urlString, qos: .userInteractive, completionHandler: { response in
                 switch response {
                 case .success(let data):
                     try? CacheStorage.save(self.urlString, data)
