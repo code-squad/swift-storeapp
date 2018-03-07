@@ -50,9 +50,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                         self.tableView.insertSections(indexSet, with: .automatic)
                     }
                 })
-            case .failure(let error): NSLog(error.localizedDescription)
+            case .failure(let error): self.presentErrorAlert(errorType: error)
             }
         }
+    }
+
+    func presentErrorAlert(errorType: NetworkError) {
+        let alert = UIAlertController(title: errorType.alert.title,
+                                      message: errorType.alert.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
