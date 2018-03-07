@@ -64,7 +64,7 @@ enum NetworkError: Error {
     case jsonDecodeFail
     var alert: (title: String, message: String) {
         switch self {
-        case .connectionDisable: return ("네트워크 상태가 원확하지 않습니다.", "인터넷 연결을 확인해주세요.")
+        case .connectionDisable: return ("네트워크 상태가 원활하지 않습니다.", "인터넷 연결을 확인해주세요.")
         case .loadFail: return ("화면을 불러오지 못했어요.", "인터넷 연결을 확인해주세요.")
         case .jsonDecodeFail: return ("주문 실패했습니다..", "자세한 사항은 고객센터에 문의해주세요.")
         }
