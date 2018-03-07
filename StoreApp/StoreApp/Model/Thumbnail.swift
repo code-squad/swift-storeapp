@@ -35,10 +35,17 @@ class Thumbnail {
                 case .success(let data):
                     CacheStorage.save(self.urlString, data)
                     self.image = UIImage(data: data)
-                case .failure(let error):
-                    if case let DownloadError.downloadFail(message: errorMessage) = error {
-                        NSLog(errorMessage)
-                    }
+                case .failure:
+                    let emptyView = UIView(frame: CGRect.zero)
+                    emptyView.widthAnchor.constraint(equalToConstant: 100)
+                    emptyView.heightAnchor.constraint(equalTo: emptyView.widthAnchor, multiplier: 1)
+                    emptyView.backgroundColor = UIColor.emerald
+                    emptyView.setNeedsLayout()
+                    let renderer = UIGraphicsImageRenderer(size: emptyView.frame.size)
+                    let emptyImage = renderer.image(actions: { _ in
+                        emptyView.drawHierarchy(in: emptyView.bounds, afterScreenUpdates: true)
+                    })
+                    self.image = emptyImage
                 }
             })
         }
