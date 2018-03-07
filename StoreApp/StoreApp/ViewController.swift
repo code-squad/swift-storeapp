@@ -41,21 +41,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         Downloader.downloadWithDataTask(from: section.api(from: server)) { response in
             switch response {
             case .success(let result):
-                guard let items = try? JSONDecoder().decode([StoreItem].self, from: result) else { break }
-                DispatchQueue.main.async(execute: {
-                    let newSection = Section(type: section, cells: items)
-                    self.sections.append(newSection)
-                    if let index = self.sections.index(of: newSection) {
-                        let indexSet = IndexSet(integer: index)
-                        self.tableView.insertSections(indexSet, with: .automatic)
-                    }
-                })
+                if let items = try? JSONDecoder().decode([StoreItem].self, from: result) {
+                    self.present(section: section, with: items)
+                }
             case .failure(let error): self.presentErrorAlert(errorType: error)
             }
         }
     }
 
-    func presentErrorAlert(errorType: NetworkError) {
+    private func present(section: TableSection, with items: [StoreItem]) {
+        DispatchQueue.main.async(execute: {
+            let newSection = Section(type: section, cells: items)
+            self.sections.append(newSection)
+            if let index = self.sections.index(of: newSection) {
+                let indexSet = IndexSet(integer: index)
+                self.tableView.insertSections(indexSet, with: .automatic)
+            }
+        })
+    }
+
+    private func presentErrorAlert(errorType: NetworkError) {
         let alert = UIAlertController(title: errorType.alert.title,
                                       message: errorType.alert.message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "확인", style: .default))
