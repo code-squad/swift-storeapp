@@ -14,6 +14,7 @@
 		EE335B93203BE59A00360A62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE335B91203BE59A00360A62 /* LaunchScreen.storyboard */; };
 		EE71E887204F42EF002531BB /* HTTPRequstOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE71E886204F42EF002531BB /* HTTPRequstOptions.swift */; };
 		EE71E88C204FB40A002531BB /* OrderResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE71E88B204FB40A002531BB /* OrderResultDelegate.swift */; };
+		EE71E88E204FDC00002531BB /* DetailImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE71E88D204FDC00002531BB /* DetailImage.swift */; };
 		EEA5A043203E374100625813 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A042203E374100625813 /* Section.swift */; };
 		EEA5A056203E546100625813 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A054203E546100625813 /* HeaderCell.swift */; };
 		EEA5A059203E59C800625813 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A058203E59C800625813 /* StatusBar.swift */; };
@@ -53,6 +54,7 @@
 		EE335B94203BE59A00360A62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE71E886204F42EF002531BB /* HTTPRequstOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequstOptions.swift; sourceTree = "<group>"; };
 		EE71E88B204FB40A002531BB /* OrderResultDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultDelegate.swift; sourceTree = "<group>"; };
+		EE71E88D204FDC00002531BB /* DetailImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailImage.swift; sourceTree = "<group>"; };
 		EEA5A042203E374100625813 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		EEA5A054203E546100625813 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		EEA5A058203E59C800625813 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
@@ -209,9 +211,10 @@
 			children = (
 				EEA5A042203E374100625813 /* Section.swift */,
 				EEF2DBF0203BF02A00A455CC /* StoreItem.swift */,
-				EEB3B293204604AA0024CF70 /* Thumbnail.swift */,
 				EEB3B299204634E60024CF70 /* ItemDetail.swift */,
 				EEFE1B89204CF9120099E8B5 /* DetailData.swift */,
+				EEB3B293204604AA0024CF70 /* Thumbnail.swift */,
+				EE71E88D204FDC00002531BB /* DetailImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				EEEAAA2B203CE31F00891BCC /* PricesContainer.swift in Sources */,
 				EEB3B29620462DCE0024CF70 /* DetailViewController.swift in Sources */,
 				EEF2DC0B203CB7F300A455CC /* StyleConfigurable.swift in Sources */,
+				EE71E88E204FDC00002531BB /* DetailImage.swift in Sources */,
 				EEB3B29A204634E70024CF70 /* ItemDetail.swift in Sources */,
 				EEF2DBF1203BF02A00A455CC /* StoreItem.swift in Sources */,
 				EEF2DBF7203C5E0000A455CC /* BadgesContainer.swift in Sources */,

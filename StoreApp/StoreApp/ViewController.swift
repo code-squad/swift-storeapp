@@ -9,7 +9,7 @@
 import UIKit
 import Toaster
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, OrderResultDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -111,10 +111,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
+}
+
+extension ViewController: OrderResultDelegate {
     func toastOrderResult(_ orderInfo: OrderInfo) {
         ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
         let toaster = Toast(text: "\(orderInfo.menu)\n(이)가 주문되었습니다.")
         toaster.show()
     }
-
 }
