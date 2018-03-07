@@ -13,6 +13,7 @@
 		EE335B90203BE59A00360A62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE335B8F203BE59A00360A62 /* Assets.xcassets */; };
 		EE335B93203BE59A00360A62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE335B91203BE59A00360A62 /* LaunchScreen.storyboard */; };
 		EE71E887204F42EF002531BB /* HTTPRequstOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE71E886204F42EF002531BB /* HTTPRequstOptions.swift */; };
+		EE71E88C204FB40A002531BB /* OrderResultDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE71E88B204FB40A002531BB /* OrderResultDelegate.swift */; };
 		EEA5A043203E374100625813 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A042203E374100625813 /* Section.swift */; };
 		EEA5A056203E546100625813 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A054203E546100625813 /* HeaderCell.swift */; };
 		EEA5A059203E59C800625813 /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA5A058203E59C800625813 /* StatusBar.swift */; };
@@ -51,6 +52,7 @@
 		EE335B92203BE59A00360A62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE335B94203BE59A00360A62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE71E886204F42EF002531BB /* HTTPRequstOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequstOptions.swift; sourceTree = "<group>"; };
+		EE71E88B204FB40A002531BB /* OrderResultDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResultDelegate.swift; sourceTree = "<group>"; };
 		EEA5A042203E374100625813 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		EEA5A054203E546100625813 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		EEA5A058203E59C800625813 /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				EE335B94203BE59A00360A62 /* Info.plist */,
 				EE335B8A203BE59A00360A62 /* ViewController.swift */,
 				EEB3B29520462DCE0024CF70 /* DetailViewController.swift */,
+				EE71E88B204FB40A002531BB /* OrderResultDelegate.swift */,
 				EE335B8C203BE59A00360A62 /* Main.storyboard */,
 				EEF2DBFA203C5F2E00A455CC /* Model */,
 				EEF2DBF8203C5F1100A455CC /* View */,
@@ -372,6 +375,7 @@
 				EEF2DC03203CA4E300A455CC /* UIColor+Extension.swift in Sources */,
 				EEA5A059203E59C800625813 /* StatusBar.swift in Sources */,
 				EEB3B289204158E40024CF70 /* ReuseIdentifier+Extension.swift in Sources */,
+				EE71E88C204FB40A002531BB /* OrderResultDelegate.swift in Sources */,
 				EEF2DBF3203BF16200A455CC /* Downloader.swift in Sources */,
 				EEB3B2922046044F0024CF70 /* TableSection.swift in Sources */,
 				EEA5A043203E374100625813 /* Section.swift in Sources */,

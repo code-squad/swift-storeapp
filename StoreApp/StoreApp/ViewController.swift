@@ -9,7 +9,7 @@
 import UIKit
 import Toaster
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, OrderResultDelegate {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -94,15 +94,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let detailVC = self.storyboard?.instantiateViewController(withIdentifier: DetailViewController.reuseId)
             as? DetailViewController {
             detailVC.detailHash = row.detailHash
+            detailVC.delegate = self
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let row = self.sections[indexPath.section].cells[indexPath.row]
-//        ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
-//        let toaster = Toast(text: row.title+"\n"+row.salePrice)
-//        toaster.show()
-//    }
+    func toastOrderResult(_ orderInfo: OrderInfo) {
+        ToastView.appearance().font = UIFont.boldSystemFont(ofSize: 15)
+        let toaster = Toast(text: "\(orderInfo.menu)\n(이)가 주문되었습니다.")
+        toaster.show()
+    }
 
 }

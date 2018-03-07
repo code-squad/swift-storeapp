@@ -15,6 +15,7 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
     var detailView: DetailView! {
         return self.view as? DetailView
     }
+    weak var delegate: OrderResultDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +49,8 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
         let urlString = Server.remote.api.slackHook!
         let price = String(describing: items!.data.prices.first!)
         let menu = String(describing: items!.data.productDescription)
-        let payload = SlackBody.text(OrderMessage.slack(price: price, menu: menu)).payload
+        let orderInfo = OrderInfo(price: price, menu: menu)
+        let payload = SlackBody.text(OrderMessage.slack(orderInfo)).payload
         var payloadData = Data()
         do {
             payloadData = try JSONSerialization.data(withJSONObject: payload, options: .init(rawValue: 0))
@@ -59,6 +61,7 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
             self.presentErrorAlert(errorType: error)
         }
         self.navigationController?.popViewController(animated: true)
+        delegate?.toastOrderResult(orderInfo)
     }
 
     func presentErrorAlert(errorType: NetworkError, shouldBackToPrevScreen: Bool=false) {
