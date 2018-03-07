@@ -17,8 +17,8 @@ struct DetailData: Decodable {
     let deliveryFee: String
     let prices: [String]
     let detailSectionUrls: [String]
-    var thumbnails: [UIImage]
-    var detailSectionItems: [UIImage]
+    var thumbnails: [Thumbnail]
+    var detailSectionItems: [DetailImage]
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -32,14 +32,11 @@ struct DetailData: Decodable {
         self.detailSectionUrls = try values.decode([String].self, forKey: .detailSection)
         self.thumbnails = []
         self.detailSectionItems = []
-        self.thumbnails = try loadImages(thumbnailUrls)
-        self.detailSectionItems = try loadImages(detailSectionUrls)
-    }
-
-    private func loadImages(_ urlStrings: [String]) throws -> [UIImage] {
-        return try urlStrings.flatMap { urlString -> UIImage? in
-            guard let url = URL(string: urlString) else { return nil }
-            return UIImage(data: try Data(contentsOf: url))
+        self.thumbnails = try thumbnailUrls.flatMap { urlString -> Thumbnail in
+            try Thumbnail(urlString: urlString)
+        }
+        self.detailSectionItems = try detailSectionUrls.flatMap { urlString -> DetailImage in
+            try DetailImage(urlString: urlString)
         }
     }
 
