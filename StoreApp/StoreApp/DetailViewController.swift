@@ -9,7 +9,7 @@
 import UIKit
 import Toaster
 
-class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
+class DetailViewController: UIViewController, Reusable {
     var detailHash: String?
     private var items: ItemDetail?
     var detailView: DetailView! {
@@ -33,6 +33,8 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
         do {
             let contents = try Data(contentsOf: url)
             self.items = try JSONDecoder().decode(ItemDetail.self, from: contents)
+            self.items?.data.thumbnails.forEach { $0.delegate = self }
+            self.items?.data.detailSectionItems.forEach { $0.delegate = self }
         } catch {
             presentErrorAlert(errorType: .loadFail, shouldBackToPrevScreen: true)
         }
@@ -45,6 +47,19 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
         }
     }
 
+    func presentErrorAlert(errorType: NetworkError, shouldBackToPrevScreen: Bool=false) {
+        let alert = UIAlertController(title: errorType.alert.title,
+                                      message: errorType.alert.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
+            shouldBackToPrevScreen ? self.navigationController?.popViewController(animated: true) : nil
+            return
+        })
+        self.present(alert, animated: true, completion: nil)
+    }
+
+}
+
+extension DetailViewController: DetailViewDelegate {
     func orderButtonDidTapped() {
         let urlString = Server.remote.api.slackHook!
         let price = String(describing: items!.data.prices.first!)
@@ -63,15 +78,15 @@ class DetailViewController: UIViewController, Reusable, DetailViewDelegate {
         self.navigationController?.popViewController(animated: true)
         delegate?.toastOrderResult(orderInfo)
     }
+}
 
-    func presentErrorAlert(errorType: NetworkError, shouldBackToPrevScreen: Bool=false) {
-        let alert = UIAlertController(title: errorType.alert.title,
-                                      message: errorType.alert.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
-            shouldBackToPrevScreen ? self.navigationController?.popViewController(animated: true) : nil
-            return
-        })
-        self.present(alert, animated: true, completion: nil)
+extension DetailViewController: PresentThumbnailDelegate, PresentDetailImageDelegate {
+    func present(thumbnail: UIImage) {
+        self.detailView.configureThumbnailScrollView(thumbnail)
+    }
+
+    func present(detailImage: UIImage) {
+        self.detailView.configureDetailSection(detailImage)
     }
 
 }
