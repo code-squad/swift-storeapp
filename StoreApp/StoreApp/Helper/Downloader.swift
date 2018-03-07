@@ -13,10 +13,10 @@ class Downloader {
     typealias AfterTask = (Result) -> Void
     enum Result {
         case success(Data)
-        case failure(Error)
+        case failure(NetworkError)
     }
 
-    static func post(to urlString: String, with payload: Data) {
+    static func post(to urlString: String, with payload: Data, errorHandler: @escaping (NetworkError) -> Void) {
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.post.description
@@ -25,14 +25,19 @@ class Downloader {
         request.setValue(HTTPContentType.Application.json.description,
                          forHTTPHeaderField: HTTPHeaderField.accept.description)
         request.httpBody = payload
-        URLSession.shared.dataTask(with: request).resume()
+        URLSession.shared.dataTask(with: request) { (_, _, error) in
+            if error != nil {
+                errorHandler(NetworkError.connectionDisable)
+            }
+        }.resume()
+//        URLSession.shared.dataTask(with: request).resume()
     }
 
     static func downloadWithDataTask(from urlString: String, completionHandler: @escaping AfterTask) {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, _, error) in
-            if let error = error {
-                completionHandler(.failure(error))
+            if error != nil {
+                completionHandler(.failure(NetworkError.loadFail))
             } else {
                 guard let data = data else { return }
                 completionHandler(.success(data))
@@ -44,16 +49,25 @@ class Downloader {
         guard let url = URL(string: urlString) else { return }
         DispatchQueue.global().async(execute: {
             do {
-                let data = try Data.init(contentsOf: url)
+                let data = try Data(contentsOf: url)
                 completionHandler(.success(data))
             } catch {
-                completionHandler(.failure(DownloadError.downloadFail(message: "다운로드 에러")))
+                completionHandler(.failure(NetworkError.loadFail))
             }
         })
     }
 
 }
 
-enum DownloadError: Error {
-    case downloadFail(message: String)
+enum NetworkError: Error {
+    case connectionDisable
+    case loadFail
+    case jsonDecodeFail
+    var alert: (title: String, message: String) {
+        switch self {
+        case .connectionDisable: return ("네트워크 상태가 원확하지 않습니다.", "인터넷 연결을 확인해주세요.")
+        case .loadFail: return ("화면을 불러오지 못했어요.", "인터넷 연결을 확인해주세요.")
+        case .jsonDecodeFail: return ("주문 실패했습니다..", "자세한 사항은 고객센터에 문의해주세요.")
+        }
+    }
 }
