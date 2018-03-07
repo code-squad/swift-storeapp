@@ -1,19 +1,19 @@
 //
-//  Thumbnail.swift
+//  DetailImage.swift
 //  StoreApp
 //
-//  Created by 심 승민 on 2018. 2. 28..
+//  Created by 심 승민 on 2018. 3. 7..
 //  Copyright © 2018년 심 승민. All rights reserved.
 //
 
 import UIKit
 
-protocol PresentThumbnailDelegate: class {
-    func present(thumbnail: UIImage)
+protocol PresentDetailImageDelegate: class {
+    func present(detailImage: UIImage)
 }
 
-class Thumbnail {
-    weak var delegate: PresentThumbnailDelegate?
+class DetailImage {
+    weak var delegate: PresentDetailImageDelegate?
     private var urlString: String {
         set {
             url = URL(string: newValue)
@@ -27,7 +27,7 @@ class Thumbnail {
     private(set) var image: UIImage? {
         didSet {
             guard let image = image else { return }
-            delegate?.present(thumbnail: image)
+            delegate?.present(detailImage: image)
         }
     }
 
@@ -47,16 +47,6 @@ class Thumbnail {
                     self.image = UIImage(data: data)
                 case .failure(let error):
                     print(error)
-                    let emptyView = UIView(frame: CGRect.zero)
-                    emptyView.widthAnchor.constraint(equalToConstant: 100)
-                    emptyView.heightAnchor.constraint(equalTo: emptyView.widthAnchor, multiplier: 1)
-                    emptyView.backgroundColor = UIColor.emerald
-                    emptyView.setNeedsLayout()
-                    let renderer = UIGraphicsImageRenderer(size: emptyView.frame.size)
-                    let emptyImage = renderer.image(actions: { _ in
-                        emptyView.drawHierarchy(in: emptyView.bounds, afterScreenUpdates: true)
-                    })
-                    self.image = emptyImage
                 }
             })
         }
