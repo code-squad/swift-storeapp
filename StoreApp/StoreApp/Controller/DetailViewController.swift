@@ -70,13 +70,13 @@ extension DetailViewController: DetailViewDelegate {
     }
 }
 
-extension DetailViewController: PresentThumbnailDelegate, PresentDetailImageDelegate {
-    func present(thumbnail: UIImage) {
-        self.detailView.configureThumbnailScrollView(thumbnail)
-    }
-
-    func present(detailImage: UIImage) {
-        self.detailView.configureDetailSection(detailImage)
+extension DetailViewController: PresentImageDelegate {
+    func present(_ contentType: AsyncPresentable, image: UIImage) {
+        switch contentType {
+        case is Thumbnail: self.detailView.configureThumbnailScrollView(image)
+        case is DetailImage: self.detailView.configureDetailSection(image)
+        default: break
+        }
     }
 
 }
