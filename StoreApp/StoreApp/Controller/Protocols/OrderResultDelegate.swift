@@ -11,9 +11,3 @@ import Foundation
 protocol OrderResultDelegate: class {
     func toastOrderResult(_ orderInfo: OrderInfo)
 }
-
-struct OrderInfo {
-    let name: String = "Min"
-    let price: String
-    let menu: String
-}

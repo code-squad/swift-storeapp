@@ -44,7 +44,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if let items = try? JSONDecoder().decode([StoreItem].self, from: result) {
                     self.present(section: section, with: items)
                 }
-            case .failure(let error): self.presentErrorAlert(errorType: error)
+            case .failure(let error):
+                self.presentError(error)
             }
         }
     }
@@ -58,13 +59,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.tableView.insertSections(indexSet, with: .automatic)
             }
         })
-    }
-
-    private func presentErrorAlert(errorType: NetworkError) {
-        let alert = UIAlertController(title: errorType.alert.title,
-                                      message: errorType.alert.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default))
-        self.present(alert, animated: true, completion: nil)
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
