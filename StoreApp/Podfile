@@ -8,4 +8,5 @@ target 'StoreApp' do
   # Pods for StoreApp
   pod 'SwiftLint'
   pod 'Toaster'
+  pod 'JDStatusBarNotification'
 end
