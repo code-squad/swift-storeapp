@@ -36,7 +36,7 @@ class DetailViewController: UIViewController, Reusable {
             self.items?.data.thumbnails.forEach { $0.delegate = self }
             self.items?.data.detailSectionItems.forEach { $0.delegate = self }
         } catch {
-            presentErrorAlert(errorType: .loadFail, shouldBackToPrevScreen: true)
+            presentError(.loadFail)
         }
         presentView()
     }
@@ -45,16 +45,6 @@ class DetailViewController: UIViewController, Reusable {
         if let items = self.items {
             self.detailView.setContents(items)
         }
-    }
-
-    func presentErrorAlert(errorType: NetworkError, shouldBackToPrevScreen: Bool=false) {
-        let alert = UIAlertController(title: errorType.alert.title,
-                                      message: errorType.alert.message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
-            shouldBackToPrevScreen ? self.navigationController?.popViewController(animated: true) : nil
-            return
-        })
-        self.present(alert, animated: true, completion: nil)
     }
 
 }
@@ -70,10 +60,10 @@ extension DetailViewController: DetailViewDelegate {
         do {
             payloadData = try JSONSerialization.data(withJSONObject: payload, options: .init(rawValue: 0))
         } catch {
-            presentErrorAlert(errorType: .jsonDecodeFail)
+            presentError(.jsonDecodeFail)
         }
         Downloader.post(to: urlString, with: payloadData) { [unowned self] error in
-            self.presentErrorAlert(errorType: error)
+            self.presentError(error)
         }
         self.navigationController?.popViewController(animated: true)
         delegate?.toastOrderResult(orderInfo)
