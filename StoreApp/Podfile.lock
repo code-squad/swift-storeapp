@@ -1,18 +1,18 @@
 PODS:
-  - JDStatusBarNotification (1.5.5)
+  - GSMessages (1.4.0)
   - SwiftLint (0.22.0)
   - Toaster (2.1.0)
 
 DEPENDENCIES:
-  - JDStatusBarNotification
+  - GSMessages
   - SwiftLint
   - Toaster
 
 SPEC CHECKSUMS:
-  JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
+  GSMessages: 306eaef0ff836a9240e50a9c78a32d173d7588a6
   SwiftLint: 1134786caedd2caab0560d2f36b76414a5a56808
   Toaster: 8c3225dc465bef4aa57e147a288724576df8e439
 
-PODFILE CHECKSUM: f34bcd83b1988311db2e88bbdf3eea64c5e70390
+PODFILE CHECKSUM: 7739724e87c9eb8109d3fbd35115799ebd14511d
 
 COCOAPODS: 1.4.0
