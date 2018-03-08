@@ -8,58 +8,16 @@
 
 import UIKit
 
-protocol PresentThumbnailDelegate: class {
-    func present(thumbnail: UIImage)
-}
-
-class Thumbnail {
-    weak var delegate: PresentThumbnailDelegate?
-    private var urlString: String {
-        set {
-            url = URL(string: newValue)
-        }
-        get {
-            guard let url = url else { return "" }
-            return url.absoluteString
-        }
-    }
-    private var url: URL?
-    private(set) var image: UIImage? {
+class Thumbnail: AsyncPresentable {
+    weak var delegate: PresentImageDelegate?
+    var image: UIImage? {
         didSet {
             guard let image = image else { return }
-            delegate?.present(thumbnail: image)
+            delegate?.present(self, image: image)
         }
     }
 
     init(urlString: String) throws {
-        self.urlString = urlString
-        loadImage()
+        loadImage(from: urlString)
     }
-
-    private func loadImage() {
-        if let cachedData = CacheStorage.retrieve(urlString) {
-            self.image = UIImage(data: cachedData)
-        } else {
-            Downloader.downloadToGlobalQueue(from: urlString, qos: .userInteractive, completionHandler: { response in
-                switch response {
-                case .success(let data):
-                    try? CacheStorage.save(self.urlString, data)
-                    self.image = UIImage(data: data)
-                case .failure(let error):
-                    print(error)
-                    let emptyView = UIView(frame: CGRect.zero)
-                    emptyView.widthAnchor.constraint(equalToConstant: 100)
-                    emptyView.heightAnchor.constraint(equalTo: emptyView.widthAnchor, multiplier: 1)
-                    emptyView.backgroundColor = UIColor.emerald
-                    emptyView.setNeedsLayout()
-                    let renderer = UIGraphicsImageRenderer(size: emptyView.frame.size)
-                    let emptyImage = renderer.image(actions: { _ in
-                        emptyView.drawHierarchy(in: emptyView.bounds, afterScreenUpdates: true)
-                    })
-                    self.image = emptyImage
-                }
-            })
-        }
-    }
-
 }
