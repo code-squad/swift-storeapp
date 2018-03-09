@@ -172,6 +172,15 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		EEB050732052375500B5CB65 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EEDEFA98205127A100F1ECE6 /* AsyncPresentable.swift */,
+				EEDEFA9A20512E4D00F1ECE6 /* PresentImageDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		EEB3B28A20415A060024CF70 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +251,7 @@
 		EEF2DBFA203C5F2E00A455CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EEB050732052375500B5CB65 /* Protocols */,
 				EEA5A042203E374100625813 /* Section.swift */,
 				EEF2DBF0203BF02A00A455CC /* StoreItem.swift */,
 				EEB3B299204634E60024CF70 /* ItemDetail.swift */,
@@ -249,8 +259,6 @@
 				EEB3B293204604AA0024CF70 /* Thumbnail.swift */,
 				EE71E88D204FDC00002531BB /* DetailImage.swift */,
 				EEDEFA942051164200F1ECE6 /* OrderInfo.swift */,
-				EEDEFA98205127A100F1ECE6 /* AsyncPresentable.swift */,
-				EEDEFA9A20512E4D00F1ECE6 /* PresentImageDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
