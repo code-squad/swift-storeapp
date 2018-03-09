@@ -9,7 +9,7 @@
 import UIKit
 
 class Downloader {
-
+    
     typealias AfterTask = (Result) -> Void
     enum Result {
         case success(Data)
@@ -44,7 +44,8 @@ class Downloader {
         }.resume()
     }
 
-    static func downloadToGlobalQueue(from urlString: String, qos: DispatchQoS.QoSClass, completionHandler: @escaping AfterTask) {
+    static func downloadToGlobalQueue(from urlString: String, qos: DispatchQoS.QoSClass,
+                                      completionHandler: @escaping AfterTask) {
         guard let url = URL(string: urlString) else { return }
         DispatchQueue.global(qos: qos).async(execute: {
             do {
