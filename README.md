@@ -501,12 +501,150 @@ DispatchQueue.main.async(execute: {
 ![](img/step7-1.png)
 
 ### 상세화면 화면구조
-![](img/step7-2.png)
+![](img/step7-2-1.png)
+![](img/step7-2-2.png)
+
+>- 주문하기 버튼은 전체 스크롤뷰에서 제외했으며, 항상 하단에 붙어있도록 함
 
 ### 상세화면 데이터 로드 및 화면 표시
 
+- `http://crong.codesquad.kr:8080/woowa/detail/{detail_hash}` 형식으로 데이터를 받아 decode.
+- json 데이터 형식은 다음과 같다.
+
+```
+{
+	"hash": "H9881",
+	"data": {
+		"top_image": "https://cdn.bmf.kr/_data/product/H9881/910a01a81c49cb75414edb759237501f.jpg",
+		"thumb_images": ["https://cdn.bmf.kr/_data/product/H9881/910a01a81c49cb75414edb759237501f.jpg", "https://cdn.bmf.kr/_data/product/H9881/fbf29077698ca16f8050e43476b47f38.jpg", "https://cdn.bmf.kr/_data/product/H9881/c96c6949efc3391148e9b280a2c5ed0b.jpg", "https://cdn.bmf.kr/_data/product/H9881/71411e15d2d961df496f87f08648b345.jpg", "https://cdn.bmf.kr/_data/product/H9881/437196dacf46b52b11d0bccbc4231558.jpg"],
+		"product_description": "경상도 명물 요리 세 가지를 한 상에!",
+		"point": "312원",
+		"delivery_info": "서울 경기 새벽배송 / 전국택배 (제주 및 도서산간 불가) [화 · 수 · 목 · 금 · 토] 수령 가능한 상품입니다.",
+		"delivery_fee": "2,500원 (40,000원 이상 구매 시 무료)",
+		"prices": ["39,000원", "31,200원"],
+		"detail_section": ["https://cdn.bmf.kr/_data/product/H9881/7fb1ddf1adeadc5410cecd79441f7b65.jpg", "https://cdn.bmf.kr/_data/product/H9881/b776c59544b516a184d1363c2c802789.jpg", "https://cdn.bmf.kr/_data/product/H9881/cc2b4a61db410096db0e3c497096d63f.jpg", "https://cdn.bmf.kr/_data/product/H9881/77970960c8efe0992f9746c37062e1e4.jpg", "https://cdn.bmf.kr/_data/product/H9881/aa56cec7d2fe4dde0b124c17a06ffda6.jpg", "https://cdn.bmf.kr/_data/product/H9881/c9fbe313767400ce21ea83bb2b9d8e96.jpg", "https://cdn.bmf.kr/_data/product/H9881/320939f0d0fbe8e4846e20111f1aa4ce.jpg", "https://cdn.bmf.kr/_data/product/H9881/5778ae933121c5d131889ecbf5e2874c.jpg", "https://cdn.bmf.kr/_data/product/H9881/785291ed7fe3f2a8c7e06f443dea7553.jpg", "https://cdn.bmf.kr/_data/product/H9881/92ef47f6efdd0286f6af7f712c3c838d.jpg", "https://cdn.bmf.kr/_data/product/H9881/c0319354245ee2963ccb97d60943e8ff.jpg", "https://cdn.bmf.kr/_data/product/H9881/07b1864a06f3b0b26af9a7148ac70cfb.jpg", "https://cdn.bmf.kr/_data/product/H9881/ba2aba220a55924a00c668dd13c4cee1.jpg"]
+	}
+}
+```
+
+- 중첩 구조로 되어있으므로, decodable 클래스도 2개로 나누어 구현
+
+```swift
+struct ItemDetail: Decodable {
+    let hash: String
+    let data: DetailData
+
+    enum CodingKeys: String, CodingKey {
+        case hash
+        case data
+    }
+}
+```
+
+```swift
+struct DetailData: Decodable {
+    let topImage: String
+    let thumbnailUrls: [String]
+    let productDescription: String
+    let point: String
+    let deliveryInfo: String
+    let deliveryFee: String
+    let prices: [String]
+    let detailSectionUrls: [String]
+    var thumbnails: [Thumbnail]
+    var detailSectionItems: [DetailImage]
+ 
+    ...
+}
+```
+
+#### 여러 이미지 로드 시, 한 장 불러올 때마다 뷰 업데이트
+- 상단 가로 스크롤뷰에 들어갈 썸네일 및 하단 상세 이미지는 여러 장이기 때문에 한꺼번에 받아 처리하면 화면전환 시 느려질 수 있음
+- 상단 가로 스크롤뷰의 썸네일은 Thumbnail 타입으로 생성
+- 하단 상세 이미지는 DetailImage 타입으로 생성
+
+```swift
+struct DetailData: Decodable {
+	...
+	init(from decoder: Decoder) throws {
+		...
+		self.thumbnails = try thumbnailUrls.flatMap { urlString -> Thumbnail in
+            try Thumbnail(urlString: urlString)
+        }
+        self.detailSectionItems = try detailSectionUrls.flatMap { urlString -> DetailImage in
+            try DetailImage(urlString: urlString)
+        }
+        ...
+    }
+    ...
+}    
+```
+
+- Thumbnail, DetailImage 타입은 생성 시 주입된 url로 비동기 이미지 로드를 시작한다. (내부 로직 동일)
+
+```swift
+class Thumbnail: AsyncPresentable {
+    weak var delegate: PresentImageDelegate?
+    var image: UIImage? {
+        didSet {
+            guard let image = image else { return }
+            delegate?.present(self, image: image)
+        }
+    }
+
+    init(urlString: String) throws {
+        loadImage(from: urlString)
+    }
+}
+```
+
+- 이 때, 중복되는 코드를 줄이기 위해 AsyncPresentable 프로토콜을 선언한 후 이를 확장하여 이미지 로드 메소드를 구현했다.
+
+```swift
+protocol AsyncPresentable: class {
+    func loadImage(from urlString: String)
+    var image: UIImage? { get set }
+}
+
+extension AsyncPresentable {
+    func loadImage(from urlString: String) {
+        if let cachedData = CacheStorage.retrieve(urlString) {
+            self.image = UIImage.init(data: cachedData)
+        } else {
+            Downloader.downloadToGlobalQueue(from: urlString, qos: .userInteractive, completionHandler: { response in
+                switch response {
+                case .success(let data):
+                    try? CacheStorage.save(urlString, data)
+                    self.image = UIImage(data: data)
+                case .failure: self.presentGraySpace()
+                }
+            })
+        }
+    }
+    ...
+}
+```
+
+- 각 Thumbnail, DetailImage은 이미지가 세팅되면 뷰컨트롤러에게 알리며(델리게이트 활용), 뷰컨트롤러는 알림받은 콘텐츠의 타입에 따라 적합한 뷰에 표시한다.
+
+```swift
+extension DetailViewController: PresentImageDelegate {
+    func present(_ contentType: AsyncPresentable, image: UIImage) {
+        switch contentType {
+        case is Thumbnail: self.detailView.configureThumbnailScrollView(image)
+        case is DetailImage: self.detailView.configureDetailSection(image)
+        default: break
+        }
+    }
+}
+```
+
 ### 주문버튼 클릭 시 슬랙으로 전송
 #### 이전 화면으로 이동 및 주문정보 토스트
-![](img/step7-3.png)
+![](img/step7-3-1.png)
+![](img/step7-3-2.png)
 
-### 여러 이미지 로드 시, 한 장 불러올 때마다 뷰 업데이트
+### 네트워크 에러 발생 시 상단에 에러 메시지 표시
+- GSMessages 오픈api 사용
+
+![](img/step7-4.png)
