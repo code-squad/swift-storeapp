@@ -51,9 +51,10 @@ class DetailViewController: UIViewController, Reusable {
 
 extension DetailViewController: DetailViewDelegate {
     func orderButtonDidTapped() {
+        guard let items = items else { return }
         let urlString = Server.remote.api.slackHook!
-        let price = String(describing: items!.data.prices.first!)
-        let menu = String(describing: items!.data.productDescription)
+        let price = String(describing: items.data.prices.first!)
+        let menu = String(describing: items.data.productDescription)
         let orderInfo = OrderInfo(price: price, menu: menu)
         let payload = SlackBody.text(OrderMessage.slack(orderInfo)).payload
         var payloadData = Data()
