@@ -12,11 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var reachabilityMonitor: ReachabilityMonitor?
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         StatusBar.setStatusBarBackgroundColor(color: UIColor.white)
+        reachabilityMonitor = ReachabilityMonitor(hostName: Server.remote.api.hostName!)
+        if var mainVC = window?.rootViewController?.childViewControllers.first as? ReachabilityDetectable {
+            mainVC.reachabilityMonitor = reachabilityMonitor
+        }
+        reachabilityMonitor?.startMonitoring()
         return true
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        reachabilityMonitor?.stopMonitoring()
     }
 
 }
