@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol ReachabilityDetectable {
+    var reachabilityMonitor: ReachabilityMonitor? { get set }
+}
