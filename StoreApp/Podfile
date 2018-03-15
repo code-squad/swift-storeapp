@@ -9,4 +9,5 @@ target 'StoreApp' do
   pod 'SwiftLint'
   pod 'Toaster'
   pod 'GSMessages'
+  pod 'Alamofire'
 end
