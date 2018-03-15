@@ -6,4 +6,16 @@
 //  Copyright © 2018년 심 승민. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol RespondableForNetwork {
+    func drawBorder(on view: UIView, when isNetworkAvailable: Bool)
+}
+
+extension RespondableForNetwork {
+    func drawBorder(on view: UIView, when isNetworkAvailable: Bool) {
+        let color: UIColor = (isNetworkAvailable) ? .green : .red
+        view.layer.borderColor = color.cgColor
+        view.layer.borderWidth = 5
+    }
+}
