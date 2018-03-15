@@ -23,7 +23,10 @@ extension AsyncPresentable {
                 case .success(let data):
                     try? CacheStorage.save(urlString, data)
                     self.image = UIImage(data: data)
-                case .failure: self.presentGraySpace()
+                case .failure:
+                    DispatchQueue.main.async {
+                        self.presentGraySpace()
+                    }
                 }
             })
         }
