@@ -57,6 +57,18 @@ class Downloader {
         })
     }
 
+    static func getDataFromJSONFile(_ fileName: String) -> Data? {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else { return nil }
+        let url = URL(fileURLWithPath: path)
+        var data: Data?
+        do {
+            data = try Data(contentsOf: url)
+        } catch {
+            NSLog(error.localizedDescription)
+        }
+        return data
+    }
+
 }
 
 enum NetworkError: Error {
