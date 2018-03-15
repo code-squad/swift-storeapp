@@ -25,6 +25,10 @@ class ItemCell: UITableViewCell, StyleConfigurable, Reusable {
         super.prepareForReuse()
         // 셀을 재사용하기 때문에 기존 셀에 뱃지가 남아있을 수 있음.
         badges.removeAllBadges()
+        thumbnail.image = nil
+        titleDescription.text = nil
+        pricesContainer.normalPrice.text = nil
+        pricesContainer.salePrice.text = nil
     }
 
     func configure() {
