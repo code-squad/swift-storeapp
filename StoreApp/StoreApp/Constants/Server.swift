@@ -14,6 +14,7 @@ import Foundation
     var side: String { get }
     @objc optional var detail: String { get }
     @objc optional var slackHook: String { get }
+    @objc optional var hostName: String { get }
 }
 
 enum Server {
@@ -35,6 +36,7 @@ class Local: ServerAPI {
 }
 
 class Remote: ServerAPI {
+    let hostName: String = "crong.codesquad.kr"
     let main: String = "http://crong.codesquad.kr:8080/woowa/main"
     let soup: String = "http://crong.codesquad.kr:8080/woowa/soup"
     let side: String = "http://crong.codesquad.kr:8080/woowa/side"
