@@ -9,26 +9,13 @@
 import UIKit
 import Toaster
 
-class DetailViewController: UIViewController, Reusable, RespondableForNetwork {
+class DetailViewController: UIViewController, Reusable {
     var detailHash: String?
     private var items: ItemDetail?
     var detailView: DetailView! {
         return self.view as? DetailView
     }
     weak var delegate: OrderResultDelegate?
-    var reachabilityMonitor: ReachabilityMonitor? {
-        didSet {
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(onConnectionChanged(_:)),
-                                                   name: .connectionChanged, object: nil)
-        }
-    }
-
-    @objc private func onConnectionChanged(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-            let isAvailable = userInfo["NetworkStatus"] as? Bool else { return }
-        drawBorder(on: self.view, when: isAvailable)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +26,6 @@ class DetailViewController: UIViewController, Reusable, RespondableForNetwork {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
-        if let monitor = reachabilityMonitor {
-            drawBorder(on: self.view, when: monitor.isAvailable)
-        }
     }
 
     private func loadItemsFromAPI() {
