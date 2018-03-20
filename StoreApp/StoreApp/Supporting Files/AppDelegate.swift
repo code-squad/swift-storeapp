@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         StatusBar.setStatusBarBackgroundColor(color: UIColor.white)
-        reachabilityMonitor = ReachabilityMonitor(hostName: Server.remote.api.hostName!)
+        reachabilityMonitor = ReachabilityMonitor.shared
         reachabilityMonitor?.startMonitoring()
         return true
     }
@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let userInfo = notification.userInfo,
             let isNetworkAvailable = userInfo["NetworkStatus"] as? Bool else { return }
         drawBorder(isNetworkAvailable)
-        NotificationCenter.default.post(name: .onReconnected, object: nil)
     }
 
     func drawBorder(_ isNetworkAvailable: Bool) {
