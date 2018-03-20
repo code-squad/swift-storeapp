@@ -17,29 +17,28 @@ class ViewController: UIViewController {
         }
     }
     private var sections = [Section]()
+    private var dataLoader: DataLoader? {
+        didSet {
+            NotificationCenter.default.addObserver(self, selector: #selector(presentData(notification:)),
+                                                   name: .dataLoaded, object: nil)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 40
         tableView.estimatedSectionHeaderHeight = 40
         tableView.register(HeaderCell.self, forHeaderFooterViewReuseIdentifier: HeaderCell.reuseId)
-        if let isNetworkAvailable = (UIApplication.shared.delegate as? AppDelegate)?.reachabilityMonitor?.isAvailable {
-            isNetworkAvailable ? loadDataFromServer() : loadDataFromLocal()
+        dataLoader = DataLoader()
+        dataLoader?.loadInitialData()
+    }
+
+    @objc func presentData(notification: Notification) {
+        guard let passedData = notification.userInfo,
+            let items = passedData["loadedItems"] as? LoadedItems else { return }
+        DispatchQueue.main.async {
+            self.present(items: items.data, on: items.section)
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(loadDataFromServer),
-                                               name: .onReconnected, object: nil)
-    }
-
-    private func loadDataFromLocal() {
-        loadItemsFromFile(forSection: .main)
-        loadItemsFromFile(forSection: .soup)
-        loadItemsFromFile(forSection: .side)
-    }
-
-    @objc private func loadDataFromServer() {
-        loadItemsFromAPI(forSection: .main, from: .remote)
-        loadItemsFromAPI(forSection: .soup, from: .remote)
-        loadItemsFromAPI(forSection: .side, from: .remote)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,29 +48,6 @@ class ViewController: UIViewController {
         tableView.estimatedSectionHeaderHeight = 40
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-    }
-
-    private func loadItemsFromFile(forSection section: TableSection) {
-        guard let data = Downloader.getDataFromJSONFile(section.localFilename) else { return }
-        presentDecodedData(on: section, from: data)
-    }
-
-    private func loadItemsFromAPI(forSection section: TableSection, from server: Server) {
-        Downloader.downloadWithDataTask(from: section.api(from: server)) { response in
-            switch response {
-            case .success(let data):
-                self.presentDecodedData(on: section, from: data)
-            case .failure(let error):
-                self.presentError(error)
-            }
-        }
-    }
-
-    private func presentDecodedData(on section: TableSection, from rawData: Data) {
-        guard let items = try? JSONDecoder().decode([StoreItem].self, from: rawData) else { return }
-        DispatchQueue.main.async(execute: {
-            self.present(items: items, on: section)
-        })
     }
 
     private func present(items: [StoreItem], on section: TableSection) {
