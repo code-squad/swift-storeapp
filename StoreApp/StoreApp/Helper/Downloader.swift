@@ -9,7 +9,7 @@
 import UIKit
 
 class Downloader {
-    
+
     typealias AfterTask = (Result) -> Void
     enum Result {
         case success(Data)
