@@ -10,6 +10,5 @@ import Foundation
 
 extension Notification.Name {
     static let connectionChanged = Notification.Name("connectionChanged")
-    static let onReconnected = Notification.Name("onReconnected")
     static let dataLoaded = Notification.Name("dataLoaded")
 }

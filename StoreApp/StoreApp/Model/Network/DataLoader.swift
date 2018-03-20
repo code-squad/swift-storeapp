@@ -10,7 +10,6 @@ import UIKit
 
 class DataLoader {
     typealias AfterTask = (LoadedData) -> Void
-    private let reachabilityMonitor: ReachabilityMonitor
     private var loadedDataWithSection = LoadedItems(section: .main, data: []) {
         didSet {
             NotificationCenter.default.post(name: .dataLoaded, object: nil,
@@ -19,14 +18,12 @@ class DataLoader {
     }
 
     init() {
-        self.reachabilityMonitor = (UIApplication.shared.delegate as? AppDelegate)?.reachabilityMonitor
-            ?? ReachabilityMonitor(hostName: Server.remote.api.hostName!)
         NotificationCenter.default.addObserver(self, selector: #selector(loadDataFromServer),
-                                               name: .onReconnected, object: nil)
+                                               name: .connectionChanged, object: nil)
     }
 
     func loadInitialData() {
-        reachabilityMonitor.isAvailable ? loadDataFromServer() : loadDataFromLocal()
+        ReachabilityMonitor.shared.isAvailable ? loadDataFromServer() : loadDataFromLocal()
     }
 
     private func loadDataFromLocal() {
