@@ -36,4 +36,5 @@ class ReachabilityMonitor {
 
 extension Notification.Name {
     static let connectionChanged = Notification.Name("connectionChanged")
+    static let onReconnected = Notification.Name("onReconnected")
 }
