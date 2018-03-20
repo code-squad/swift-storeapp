@@ -10,26 +10,30 @@ import UIKit
 import Alamofire
 
 class ReachabilityMonitor {
-    private let reachability: NetworkReachabilityManager!
+    static let shared = ReachabilityMonitor()
+    private let networkManager: NetworkReachabilityManager?
 
-    init(hostName: String) {
-        reachability = NetworkReachabilityManager(host: hostName)
+    private init() {
+        networkManager = NetworkReachabilityManager(host: Server.remote.api.hostName!)
     }
 
     var isAvailable: Bool {
-        return reachability.isReachable
+        guard let networkManager = networkManager else { return false }
+        return networkManager.isReachable
     }
 
     func startMonitoring() {
-        reachability.listener = { status in
+        guard let networkManager = networkManager else { return }
+        networkManager.listener = { status in
             NotificationCenter.default.post(name: .connectionChanged, object: nil,
                                             userInfo: ["NetworkStatus": self.isAvailable])
         }
-        reachability.startListening()
+        networkManager.startListening()
     }
 
     func stopMonitoring() {
-        reachability.stopListening()
+        guard let networkManager = networkManager else { return }
+        networkManager.stopListening()
     }
 
 }
