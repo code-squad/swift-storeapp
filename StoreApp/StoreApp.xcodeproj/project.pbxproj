@@ -22,7 +22,6 @@
 		EEB050772052479200B5CB65 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB050742052479100B5CB65 /* side.json */; };
 		EEB050782052479200B5CB65 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB050752052479200B5CB65 /* soup.json */; };
 		EEB050792052479200B5CB65 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB050762052479200B5CB65 /* main.json */; };
-		EEB050812052551E00B5CB65 /* ReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB050802052551E00B5CB65 /* ReachabilityMonitor.swift */; };
 		EEB3B289204158E40024CF70 /* ReuseIdentifier+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B288204158E40024CF70 /* ReuseIdentifier+Extension.swift */; };
 		EEB3B28C20434ED70024CF70 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B28B20434ED70024CF70 /* Server.swift */; };
 		EEB3B2902045B6410024CF70 /* CacheStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B28F2045B6410024CF70 /* CacheStorage.swift */; };
@@ -31,6 +30,9 @@
 		EEB3B29620462DCE0024CF70 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B29520462DCE0024CF70 /* DetailViewController.swift */; };
 		EEB3B298204633190024CF70 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B297204633190024CF70 /* DetailView.swift */; };
 		EEB3B29A204634E70024CF70 /* ItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB3B299204634E60024CF70 /* ItemDetail.swift */; };
+		EEC72F0C2060F68B0072C445 /* ReachabilityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC72F092060F68B0072C445 /* ReachabilityMonitor.swift */; };
+		EEC72F0D2060F68B0072C445 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC72F0A2060F68B0072C445 /* DataLoader.swift */; };
+		EEC72F0E2060F68B0072C445 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC72F0B2060F68B0072C445 /* NotificationName.swift */; };
 		EEDEFA922051152F00F1ECE6 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDEFA912051152F00F1ECE6 /* UIViewController+Extension.swift */; };
 		EEDEFA952051164200F1ECE6 /* OrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDEFA942051164200F1ECE6 /* OrderInfo.swift */; };
 		EEDEFA99205127A100F1ECE6 /* AsyncPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDEFA98205127A100F1ECE6 /* AsyncPresentable.swift */; };
@@ -70,7 +72,6 @@
 		EEB050742052479100B5CB65 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		EEB050752052479200B5CB65 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		EEB050762052479200B5CB65 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
-		EEB050802052551E00B5CB65 /* ReachabilityMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityMonitor.swift; sourceTree = "<group>"; };
 		EEB3B288204158E40024CF70 /* ReuseIdentifier+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReuseIdentifier+Extension.swift"; sourceTree = "<group>"; };
 		EEB3B28B20434ED70024CF70 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		EEB3B28F2045B6410024CF70 /* CacheStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheStorage.swift; sourceTree = "<group>"; };
@@ -79,6 +80,9 @@
 		EEB3B29520462DCE0024CF70 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EEB3B297204633190024CF70 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		EEB3B299204634E60024CF70 /* ItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetail.swift; sourceTree = "<group>"; };
+		EEC72F092060F68B0072C445 /* ReachabilityMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityMonitor.swift; sourceTree = "<group>"; };
+		EEC72F0A2060F68B0072C445 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		EEC72F0B2060F68B0072C445 /* NotificationName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		EEDEFA912051152F00F1ECE6 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EEDEFA942051164200F1ECE6 /* OrderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfo.swift; sourceTree = "<group>"; };
 		EEDEFA98205127A100F1ECE6 /* AsyncPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncPresentable.swift; sourceTree = "<group>"; };
@@ -216,6 +220,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EEC72F082060F6720072C445 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EEC72F0A2060F68B0072C445 /* DataLoader.swift */,
+				EEC72F0B2060F68B0072C445 /* NotificationName.swift */,
+				EEC72F092060F68B0072C445 /* ReachabilityMonitor.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		EEDEFA932051162800F1ECE6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,7 +253,6 @@
 				EEDEFA962051166100F1ECE6 /* Protocols */,
 				EE335B8A203BE59A00360A62 /* ViewController.swift */,
 				EEB3B29520462DCE0024CF70 /* DetailViewController.swift */,
-				EEB050802052551E00B5CB65 /* ReachabilityMonitor.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -272,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				EEB050732052375500B5CB65 /* Protocols */,
+				EEC72F082060F6720072C445 /* Network */,
 				EEA5A042203E374100625813 /* Section.swift */,
 				EEF2DBF0203BF02A00A455CC /* StoreItem.swift */,
 				EEB3B299204634E60024CF70 /* ItemDetail.swift */,
@@ -451,7 +465,7 @@
 				EEA5A059203E59C800625813 /* StatusBar.swift in Sources */,
 				EEDEFA922051152F00F1ECE6 /* UIViewController+Extension.swift in Sources */,
 				EEB3B289204158E40024CF70 /* ReuseIdentifier+Extension.swift in Sources */,
-				EEB050812052551E00B5CB65 /* ReachabilityMonitor.swift in Sources */,
+				EEC72F0D2060F68B0072C445 /* DataLoader.swift in Sources */,
 				EE71E88C204FB40A002531BB /* OrderResultDelegate.swift in Sources */,
 				EEF2DBF3203BF16200A455CC /* Downloader.swift in Sources */,
 				EEB3B2922046044F0024CF70 /* TableSection.swift in Sources */,
@@ -462,6 +476,8 @@
 				EEEAAA2B203CE31F00891BCC /* PricesContainer.swift in Sources */,
 				EEB3B29620462DCE0024CF70 /* DetailViewController.swift in Sources */,
 				EEDEFA952051164200F1ECE6 /* OrderInfo.swift in Sources */,
+				EEC72F0C2060F68B0072C445 /* ReachabilityMonitor.swift in Sources */,
+				EEC72F0E2060F68B0072C445 /* NotificationName.swift in Sources */,
 				EEF2DC0B203CB7F300A455CC /* StyleConfigurable.swift in Sources */,
 				EE71E88E204FDC00002531BB /* DetailImage.swift in Sources */,
 				EEB3B29A204634E70024CF70 /* ItemDetail.swift in Sources */,
