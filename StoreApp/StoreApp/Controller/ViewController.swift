@@ -8,9 +8,8 @@
 
 import UIKit
 import Toaster
-import Alamofire
 
-class ViewController: UIViewController, ReachabilityDetectable, RespondableForNetwork {
+class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.delegate = self
@@ -18,29 +17,17 @@ class ViewController: UIViewController, ReachabilityDetectable, RespondableForNe
         }
     }
     private var sections = [Section]()
-    var reachabilityMonitor: ReachabilityMonitor? {
-        didSet {
-            NotificationCenter.default.addObserver(self,
-                                                   selector: #selector(onConnectionChanged(_:)),
-                                                   name: .connectionChanged, object: nil)
-        }
-    }
-
-    @objc private func onConnectionChanged(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-            let isAvailable = userInfo["NetworkStatus"] as? Bool else { return }
-        drawBorder(on: self.view, when: isAvailable)
-        loadDataFromServer()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 40
         tableView.estimatedSectionHeaderHeight = 40
         tableView.register(HeaderCell.self, forHeaderFooterViewReuseIdentifier: HeaderCell.reuseId)
-        if let monitor = reachabilityMonitor, !monitor.isAvailable {
-            loadDataFromLocal()
+        if let isNetworkAvailable = (UIApplication.shared.delegate as? AppDelegate)?.reachabilityMonitor?.isAvailable {
+            isNetworkAvailable ? loadDataFromServer() : loadDataFromLocal()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(loadDataFromServer),
+                                               name: .onReconnected, object: nil)
     }
 
     private func loadDataFromLocal() {
@@ -49,7 +36,7 @@ class ViewController: UIViewController, ReachabilityDetectable, RespondableForNe
         loadItemsFromFile(forSection: .side)
     }
 
-    private func loadDataFromServer() {
+    @objc private func loadDataFromServer() {
         loadItemsFromAPI(forSection: .main, from: .remote)
         loadItemsFromAPI(forSection: .soup, from: .remote)
         loadItemsFromAPI(forSection: .side, from: .remote)
@@ -62,9 +49,6 @@ class ViewController: UIViewController, ReachabilityDetectable, RespondableForNe
         tableView.estimatedSectionHeaderHeight = 40
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.sectionHeaderHeight = UITableViewAutomaticDimension
-        if let monitor = reachabilityMonitor {
-            drawBorder(on: self.view, when: monitor.isAvailable)
-        }
     }
 
     private func loadItemsFromFile(forSection section: TableSection) {
@@ -162,7 +146,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             as? DetailViewController {
             detailVC.detailHash = row.detailHash
             detailVC.delegate = self
-            detailVC.reachabilityMonitor = self.reachabilityMonitor
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
