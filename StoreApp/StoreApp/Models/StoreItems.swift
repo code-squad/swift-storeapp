@@ -9,7 +9,7 @@
 import Foundation
 
 class StoreItems {
-    var storeItems = [StoreItem]()
+    private var storeItems = [StoreItem]()
 
     subscript(index: Int) -> StoreItem? {
         guard index < storeItems.count else { return nil }
