@@ -11,14 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
-    private var storeItems = StoreItems() {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView.dataSource = self
-                self.tableView.reloadData()
-            }
-        }
-    }
+    private var storeItems = StoreItems()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +31,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     @objc private func storeItemsSetted(notification: Notification) {
         guard let storeItems = notification.object as? StoreItems else { return }
         self.storeItems = storeItems
+        DispatchQueue.main.async {
+            self.tableView.dataSource = self
+            self.tableView.reloadData()
+        }
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,10 +42,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Keyword.customCellName.value, for: indexPath) as? StoreItemTableViewCell
-        let storeItem = storeItems[indexPath.row]
-        cell?.set(with: storeItem!)
-        return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Keyword.customCellName.value, for: indexPath)
+            as? StoreItemTableViewCell else { return UITableViewCell() }
+        guard let storeItem = storeItems[indexPath.row] else { return cell }
+        cell.set(with: storeItem)
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
