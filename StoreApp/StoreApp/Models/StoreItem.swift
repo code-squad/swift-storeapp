@@ -12,7 +12,7 @@ struct StoreItem: Decodable {
     let detail_hash: String
     let image: String
     let alt: String
-    let delivery_type: String
+    let delivery_type: [String]
     let title: String
     let description: String
     let n_price: String?
