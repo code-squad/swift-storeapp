@@ -9,13 +9,17 @@
 import Foundation
 
 enum Keyword {
-    case fileName
+    case mainFile
+    case soupFile
+    case sideFile
     case fileExtension
     case customCellName
 
     var value: String {
         switch self {
-        case .fileName: return "main"
+        case .mainFile: return "main"
+        case .soupFile: return "soup"
+        case .sideFile: return "side"
         case .fileExtension: return "json"
         case .customCellName: return "storeItem"
         }

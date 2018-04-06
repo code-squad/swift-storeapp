@@ -16,7 +16,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotification()
-        self.storeItems.setJSONData(with: Keyword.fileName.value)
+        setStore()
+    }
+
+    private func setStore() {
+        let files = [Keyword.mainFile.value, Keyword.soupFile.value, Keyword.sideFile.value]
+        storeItems.setStoreData(with: files)
     }
 
     private func addNotification() {
@@ -37,14 +42,22 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
     }
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems.count
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return storeItems.sectionHeaders.count
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return storeItems.sectionHeaders[section]
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return storeItems.count(of: section)
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Keyword.customCellName.value, for: indexPath)
             as? StoreItemTableViewCell else { return UITableViewCell() }
-        guard let storeItem = storeItems[indexPath.row] else { return cell }
+        let storeItem = storeItems[indexPath.section][indexPath.row]
         cell.set(with: storeItem)
         return cell
     }
