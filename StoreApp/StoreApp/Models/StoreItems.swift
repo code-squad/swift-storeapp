@@ -9,7 +9,7 @@
 import Foundation
 
 class StoreItems {
-    private(set) var sectionHeaders = [String]()
+    private(set) var sectionHeaders = [(title: String, description: String)]()
     private var sections = [[StoreItem]]()
 
     subscript(index: Int) -> [StoreItem] {
@@ -21,7 +21,7 @@ class StoreItems {
         return sections[index].count
     }
 
-    func setStoreData(with files: [Keyword]) {
+    func setStoreData(with files: [Keyword.File]) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             files.forEach { self?.setJSONData(with: $0) }
             NotificationCenter.default.post(name: .storeItems, object: self)
@@ -29,15 +29,16 @@ class StoreItems {
 
     }
 
-    private func setJSONData(with fileName: Keyword) {
+    private func setJSONData(with fileName: Keyword.File) {
         guard let data = self.getData(from: fileName.value) else { return }
         let storeItems = self.convert(from: data)
         sections.append(storeItems)
-        sectionHeaders.append(fileName.sectionName)
+        let header = fileName.sectionName.split(separator: "/").map { String($0.trimmingCharacters(in: [" "])) }
+        sectionHeaders.append((title: header[0], description: header[1]))
     }
 
     private func getData(from jsonFile: String) -> Data? {
-        let path = Bundle.main.path(forResource: jsonFile, ofType: Keyword.fileExtension.value)
+        let path = Bundle.main.path(forResource: jsonFile, ofType: Keyword.File.ext.value)
         let url = URL(fileURLWithPath: path!)
         return try? Data(contentsOf: url)
     }

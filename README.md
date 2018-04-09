@@ -88,3 +88,14 @@ return try decoder.decode([StoreItem].self, from: data)
 ```
 가운데 줄의 ```decoder.keyDecodingStrategy = .convertFromSnakeCase``` 가 새로 추가된 부분.
 JSON데이터의 snakeCase형식의 키를 camelCase로 자동으로 커스터마이징 해준다.
+- UITableViewDelegate 과 UITableViewDatasource
+```
+UITableViewDelegate
+Serving as a table's delegate means you provide answers to requests about the layout of the table and about actions the user performs on the tableview. Layout methods include the tableview asking about the height of rows, headers, and footers, what the buttons should look like, etc. Action methods include the user selecting a row and beginning and ending the editing of a row.
+   
+UITableViewDatasource
+Serving as a table's datasource means you provide data for the sections and rows of a table and you act on messages that change a table's data. The datasource is asked for the data for a cell when the table is drawn, is told that the user has asked to delete a row, and is told the new value of a row that the user has edited.
+```
+	- Delegate의 경우 action이나 TableView의 속성 등을 사용자의 요구에 맞게 표현하도록 하는 프로토콜
+	- DataSource의 경우 모델 등 데이터를 TableView에 표현하기 위한 프로토콜
+ 
