@@ -55,5 +55,36 @@
 ![8Plus](materials/step2_8Plus.png)
 
 ---
+## Step3 (Custom Section 헤더 적용)
+### 요구사항
+- 데이터를 추가하고 오토레이아웃을 적용한 상품목록 - 테이블뷰를 완성하는 것을 목표로 한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+	- 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+	- 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- soup.json, side.json 파일을 다운로드해서 프로젝트에 복사하고 JSONDecoder를 활용해서 모델 객체를 기존 main과 함께 섹션(section)을 구분할 수 있도록 개선한다.
+- 스토리보드 ViewController에 Cell에 Section Header로 사용할 Custom Cell을 추가한다.
+	- 총 섹션은 3개로 구분해서 헤더에 다음과 같이 표시한다.
+	- main => ```메인반찬 / 한그릇 뚝딱 메인 요리```
+	- soup => ```국.찌게 / 김이 모락모락 국.찌게```
+	- side => ```밑반찬 / 언제 먹어도 든든한 밑반찬```
+
+### 결과
+#### UI
+![적용화면1](materials/step3_01.png)
+![적용화면2](materials/step3_02.png)
+![적용화면3](materials/step3_03.png)
+![적용화면4](materials/step3_04.png)
+
+---
 ## 중간에 고생했던 부분 / 기억할 부분 간단 정리
 - JSONDecoder().decode([StoreItem].self, from: data) 를 통해 데이터를 직접 객체에 바인딩 가능하다.
+- 위 코드를 Swift 4.1 새로 추가된 내용에 의해 변경
+```
+let decoder = JSONDecoder()
+decoder.keyDecodingStrategy = .convertFromSnakeCase
+return try decoder.decode([StoreItem].self, from: data)
+```
+가운데 줄의 ```decoder.keyDecodingStrategy = .convertFromSnakeCase``` 가 새로 추가된 부분.
+JSON데이터의 snakeCase형식의 키를 camelCase로 자동으로 커스터마이징 해준다.
