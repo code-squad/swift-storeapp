@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
 
     private var storeItems = StoreItems()
@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     private func setStore() {
-        let files = [Keyword.mainFile.value, Keyword.soupFile.value, Keyword.sideFile.value]
+        let files = [Keyword.mainFile, Keyword.soupFile, Keyword.sideFile]
         storeItems.setStoreData(with: files)
     }
 
@@ -38,6 +38,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         self.storeItems = storeItems
         DispatchQueue.main.async {
             self.tableView.dataSource = self
+            self.tableView.delegate = self
             self.tableView.reloadData()
         }
     }
@@ -46,8 +47,18 @@ class ViewController: UIViewController, UITableViewDataSource {
         return storeItems.sectionHeaders.count
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return storeItems.sectionHeaders[section]
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(60)
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableCell(withIdentifier: "header")
+                                as? HeaderTableViewCell else { return nil }
+        let header = storeItems.sectionHeaders[section].split(separator: "/").map {
+            String($0.trimmingCharacters(in: [" "]))
+        }
+        headerView.titleLabel.text = header[0]
+        headerView.descriptionLabel.text = header[1]
+        return headerView
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

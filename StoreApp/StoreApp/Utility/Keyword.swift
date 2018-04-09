@@ -24,4 +24,13 @@ enum Keyword {
         case .customCellName: return "storeItem"
         }
     }
+
+    var sectionName: String {
+        switch self {
+        case .mainFile: return "메인반찬 / 한그릇 뚝딱 메인 요리"
+        case .soupFile: return "국.찌개 / 김이 모락모락 국.찌개"
+        case .sideFile: return "밑반찬 / 언제 먹어도 든든한 밑반찬"
+        default: return ""
+        }
+    }
 }

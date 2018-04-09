@@ -21,7 +21,7 @@ class StoreItems {
         return sections[index].count
     }
 
-    func setStoreData(with files: [String]) {
+    func setStoreData(with files: [Keyword]) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             files.forEach { self?.setJSONData(with: $0) }
             NotificationCenter.default.post(name: .storeItems, object: self)
@@ -29,11 +29,11 @@ class StoreItems {
 
     }
 
-    private func setJSONData(with fileName: String) {
-        guard let data = self.getData(from: fileName) else { return }
+    private func setJSONData(with fileName: Keyword) {
+        guard let data = self.getData(from: fileName.value) else { return }
         let storeItems = self.convert(from: data)
         sections.append(storeItems)
-        sectionHeaders.append(fileName)
+        sectionHeaders.append(fileName.sectionName)
     }
 
     private func getData(from jsonFile: String) -> Data? {
@@ -44,7 +44,9 @@ class StoreItems {
 
     private func convert(from data: Data) -> [StoreItem] {
         do {
-            return try JSONDecoder().decode([StoreItem].self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try decoder.decode([StoreItem].self, from: data)
         } catch {
             return []
         }

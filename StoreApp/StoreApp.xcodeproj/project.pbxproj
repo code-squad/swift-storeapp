@@ -27,6 +27,7 @@
 		8E16F56D2076005A0028FE38 /* NotificationUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E16F56B2076005A0028FE38 /* NotificationUtility.swift */; };
 		8E16F572207770F30028FE38 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E16F571207770F30028FE38 /* soup.json */; };
 		8E16F574207771260028FE38 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E16F573207771260028FE38 /* side.json */; };
+		8E16F57C207B29E90028FE38 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E16F57B207B29E90028FE38 /* HeaderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		8E16F56B2076005A0028FE38 /* NotificationUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationUtility.swift; sourceTree = "<group>"; };
 		8E16F571207770F30028FE38 /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		8E16F573207771260028FE38 /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		8E16F57B207B29E90028FE38 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				8E16F5602075CE6F0028FE38 /* StoreItemTableViewCell.swift */,
+				8E16F57B207B29E90028FE38 /* HeaderTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E16F57C207B29E90028FE38 /* HeaderTableViewCell.swift in Sources */,
 				8E16F55B2075CA2B0028FE38 /* StoreItem.swift in Sources */,
 				8E16F5692075EA630028FE38 /* Keyword.swift in Sources */,
 				8E16F56C2076005A0028FE38 /* NotificationUtility.swift in Sources */,
