@@ -19,8 +19,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         setStore()
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
     private func setStore() {
-        let files = [Keyword.mainFile, Keyword.soupFile, Keyword.sideFile]
+        let files = [Keyword.File.main, Keyword.File.soup, Keyword.File.side]
         storeItems.setStoreData(with: files)
     }
 
@@ -43,22 +47,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return storeItems.sectionHeaders.count
+    // MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(Keyword.Size.header.value)
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(60)
-    }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableCell(withIdentifier: "header")
+        guard let headerView = tableView.dequeueReusableCell(withIdentifier: Keyword.CellIdentifier.header.value)
                                 as? HeaderTableViewCell else { return nil }
-        let header = storeItems.sectionHeaders[section].split(separator: "/").map {
-            String($0.trimmingCharacters(in: [" "]))
-        }
-        headerView.titleLabel.text = header[0]
-        headerView.descriptionLabel.text = header[1]
+        let header = storeItems.sectionHeaders[section]
+        headerView.titleLabel.text = header.title
+        headerView.descriptionLabel.text = header.description
         return headerView
+    }
+
+    // MARK: UITableViewDataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return storeItems.sectionHeaders.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,15 +71,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Keyword.customCellName.value, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Keyword.CellIdentifier.storeItem.value, for: indexPath)
             as? StoreItemTableViewCell else { return UITableViewCell() }
         let storeItem = storeItems[indexPath.section][indexPath.row]
         cell.set(with: storeItem)
         return cell
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
 }
