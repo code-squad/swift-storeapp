@@ -78,6 +78,26 @@
 ![적용화면4](materials/step3_04.png)
 
 ---
+## Step4 (패키지 관리 - CocoaPod)
+### 요구사항
+- 쇼팽앱 섹션 헤더 적용 요구사항을 구현한 상태에서 시작한다.
+- 패키지 의존성 관리 도구에 대해 학습하고 적용한다.
+- Cocoapods에 대해 학습한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+	- 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+	- 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- Cocoapod 를 설치한다.
+- https://github.com/devxoul/Toaster 저장소에 있는 Toaster 패키지를 cocoapod 으로 설치한다.
+- pod으로 설치한 Toaster 모듈을 import 하고 테이블뷰 셀을 터치하면 (didSelect) 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
+
+### 결과
+#### UI
+![적용화면1](materials/step4_01.png)
+![적용화면2](materials/step4_02.png)
+
+---
 ## 중간에 고생했던 부분 / 기억할 부분 간단 정리
 - JSONDecoder().decode([StoreItem].self, from: data) 를 통해 데이터를 직접 객체에 바인딩 가능하다.
 - 위 코드를 Swift 4.1 새로 추가된 내용에 의해 변경
@@ -98,4 +118,18 @@ Serving as a table's datasource means you provide data for the sections and rows
 ```
 	- Delegate의 경우 action이나 TableView의 속성 등을 사용자의 요구에 맞게 표현하도록 하는 프로토콜
 	- DataSource의 경우 모델 등 데이터를 TableView에 표현하기 위한 프로토콜
- 
+ - 패키지 매니저 도구
+ 	- CocoaPods
+		+ 장점 : 설치 및 사용이 쉽고, 커뮤니티가 크고 활발하다.(대부분의 오픈소스가 포함되어있음)
+		+ 단점 : 프로젝트 내용 및 파일을 자동으로 알지 못하는 방향으로 수정하는 경우가 있다.
+	- Carthage
+		+ 장점 : 프로젝트를 건들지 않아 정확한 컨트롤이 가능하다.
+		+ 단점 : 느리고, 커뮤니티가 크지 않다.
+	- Swift Package Manager
+		+ 장점 : Apple에서 공식 지원한다.
+		+ 단점 : 초창기, 표준 Swift Package의 Directory 구조를 따라야 한다.
+- 프로젝트 설정 관련 용어
+	+ target
+	+ workspace
+	+ build configuration
+	+ scheme
