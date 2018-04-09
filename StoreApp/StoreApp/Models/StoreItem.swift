@@ -9,13 +9,13 @@
 import Foundation
 
 struct StoreItem: Decodable {
-    let detail_hash: String
+    let detailHash: String
     let image: String
     let alt: String
-    let delivery_type: [String]
+    let deliveryType: [String]
     let title: String
     let description: String
-    let n_price: String?
-    let s_price: String
+    let nPrice: String?
+    let sPrice: String
     let badge: [String]?
 }

@@ -24,26 +24,10 @@ class StoreItemTableViewCell: UITableViewCell {
     }
 
     func set(with storeItem: StoreItem) {
-        setTitle(with: storeItem.title)
-        setDetail(with: storeItem.description)
-        setPrice(with: storeItem.s_price)
-        setEventBadge(with: storeItem.badge)
-    }
-
-    private func setTitle(with title: String) {
-        titleLabel.text = title
-    }
-
-    private func setDetail(with detail: String) {
-        detailLabel.text = detail
-    }
-
-    private func setPrice(with price: String) {
-        priceLabel.text = price
-    }
-
-    private func setEventBadge(with badge: [String]?) {
-        eventBadge.text = badge?.reduce("", +)
+        titleLabel.text = storeItem.title
+        detailLabel.text = storeItem.description
+        priceLabel.text = storeItem.sPrice
+        eventBadge.text = storeItem.badge?.reduce("", +)
     }
 
 }
