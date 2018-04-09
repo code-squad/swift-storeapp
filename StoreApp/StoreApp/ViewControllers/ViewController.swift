@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -60,11 +61,18 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Keyword.CellIdentifier.storeItem.value, for: indexPath)
-            as? StoreItemTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Keyword.CellIdentifier.storeItem.value,
+                                                       for: indexPath)
+                        as? StoreItemTableViewCell else { return UITableViewCell() }
         let storeItem = storeItems[indexPath.section][indexPath.row]
         cell.set(with: storeItem)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? StoreItemTableViewCell else { return }
+        let title = cell.titleLabel.text ?? ""
+        let price = cell.priceLabel.text ?? ""
+        Toast(text: "\(title) : \(price)").show()
     }
 }
 
