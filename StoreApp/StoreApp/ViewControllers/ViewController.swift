@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private var storeItems = StoreItems()
@@ -47,21 +47,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
 
-    // MARK: UITableViewDelegate
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(Keyword.Size.header.value)
-    }
+}
 
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableCell(withIdentifier: Keyword.CellIdentifier.header.value)
-                                as? HeaderTableViewCell else { return nil }
-        let header = storeItems.sectionHeaders[section]
-        headerView.titleLabel.text = header.title
-        headerView.descriptionLabel.text = header.description
-        return headerView
-    }
-
-    // MARK: UITableViewDataSource
+// MARK: UITableViewDataSource
+extension ViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return storeItems.sectionHeaders.count
     }
@@ -77,6 +66,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.set(with: storeItem)
         return cell
     }
-
 }
 
+// MARK: UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(Keyword.Size.header.value)
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableCell(withIdentifier: Keyword.CellIdentifier.header.value)
+            as? HeaderTableViewCell else { return nil }
+        let header = storeItems.sectionHeaders[section]
+        headerView.titleLabel.text = header.title
+        headerView.descriptionLabel.text = header.description
+        return headerView
+    }
+}
