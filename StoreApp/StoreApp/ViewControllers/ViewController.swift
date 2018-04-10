@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
 
     private func setStore() {
-        let files = [Keyword.File.main, Keyword.File.soup, Keyword.File.side]
+        let files = [Keyword.Section.main, Keyword.Section.soup, Keyword.Section.side]
         storeItems.setStoreData(with: files)
     }
 
@@ -33,7 +33,19 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(storeItemsSetted(notification:)),
-            name: .storeItems,
+            name: .main,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(storeItemsSetted(notification:)),
+            name: .soup,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(storeItemsSetted(notification:)),
+            name: .side,
             object: nil
         )
     }
