@@ -98,6 +98,26 @@
 ![적용화면2](materials/step4_02.png)
 
 ---
+## Step5 (Network 프로그래밍)
+### 요구사항
+- 네트워크 프로그래밍 관련 자료를 보고 학습한다.
+- HTTP 프로토콜에 대해 학습하고 요청과 응답 방식에 대해 정리한다.
+- 네트워크 프로그래밍을 위해서 Asynchronous 방식으로 동작하는 개념을 학습한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+	- 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+	- 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- 아래 주소별로 JSON 데이터를 받아오는 모델 객체를 만든다.
+	- HTTP 프로토콜 GET 요청으로 다음 주소에서 메인반찬 JSON 데이터를 받는다. ```http://crong.codesquad.kr:8080/woowa/main```
+	- HTTP 프로토콜 GET 요청으로 다음 주소에서 국.찌게 JSON 데이터를 받는다. ```http://crong.codesquad.kr:8080/woowa/soup```
+	- HTTP 프로토콜 GET 요청으로 다음 주소에서 밑반찬 JSON 데이터를 받는다. ```http://crong.codesquad.kr:8080/woowa/side```
+	(위 API들은 오전9시부터 밤12시까지만 동작한다.)
+- HTTP 요청은 URLSession 관련 프레임워크를 활용한다.
+- 응답으로 받은 JSON 데이터를 마찬가지 방법으로 Decode해서 StoreItem 객체로 변환한다.
+- 모델 객체는 응답이 도착하면 Notification을 보내서 테이블뷰의 해당 섹션만 업데이트한다.
+
+---
 ## 중간에 고생했던 부분 / 기억할 부분 간단 정리
 - JSONDecoder().decode([StoreItem].self, from: data) 를 통해 데이터를 직접 객체에 바인딩 가능하다.
 - 위 코드를 Swift 4.1 새로 추가된 내용에 의해 변경
@@ -133,3 +153,10 @@ Serving as a table's datasource means you provide data for the sections and rows
 	+ workspace
 	+ build configuration
 	+ scheme
+- URLSession : iOS네트워킹을 담당하는 객체.(Foundation)
+	- Configuration에 따라 인스턴스를 생성할지, shared를 이용한 싱글톤 객체를 사용할지 지정할 수 있다. 
+	- dataTask메소드와 URL혹은 URLRequest를 이용하여 커스터마이징해서 네트워크 작업을 진행할 수 있다.
+	- HTTP통신을 위해선(HTTPS가 아닌 경우) App Transport Security Settings - Allow Arbitrary Loads 를 YES로 설정해야한다. 
+- Alamofire : 네트워크 작업을 쉽게 처리하도록 도와주는 라이브러리
+	- 편리한 기능들이 많아서 인기가 많다.
+	- [Alamofire](https://github.com/Alamofire/Alamofire)
