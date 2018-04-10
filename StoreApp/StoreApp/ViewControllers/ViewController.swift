@@ -69,10 +69,8 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? StoreItemTableViewCell else { return }
-        let title = cell.titleLabel.text ?? ""
-        let price = cell.priceLabel.text ?? ""
-        Toast(text: "\(title) : \(price)").show()
+        let storeItem = storeItems[indexPath.section][indexPath.row]
+        Toast(text: "\(storeItem.title) : \(storeItem.sPrice)").show()
     }
 }
 
