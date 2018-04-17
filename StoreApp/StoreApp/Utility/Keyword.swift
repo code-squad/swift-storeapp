@@ -37,14 +37,6 @@ struct Keyword {
             case .side: return "http://crong.codesquad.kr:8080/woowa/side"
             }
         }
-
-        var notification: Notification.Name {
-            switch self {
-            case .main: return Notification.Name.main
-            case .soup: return Notification.Name.soup
-            case .side: return Notification.Name.side
-            }
-        }
     }
 
     enum CellIdentifier {

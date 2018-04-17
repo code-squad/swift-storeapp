@@ -22,6 +22,10 @@ class StoreItems {
         return section.count
     }
 
+    func setHeaders(with headers: [Keyword.Section]) {
+        headers.forEach { setHeader(of: $0) }
+    }
+
     func setStoreData(with sections: [Keyword.Section]) {
         sections.forEach { setJSONData(with: $0) }
     }
@@ -29,16 +33,25 @@ class StoreItems {
     private func setJSONData(with section: Keyword.Section) {
         guard let url = URL(string: section.url) else { return }
         let urlSession = URLSession.shared
-        setHeaders(of: section)
         urlSession.dataTask(with: url, completionHandler: { (data, response, error) in
             if let data = data {
-                self.setStoreItems(with: data, to: section)
-                NotificationCenter.default.post(name: section.notification, object: self)
+                DispatchQueue.main.async {
+                    self.setStoreItems(with: data, to: section)
+                    let indexPaths = Array(0..<(self.sections[section.value]?.count)!)
+                                     .map {IndexPath(row: $0, section: self.getIndex(of: section))}
+                    NotificationCenter.default.post(name: .storeItems, object: self,
+                                                    userInfo: ["indexPaths": indexPaths])
+                }
             }
         }).resume()
     }
 
-    private func setHeaders(of section: Keyword.Section) {
+    private func getIndex(of section: Keyword.Section) -> Int {
+        for index in sectionHeaders.indices where sectionHeaders[index].section == section.value { return index }
+        return 0
+    }
+
+    private func setHeader(of section: Keyword.Section) {
         let header = section.description.split(separator: "/").map { String($0.trimmingCharacters(in: [" "])) }
         sectionHeaders.append((section: section.value, title: header[0], description: header[1]))
     }
