@@ -9,7 +9,5 @@
 import Foundation
 
 extension Notification.Name {
-    static let main = Notification.Name(Keyword.Section.main.value)
-    static let soup = Notification.Name(Keyword.Section.soup.value)
-    static let side = Notification.Name(Keyword.Section.side.value)
+    static let storeItems = Notification.Name("storeItems")
 }

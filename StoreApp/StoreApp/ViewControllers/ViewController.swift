@@ -11,53 +11,38 @@ import Toaster
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-
+    private let sections = [Keyword.Section.main, Keyword.Section.soup, Keyword.Section.side]
     private var storeItems = StoreItems()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addNotification()
-        setStore()
+        tableView.dataSource = self
+        tableView.delegate = self
+        storeItems.setHeaders(with: sections)
+        tableView.reloadData()
+        storeItems.setStoreData(with: sections)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-    private func setStore() {
-        let files = [Keyword.Section.main, Keyword.Section.soup, Keyword.Section.side]
-        storeItems.setStoreData(with: files)
-    }
-
     private func addNotification() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(storeItemsSetted(notification:)),
-            name: .main,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(storeItemsSetted(notification:)),
-            name: .soup,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(storeItemsSetted(notification:)),
-            name: .side,
+            selector: #selector(storeItemsHasChanged(notification:)),
+            name: .storeItems,
             object: nil
         )
     }
 
-    @objc private func storeItemsSetted(notification: Notification) {
-        guard let storeItems = notification.object as? StoreItems else { return }
-        self.storeItems = storeItems
-        DispatchQueue.main.async {
-            self.tableView.dataSource = self
-            self.tableView.delegate = self
-            self.tableView.reloadData()
-        }
+    @objc private func storeItemsHasChanged(notification: Notification) {
+        self.tableView.beginUpdates()
+        guard let userInfo = notification.userInfo as? [String: [IndexPath]] else { return }
+        guard let indexPaths = userInfo["indexPaths"] else { return }
+        self.tableView.insertRows(at: indexPaths, with: .automatic)
+        self.tableView.endUpdates()
     }
 
 }
@@ -65,7 +50,7 @@ class ViewController: UIViewController {
 // MARK: UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return storeItems.sectionHeaders.count
+        return sections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,9 +58,11 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let emptyCell = UITableViewCell()
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Keyword.CellIdentifier.storeItem.value,
                                                        for: indexPath)
-                        as? StoreItemTableViewCell else { return UITableViewCell() }
+                        as? StoreItemTableViewCell else { return emptyCell }
+        guard storeItems[indexPath.section].count != 0 else { return emptyCell }
         let storeItem = storeItems[indexPath.section][indexPath.row]
         cell.set(with: storeItem)
         return cell

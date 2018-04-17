@@ -160,3 +160,6 @@ Serving as a table's datasource means you provide data for the sections and rows
 - Alamofire : 네트워크 작업을 쉽게 처리하도록 도와주는 라이브러리
 	- 편리한 기능들이 많아서 인기가 많다.
 	- [Alamofire](https://github.com/Alamofire/Alamofire)
+- UITableView의 insertRows, deleteRows
+	- 업데이트 하려는 데이터의 rows count와 업데이트 후 tableView의 해당 셀의 rows가 같아야 한다.
+	- 비동기처리 작업시 주의 : tableView 업데이트 순간에 데이터의 모든 section과 rows count가 일치해야한다.(데이터 먼저 다 받고 tableView 따로 그리고 그런 방식이 아니라 데이터가 수정되는 것과 테이블 뷰 그리는 과정이 동기화 되어야 한다.)
