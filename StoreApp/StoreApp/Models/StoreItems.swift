@@ -37,6 +37,7 @@ class StoreItems {
             if let data = data {
                 DispatchQueue.main.async {
                     self.setStoreItems(with: data, to: section)
+                    self.downloadImages(on: section)
                     let indexPaths = Array(0..<(self.sections[section.value]?.count)!)
                                      .map {IndexPath(row: $0, section: self.getIndex(of: section))}
                     NotificationCenter.default.post(name: .storeItems, object: self,
@@ -68,6 +69,21 @@ class StoreItems {
             return try decoder.decode([StoreItem].self, from: data)
         } catch {
             return []
+        }
+    }
+
+    private func downloadImages(on section: Keyword.Section) {
+        guard let items = sections[section.value] else { return }
+        for item in items {
+            guard let imageUrl = URL(string: item.image) else { continue }
+            URLSession.shared.downloadTask(with: imageUrl, completionHandler: { (url, urlResponse, error) in
+                if let url = url {
+                    guard let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+                        else { return }
+                    let fileURL = cacheURL.appendingPathComponent(imageUrl.lastPathComponent)
+                    try? FileManager.default.moveItem(at: url, to: fileURL)
+                }
+            }).resume()
         }
     }
 
