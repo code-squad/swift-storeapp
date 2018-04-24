@@ -118,6 +118,32 @@
 - 모델 객체는 응답이 도착하면 Notification을 보내서 테이블뷰의 해당 섹션만 업데이트한다.
 
 ---
+## Step6 (병렬처리)
+### 요구사항
+- GCD(Grand Central Dispatch)에 대해 학습하고 정리한다. 강의 자료
+- 이미지 다운로드와 캐시 처리 방식에 대해 학습한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+	- 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+	- 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- 3개의 JSON 데이터가 모두 받고 나면 JSON 데이터에 포함된 이미지 URL을 분리해서 Image 파일들을 다운로드 받는다.
+	- 이미지 파일들을 병렬처리해서 한꺼번에 여러개를 다운로드하도록 구성한다.
+	- (선택1) GCD Queue를 활용하거나
+	- (선택2) Download Task 방식으로 구현한다.
+- 다운로드가 완료되면 앱 디렉토리 중에 Cache 디렉토리에 URL에 있는 파일명으로 저장한다.
+- 셀을 표기할 때 이미 다운로드된 이미지가 있으면 표시하고, 새로운 파일이 다운로드 완료되면 해당 이미지를 테이블뷰 셀에 뒤늦게(lazy) 표시한다.
+	- 화면에 표시할 때 다운로드를 담당하는 스레드와 화면을 처리하는 스레드를 위한 GCD Queue를 구분해서 처리한다.
+	- 이미지를 다 받을때 까지 화면이 하얗게 멈춰있지 않도록 만든다.
+
+### 결과
+#### UI
+![적용화면1](materials/step6_01.png)
+![적용화면2](materials/step6_02.png)
+![적용화면3](materials/step6_03.png)
+![적용화면4](materials/step6_04.png)
+
+---
 ## 중간에 고생했던 부분 / 기억할 부분 간단 정리
 - JSONDecoder().decode([StoreItem].self, from: data) 를 통해 데이터를 직접 객체에 바인딩 가능하다.
 - 위 코드를 Swift 4.1 새로 추가된 내용에 의해 변경
@@ -163,3 +189,10 @@ Serving as a table's datasource means you provide data for the sections and rows
 - UITableView의 insertRows, deleteRows
 	- 업데이트 하려는 데이터의 rows count와 업데이트 후 tableView의 해당 셀의 rows가 같아야 한다.
 	- 비동기처리 작업시 주의 : tableView 업데이트 순간에 데이터의 모든 section과 rows count가 일치해야한다.(데이터 먼저 다 받고 tableView 따로 그리고 그런 방식이 아니라 데이터가 수정되는 것과 테이블 뷰 그리는 과정이 동기화 되어야 한다.)
+
+- 병렬처리(Parallel Processing)와 동시성(Concurrency)
+	- GCD(Grand Central Dispatch)
+	- DispatchQueue를 이용해 새로운 쓰레드를 만든다고 생각하면 됨
+	- qos(Quality Of Service)를 이용해 처리 방식을 설정 가능
+	- UI는 항상 main쓰레드에서 처리해야 한다.
+
