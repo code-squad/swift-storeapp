@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,7 +69,6 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNm-ww-oMi" userLabel="MenuImage">
                                                     <rect key="frame" x="0.0" y="0.0" width="130" height="130.33333333333334"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="jIs-Gq-HbQ"/>
                                                         <constraint firstAttribute="width" secondItem="dNm-ww-oMi" secondAttribute="height" multiplier="1:1" id="uHD-ZG-kJp"/>
                                                     </constraints>
                                                 </imageView>
@@ -83,9 +83,6 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7,100원" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Bb-fy-YQw" userLabel="PriceLabel">
                                                     <rect key="frame" x="140" y="64" width="200" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="QnJ-ir-QVO"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -113,14 +110,17 @@
                                                 <constraint firstItem="fZb-lg-zKg" firstAttribute="top" secondItem="IbI-bt-FXa" secondAttribute="top" constant="20" symbolic="YES" id="Fa0-AM-LRe"/>
                                                 <constraint firstItem="1Bb-fy-YQw" firstAttribute="top" secondItem="YAo-Cy-6nj" secondAttribute="bottom" constant="8" symbolic="YES" id="MaZ-k1-sjj"/>
                                                 <constraint firstItem="d23-Zl-Uu7" firstAttribute="leading" secondItem="dNm-ww-oMi" secondAttribute="trailing" constant="10" id="NZi-w6-bpO"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="d23-Zl-Uu7" secondAttribute="trailing" constant="20" symbolic="YES" id="OlL-7d-NBJ"/>
                                                 <constraint firstItem="dNm-ww-oMi" firstAttribute="centerY" secondItem="IbI-bt-FXa" secondAttribute="centerY" id="PIj-Nw-hJA"/>
                                                 <constraint firstItem="YAo-Cy-6nj" firstAttribute="top" secondItem="fZb-lg-zKg" secondAttribute="bottom" constant="4" id="QMR-13-73J"/>
                                                 <constraint firstAttribute="trailing" secondItem="fZb-lg-zKg" secondAttribute="trailing" constant="20" symbolic="YES" id="QVL-Dk-3dc"/>
                                                 <constraint firstAttribute="bottom" secondItem="d23-Zl-Uu7" secondAttribute="bottom" constant="20" symbolic="YES" id="Yh5-2N-95j"/>
                                                 <constraint firstAttribute="trailing" secondItem="YAo-Cy-6nj" secondAttribute="trailing" constant="20" symbolic="YES" id="bT4-gK-r6Z"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1Bb-fy-YQw" secondAttribute="trailing" constant="20" symbolic="YES" id="bbB-Ye-6fL"/>
                                                 <constraint firstItem="d23-Zl-Uu7" firstAttribute="top" secondItem="1Bb-fy-YQw" secondAttribute="bottom" constant="8" symbolic="YES" id="eaX-x0-596"/>
                                                 <constraint firstItem="dNm-ww-oMi" firstAttribute="leading" secondItem="IbI-bt-FXa" secondAttribute="leading" id="fGG-JH-9Kz"/>
                                                 <constraint firstItem="fZb-lg-zKg" firstAttribute="leading" secondItem="dNm-ww-oMi" secondAttribute="trailing" constant="10" id="jv7-ph-cgw"/>
+                                                <constraint firstItem="dNm-ww-oMi" firstAttribute="width" secondItem="IbI-bt-FXa" secondAttribute="width" multiplier="1:4" id="q7O-1R-Vi2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

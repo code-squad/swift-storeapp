@@ -35,6 +35,12 @@ class ViewController: UIViewController {
             name: .storeItems,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(showImage(notification:)),
+            name: .image,
+            object: nil
+        )
     }
 
     @objc private func storeItemsHasChanged(notification: Notification) {
@@ -43,6 +49,14 @@ class ViewController: UIViewController {
         guard let indexPaths = userInfo["indexPaths"] else { return }
         self.tableView.insertRows(at: indexPaths, with: .automatic)
         self.tableView.endUpdates()
+    }
+
+    @objc private func showImage(notification: Notification) {
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
+        guard let imageFile = userInfo["image"] as? URL else { return }
+        guard let indexPath = userInfo["indexPath"] as? IndexPath else { return }
+        guard let cell = self.tableView.cellForRow(at: indexPath) as? StoreItemTableViewCell else { return }
+        cell.setImage(with: imageFile)
     }
 
 }
