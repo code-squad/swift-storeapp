@@ -24,24 +24,11 @@ class StoreItemTableViewCell: UITableViewCell {
     }
 
     func set(with storeItem: StoreItem) {
+        menuImage.image = storeItem.menuImage?.image
         titleLabel.text = storeItem.title
         detailLabel.text = storeItem.description
         priceLabel.text = storeItem.sPrice
         eventBadge.text = storeItem.badge?.reduce("", +)
     }
-
-    func setImage(with file: URL) {
-        menuImage.image = UIImage(named: file.path)
-        self.setNeedsLayout()
-    }
-
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        menuImage.image = nil
-//        titleLabel.text = nil
-//        detailLabel.text = nil
-//        priceLabel.text = nil
-//        eventBadge.text = nil
-//    }
 
 }

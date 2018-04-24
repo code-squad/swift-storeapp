@@ -39,7 +39,6 @@ class StoreItems {
                     self.setStoreItems(with: data, to: section)
                     let indexPaths = Array(0..<(self.sections[section.value]?.count)!)
                                      .map {IndexPath(row: $0, section: self.getIndex(of: section))}
-                    indexPaths.forEach { self.downloadImages(on: $0) }
                     NotificationCenter.default.post(name: .storeItems, object: self,
                                                     userInfo: ["indexPaths": indexPaths])
                 }
@@ -59,6 +58,9 @@ class StoreItems {
 
     private func setStoreItems(with data: Data, to section: Keyword.Section) {
         let storeItems = self.convert(from: data)
+        for index in storeItems.indices {
+            storeItems[index].setMenuImage(row: index, section: self.getIndex(of: section))
+        }
         sections[section.value] = storeItems
     }
 
@@ -69,32 +71,6 @@ class StoreItems {
             return try decoder.decode([StoreItem].self, from: data)
         } catch {
             return []
-        }
-    }
-
-    private func downloadImages(on indexPath: IndexPath) {
-        guard let items = sections[sectionHeaders[indexPath.section].section] else { return }
-        let item = items[indexPath.row]
-        guard let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return }
-        guard let imageUrl = URL(string: item.image) else { return }
-        let fileURL = cacheURL.appendingPathComponent(imageUrl.lastPathComponent)
-        guard FileManager.default.fileExists (atPath: fileURL.path) else {
-            URLSession.shared.downloadTask(with: imageUrl, completionHandler: { (url, urlResponse, error) in
-                if let url = url {
-                    try? FileManager.default.moveItem(at: url, to: fileURL)
-                    self.notifyImage(fileURL: fileURL, indexPath: indexPath)
-                }
-            }).resume()
-            return
-        }
-        notifyImage(fileURL: fileURL, indexPath: indexPath)
-    }
-
-    private func notifyImage(fileURL: URL, indexPath: IndexPath) {
-        DispatchQueue.main.async {
-            NotificationCenter.default.post(name: .image,
-                                            object: self,
-                                            userInfo: ["image": fileURL, "indexPath": indexPath])
         }
     }
 

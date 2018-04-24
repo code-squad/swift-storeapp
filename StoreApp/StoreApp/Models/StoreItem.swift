@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StoreItem: Decodable {
+class StoreItem: Decodable {
     let detailHash: String
     let image: String
     let alt: String
@@ -18,4 +18,9 @@ struct StoreItem: Decodable {
     let nPrice: String?
     let sPrice: String
     let badge: [String]?
+    private(set) var menuImage: MenuImage?
+
+    func setMenuImage(row: Int, section: Int) {
+        menuImage = MenuImage(urlString: self.image, row: row, section: section)
+    }
 }
