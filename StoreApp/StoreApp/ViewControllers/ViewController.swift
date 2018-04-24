@@ -53,10 +53,10 @@ class ViewController: UIViewController {
 
     @objc private func showImage(notification: Notification) {
         guard let userInfo = notification.userInfo as? [String: Any] else { return }
-        guard let imageFile = userInfo["image"] as? URL else { return }
-        guard let indexPath = userInfo["indexPath"] as? IndexPath else { return }
-        guard let cell = self.tableView.cellForRow(at: indexPath) as? StoreItemTableViewCell else { return }
-        cell.setImage(with: imageFile)
+        guard let row = userInfo["row"] as? Int else { return }
+        guard let section = userInfo["section"] as? Int else { return }
+        let indexPath = IndexPath.init(row: row, section: section)
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
 }
