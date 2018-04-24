@@ -42,7 +42,6 @@ class MenuImage: Decodable {
             else { return nil }
         guard let imageURL = URL(string: urlString) else { return nil }
         let fileURL = cacheURL.appendingPathComponent(imageURL.lastPathComponent)
-        print(fileURL)
         if FileManager.default.fileExists (atPath: fileURL.path) {
             return UIImage(named: fileURL.path)
         } else {

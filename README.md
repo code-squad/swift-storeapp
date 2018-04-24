@@ -189,10 +189,22 @@ Serving as a table's datasource means you provide data for the sections and rows
 - UITableView의 insertRows, deleteRows
 	- 업데이트 하려는 데이터의 rows count와 업데이트 후 tableView의 해당 셀의 rows가 같아야 한다.
 	- 비동기처리 작업시 주의 : tableView 업데이트 순간에 데이터의 모든 section과 rows count가 일치해야한다.(데이터 먼저 다 받고 tableView 따로 그리고 그런 방식이 아니라 데이터가 수정되는 것과 테이블 뷰 그리는 과정이 동기화 되어야 한다.)
-
 - 병렬처리(Parallel Processing)와 동시성(Concurrency)
 	- GCD(Grand Central Dispatch)
 	- DispatchQueue를 이용해 새로운 쓰레드를 만든다고 생각하면 됨
 	- qos(Quality Of Service)를 이용해 처리 방식을 설정 가능
 	- UI는 항상 main쓰레드에서 처리해야 한다.
-
+- GCD & NSOperation
+	+ GCD
+		- low-level C API
+		- light-weight
+	+ NSOperation
+		- Objective-C API
+		- Key-Value 형식이라 Observable함(KVO)
+		- Pause, Cancel, Resume 등 컨트롤 가능
+		- State확인 가능
+		- Max Number로 쓰레드 갯수 제한 가능
+	- 둘은 병행해서 필요에 의해 사용하는 것이 좋다.
+	- 세밀한 컨트롤이 필요할때와 간단하고 가볍게 사용할때를 구분해서 사용하면 좋을 것 같다.
+	- 이 프로젝트에선 downloadTask를 이용해 파일을 바로 다운받아서 데이터 활용에 이익을 취할 수 있었다.
+	- GCD를 활용했다면 파일을 Data형식으로 다운받고 다시한번 jpg파일로 전환하는 작업이 필요하여 파일 용량과 로직이 불합리적이었을 것이다.
