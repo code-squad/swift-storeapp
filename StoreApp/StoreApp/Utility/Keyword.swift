@@ -59,4 +59,13 @@ struct Keyword {
             }
         }
     }
+
+    enum Detail {
+        case url
+        var value: String {
+            switch self {
+            case .url: return "http://crong.codesquad.kr:8080/woowa/detail/"
+            }
+        }
+    }
 }
