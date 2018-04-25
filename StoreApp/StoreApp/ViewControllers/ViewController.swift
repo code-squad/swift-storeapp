@@ -88,6 +88,7 @@ extension ViewController: UITableViewDataSource {
         if let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detail")
             as? DetailViewController {
             detailVC.detailHash = storeItem.detailHash
+            
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
