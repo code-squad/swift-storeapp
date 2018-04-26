@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+enum Keyword {
+    
+    case file
+    case fileType
+    case customCell
+    
+    var name : String {
+        switch self {
+        case .file : return "main"
+        case .fileType: return "json"
+        case .customCell: return "ListCell"
+        }
+    }
+    
+}
