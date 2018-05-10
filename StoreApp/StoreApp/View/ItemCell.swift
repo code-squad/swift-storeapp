@@ -16,4 +16,10 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var price: UILabel!
     @IBOutlet weak var eventBadge: UILabel!
     
+    func set(_ item : Item) {
+        title.text = item.title
+        detail.text = item.description
+        price.text = item.s_price
+        eventBadge.text = item.badge?.reduce("", +)
+    }
 }
