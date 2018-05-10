@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct DetailInformation {
+struct Detail: Decodable {
+    let hash: String
+    let data: DetailInformation
+}
+
+struct DetailInformation: Decodable {
     let topImage: String
     let thumbImages: [String]
     let productDescription: String
