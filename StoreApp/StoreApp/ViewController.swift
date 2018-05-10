@@ -8,18 +8,31 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var storeItems = StoreItems()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.dataSource = self
+        storeItems.setDataFromJSON(Keyword.file.name)
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return storeItems.count
     }
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let itemCell = tableView.dequeueReusableCell(withIdentifier: Keyword.customCell.name, for: indexPath) as? ItemCell else {
+            return UITableViewCell()
+        }
+        itemCell.set(storeItems[indexPath.row])
+        return itemCell
+    }
 
 }
 
