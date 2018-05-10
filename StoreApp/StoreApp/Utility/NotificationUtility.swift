@@ -11,4 +11,5 @@ import Foundation
 extension Notification.Name {
     static let storeItems = Notification.Name("storeItems")
     static let image = Notification.Name("Image")
+    static let detailInformation = Notification.Name("detailInformation")
 }

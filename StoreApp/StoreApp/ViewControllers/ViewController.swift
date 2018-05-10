@@ -59,6 +59,8 @@ class ViewController: UIViewController {
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
+    
+
 }
 
 // MARK: UITableViewDataSource
@@ -84,11 +86,11 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storeItem = storeItems[indexPath.section][indexPath.row]
         Toast(text: "\(storeItem.title) : \(storeItem.sPrice)").show()
-
         if let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detail")
             as? DetailViewController {
             detailVC.detailHash = storeItem.detailHash
-            
+            detailVC.detailTitle = storeItem.title
+            detailVC.detailDescription = storeItem.description
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
     }

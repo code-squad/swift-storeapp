@@ -15,20 +15,19 @@ class Communicator {
         let urlSession = URLSession.shared
         urlSession.dataTask(with: url, completionHandler: { (data, response, error) in
             if let data = data {
-                DispatchQueue.main.async {
-                    if let detailInformation = self.convert(from: data) {
-                        
-                    }
+                if let detail = self.convert(from: data) {
+                    NotificationCenter.default.post(name: .detailInformation, object: self,
+                                                    userInfo: ["detailInformation": detail.data])
                 }
             }
         }).resume()
     }
 
-    private func convert(from data: Data) -> DetailInformation? {
+    private func convert(from data: Data) -> Detail? {
         do {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try decoder.decode(DetailInformation.self, from: data)
+            return try decoder.decode(Detail.self, from: data)
         } catch {
             return nil
         }
