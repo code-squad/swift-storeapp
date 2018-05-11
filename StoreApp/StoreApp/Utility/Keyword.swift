@@ -13,12 +13,16 @@ enum Keyword {
     case file
     case fileType
     case customCell
+    case soup
+    case side
     
     var name : String {
         switch self {
         case .file : return "main"
         case .fileType: return "json"
         case .customCell: return "ListCell"
+        case .soup: return "soup"
+        case .side: return "side"
         }
     }
     
