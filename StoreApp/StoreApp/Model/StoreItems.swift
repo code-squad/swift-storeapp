@@ -19,7 +19,7 @@ class StoreItems {
         return allItems[index]
     }
     
-    func setDataFromJSON(_ fileName : String) {
+    init(_ fileName : String) {
         guard let path = Bundle.main.path(forResource: fileName, ofType: Keyword.fileType.name) else { return }
         let url = URL(fileURLWithPath: path)
         guard let data = try? Data(contentsOf: url) else { return }
