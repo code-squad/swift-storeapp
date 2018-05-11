@@ -12,7 +12,7 @@
 ## 실행화면
 ![screemsh_step1](./img/Step1.png)
 
-## - Step2 ( AutoLayout 적용 )
+# - Step2 ( AutoLayout 적용 )
 
 ## 요구사항
 - 스토리보드 ViewController에 Cell을 Content View를 기준으로 하위 뷰들에 오토레이아웃을 적용한다.
@@ -22,5 +22,11 @@
 	- 메뉴 가격도 width 제약을 넣고, 나머지는 타이틀과 마찬가지로 제약을 준다.
 	- 이벤트 배지는 최소width 제약만 주고 글자 내용에 맞추고, 없을 경우 감춘다.
 
-	## 실행화면
-	![screemsh_step2](./img/Step2.png)
+## 실행화면
+![screemsh_step2](./img/Step2.png)
+
+## Priority & isActive
+ - 우선순위, Priority는 UILayoutPriority로 설정할 수 있으며 1에서 1000까지의 값을 갖는다.
+ - Required는 1000, DefaultHigh는 750, DefaultLow는 250의 기본값을 갖는다.
+  	- 세 가지 우선순위로 제약조건이 걸려있는 경우 1000이 가장 높은 영향력을 가지며, 1000이 없어진 경우 750, 750이 없어진 경우 250, 순차적으로 연결된다.
+ - Constraint의 isActive를 true/false로 변경하면 해당 값을 활성화/비활성화할 수 있다. 단, 이때 해당 Constraint가 weak으로 연결되면 ARC 문제로 해제될 경우가 있으므로 Strong으로 연결해야 한다.
