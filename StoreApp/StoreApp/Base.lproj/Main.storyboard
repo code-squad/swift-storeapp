@@ -31,7 +31,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhT-Za-Vby">
-                                                    <rect key="frame" x="131" y="5" width="35.5" height="20.5"/>
+                                                    <rect key="frame" x="131" y="5.5" width="35.5" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20.5" id="az5-E2-ulf"/>
                                                     </constraints>
@@ -40,13 +40,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uku-WI-Ihx">
-                                                    <rect key="frame" x="131" y="29.5" width="35" height="16"/>
+                                                    <rect key="frame" x="131" y="30" width="35" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventBadge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRw-yM-f4v">
-                                                    <rect key="frame" x="131" y="87" width="98.5" height="21"/>
+                                                    <rect key="frame" x="131" y="88" width="98.5" height="21"/>
                                                     <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="7A9-ZQ-wlZ"/>
@@ -61,14 +61,14 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fzy-uf-gfx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="121" height="121.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Fzy-uf-gfx" secondAttribute="height" multiplier="1:1" id="dqs-ye-evS"/>
                                                         <constraint firstAttribute="width" constant="121" id="wU1-Sa-g5H"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Itu-Aw-bSb">
-                                                    <rect key="frame" x="131" y="55.5" width="47" height="23"/>
+                                                    <rect key="frame" x="131" y="56" width="47" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="aYV-sg-HYX"/>
                                                     </constraints>

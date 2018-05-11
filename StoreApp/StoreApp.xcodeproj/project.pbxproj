@@ -17,6 +17,8 @@
 		043F1EDC2090A12400079228 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 043F1EDB2090A12400079228 /* main.json */; };
 		043F1EDF2090A9E500079228 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F1EDE2090A9E500079228 /* Keyword.swift */; };
 		043F1EE32091A6FB00079228 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F1EE22091A6FB00079228 /* StoreItems.swift */; };
+		045240B820A5667B00AE97DB /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 045240B720A5667A00AE97DB /* side.json */; };
+		045240BA20A5668900AE97DB /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 045240B920A5668900AE97DB /* soup.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		043F1EDB2090A12400079228 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		043F1EDE2090A9E500079228 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		043F1EE22091A6FB00079228 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
+		045240B720A5667A00AE97DB /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		045240B920A5668900AE97DB /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		041A4F45208B07D4002B1C3F /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				045240BB20A566A400AE97DB /* JSON */,
 				043F1EDD2090A19200079228 /* Utility */,
 				040001B820905DF600AD524A /* Model */,
 				040001B720905DBF00AD524A /* View */,
@@ -88,7 +93,6 @@
 				041A4F48208B07D4002B1C3F /* ViewController.swift */,
 				041A4F4A208B07D4002B1C3F /* Main.storyboard */,
 				041A4F4D208B07D6002B1C3F /* Assets.xcassets */,
-				043F1EDB2090A12400079228 /* main.json */,
 				041A4F4F208B07D6002B1C3F /* LaunchScreen.storyboard */,
 				041A4F52208B07D6002B1C3F /* Info.plist */,
 			);
@@ -101,6 +105,16 @@
 				043F1EDE2090A9E500079228 /* Keyword.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		045240BB20A566A400AE97DB /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				043F1EDB2090A12400079228 /* main.json */,
+				045240B920A5668900AE97DB /* soup.json */,
+				045240B720A5667A00AE97DB /* side.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +175,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045240BA20A5668900AE97DB /* soup.json in Resources */,
+				045240B820A5667B00AE97DB /* side.json in Resources */,
 				041A4F51208B07D6002B1C3F /* LaunchScreen.storyboard in Resources */,
 				041A4F4E208B07D6002B1C3F /* Assets.xcassets in Resources */,
 				043F1EDC2090A12400079228 /* main.json in Resources */,
