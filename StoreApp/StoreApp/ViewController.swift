@@ -12,12 +12,11 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var storeItems = StoreItems()
+    var storeItems = StoreItems(Keyword.file.name)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        storeItems.setDataFromJSON(Keyword.file.name)
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
     }
