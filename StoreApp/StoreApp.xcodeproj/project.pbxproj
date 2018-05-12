@@ -85,7 +85,7 @@
 		041A4F45208B07D4002B1C3F /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
-				045240BB20A566A400AE97DB /* JSON */,
+				045240BB20A566A400AE97DB /* Resources */,
 				043F1EDD2090A19200079228 /* Utility */,
 				040001B820905DF600AD524A /* Model */,
 				040001B720905DBF00AD524A /* View */,
@@ -107,14 +107,14 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		045240BB20A566A400AE97DB /* JSON */ = {
+		045240BB20A566A400AE97DB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				043F1EDB2090A12400079228 /* main.json */,
 				045240B920A5668900AE97DB /* soup.json */,
 				045240B720A5667A00AE97DB /* side.json */,
 			);
-			path = JSON;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
