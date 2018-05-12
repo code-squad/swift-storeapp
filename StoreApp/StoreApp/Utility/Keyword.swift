@@ -10,20 +10,24 @@ import Foundation
 
 enum Keyword {
     
-    case file
     case fileType
-    case customCell
-    case soup
-    case side
+    case headerCell
+    case listCell
     
     var name : String {
         switch self {
-        case .file : return "main"
         case .fileType: return "json"
-        case .customCell: return "ListCell"
-        case .soup: return "soup"
-        case .side: return "side"
+        case .headerCell: return "HeaderCell"
+        case .listCell: return "ListCell"
         }
     }
     
+    enum Size {
+        case header
+        var value: Int {
+            switch self {
+            case .header: return 60
+            }
+        }
+    }
 }
