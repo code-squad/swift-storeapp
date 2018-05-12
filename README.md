@@ -30,3 +30,18 @@
  - Required는 1000, DefaultHigh는 750, DefaultLow는 250의 기본값을 갖는다.
   	- 세 가지 우선순위로 제약조건이 걸려있는 경우 1000이 가장 높은 영향력을 가지며, 1000이 없어진 경우 750, 750이 없어진 경우 250, 순차적으로 연결된다.
  - Constraint의 isActive를 true/false로 변경하면 해당 값을 활성화/비활성화할 수 있다. 단, 이때 해당 Constraint가 weak으로 연결되면 ARC 문제로 해제될 경우가 있으므로 Strong으로 연결해야 한다.
+
+# - Step3 ( Custom Section 헤더 적용 )
+## 요구사항
+- 다음 2개 파일을 다운로드해서 프로젝트에 복사하고 JSONDecoder를 활용해서 모델 객체를 기존 main과 함께 섹션(section)을 구분할 수 있도록 개선한다.
+	- soup.json 데이터 경로 => http://public.codesquad.kr/jk/storeapp/soup.json
+	- side.json 데이터 경로 => http://public.codesquad.kr/jk/storeapp/side.json
+
+- 스토리보드 ViewController에 Cell에 Section Header로 사용할 Custom Cell을 추가한다.
+	- 총 섹션은 3개로 구분해서 헤더에 다음과 같이 표시한다.
+	- main => 메인반찬 / 한그릇 뚝딱 메인 요리
+	- soup => 국.찌게 / 김이 모락모락 국.찌게
+	- side => 밑반찬 / 언제 먹어도 든든한 밑반찬
+
+## 실행화면
+![screemsh_step3](./img/Step3.png)
