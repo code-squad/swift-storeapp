@@ -45,3 +45,33 @@
 
 ## 실행화면
 ![screemsh_step3](./img/Step3.png)
+
+# - Step4 ( Cocoapods )
+## 요구사항
+- Cocoapod 를 설치한다.
+	- https://github.com/devxoul/Toaster 저장소에 있는 Toaster 패키지를 cocoapod 으로 설치한다.
+	- pod으로 설치한 Toaster 모듈을 import 하고 테이블뷰 셀을 터치하면 (didSelect) 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
+
+## 실행화면
+![screemsh_step4-1](./img/Step4-1.png)
+![screemsh_step4-2](./img/Step4-2.png)
+
+
+## 학습꺼리
+- 다른 패키지 매니저 도구가 어떤게 있는지 학습하고 비교해서 정리한다.
+	- https://medium.com/xcblog/carthage-or-cocoapods-that-is-the-question-1074edaafbcb
+- 프로젝트 설정과 관련된 용어에 대해 학습하고 정리한다.(https://stackoverflow.com/questions/20637435/xcode-what-is-a-target-and-scheme-in-plain-language/20637892#20637892)
+	- Workspace - Contains one or more projects. These projects usually relate to one another
+	- Project - Contains code and resources, etc. (You'll be used to these!)
+	- Target - Each project has one or more targets.
+		- Each target defines a list of build settings for that project
+		- Each target also defines a list of classes, resources, custom scripts etc to include/ use when building.
+		- Targets are usually used for different distributions of the same project.
+			- For example, my project has two targets, a "normal" build and an "office" build that has extra testing features and may contain several background music tracks and a button to change the track (as it currently does).
+			- You'll be used to adding classes and resources to your default target as you add them.
+			- You can pick and choose which classes / resources are added to which target.
+				- In my example, I have a "DebugHandler" class that is added to my office build
+			- If you add tests, this also adds a new target.
+	- Scheme - A scheme defines what happens when you press "Build", "Test", "Profile", etc.
+		- Usually, each target has at least one scheme
+		- You can autocreate schemes for your targets by going to Scheme > Manage Schemes and pressing "Autocreate Schemes Now"
