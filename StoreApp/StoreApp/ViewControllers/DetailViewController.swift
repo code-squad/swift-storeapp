@@ -113,6 +113,10 @@ class DetailViewController: UIViewController {
             }).resume()
         }
     }
+    @IBAction func order(_ sender: Any) {
+        order()
+        self.navigationController?.popViewController(animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -121,6 +125,25 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: DetailinfoDelegate {
     func order() {
-
+        guard let url = URL(string: "https://hooks.slack.com/services/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") else { return }
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let tester = ["text": "Jake - \(detailTitle!) - \(contentsPrice.text!)"]
+        guard let json = try? JSONSerialization.data(withJSONObject: tester, options: []) else { return }
+        request.httpBody = json
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print("error=\(String(describing: error))")
+                return
+            }
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                return
+            }
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(String(describing: responseString))")
+        }
+        task.resume()
     }
 }
