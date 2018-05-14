@@ -19,10 +19,6 @@ class StoreItems {
         return allItems[index]
     }
     
-    subscript(indexPath: IndexPath) -> Item {
-        return allItems[indexPath.row]
-    }
-    
     init(_ fileName : String) {
         guard let path = Bundle.main.path(forResource: fileName, ofType: Keyword.fileType.name) else { return }
         let url = URL(fileURLWithPath: path)
