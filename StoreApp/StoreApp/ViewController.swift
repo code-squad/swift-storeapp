@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -47,6 +48,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         itemCell.set(sections[indexPath][indexPath.row])
         return itemCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = sections[indexPath][indexPath.row]
+        Toast(text: item.title + "\n" + item.s_price).show()
     }
 
 }
