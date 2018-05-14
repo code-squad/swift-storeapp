@@ -340,6 +340,7 @@
                         <outlet property="contentsPrice" destination="S4v-m2-0ZG" id="u2G-dI-SSU"/>
                         <outlet property="contentsTitle" destination="iae-gD-qoL" id="okL-gK-Ydq"/>
                         <outlet property="contentsView" destination="c9F-ms-eSe" id="spA-Pq-BLr"/>
+                        <outlet property="mainScrollView" destination="Qhm-My-xoT" id="ane-Zn-n0R"/>
                         <outlet property="thumbnailsView" destination="MRh-LU-3MF" id="8u0-Xa-GKt"/>
                     </connections>
                 </viewController>
