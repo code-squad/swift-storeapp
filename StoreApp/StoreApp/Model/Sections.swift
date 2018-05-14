@@ -19,8 +19,8 @@ class Sections {
         return sections[index]
     }
     
-    subscript(indexPath : IndexPath) -> Section {
-        return sections[indexPath.section]
+    subscript(indexPath : IndexPath) -> Item {
+        return sections[indexPath.section].storeItems[indexPath.row]
     }
     
     init() {

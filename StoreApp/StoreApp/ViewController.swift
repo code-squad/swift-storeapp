@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let itemCell = tableView.dequeueReusableCell(withIdentifier: Keyword.listCell.name, for: indexPath) as? ItemCell else {
             return UITableViewCell()
         }
-        itemCell.set(sections[indexPath].storeItems[indexPath])
+        itemCell.set(sections[indexPath])
         return itemCell
     }
 
