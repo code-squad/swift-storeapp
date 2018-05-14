@@ -144,6 +144,39 @@
 ![적용화면4](materials/step6_04.png)
 
 ---
+## Step7 (상품 상세화면 전환)
+### 요구사항
+- 상품 상세 화면을 만들고, 주문 동작을 구현한다.
+- HTTP POST 요청 방식에 대해 학습하고 응용 방식을 구현한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+    - 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+    - 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- ViewController 를 Navigation Controller로 embed 하세요.
+- cell을 선택하면 상품 상세 화면을 보이도록 새로운 뷰 컨트롤러를 만드세요.
+- 상세 화면(DetailViewController)으로 선택한 cell의 detail_hash 값을 전달하세요.
+- 상세 화면에 대한 Delegate 프로토콜과 프로토콜을 채택하는 속성을 추가하세요.
+    - 상세 화면에서 결과를 전달하기 위한 Delegate 프로토콜을 선언하세요.
+    - 프로토콜에는 주문을 완료했을 때 호출할 메소드를 선언하세요.
+    - ViewController에는 프로토콜을 채택하고 위의 메소드를 구현하세요.
+- URL 형식으로 요청하고 받은 JSON 데이터를 Decode 하는 네트워크 담당 모델 객체를 만드세요.
+- 상세 화면을 표시하기 전에 네트워크 담당 모델 객체에서 데이터를 받아서 화면 정보를 채워서 표시하세요.
+    - self.view 커스텀 클래스를 UIScrollView로 지정하고 하위 뷰들은 self.view.contentView 에 추가하세요.
+    - ScrollView ContentSize에 대해 찾아보고, 전체 콘텐츠 높이를 계산해서 스크롤되도록 값을 지정하세요.
+    - 상단 ScrollView 에 thumb_images 항목의 이미지들을 Page 형태로 추가하세요. 좌우로 페이지 넘기듯이 넘어가도록 만드세요.
+    - 설명 아래부분에는 제품 상세 설명을 위해서 detail_section 항목의 이미지들을 코드로 이어서 붙이세요.
+- [주문하기] 버튼을 누르면 델리게이트 객체에 주문 완료 메소드를 호출합니다.
+    - 프로토콜 채택한 객체는 슬랙으로 “누가-얼마짜리-메뉴” 주문을 POST 요청으로 보내는 기능을 네트워크 모델에 추가하세요.
+    - 주문을 완료하고 나면 창을 닫고 이전 화면으로 돌아가도록 작성하세요.
+    - 슬랙 incoming hook을 활용하세요.
+
+### 결과
+#### UI
+![적용화면1](materials/step7_01.png)
+![적용화면2](materials/step7_02.png)
+
+---
 ## 중간에 고생했던 부분 / 기억할 부분 간단 정리
 - JSONDecoder().decode([StoreItem].self, from: data) 를 통해 데이터를 직접 객체에 바인딩 가능하다.
 - 위 코드를 Swift 4.1 새로 추가된 내용에 의해 변경
@@ -158,7 +191,7 @@ JSON데이터의 snakeCase형식의 키를 camelCase로 자동으로 커스터�
 ```
 UITableViewDelegate
 Serving as a table's delegate means you provide answers to requests about the layout of the table and about actions the user performs on the tableview. Layout methods include the tableview asking about the height of rows, headers, and footers, what the buttons should look like, etc. Action methods include the user selecting a row and beginning and ending the editing of a row.
-   
+
 UITableViewDatasource
 Serving as a table's datasource means you provide data for the sections and rows of a table and you act on messages that change a table's data. The datasource is asked for the data for a cell when the table is drawn, is told that the user has asked to delete a row, and is told the new value of a row that the user has edited.
 ```
@@ -180,9 +213,9 @@ Serving as a table's datasource means you provide data for the sections and rows
 	+ build configuration
 	+ scheme
 - URLSession : iOS네트워킹을 담당하는 객체.(Foundation)
-	- Configuration에 따라 인스턴스를 생성할지, shared를 이용한 싱글톤 객체를 사용할지 지정할 수 있다. 
+	- Configuration에 따라 인스턴스를 생성할지, shared를 이용한 싱글톤 객체를 사용할지 지정할 수 있다.
 	- dataTask메소드와 URL혹은 URLRequest를 이용하여 커스터마이징해서 네트워크 작업을 진행할 수 있다.
-	- HTTP통신을 위해선(HTTPS가 아닌 경우) App Transport Security Settings - Allow Arbitrary Loads 를 YES로 설정해야한다. 
+	- HTTP통신을 위해선(HTTPS가 아닌 경우) App Transport Security Settings - Allow Arbitrary Loads 를 YES로 설정해야한다.
 - Alamofire : 네트워크 작업을 쉽게 처리하도록 도와주는 라이브러리
 	- 편리한 기능들이 많아서 인기가 많다.
 	- [Alamofire](https://github.com/Alamofire/Alamofire)
@@ -208,3 +241,6 @@ Serving as a table's datasource means you provide data for the sections and rows
 	- 세밀한 컨트롤이 필요할때와 간단하고 가볍게 사용할때를 구분해서 사용하면 좋을 것 같다.
 	- 이 프로젝트에선 downloadTask를 이용해 파일을 바로 다운받아서 데이터 활용에 이익을 취할 수 있었다.
 	- GCD를 활용했다면 파일을 Data형식으로 다운받고 다시한번 jpg파일로 전환하는 작업이 필요하여 파일 용량과 로직이 불합리적이었을 것이다.
+- UIScrollView
+    - 일반 스크롤 모드 : contentSize 안에서 자유롭게 이동 가능
+    - page 모드 : page느낌으로 다음 이미지가 충분히 보여지면 이동되고 아니면 다시 돌아가서 화면을 panning을 하지 않을때는 항상 한개의 이미지가 가득 채운다.
