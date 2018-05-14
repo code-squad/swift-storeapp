@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    var sections : [Section] = [Section(.main), Section(.soup), Section(.side)]
+    var sections : Sections = Sections()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let itemCell = tableView.dequeueReusableCell(withIdentifier: Keyword.listCell.name, for: indexPath) as? ItemCell else {
             return UITableViewCell()
         }
-        itemCell.set(sections[indexPath.section].storeItems[indexPath.row])
+        itemCell.set(sections[indexPath].storeItems[indexPath])
         return itemCell
     }
 
