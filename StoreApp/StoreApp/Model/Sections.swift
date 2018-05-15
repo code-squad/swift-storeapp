@@ -19,12 +19,12 @@ class Sections {
         return sections[index]
     }
     
-    subscript(indexPath : IndexPath) -> StoreItems {
-        return sections[indexPath.section].storeItems
-    }
-    
     init() {
         sections = [Section(.main), Section(.side), Section(.soup)]
+    }
+    
+    func getItem(_ indexPath: IndexPath) -> Item {
+        return sections[indexPath.section].storeItems[indexPath.row]
     }
     
 }

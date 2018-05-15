@@ -46,12 +46,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         guard let itemCell = tableView.dequeueReusableCell(withIdentifier: Keyword.listCell.name, for: indexPath) as? ItemCell else {
             return UITableViewCell()
         }
-        itemCell.set(sections[indexPath][indexPath.row])
+        itemCell.set(sections.getItem(indexPath))
         return itemCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = sections[indexPath][indexPath.row]
+        let item = sections.getItem(indexPath)
         Toast(text: item.title + "\n" + item.s_price).show()
     }
 
