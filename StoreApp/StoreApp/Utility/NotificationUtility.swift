@@ -12,4 +12,6 @@ extension Notification.Name {
     static let storeItems = Notification.Name("storeItems")
     static let image = Notification.Name("Image")
     static let detailInformation = Notification.Name("detailInformation")
+    static let thumbImages = Notification.Name("thumbImages")
+    static let detailSection = Notification.Name("detailSection")
 }
