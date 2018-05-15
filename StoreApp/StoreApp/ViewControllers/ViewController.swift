@@ -88,9 +88,7 @@ extension ViewController: UITableViewDataSource {
         Toast(text: "\(storeItem.title) : \(storeItem.sPrice)").show()
         if let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detail")
             as? DetailViewController {
-            detailVC.detailHash = storeItem.detailHash
-            detailVC.detailTitle = storeItem.title
-            detailVC.detailDescription = storeItem.description
+            detailVC.setStoreItem(with: storeItem)
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
     }
