@@ -68,4 +68,19 @@ struct Keyword {
             }
         }
     }
+
+    enum Order {
+        case url
+        case httpMethod
+        case headerValue
+        case headerField
+        var value: String {
+            switch self {
+            case .url: return "https://hooks.slack.com/services/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"
+            case .httpMethod: return "POST"
+            case .headerValue: return "application/x-www-form-urlencoded"
+            case .headerField: return "Content-Type"
+            }
+        }
+    }
 }

@@ -14,12 +14,10 @@ class Communicator {
         guard let url = URL(string: urlString) else { return }
         let urlSession = URLSession.shared
         urlSession.dataTask(with: url, completionHandler: { (data, response, error) in
-            if let data = data {
-                if let detail = self.convert(from: data) {
-                    NotificationCenter.default.post(name: .detailInformation, object: self,
-                                                    userInfo: ["detailInformation": detail.data])
-                }
-            }
+            guard let data = data else { return }
+            guard let detail = self.convert(from: data) else { return }
+            NotificationCenter.default.post(name: .detailInformation, object: self,
+                                            userInfo: ["detailInformation": detail.data])
         }).resume()
     }
 
