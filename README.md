@@ -25,6 +25,9 @@
 ## 실행화면
 ![screemsh_step2](./img/Step2.png)
 
+## AutoLayout
+-  
+
 ## Priority & isActive
  - 우선순위, Priority는 UILayoutPriority로 설정할 수 있으며 1에서 1000까지의 값을 갖는다.
  - Required는 1000, DefaultHigh는 750, DefaultLow는 250의 기본값을 갖는다.
@@ -59,7 +62,21 @@
 
 ## 학습꺼리
 - 다른 패키지 매니저 도구가 어떤게 있는지 학습하고 비교해서 정리한다.
-	- https://medium.com/xcblog/carthage-or-cocoapods-that-is-the-question-1074edaafbcb
+(https://medium.com/xcblog/carthage-or-cocoapods-that-is-the-question-1074edaafbcb)
+
+	- CocoaPods
+		- 장점 : 설치 및 사용이 쉽고, 커뮤니티가 크고 활발하다.(대부분의 오픈소스가 포함되어있음)
+		- 단점 : 프로젝트 내용 및 파일을 자동으로 알지 못하는 방향으로 수정하는 경우가 있다.
+
+	- Carthage
+		- 장점 : 프로젝트를 건들지 않아 정확한 컨트롤이 가능하다.
+	  - 단점 : 느리고, 커뮤니티가 크지 않다.
+
+	- Swift Package Manager
+		- 장점 : Apple에서 공식 지원한다.
+		- 단점 : 초창기, 표준 Swift Package의 Directory 구조를 따라야 한다.
+
+
 - 프로젝트 설정과 관련된 용어에 대해 학습하고 정리한다.(https://stackoverflow.com/questions/20637435/xcode-what-is-a-target-and-scheme-in-plain-language/20637892#20637892)
 	- Workspace - Contains one or more projects. These projects usually relate to one another
 	- Project - Contains code and resources, etc. (You'll be used to these!)
@@ -75,3 +92,15 @@
 	- Scheme - A scheme defines what happens when you press "Build", "Test", "Profile", etc.
 		- Usually, each target has at least one scheme
 		- You can autocreate schemes for your targets by going to Scheme > Manage Schemes and pressing "Autocreate Schemes Now"
+
+# - Step5 ( Network 프로그래밍 )
+## 요구사항
+- 아래 주소별로 JSON 데이터를 받아오는 모델 객체를 만든다.
+	- HTTP 프로토콜 GET 요청으로 다음 주소에서 메인반찬 JSON 데이터를 받는다. http://crong.codesquad.kr:8080/woowa/main
+	- HTTP 프로토콜 GET 요청으로 다음 주소에서 국.찌게 JSON 데이터를 받는다. http://crong.codesquad.kr:8080/woowa/soup
+	- HTTP 프로토콜 GET 요청으로 다음 주소에서 밑반찬 JSON 데이터를 받는다. http://crong.codesquad.kr:8080/woowa/side
+- HTTP 요청은 URLSession 관련 프레임워크를 활용한다.
+- 응답으로 받은 JSON 데이터를 마찬가지 방법으로 Decode해서 StoreItem 객체로 변환한다.
+- 모델 객체는 응답이 도착하면 Notification을 보내서 테이블뷰의 해당 섹션만 업데이트한다.
+
+## 실행화면 : Step4와 동일
