@@ -25,9 +25,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func updateSection(notification: Notification) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        guard let userInfo = notification.userInfo else { return }
+        guard let sectionHeader = userInfo[Keyword.Observer.sectionType.name]  as? Section.Header else { return }
+            self.tableView.insertRows(at: self.sections.generateIndexPaths(sectionHeader), with: .none)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

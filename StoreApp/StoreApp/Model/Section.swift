@@ -10,12 +10,12 @@ import Foundation
 
 struct Section {
     
-    enum SectionHeader {
+    enum Header {
         case main
         case soup
         case side
         
-        var fileName: String {
+        var type: String {
             switch self {
             case .main: return "main"
             case .soup: return "soup"
@@ -48,14 +48,16 @@ struct Section {
         }
     }
 
+    let headerType: String
     let title: String
     let subTitle: String
     let storeItems: StoreItems
 
-    init(_ sectionHeader : SectionHeader) {
+    init(_ sectionHeader : Header) {
+        headerType = sectionHeader.type
         title = sectionHeader.title
         subTitle = sectionHeader.subTitle
-        storeItems = StoreItems(sectionHeader.url)
+        storeItems = StoreItems(sectionHeader)
     }
     
 }
