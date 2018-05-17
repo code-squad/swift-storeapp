@@ -19,11 +19,13 @@ class StoreItems {
         return allItems[index]
     }
     
-    init(_ fileName : String) {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: Keyword.fileType.name) else { return }
-        let url = URL(fileURLWithPath: path)
-        guard let data = try? Data(contentsOf: url) else { return }
-        allItems = decode(data)
+    init(_ urlString : String) {
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            self.allItems = self.decode(data)
+            NotificationCenter.default.post(name: .reloadItems, object: self)
+        }.resume()
     }
     
     private func decode(_ data : Data) -> [Item] {
