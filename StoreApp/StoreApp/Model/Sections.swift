@@ -27,4 +27,9 @@ class Sections {
         return sections[indexPath.section].storeItems[indexPath.row]
     }
     
+    func generateIndexPaths(_ sectionHeader: Section.Header) -> [IndexPath] {
+        guard let sectionIndex = sections.index(where: {$0.headerType == sectionHeader.type}) else { return [] }
+        return Array(0..<sections[sectionIndex].storeItems.count).map({IndexPath(row: $0, section: sectionIndex)})
+    }
+    
 }

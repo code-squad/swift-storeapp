@@ -33,10 +33,11 @@ enum Keyword {
     
     enum Observer {
         case reloadItems
-        
+        case sectionType
         var name: String {
             switch self {
             case .reloadItems: return "reloadItems"
+            case .sectionType: return "section"
             }
         }
     }

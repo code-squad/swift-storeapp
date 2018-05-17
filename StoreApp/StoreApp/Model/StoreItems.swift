@@ -18,16 +18,18 @@ class StoreItems {
     subscript(index : Int) -> Item {
         return allItems[index]
     }
-    
-    init(_ urlString : String) {
-        guard let url = URL(string: urlString) else { return }
+
+    init(_ section : Section.Header) {
+        guard let url = URL(string: section.url) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard let data = data else { return }
-            self.allItems = self.decode(data)
-            NotificationCenter.default.post(name: .reloadItems, object: self)
+            DispatchQueue.main.async {
+                self.allItems = self.decode(data)
+                NotificationCenter.default.post(name: .reloadItems, object: self, userInfo: [Keyword.Observer.sectionType.name: section])
+            }
         }.resume()
     }
-    
+
     private func decode(_ data : Data) -> [Item] {
         do {
             return try JSONDecoder().decode([Item].self, from : data)
