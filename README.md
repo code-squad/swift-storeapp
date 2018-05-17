@@ -103,4 +103,51 @@
 - 응답으로 받은 JSON 데이터를 마찬가지 방법으로 Decode해서 StoreItem 객체로 변환한다.
 - 모델 객체는 응답이 도착하면 Notification을 보내서 테이블뷰의 해당 섹션만 업데이트한다.
 
-## 실행화면 : Step4와 동일
+## 학습꺼리
+### 1. 네트워크의 역사
+  - 네트워크란? 정보를 옮기는 것.
+  - 예전에는 전화국이 있었음. (Telephone excahange -> Bule-box 등등)
+  - IETF라는 기관이 생김. 네트워크 관련 약자들을 다 표준화 시킴.
+
+### 2. iOS Networking
+  - Application 하위로 3개의 API를 사용할 수 있음.
+    - Foundation,  CFNetwork, Core OS(Darwin)
+
+  - 고려해야될 사항
+    - Packet Problems : 기존 유선의 네트워킹에선 Circuit(하나의 회로)단위였다면, 무선 통신은 Packet단위로 통신되기에 발생되는 문제들.
+    - latenct : 응답을 요청하면, 받는데까지 걸린 시간
+    - security
+    - Service Discovery : 서비스랑 어드레스랑 매칭하는 것들. Ex) DNS - nslookup 주소
+
+  - Core OS(Darwin)
+    - Run loop integration : OS에 요청했던 데이터를 주기적으로 계속 물어봐야 된다.
+
+### 3. APIs for HTTP / HTTPs
+  - NSURLConnection(iOS 10부터 없어짐) -> NSURLSession
+    - Wait for response에 보통 데이터의 길이를 넘겨준다.
+  - NSNetService
+  - NSURLStream
+
+### 4. NSURLSession
+  - 4가지 종류가 있음.
+    1. Singleton shared Session : 요청이 끝났을 때, 어떻게 할 건지 클로져로 쓸 수 있게만 하는 것.
+    2. Default Session : 설정을 줄 수 있는 세션, 보통 이 세션을 가장 많이 쓴다.
+    3. Ephemeral Session : 사파리나 크롬에서 개인정보보호 모드를 사용할 때, 사용.
+    4. Background Session : App이 Background를 들어가도 사용할 수 있는 Session (주로 파일 업로드 or 다운로드)
+
+  - Session의 Task들 (주로 dataTask를 가장 많이 쓴다.)
+    - completionHandler안에서 response가 없으면 error가 있고, error가 없으면, response가 있다.
+
+### ALAMOFIRE
+  -  Chainable Request / Response Methods
+  - URL / JSON / plist Parameter Encoding
+  - Upload File / Data / Stream / MultipartFormData
+  - Download File using Request or Resume Data
+  - Authentication with URLCredential
+  - HTTP Response Validation
+  - Upload and Download Progress Closures with Progress
+  - cURL Command Output
+  - Dynamically Adapt and Retry Requests
+  - TLS Certificate and Public Key Pinning
+  - Network Reachability
+  - Comprehensive Unit and Integration Test Coverage
