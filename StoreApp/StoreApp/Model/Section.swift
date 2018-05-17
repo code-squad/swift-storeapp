@@ -23,6 +23,14 @@ struct Section {
             }
         }
         
+        var url: String {
+            switch self {
+            case .main: return "http://crong.codesquad.kr:8080/woowa/main"
+            case .soup: return "http://crong.codesquad.kr:8080/woowa/soup"
+            case .side: return "http://crong.codesquad.kr:8080/woowa/side"
+            }
+        }
+        
         var title: String {
             switch self {
             case .main: return "메인반찬"
@@ -47,7 +55,7 @@ struct Section {
     init(_ sectionHeader : SectionHeader) {
         title = sectionHeader.title
         subTitle = sectionHeader.subTitle
-        storeItems = StoreItems(sectionHeader.fileName)
+        storeItems = StoreItems(sectionHeader.url)
     }
     
 }
