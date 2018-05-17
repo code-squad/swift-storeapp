@@ -21,6 +21,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSection(notification:)), name: .reloadItems, object: nil)
+    }
+    
+    @objc func updateSection(notification: Notification) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

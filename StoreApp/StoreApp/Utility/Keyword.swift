@@ -30,4 +30,18 @@ enum Keyword {
             }
         }
     }
+    
+    enum Observer {
+        case reloadItems
+        
+        var name: String {
+            switch self {
+            case .reloadItems: return "reloadItems"
+            }
+        }
+    }
+}
+
+extension Notification.Name {
+    static let reloadItems = Notification.Name(Keyword.Observer.reloadItems.name)
 }
