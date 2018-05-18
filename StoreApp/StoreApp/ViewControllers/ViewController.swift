@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         storeItems.setHeaders(with: sections)
         tableView.reloadData()
         storeItems.setStoreData(with: sections)
+        checkConnection()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +42,12 @@ class ViewController: UIViewController {
             name: .image,
             object: nil
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(connectionChanged(notification:)),
+            name: .connectionChanged,
+            object: nil
+        )
     }
 
     @objc private func storeItemsHasChanged(notification: Notification) {
@@ -57,6 +64,18 @@ class ViewController: UIViewController {
         guard let section = userInfo["section"] as? Int else { return }
         let indexPath = IndexPath.init(row: row, section: section)
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    @objc private func connectionChanged(notification: Notification) {
+        checkConnection()
+    }
+
+    private func checkConnection() {
+        if ReachabilityManager.sharedInstance.isConnected() {
+            view.backgroundColor = UIColor.green
+        } else {
+            view.backgroundColor = UIColor.red
+        }
     }
 }
 

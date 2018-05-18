@@ -14,4 +14,5 @@ extension Notification.Name {
     static let detailInformation = Notification.Name("detailInformation")
     static let thumbImages = Notification.Name("thumbImages")
     static let detailSection = Notification.Name("detailSection")
+    static let connectionChanged = Notification.Name("connectionChanged")
 }

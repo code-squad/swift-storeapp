@@ -86,9 +86,11 @@ struct Keyword {
 
     enum Network {
         case hostName
+        case connectionChanged
         var value: String {
             switch self {
             case .hostName: return "crong.codesquad.kr"
+            case .connectionChanged: return "connectionChanged"
             }
         }
     }
