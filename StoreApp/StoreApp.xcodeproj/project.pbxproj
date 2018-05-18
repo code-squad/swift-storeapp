@@ -32,6 +32,7 @@
 		8E16F57C207B29E90028FE38 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E16F57B207B29E90028FE38 /* HeaderTableViewCell.swift */; };
 		8E877BCF20ABF0B10097324F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E877BCE20ABF0B10097324F /* Reachability.m */; };
 		8E877BD720AD4CC70097324F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E877BD620AD4CC70097324F /* ReachabilityManager.swift */; };
+		8E877BD920AEB8AD0097324F /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E877BD820AEB8AD0097324F /* CommonViewController.swift */; };
 		8EB9B9A5208ED1CB0030068D /* MenuImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB9B9A4208ED1CB0030068D /* MenuImage.swift */; };
 		8EB9B9A6208ED1CB0030068D /* MenuImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB9B9A4208ED1CB0030068D /* MenuImage.swift */; };
 		8EB9B9A8208F55910030068D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB9B9A7208F55910030068D /* DetailViewController.swift */; };
@@ -89,6 +90,7 @@
 		8E877BCD20ABF0B00097324F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8E877BCE20ABF0B10097324F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		8E877BD620AD4CC70097324F /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
+		8E877BD820AEB8AD0097324F /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 		8EB9B9A4208ED1CB0030068D /* MenuImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImage.swift; sourceTree = "<group>"; };
 		8EB9B9A7208F55910030068D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8EB9B9AA2090760F0030068D /* DetailinfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailinfoDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				8E16F52C2075BEDE0028FE38 /* ViewController.swift */,
 				8EB9B9A7208F55910030068D /* DetailViewController.swift */,
+				8E877BD820AEB8AD0097324F /* CommonViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				8EB9B9A8208F55910030068D /* DetailViewController.swift in Sources */,
 				8E877BCF20ABF0B10097324F /* Reachability.m in Sources */,
 				8E16F5612075CE6F0028FE38 /* StoreItemTableViewCell.swift in Sources */,
+				8E877BD920AEB8AD0097324F /* CommonViewController.swift in Sources */,
 				8E16F52B2075BEDE0028FE38 /* AppDelegate.swift in Sources */,
 				8EB9B9AD209078C90030068D /* DetailInformation.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: CommonViewController {
     private var storeItem: StoreItem?
     private var communicator: Communicator = Communicator()
     private var detailSectionHeight: CGFloat = 0
@@ -31,7 +31,6 @@ class DetailViewController: UIViewController {
         showDetail()
         thumbnailsView.isPagingEnabled = true
         detailSectionHeight = thumbnailsView.frame.height + contentsView.frame.height
-        checkConnection()
     }
 
     func setStoreItem(with storeItem: StoreItem) {
@@ -57,24 +56,6 @@ class DetailViewController: UIViewController {
             name: .detailSection,
             object: nil
         )
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(connectionChanged(notification:)),
-            name: .connectionChanged,
-            object: nil
-        )
-    }
-
-    @objc private func connectionChanged(notification: Notification) {
-        checkConnection()
-    }
-
-    private func checkConnection() {
-        if ReachabilityManager.sharedInstance.isConnected() {
-            view.backgroundColor = UIColor.green
-        } else {
-            view.backgroundColor = UIColor.red
-        }
     }
 
     private func showDetail() {
