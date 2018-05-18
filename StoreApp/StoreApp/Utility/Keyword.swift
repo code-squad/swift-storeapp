@@ -83,4 +83,13 @@ struct Keyword {
             }
         }
     }
+
+    enum Network {
+        case hostName
+        var value: String {
+            switch self {
+            case .hostName: return "crong.codesquad.kr"
+            }
+        }
+    }
 }

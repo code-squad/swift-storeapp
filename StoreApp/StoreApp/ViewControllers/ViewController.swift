@@ -58,9 +58,6 @@ class ViewController: UIViewController {
         let indexPath = IndexPath.init(row: row, section: section)
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
-
-    
-
 }
 
 // MARK: UITableViewDataSource
