@@ -27,7 +27,26 @@ class StoreItems {
     }
 
     func setStoreData(with sections: [Keyword.Section]) {
-        sections.forEach { setJSONData(with: $0) }
+        if ReachabilityManager.sharedInstance.isConnected() {
+            sections.forEach { setJSONData(with: $0) }
+        } else {
+            sections.forEach { setJSONData(file: $0) }
+        }
+    }
+
+    private func setJSONData(file: Keyword.Section) {
+        guard let data = self.getData(from: file.value) else { return }
+        self.setStoreItems(with: data, to: file)
+        let indexPaths = Array(0..<(self.sections[file.value]?.count)!)
+            .map {IndexPath(row: $0, section: self.getIndex(of: file))}
+        NotificationCenter.default.post(name: .storeItems, object: self,
+                                        userInfo: ["indexPaths": indexPaths])
+    }
+
+    private func getData(from jsonFile: String) -> Data? {
+        let path = Bundle.main.path(forResource: jsonFile, ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        return try? Data(contentsOf: url)
     }
 
     private func setJSONData(with section: Keyword.Section) {

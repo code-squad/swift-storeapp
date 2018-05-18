@@ -30,6 +30,8 @@
 		8E16F572207770F30028FE38 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E16F571207770F30028FE38 /* soup.json */; };
 		8E16F574207771260028FE38 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E16F573207771260028FE38 /* side.json */; };
 		8E16F57C207B29E90028FE38 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E16F57B207B29E90028FE38 /* HeaderTableViewCell.swift */; };
+		8E877BCF20ABF0B10097324F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E877BCE20ABF0B10097324F /* Reachability.m */; };
+		8E877BD720AD4CC70097324F /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E877BD620AD4CC70097324F /* ReachabilityManager.swift */; };
 		8EB9B9A5208ED1CB0030068D /* MenuImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB9B9A4208ED1CB0030068D /* MenuImage.swift */; };
 		8EB9B9A6208ED1CB0030068D /* MenuImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB9B9A4208ED1CB0030068D /* MenuImage.swift */; };
 		8EB9B9A8208F55910030068D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB9B9A7208F55910030068D /* DetailViewController.swift */; };
@@ -83,6 +85,10 @@
 		8E16F571207770F30028FE38 /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		8E16F573207771260028FE38 /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		8E16F57B207B29E90028FE38 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		8E877BCC20ABF0AF0097324F /* StoreApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StoreApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		8E877BCD20ABF0B00097324F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8E877BCE20ABF0B10097324F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8E877BD620AD4CC70097324F /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		8EB9B9A4208ED1CB0030068D /* MenuImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuImage.swift; sourceTree = "<group>"; };
 		8EB9B9A7208F55910030068D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8EB9B9AA2090760F0030068D /* DetailinfoDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailinfoDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 		8E16F5292075BEDE0028FE38 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				8E877BD020AD3EB50097324F /* Network */,
 				8E16F5672075EA4A0028FE38 /* Utility */,
 				8E16F5632075CE810028FE38 /* Models */,
 				8E16F5652075CEB40028FE38 /* TableViewCell */,
@@ -247,6 +254,17 @@
 				8E16F573207771260028FE38 /* side.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		8E877BD020AD3EB50097324F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8E877BCD20ABF0B00097324F /* Reachability.h */,
+				8E877BCE20ABF0B10097324F /* Reachability.m */,
+				8E877BCC20ABF0AF0097324F /* StoreApp-Bridging-Header.h */,
+				8E877BD620AD4CC70097324F /* ReachabilityManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		8EB9B9A9209075530030068D /* Delegates */ = {
@@ -342,6 +360,7 @@
 				TargetAttributes = {
 					8E16F5262075BEDE0028FE38 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					8E16F53A2075BEE20028FE38 = {
 						CreatedOnToolsVersion = 9.3;
@@ -487,12 +506,14 @@
 				8E16F55B2075CA2B0028FE38 /* StoreItem.swift in Sources */,
 				8E16F5692075EA630028FE38 /* Keyword.swift in Sources */,
 				8EB9B9AB2090760F0030068D /* DetailinfoDelegate.swift in Sources */,
+				8E877BD720AD4CC70097324F /* ReachabilityManager.swift in Sources */,
 				8EB9B9B3209099F20030068D /* Communicator.swift in Sources */,
 				8E16F56C2076005A0028FE38 /* NotificationUtility.swift in Sources */,
 				8E16F52D2075BEDE0028FE38 /* ViewController.swift in Sources */,
 				8E16F55E2075CBB20028FE38 /* StoreItems.swift in Sources */,
 				8EB9B9A5208ED1CB0030068D /* MenuImage.swift in Sources */,
 				8EB9B9A8208F55910030068D /* DetailViewController.swift in Sources */,
+				8E877BCF20ABF0B10097324F /* Reachability.m in Sources */,
 				8E16F5612075CE6F0028FE38 /* StoreItemTableViewCell.swift in Sources */,
 				8E16F52B2075BEDE0028FE38 /* AppDelegate.swift in Sources */,
 				8EB9B9AD209078C90030068D /* DetailInformation.swift in Sources */,
@@ -676,6 +697,7 @@
 			baseConfigurationReference = B9BD83928DF5D49F4695DCE7 /* Pods-StoreApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				INFOPLIST_FILE = StoreApp/Info.plist;
@@ -685,6 +707,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jake.chocozero.StoreApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StoreApp/Network/StoreApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -695,6 +719,7 @@
 			baseConfigurationReference = C9EC7C00E31A65DC0334823C /* Pods-StoreApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B3PWYBKFUK;
 				INFOPLIST_FILE = StoreApp/Info.plist;
@@ -704,6 +729,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jake.chocozero.StoreApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "StoreApp/Network/StoreApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
