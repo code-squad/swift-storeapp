@@ -177,6 +177,29 @@
 ![적용화면2](materials/step7_02.png)
 
 ---
+## Step8 (연결성 확인 Reachability)
+### 요구사항
+- 쇼팽앱 상세화면 전환 요구사항을 구현한 상태에서 시작한다.
+- 모빌리티(이동성) 특성과 비용을 줄일 수 있는 방법을 학습하고 적용한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+    - 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+    - 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
+
+### 프로그래밍 요구사항
+- 애플 Reachability 샘플 클래스로 인터넷 연결 여부를 판단한다.
+- Reachability.m 또는 Alamofire를 프로젝트에 추가한다.
+- 앱 시작할 때 인터넷 연결이 안되어 있으면, JSON 데이터 파일로 첫 화면을 로딩한다.
+    - 그 이후 앱이 서버에 연결 가능하면 네트워크 모델을 통해서 JSON 데이터를 받아서 화면을 갱신한다.
+- 앱 실행중에 연결성이 바뀌는 경우 노티를 받아서
+    - 연결이 안되어 있는 경우 화면의 가장자리(border)를 UIColor.red 로 표시한다.
+    - 연결된 경우 border를 UIColor.green 으로 표시한다.
+
+### 결과
+#### UI
+![적용화면1](materials/step8_01.png)
+![적용화면2](materials/step8_02.png)
+
+---
 ## 중간에 고생했던 부분 / 기억할 부분 간단 정리
 - JSONDecoder().decode([StoreItem].self, from: data) 를 통해 데이터를 직접 객체에 바인딩 가능하다.
 - 위 코드를 Swift 4.1 새로 추가된 내용에 의해 변경
@@ -244,3 +267,13 @@ Serving as a table's datasource means you provide data for the sections and rows
 - UIScrollView
     - 일반 스크롤 모드 : contentSize 안에서 자유롭게 이동 가능
     - page 모드 : page느낌으로 다음 이미지가 충분히 보여지면 이동되고 아니면 다시 돌아가서 화면을 panning을 하지 않을때는 항상 한개의 이미지가 가득 채운다.
+- Reachability
+    - Apple에서 제공하는 Reachability.m, Reachability.h 파일을 활용(Objective-C 기반)
+    - Alamofire 이용(오픈소스)
+    - 직접 SCNetworkReachability 객체를 활용하는 방법
+- Objective-C 소스를 Swift에서 사용하려면 bridge용 header파일이 필요.
+    - bridge파일에 Objective-C의 헤더파일 import해야함.
+- Cache
+    - 네트워크가 끊겼을 때 등 실시간으로 서버에서 데이터를 가지고 오지 못 하는 경우가 생길 수 있다.
+    - 그 경우를 대비하여 현재 상태의 임시로 저장해놨다가 네트워크 연결이 다시 정상으로 돌아왔을 때 해당 데이터를 되살려 활용할 수 있다.
+    - 그 때 사용할 수 있는 기억 공간이라고 생각하면 된다.
