@@ -51,7 +51,7 @@ class PriceLabel: UILabel {
         attributedText = strikeThroughString
     }
     
-    override init(frame: CGRect) {
+    private override init(frame: CGRect) {
         super.init(frame: frame)
     }
     

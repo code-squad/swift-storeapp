@@ -43,7 +43,7 @@ class BadgeLabel: UILabel {
         cornerRadius = 2
     }
 
-    override init(frame: CGRect) {
+    private override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
