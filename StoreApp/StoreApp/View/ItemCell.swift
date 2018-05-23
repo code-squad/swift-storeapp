@@ -21,22 +21,19 @@ class ItemCell: UITableViewCell {
         detail.text = item.description
         price.setPriceLabels(item)
         if let badge = item.badge {
-        eventBadge.setBadges(badge)
+            eventBadge.setBadges(badge)
         }
         setMenuImage(item.image)
     }
     
     private func setMenuImage(_ menuImageURL: String ) {
-        guard let documentDirectoryPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return }
-        guard let imageURL = URL(string: menuImageURL) else { return }
-        let fileURL = documentDirectoryPath.appendingPathComponent(imageURL.lastPathComponent)
-        if FileManager.default.fileExists (atPath: fileURL.path) {
-            guard let data = FileManager.default.contents(atPath: fileURL.path) else { return }
+        guard let fileURL = Downloader.generateFileURL(menuImageURL) else { return }
+        if Downloader.isExistantFileAt(fileURL) {
+            guard let data = Downloader.loadData(fileURL) else { return }
             menuImage.image = UIImage(data: data)
         } else {
             DispatchQueue.global().async {
-                guard let data = try? Data(contentsOf: imageURL) else { return }
-                FileManager.default.createFile(atPath: fileURL.path, contents: data, attributes: nil)
+                guard let data = Downloader.savdData(menuImageURL, fileURL) else { return }
                 DispatchQueue.main.async {
                     self.menuImage.image = UIImage(data: data)
                 }

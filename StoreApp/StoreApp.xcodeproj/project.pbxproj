@@ -24,6 +24,7 @@
 		0457A5DE20B50E7600BCDC25 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */; };
 		0457A5E020B52F0200BCDC25 /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5DF20B52F0200BCDC25 /* BadgeLabel.swift */; };
 		0457A5E220B52F2100BCDC25 /* EventBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5E120B52F2100BCDC25 /* EventBadgeView.swift */; };
+		0457A5E420B5647200BCDC25 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5E320B5647200BCDC25 /* Downloader.swift */; };
 		048C65CE20A923F000A8D795 /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C65CD20A923F000A8D795 /* Sections.swift */; };
 		04A0B89020B41AE3001EEB97 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0B88F20B41AE3001EEB97 /* PriceView.swift */; };
 		4AA8D5AB4BDF2AA929FAE572 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA72A40B6EDBA75A12FE1F7 /* Pods_StoreApp.framework */; };
@@ -49,6 +50,7 @@
 		0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
 		0457A5DF20B52F0200BCDC25 /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		0457A5E120B52F2100BCDC25 /* EventBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBadgeView.swift; sourceTree = "<group>"; };
+		0457A5E320B5647200BCDC25 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		048C65CD20A923F000A8D795 /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
 		04A0B88F20B41AE3001EEB97 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		443D6C56F1D56E474083E65F /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				043F1EDE2090A9E500079228 /* Keyword.swift */,
+				0457A5E320B5647200BCDC25 /* Downloader.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				0445568120A6BD6700E49894 /* HeaderCell.swift in Sources */,
 				04A0B89020B41AE3001EEB97 /* PriceView.swift in Sources */,
 				0457A5E020B52F0200BCDC25 /* BadgeLabel.swift in Sources */,
+				0457A5E420B5647200BCDC25 /* Downloader.swift in Sources */,
 				040001BA20905E3D00AD524A /* Item.swift in Sources */,
 				0445568320A6CAB400E49894 /* Section.swift in Sources */,
 				040001B620905CB600AD524A /* ItemCell.swift in Sources */,
