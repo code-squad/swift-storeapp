@@ -21,7 +21,11 @@
 		0445568320A6CAB400E49894 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445568220A6CAB400E49894 /* Section.swift */; };
 		045240B820A5667B00AE97DB /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 045240B720A5667A00AE97DB /* side.json */; };
 		045240BA20A5668900AE97DB /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 045240B920A5668900AE97DB /* soup.json */; };
+		0457A5DE20B50E7600BCDC25 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */; };
+		0457A5E020B52F0200BCDC25 /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5DF20B52F0200BCDC25 /* BadgeLabel.swift */; };
+		0457A5E220B52F2100BCDC25 /* EventBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5E120B52F2100BCDC25 /* EventBadgeView.swift */; };
 		048C65CE20A923F000A8D795 /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C65CD20A923F000A8D795 /* Sections.swift */; };
+		04A0B89020B41AE3001EEB97 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A0B88F20B41AE3001EEB97 /* PriceView.swift */; };
 		4AA8D5AB4BDF2AA929FAE572 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA72A40B6EDBA75A12FE1F7 /* Pods_StoreApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +46,11 @@
 		0445568220A6CAB400E49894 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		045240B720A5667A00AE97DB /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		045240B920A5668900AE97DB /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
+		0457A5DF20B52F0200BCDC25 /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
+		0457A5E120B52F2100BCDC25 /* EventBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBadgeView.swift; sourceTree = "<group>"; };
 		048C65CD20A923F000A8D795 /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
+		04A0B88F20B41AE3001EEB97 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		443D6C56F1D56E474083E65F /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4EA72A40B6EDBA75A12FE1F7 /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		98C5C356D7278573FD5BE7A4 /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +73,10 @@
 			children = (
 				040001B520905CB600AD524A /* ItemCell.swift */,
 				0445568020A6BD6700E49894 /* HeaderCell.swift */,
+				04A0B88F20B41AE3001EEB97 /* PriceView.swift */,
+				0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */,
+				0457A5E120B52F2100BCDC25 /* EventBadgeView.swift */,
+				0457A5DF20B52F0200BCDC25 /* BadgeLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,10 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0457A5E220B52F2100BCDC25 /* EventBadgeView.swift in Sources */,
 				041A4F49208B07D4002B1C3F /* ViewController.swift in Sources */,
+				0457A5DE20B50E7600BCDC25 /* PriceLabel.swift in Sources */,
 				043F1EDF2090A9E500079228 /* Keyword.swift in Sources */,
 				041A4F47208B07D4002B1C3F /* AppDelegate.swift in Sources */,
 				0445568120A6BD6700E49894 /* HeaderCell.swift in Sources */,
+				04A0B89020B41AE3001EEB97 /* PriceView.swift in Sources */,
+				0457A5E020B52F0200BCDC25 /* BadgeLabel.swift in Sources */,
 				040001BA20905E3D00AD524A /* Item.swift in Sources */,
 				0445568320A6CAB400E49894 /* Section.swift in Sources */,
 				040001B620905CB600AD524A /* ItemCell.swift in Sources */,

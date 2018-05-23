@@ -87,7 +87,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhT-Za-Vby">
-                                                    <rect key="frame" x="131" y="5.5" width="35.5" height="20.5"/>
+                                                    <rect key="frame" x="131" y="5" width="35.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20.5" id="az5-E2-ulf"/>
                                                     </constraints>
@@ -101,61 +101,50 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EventBadge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRw-yM-f4v">
-                                                    <rect key="frame" x="131" y="88" width="98.5" height="21"/>
-                                                    <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="7A9-ZQ-wlZ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="3"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fzy-uf-gfx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="121.5" height="121.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="121" height="121"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Fzy-uf-gfx" secondAttribute="height" multiplier="1:1" id="dqs-ye-evS"/>
                                                         <constraint firstAttribute="width" constant="121" id="wU1-Sa-g5H"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Itu-Aw-bSb">
-                                                    <rect key="frame" x="131" y="56" width="47" height="23"/>
+                                                <stackView verifyAmbiguity="off" opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MP6-lC-iqf" customClass="EventBadgeView" customModule="StoreApp" customModuleProvider="target">
+                                                    <rect key="frame" x="131" y="86" width="31" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="aYV-sg-HYX"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="LTc-O1-gdR"/>
+                                                        <constraint firstAttribute="height" constant="20" id="XlZ-kR-a06"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                    <color key="textColor" red="0.41568627450000001" green="0.76078431369999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </stackView>
+                                                <stackView verifyAmbiguity="ignoreSizes" opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" alignment="firstBaseline" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="QLn-5i-uss" customClass="PriceView" customModule="StoreApp" customModuleProvider="target">
+                                                    <rect key="frame" x="131" y="56" width="110" height="15"/>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="uku-WI-Ihx" firstAttribute="top" secondItem="FhT-Za-Vby" secondAttribute="bottom" constant="4" id="3Yx-Jb-E46"/>
+                                                <constraint firstItem="MP6-lC-iqf" firstAttribute="leading" secondItem="Fzy-uf-gfx" secondAttribute="trailing" constant="10" id="4W6-MZ-etp"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="FhT-Za-Vby" secondAttribute="trailing" constant="210" id="ATV-BZ-aL2"/>
-                                                <constraint firstItem="pRw-yM-f4v" firstAttribute="leading" secondItem="Fzy-uf-gfx" secondAttribute="trailing" constant="10" id="DGP-mT-IzJ"/>
                                                 <constraint firstItem="Fzy-uf-gfx" firstAttribute="top" secondItem="9Gf-6I-ZPm" secondAttribute="top" id="Dj7-eW-d90"/>
+                                                <constraint firstAttribute="bottom" secondItem="QLn-5i-uss" secondAttribute="bottom" constant="49.5" id="Gqr-R2-b8w"/>
                                                 <constraint firstItem="Fzy-uf-gfx" firstAttribute="leading" secondItem="9Gf-6I-ZPm" secondAttribute="leading" id="Kgn-1D-rRB"/>
-                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Itu-Aw-bSb" secondAttribute="trailing" constant="197" id="LGt-6K-4ml"/>
+                                                <constraint firstItem="QLn-5i-uss" firstAttribute="leading" secondItem="Fzy-uf-gfx" secondAttribute="trailing" constant="10" id="Poz-zK-Eha"/>
+                                                <constraint firstItem="MP6-lC-iqf" firstAttribute="top" secondItem="9Gf-6I-ZPm" secondAttribute="top" constant="86" id="Q5x-Nx-sW0"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fzy-uf-gfx" secondAttribute="bottom" id="XNM-At-e4M"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="uku-WI-Ihx" secondAttribute="trailing" constant="211" id="YEr-Pm-s2e"/>
                                                 <constraint firstItem="FhT-Za-Vby" firstAttribute="leading" secondItem="Fzy-uf-gfx" secondAttribute="trailing" constant="10" id="Z59-DI-vJa"/>
                                                 <constraint firstItem="uku-WI-Ihx" firstAttribute="leading" secondItem="Fzy-uf-gfx" secondAttribute="trailing" constant="10" id="bW1-ww-G1U"/>
-                                                <constraint firstAttribute="bottom" secondItem="pRw-yM-f4v" secondAttribute="bottom" constant="12.5" id="eMU-Ux-lwj"/>
                                                 <constraint firstItem="FhT-Za-Vby" firstAttribute="top" secondItem="9Gf-6I-ZPm" secondAttribute="top" constant="5" id="eYY-ja-tIf"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pRw-yM-f4v" secondAttribute="trailing" constant="145.5" id="r5J-kb-eDH"/>
-                                                <constraint firstItem="Itu-Aw-bSb" firstAttribute="top" secondItem="uku-WI-Ihx" secondAttribute="bottom" constant="10" id="sGW-lf-VzV"/>
-                                                <constraint firstItem="Itu-Aw-bSb" firstAttribute="leading" secondItem="Fzy-uf-gfx" secondAttribute="trailing" constant="10" id="ssx-fW-qPO"/>
+                                                <constraint firstItem="QLn-5i-uss" firstAttribute="top" secondItem="uku-WI-Ihx" secondAttribute="bottom" constant="10" id="tjZ-G8-cdW"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="QLn-5i-uss" secondAttribute="trailing" constant="134" id="wJV-QH-c6r"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="MP6-lC-iqf" secondAttribute="bottom" constant="15" id="0ZX-GG-s33"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="detail" destination="uku-WI-Ihx" id="sXs-eD-chr"/>
-                                            <outlet property="eventBadge" destination="pRw-yM-f4v" id="K8Z-mn-pat"/>
+                                            <outlet property="eventBadge" destination="MP6-lC-iqf" id="bu4-Ug-gKY"/>
                                             <outlet property="menuImage" destination="Fzy-uf-gfx" id="rJ8-Ly-RCY"/>
-                                            <outlet property="price" destination="Itu-Aw-bSb" id="wW4-We-Y2S"/>
+                                            <outlet property="price" destination="QLn-5i-uss" id="WnO-VG-SD1"/>
                                             <outlet property="title" destination="FhT-Za-Vby" id="LRN-LC-bkf"/>
                                         </connections>
                                     </tableViewCell>
@@ -177,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="136.5" y="133.5"/>
         </scene>
     </scenes>
 </document>
