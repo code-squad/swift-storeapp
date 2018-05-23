@@ -13,14 +13,16 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var detail: UILabel!
-    @IBOutlet weak var price: UILabel!
-    @IBOutlet weak var eventBadge: UILabel!
+    @IBOutlet weak var price: PriceView!
+    @IBOutlet weak var eventBadge: EventBadgeView!
     
     func set(_ item : Item) {
         title.text = item.title
         detail.text = item.description
-        price.text = item.s_price
-        eventBadge.text = item.badge?.reduce("", +)
+        price.setPriceLabels(item)
+        if let badge = item.badge {
+        eventBadge.setBadges(badge)
+        }
         setMenuImage(item.image)
     }
     
