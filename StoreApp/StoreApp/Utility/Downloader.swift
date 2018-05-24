@@ -10,8 +10,26 @@ import Foundation
 
 class Downloader {
     
-    static func getMenuImage(_ menuImageURL: String) -> Data? {
-        guard let fileURL = generateFileURL(menuImageURL) else { return nil }
+    typealias completionHandler = (Result) -> Void
+    typealias errorHandler = (Bool) -> Void
+    
+    enum Result {
+        case success(Data)
+        case failure()
+    }
+    
+    static func loadMenuImage(_ menuImageURL: String, completion: @escaping completionHandler) {
+        DispatchQueue.global().async {
+            guard let fileURL = generateFileURL(menuImageURL) else { return }
+            if let data = getImageData(menuImageURL, fileURL) {
+                completion(.success(data))
+            } else {
+                completion(.failure())
+            }
+        }
+    }
+    
+    static func getImageData(_ menuImageURL: String, _ fileURL: URL) -> Data? {
         guard isExistantFileAt(fileURL) else { return saveData(menuImageURL, fileURL) }
         return loadData(fileURL)
     }
