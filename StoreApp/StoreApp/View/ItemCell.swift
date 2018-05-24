@@ -26,18 +26,12 @@ class ItemCell: UITableViewCell {
         setMenuImage(item.image)
     }
     
-    private func setMenuImage(_ menuImageURL: String ) {
-        guard let fileURL = Downloader.generateFileURL(menuImageURL) else { return }
-        if Downloader.isExistantFileAt(fileURL) {
-            guard let data = Downloader.loadData(fileURL) else { return }
-            menuImage.image = UIImage(data: data)
-        } else {
+    private func setMenuImage(_ menuImageURL: String) {
             DispatchQueue.global().async {
-                guard let data = Downloader.savdData(menuImageURL, fileURL) else { return }
+                guard let data = Downloader.getMenuImage(menuImageURL) else { return }
                 DispatchQueue.main.async {
                     self.menuImage.image = UIImage(data: data)
                 }
             }
-        }
     }
 }
