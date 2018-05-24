@@ -10,7 +10,13 @@ import Foundation
 
 class Downloader {
     
-    static func generateFileURL (_ imageURL: String) -> URL? {
+    static func getMenuImage(_ menuImageURL: String) -> Data? {
+        guard let fileURL = generateFileURL(menuImageURL) else { return nil }
+        guard isExistantFileAt(fileURL) else { return saveData(menuImageURL, fileURL) }
+        return loadData(fileURL)
+    }
+    
+    static func generateFileURL(_ imageURL: String) -> URL? {
         guard let documentDirectoryPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
         guard let imageURL = URL(string: imageURL) else { return nil }
         return documentDirectoryPath.appendingPathComponent(imageURL.lastPathComponent)
@@ -24,7 +30,7 @@ class Downloader {
         return FileManager.default.contents(atPath: fileURL.path)
     }
     
-    static func savdData(_ menuImageURL: String, _ fileURL: URL) -> Data? {
+    static func saveData(_ menuImageURL: String, _ fileURL: URL) -> Data? {
         guard let imageURL = URL(string: menuImageURL) else { return nil }
         guard let data = try? Data(contentsOf: imageURL) else { return nil }
         FileManager.default.createFile(atPath: fileURL.path, contents: data, attributes: nil)
