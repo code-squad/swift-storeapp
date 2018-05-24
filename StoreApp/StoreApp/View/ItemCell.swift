@@ -27,11 +27,15 @@ class ItemCell: UITableViewCell {
     }
     
     private func setMenuImage(_ menuImageURL: String) {
-            DispatchQueue.global().async {
-                guard let data = Downloader.getMenuImage(menuImageURL) else { return }
+        Downloader.loadMenuImage(menuImageURL) { (result) in
+            switch result {
+            case .success(let data):
                 DispatchQueue.main.async {
                     self.menuImage.image = UIImage(data: data)
                 }
+            case .failure():
+                self.menuImage.backgroundColor = UIColor.gray
             }
+        }
     }
 }
