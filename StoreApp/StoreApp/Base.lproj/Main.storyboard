@@ -144,7 +144,7 @@
                                             <outlet property="menuImage" destination="Fzy-uf-gfx" id="rJ8-Ly-RCY"/>
                                             <outlet property="price" destination="QLn-5i-uss" id="WnO-VG-SD1"/>
                                             <outlet property="title" destination="FhT-Za-Vby" id="LRN-LC-bkf"/>
-                                            <segue destination="lDb-y8-lym" kind="show" id="wt1-un-GGw"/>
+                                            <segue destination="lDb-y8-lym" kind="show" identifier="itemDetail" id="wt1-un-GGw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -171,7 +171,7 @@
         <!--Detail View Controller-->
         <scene sceneID="RqZ-rJ-83F">
             <objects>
-                <viewController id="lDb-y8-lym" customClass="DetailViewController" customModule="StoreApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailVC" id="lDb-y8-lym" customClass="DetailViewController" customModule="StoreApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lvE-vm-9rp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -60,6 +60,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = sections.getItem(indexPath)
         Toast(text: item.title + "\n" + item.s_price).show()
+        guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: Keyword.detailVC.name) as? DetailViewController else { return }
+        detailViewController.detailHash = item.detail_hash
     }
 
 }
