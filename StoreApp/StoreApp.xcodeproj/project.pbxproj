@@ -20,6 +20,7 @@
 		0445568120A6BD6700E49894 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445568020A6BD6700E49894 /* HeaderCell.swift */; };
 		0445568320A6CAB400E49894 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445568220A6CAB400E49894 /* Section.swift */; };
 		0448024B20B6A4CD00D78456 /* Inspector+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448024A20B6A4CD00D78456 /* Inspector+.swift */; };
+		0448024D20B6AD7F00D78456 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448024C20B6AD7F00D78456 /* DetailViewController.swift */; };
 		045240B820A5667B00AE97DB /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 045240B720A5667A00AE97DB /* side.json */; };
 		045240BA20A5668900AE97DB /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 045240B920A5668900AE97DB /* soup.json */; };
 		0457A5DE20B50E7600BCDC25 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */; };
@@ -47,6 +48,7 @@
 		0445568020A6BD6700E49894 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		0445568220A6CAB400E49894 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		0448024A20B6A4CD00D78456 /* Inspector+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inspector+.swift"; sourceTree = "<group>"; };
+		0448024C20B6AD7F00D78456 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		045240B720A5667A00AE97DB /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		045240B920A5668900AE97DB /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
@@ -122,9 +124,9 @@
 				043F1EDD2090A19200079228 /* Utility */,
 				040001B820905DF600AD524A /* Model */,
 				040001B720905DBF00AD524A /* View */,
-				041A4F46208B07D4002B1C3F /* AppDelegate.swift */,
-				041A4F48208B07D4002B1C3F /* ViewController.swift */,
+				0448024F20B6AD9500D78456 /* Controller */,
 				041A4F4A208B07D4002B1C3F /* Main.storyboard */,
+				041A4F46208B07D4002B1C3F /* AppDelegate.swift */,
 				041A4F4D208B07D6002B1C3F /* Assets.xcassets */,
 				041A4F4F208B07D6002B1C3F /* LaunchScreen.storyboard */,
 				041A4F52208B07D6002B1C3F /* Info.plist */,
@@ -147,6 +149,15 @@
 				0448024A20B6A4CD00D78456 /* Inspector+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		0448024F20B6AD9500D78456 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				041A4F48208B07D4002B1C3F /* ViewController.swift */,
+				0448024C20B6AD7F00D78456 /* DetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		045240BB20A566A400AE97DB /* Resources */ = {
@@ -298,6 +309,7 @@
 				041A4F47208B07D4002B1C3F /* AppDelegate.swift in Sources */,
 				0445568120A6BD6700E49894 /* HeaderCell.swift in Sources */,
 				04A0B89020B41AE3001EEB97 /* PriceView.swift in Sources */,
+				0448024D20B6AD7F00D78456 /* DetailViewController.swift in Sources */,
 				0457A5E020B52F0200BCDC25 /* BadgeLabel.swift in Sources */,
 				0457A5E420B5647200BCDC25 /* Downloader.swift in Sources */,
 				0448024B20B6A4CD00D78456 /* Inspector+.swift in Sources */,
