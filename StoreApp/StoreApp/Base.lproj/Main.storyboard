@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E6e-Hw-ukA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E6e-Hw-ukA">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -359,7 +359,6 @@
                         <outlet property="detailTitle" destination="3Ou-MF-BRf" id="74o-kJ-iUT"/>
                         <outlet property="mainScrollView" destination="0Og-Sq-yAv" id="R46-FF-dLS"/>
                         <outlet property="thumbnailsView" destination="YBP-y0-KfR" id="OQD-un-SeR"/>
-                        <outlet property="title" destination="3Ou-MF-BRf" id="Fou-cG-ub2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Htk-qn-WNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
