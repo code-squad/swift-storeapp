@@ -19,5 +19,5 @@ struct Item : Decodable {
     let n_price: String?
     let s_price: String
     let badge: [String]?
-        
+    
 }

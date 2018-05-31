@@ -36,10 +36,23 @@ enum Keyword {
     enum Observer {
         case reloadItems
         case sectionType
+        case detailData
+        case itemDetailTitle
         var name: String {
             switch self {
             case .reloadItems: return "reloadItems"
             case .sectionType: return "section"
+            case .detailData: return "detailData"
+            case .itemDetailTitle: return "itemDetailTitle"
+            }
+        }
+    }
+    
+    enum ItemDetail {
+        case base
+        var URL: String {
+            switch self {
+            case .base: return "http://crong.codesquad.kr:8080/woowa/detail/"
             }
         }
     }
@@ -47,4 +60,5 @@ enum Keyword {
 
 extension Notification.Name {
     static let reloadItems = Notification.Name(Keyword.Observer.reloadItems.name)
+    static let loadDetailData = Notification.Name(Keyword.Observer.detailData.name)
 }

@@ -61,7 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let item = sections.getItem(indexPath)
         Toast(text: item.title + "\n" + item.s_price).show()
         guard let detailViewController = storyboard?.instantiateViewController(withIdentifier: Keyword.detailVC.name) as? DetailViewController else { return }
-        detailViewController.detailHash = item.detail_hash
+        detailViewController.itemDetail = ItemDetail(item.title, item.detail_hash)
     }
 
 }
