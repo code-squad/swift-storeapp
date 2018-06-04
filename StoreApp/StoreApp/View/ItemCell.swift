@@ -27,7 +27,7 @@ class ItemCell: UITableViewCell {
     }
     
     private func setMenuImage(_ menuImageURL: String) {
-        Downloader.loadMenuImage(menuImageURL) { (result) in
+        Downloader.loadURLImage(menuImageURL) { (result) in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {

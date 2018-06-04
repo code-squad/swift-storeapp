@@ -53,7 +53,7 @@ class DetailViewController: UIViewController {
             let oneThumbnail = UIImageView(frame: CGRect(x: xPosition, y: Keyword.viewFloat.zero.value,
                                                          width: UIScreen.main.bounds.width, height: thumbnailsView.frame.height))
             oneThumbnail.contentMode = .scaleAspectFit
-            Downloader.loadMenuImage(URLs[index]) { (result) in
+            Downloader.loadURLImage(URLs[index]) { (result) in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async { oneThumbnail.image = UIImage(data: data) }
@@ -77,7 +77,7 @@ class DetailViewController: UIViewController {
                                                              width: UIScreen.main.bounds.width,
                                                              height: Keyword.viewFloat.detailSectionHeight.value))
             oneDetailSection.contentMode = .scaleAspectFit
-            Downloader.loadMenuImage(URLs[index]) { (result) in
+            Downloader.loadURLImage(URLs[index]) { (result) in
                 switch result {
                 case .success(let data):
                     DispatchQueue.main.async { oneDetailSection.image = UIImage(data: data) }
