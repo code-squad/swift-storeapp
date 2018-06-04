@@ -18,10 +18,10 @@ class Downloader {
         case failure()
     }
     
-    static func loadMenuImage(_ menuImageURL: String, completion: @escaping completionHandler) {
+    static func loadURLImage(_ imageURL: String, completion: @escaping completionHandler) {
         DispatchQueue.global().async {
-            guard let fileURL = generateFileURL(menuImageURL) else { return }
-            if let data = getImageData(menuImageURL, fileURL) {
+            guard let fileURL = generateFileURL(imageURL) else { return }
+            if let data = getImageData(imageURL, fileURL) {
                 completion(.success(data))
             } else {
                 completion(.failure())
