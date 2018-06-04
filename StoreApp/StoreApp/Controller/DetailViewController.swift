@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        thumbnailsView.isPagingEnabled = true
         NotificationCenter.default.addObserver(self, selector: #selector(updateDetailView(notification:)), name: .loadDetailData , object: nil)
     }
     
@@ -42,6 +43,49 @@ class DetailViewController: UIViewController {
         detailDeliveryInfo.text = data.delivery_info
         guard let price = data.prices.last else { return }
         detailPrice.text = price
+        drawThumbnailsView(data.thumb_images)
+        drawDetailSection(data.detail_section)
     }
-
+    
+    private func drawThumbnailsView(_ URLs: [String]) {
+        var xPosition: CGFloat = Keyword.viewFloat.zero.value
+        for index in URLs.indices {
+            let oneThumbnail = UIImageView(frame: CGRect(x: xPosition, y: Keyword.viewFloat.zero.value,
+                                                         width: UIScreen.main.bounds.width, height: thumbnailsView.frame.height))
+            oneThumbnail.contentMode = .scaleAspectFit
+            Downloader.loadMenuImage(URLs[index]) { (result) in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async { oneThumbnail.image = UIImage(data: data) }
+                case .failure(): oneThumbnail.backgroundColor = .gray
+                }
+            }
+            thumbnailsView.addSubview(oneThumbnail)
+            xPosition += thumbnailsView.frame.width
+        }
+        thumbnailsView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(URLs.count),
+                                            height: thumbnailsView.frame.height)
+    }
+    
+    private func drawDetailSection(_ URLs: [String]) {
+        var yPosition: CGFloat = detailInfoView.frame.origin.y + detailInfoView.frame.height
+        mainScrollView.contentSize = CGSize(width: mainScrollView.frame.width,
+                                            height: yPosition + Keyword.viewFloat.detailSectionHeight.value * CGFloat(URLs.count))
+        for index in URLs.indices {
+            let oneDetailSection = UIImageView(frame: CGRect(x: Keyword.viewFloat.zero.value,
+                                                             y: yPosition,
+                                                             width: UIScreen.main.bounds.width,
+                                                             height: Keyword.viewFloat.detailSectionHeight.value))
+            oneDetailSection.contentMode = .scaleAspectFit
+            Downloader.loadMenuImage(URLs[index]) { (result) in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.main.async { oneDetailSection.image = UIImage(data: data) }
+                case .failure(): oneDetailSection.backgroundColor = .gray
+                }
+            }
+            mainScrollView.addSubview(oneDetailSection)
+            yPosition += Keyword.viewFloat.detailSectionHeight.value
+        }
+    }
 }

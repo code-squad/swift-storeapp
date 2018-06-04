@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Keyword {
     
@@ -53,6 +54,17 @@ enum Keyword {
         var URL: String {
             switch self {
             case .base: return "http://crong.codesquad.kr:8080/woowa/detail/"
+            }
+        }
+    }
+    
+    enum viewFloat {
+        case zero
+        case detailSectionHeight
+        var value: CGFloat {
+            switch self {
+            case .zero: return 0
+            case .detailSectionHeight: return 400
             }
         }
     }
