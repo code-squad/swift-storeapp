@@ -179,15 +179,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-Sq-yAv">
                                 <rect key="frame" x="0.0" y="64" width="414" height="617"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YBP-y0-KfR">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBP-y0-KfR">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="250" id="WOP-Aq-L5d"/>
                                         </constraints>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5pD-Oy-6mv">
-                                        <rect key="frame" x="-3" y="246" width="420" height="184"/>
+                                        <rect key="frame" x="-3" y="246" width="420" height="172"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배송정보" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWE-u1-p4z" userLabel="delivery info. label">
                                                 <rect key="frame" x="20" y="124" width="45" height="16"/>
@@ -285,7 +284,7 @@
                                             <constraint firstItem="rGv-ry-SUT" firstAttribute="leading" secondItem="5pD-Oy-6mv" secondAttribute="leading" constant="20" id="XJP-o7-peu"/>
                                             <constraint firstAttribute="trailing" secondItem="3mL-Y3-kee" secondAttribute="trailing" constant="20" id="bKW-T0-Xrg"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Ou-MF-BRf" secondAttribute="trailing" constant="20" symbolic="YES" id="bkV-jU-d28"/>
-                                            <constraint firstAttribute="height" constant="184" id="dFc-tL-TWa"/>
+                                            <constraint firstAttribute="height" constant="172" id="dFc-tL-TWa"/>
                                             <constraint firstItem="MPx-DB-eMD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5pD-Oy-6mv" secondAttribute="leading" constant="20" symbolic="YES" id="eGy-zo-DWW"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T0t-fK-HIF" secondAttribute="trailing" constant="20" symbolic="YES" id="ecB-oD-ZFo"/>
                                             <constraint firstItem="mWE-u1-p4z" firstAttribute="top" secondItem="nTa-rM-Wc0" secondAttribute="bottom" constant="8" id="f4F-dx-dAL"/>
