@@ -15,6 +15,8 @@ enum Keyword {
     case headerCell
     case listCell
     case detailVC
+    case httpMethod
+    case payLoadText
     
     var name : String {
         switch self {
@@ -22,6 +24,8 @@ enum Keyword {
         case .headerCell: return "HeaderCell"
         case .listCell: return "ListCell"
         case .detailVC: return "detailVC"
+        case .httpMethod: return "POST"
+        case .payLoadText: return "text"
         }
     }
     
@@ -51,9 +55,11 @@ enum Keyword {
     
     enum ItemDetail {
         case base
+        case order
         var URL: String {
             switch self {
             case .base: return "http://crong.codesquad.kr:8080/woowa/detail/"
+            case .order: return "https://hooks.slack.com/services/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"
             }
         }
     }
