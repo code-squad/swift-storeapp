@@ -165,3 +165,77 @@
 
 ## 실행화면
 ![screemsh_step6](./img/Step6.png)
+
+# - Step7 ( 상품 상세화면 전환 )
+## 요구사항
+1. 상품 상세 화면(View) 구현
+	- ViewController 를 Navigation Controller로 embed
+	- cell을 선택하면 상품 상세 화면을 보이도록 새로운 뷰 컨트롤러를 구현
+	- 상세 화면 디자인은 NextStep 참고
+
+2. 상세화면 VC - View 연결 및
+	- 상세 화면(DetailViewController)으로 선택한 cell의 detail_hash 값을 전달하세요.
+	- http://crong.codesquad.kr:8080/woowa/detail/{detail_hash} URL 형식으로 요청하고 받은 JSON 데이터를 Decode 하는 네트워크 담당 모델 객체를 만드세요.
+	  - URL 예시 http://crong.codesquad.kr:8080/woowa/detail/H9881 또는 http://crong.codesquad.kr:8080/woowa/detail/HDF4C
+	- 상세 화면을 표시하기 전에 네트워크 담당 모델 객체에서 데이터를 받아서 화면 정보를 채워서 표시하세요.
+	  - self.view 커스텀 클래스를 UIScrollView로 지정하고 하위 뷰들은 self.view.contentView 에 추가하세요.
+	  - ScrollView ContentSize에 대해 찾아보고, 전체 콘텐츠 높이를 계산해서 스크롤되도록 값을 지정하세요.
+	  - 상단 ScrollView 에 thumb_images 항목의 이미지들을 Page 형태로 추가하세요. 좌우로 페이지 넘기듯이 넘어가도록 만드세요.
+	  - 설명 아래부분에는 제품 상세 설명을 위해서 detail_section 항목의 이미지들을 코드로 이어서 붙이세요.
+
+3. 주문 동작 구현(Network)
+	- 상세 화면에 대한 Delegate 프로토콜과 프로토콜을 채택하는 속성을 추가하세요.
+	  - 상세 화면에서 결과를 전달하기 위한 Delegate 프로토콜을 선언하세요.
+	  - 프로토콜에는 주문을 완료했을 때 호출할 메소드를 선언하세요.
+	  - ViewController에는 프로토콜을 채택하고 위의 메소드를 구현하세요.
+	- [주문하기] 버튼을 누르면 델리게이트 객체에 주문 완료 메소드를 호출합니다.
+	  - 프로토콜 채택한 객체는 슬랙으로 “누가-얼마짜리-메뉴” 주문을 POST 요청으로 보내는 기능을 네트워크 모델에 추가하세요.
+	  - 주문을 완료하고 나면 창을 닫고 이전 화면으로 돌아가도록 작성하세요.
+	  - 슬랙 incoming hook URL https://hooks.slack.com/services/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
+
+## 학습꺼리
+### HTTP
+- NSURLSessionTask는 웹 서버와 통신할 때, HTTP 명세에 나온 규칙을 따른다. (이 명세는 클라이언트와 서버 사이의 요청/응답 교환의 포맷에 관해 매우 명확하다.)
+	- HTTP요청은 요청 라인, 요청 헤더, 선택적 요청 바디, 세부분으로 나뉜다.
+		- 요청 라인: 첫번째 줄로, 서버에 클라이언트가 무엇을 하려고 하는지 알린다.
+		- HTTP의 메서드 중 가장 많이 사용되는 것은 GET과 POST로, NSURLRequest의 기본 값은 GET으로 클라이언트가 서버로부터 리소스를 원한다는 것을 나타낸다. 요청된 리소스는 웹 서버상의 파일시스템에 있는 실제 파일이거나, 요청을 받는 시점에 동적으로 생성될 수 있다. 클라이언트에서는 이러한 세부사항에 관해서 관여할 수 없다.
+		- 서버로부터 뭔가를 얻는 것 뿐만 아니라, 정보를 보낼 수도 있다. 예를 들어, 많은 웹 서버들이 사진 업로드를 허용한다. 클라이언트 프로그램은 HTTP 요청을 통해, 이미 데이터를 서버에 전달할 것이다. 이러한 상황에 HTTP 메서드 POST를 사용하여, 이 메서드에 요청바디를 포함할 것이다. 요청의 바디는 서버에 전달할 페이로드다. 보통 JSON, XML, 바이너리 데이터 등이다.
+	- HTTP 요청 포맷
+	![screensh_step7_1](http://www.libqa.com/imageView?path=/resource/real/57/20130626/thumb/thumb_2013062623850833813567817.jpg)
+	- HTTP 요청 포맷 예시
+	![screenshot_step7_2](http://images.slideplayer.com/31/9769996/slides/slide_5.jpg)
+	- HTTP 응답 포맷 예시
+	![screenshot_step7_3](http://images.slideplayer.com/26/8484284/slides/slide_2.jpg)
+	- slack의 incoming webhook을 이용하려면
+		- payload 파라메터를 보낼 때 JSON string으로 보내야 한다.
+		- method는 POST로 전송해야 한다.
+		- payload의 property 목록
+		```
+				var payload = {
+					// bot 이름을 바꿀 수 있다. "username" : "",
+					// bot 아이콘을 바꿀 수 있다. "icon_url" : "",
+					// bot 아이콘을 이모티콘으로 사용할 수 있다. 위의 icon_url 중 하나만 사용하면 된다. "icon_emoji" : "",
+					// 본문 내용을 입력한다. (필수) "text" : "", // 채널을 override 시킬 수 있다. "channel" : ""
+				}
+				```
+	- 이를 이용한 내 코드
+	```
+			func order() {
+				guard let url = URL(string: Keyword.ItemDetail.order.URL) else { return }
+				var request = URLRequest(url: url)
+				request.httpMethod = Keyword.httpMethod.name
+				let detailInfoString = "\(detailPrice.text ?? "")-\(detailTitle.text ?? "")"
+				let detailInfoData = try? JSONSerialization.data(withJSONObject: [Keyword.payLoadText.name : detailInfoString])
+				request.httpBody = detailInfoData
+				URLSession.shared.dataTask(with: request).resume()
+		}
+		```
+
+### UIScrollView 관련 헤맸던 부분
+- scrollView는 ``ContentSize``를 지정해주어야 동작이 가능하다.
+- Paging을 사용하기 위해선 ``isPagingEnabled``을 ``true``로 지정해두어야 한다.
+- 참고: http://www.edwith.org/boostcourse-ios/lecture/16900/
+
+## 실행화면
+![screemsh_step7_4](./img/Step7-1.png)
+![screemsh_step7_5](./img/Step7-2.png)
