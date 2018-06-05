@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, DetailInfoDelegate {
     
     var itemDetail: ItemDetail!
 
@@ -88,4 +88,15 @@ class DetailViewController: UIViewController {
             yPosition += Keyword.viewFloat.detailSectionHeight.value
         }
     }
+    
+    func order() {
+        guard let url = URL(string: Keyword.ItemDetail.order.URL) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = Keyword.httpMethod.name
+        let detailInfoString = "\(detailPrice.text ?? "")-\(detailTitle.text ?? "")"
+        let detailInfoData = try? JSONSerialization.data(withJSONObject: [Keyword.payLoadText.name : detailInfoString])
+        request.httpBody = detailInfoData
+        URLSession.shared.dataTask(with: request).resume()
+    }
+
 }
