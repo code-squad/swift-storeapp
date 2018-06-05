@@ -35,6 +35,11 @@ class DetailViewController: UIViewController, DetailInfoDelegate {
         updateDetailInfo(detailData, title)
     }
     
+    @IBAction func order(_ sender: UIButton) {
+        order()
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func updateDetailInfo(_ data: DetailData, _ itemDetailTitle: String) {
         detailTitle.text = itemDetailTitle
         detailDescription.text = data.product_description
