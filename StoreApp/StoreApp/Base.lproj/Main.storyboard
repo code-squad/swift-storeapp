@@ -31,7 +31,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ch-lk-6J4">
-                                                    <rect key="frame" x="195" y="11" width="25" height="14"/>
+                                                    <rect key="frame" x="194.66666666666666" y="11" width="25" height="14"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="14" id="KV4-Ev-WgC"/>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="aVM-U6-uWx"/>
@@ -52,7 +52,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyG-Vr-Z9C">
-                                                    <rect key="frame" x="154.66666666666666" y="26" width="105.33333333333334" height="21"/>
+                                                    <rect key="frame" x="154" y="26" width="106" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="WmX-dq-AZH"/>
                                                     </constraints>
@@ -335,7 +335,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="order:" destination="lDb-y8-lym" eventType="touchUpInside" id="Yiu-sj-j2i"/>
+                                    <action selector="didTouchedOrderButton:" destination="lDb-y8-lym" eventType="touchUpInside" id="Yiu-sj-j2i"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -358,8 +358,8 @@
                         <outlet property="detailInfoView" destination="5pD-Oy-6mv" id="zIE-dm-Zy9"/>
                         <outlet property="detailPoint" destination="W4f-fn-gSx" id="1Mc-NI-Ysy"/>
                         <outlet property="detailPrice" destination="MPx-DB-eMD" id="GAE-EV-2zk"/>
+                        <outlet property="detailSectionView" destination="0Og-Sq-yAv" id="R46-FF-dLS"/>
                         <outlet property="detailTitle" destination="3Ou-MF-BRf" id="74o-kJ-iUT"/>
-                        <outlet property="mainScrollView" destination="0Og-Sq-yAv" id="R46-FF-dLS"/>
                         <outlet property="thumbnailsView" destination="YBP-y0-KfR" id="OQD-un-SeR"/>
                     </connections>
                 </viewController>
