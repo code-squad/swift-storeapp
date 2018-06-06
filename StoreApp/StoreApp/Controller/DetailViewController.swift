@@ -11,8 +11,7 @@ import UIKit
 class DetailViewController: UIViewController, DetailInfoDelegate {
     
     var itemDetail: ItemDetail!
-
-    @IBOutlet weak var mainScrollView: UIScrollView!
+    
     @IBOutlet weak var thumbnailsView: UIScrollView!
     @IBOutlet weak var detailInfoView: UIView!
     @IBOutlet weak var detailTitle: UILabel!
@@ -21,26 +20,56 @@ class DetailViewController: UIViewController, DetailInfoDelegate {
     @IBOutlet weak var detailPoint: UILabel!
     @IBOutlet weak var detailDeliveryInfo: UILabel!
     @IBOutlet weak var detailDeliveryFee: UILabel!
+    @IBOutlet weak var detailSectionView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         thumbnailsView.isPagingEnabled = true
         NotificationCenter.default.addObserver(self, selector: #selector(updateDetailView(notification:)), name: .loadDetailData , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateThumbnails(notification:)), name: .thumbnail, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateDetailSection(notification:)), name: .detailSection, object: nil)
+    }
+    
+    @objc private func updateThumbnails(notification: Notification) {
+        DispatchQueue.main.async {
+            guard let userInfo = notification.userInfo else { return }
+            guard let thumbnail = userInfo[Keyword.Observer.thumbnailData.name] as? (data: Data, index: Int) else { return }
+            self.drawThumbnailsView(thumbnail.data, thumbnail.index)
+        }
     }
     
     @objc private func updateDetailView(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         guard let detailData = userInfo[Keyword.Observer.detailData.name] as? DetailData else { return }
         guard let title = userInfo[Keyword.Observer.itemDetailTitle.name] as? String else { return }
-        updateDetailInfo(detailData, title)
+        drawDetailInfoView(detailData, title)
     }
     
-    @IBAction func order(_ sender: UIButton) {
+    @objc private func updateDetailSection(notification: Notification) {
+        DispatchQueue.main.async {
+            guard let userInfo = notification.userInfo else { return }
+            guard let detailSection = userInfo[Keyword.Observer.detailSectionData.name] as? (data: Data, index: Int) else { return }
+            self.drawDetailSectionView(detailSection.data, detailSection.index)
+        }
+    }
+    
+    @IBAction func didTouchedOrderButton(_ sender: UIButton) {
         order()
         navigationController?.popViewController(animated: true)
     }
     
-    private func updateDetailInfo(_ data: DetailData, _ itemDetailTitle: String) {
+    private func drawThumbnailsView(_ thumbnailData: Data, _ thumbnailIndex: Int) {
+        let xPosition: CGFloat = thumbnailsView.frame.width * CGFloat(thumbnailIndex)
+        let oneThumbnail = UIImageView(frame: CGRect(x: xPosition, y: Keyword.viewFloat.zero.value,
+                                                     width: UIScreen.main.bounds.width, height: thumbnailsView.frame.height))
+        oneThumbnail.contentMode = .scaleAspectFit
+        oneThumbnail.image = UIImage(data: thumbnailData)
+        thumbnailsView.addSubview(oneThumbnail)
+        thumbnailsView.contentSize = CGSize(width: UIScreen.main.bounds.width * Keyword.viewFloat.thumbnailsCount.value,
+                                            height: thumbnailsView.frame.height)
+    }
+    
+    private func drawDetailInfoView(_ data: DetailData, _ itemDetailTitle: String) {
         detailTitle.text = itemDetailTitle
         detailDescription.text = data.product_description
         detailPoint.text = data.point
@@ -48,50 +77,19 @@ class DetailViewController: UIViewController, DetailInfoDelegate {
         detailDeliveryInfo.text = data.delivery_info
         guard let price = data.prices.last else { return }
         detailPrice.text = price
-        drawThumbnailsView(data.thumb_images)
-        drawDetailSection(data.detail_section)
     }
     
-    private func drawThumbnailsView(_ URLs: [String]) {
-        var xPosition: CGFloat = Keyword.viewFloat.zero.value
-        for index in URLs.indices {
-            let oneThumbnail = UIImageView(frame: CGRect(x: xPosition, y: Keyword.viewFloat.zero.value,
-                                                         width: UIScreen.main.bounds.width, height: thumbnailsView.frame.height))
-            oneThumbnail.contentMode = .scaleAspectFit
-            Downloader.loadURLImage(URLs[index]) { (result) in
-                switch result {
-                case .success(let data):
-                    DispatchQueue.main.async { oneThumbnail.image = UIImage(data: data) }
-                case .failure(): oneThumbnail.backgroundColor = .gray
-                }
-            }
-            thumbnailsView.addSubview(oneThumbnail)
-            xPosition += thumbnailsView.frame.width
-        }
-        thumbnailsView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(URLs.count),
-                                            height: thumbnailsView.frame.height)
-    }
-    
-    private func drawDetailSection(_ URLs: [String]) {
-        var yPosition: CGFloat = detailInfoView.frame.origin.y + detailInfoView.frame.height
-        mainScrollView.contentSize = CGSize(width: mainScrollView.frame.width,
-                                            height: yPosition + Keyword.viewFloat.detailSectionHeight.value * CGFloat(URLs.count))
-        for index in URLs.indices {
-            let oneDetailSection = UIImageView(frame: CGRect(x: Keyword.viewFloat.zero.value,
-                                                             y: yPosition,
-                                                             width: UIScreen.main.bounds.width,
-                                                             height: Keyword.viewFloat.detailSectionHeight.value))
-            oneDetailSection.contentMode = .scaleAspectFit
-            Downloader.loadURLImage(URLs[index]) { (result) in
-                switch result {
-                case .success(let data):
-                    DispatchQueue.main.async { oneDetailSection.image = UIImage(data: data) }
-                case .failure(): oneDetailSection.backgroundColor = .gray
-                }
-            }
-            mainScrollView.addSubview(oneDetailSection)
-            yPosition += Keyword.viewFloat.detailSectionHeight.value
-        }
+    private func drawDetailSectionView(_ detailSectionData: Data, _ detailSectionIndex: Int) {
+        let baseYPosition: CGFloat = detailInfoView.frame.origin.y + detailInfoView.frame.height
+        let oneDetailSection = UIImageView(frame: CGRect(x: Keyword.viewFloat.zero.value,
+                                                         y: baseYPosition + Keyword.viewFloat.detailSectionHeight.value * CGFloat(detailSectionIndex),
+                                                         width: UIScreen.main.bounds.width,
+                                                         height: Keyword.viewFloat.detailSectionHeight.value))
+        oneDetailSection.contentMode = .scaleAspectFit
+        oneDetailSection.image = UIImage(data: detailSectionData)
+        detailSectionView.addSubview(oneDetailSection)
+        detailSectionView.contentSize = CGSize(width: detailSectionView.frame.width,
+                                               height: baseYPosition + Keyword.viewFloat.detailSectionHeight.value * Keyword.viewFloat.detailSectionCount.value)
     }
     
     func order() {

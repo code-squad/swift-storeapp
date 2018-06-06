@@ -17,6 +17,7 @@ enum Keyword {
     case detailVC
     case httpMethod
     case payLoadText
+    case detailSectionView
     
     var name : String {
         switch self {
@@ -26,6 +27,7 @@ enum Keyword {
         case .detailVC: return "detailVC"
         case .httpMethod: return "POST"
         case .payLoadText: return "text"
+        case .detailSectionView: return "detailSectionView"
         }
     }
     
@@ -43,12 +45,16 @@ enum Keyword {
         case sectionType
         case detailData
         case itemDetailTitle
+        case thumbnailData
+        case detailSectionData
         var name: String {
             switch self {
             case .reloadItems: return "reloadItems"
             case .sectionType: return "section"
             case .detailData: return "detailData"
             case .itemDetailTitle: return "itemDetailTitle"
+            case .thumbnailData: return "thumbnailData"
+            case .detailSectionData: return "detailSectionData"
             }
         }
     }
@@ -67,10 +73,14 @@ enum Keyword {
     enum viewFloat {
         case zero
         case detailSectionHeight
+        case thumbnailsCount
+        case detailSectionCount
         var value: CGFloat {
             switch self {
             case .zero: return 0
             case .detailSectionHeight: return 400
+            case .thumbnailsCount: return 4
+            case .detailSectionCount: return 11
             }
         }
     }
@@ -79,4 +89,6 @@ enum Keyword {
 extension Notification.Name {
     static let reloadItems = Notification.Name(Keyword.Observer.reloadItems.name)
     static let loadDetailData = Notification.Name(Keyword.Observer.detailData.name)
+    static let thumbnail = Notification.Name(Keyword.Observer.thumbnailData.name)
+    static let detailSection = Notification.Name(Keyword.Observer.detailSectionData.name)
 }
