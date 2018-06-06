@@ -24,6 +24,7 @@ class ItemDetail: Decodable {
                 self.hash = itemDetail.hash
                 self.data = itemDetail.data
                 NotificationCenter.default.post(name: .loadDetailData, object: self, userInfo: [Keyword.Observer.detailData.name: self.data, Keyword.Observer.itemDetailTitle.name: self.title])
+                NotificationCenter.default.post(name: .detailImagesCount, object: self, userInfo: [Keyword.Observer.detailImagesCount.name : (ofThumbnail: self.data.thumb_images.count, ofSection: self.data.detail_section.count)])
                 self.loadThumbnailData()
                 self.loadDetailSectionData()
             }
