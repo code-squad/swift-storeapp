@@ -24,6 +24,8 @@ class ItemDetail: Decodable {
                 self.hash = itemDetail.hash
                 self.data = itemDetail.data
                 NotificationCenter.default.post(name: .loadDetailData, object: self, userInfo: [Keyword.Observer.detailData.name: self.data, Keyword.Observer.itemDetailTitle.name: self.title])
+                self.loadThumbnailData()
+                self.loadDetailSectionData()
             }
             }.resume()
     }
@@ -33,6 +35,36 @@ class ItemDetail: Decodable {
             return try JSONDecoder().decode(ItemDetail.self, from : data)
         } catch {
             return nil
+        }
+    }
+    
+    private func loadThumbnailData() {
+            for URLindex in 0..<data.thumb_images.count {
+                Downloader.loadURLImage(data.thumb_images[URLindex]) { (result) in
+                    switch result {
+                    case .success(let data):
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: .thumbnail, object: self,
+                                                            userInfo: [Keyword.Observer.thumbnailData.name : (data: data, index: URLindex)])
+                        }
+                    case .failure(): break
+                    }
+                }
+            }
+    }
+    
+    private func loadDetailSectionData() {
+            for URLindex in 0..<data.detail_section.count {
+                Downloader.loadURLImage(data.detail_section[URLindex]) { (result) in
+                    switch result {
+                    case .success(let data):
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: .detailSection, object: self,
+                                                            userInfo: [Keyword.Observer.detailSectionData.name : (data: data, index: URLindex)])
+                        }
+                    case .failure(): break
+                    }
+                }
         }
     }
 }
