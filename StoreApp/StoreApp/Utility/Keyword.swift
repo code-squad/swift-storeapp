@@ -47,6 +47,7 @@ enum Keyword {
         case itemDetailTitle
         case thumbnailData
         case detailSectionData
+        case detailImagesCount
         var name: String {
             switch self {
             case .reloadItems: return "reloadItems"
@@ -55,6 +56,7 @@ enum Keyword {
             case .itemDetailTitle: return "itemDetailTitle"
             case .thumbnailData: return "thumbnailData"
             case .detailSectionData: return "detailSectionData"
+            case .detailImagesCount: return "detailImagesCount"
             }
         }
     }
@@ -73,14 +75,10 @@ enum Keyword {
     enum viewFloat {
         case zero
         case detailSectionHeight
-        case thumbnailsCount
-        case detailSectionCount
         var value: CGFloat {
             switch self {
             case .zero: return 0
             case .detailSectionHeight: return 400
-            case .thumbnailsCount: return 4
-            case .detailSectionCount: return 11
             }
         }
     }
@@ -91,4 +89,5 @@ extension Notification.Name {
     static let loadDetailData = Notification.Name(Keyword.Observer.detailData.name)
     static let thumbnail = Notification.Name(Keyword.Observer.thumbnailData.name)
     static let detailSection = Notification.Name(Keyword.Observer.detailSectionData.name)
+    static let detailImagesCount = Notification.Name(Keyword.Observer.detailImagesCount.name)
 }

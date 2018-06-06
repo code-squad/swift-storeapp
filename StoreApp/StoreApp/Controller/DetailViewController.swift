@@ -28,6 +28,7 @@ class DetailViewController: UIViewController, DetailInfoDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(updateDetailView(notification:)), name: .loadDetailData , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateThumbnails(notification:)), name: .thumbnail, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateDetailSection(notification:)), name: .detailSection, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setScrollViewSize(notification:)), name: .detailImagesCount, object: nil)
     }
     
     @objc private func updateThumbnails(notification: Notification) {
@@ -53,6 +54,16 @@ class DetailViewController: UIViewController, DetailInfoDelegate {
         }
     }
     
+    @objc private func setScrollViewSize(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let count = userInfo[Keyword.Observer.detailImagesCount.name] as? (ofThumbnail: Int, ofSection: Int) else { return }
+        thumbnailsView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(count.ofThumbnail),
+                                            height: thumbnailsView.frame.height)
+        let baseYPosition: CGFloat = detailInfoView.frame.origin.y + detailInfoView.frame.height
+        detailSectionView.contentSize = CGSize(width: detailSectionView.frame.width,
+                                               height: baseYPosition + Keyword.viewFloat.detailSectionHeight.value * CGFloat(count.ofSection))
+    }
+    
     @IBAction func didTouchedOrderButton(_ sender: UIButton) {
         order()
         navigationController?.popViewController(animated: true)
@@ -65,8 +76,6 @@ class DetailViewController: UIViewController, DetailInfoDelegate {
         oneThumbnail.contentMode = .scaleAspectFit
         oneThumbnail.image = UIImage(data: thumbnailData)
         thumbnailsView.addSubview(oneThumbnail)
-        thumbnailsView.contentSize = CGSize(width: UIScreen.main.bounds.width * Keyword.viewFloat.thumbnailsCount.value,
-                                            height: thumbnailsView.frame.height)
     }
     
     private func drawDetailInfoView(_ data: DetailData, _ itemDetailTitle: String) {
@@ -88,8 +97,6 @@ class DetailViewController: UIViewController, DetailInfoDelegate {
         oneDetailSection.contentMode = .scaleAspectFit
         oneDetailSection.image = UIImage(data: detailSectionData)
         detailSectionView.addSubview(oneDetailSection)
-        detailSectionView.contentSize = CGSize(width: detailSectionView.frame.width,
-                                               height: baseYPosition + Keyword.viewFloat.detailSectionHeight.value * Keyword.viewFloat.detailSectionCount.value)
     }
     
     func order() {
