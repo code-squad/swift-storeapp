@@ -51,13 +51,17 @@ struct Section {
     let headerType: String
     let title: String
     let subTitle: String
-    let storeItems: StoreItems
+    var storeItems: StoreItems
 
-    init(_ sectionHeader : Header) {
+    init(_ sectionHeader : Header, _ connectionFlag : Bool) {
         headerType = sectionHeader.type
         title = sectionHeader.title
         subTitle = sectionHeader.subTitle
-        storeItems = StoreItems(sectionHeader)
+        if connectionFlag {
+            self.storeItems = StoreItems(sectionHeader)
+            return
+        }
+        self.storeItems = StoreItems(fileName: sectionHeader.type)
     }
     
 }
