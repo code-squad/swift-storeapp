@@ -1,16 +1,24 @@
 PODS:
+  - Alamofire (4.7.2)
+  - ReachabilitySwift (4.1.0)
   - Toaster (2.1.1)
 
 DEPENDENCIES:
+  - Alamofire
+  - ReachabilitySwift
   - Toaster
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ReachabilitySwift
     - Toaster
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: 12d4336c14f5eb136ade2494c1a55639238aa479
+PODFILE CHECKSUM: 31ff05cd7d4a74472d3dacfc9e0895acd8014b64
 
 COCOAPODS: 1.5.2
