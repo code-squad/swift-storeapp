@@ -19,8 +19,8 @@ class Sections {
         return sections[index]
     }
     
-    init() {
-        sections = [Section(.main), Section(.side), Section(.soup)]
+    init(isConnectable: Bool) {
+        sections = [Section(.main, isConnectable), Section(.side, isConnectable), Section(.soup, isConnectable)]
     }
     
     func getItem(_ indexPath: IndexPath) -> Item {
