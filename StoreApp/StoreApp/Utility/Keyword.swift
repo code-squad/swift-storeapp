@@ -48,6 +48,8 @@ enum Keyword {
         case thumbnailData
         case detailSectionData
         case detailImagesCount
+        case connection
+        case reloadSections
         var name: String {
             switch self {
             case .reloadItems: return "reloadItems"
@@ -57,6 +59,8 @@ enum Keyword {
             case .thumbnailData: return "thumbnailData"
             case .detailSectionData: return "detailSectionData"
             case .detailImagesCount: return "detailImagesCount"
+            case .connection: return "connectionChanged"
+            case .reloadSections: return "reloadSections"
             }
         }
     }
@@ -82,6 +86,35 @@ enum Keyword {
             }
         }
     }
+    
+    enum toaster {
+        case unreachable
+        case connection
+        var message: String {
+            switch self {
+            case .unreachable: return "인터넷 연결을 확인해 주세요."
+            case .connection: return "인터넷이 정상적으로 연결되었습니다."
+            }
+        }
+    }
+    
+    enum borderAnimation {
+        case to
+        case from
+        case duration
+        case keyPath
+        case key
+        var value: Any {
+            switch self {
+            case .to: return 0 as CGFloat
+            case .from: return 7 as CGFloat
+            case .duration: return 1.5
+            case .keyPath: return "borderWidth"
+            case .key: return "Width"
+            }
+        }
+    }
+
 }
 
 extension Notification.Name {
@@ -90,4 +123,6 @@ extension Notification.Name {
     static let thumbnail = Notification.Name(Keyword.Observer.thumbnailData.name)
     static let detailSection = Notification.Name(Keyword.Observer.detailSectionData.name)
     static let detailImagesCount = Notification.Name(Keyword.Observer.detailImagesCount.name)
+    static let connection = Notification.Name(Keyword.Observer.connection.name)
+    static let reloadSections = Notification.Name(Keyword.Observer.reloadSections.name)
 }

@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     
-    var sections : Sections = Sections()
+    var sections : Sections!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        NotificationCenter.default.addObserver(self, selector: #selector(updateSection(notification:)), name: .reloadItems, object: nil)
+        switch  NetworkManager.sharedInstance.reachability.connection {
+        case .cellular, .wifi: sections = Sections(isConnectable: true)
+        case .none: sections = Sections(isConnectable: false)
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadItems(notification:)), name: .reloadItems, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadSections(notification:)), name: .reloadSections, object: nil)
     }
     
-    @objc func updateSection(notification: Notification) {
+    @objc func reloadItems(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         guard let sectionHeader = userInfo[Keyword.Observer.sectionType.name]  as? Section.Header else { return }
             self.tableView.insertRows(at: self.sections.generateIndexPaths(sectionHeader), with: .none)
+    }
+    
+    @objc func reloadSections(notification: Notification) {
+        sections = Sections(isConnectable: true)
+        tableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
