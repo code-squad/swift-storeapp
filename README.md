@@ -239,3 +239,208 @@
 ## 실행화면
 ![screemsh_step7_4](./img/Step7-1.png)
 ![screemsh_step7_5](./img/Step7-2.png)
+
+# - Step8 ( 연결성 확인 Reachability )
+## 요구사항
+- 애플 Reachability 샘플 클래스로 인터넷 연결 여부를 판단한다.
+- Reachability.m 또는 Alamofire를 프로젝트에 추가한다.
+	- 앱 시작할 때 인터넷 연결이 안되어 있으면, JSON 데이터 파일로 첫 화면을 로딩한다.
+	- 그 이후 앱이 서버에 연결 가능하면 네트워크 모델을 통해서 JSON 데이터를 받아서 화면을 갱신한다.
+- 앱 실행중에 연결성이 바뀌는 경우 노티를 받아서
+	- 연결이 안되어 있는 경우 화면의 가장자리(border)를 UIColor.red 로 표시한다.
+	- 연결된 경우 border를 UIColor.green 으로 표시한다.
+
+## 학습꺼리
+### Reachability
+- Reachability란?
+	- 직역하자면, ``도달가능성.``으로 현재, iOS 기기가 인터넷에 연결 되어있는지 (네트워크 사용 가능 상태인지), 만약 그렇다면 와이파이인지 3G인지 친절히 알려준다.
+- 어떻게 구현할까?
+	1. XCode에서 기본으로 제공하는 Reachability Library
+		- ``SystemConfiguration``을 ``import``해주어야 한다.
+		- 사용하기 위한 소스 예제
+			```
+			import SystemConfiguration
+
+			public class Reachability {
+
+			    class func isConnectedToNetwork() -> Bool {
+
+			        var zeroAddress = sockaddr_in(sin_len: 0, sin_family: 0, sin_port: 0, sin_addr: in_addr(s_addr: 0), sin_zero: (0, 0, 0, 0, 0, 0, 0, 0))
+			        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+			        zeroAddress.sin_family = sa_family_t(AF_INET)
+
+			        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+			            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+			                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+			            }
+			        }
+
+			        var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
+			        if SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) == false {
+			            return false
+			        }
+
+			        /* Only Working for WIFI
+			        let isReachable = flags == .reachable
+			        let needsConnection = flags == .connectionRequired
+
+			        return isReachable && !needsConnection
+			        */
+
+			        // Working for Cellular and WIFI
+			        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+			        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+			        let ret = (isReachable && !needsConnection)
+
+			        return ret
+
+			    }
+			}
+			```
+		- 사용방법
+			```
+			if Reachability.isConnectedToNetwork(){
+			    print("Internet Connection Available!")
+			}else{
+			    print("Internet Connection not Available!")
+			}
+			```
+	2. Alamofire
+		- cocoapods으로 pod해준 후, 사용
+		- 사용하기 위한 소스 예제
+			```
+			import Alamofire
+
+			public class ConnectionHelper: NSObject {
+			    var request: Alamofire.Request?
+
+			    func isInternetConnected(completionHandler: Bool -> Void) {
+			        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "requestTimeout", userInfo: nil, repeats: false)
+
+			        request = Alamofire
+			            .request(
+			                Method.HEAD,
+			                "http://www.testurl.com"
+			            )
+			            .response { response in
+			                if response.3?.code == -999 {
+			                    completionHandler(
+			                        false
+			                    )
+			                } else {
+			                    completionHandler(
+			                        true
+			                    )
+			                }
+			        }
+			    }
+
+			    func requestTimeout() {
+			        request!.cancel()
+			    }
+			}
+			```
+		- 사용방법
+			```
+			ConnectionHelper().isInternetConnected() { internetConnected in
+			    if internetConnected {
+			        // Connected
+			    } else {
+			        // Not connected
+			    }
+			}
+			```
+
+	3. ReachabilitySwift
+		- cocoapods으로 pod해준 후, 사용
+		- 사용하기 위한 소스 예제
+			```
+			import Foundation
+			import Reachability
+
+			class NetworkManager: NSObject {
+
+					var reachability: Reachability!
+
+					// Create a singleton instance
+					static let sharedInstance: NetworkManager = { return NetworkManager() }()
+
+					override init() {
+							super.init()
+
+							// Initialise reachability
+							reachability = Reachability()!
+
+							// Register an observer for the network status
+							NotificationCenter.default.addObserver(
+									self,
+									selector: #selector(networkStatusChanged(_:)),
+									name: .reachabilityChanged,
+									object: reachability
+							)
+
+							do {
+									// Start the network status notifier
+									try reachability.startNotifier()
+							} catch {
+									print("Unable to start notifier")
+							}
+					}
+
+					@objc func networkStatusChanged(_ notification: Notification) {
+							// Do something globally here!
+					}
+
+					static func stopNotifier() -> Void {
+							do {
+									// Stop the network status notifier
+									try (NetworkManager.sharedInstance.reachability).startNotifier()
+							} catch {
+									print("Error stopping notifier")
+							}
+					}
+
+					// Network is reachable
+					static func isReachable(completed: @escaping (NetworkManager) -> Void) {
+							if (NetworkManager.sharedInstance.reachability).connection != .none {
+									completed(NetworkManager.sharedInstance)
+							}
+					}
+
+					// Network is unreachable
+					static func isUnreachable(completed: @escaping (NetworkManager) -> Void) {
+							if (NetworkManager.sharedInstance.reachability).connection == .none {
+									completed(NetworkManager.sharedInstance)
+							}
+					}
+
+					// Network is reachable via WWAN/Cellular
+					static func isReachableViaWWAN(completed: @escaping (NetworkManager) -> Void) {
+							if (NetworkManager.sharedInstance.reachability).connection == .cellular {
+									completed(NetworkManager.sharedInstance)
+							}
+					}
+
+					// Network is reachable via WiFi
+					static func isReachableViaWiFi(completed: @escaping (NetworkManager) -> Void) {
+							if (NetworkManager.sharedInstance.reachability).connection == .wifi {
+									completed(NetworkManager.sharedInstance)
+							}
+					}
+			}
+			```
+
+		- 사용방법
+		```
+		NetworkManager.isReachable { networkManagerInstance in
+			print("Network is available")
+		}
+
+		NetworkManager.isUnreachable { networkManagerInstance in
+			print("Network is Unavailable")
+		}
+		```
+
+## 실행화면
+![screemsh_step8_1](./img/Step8-1.png)
+![screemsh_step8_2](./img/Step8-2.png)

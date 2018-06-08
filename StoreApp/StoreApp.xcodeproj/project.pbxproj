@@ -24,6 +24,7 @@
 		0445568320A6CAB400E49894 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0445568220A6CAB400E49894 /* Section.swift */; };
 		0448024B20B6A4CD00D78456 /* Inspector+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448024A20B6A4CD00D78456 /* Inspector+.swift */; };
 		0448024D20B6AD7F00D78456 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448024C20B6AD7F00D78456 /* DetailViewController.swift */; };
+		0448913420C8D2C7004CE800 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0448913320C8D2C7004CE800 /* NetworkManager.swift */; };
 		045240B820A5667B00AE97DB /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 045240B720A5667A00AE97DB /* side.json */; };
 		045240BA20A5668900AE97DB /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 045240B920A5668900AE97DB /* soup.json */; };
 		0457A5DE20B50E7600BCDC25 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */; };
@@ -55,6 +56,7 @@
 		0445568220A6CAB400E49894 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		0448024A20B6A4CD00D78456 /* Inspector+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Inspector+.swift"; sourceTree = "<group>"; };
 		0448024C20B6AD7F00D78456 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0448913320C8D2C7004CE800 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		045240B720A5667A00AE97DB /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		045240B920A5668900AE97DB /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		0457A5DD20B50E7600BCDC25 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				043F1EDE2090A9E500079228 /* Keyword.swift */,
 				0457A5E320B5647200BCDC25 /* Downloader.swift */,
 				0443AE8B20C67E1C0033EC46 /* DetailInfoDelegate.swift */,
+				0448913320C8D2C7004CE800 /* NetworkManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -293,10 +296,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +330,7 @@
 				0457A5E020B52F0200BCDC25 /* BadgeLabel.swift in Sources */,
 				0457A5E420B5647200BCDC25 /* Downloader.swift in Sources */,
 				0448024B20B6A4CD00D78456 /* Inspector+.swift in Sources */,
+				0448913420C8D2C7004CE800 /* NetworkManager.swift in Sources */,
 				040001BA20905E3D00AD524A /* Item.swift in Sources */,
 				0445568320A6CAB400E49894 /* Section.swift in Sources */,
 				040001B620905CB600AD524A /* ItemCell.swift in Sources */,
