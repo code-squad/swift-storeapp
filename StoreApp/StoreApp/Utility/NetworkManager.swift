@@ -12,11 +12,13 @@ import Reachability
 class NetworkManager: NSObject {
     
     var reachability: Reachability!
+    var connectionStatus: Reachability.Connection!
     static let sharedInstance: NetworkManager = NetworkManager()
     
     override init() {
         super.init()
         reachability = Reachability()
+        connectionStatus = reachability.connection
         NotificationCenter.default.addObserver(self, selector: #selector(networkStatusChanged(_:)), name: .reachabilityChanged, object: reachability)
         do {
             try reachability.startNotifier()
