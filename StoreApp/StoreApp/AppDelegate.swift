@@ -29,10 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case .cellular, .wifi:
             view?.layer.borderColor = UIColor.green.cgColor
             Toast(text: Keyword.toaster.connection.message).show()
+            guard NetworkManager.sharedInstance.connectionStatus == .none else { return }
             NotificationCenter.default.post(name: .reloadSections, object: nil)
+            NetworkManager.sharedInstance.connectionStatus = connection
         case .none:
             view?.layer.borderColor = UIColor.red.cgColor
             Toast(text: Keyword.toaster.unreachable.message).show()
+            NetworkManager.sharedInstance.connectionStatus = .none
         }
         view?.layer.add(borderAnimation, forKey: Keyword.borderAnimation.key.value as? String)
         view?.setNeedsLayout()
