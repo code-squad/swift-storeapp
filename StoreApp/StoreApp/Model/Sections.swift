@@ -19,8 +19,11 @@ class Sections {
         return sections[index]
     }
     
-    init(isConnectable: Bool) {
-        sections = [Section(.main, isConnectable), Section(.side, isConnectable), Section(.soup, isConnectable)]
+    init() {
+        switch  NetworkManager.sharedInstance.reachability.connection {
+        case .cellular, .wifi: sections = [Section(.main, true), Section(.side, true), Section(.soup, true)]
+        case .none: sections = [Section(.main, false), Section(.side, false), Section(.soup, false)]
+        }
     }
     
     func getItem(_ indexPath: IndexPath) -> Item {
