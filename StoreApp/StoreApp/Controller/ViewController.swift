@@ -8,12 +8,13 @@
 
 import UIKit
 import Toaster
+import Reachability
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var sections : Sections = Sections()
+    var sections : Sections!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        sections = Sections(NetworkManager.sharedInstance.connectionStatus)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadItems(notification:)), name: .reloadItems, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadSections(notification:)), name: .reloadSections, object: nil)
     }
@@ -32,7 +34,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func reloadSections(notification: Notification) {
-        sections = Sections()
+        guard let userInfo = notification.userInfo else { return }
+        guard let connection = userInfo[Keyword.Observer.reloadSections.name] as? Reachability.Connection else { return }
+        sections = Sections(connection)
         tableView.reloadData()
     }
     
