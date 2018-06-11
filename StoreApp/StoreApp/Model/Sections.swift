@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Reachability
 
 class Sections {
     
@@ -19,8 +20,8 @@ class Sections {
         return sections[index]
     }
     
-    init() {
-        switch  NetworkManager.sharedInstance.reachability.connection {
+    init(_ connection: Reachability.Connection) {
+        switch  connection {
         case .cellular, .wifi: sections = [Section(.main, true), Section(.side, true), Section(.soup, true)]
         case .none: sections = [Section(.main, false), Section(.side, false), Section(.soup, false)]
         }
