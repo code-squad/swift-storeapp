@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Section {
+class Section {
     
     enum Header {
         case main
@@ -52,17 +52,16 @@ struct Section {
     let title: String
     let subTitle: String
     var storeItems: StoreItems
-    var networkStatus: NetworkCheckable = NetworkManager.sharedInstance as NetworkCheckable
 
     init(_ sectionHeader : Header) {
         headerType = sectionHeader.type
         title = sectionHeader.title
         subTitle = sectionHeader.subTitle
-        if networkStatus.isNetworkAvailable() {
-            self.storeItems = StoreItems(sectionHeader)
-            return
-        }
-        self.storeItems = StoreItems(fileName: sectionHeader.type)
+        storeItems = StoreItems(sectionHeader)
+    }
+    
+    func setStoreItems(_ fileName: String) {
+        storeItems = StoreItems(fileName: fileName)
     }
     
 }
