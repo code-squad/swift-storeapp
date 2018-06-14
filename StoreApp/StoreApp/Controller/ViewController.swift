@@ -22,6 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.delegate = self
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        NetworkManager.isUnreachable { _ in
+            self.sections.setStoreItemsFromJSON()
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(reloadItems(notification:)), name: .reloadItems, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(reloadSections(notification:)), name: .reloadSections, object: nil)
     }

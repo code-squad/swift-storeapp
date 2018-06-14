@@ -33,4 +33,8 @@ class Sections {
         return Array(0..<sections[sectionIndex].storeItems.count).map({IndexPath(row: $0, section: sectionIndex)})
     }
     
+    func setStoreItemsFromJSON() {
+        sections.forEach({$0.setStoreItems($0.headerType)})
+    }
+    
 }

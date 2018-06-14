@@ -9,11 +9,7 @@
 import Foundation
 import Reachability
 
-protocol NetworkCheckable {
-    func isNetworkAvailable() -> Bool
-}
-
-class NetworkManager: NSObject, NetworkCheckable {
+class NetworkManager: NSObject {
     
     var reachability: Reachability!
     var connectionStatus: Reachability.Connection!
@@ -36,8 +32,16 @@ class NetworkManager: NSObject, NetworkCheckable {
         NotificationCenter.default.post(name: .connection, object: self, userInfo: [Keyword.Observer.connection.name: network.connection])
     }
     
-    func isNetworkAvailable() -> Bool {
-        return reachability.connection != .none
+    static func isReachable(completed: @escaping (NetworkManager) -> Void) {
+        if (NetworkManager.sharedInstance.reachability).connection != .none {
+            completed(NetworkManager.sharedInstance)
+        }
+    }
+    
+    static func isUnreachable(completed: @escaping (NetworkManager) -> Void) {
+        if (NetworkManager.sharedInstance.reachability).connection == .none {
+            completed(NetworkManager.sharedInstance)
+        }
     }
     
 }
