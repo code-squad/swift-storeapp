@@ -32,12 +32,6 @@ class NetworkManager: NSObject {
         NotificationCenter.default.post(name: .connection, object: self, userInfo: [Keyword.Observer.connection.name: network.connection])
     }
     
-    static func isReachable(completed: @escaping (NetworkManager) -> Void) {
-        if (NetworkManager.sharedInstance.reachability).connection != .none {
-            completed(NetworkManager.sharedInstance)
-        }
-    }
-    
     static func isUnreachable(completed: @escaping (NetworkManager) -> Void) {
         if (NetworkManager.sharedInstance.reachability).connection == .none {
             completed(NetworkManager.sharedInstance)
