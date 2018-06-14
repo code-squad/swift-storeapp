@@ -52,12 +52,13 @@ struct Section {
     let title: String
     let subTitle: String
     var storeItems: StoreItems
+    var networkStatus: NetworkCheckable = NetworkManager.sharedInstance as NetworkCheckable
 
-    init(_ sectionHeader : Header, _ connectionFlag : Bool) {
+    init(_ sectionHeader : Header) {
         headerType = sectionHeader.type
         title = sectionHeader.title
         subTitle = sectionHeader.subTitle
-        if connectionFlag {
+        if networkStatus.isNetworkAvailable() {
             self.storeItems = StoreItems(sectionHeader)
             return
         }
