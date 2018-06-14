@@ -20,11 +20,8 @@ class Sections {
         return sections[index]
     }
     
-    init(_ connection: Reachability.Connection) {
-        switch  connection {
-        case .cellular, .wifi: sections = [Section(.main, true), Section(.side, true), Section(.soup, true)]
-        case .none: sections = [Section(.main, false), Section(.side, false), Section(.soup, false)]
-        }
+    init() {
+        sections = [Section(.main), Section(.side), Section(.soup)]
     }
     
     func getItem(_ indexPath: IndexPath) -> Item {

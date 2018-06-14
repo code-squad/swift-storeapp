@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             view?.layer.borderColor = UIColor.green.cgColor
             Toast(text: Keyword.toaster.connection.message).show()
             guard NetworkManager.sharedInstance.connectionStatus == .none else { return }
-            NotificationCenter.default.post(name: .reloadSections, object: nil, userInfo: [Keyword.Observer.reloadSections.name: connection])
+            NotificationCenter.default.post(name: .reloadSections, object: nil)
             NetworkManager.sharedInstance.connectionStatus = connection
         case .none:
             view?.layer.borderColor = UIColor.red.cgColor
