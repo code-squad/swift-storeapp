@@ -15,9 +15,9 @@
 #### 프로그래밍 요구사항
 
 - 스토리보드 ViewController에 Cell을 Content View를 기준으로 하위 뷰들에 오토레이아웃을 적용한다.
-  - 메뉴 이미지 뷰는 top, bottom, lead 제약을 주고 width 제약을 넣는다. height와 width 비율은 1:1로 aspectRatio를 맞춘다.
-  - 타이틀 제목은 메뉴 이미지보다 10pt 우측에 lead 제약을 주고, top, tail 제약을 주고, height 제약을 준다.
-  - 상세 설명도 top 제약만 타이틀 제목보다 4pt 띄우고, 나머지는 타이틀에 맞춘다.
+  - ~~메뉴 이미지 뷰는 top, bottom, lead 제약을 주고 width 제약을 넣는다. height와 width 비율은 1:1로 aspectRatio를 맞춘다.~~
+  - ~~타이틀 제목은 메뉴 이미지보다 10pt 우측에 lead 제약을 주고, top, tail 제약을 주고, height 제약을 준다.~~
+  - ~~상세 설명도 top 제약만 타이틀 제목보다 4pt 띄우고, 나머지는 타이틀에 맞춘다.~~
   - 메뉴 가격도 width 제약을 넣고, 나머지는 타이틀과 마찬가지로 제약을 준다.
   - 이벤트 배지는 최소width 제약만 주고 글자 내용에 맞추고, 없을 경우 감춘다.
 
@@ -29,6 +29,25 @@
 ```
 
 ## 작업 이력
+
+### 2. 오토레이아웃
+
+#### 주요 작업 내역
+
+- 상단 Section Header에 오토레이아웃 적용
+- 위 요구사항대로 Cell에 오토레이아웃 적용
+
+#### 날짜
+
+- 2018-07-08 13:44
+
+#### 스크린샷
+
+각 디바이스별 스크린샷은 resource/iphone-big, resource/iphone-small에 저장되어 있습니다.
+
+![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-big/Screen Shot 2018-07-08 at 1.42.31 PM.png)
+
+![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-small/Screen Shot 2018-07-08 at 1.38.42 PM.png)
 
 ### 1. 상품 목록
 
