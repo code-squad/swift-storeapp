@@ -13,8 +13,6 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var sectionHeaderSubtitleLabel: UIButton!
-    @IBOutlet weak var sectionHeaderTitleLabel: UILabel!
     
     let model: StoreModel = StoreModel()
     
@@ -41,23 +39,41 @@ class ViewController: UIViewController {
     }
     
     func setUpUI() {
-        sectionHeaderSubtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
-        sectionHeaderSubtitleLabel.layer.borderWidth = 1
+        
     }
 }
 
-extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return model.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.itemCount(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath)
         if let productCell = cell as? StoreItemCell,
-            let item = model.item(with: indexPath.row) {
+            let item = model.item(with: indexPath.section, with: indexPath.row) {
             productCell.setProductInfo(info: item)
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreSectionHeader", for: IndexPath())
+        if let sectionHeader = cell as? StoreSectionHeader {
+            if let sectionInfo = model.section(with: section) {
+                sectionHeader.setSectionInfo(info: sectionInfo)
+            }
+            
+            
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
     }
 }
 
@@ -112,30 +128,108 @@ class StoreItemCell: UITableViewCell {
 }
 
 
+class StoreSectionHeader: UITableViewCell {
+    @IBOutlet weak var subtitleLabel: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    func setSectionInfo(info sectionInfo: StoreSection) {
+        subtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
+        subtitleLabel.layer.borderWidth = 1
+        
+        subtitleLabel.setTitle(sectionInfo.subtitle, for: .normal)
+        titleLabel.text = sectionInfo.title
+    }
+}
 
 // # MARK - Model
 
 class StoreModel {
+    
+    struct Constant {
+        static let mainFileName: String = "main"
+        static let soupFileName: String = "soup"
+        static let sideFileName: String = "side"
+        
+        static let fileExtension: String = "json"
+    }
+    
+    private let sectionInfos: Array<Dictionary<String, String>> = [
+        [
+            "filename": Constant.mainFileName,
+            "section_subtitle": "메인반찬",
+            "section_title": "한그릇 뚝딱 메인 요리"
+        ], [
+            "filename": Constant.soupFileName,
+            "section_subtitle": "국.찌게",
+            "section_title": "김이 모락모락 국.찌게"
+        ], [
+            "filename": Constant.sideFileName,
+            "section_subtitle": "밑반찬",
+            "section_title": "언제 먹어도 든든한 밑반찬"
+        ]
+    ]
+    
+    var mySections: Array<StoreSection> = []
+    
+    func loadData() throws {
+        mySections = try sectionInfos.map { sectionInfo in
+            guard let sectionFileName = sectionInfo["filename"],
+                let sectionTitle = sectionInfo["section_title"],
+                let sectionSubtitle = sectionInfo["section_subtitle"] else {
+                    return nil
+            }
+            
+            // main.json 불러와서 파싱
+            if let filePath = Bundle.main.path(forResource: sectionFileName, ofType: Constant.fileExtension),
+                let data = NSData(contentsOfFile: filePath) {
+                let decoder = JSONDecoder()
+                let productItems: [StoreItem] = try decoder.decode([StoreItem].self, from: data as Data)
+                return StoreSection(title: sectionTitle, subtitle: sectionSubtitle, items: productItems)
+            } else {
+                return nil
+            }
+        }.compactMap{ $0 }
+    }
+    
+    var count: Int {
+        return mySections.count
+    }
+    func itemCount(section: Int) -> Int {
+        guard section < count else {
+            return 0
+        }
+        return mySections[section].count
+    }
+    
+    func section(with section: Int) -> StoreSection? {
+        guard section < count else {
+            return nil
+        }
+        return mySections[section]
+    }
+    func item(with section: Int, with row: Int) -> StoreItem? {
+        guard section < count else {
+            return nil
+        }
+        return mySections[section].item(with: row)
+    }
+    
+}
+struct StoreSection {
+    
+    let title: String
+    let subtitle: String
     var myitems: Array<StoreItem> = []
+    
     
     var count: Int {
         return myitems.count
     }
     
-    init() {
-        myitems = []
-    }
-    
-    func loadData() throws {
-        // main.json 불러와서 파싱
-        if let filePath = Bundle.main.path(forResource: "main", ofType: "json"),
-            let data = NSData(contentsOfFile: filePath) {
-            let decoder = JSONDecoder()
-            let productItems: [StoreItem] = try decoder.decode([StoreItem].self, from: data as Data)
-            myitems = productItems
-        } else {
-            myitems = []
-        }
+    init(title: String, subtitle: String, items: Array<StoreItem>) {
+        self.myitems = items
+        self.title = title
+        self.subtitle = subtitle
     }
     
     func item(with index: Int) -> StoreItem? {
@@ -144,7 +238,6 @@ class StoreModel {
         }
         return myitems[index]
     }
-    
     
 }
 
