@@ -44,7 +44,7 @@
 
 |                      섹션1                       |                      섹션2                       |                      섹션3                       |
 | :----------------------------------------------: | :----------------------------------------------: | :----------------------------------------------: |
-| ![section1](resource/lab3/IMG_9332.png?raw=true) | ![section1](resource/lab3/IMG_9333.png?raw=true) | ![section1](resource/lab3/IMG_9334.png?raw=true) |
+| ![section1](resource/lab3/IMG_9332.PNG?raw=true) | ![section1](resource/lab3/IMG_9333.PNG?raw=true) | ![section1](resource/lab3/IMG_9334.PNG?raw=true) |
 
 
 
