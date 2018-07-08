@@ -14,18 +14,9 @@
 
 #### 프로그래밍 요구사항
 
-- ~~다음 2개 파일을 다운로드해서 프로젝트에 복사하고 JSONDecoder를 활용해서 모델 객체를 기존 main과 함께 섹션(section)을 구분할 수 있도록 개선한다.~~
-  - soup.json 데이터 경로 => `http://public.codesquad.kr/jk/storeapp/soup.json`
-  - side.json 데이터 경로 => `http://public.codesquad.kr/jk/storeapp/side.json`
-- ~~스토리보드 ViewController에 Cell에 Section Header로 사용할 Custom Cell을 추가한다.~~
-  - 총 섹션은 3개로 구분해서 헤더에 다음과 같이 표시한다.
-  - main => `메인반찬 / 한그릇 뚝딱 메인 요리`
-  - soup => `국.찌게 / 김이 모락모락 국.찌게`
-  - side => `밑반찬 / 언제 먹어도 든든한 밑반찬`
-
-#### 목표 실행 화면
-
-![img](http://public.codesquad.kr/jk/storeapp-tableview.png)
+- Cocoapod 를 설치한다. [설치 가이드](https://guides.cocoapods.org/using/getting-started.html#getting-started)
+- `https://github.com/devxoul/Toaster` 저장소에 있는 Toaster 패키지를 cocoapod 으로 설치한다.
+- pod으로 설치한 Toaster 모듈을 import 하고 테이블뷰 셀을 터치하면 (didSelect) 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
 
 ## 작업 이력
 
@@ -33,15 +24,16 @@
 
 #### 주요 작업 내역
 
-- 
+- Pod을 이용한 Toast 라이브러리 사용
+- 셀을 누를시 토글로 정보(타이틀, 할인된 가격) 표시
 
 #### 날짜
 
-- 
+- 2018-07-08 15:53
 
 #### 스크린샷
 
-
+<img src="resource/lab4/IMG_9335.PNG?raw=true" width="240"/>
 
 ### 3. Custom Section 헤더 적용
 
