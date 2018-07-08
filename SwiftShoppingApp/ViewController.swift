@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 // # MARK - ViewController
 
@@ -74,6 +75,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let item = model.item(with: indexPath.section, with: indexPath.row) {
+            Toast(text: "\(item.title)\n\(item.s_price)").show()
+        }
     }
 }
 
