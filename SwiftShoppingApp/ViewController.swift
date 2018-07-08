@@ -133,11 +133,13 @@ class StoreSectionHeader: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func setSectionInfo(info sectionInfo: StoreSection) {
-        subtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
-        subtitleLabel.layer.borderWidth = 1
-        
         subtitleLabel.setTitle(sectionInfo.subtitle, for: .normal)
         titleLabel.text = sectionInfo.title
+    }
+    
+    override func awakeFromNib() {
+        subtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
+        subtitleLabel.layer.borderWidth = 1
     }
 }
 
