@@ -28,6 +28,10 @@ struct StoreItems {
     subscript(index: Int) -> StoreItem {
         return self.items[index]
     }
+    
+    var count: Int {
+        return self.items.count
+    }
 }
 
 struct StoreItem: Decodable {
@@ -37,4 +41,17 @@ struct StoreItem: Decodable {
     var s_price: String?
     var badge: [String]?
     var image: String?
+    
+    var badge1: String? {
+        return badge?.first
+    }
+    var badge2: String? {
+        guard let count = badge?.count else {
+            return nil
+        }
+        if count > 1 {
+            return badge?[1]
+        }
+        return nil
+    }
 }
