@@ -133,11 +133,13 @@ class StoreSectionHeader: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func setSectionInfo(info sectionInfo: StoreSection) {
+        subtitleLabel.setTitle(sectionInfo.getSubtitle(), for: .normal)
+        titleLabel.text = sectionInfo.getTitle()
+    }
+    
+    override func awakeFromNib() {
         subtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
         subtitleLabel.layer.borderWidth = 1
-        
-        subtitleLabel.setTitle(sectionInfo.subtitle, for: .normal)
-        titleLabel.text = sectionInfo.title
     }
 }
 
@@ -217,20 +219,25 @@ class StoreModel {
 }
 struct StoreSection {
     
-    let title: String
-    let subtitle: String
-    var myitems: Array<StoreItem> = []
+    private let title: String
+    private let subtitle: String
+    private var myitems: Array<StoreItem> = []
     
+    func getTitle() -> String { return self.title }
+    func getSubtitle() -> String { return self.subtitle }
     
-    var count: Int {
-        return myitems.count
-    }
     
     init(title: String, subtitle: String, items: Array<StoreItem>) {
         self.myitems = items
         self.title = title
         self.subtitle = subtitle
     }
+    
+    var count: Int {
+        return myitems.count
+    }
+    
+    
     
     func item(with index: Int) -> StoreItem? {
         guard index < count else {

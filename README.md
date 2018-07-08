@@ -2,7 +2,7 @@
 
 ## 요구사항
 
-## 3. Custom Section 헤더 적용 
+## 4. 패키지 관리 - CocoaPod 
 
 #### 요구사항
 
@@ -28,6 +28,20 @@
 ![img](http://public.codesquad.kr/jk/storeapp-tableview.png)
 
 ## 작업 이력
+
+### 4. 패키지 관리 - CocoaPod
+
+#### 주요 작업 내역
+
+- 
+
+#### 날짜
+
+- 
+
+#### 스크린샷
+
+
 
 ### 3. Custom Section 헤더 적용
 

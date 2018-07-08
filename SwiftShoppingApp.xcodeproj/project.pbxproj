@@ -16,6 +16,7 @@
 		5544408020F1A0E700F79D40 /* SwiftShoppingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544407F20F1A0E700F79D40 /* SwiftShoppingAppUITests.swift */; };
 		55BD7A9920F1D3F10009F87C /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 55BD7A9820F1D3F10009F87C /* soup.json */; };
 		55BD7A9B20F1D4070009F87C /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 55BD7A9A20F1D4070009F87C /* side.json */; };
+		DA3CEB2ED2F7C3BA3C6B72C0 /* Pods_SwiftShoppingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD282995378DAF74B078EFA /* Pods_SwiftShoppingApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,9 @@
 		5544408120F1A0E700F79D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55BD7A9820F1D3F10009F87C /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		55BD7A9A20F1D4070009F87C /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		8B3717781AF138EF366DEA18 /* Pods-SwiftShoppingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShoppingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp.release.xcconfig"; sourceTree = "<group>"; };
+		9DD282995378DAF74B078EFA /* Pods_SwiftShoppingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftShoppingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2A21C1DE60154F3784AB935 /* Pods-SwiftShoppingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShoppingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3CEB2ED2F7C3BA3C6B72C0 /* Pods_SwiftShoppingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +67,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53E2659414D615CA27EDEF7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9DD282995378DAF74B078EFA /* Pods_SwiftShoppingApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5544405E20F1A0E500F79D40 = {
 			isa = PBXGroup;
 			children = (
 				5544406920F1A0E500F79D40 /* SwiftShoppingApp */,
 				5544407E20F1A0E700F79D40 /* SwiftShoppingAppUITests */,
 				5544406820F1A0E500F79D40 /* Products */,
+				FF2E4DD62C28359170FCE038 /* Pods */,
+				53E2659414D615CA27EDEF7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +120,15 @@
 			path = SwiftShoppingAppUITests;
 			sourceTree = "<group>";
 		};
+		FF2E4DD62C28359170FCE038 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2A21C1DE60154F3784AB935 /* Pods-SwiftShoppingApp.debug.xcconfig */,
+				8B3717781AF138EF366DEA18 /* Pods-SwiftShoppingApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5544408420F1A0E700F79D40 /* Build configuration list for PBXNativeTarget "SwiftShoppingApp" */;
 			buildPhases = (
+				7CFCBE71C621093AE34D9DD1 /* [CP] Check Pods Manifest.lock */,
 				5544406320F1A0E500F79D40 /* Sources */,
 				5544406420F1A0E500F79D40 /* Frameworks */,
 				5544406520F1A0E500F79D40 /* Resources */,
+				E3E91D6F3624C19AE1425D05 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +229,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CFCBE71C621093AE34D9DD1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftShoppingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3E91D6F3624C19AE1425D05 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5544406320F1A0E500F79D40 /* Sources */ = {
@@ -368,15 +433,13 @@
 		};
 		5544408520F1A0E700F79D40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2A21C1DE60154F3784AB935 /* Pods-SwiftShoppingApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
 				INFOPLIST_FILE = SwiftShoppingApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tucan9389.SwiftShoppingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -386,15 +449,13 @@
 		};
 		5544408620F1A0E700F79D40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3717781AF138EF366DEA18 /* Pods-SwiftShoppingApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
 				INFOPLIST_FILE = SwiftShoppingApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tucan9389.SwiftShoppingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -409,11 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
 				INFOPLIST_FILE = SwiftShoppingAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tucan9389.SwiftShoppingAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -429,11 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5WXJ4Z4H69;
 				INFOPLIST_FILE = SwiftShoppingAppUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tucan9389.SwiftShoppingAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
