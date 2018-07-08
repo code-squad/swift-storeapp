@@ -2,7 +2,7 @@
 
 ## 요구사항
 
-### 2. 오토레이아웃 AutoLayout 적용
+## 3. Custom Section 헤더 적용 
 
 #### 요구사항
 
@@ -14,21 +14,39 @@
 
 #### 프로그래밍 요구사항
 
-- 스토리보드 ViewController에 Cell을 Content View를 기준으로 하위 뷰들에 오토레이아웃을 적용한다.
-  - ~~메뉴 이미지 뷰는 top, bottom, lead 제약을 주고 width 제약을 넣는다. height와 width 비율은 1:1로 aspectRatio를 맞춘다.~~
-  - ~~타이틀 제목은 메뉴 이미지보다 10pt 우측에 lead 제약을 주고, top, tail 제약을 주고, height 제약을 준다.~~
-  - ~~상세 설명도 top 제약만 타이틀 제목보다 4pt 띄우고, 나머지는 타이틀에 맞춘다.~~
-  - ~~메뉴 가격도 width 제약을 넣고, 나머지는 타이틀과 마찬가지로 제약을 준다.~~
-  - ~~이벤트 배지는 최소width 제약만 주고 글자 내용에 맞추고, 없을 경우 감춘다.~~
+- ~~다음 2개 파일을 다운로드해서 프로젝트에 복사하고 JSONDecoder를 활용해서 모델 객체를 기존 main과 함께 섹션(section)을 구분할 수 있도록 개선한다.~~
+  - soup.json 데이터 경로 => `http://public.codesquad.kr/jk/storeapp/soup.json`
+  - side.json 데이터 경로 => `http://public.codesquad.kr/jk/storeapp/side.json`
+- ~~스토리보드 ViewController에 Cell에 Section Header로 사용할 Custom Cell을 추가한다.~~
+  - 총 섹션은 3개로 구분해서 헤더에 다음과 같이 표시한다.
+  - main => `메인반찬 / 한그릇 뚝딱 메인 요리`
+  - soup => `국.찌게 / 김이 모락모락 국.찌게`
+  - side => `밑반찬 / 언제 먹어도 든든한 밑반찬`
 
 #### 목표 실행 화면
 
-```
-모든 아이폰 사이즈에 대응해서 잘리는 화면이 없이 나와야 한다.
-- 아이폰 5s, 6,7,8 계열, 6+, 7+, 8+계열과 아이폰 X 모두 정상적으로 화면이 나오는지 확인한다.
-```
+![img](http://public.codesquad.kr/jk/storeapp-tableview.png)
 
 ## 작업 이력
+
+### 3. Custom Section 헤더 적용
+
+#### 주요 작업 내역
+
+- 로컬에있는 3개의  json 파일을 각각 불러와 섹션별로 출력
+- 커스텀 섹션 헤더 적용
+
+#### 날짜
+
+- 2018-07-08 15:22
+
+#### 스크린샷
+
+|                      섹션1                       |                      섹션2                       |                      섹션3                       |
+| :----------------------------------------------: | :----------------------------------------------: | :----------------------------------------------: |
+| ![section1](resource/lab3/IMG_9332.png?raw=true) | ![section1](resource/lab3/IMG_9333.png?raw=true) | ![section1](resource/lab3/IMG_9334.png?raw=true) |
+
+
 
 ### 2. 오토레이아웃
 

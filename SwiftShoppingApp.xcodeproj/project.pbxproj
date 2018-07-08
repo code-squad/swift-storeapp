@@ -14,6 +14,8 @@
 		5544407220F1A0E700F79D40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5544407120F1A0E700F79D40 /* Assets.xcassets */; };
 		5544407520F1A0E700F79D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5544407320F1A0E700F79D40 /* LaunchScreen.storyboard */; };
 		5544408020F1A0E700F79D40 /* SwiftShoppingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544407F20F1A0E700F79D40 /* SwiftShoppingAppUITests.swift */; };
+		55BD7A9920F1D3F10009F87C /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 55BD7A9820F1D3F10009F87C /* soup.json */; };
+		55BD7A9B20F1D4070009F87C /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 55BD7A9A20F1D4070009F87C /* side.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		5544407B20F1A0E700F79D40 /* SwiftShoppingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftShoppingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5544407F20F1A0E700F79D40 /* SwiftShoppingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShoppingAppUITests.swift; sourceTree = "<group>"; };
 		5544408120F1A0E700F79D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55BD7A9820F1D3F10009F87C /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		55BD7A9A20F1D4070009F87C /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				5544407320F1A0E700F79D40 /* LaunchScreen.storyboard */,
 				5544407620F1A0E700F79D40 /* Info.plist */,
 				55276E0F20F1A61400ECC586 /* main.json */,
+				55BD7A9820F1D3F10009F87C /* soup.json */,
+				55BD7A9A20F1D4070009F87C /* side.json */,
 			);
 			path = SwiftShoppingApp;
 			sourceTree = "<group>";
@@ -180,9 +186,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BD7A9920F1D3F10009F87C /* soup.json in Resources */,
 				5544407520F1A0E700F79D40 /* LaunchScreen.storyboard in Resources */,
 				5544407220F1A0E700F79D40 /* Assets.xcassets in Resources */,
 				55276E1020F1A61400ECC586 /* main.json in Resources */,
+				55BD7A9B20F1D4070009F87C /* side.json in Resources */,
 				5544407020F1A0E500F79D40 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
