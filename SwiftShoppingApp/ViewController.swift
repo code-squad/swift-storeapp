@@ -8,37 +8,30 @@
 
 import UIKit
 
+// # MARK - ViewController
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sectionHeaderSubtitleLabel: UIButton!
     @IBOutlet weak var sectionHeaderTitleLabel: UILabel!
     
-    var myitems: Array<StoreItem> = []
+    let model: StoreModel = StoreModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myitems = []
-        
-        // main.json 불러와서 파싱
-        if let filePath = Bundle.main.path(forResource: "main", ofType: "json"),
-            let data = NSData(contentsOfFile: filePath) {
-            do {
-                let decoder = JSONDecoder()
-                let productItems: [StoreItem] = try decoder.decode([StoreItem].self, from: data as Data)
-                print(productItems.count)
-                myitems = productItems
-            }
-            catch let err {
-                //Handle error
-                print(err)
-            }
+        // 데이터 불러오기
+        do {
+            try model.loadData()
+        } catch let err {
+            print(err)
         }
         
-        sectionHeaderSubtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
-        sectionHeaderSubtitleLabel.layer.borderWidth = 1
+        // UI 준비
+        setUpUI()
         
+        // 불러온 데이터를 테이블뷰에 표시
         tableView.reloadData()
     }
 
@@ -46,21 +39,31 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setUpUI() {
+        sectionHeaderSubtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
+        sectionHeaderSubtitleLabel.layer.borderWidth = 1
+    }
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myitems.count
+        return model.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath)
-        if let productCell = cell as? StoreItemCell {
-            productCell.setProductInfo(info: myitems[indexPath.row])
+        if let productCell = cell as? StoreItemCell,
+            let item = model.item(with: indexPath.row) {
+            productCell.setProductInfo(info: item)
         }
         return cell
     }
 }
+
+
+
+// # MARK: - View
 
 class StoreItemCell: UITableViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
@@ -102,6 +105,43 @@ class StoreItemCell: UITableViewCell {
             labelX += label.frame.width + labelGap
         }
     }
+}
+
+
+
+// # MARK - Model
+
+class StoreModel {
+    var myitems: Array<StoreItem> = []
+    
+    var count: Int {
+        return myitems.count
+    }
+    
+    init() {
+        myitems = []
+    }
+    
+    func loadData() throws {
+        // main.json 불러와서 파싱
+        if let filePath = Bundle.main.path(forResource: "main", ofType: "json"),
+            let data = NSData(contentsOfFile: filePath) {
+            let decoder = JSONDecoder()
+            let productItems: [StoreItem] = try decoder.decode([StoreItem].self, from: data as Data)
+            myitems = productItems
+        } else {
+            myitems = []
+        }
+    }
+    
+    func item(with index: Int) -> StoreItem? {
+        guard index < count else {
+            return nil
+        }
+        return myitems[index]
+    }
+    
+    
 }
 
 struct StoreItem {
