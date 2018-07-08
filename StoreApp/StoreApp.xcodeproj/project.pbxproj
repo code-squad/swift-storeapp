@@ -12,6 +12,7 @@
 		BC02CC9420F1AD10004A8460 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC02CC9320F1AD10004A8460 /* StoreItem.swift */; };
 		BC02CC9720F1DAFA004A8460 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = BC02CC9520F1DAFA004A8460 /* soup.json */; };
 		BC02CC9820F1DAFA004A8460 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = BC02CC9620F1DAFA004A8460 /* side.json */; };
+		BC02CC9D20F1E69C004A8460 /* MenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC02CC9C20F1E69C004A8460 /* MenuHeaderView.swift */; };
 		BCD6BD2420F1A6A2006CE856 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6BD2320F1A6A2006CE856 /* AppDelegate.swift */; };
 		BCD6BD2620F1A6A2006CE856 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6BD2520F1A6A2006CE856 /* ViewController.swift */; };
 		BCD6BD2920F1A6A2006CE856 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD6BD2720F1A6A2006CE856 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		BC02CC9320F1AD10004A8460 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		BC02CC9520F1DAFA004A8460 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		BC02CC9620F1DAFA004A8460 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		BC02CC9C20F1E69C004A8460 /* MenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHeaderView.swift; sourceTree = "<group>"; };
 		BCD6BD2020F1A6A2006CE856 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD6BD2320F1A6A2006CE856 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD6BD2520F1A6A2006CE856 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				BCD6BD2520F1A6A2006CE856 /* ViewController.swift */,
 				BCD6BD2720F1A6A2006CE856 /* Main.storyboard */,
 				BC02CC8F20F1A968004A8460 /* MenuTableViewCell.swift */,
+				BC02CC9C20F1E69C004A8460 /* MenuHeaderView.swift */,
 				BC02CC9320F1AD10004A8460 /* StoreItem.swift */,
 				BC02CC9920F1DB0E004A8460 /* json */,
 				BCD6BD2A20F1A6A3006CE856 /* Assets.xcassets */,
@@ -163,6 +166,7 @@
 			files = (
 				BCD6BD2620F1A6A2006CE856 /* ViewController.swift in Sources */,
 				BCD6BD2420F1A6A2006CE856 /* AppDelegate.swift in Sources */,
+				BC02CC9D20F1E69C004A8460 /* MenuHeaderView.swift in Sources */,
 				BC02CC9420F1AD10004A8460 /* StoreItem.swift in Sources */,
 				BC02CC9020F1A968004A8460 /* MenuTableViewCell.swift in Sources */,
 			);

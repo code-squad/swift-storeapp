@@ -45,26 +45,9 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 60))
-        
-        let descriptionLabel = UILabel(frame: CGRect(x: 0, y: 40, width: tableView.frame.size.width, height: 20))
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        descriptionLabel.text = storeArray[section].storeInfo.description
-        headerView.addSubview(descriptionLabel)
-        
-        let titleText = UIButton(type: UIButtonType.custom)
-        titleText.setTitle(storeArray[section].storeInfo.title, for: .normal)
-        titleText.isUserInteractionEnabled = false
-        titleText.contentEdgeInsets = UIEdgeInsetsMake(1, 1, 1, 1)
-        titleText.sizeToFit()
-        titleText.setTitleColor(UIColor.lightGray, for: UIControlState.normal)
-        titleText.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        titleText.layer.borderColor = UIColor.lightGray.cgColor
-        titleText.layer.borderWidth = 1
-        titleText.center = CGPoint(x: headerView.center.x, y: headerView.center.y-8)
-        headerView.addSubview(titleText)
-        
+        let headerView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 60))
+        headerView.descriptionLabel.text = storeArray[section].storeInfo.description
+        headerView.titleLabelText(text: storeArray[section].storeInfo.title ?? "")
         return headerView
     }
     
