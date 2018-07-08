@@ -43,11 +43,11 @@
 
 #### 스크린샷
 
-각 디바이스별 스크린샷은 resource/iphone-big, resource/iphone-small에 저장되어 있습니다.
+각 디바이스별 스크린샷은 [resource/iphone-big](resource/iphone-big), [resource/iphone-small](resource/iphone-small)에 저장되어 있습니다.
 
-![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-big/Screen Shot 2018-07-08 at 1.42.31 PM.png)
+![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-big/Screen%20Shot%202018-07-08%20at%201.42.31%20PM.png?raw=true)
 
-![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-small/Screen Shot 2018-07-08 at 1.38.42 PM.png)
+![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-small/Screen%20Shot%202018-07-08%20at%201.38.42%20PM.png?raw=true)
 
 ### 1. 상품 목록
 
