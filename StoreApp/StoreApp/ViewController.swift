@@ -10,16 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let cellId = "MenuTableViewCell"
     var storeItems: StoreItems?
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         storeItems = StoreItems()
-        
-        // print(storeItems[1].title)
-        // Optional("[빅마마의밥친구] 아삭 고소한 연근고기조림 250g")
     }
 }
 
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return storeItems?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MenuTableViewCell
+        cell.storeItem = self.storeItems?[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    
+}

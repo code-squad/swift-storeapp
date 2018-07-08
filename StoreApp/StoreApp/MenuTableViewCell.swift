@@ -18,15 +18,19 @@ class MenuTableViewCell: UITableViewCell {
     @IBOutlet weak var badge1Label: UILabel!
     @IBOutlet weak var badge2Label: UILabel!
     
+    var storeItem: StoreItem? {
+        didSet {
+            self.titleLabel.text = storeItem?.title
+            self.descriptionLabel.text = storeItem?.description
+            self.originalPriceLabel.text = storeItem?.n_price
+            self.salePriceLabel.text = storeItem?.s_price
+            self.badge1Label.text = storeItem?.badge1
+            self.badge2Label.text = storeItem?.badge2
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

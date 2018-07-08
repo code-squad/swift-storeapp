@@ -63,12 +63,12 @@
 				BCD6BD2320F1A6A2006CE856 /* AppDelegate.swift */,
 				BCD6BD2520F1A6A2006CE856 /* ViewController.swift */,
 				BCD6BD2720F1A6A2006CE856 /* Main.storyboard */,
+				BC02CC8F20F1A968004A8460 /* MenuTableViewCell.swift */,
+				BC02CC9320F1AD10004A8460 /* StoreItem.swift */,
 				BC02CC9120F1AC65004A8460 /* main.json */,
 				BCD6BD2A20F1A6A3006CE856 /* Assets.xcassets */,
 				BCD6BD2C20F1A6A3006CE856 /* LaunchScreen.storyboard */,
 				BCD6BD2F20F1A6A3006CE856 /* Info.plist */,
-				BC02CC8F20F1A968004A8460 /* MenuTableViewCell.swift */,
-				BC02CC9320F1AD10004A8460 /* StoreItem.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
