@@ -83,6 +83,9 @@ class StoreItemCell: UITableViewCell {
         mainImageView.layer.cornerRadius = mainImageView.frame.width/2
         mainImageView.layer.masksToBounds = true
         
+        
+        let _ = tagViews.map { $0.removeFromSuperview() }
+        tagViews = []
         let fixedHeight: CGFloat = 22
         var labelX = headLabel.frame.origin.x
         let labelY = salePriceLabel.frame.origin.y + salePriceLabel.frame.height + 6.0
@@ -101,6 +104,7 @@ class StoreItemCell: UITableViewCell {
                                  width: label.frame.width + labelMargin*2,
                                  height: fixedHeight)
             self.addSubview(label)
+            tagViews.append(label)
             
             labelX += label.frame.width + labelGap
         }
