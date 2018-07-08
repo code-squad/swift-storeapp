@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC02CC9020F1A968004A8460 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC02CC8F20F1A968004A8460 /* MenuTableViewCell.swift */; };
+		BC02CC9220F1AC65004A8460 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = BC02CC9120F1AC65004A8460 /* main.json */; };
 		BCD6BD2420F1A6A2006CE856 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6BD2320F1A6A2006CE856 /* AppDelegate.swift */; };
 		BCD6BD2620F1A6A2006CE856 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD6BD2520F1A6A2006CE856 /* ViewController.swift */; };
 		BCD6BD2920F1A6A2006CE856 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCD6BD2720F1A6A2006CE856 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		BC02CC8F20F1A968004A8460 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		BC02CC9120F1AC65004A8460 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		BCD6BD2020F1A6A2006CE856 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD6BD2320F1A6A2006CE856 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCD6BD2520F1A6A2006CE856 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				BCD6BD2320F1A6A2006CE856 /* AppDelegate.swift */,
 				BCD6BD2520F1A6A2006CE856 /* ViewController.swift */,
 				BCD6BD2720F1A6A2006CE856 /* Main.storyboard */,
+				BC02CC9120F1AC65004A8460 /* main.json */,
 				BCD6BD2A20F1A6A3006CE856 /* Assets.xcassets */,
 				BCD6BD2C20F1A6A3006CE856 /* LaunchScreen.storyboard */,
 				BCD6BD2F20F1A6A3006CE856 /* Info.plist */,
@@ -127,6 +130,7 @@
 			files = (
 				BCD6BD2E20F1A6A3006CE856 /* LaunchScreen.storyboard in Resources */,
 				BCD6BD2B20F1A6A3006CE856 /* Assets.xcassets in Resources */,
+				BC02CC9220F1AC65004A8460 /* main.json in Resources */,
 				BCD6BD2920F1A6A2006CE856 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
