@@ -17,6 +17,7 @@ class MenuTableViewCell: UITableViewCell {
     @IBOutlet weak var salePriceLabel: UILabel!
     @IBOutlet weak var badge1Label: UILabel!
     @IBOutlet weak var badge2Label: UILabel!
+    @IBOutlet weak var salePriceLabelLeadingConstraint: NSLayoutConstraint!
     
     var storeItem: StoreItem? {
         didSet {
@@ -26,7 +27,26 @@ class MenuTableViewCell: UITableViewCell {
             self.salePriceLabel.text = storeItem?.s_price
             self.badge1Label.text = storeItem?.badge1
             self.badge2Label.text = storeItem?.badge2
+            
+            setupViews()
         }
+    }
+    
+    private func setupViews() {
+        if let text = originalPriceLabel.text, text != "" {
+            salePriceLabelLeadingConstraint.constant = 4.0
+        } else {
+            salePriceLabelLeadingConstraint.constant = 0.0
+        }
+        badge1Label.isHidden = shouldHidden(label: badge1Label)
+        badge2Label.isHidden = shouldHidden(label: badge2Label)
+    }
+    
+    private func shouldHidden(label: UILabel) -> Bool {
+        if let text = label.text, text != "" {
+            return false
+        }
+        return true
     }
     
     override func awakeFromNib() {

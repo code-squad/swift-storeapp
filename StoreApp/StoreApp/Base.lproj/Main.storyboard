@@ -104,6 +104,7 @@
                                             <outlet property="menuImageView" destination="HPf-iM-NnU" id="LkI-Xo-YmZ"/>
                                             <outlet property="originalPriceLabel" destination="g9d-bG-JeJ" id="uBH-5P-7OM"/>
                                             <outlet property="salePriceLabel" destination="nP9-Ev-1cz" id="7fC-LP-cY5"/>
+                                            <outlet property="salePriceLabelLeadingConstraint" destination="mKF-Yg-Mu5" id="cvK-vR-fXD"/>
                                             <outlet property="titleLabel" destination="bX2-KI-5tX" id="88x-rr-ao2"/>
                                         </connections>
                                     </tableViewCell>
