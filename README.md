@@ -7,7 +7,7 @@
 - Decodable 활용하여 StoreItems 구조체 안에 StoreItem 배열을 넣었습니다.
 - MenuTableViewCell 에 해당 IndexPath 순서에 맞는 StoreItem 데이터를 넘기고, 텍스트 정보를 표시하였습니다.
 - HeaderView 구현과 상품기본가격이 없을 때 할인가격 Label 왼쪽 여백 조정이 필요합니다.
-![simulator screen shot - iphone 8 plus - 2018-07-08 at 13 41 13](https://user-images.githubusercontent.com/1483784/42416993-34ae73ca-82b8-11e8-84bf-e7a483de3193.png)
+<img src="https://user-images.githubusercontent.com/1483784/42416993-34ae73ca-82b8-11e8-84bf-e7a483de3193.png" width="414">
 
 ## Step 2
 
@@ -16,8 +16,8 @@
 - 모든 아이폰 사이즈에 대응해서 잘리는 화면이 없이 나와야 한다.
 - 상품기본가격이 없을 때 할인가격 Label 왼쪽 여백 조정을 하였습니다. 스토리보드에서 LayoutConstraint 을 IBOutlet 변수로 선언하여 처리하였습니다.
 - badge 값에 따라 이벤트 뱃지 노출 처리하였습니다.
-![simulator screen shot - iphone 5s - 2018-07-08 at 13 58 35](https://user-images.githubusercontent.com/1483784/42417000-4851b7ac-82b8-11e8-84d7-3af25d8fe080.png)
-![simulator screen shot - iphone x - 2018-07-08 at 13 57 08](https://user-images.githubusercontent.com/1483784/42416994-3520740c-82b8-11e8-9e0f-7e780e3b995f.png)
+<img src="https://user-images.githubusercontent.com/1483784/42417000-4851b7ac-82b8-11e8-84d7-3af25d8fe080.png" width="320">
+<img src="https://user-images.githubusercontent.com/1483784/42416994-3520740c-82b8-11e8-9e0f-7e780e3b995f.png" width="375">
 
 # 진행 방법
 
