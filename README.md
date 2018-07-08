@@ -1,97 +1,90 @@
-# 진행 방법
+# 스위프트 쇼핑앱
 
-- 쇼핑 iOS 앱 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+## 요구사항
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+## 4. 패키지 관리 - CocoaPod 
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+#### 요구사항
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-storeapp
-```
+- 쇼팽앱 시작하기 요구사항을 구현한 상태에서 시작한다.
+- 오토레이아웃 방식에 대해 학습하고 여러 종류 아이폰 화면에서 모두 보이도록 대응하는 UI를 완성하는 것을 목표로 한다.
+  - readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+  - 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+  - 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-storeapp
-```
+#### 프로그래밍 요구사항
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+- Cocoapod 를 설치한다. [설치 가이드](https://guides.cocoapods.org/using/getting-started.html#getting-started)
+- `https://github.com/devxoul/Toaster` 저장소에 있는 Toaster 패키지를 cocoapod 으로 설치한다.
+- pod으로 설치한 Toaster 모듈을 import 하고 테이블뷰 셀을 터치하면 (didSelect) 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
 
-5. 기능 구현을 위한 브랜치 생성 (연속번호를 붙여나간다)
-```
-git checkout -b 브랜치이름
-ex) git checkout -b store-step1
-```
+## 작업 이력
 
-6. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+### 4. 패키지 관리 - CocoaPod
 
-7. 본인 원격 저장소에 올리기
-```
-git push --set-upstream origin 브랜치이름
-ex) git push --set-upstream origin store-step1
-```
+#### 주요 작업 내역
 
-8. pull request
-	- pull request는 github 서비스에서 진행할 수 있다.
-	- pull request는 original 저장소의 브랜치(자신의 github 아이디)와 앞 단계에서 생성한 브랜치 이름을 기준으로 한다.
+- Pod을 이용한 Toast 라이브러리 사용
+- 셀을 누를시 토글로 정보(타이틀, 할인된 가격) 표시
 
-	```
-	ex) code-squad/swift-photoframe godrm 브랜치 기준 => godrm/swift-storeapp store-step1
-	```
-	
-9. code review 및 push
-	- pull request를 통해 피드백을 받는다.
-	- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+#### 날짜
 
-10. 기본(upstream) 브랜치 전환 및 base 저장소 추가하기(최초 시작하기 단계 한번만 하면 됨)
+- 2018-07-08 15:53
 
-	```
-	git checkout 본인_아이디
-	git remote add upstream base_저장소_url
+#### 스크린샷
 
-	ex) git checkout godrm
-	ex) git remote add upstream https://github.com/code-squad/swift-storeapp.git
-	```
+<img src="resource/lab4/IMG_9335.PNG?raw=true" width="240"/>
 
-	- 위와 같이 base 저장소 추가한 후 remote 브랜치 목록을 본다.
+### 3. Custom Section 헤더 적용
 
-	```
-	git remote -v
-	```
+#### 주요 작업 내역
 
-11. 기본 base 저장소와 sync하기 (PR 보낸 내용을 자신의 기본 저장소와 합치기)
+- 로컬에있는 3개의  json 파일을 각각 불러와 섹션별로 출력
+- 커스텀 섹션 헤더 적용
 
-	```
-	git fetch upstream
-	git rebase upstream/본인_아이디
-	ex) git rebase upstream/godrm
-	```
+#### 날짜
 
-12. 다음 미션을 해결할 경우 [5단계 브랜치 생성]부터 다시 진행
+- 2018-07-08 15:22
 
-## 동영상을 통한 코드 리뷰() 를 통해 참고 가능
+#### 스크린샷
 
-- [fork하여 코드 리뷰하기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 
-- [PR 보내고 다시 PR보낼 때 유의 사항](https://www.youtube.com/watch?v=CbLNbCUsh5c&feature=youtu.be)
+|                      섹션1                       |                      섹션2                       |                      섹션3                       |
+| :----------------------------------------------: | :----------------------------------------------: | :----------------------------------------------: |
+| ![section1](resource/lab3/IMG_9332.PNG?raw=true) | ![section1](resource/lab3/IMG_9333.PNG?raw=true) | ![section1](resource/lab3/IMG_9334.PNG?raw=true) |
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+
+
+### 2. 오토레이아웃
+
+#### 주요 작업 내역
+
+- 상단 Section Header에 오토레이아웃 적용
+- 위 요구사항대로 Cell에 오토레이아웃 적용
+
+#### 날짜
+
+- 2018-07-08 13:44
+
+#### 스크린샷
+
+각 디바이스별 스크린샷은 [resource/iphone-big](resource/iphone-big), [resource/iphone-small](resource/iphone-small)에 저장되어 있습니다.
+
+![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-big/Screen%20Shot%202018-07-08%20at%201.42.31%20PM.png?raw=true)
+
+![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-small/Screen%20Shot%202018-07-08%20at%201.38.42%20PM.png?raw=true)
+
+### 1. 상품 목록
+
+#### 주요 작업 내역
+
+- 로컬에있는 json  파일 불러와 TableView에 출력
+- 상단의 섹션헤더 추가 
+- Cell 내부에 동적으로 태그 Label 출력
+
+#### 날짜
+
+- 2018-07-08 12:52
+
+#### 스크린샷
+
+<img src="resource/image-20180708130520715.png" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="340"/>
