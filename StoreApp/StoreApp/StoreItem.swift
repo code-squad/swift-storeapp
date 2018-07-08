@@ -9,9 +9,16 @@
 import Foundation
 
 struct StoreItems {
+    var storeInfo: StoreInfo
     private var items: [StoreItem]
+    
     init() {
-        guard let mainJsonFilePath = Bundle.main.path(forResource: "main", ofType: "json") else {
+        self.init(storeInfo: StoreInfo(id: "main", title: "메인반찬", description: "한그릇 뚝딱 메인 요리"))
+    }
+    
+    init(storeInfo: StoreInfo) {
+        self.storeInfo = storeInfo
+        guard let mainJsonFilePath = Bundle.main.path(forResource: storeInfo.id, ofType: "json") else {
             items = []
             return
         }
@@ -54,4 +61,10 @@ struct StoreItem: Decodable {
         }
         return nil
     }
+}
+
+struct StoreInfo {
+    var id: String?
+    var title: String?
+    var description: String?
 }
