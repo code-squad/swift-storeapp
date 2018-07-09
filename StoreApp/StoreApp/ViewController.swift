@@ -18,14 +18,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100.0
-
-        let parser = ItemDataParser()
-        guard let data = parser.extractData() else {
-            print("Failed to parse")
-            return
-        }
-        guard let items = parser.makeitemData(from: data) as? [ItemData] else { return }
-        storeItems = StoreItems(items: items)
+        storeItems = StoreItems()
     }
 
     override func didReceiveMemoryWarning() {
