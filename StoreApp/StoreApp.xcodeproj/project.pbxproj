@@ -15,6 +15,7 @@
 		101D384A20F1AC4D00CD6EE3 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 101D384920F1AC4D00CD6EE3 /* main.json */; };
 		101D384E20F1CA4000CD6EE3 /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D384D20F1CA4000CD6EE3 /* StoreItemCell.swift */; };
 		101D385020F1CF2700CD6EE3 /* StoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D384F20F1CF2700CD6EE3 /* StoreTableViewController.swift */; };
+		101D385220F3526800CD6EE3 /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101D385120F3526800CD6EE3 /* StoreModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		101D384920F1AC4D00CD6EE3 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		101D384D20F1CA4000CD6EE3 /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCell.swift; sourceTree = "<group>"; };
 		101D384F20F1CF2700CD6EE3 /* StoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewController.swift; sourceTree = "<group>"; };
+		101D385120F3526800CD6EE3 /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				101D383E20F1A88600CD6EE3 /* Assets.xcassets */,
 				101D384020F1A88600CD6EE3 /* LaunchScreen.storyboard */,
 				101D384320F1A88600CD6EE3 /* Info.plist */,
+				101D385120F3526800CD6EE3 /* StoreModel.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101D383A20F1A88500CD6EE3 /* ViewController.swift in Sources */,
+				101D385220F3526800CD6EE3 /* StoreModel.swift in Sources */,
 				101D385020F1CF2700CD6EE3 /* StoreTableViewController.swift in Sources */,
 				101D384E20F1CA4000CD6EE3 /* StoreItemCell.swift in Sources */,
 				101D383820F1A88500CD6EE3 /* AppDelegate.swift in Sources */,
