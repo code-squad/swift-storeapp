@@ -9,31 +9,26 @@
 import Foundation
 
 struct JSONConverter {
-  typealias JSONData = [StoreItem]
-  
-  static func data(fileName: String, fileType: String) -> JSONData {
-    guard let path = Bundle.main.path(forResource: fileName, ofType: fileType) else { return [] }
+  static func data(fileName: String, fileType: String) -> Data? {
+    guard let path = Bundle.main.path(forResource: fileName, ofType: fileType) else { return nil }
     
     let url = URL(fileURLWithPath: path)
-    guard let data = try? Data(contentsOf: url) else { return [] }
+    guard let data = try? Data(contentsOf: url) else { return nil }
     
-    return decode(data)
+    return data
   }
-}
-
-// MARK: - Decoding
-fileprivate extension JSONConverter {
-   static func decode(_ data: Data) -> JSONData {
-    let jsonData: JSONData
+  
+  static func decode<T: Codable>(in data: Data, type: [T].Type) -> [T] {
+    let jsonData: [T]
     
     do {
-      jsonData = try JSONDecoder().decode(JSONData.self, from: data)
-    } catch {
+      jsonData = try JSONDecoder().decode(type, from: data)
+    } catch let e {
+      NSLog(e.localizedDescription)
       return []
     }
     
     return jsonData
   }
 }
-
 

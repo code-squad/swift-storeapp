@@ -11,7 +11,13 @@ import XCTest
 
 class JSONConverterTest: XCTestCase {
   func test_JSON_파일_읽기() {
-    let jsonData = JSONConverter.data(fileName: "main", fileType: "json")
-    XCTAssert(jsonData.count >= 1)
+    let data = JSONConverter.data(fileName: "main", fileType: "json")
+    XCTAssert(data!.isEmpty == false)
+  }
+  
+  func test_JSON_Decode_확인() {
+    let data = JSONConverter.data(fileName: "main", fileType: "json")
+    let item = JSONConverter.decode(in: data!, type: [StoreItem].self)
+    XCTAssert(item.count >= 1)
   }
 }

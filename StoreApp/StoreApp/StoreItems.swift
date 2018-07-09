@@ -16,7 +16,11 @@ class StoreItems {
   }
   
   func generateData() {
-    self.items = JSONConverter.data(fileName: "main", fileType: "json")
+    guard let data = JSONConverter.data(fileName: "main", fileType: "json") else {
+      return
+    }
+    
+    self.items = JSONConverter.decode(in: data, type: [StoreItem].self)
   }
   
   subscript(at index: Int) -> StoreItem {
