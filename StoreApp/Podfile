@@ -1,0 +1,10 @@
+target 'StoreApp' do
+  use_frameworks!
+  
+  pod 'SwiftLint'
+
+  target 'StoreAppTests' do
+    inherit! :search_paths
+  end
+
+end
