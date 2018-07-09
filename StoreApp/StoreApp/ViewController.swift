@@ -11,18 +11,25 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var storeItems: StoreItems!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100.0
-        // Do any additional setup after loading the view, typically from a nib.
+
+        let parser = ItemDataParser()
+        guard let data = parser.extractData() else {
+            print("Failed to parse")
+            return
+        }
+        guard let items = parser.makeitemData(from: data) as? [ItemData] else { return }
+        storeItems = StoreItems(items: items)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
@@ -30,11 +37,12 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! StoreTableViewCell
+        itemCell.itemData = storeItems[indexPath.row]
         return itemCell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return storeItems.count()
     }
 
 }
