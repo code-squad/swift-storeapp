@@ -13,21 +13,21 @@ struct StoreItem: Codable {
   var description: String?
   var originPrice: String?
   var salePrice: String?
-  var deliveryType: [String]?
+  var deliveryTypes: [String]?
   var detailHash: String?
   var image: String?
   var alt: String?
-  var badge: [String]?
+  var badges: [String]?
   
   enum CodingKeys: String, CodingKey {
     case title
     case description
     case originPrice = "s_price"
     case salePrice = "n_price"
-    case deliveryType = "delivery_type"
+    case deliveryTypes = "delivery_type"
     case detailHash = "detail_hash"
     case image
     case alt
-    case badge
+    case badges = "badge"
   }
 }

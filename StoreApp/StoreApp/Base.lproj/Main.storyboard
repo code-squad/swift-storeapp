@@ -61,7 +61,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDh-1u-s4C" userLabel="sale_price">
-                                                    <rect key="frame" x="171" y="53" width="45" height="20.5"/>
+                                                    <rect key="frame" x="171" y="53" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -76,7 +76,6 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oKk-6X-J1U" secondAttribute="trailing" constant="20" symbolic="YES" id="1vr-yY-fxW"/>
                                                 <constraint firstItem="TqP-7U-pwX" firstAttribute="leading" secondItem="hxy-Xr-ZRH" secondAttribute="leading" id="DWW-GJ-Z0F"/>
                                                 <constraint firstItem="T1o-od-7Cs" firstAttribute="top" secondItem="hxy-Xr-ZRH" secondAttribute="top" constant="5" id="DrI-9V-bfv"/>
                                                 <constraint firstItem="9mP-io-whp" firstAttribute="top" secondItem="T1o-od-7Cs" secondAttribute="bottom" constant="3" id="FxH-BM-mVm"/>
@@ -97,11 +96,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
+                                            <outlet property="badgeLabel" destination="oKk-6X-J1U" id="IXJ-bD-dmO"/>
                                             <outlet property="descriptionLabel" destination="9mP-io-whp" id="dsh-uh-2AM"/>
                                             <outlet property="originPriceLabel" destination="wno-0o-YqW" id="S5Q-2v-bmV"/>
                                             <outlet property="salePriceLabel" destination="ZDh-1u-s4C" id="xBe-d4-HI9"/>
                                             <outlet property="titleLabel" destination="T1o-od-7Cs" id="aBe-23-TOF"/>
-                                            <outletCollection property="badgeLabels" destination="oKk-6X-J1U" collectionClass="NSMutableArray" id="3wb-xN-l9q"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
