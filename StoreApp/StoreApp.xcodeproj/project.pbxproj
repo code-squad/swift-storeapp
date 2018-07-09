@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87179F4D20F336DD004040E3 /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87179F4C20F336DD004040E3 /* StoreItemCell.swift */; };
+		87179F5620F33DC1004040E3 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 87179F5520F33DC1004040E3 /* main.json */; };
+		87179F5A20F33F17004040E3 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87179F5920F33F17004040E3 /* JSONConverter.swift */; };
+		87179F5C20F33FDF004040E3 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87179F5B20F33FDF004040E3 /* StoreItem.swift */; };
+		87734E5C20F34A9B00D02C9D /* JSONConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87734E5B20F34A9B00D02C9D /* JSONConverterTests.swift */; };
+		87734E5E20F34EA300D02C9D /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87734E5D20F34EA300D02C9D /* StoreItems.swift */; };
 		87B4E54120F30E01000085E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4E54020F30E01000085E2 /* AppDelegate.swift */; };
-		87B4E54320F30E01000085E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4E54220F30E01000085E2 /* ViewController.swift */; };
+		87B4E54320F30E01000085E2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4E54220F30E01000085E2 /* MainViewController.swift */; };
 		87B4E54620F30E01000085E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54420F30E01000085E2 /* Main.storyboard */; };
 		87B4E54820F30E03000085E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54720F30E03000085E2 /* Assets.xcassets */; };
 		87B4E54B20F30E03000085E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54920F30E03000085E2 /* LaunchScreen.storyboard */; };
-		87B4E55620F30E03000085E2 /* StoreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4E55520F30E03000085E2 /* StoreAppTests.swift */; };
 		BA2C097081E3B67FB08EF3A8 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E45BDC9157313FA8317C54 /* Pods_StoreApp.framework */; };
 		D30289D6331F9C244F9D77A7 /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640F8E58899B2CD027247C8D /* Pods_StoreAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -33,15 +38,20 @@
 		5406601F9AFDBFF9DB792718 /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
 		640F8E58899B2CD027247C8D /* Pods_StoreAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E45BDC9157313FA8317C54 /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87179F4C20F336DD004040E3 /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCell.swift; sourceTree = "<group>"; };
+		87179F5520F33DC1004040E3 /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		87179F5920F33F17004040E3 /* JSONConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
+		87179F5B20F33FDF004040E3 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		87734E5B20F34A9B00D02C9D /* JSONConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverterTests.swift; sourceTree = "<group>"; };
+		87734E5D20F34EA300D02C9D /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		87B4E53D20F30E01000085E2 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B4E54020F30E01000085E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		87B4E54220F30E01000085E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		87B4E54220F30E01000085E2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		87B4E54520F30E01000085E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87B4E54720F30E03000085E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87B4E54A20F30E03000085E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87B4E54C20F30E03000085E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87B4E55120F30E03000085E2 /* StoreAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		87B4E55520F30E03000085E2 /* StoreAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppTests.swift; sourceTree = "<group>"; };
 		87B4E55720F30E03000085E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC77230390935171178147AF /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,11 +109,16 @@
 			isa = PBXGroup;
 			children = (
 				87B4E54020F30E01000085E2 /* AppDelegate.swift */,
-				87B4E54220F30E01000085E2 /* ViewController.swift */,
+				87B4E54220F30E01000085E2 /* MainViewController.swift */,
 				87B4E54420F30E01000085E2 /* Main.storyboard */,
 				87B4E54720F30E03000085E2 /* Assets.xcassets */,
 				87B4E54920F30E03000085E2 /* LaunchScreen.storyboard */,
 				87B4E54C20F30E03000085E2 /* Info.plist */,
+				87179F4C20F336DD004040E3 /* StoreItemCell.swift */,
+				87179F5520F33DC1004040E3 /* main.json */,
+				87179F5920F33F17004040E3 /* JSONConverter.swift */,
+				87179F5B20F33FDF004040E3 /* StoreItem.swift */,
+				87734E5D20F34EA300D02C9D /* StoreItems.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -111,8 +126,8 @@
 		87B4E55420F30E03000085E2 /* StoreAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				87B4E55520F30E03000085E2 /* StoreAppTests.swift */,
 				87B4E55720F30E03000085E2 /* Info.plist */,
+				87734E5B20F34A9B00D02C9D /* JSONConverterTests.swift */,
 			);
 			path = StoreAppTests;
 			sourceTree = "<group>";
@@ -183,6 +198,7 @@
 					};
 					87B4E55020F30E03000085E2 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = 87B4E53C20F30E01000085E2;
 					};
 				};
@@ -213,6 +229,7 @@
 			files = (
 				87B4E54B20F30E03000085E2 /* LaunchScreen.storyboard in Resources */,
 				87B4E54820F30E03000085E2 /* Assets.xcassets in Resources */,
+				87179F5620F33DC1004040E3 /* main.json in Resources */,
 				87B4E54620F30E01000085E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,8 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87B4E54320F30E01000085E2 /* ViewController.swift in Sources */,
+				87179F4D20F336DD004040E3 /* StoreItemCell.swift in Sources */,
+				87179F5C20F33FDF004040E3 /* StoreItem.swift in Sources */,
+				87B4E54320F30E01000085E2 /* MainViewController.swift in Sources */,
 				87B4E54120F30E01000085E2 /* AppDelegate.swift in Sources */,
+				87734E5E20F34EA300D02C9D /* StoreItems.swift in Sources */,
+				87179F5A20F33F17004040E3 /* JSONConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87B4E55620F30E03000085E2 /* StoreAppTests.swift in Sources */,
+				87734E5C20F34A9B00D02C9D /* JSONConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +456,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T393J4TVCC;
 				INFOPLIST_FILE = StoreApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuaming.StoreApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -451,7 +475,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T393J4TVCC;
 				INFOPLIST_FILE = StoreApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuaming.StoreApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -465,12 +492,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T393J4TVCC;
 				INFOPLIST_FILE = StoreAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuaming.StoreAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StoreApp.app/StoreApp";
@@ -483,10 +516,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T393J4TVCC;
 				INFOPLIST_FILE = StoreAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuaming.StoreAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
