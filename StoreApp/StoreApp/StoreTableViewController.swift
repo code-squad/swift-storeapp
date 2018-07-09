@@ -36,28 +36,10 @@ class StoreTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath) as! StoreItemCell
-//        // Configure the cell...
-//        cell.itemTitleLabel.text = itemArray[indexPath.row].title
-//        cell.itemDescriptionLabel.text = itemArray[indexPath.row].description
-//        cell.itemPriceLabel.text = itemArray[indexPath.row].s_price
-//        cell.itemSalePriceLabel.text = itemArray[indexPath.row].s_price
-//        // badge 개수에 따라 ui처리
-//        if(itemArray[indexPath.row].badge != nil){
-//            // badge 1개 이상
-//            cell.itemBadgeLabel1.text = itemArray[indexPath.row].badge?[0]
-//            if((itemArray[indexPath.row].badge?.count)! > 1){
-//                cell.itemBadgeLabel2.text = itemArray[indexPath.row].badge?[1]
-//            }
-//            else{
-//                cell.itemBadgeLabel2.isHidden = true
-//            }
-//        }
-//        else{
-//            // badge 0개. 안보이게 처리.
-//            cell.itemBadgeLabel1.isHidden = true
-//            cell.itemBadgeLabel2.isHidden = true
-//        }
-        return cell
+        // Configure the cell...
+        let storeModel = StoreModel()
+        let storeItemArray = storeModel.decodeJsonToStoreItemArray()
+        return cell.configureCellFromArray(cell: cell, itemArray: storeItemArray, rowNumber: indexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
