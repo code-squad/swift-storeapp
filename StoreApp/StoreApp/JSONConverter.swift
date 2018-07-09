@@ -9,8 +9,8 @@
 import Foundation
 
 struct JSONConverter {
-  static func data(fileName: String, fileType: String) -> Data? {
-    guard let path = Bundle.main.path(forResource: fileName, ofType: fileType) else { return nil }
+  static func data(file: JSONFiles, fileType: FileTypes) -> Data? {
+    guard let path = Bundle.main.path(forResource: file.name, ofType: fileType.name) else { return nil }
     
     let url = URL(fileURLWithPath: path)
     guard let data = try? Data(contentsOf: url) else { return nil }

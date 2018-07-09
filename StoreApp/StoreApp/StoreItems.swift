@@ -16,7 +16,7 @@ class StoreItems {
   }
   
   func generateData() {
-    guard let data = JSONConverter.data(fileName: "main", fileType: "json") else {
+    guard let data = JSONConverter.data(file: .main, fileType: .json) else {
       return
     }
     
