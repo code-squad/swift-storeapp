@@ -21,16 +21,21 @@ class StoreModel {
         var s_price : String
         var badge : [String]?   // 배열, 값이 없을수도 있음
     }
+    // StoreModel 생성자
+    var storeItemArray : Array<StoreItem> = []
+    init() {
+        self.storeItemArray = decodeJsonToStoreItemArray()
+    }
     
     //json decode 함수
     func decodeJsonToStoreItemArray()->Array<StoreItem>{
-        var storeItemArray : Array<StoreItem> = []
+        var itemArray : Array<StoreItem> = []
         let decoder = JSONDecoder()
         do{
-            try storeItemArray = decoder.decode(Array<StoreItem>.self, from: mainJsonData!)
+            try itemArray = decoder.decode(Array<StoreItem>.self, from: mainJsonData!)
         }catch let error{
             print(error)
         }
-        return storeItemArray
+        return itemArray
     }
 }

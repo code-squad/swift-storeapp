@@ -9,6 +9,7 @@
 import UIKit
 
 class StoreTableViewController: UITableViewController {
+    let storeModel = StoreModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +29,13 @@ class StoreTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let storeModel = StoreModel()
-        let storeItemArray = storeModel.decodeJsonToStoreItemArray()
-        return storeItemArray.count
+        return storeModel.storeItemArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath) as! StoreItemCell
         // Configure the cell...
-        let storeModel = StoreModel()
-        let storeItemArray = storeModel.decodeJsonToStoreItemArray()
-        return cell.configureCellFromArray(cell: cell, itemArray: storeItemArray, rowNumber: indexPath.row)
+        return cell.configureCell(cell: cell, storeItem: storeModel.storeItemArray[indexPath.row])
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

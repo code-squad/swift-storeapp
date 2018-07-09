@@ -27,18 +27,18 @@ class StoreItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCellFromArray(cell:StoreItemCell, itemArray: Array<StoreModel.StoreItem>, rowNumber:Int)->StoreItemCell{
+    func configureCell(cell:StoreItemCell, storeItem: StoreModel.StoreItem)->StoreItemCell{
         // cell 채워넣는 부분
-        cell.itemTitleLabel.text = itemArray[rowNumber].title
-        cell.itemDescriptionLabel.text = itemArray[rowNumber].description
-        cell.itemPriceLabel.text = itemArray[rowNumber].s_price
-        cell.itemSalePriceLabel.text = itemArray[rowNumber].s_price
+        cell.itemTitleLabel.text = storeItem.title
+        cell.itemDescriptionLabel.text = storeItem.description
+        cell.itemPriceLabel.text = storeItem.s_price
+        cell.itemSalePriceLabel.text = storeItem.s_price
         // badge 개수에 따라 ui처리
-        if(itemArray[rowNumber].badge != nil){
+        if(storeItem.badge != nil){
             // badge 1개 이상
-            cell.itemBadgeLabel1.text = itemArray[rowNumber].badge?[0]
-            if((itemArray[rowNumber].badge?.count)! > 1){
-                cell.itemBadgeLabel2.text = itemArray[rowNumber].badge?[1]
+            cell.itemBadgeLabel1.text = storeItem.badge?[0]
+            if((storeItem.badge?.count)! > 1){
+                cell.itemBadgeLabel2.text = storeItem.badge?[1]
             }
             else{
                 cell.itemBadgeLabel2.isHidden = true
