@@ -37,7 +37,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="윤식당 불고기메뉴의 가장 기본인 불고기라이스! (마더소스 포함)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-h1-98t" userLabel="description">
                                                     <rect key="frame" x="95" y="34" width="270" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                                     <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -54,6 +54,14 @@
                                                     <rect key="frame" x="141" y="55" width="56" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.39078803219426811" green="0.85977269288856339" blue="0.86574978298611116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="론칭특가" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-iX-87D">
+                                                    <rect key="frame" x="95" y="77" width="57" height="12"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.67665118019838022" green="0.43350347618406809" blue="0.79945272842639592" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -74,6 +82,14 @@
                                                 <constraint firstItem="EiI-hP-SS4" firstAttribute="leading" secondItem="cyw-un-CvG" secondAttribute="trailing" constant="10" id="maI-sP-f0f"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="badges" destination="sfL-iX-87D" id="uEI-8z-a4E"/>
+                                            <outlet property="itemDescription" destination="jh3-h1-98t" id="91U-Li-apC"/>
+                                            <outlet property="itemImage" destination="cyw-un-CvG" id="jGZ-Q3-97b"/>
+                                            <outlet property="nPrice" destination="2zi-Vt-kLG" id="3KX-Lw-shG"/>
+                                            <outlet property="sPrice" destination="Tqp-SF-JWs" id="pVL-0q-gCk"/>
+                                            <outlet property="title" destination="EiI-hP-SS4" id="btt-1R-Rmz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
