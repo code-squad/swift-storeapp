@@ -65,7 +65,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreSectionHeader", for: IndexPath())
         if let sectionHeader = cell as? StoreSectionHeader {
             if let sectionInfo = model.section(with: section) {
-                sectionHeader.setSectionInfo(info: sectionInfo)
+                sectionHeader.set(info: sectionInfo)
             }
             
             
@@ -108,7 +108,7 @@ class StoreItemCell: UITableViewCell {
         mainImageView.layer.masksToBounds = true
         
         
-        let _ = tagViews.map { $0.removeFromSuperview() }
+        for tagView in tagViews { tagView.removeFromSuperview() }
         tagViews = []
         let fixedHeight: CGFloat = 22
         var labelX = headLabel.frame.origin.x
@@ -140,14 +140,18 @@ class StoreSectionHeader: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
-    func setSectionInfo(info sectionInfo: StoreSection) {
-        subtitleLabel.setTitle(sectionInfo.getSubtitle(), for: .normal)
-        titleLabel.text = sectionInfo.getTitle()
+    func set(info sectionInfo: StoreSection) {
+        subtitleLabel.setTitle(sectionInfo.subtitle, for: .normal)
+        titleLabel.text = sectionInfo.title
     }
     
     override func awakeFromNib() {
         subtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
         subtitleLabel.layer.borderWidth = 1
+    }
+    
+    override func prepareForReuse() {
+        // cell 재사용전에 호출되는 함수
     }
 }
 
@@ -205,14 +209,14 @@ class StoreModel {
         return mySections.count
     }
     func itemCount(section: Int) -> Int {
-        guard section < count else {
+        guard 0 <= section && section < count else {
             return 0
         }
         return mySections[section].count
     }
     
     func section(with section: Int) -> StoreSection? {
-        guard section < count else {
+        guard 0 <= section && section < count else {
             return nil
         }
         return mySections[section]
@@ -227,12 +231,9 @@ class StoreModel {
 }
 struct StoreSection {
     
-    private let title: String
-    private let subtitle: String
+    private(set) var title: String
+    private(set) var subtitle: String
     private var myitems: Array<StoreItem> = []
-    
-    func getTitle() -> String { return self.title }
-    func getSubtitle() -> String { return self.subtitle }
     
     
     init(title: String, subtitle: String, items: Array<StoreItem>) {
@@ -248,7 +249,7 @@ struct StoreSection {
     
     
     func item(with index: Int) -> StoreItem? {
-        guard index < count else {
+        guard 0 <= index && index < count else {
             return nil
         }
         return myitems[index]
