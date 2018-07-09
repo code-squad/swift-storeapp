@@ -20,27 +20,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 데이터 불러오기
-        do {
-            try model.loadData()
-        } catch let err {
-            print(err)
-        }
-        
-        // UI 준비
-        setUpUI()
-        
         // 불러온 데이터를 테이블뷰에 표시
         tableView.reloadData()
+        
+        // 데이터 불러오기
+        model.loadData() { success in
+            DispatchQueue.main.async {
+                if success {
+                    // 불러온 데이터를 테이블뷰에 표시
+                    self.tableView.reloadData()
+                } else {
+                    print("something is fail")
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func setUpUI() {
-        
     }
 }
 
@@ -67,8 +65,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             if let sectionInfo = model.section(with: section) {
                 sectionHeader.set(info: sectionInfo)
             }
-            
-            
         }
         return cell
     }
@@ -160,24 +156,22 @@ class StoreSectionHeader: UITableViewCell {
 class StoreModel {
     
     struct Constant {
-        static let mainFileName: String = "main"
-        static let soupFileName: String = "soup"
-        static let sideFileName: String = "side"
-        
-        static let fileExtension: String = "json"
+        static let mainURL: String = "http://crong.codesquad.kr:8080/woowa/main"
+        static let soupURL: String = "http://crong.codesquad.kr:8080/woowa/soup"
+        static let sideURL: String = "http://crong.codesquad.kr:8080/woowa/side"
     }
     
     private let sectionInfos: Array<Dictionary<String, String>> = [
         [
-            "filename": Constant.mainFileName,
+            "section_url": Constant.mainURL,
             "section_subtitle": "메인반찬",
             "section_title": "한그릇 뚝딱 메인 요리"
         ], [
-            "filename": Constant.soupFileName,
+            "section_url": Constant.soupURL,
             "section_subtitle": "국.찌게",
             "section_title": "김이 모락모락 국.찌게"
         ], [
-            "filename": Constant.sideFileName,
+            "section_url": Constant.sideURL,
             "section_subtitle": "밑반찬",
             "section_title": "언제 먹어도 든든한 밑반찬"
         ]
@@ -185,29 +179,51 @@ class StoreModel {
     
     var mySections: Array<StoreSection> = []
     
-    func loadData() throws {
-        mySections = try sectionInfos.map { sectionInfo in
-            guard let sectionFileName = sectionInfo["filename"],
+    func loadData(reloadUI: @escaping (Bool)->()) {
+        mySections = sectionInfos.map { sectionInfo in
+            guard let sectionURL = sectionInfo["section_url"],
                 let sectionTitle = sectionInfo["section_title"],
                 let sectionSubtitle = sectionInfo["section_subtitle"] else {
                     return nil
             }
-            
-            // main.json 불러와서 파싱
-            if let filePath = Bundle.main.path(forResource: sectionFileName, ofType: Constant.fileExtension),
-                let data = NSData(contentsOfFile: filePath) {
-                let decoder = JSONDecoder()
-                let productItems: [StoreItem] = try decoder.decode([StoreItem].self, from: data as Data)
-                return StoreSection(title: sectionTitle, subtitle: sectionSubtitle, items: productItems)
-            } else {
-                return nil
+            let mySection = StoreSection(title: sectionTitle, subtitle: sectionSubtitle, items: [])
+            self.loadData(from: sectionURL) { (productItems)  in
+                
+                if let productItems = productItems {
+                    mySection.myitems = productItems
+                    reloadUI(true)
+                } else {
+                    reloadUI(false)
+                }
             }
+            return mySection
         }.compactMap{ $0 }
+    }
+    
+    private func loadData(from url: String, completion: @escaping ([StoreItem]?)->()) {
+        guard let url = URL(string: url) else { completion(nil); return }
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        session.dataTask(with:url) { (data, response, error) in
+            guard let data = data else { completion(nil); return }
+            do {
+                let productItems: [StoreItem] = try self.loadData(from: data as Data)
+                completion(productItems)
+            } catch {
+                completion(nil)
+            }
+        }.resume()
+    }
+    
+    private func loadData(from data: Data) throws -> [StoreItem] {
+        let decoder = JSONDecoder()
+        let productItems: [StoreItem] = try decoder.decode([StoreItem].self, from: data as Data)
+        return productItems
     }
     
     var count: Int {
         return mySections.count
     }
+    
     func itemCount(section: Int) -> Int {
         guard 0 <= section && section < count else {
             return 0
@@ -227,14 +243,13 @@ class StoreModel {
         }
         return mySections[section].item(with: row)
     }
-    
 }
-struct StoreSection {
+
+class StoreSection {
     
     private(set) var title: String
     private(set) var subtitle: String
-    private var myitems: Array<StoreItem> = []
-    
+    var myitems: Array<StoreItem> = []
     
     init(title: String, subtitle: String, items: Array<StoreItem>) {
         self.myitems = items
@@ -246,15 +261,12 @@ struct StoreSection {
         return myitems.count
     }
     
-    
-    
     func item(with index: Int) -> StoreItem? {
         guard 0 <= index && index < count else {
             return nil
         }
         return myitems[index]
     }
-    
 }
 
 struct StoreItem {
@@ -267,6 +279,4 @@ struct StoreItem {
     let title: String
 }
 
-extension StoreItem: Decodable {
-
-}
+extension StoreItem: Decodable { }
