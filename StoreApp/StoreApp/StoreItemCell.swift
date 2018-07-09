@@ -24,11 +24,11 @@ class StoreItemCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
     func configureCellFromArray(cell:StoreItemCell, itemArray: Array<StoreModel.StoreItem>, rowNumber:Int)->StoreItemCell{
+        // cell 채워넣는 부분
         cell.itemTitleLabel.text = itemArray[rowNumber].title
         cell.itemDescriptionLabel.text = itemArray[rowNumber].description
         cell.itemPriceLabel.text = itemArray[rowNumber].s_price
