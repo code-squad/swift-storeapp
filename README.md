@@ -2,23 +2,44 @@
 
 ## 요구사항
 
-## 4. 패키지 관리 - CocoaPod 
+## 5. Network 프로그래밍 
 
 #### 요구사항
 
-- 쇼팽앱 시작하기 요구사항을 구현한 상태에서 시작한다.
-- 오토레이아웃 방식에 대해 학습하고 여러 종류 아이폰 화면에서 모두 보이도록 대응하는 UI를 완성하는 것을 목표로 한다.
-  - readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+- [쇼팽앱 패키지관리](https://nextstep.camp/courses/-Kv6PmBDDnfeJOzqThWG/-Kv6VFlxhUm2sqJmkFNF/lessons/-L2TQl3THfAWHTJofJkX) 요구사항을 구현한 상태에서 시작한다. 
+- 네트워크 프로그래밍 관련 자료를 보고 학습한다. [강의자료](http://public.codesquad.kr/jk/storeapp-network-slide.pdf)
+- HTTP 프로토콜에 대해 학습하고 요청과 응답 방식에 대해 정리한다.
+- 네트워크 프로그래밍을 위해서 Asynchronous 방식으로 동작하는 개념을 학습한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
   - 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
   - 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
 
 #### 프로그래밍 요구사항
 
-- Cocoapod 를 설치한다. [설치 가이드](https://guides.cocoapods.org/using/getting-started.html#getting-started)
-- `https://github.com/devxoul/Toaster` 저장소에 있는 Toaster 패키지를 cocoapod 으로 설치한다.
-- pod으로 설치한 Toaster 모듈을 import 하고 테이블뷰 셀을 터치하면 (didSelect) 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
+- 아래 주소별로 JSON 데이터를 받아오는 모델 객체를 만든다.
+  - HTTP 프로토콜 GET 요청으로 다음 주소에서 메인반찬 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/main`
+  - HTTP 프로토콜 GET 요청으로 다음 주소에서 국.찌게 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/soup`
+  - HTTP 프로토콜 GET 요청으로 다음 주소에서 밑반찬 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/side`
+- (위 API들은 오전9시부터 밤12시까지만 동작한다.)
+- HTTP 요청은 URLSession 관련 프레임워크를 활용한다.
+- 응답으로 받은 JSON 데이터를 마찬가지 방법으로 Decode해서 StoreItem 객체로 변환한다.
+- 모델 객체는 응답이 도착하면 Notification을 보내서 테이블뷰의 해당 섹션만 업데이트한다.
 
 ## 작업 이력
+
+### 5. Network 프로그래밍 
+
+#### 주요 작업 내역
+
+- 
+
+#### 날짜
+
+- 2018-07-09 00:00
+
+#### 스크린샷
+
+
 
 ### 4. 패키지 관리 - CocoaPod
 
