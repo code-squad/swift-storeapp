@@ -25,29 +25,3 @@ class ItemDataParser {
         return items
     }
 }
-
-struct ItemData: Codable {
-    var detail_hash: String
-    var image: String
-    var alt: String
-    var delivery_type: [String]
-    var title: String
-    var description: String
-    var n_price: String?
-    var s_price: String
-    var badge: [String]?
-}
-
-struct StoreItems {
-    let items: [ItemData]
-
-    subscript(index: Int) -> ItemData {
-        get {
-            return items[index]
-        }
-    }
-
-    func count() -> Int {
-        return self.items.count
-    }
-}
