@@ -24,7 +24,6 @@ class ItemDataParser {
         guard let items = try? decoder.decode([ItemData].self, from: datum) else { return nil }
         return items
     }
-
 }
 
 struct ItemData: Codable {
@@ -37,5 +36,18 @@ struct ItemData: Codable {
     var n_price: String?
     var s_price: String
     var badge: [String]?
+}
 
+struct StoreItems {
+    let items: [ItemData]
+
+    subscript(index: Int) -> ItemData {
+        get {
+            return items[index]
+        }
+    }
+
+    func count() -> Int {
+        return self.items.count
+    }
 }
