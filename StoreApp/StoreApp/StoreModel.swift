@@ -31,8 +31,6 @@ class StoreModel {
         }catch let error{
             print(error)
         }
-        print(storeItemArray[0])
-        print(storeItemArray[1])
         return storeItemArray
     }
 }
