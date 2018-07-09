@@ -10,14 +10,14 @@ import Foundation
 
 class ItemDataParser {
 
-    class func extractData() -> Data? {
+    private class func extractData() -> Data? {
         let path = Bundle.main.path(forResource: "main", ofType: "json")
         let url = URL(fileURLWithPath: path!)
         guard let data = try? Data(contentsOf: url) else { return nil }
         return data
     }
 
-    class func makeitemData(from data: Data?) -> Codable? {
+    private class func makeitemData(from data: Data?) -> Codable? {
         let decoder = JSONDecoder()
         guard let datum = data else { return nil }
         guard let items = try? decoder.decode([ItemData].self, from: datum) else { return nil }
