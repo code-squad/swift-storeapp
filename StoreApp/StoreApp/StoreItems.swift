@@ -11,6 +11,10 @@ import Foundation
 struct StoreItems {
     let items: [ItemData]
 
+    init() {
+        self.items = ItemDataParser.parse()
+    }
+
     subscript(index: Int) -> ItemData {
         get {
             return items[index]
