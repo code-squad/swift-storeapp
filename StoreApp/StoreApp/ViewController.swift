@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  ViewController.swift
 //  StoreApp
 //
 //  Created by yuaming on 09/07/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class ViewController: UIViewController {
   @IBOutlet weak var storeItemTableView: UITableView!
   
   fileprivate let cellIndentifier = "StoreItemCell"
@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
   }
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     guard let storeItems = self.storeItems else { return 0 }
     
