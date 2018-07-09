@@ -11,32 +11,30 @@ import UIKit
 class ViewController: UIViewController {
 
     let cellId = "MenuTableViewCell"
-    var storeArray: [StoreItems] = []
+    var store: Store = {
+        return Store()
+    }()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        storeArray.append(StoreItems(storeInfo: StoreInfo(id: "main", title: "메인반찬", description: "한그릇 뚝딱 메인 요리")))
-        storeArray.append(StoreItems(storeInfo: StoreInfo(id: "soup", title: "국.찌게", description: "김이 모락모락 국.찌게")))
-        storeArray.append(StoreItems(storeInfo: StoreInfo(id: "side", title: "밑반찬", description: "언제 먹어도 든든한 밑반찬")))
     }
 }
 
 extension ViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return storeArray.count
+        return store.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeArray[section].count
+        return store[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MenuTableViewCell
-        cell.storeItem = storeArray[indexPath.section][indexPath.row]
+        cell.storeItem = store[indexPath.section][indexPath.row]
         return cell
     }
     
@@ -46,8 +44,8 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 60))
-        headerView.descriptionLabel.text = storeArray[section].storeInfo.description
-        headerView.titleLabelText(text: storeArray[section].storeInfo.title ?? "")
+        headerView.descriptionLabel.text = store[section].description
+        headerView.titleLabelText(text: store[section].title ?? "")
         return headerView
     }
     

@@ -8,17 +8,35 @@
 
 import Foundation
 
-struct StoreItems {
-    var storeInfo: StoreInfo
-    private var items: [StoreItem]
-    
-    init() {
-        self.init(storeInfo: StoreInfo(id: "main", title: "메인반찬", description: "한그릇 뚝딱 메인 요리"))
+struct Store {
+    var storeInfoArray: [StoreInfo]
+    var count: Int {
+        return self.storeInfoArray.count
     }
     
-    init(storeInfo: StoreInfo) {
-        self.storeInfo = storeInfo
-        guard let mainJsonFilePath = Bundle.main.path(forResource: storeInfo.id, ofType: "json") else {
+    subscript(index: Int) -> StoreInfo {
+        return self.storeInfoArray[index]
+    }
+
+    init() {
+        storeInfoArray = [StoreInfo]()
+        storeInfoArray.append(StoreInfo(id: "main", title: "메인반찬", description: "한그릇 뚝딱 메인 요리"))
+        storeInfoArray.append(StoreInfo(id: "soup", title: "국.찌게", description: "김이 모락모락 국.찌게"))
+        storeInfoArray.append(StoreInfo(id: "side", title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"))
+    }
+}
+
+struct StoreInfo {
+    var id: String?
+    var title: String?
+    var description: String?
+    private var items: [StoreItem]
+    
+    init(id: String, title: String, description: String) {
+        self.id = id
+        self.title = title
+        self.description = description
+        guard let mainJsonFilePath = Bundle.main.path(forResource: id, ofType: "json") else {
             items = []
             return
         }
@@ -61,10 +79,4 @@ struct StoreItem: Decodable {
         }
         return nil
     }
-}
-
-struct StoreInfo {
-    var id: String?
-    var title: String?
-    var description: String?
 }
