@@ -19,6 +19,7 @@
 		87B4E54820F30E03000085E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54720F30E03000085E2 /* Assets.xcassets */; };
 		87B4E54B20F30E03000085E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54920F30E03000085E2 /* LaunchScreen.storyboard */; };
 		87E787E920F39958005497AB /* FileResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E787E820F39958005497AB /* FileResources.swift */; };
+		87E787EB20F39BC3005497AB /* BadgeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E787EA20F39BC3005497AB /* BadgeContainer.swift */; };
 		BA2C097081E3B67FB08EF3A8 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E45BDC9157313FA8317C54 /* Pods_StoreApp.framework */; };
 		D30289D6331F9C244F9D77A7 /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640F8E58899B2CD027247C8D /* Pods_StoreAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		87B4E55120F30E03000085E2 /* StoreAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B4E55720F30E03000085E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87E787E820F39958005497AB /* FileResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileResources.swift; sourceTree = "<group>"; };
+		87E787EA20F39BC3005497AB /* BadgeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeContainer.swift; sourceTree = "<group>"; };
 		DC77230390935171178147AF /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,18 +112,16 @@
 		87B4E53F20F30E01000085E2 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				87E787F020F39C42005497AB /* ViewControllers */,
+				87E787EF20F39C37005497AB /* Resources */,
+				87E787EE20F39C2B005497AB /* Commons */,
+				87E787ED20F39C12005497AB /* Models */,
+				87E787EC20F39C04005497AB /* View */,
 				87B4E54020F30E01000085E2 /* AppDelegate.swift */,
-				87B4E54220F30E01000085E2 /* ViewController.swift */,
 				87B4E54420F30E01000085E2 /* Main.storyboard */,
 				87B4E54720F30E03000085E2 /* Assets.xcassets */,
 				87B4E54920F30E03000085E2 /* LaunchScreen.storyboard */,
 				87B4E54C20F30E03000085E2 /* Info.plist */,
-				87179F4C20F336DD004040E3 /* StoreItemCell.swift */,
-				87179F5520F33DC1004040E3 /* main.json */,
-				87179F5920F33F17004040E3 /* JSONConverter.swift */,
-				87179F5B20F33FDF004040E3 /* StoreItem.swift */,
-				87734E5D20F34EA300D02C9D /* StoreItems.swift */,
-				87E787E820F39958005497AB /* FileResources.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -133,6 +133,49 @@
 				87734E5B20F34A9B00D02C9D /* JSONConverterTests.swift */,
 			);
 			path = StoreAppTests;
+			sourceTree = "<group>";
+		};
+		87E787EC20F39C04005497AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				87179F4C20F336DD004040E3 /* StoreItemCell.swift */,
+				87E787EA20F39BC3005497AB /* BadgeContainer.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		87E787ED20F39C12005497AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87179F5B20F33FDF004040E3 /* StoreItem.swift */,
+				87734E5D20F34EA300D02C9D /* StoreItems.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87E787EE20F39C2B005497AB /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				87179F5920F33F17004040E3 /* JSONConverter.swift */,
+				87E787E820F39958005497AB /* FileResources.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		87E787EF20F39C37005497AB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				87179F5520F33DC1004040E3 /* main.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		87E787F020F39C42005497AB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				87B4E54220F30E01000085E2 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		B280BAF1005E9E3C8EE8698F /* Pods */ = {
@@ -294,6 +337,7 @@
 				87179F5C20F33FDF004040E3 /* StoreItem.swift in Sources */,
 				87B4E54320F30E01000085E2 /* ViewController.swift in Sources */,
 				87B4E54120F30E01000085E2 /* AppDelegate.swift in Sources */,
+				87E787EB20F39BC3005497AB /* BadgeContainer.swift in Sources */,
 				87734E5E20F34EA300D02C9D /* StoreItems.swift in Sources */,
 				87179F5A20F33F17004040E3 /* JSONConverter.swift in Sources */,
 				87E787E920F39958005497AB /* FileResources.swift in Sources */,

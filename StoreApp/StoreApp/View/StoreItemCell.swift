@@ -13,7 +13,6 @@ class StoreItemCell: UITableViewCell {
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var originPriceLabel: UILabel!
   @IBOutlet weak var salePriceLabel: UILabel!
-  @IBOutlet weak var badgeLabel: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -35,11 +34,5 @@ class StoreItemCell: UITableViewCell {
     self.descriptionLabel.text = data.description
     self.originPriceLabel.text = data.originPrice
     self.salePriceLabel.text = data.salePrice
-    guard let badges = data.badges else {
-      badgeLabel.isHidden = true
-      return
-    }
-    
-    self.badgeLabel.text = badges.reduce(" ", +)
   }
 }
