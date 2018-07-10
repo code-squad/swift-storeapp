@@ -11,7 +11,7 @@ import Foundation
 struct StoreItem: Codable {
   var title: String?
   var description: String?
-  var originPrice: String?
+  var normalPrice: String?
   var salePrice: String?
   var deliveryTypes: [String]?
   var detailHash: String?
@@ -22,7 +22,7 @@ struct StoreItem: Codable {
   enum CodingKeys: String, CodingKey {
     case title
     case description
-    case originPrice = "n_price"
+    case normalPrice = "n_price"
     case salePrice = "s_price"
     case deliveryTypes = "delivery_type"
     case detailHash = "detail_hash"
