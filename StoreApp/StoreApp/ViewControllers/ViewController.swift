@@ -65,7 +65,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     guard let storeItems = storeItems else { return UITableViewCell() }
     
     let item = storeItems[at: indexPath.row]
-    cell.setContact(item)
+    cell.setItem(item)
     
     return cell
   }

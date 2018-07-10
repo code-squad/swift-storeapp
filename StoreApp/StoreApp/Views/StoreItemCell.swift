@@ -29,7 +29,7 @@ class StoreItemCell: UITableViewCell {
     self.salePriceLabel.text = ""
   }
   
-  func setContact(_ data: StoreItem) {
+  func setItem(_ data: StoreItem) {
     self.titleLabel.text = data.title
     self.descriptionLabel.text = data.description
     self.originPriceLabel.text = data.originPrice
