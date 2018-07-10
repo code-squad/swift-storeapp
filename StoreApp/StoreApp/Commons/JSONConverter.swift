@@ -24,7 +24,7 @@ struct JSONConverter {
     do {
       jsonData = try JSONDecoder().decode(type, from: data)
     } catch let e {
-      NSLog(e.localizedDescription)
+      print(e.localizedDescription)
       return []
     }
     
