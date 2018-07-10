@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,29 +32,34 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[윤식당] 불고기 with Rice (재료)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiI-hP-SS4" userLabel="title">
-                                                    <rect key="frame" x="98" y="10.5" width="232.5" height="21"/>
+                                                    <rect key="frame" x="98" y="10.5" width="232.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="윤식당 불고기메뉴의 가장 기본인 불고기라이스! (마더소스 포함)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-h1-98t" userLabel="description">
-                                                    <rect key="frame" x="98" y="35.5" width="254" height="12"/>
+                                                    <rect key="frame" x="98" y="35" width="254" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                                     <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zi-Vt-kLG" userLabel="n_price">
-                                                    <rect key="frame" x="98" y="54.5" width="36" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7100원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqp-SF-JWs" userLabel="s_price">
-                                                    <rect key="frame" x="144" y="52.5" width="56" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.39078803219426811" green="0.85977269288856339" blue="0.86574978298611116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iuz-pp-kpx">
+                                                    <rect key="frame" x="98" y="54.5" width="99.5" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zi-Vt-kLG" userLabel="n_price">
+                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7100원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqp-SF-JWs" userLabel="s_price">
+                                                            <rect key="frame" x="44" y="0.0" width="55.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <color key="textColor" red="0.39078803219426811" green="0.85977269288856339" blue="0.86574978298611116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="론칭특가" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-iX-87D">
                                                     <rect key="frame" x="98" y="77" width="57" height="13.5"/>
                                                     <color key="backgroundColor" red="0.67665118019838022" green="0.43350347618406809" blue="0.79945272842639592" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -65,9 +71,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cyw-un-CvG">
-                                                    <rect key="frame" x="10" y="10.5" width="78" height="78"/>
+                                                    <rect key="frame" x="10" y="11" width="78" height="77.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="78.5" id="XgI-8e-Vq4"/>
+                                                        <constraint firstAttribute="width" constant="78" id="XgI-8e-Vq4"/>
                                                         <constraint firstAttribute="width" secondItem="cyw-un-CvG" secondAttribute="height" multiplier="1:1" id="sKK-IS-qt1"/>
                                                     </constraints>
                                                 </imageView>
@@ -75,27 +81,25 @@
                                             <constraints>
                                                 <constraint firstItem="cyw-un-CvG" firstAttribute="leading" secondItem="Jdw-X0-Zjr" secondAttribute="leading" constant="10" id="2pb-0D-Op7"/>
                                                 <constraint firstItem="sfL-iX-87D" firstAttribute="leading" secondItem="cyw-un-CvG" secondAttribute="trailing" constant="10" id="8nJ-YP-EP5"/>
-                                                <constraint firstItem="2zi-Vt-kLG" firstAttribute="leading" secondItem="cyw-un-CvG" secondAttribute="trailing" constant="10" id="9z7-H1-Ard"/>
-                                                <constraint firstAttribute="bottom" secondItem="cyw-un-CvG" secondAttribute="bottom" constant="10" id="JOs-mD-fc6"/>
+                                                <constraint firstItem="sfL-iX-87D" firstAttribute="top" secondItem="iuz-pp-kpx" secondAttribute="bottom" constant="2" id="AmG-Ug-vqy"/>
+                                                <constraint firstAttribute="bottom" secondItem="cyw-un-CvG" secondAttribute="bottom" constant="10.5" id="JOs-mD-fc6"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jh3-h1-98t" secondAttribute="trailing" constant="10" id="PnU-YU-aJr"/>
+                                                <constraint firstItem="iuz-pp-kpx" firstAttribute="leading" secondItem="cyw-un-CvG" secondAttribute="trailing" constant="10" id="TwA-Cy-nEd"/>
                                                 <constraint firstItem="jh3-h1-98t" firstAttribute="top" secondItem="EiI-hP-SS4" secondAttribute="bottom" constant="4" id="Uck-R0-w4v"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EiI-hP-SS4" secondAttribute="trailing" constant="10" id="UdK-lF-LIx"/>
                                                 <constraint firstItem="EiI-hP-SS4" firstAttribute="leading" secondItem="cyw-un-CvG" secondAttribute="trailing" constant="10" id="ZtG-36-zEM"/>
-                                                <constraint firstItem="2zi-Vt-kLG" firstAttribute="top" secondItem="jh3-h1-98t" secondAttribute="bottom" constant="7" id="auq-Do-eFi"/>
                                                 <constraint firstItem="jh3-h1-98t" firstAttribute="leading" secondItem="cyw-un-CvG" secondAttribute="trailing" constant="10" id="c3O-SO-b7Q"/>
                                                 <constraint firstItem="EiI-hP-SS4" firstAttribute="top" secondItem="Jdw-X0-Zjr" secondAttribute="top" constant="10" id="ckY-nE-E5M"/>
-                                                <constraint firstItem="Tqp-SF-JWs" firstAttribute="leading" secondItem="2zi-Vt-kLG" secondAttribute="trailing" constant="10" id="dHj-wc-zmV"/>
-                                                <constraint firstItem="cyw-un-CvG" firstAttribute="top" secondItem="Jdw-X0-Zjr" secondAttribute="top" constant="10" id="gMJ-fq-M5n"/>
-                                                <constraint firstItem="Tqp-SF-JWs" firstAttribute="baseline" secondItem="2zi-Vt-kLG" secondAttribute="baseline" id="kyE-OT-t5Y"/>
-                                                <constraint firstItem="sfL-iX-87D" firstAttribute="top" secondItem="Tqp-SF-JWs" secondAttribute="bottom" constant="3" id="rOj-pB-FM4"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="iuz-pp-kpx" secondAttribute="trailing" constant="162.5" id="g4u-AV-8bh"/>
+                                                <constraint firstItem="cyw-un-CvG" firstAttribute="top" secondItem="Jdw-X0-Zjr" secondAttribute="top" constant="10.5" id="gMJ-fq-M5n"/>
+                                                <constraint firstItem="iuz-pp-kpx" firstAttribute="top" secondItem="jh3-h1-98t" secondAttribute="bottom" constant="7.5" id="jVU-Zm-r8U"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="badges" destination="sfL-iX-87D" id="uEI-8z-a4E"/>
                                             <outlet property="itemDescription" destination="jh3-h1-98t" id="91U-Li-apC"/>
                                             <outlet property="itemImage" destination="cyw-un-CvG" id="jGZ-Q3-97b"/>
-                                            <outlet property="nPrice" destination="2zi-Vt-kLG" id="3KX-Lw-shG"/>
-                                            <outlet property="sPrice" destination="Tqp-SF-JWs" id="pVL-0q-gCk"/>
+                                            <outlet property="prices" destination="iuz-pp-kpx" id="AP5-H4-lUM"/>
                                             <outlet property="title" destination="EiI-hP-SS4" id="btt-1R-Rmz"/>
                                         </connections>
                                     </tableViewCell>
