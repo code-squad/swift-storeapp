@@ -22,8 +22,8 @@ struct StoreItem: Codable {
   enum CodingKeys: String, CodingKey {
     case title
     case description
-    case originPrice = "s_price"
-    case salePrice = "n_price"
+    case originPrice = "n_price"
+    case salePrice = "s_price"
     case deliveryTypes = "delivery_type"
     case detailHash = "detail_hash"
     case image
