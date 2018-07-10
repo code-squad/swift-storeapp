@@ -13,13 +13,13 @@
 		87179F5C20F33FDF004040E3 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87179F5B20F33FDF004040E3 /* StoreItem.swift */; };
 		87734E5C20F34A9B00D02C9D /* JSONConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87734E5B20F34A9B00D02C9D /* JSONConverterTests.swift */; };
 		87734E5E20F34EA300D02C9D /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87734E5D20F34EA300D02C9D /* StoreItems.swift */; };
+		8779ED2020F45391009DF638 /* UI+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8779ED1F20F45391009DF638 /* UI+.swift */; };
 		87B4E54120F30E01000085E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4E54020F30E01000085E2 /* AppDelegate.swift */; };
 		87B4E54320F30E01000085E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B4E54220F30E01000085E2 /* ViewController.swift */; };
 		87B4E54620F30E01000085E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54420F30E01000085E2 /* Main.storyboard */; };
 		87B4E54820F30E03000085E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54720F30E03000085E2 /* Assets.xcassets */; };
 		87B4E54B20F30E03000085E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54920F30E03000085E2 /* LaunchScreen.storyboard */; };
 		87E787E920F39958005497AB /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E787E820F39958005497AB /* Files.swift */; };
-		87E787EB20F39BC3005497AB /* BadgeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E787EA20F39BC3005497AB /* BadgeContainer.swift */; };
 		BA2C097081E3B67FB08EF3A8 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E45BDC9157313FA8317C54 /* Pods_StoreApp.framework */; };
 		D30289D6331F9C244F9D77A7 /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640F8E58899B2CD027247C8D /* Pods_StoreAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +46,7 @@
 		87179F5B20F33FDF004040E3 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		87734E5B20F34A9B00D02C9D /* JSONConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONConverterTests.swift; sourceTree = "<group>"; };
 		87734E5D20F34EA300D02C9D /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
+		8779ED1F20F45391009DF638 /* UI+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+.swift"; sourceTree = "<group>"; };
 		87B4E53D20F30E01000085E2 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B4E54020F30E01000085E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B4E54220F30E01000085E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		87B4E55120F30E03000085E2 /* StoreAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B4E55720F30E03000085E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87E787E820F39958005497AB /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
-		87E787EA20F39BC3005497AB /* BadgeContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeContainer.swift; sourceTree = "<group>"; };
 		DC77230390935171178147AF /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				87179F4C20F336DD004040E3 /* StoreItemCell.swift */,
-				87E787EA20F39BC3005497AB /* BadgeContainer.swift */,
+				8779ED1F20F45391009DF638 /* UI+.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,10 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				87179F4D20F336DD004040E3 /* StoreItemCell.swift in Sources */,
+				8779ED2020F45391009DF638 /* UI+.swift in Sources */,
 				87179F5C20F33FDF004040E3 /* StoreItem.swift in Sources */,
 				87B4E54320F30E01000085E2 /* ViewController.swift in Sources */,
 				87B4E54120F30E01000085E2 /* AppDelegate.swift in Sources */,
-				87E787EB20F39BC3005497AB /* BadgeContainer.swift in Sources */,
 				87734E5E20F34EA300D02C9D /* StoreItems.swift in Sources */,
 				87179F5A20F33F17004040E3 /* JSONConverter.swift in Sources */,
 				87E787E920F39958005497AB /* Files.swift in Sources */,
