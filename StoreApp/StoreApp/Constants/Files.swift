@@ -1,5 +1,5 @@
 //
-//  FileResources.swift
+//  Files.swift
 //  StoreApp
 //
 //  Created by yuaming on 09/07/2018.
