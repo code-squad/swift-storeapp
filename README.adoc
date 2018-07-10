@@ -1,8 +1,15 @@
 = Store
 
-=== 1단계
+=== 1. 시작하기, 2. Auto Layout 적용
 
 ===== 실행결과
-image:./images/result-1-1.png[30%, 30%]
-image:./images/result-1-2.png[30%, 30%]
-image:./images/result-1-3.png[30%, 30%]
+
+image:./images/result-2-1.png[45%, 45%]
+image:./images/result-2-2.png[45%, 45%]
+image:./images/result-2-3.png[45%, 45%]
+image:./images/result-2-4.png[45%, 45%]
+
+===== 학습거리 
+* https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types[JSON Encoding/Decoding]
+* https://developer.apple.com/sample-code/xcode/downloads/Auto-Layout-Cookbook.zip[Auto Layout Sample Code]
+* https://github.com/yuaming/wiki/blob/master/ios/auto-layout.adoc[Auto Layouot 정리]
