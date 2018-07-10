@@ -21,7 +21,11 @@ class StoreTableViewCell: UITableViewCell {
         didSet {
             self.title.text = itemData.title
             self.itemDescription.text = itemData.description
-            self.nPrice.text = itemData.n_price
+            guard let normalPrice = itemData.n_price else {
+                self.nPrice.isHidden = true
+                return
+            }
+            self.nPrice.text = normalPrice
             self.sPrice.text = itemData.s_price
             guard let badges = itemData.badge else {
                 self.badges.isHidden = true
