@@ -8,30 +8,36 @@
 
 import UIKit
 
-class StoreItemCell: UITableViewCell {  
+class StoreItemCell: UITableViewCell {
+  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+     initializeLayout()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: true)
   }
-  
+
   override func prepareForReuse() {
-    addSubview(foodImageView)
-    updateConstraintsOfFoodImageView(isActive: true)
-    
-    addSubview(titleLabel)
-    updateCostraintsOfTitleLabel(isActive: true)
+    super.prepareForReuse()
+    thumbnailImageView.image = nil
     titleLabel.text = nil
-    
-    addSubview(descriptionLabel)
-    updateConstraintsOfDescriptionLabel(isActive: true)
     descriptionLabel.text = nil
-
-    addSubview(pricesStackView)
-    updateConstraintsOfPricesStackView(isActive: true)
     
-    addSubview(badgesStackView)
-    updateConstraintsOfBadgesStackView(isActive: true)
+    normalPriceLabel.text = nil
+    salePriceLabel.text = nil
+    
+    for case let badgeLabel as UILabel in badgesStackView.arrangedSubviews {
+      badgeLabel.text = nil
+      badgeLabel.backgroundColor = nil
+    }
   }
-
+  
   func setItem(_ data: StoreItem) {
     titleLabel.text = data.title
     descriptionLabel.text = data.description
@@ -53,14 +59,30 @@ class StoreItemCell: UITableViewCell {
     }
   }
   
-  fileprivate var foodImageView: UIImageView = {
+  fileprivate func initializeLayout() {
+    addSubview(thumbnailImageView)
+    addSubview(titleLabel)
+    addSubview(descriptionLabel)
+    addSubview(pricesStackView)
+    addSubview(badgesStackView)
+    
+    updateCostraintsOfTitleLabel(isActive: true)
+    updateConstraintsOfDescriptionLabel(isActive: true)
+    updateConstraintsOfBadgesStackView(isActive: true)
+    updateConstraintsOfThumbnailImageView(isActive: true)
+    updateConstraintsOfPricesStackView(isActive: true)
+  }
+  
+  fileprivate var thumbnailImageView: UIImageView = {
     let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.backgroundColor = .red
     return imageView
   }()
   
   fileprivate var titleLabel: UILabel = {
     let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
     label.font = .systemFont(ofSize: 15, weight: .bold)
     label.textColor = .black
     return label
@@ -68,6 +90,7 @@ class StoreItemCell: UITableViewCell {
   
   fileprivate var descriptionLabel: UILabel = {
     let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
     label.font = .systemFont(ofSize: 12, weight: .regular)
     label.textColor = .lightGray
     return label
@@ -77,6 +100,7 @@ class StoreItemCell: UITableViewCell {
     let stackView = UIStackView()
     stackView.distribution = .fill
     stackView.spacing = 10
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
   }()
   
@@ -106,43 +130,39 @@ class StoreItemCell: UITableViewCell {
     let stackView = UIStackView()
     stackView.distribution = .fill
     stackView.spacing = 2
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
   }()
 }
 
 // MARK: - Updating constraints
 fileprivate extension StoreItemCell {
-  func updateConstraintsOfFoodImageView(isActive: Bool = true) {
-    foodImageView.translatesAutoresizingMaskIntoConstraints = !isActive
-    foodImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = isActive
-    foodImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = isActive
-    foodImageView.widthAnchor.constraint(equalToConstant: 90).isActive = isActive
-    foodImageView.heightAnchor.constraint(equalTo: foodImageView.widthAnchor, multiplier: 1/1).isActive = isActive
+  func updateConstraintsOfThumbnailImageView(isActive: Bool) {
+    thumbnailImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = isActive
+    thumbnailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = isActive
+    thumbnailImageView.widthAnchor.constraint(equalToConstant: 90).isActive = isActive
+    thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 1/1).isActive = isActive
   }
   
-  func updateCostraintsOfTitleLabel(isActive: Bool = true) {
-    titleLabel.translatesAutoresizingMaskIntoConstraints = !isActive
+  func updateCostraintsOfTitleLabel(isActive: Bool) {
     titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = isActive
-    titleLabel.leadingAnchor.constraint(equalTo: foodImageView.trailingAnchor, constant: 10).isActive = isActive
+    titleLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 10).isActive = isActive
     titleLabel.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor, constant: 5).isActive = isActive
   }
   
-  func updateConstraintsOfDescriptionLabel(isActive: Bool = true) {
-    descriptionLabel.translatesAutoresizingMaskIntoConstraints = !isActive
+  func updateConstraintsOfDescriptionLabel(isActive: Bool) {
     descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4).isActive = isActive
     descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = isActive
     descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = isActive
   }
   
-  func updateConstraintsOfPricesStackView(isActive: Bool = true) {
-    pricesStackView.translatesAutoresizingMaskIntoConstraints = false
+  func updateConstraintsOfPricesStackView(isActive: Bool) {
     pricesStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4).isActive = isActive
     pricesStackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = isActive
     pricesStackView.trailingAnchor.constraint(lessThanOrEqualTo: self.layoutMarginsGuide.trailingAnchor, constant: 20).isActive = isActive
   }
   
-  func updateConstraintsOfBadgesStackView(isActive: Bool = true) {
-    badgesStackView.translatesAutoresizingMaskIntoConstraints = !isActive
+  func updateConstraintsOfBadgesStackView(isActive: Bool) {
     badgesStackView.topAnchor.constraint(equalTo: pricesStackView.bottomAnchor, constant: 4).isActive = isActive
     badgesStackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = isActive
     badgesStackView.trailingAnchor.constraint(lessThanOrEqualTo: self.layoutMarginsGuide.trailingAnchor, constant: 20).isActive = isActive

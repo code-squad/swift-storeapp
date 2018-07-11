@@ -9,10 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-  @IBOutlet weak var storeItemTableView: UITableView!
+  @IBOutlet weak var storeItemTableView: UITableView! {
+    didSet {
+      self.storeItemTableView.delegate = self
+      self.storeItemTableView.dataSource = self
+
+    }
+  }
   
   fileprivate let cellIndentifier = "StoreItemCell"
-  fileprivate let cellHeight = CGFloat(100)
+  fileprivate let rowHeight = CGFloat(100)
   fileprivate var storeItems: StoreItems? {
     didSet {
       DispatchQueue.main.async {
@@ -23,14 +29,13 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    self.storeItemTableView.delegate = self
-    self.storeItemTableView.dataSource = self
-    
+
     setup()
   }
   
   fileprivate func setup() {
+    storeItemTableView.register(StoreItemCell.self, forCellReuseIdentifier: cellIndentifier)
+    
     NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: Notification.Name.storeItems, object: nil)
     
     self.storeItems = StoreItems()
@@ -44,6 +49,10 @@ class ViewController: UIViewController {
     
     self.storeItems = storeItems
   }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -51,10 +60,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     guard let storeItems = self.storeItems else { return 0 }
     
     return storeItems.count
-  }
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return cellHeight
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,4 +74,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return rowHeight
+  } 
 }
