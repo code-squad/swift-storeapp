@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let rowHeightForCell: CGFloat = 100
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension StoreViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! StoreTableViewCell
@@ -47,7 +47,7 @@ extension ViewController: UITableViewDataSource {
 
 }
 
-extension ViewController: UITableViewDelegate {
+extension StoreViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)?.first as? HeaderView else { return nil }
