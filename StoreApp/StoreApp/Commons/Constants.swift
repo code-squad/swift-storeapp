@@ -1,8 +1,8 @@
 //
-//  Files.swift
+//  Constants.swift
 //  StoreApp
 //
-//  Created by yuaming on 09/07/2018.
+//  Created by yuaming on 12/07/2018.
 //  Copyright © 2018 yuaming. All rights reserved.
 //
 
@@ -16,4 +16,8 @@ enum FileTypes {
     case .json: return "json"
     }
   }
+}
+
+struct Constants {
+  static let list = "list"
 }
