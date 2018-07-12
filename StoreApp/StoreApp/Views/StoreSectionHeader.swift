@@ -55,7 +55,7 @@ class StoreSectionHeader: UITableViewHeaderFooterView {
     subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
   }
   
-  func setContents(title: String, subtitle: String) {
+  func setContent(title: String, subtitle: String) {
     titleLabel.text = title
     subtitleLabel.text = subtitle
   }

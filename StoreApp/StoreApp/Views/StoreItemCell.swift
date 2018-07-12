@@ -34,9 +34,9 @@ class StoreItemCell: UITableViewCell {
   
   fileprivate lazy var pricesStackView: UIStackView = {
     let stackView = UIStackView()
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.distribution = .fill
     stackView.spacing = 10
-    stackView.translatesAutoresizingMaskIntoConstraints = false
     return stackView
   }()
   
@@ -54,8 +54,9 @@ class StoreItemCell: UITableViewCell {
     return label
   }()
   
-  fileprivate lazy var badgeLabel: UILabel = {
-    let label = UILabel()
+  fileprivate lazy var badgeLabel: UILabelWithPadding = {
+    let insets = UIEdgeInsets(top: 2, left: 3, bottom: 2, right: 3)
+    let label = UILabelWithPadding(frame: self.frame, padding: insets)
     label.textColor = .white
     label.font = .systemFont(ofSize: 10, weight: .regular)
     label.backgroundColor = .lightPink
@@ -93,9 +94,14 @@ class StoreItemCell: UITableViewCell {
     normalPriceLabel.text = nil
     salePriceLabel.text = nil
     
-    for case let badgeLabel as UILabel in badgesStackView.arrangedSubviews {
+    pricesStackView.removeArrangedSubview(normalPriceLabel)
+    pricesStackView.removeArrangedSubview(salePriceLabel)
+    
+    for case let badgeLabel as UILabelWithPadding in badgesStackView.arrangedSubviews {
       badgeLabel.text = nil
       badgeLabel.backgroundColor = nil
+      badgeLabel.removeInsets()
+      badgesStackView.removeArrangedSubview(badgeLabel)
     }
   }
   
