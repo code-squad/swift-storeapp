@@ -9,29 +9,27 @@
 import Foundation
 
 class StoreItems {
-  private var items: [StoreItem] = [] {
-    didSet {
-      NotificationCenter.default.post(name: Notification.Name.storeItems, object: self)
-    }
-  }
+  fileprivate var header: SectionHeader.Kind
+  fileprivate var items: [StoreItem]
   
-  func generateData() {
-    guard let data = JSONConverter.data(file: .main, fileType: .json) else {
-      return
-    }
-    
-    self.items = JSONConverter.decode(in: data, type: [StoreItem].self)
+  init(header: SectionHeader.Kind, items: [StoreItem]) {
+    self.header = header
+    self.items = items
   }
   
   subscript(at index: Int) -> StoreItem {
     return items[index]
   }
   
+  var title: String {
+    return header.title
+  }
+  
+  var subtitle: String {
+    return header.subtitle
+  }
+  
   var count: Int {
     return items.count 
   }
-}
-
-extension Notification.Name {
-  static let storeItems = Notification.Name("StoreItems")
 }
