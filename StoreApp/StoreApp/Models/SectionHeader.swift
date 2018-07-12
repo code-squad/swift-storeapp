@@ -19,14 +19,14 @@ struct SectionHeader {
 }
 
 extension SectionHeader {
-  enum Kind: Int {
+  enum Kind: Int, CustomStringConvertible {
     case main = 0, soup, side
     
     static var allValues: [Kind] {
       return [.main, .soup, .side]
     }
     
-    var fileName: String {
+    var description: String {
       switch self {
       case .main: return "main"
       case .soup: return "soup"
