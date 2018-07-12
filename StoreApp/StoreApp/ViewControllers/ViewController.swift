@@ -20,15 +20,13 @@ class ViewController: UIViewController {
   fileprivate let cellIdentifier = "StoreItemCell"
   fileprivate let sectionHeaderIdentifier = "StoreSectionHeader"
   fileprivate let rowHeight = CGFloat(100)
-  fileprivate var storeItems: StoreItems? {
+  fileprivate var storeManager: StoreManager? {
     didSet {
       DispatchQueue.main.async {
         self.storeItemTableView.reloadData()
       }
     }
   }
-  
-  let titles = ["A", "B", "C"]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -41,18 +39,18 @@ class ViewController: UIViewController {
     
     storeItemTableView.register(StoreItemCell.self, forCellReuseIdentifier: cellIdentifier)
     
-    NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: Notification.Name.storeItems, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: Notification.Name.storeList, object: nil)
     
-    self.storeItems = StoreItems()
-    self.storeItems?.generateData()
+    self.storeManager = StoreManager()
+    self.storeManager?.generateData()
   }
   
   @objc fileprivate func refreshTableView(notification: Notification) {
-    guard let storeItems = notification.object as? StoreItems else {
+    guard let userInfo = notification.userInfo, let list = userInfo["list"] as? [StoreItems] else {
       return
     }
     
-    self.storeItems = storeItems
+    self.storeManager = StoreManager(list: list)
   }
   
   deinit {
@@ -62,19 +60,21 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let storeItems = self.storeItems else { return 0 }
+    guard let storeManager = self.storeManager else { return 0 }
     
-    return storeItems.count
+    return storeManager.numberOfCells(section)
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? StoreItemCell else {
       return UITableViewCell()
     }
     
-    guard let storeItems = storeItems else { return UITableViewCell() }
+    guard let storeManager = storeManager else { return UITableViewCell() }
     
-    let item = storeItems[at: indexPath.row]
+    let item = storeManager[indexPath.section][at: indexPath.row]
     cell.setItem(item)
     
     return cell
@@ -89,13 +89,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
       return UIView()
     }
     
-    header.setContents(title: "Title \(section)", subtitle: "Subtitle \(section)")
+    guard let storeManager = storeManager else { return UIView() }
+    
+    header.setContents(title: storeManager[section].title, subtitle: storeManager[section].subtitle)
     
     return header
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return titles.count
+    guard let storeManager = self.storeManager else { return 0 }
+    
+    return storeManager.numberOfSections
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
