@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD4EFBCD20F71BAF003F2793 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EFBCC20F71BAF003F2793 /* Category.swift */; };
 		FD579C9220E4BF8D00B067FE /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD579C9120E4BF8D00B067FE /* StoreTableViewCell.swift */; };
 		FD579C9420E4DFC400B067FE /* ItemDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD579C9320E4DFC400B067FE /* ItemDataParser.swift */; };
 		FD74FD7720F6F39900418092 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = FD74FD7620F6F39900418092 /* soup.json */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD4EFBCC20F71BAF003F2793 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FD579C9120E4BF8D00B067FE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		FD579C9320E4DFC400B067FE /* ItemDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataParser.swift; sourceTree = "<group>"; };
 		FD74FD7620F6F39900418092 /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				FD579C9120E4BF8D00B067FE /* StoreTableViewCell.swift */,
 				FD579C9320E4DFC400B067FE /* ItemDataParser.swift */,
 				FDCAF37120F35167005F5E07 /* StoreItems.swift */,
+				FD4EFBCC20F71BAF003F2793 /* Category.swift */,
 				FD9FF9B920E263BB00BE6FA6 /* Main.storyboard */,
 				FD9FF9BC20E263BC00BE6FA6 /* Assets.xcassets */,
 				FD9FF9BE20E263BC00BE6FA6 /* LaunchScreen.storyboard */,
@@ -161,6 +164,7 @@
 				FD579C9420E4DFC400B067FE /* ItemDataParser.swift in Sources */,
 				FD9FF9B820E263BB00BE6FA6 /* ViewController.swift in Sources */,
 				FD9FF9B620E263BB00BE6FA6 /* AppDelegate.swift in Sources */,
+				FD4EFBCD20F71BAF003F2793 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
