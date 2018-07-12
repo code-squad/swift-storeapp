@@ -15,3 +15,9 @@ image:./images/result-2-4.png[45%, 45%]
 * https://github.com/yuaming/wiki/blob/master/ios/auto-layout.adoc[Auto Layouot 정리]
 * https://github.com/yuaming/wiki/blob/master/ios/high-performance-auto-layout.adoc[High Performance Auto Layout 정리]
 * https://github.com/yuaming/wiki/blob/master/ios/how-to-adjust-automatic-row-height-in-table-view.adoc[TableView 동적으로 높이 조절하기 정리]
+
+=== 3. Custom Header 적용
+
+===== 실행결과
+
+image:./images/result-3-1.png[45%, 45%]
