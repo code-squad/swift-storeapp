@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController {
   @IBOutlet weak var storeItemTableView: UITableView! {
@@ -32,6 +33,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
 
     setup()
+    configueToastView()
   }
   
   fileprivate func setup() {
@@ -43,6 +45,16 @@ class ViewController: UIViewController {
     
     self.storeManager = StoreManager()
     self.storeManager?.generateData()
+  }
+  
+  fileprivate func configueToastView() {
+    let appearance = ToastView.appearance()
+    appearance.backgroundColor = .mint
+    appearance.textColor = .white
+    appearance.font = UIFont.boldSystemFont(ofSize: 15)
+    appearance.textInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+    appearance.bottomOffsetPortrait = 350
+    appearance.cornerRadius = 10
   }
   
   @objc fileprivate func refreshTableView(notification: Notification) {
@@ -103,5 +115,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return headerHeight
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let storeManager = self.storeManager else { return }
+    
+    let item = storeManager[at: indexPath.section][at: indexPath.row]
+    if let title = item.title, let salePrice = item.salePrice {
+      Toast(text: "\(title) \(salePrice)").show()
+    }
   }
 }
