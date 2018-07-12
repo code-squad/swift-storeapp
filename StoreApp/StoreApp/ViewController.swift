@@ -10,13 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+
+    let rowHeightForCell: CGFloat = 100
+    let rowHeightForHeader: CGFloat = 60
+
     var storeItems: StoreItems!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 100.0
+        tableView.rowHeight = rowHeightForCell
         self.storeItems = StoreItems()
     }
 
@@ -46,11 +50,13 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
-        label.text = " " + CATEGORIES[section].description.short
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
-        return label
+        guard let headerView = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)?.first as? HeaderView else { return nil }
+        headerView.data = CATEGORIES[section]
+        return headerView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return rowHeightForHeader
     }
 
 }
