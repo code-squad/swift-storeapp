@@ -8,11 +8,27 @@
 
 import Foundation
 
+let CATEGORIES: [Category] = [.main, .soup, .side]
+
 struct StoreItems {
-    let items: [ItemData]
+    let storeItem:  [Category: Items]
 
     init() {
-        self.items = ItemDataParser.parse()
+        self.storeItem = ItemDataParser.makeStoreItems()
+    }
+
+    subscript(index: Int) -> Items {
+        get {
+            return storeItem[CATEGORIES[index]]!
+        }
+    }
+}
+
+struct Items {
+    let items: [ItemData]
+
+    init(data: [ItemData]) {
+        self.items = data
     }
 
     subscript(index: Int) -> ItemData {
@@ -24,6 +40,7 @@ struct StoreItems {
     func count() -> Int {
         return self.items.count
     }
+
 }
 
 struct ItemData: Codable {
