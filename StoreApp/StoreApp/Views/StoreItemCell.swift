@@ -9,6 +9,67 @@
 import UIKit
 
 class StoreItemCell: UITableViewCell {
+  fileprivate lazy var thumbnailImageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.backgroundColor = .red
+    return imageView
+  }()
+  
+  fileprivate lazy var itemTitleLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.font = .systemFont(ofSize: 15, weight: .bold)
+    label.textColor = .black
+    return label
+  }()
+  
+  fileprivate lazy var itemDescriptionLabel: UILabel = {
+    let label = UILabel()
+    label.translatesAutoresizingMaskIntoConstraints = false
+    label.font = .systemFont(ofSize: 12, weight: .regular)
+    label.textColor = .lightGray
+    return label
+  }()
+  
+  fileprivate lazy var pricesStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.distribution = .fill
+    stackView.spacing = 10
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
+  fileprivate lazy var normalPriceLabel: UILabel = {
+    let label = UILabel()
+    label.textColor = .lightGray
+    label.font = .systemFont(ofSize: 12, weight: .regular)
+    return label
+  }()
+  
+  fileprivate lazy var salePriceLabel: UILabel = {
+    let label = UILabel()
+    label.textColor = .mint
+    label.font = .systemFont(ofSize: 14, weight: .bold)
+    return label
+  }()
+  
+  fileprivate lazy var badgeLabel: UILabel = {
+    let label = UILabel()
+    label.textColor = .white
+    label.font = .systemFont(ofSize: 10, weight: .regular)
+    label.backgroundColor = .lightPink
+    return label
+  }()
+  
+  fileprivate lazy var badgesStackView: UIStackView = {
+    let stackView = UIStackView()
+    stackView.distribution = .fill
+    stackView.spacing = 2
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    return stackView
+  }()
+  
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
@@ -26,8 +87,8 @@ class StoreItemCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     thumbnailImageView.image = nil
-    titleLabel.text = nil
-    descriptionLabel.text = nil
+    itemTitleLabel.text = nil
+    itemDescriptionLabel.text = nil
     
     normalPriceLabel.text = nil
     salePriceLabel.text = nil
@@ -39,8 +100,8 @@ class StoreItemCell: UITableViewCell {
   }
   
   func setItem(_ data: StoreItem) {
-    titleLabel.text = data.title
-    descriptionLabel.text = data.description
+    itemTitleLabel.text = data.title
+    itemDescriptionLabel.text = data.description
     
     if let normalPrice = data.normalPrice {
       normalPriceLabel.text = normalPrice
@@ -61,8 +122,8 @@ class StoreItemCell: UITableViewCell {
   
   fileprivate func initializeLayout() {
     addSubview(thumbnailImageView)
-    addSubview(titleLabel)
-    addSubview(descriptionLabel)
+    addSubview(itemTitleLabel)
+    addSubview(itemDescriptionLabel)
     addSubview(pricesStackView)
     addSubview(badgesStackView)
     
@@ -72,67 +133,6 @@ class StoreItemCell: UITableViewCell {
     updateConstraintsOfThumbnailImageView(isActive: true)
     updateConstraintsOfPricesStackView(isActive: true)
   }
-  
-  fileprivate var thumbnailImageView: UIImageView = {
-    let imageView = UIImageView()
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.backgroundColor = .red
-    return imageView
-  }()
-  
-  fileprivate var titleLabel: UILabel = {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.font = .systemFont(ofSize: 15, weight: .bold)
-    label.textColor = .black
-    return label
-  }()
-  
-  fileprivate var descriptionLabel: UILabel = {
-    let label = UILabel()
-    label.translatesAutoresizingMaskIntoConstraints = false
-    label.font = .systemFont(ofSize: 12, weight: .regular)
-    label.textColor = .lightGray
-    return label
-  }()
-  
-  fileprivate var pricesStackView: UIStackView = {
-    let stackView = UIStackView()
-    stackView.distribution = .fill
-    stackView.spacing = 10
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    return stackView
-  }()
-  
-  fileprivate var normalPriceLabel: UILabel = {
-    let label = UILabel()
-    label.textColor = .lightGray
-    label.font = .systemFont(ofSize: 12, weight: .regular)
-    return label
-  }()
-  
-  fileprivate var salePriceLabel: UILabel = {
-    let label = UILabel()
-    label.textColor = .mint
-    label.font = .systemFont(ofSize: 14, weight: .bold)
-    return label
-  }()
-  
-  fileprivate var badgeLabel: UILabel = {
-    let label = UILabel()
-    label.textColor = .white
-    label.font = .systemFont(ofSize: 10, weight: .regular)
-    label.backgroundColor = .lightPink
-    return label
-  }()
-  
-  fileprivate var badgesStackView: UIStackView = {
-    let stackView = UIStackView()
-    stackView.distribution = .fill
-    stackView.spacing = 2
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    return stackView
-  }()
 }
 
 // MARK: - Updating constraints
@@ -141,30 +141,30 @@ fileprivate extension StoreItemCell {
     thumbnailImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = isActive
     thumbnailImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5).isActive = isActive
     thumbnailImageView.widthAnchor.constraint(equalToConstant: 90).isActive = isActive
-    thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 1/1).isActive = isActive
+    thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor).isActive = isActive
   }
   
   func updateCostraintsOfTitleLabel(isActive: Bool) {
-    titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = isActive
-    titleLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 10).isActive = isActive
-    titleLabel.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor, constant: 5).isActive = isActive
+    itemTitleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = isActive
+    itemTitleLabel.leadingAnchor.constraint(equalTo: thumbnailImageView.trailingAnchor, constant: 10).isActive = isActive
+    itemTitleLabel.trailingAnchor.constraint(equalTo: self.layoutMarginsGuide.trailingAnchor, constant: 5).isActive = isActive
   }
   
   func updateConstraintsOfDescriptionLabel(isActive: Bool) {
-    descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4).isActive = isActive
-    descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = isActive
-    descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor).isActive = isActive
+    itemDescriptionLabel.topAnchor.constraint(equalTo: itemTitleLabel.bottomAnchor, constant: 4).isActive = isActive
+    itemDescriptionLabel.leadingAnchor.constraint(equalTo: itemTitleLabel.leadingAnchor).isActive = isActive
+    itemDescriptionLabel.trailingAnchor.constraint(equalTo: itemTitleLabel.trailingAnchor).isActive = isActive
   }
   
   func updateConstraintsOfPricesStackView(isActive: Bool) {
-    pricesStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4).isActive = isActive
-    pricesStackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = isActive
+    pricesStackView.topAnchor.constraint(equalTo: itemDescriptionLabel.bottomAnchor, constant: 4).isActive = isActive
+    pricesStackView.leadingAnchor.constraint(equalTo: itemTitleLabel.leadingAnchor).isActive = isActive
     pricesStackView.trailingAnchor.constraint(lessThanOrEqualTo: self.layoutMarginsGuide.trailingAnchor, constant: 20).isActive = isActive
   }
   
   func updateConstraintsOfBadgesStackView(isActive: Bool) {
     badgesStackView.topAnchor.constraint(equalTo: pricesStackView.bottomAnchor, constant: 4).isActive = isActive
-    badgesStackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = isActive
+    badgesStackView.leadingAnchor.constraint(equalTo: itemTitleLabel.leadingAnchor).isActive = isActive
     badgesStackView.trailingAnchor.constraint(lessThanOrEqualTo: self.layoutMarginsGuide.trailingAnchor, constant: 20).isActive = isActive
   }
 }
