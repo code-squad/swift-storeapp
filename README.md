@@ -12,3 +12,7 @@
 ### Step3 (2018.07.12)
 - 커스텀 헤더 적용
 - <img src="./screenshot/step3.png" width="30%">
+
+### Step4 (2018.07.12)
+- Toaster 라이브러리 사용
+- <img src="./screenshot/step4.png" width="30%">
