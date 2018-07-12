@@ -1,16 +1,20 @@
 PODS:
   - SwiftLint (0.25.1)
+  - Toaster (2.1.1)
 
 DEPENDENCIES:
   - SwiftLint
+  - Toaster
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - SwiftLint
+    - Toaster
 
 SPEC CHECKSUMS:
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: 970105320c33060ac5c446fe7f5c914afba21220
+PODFILE CHECKSUM: 42f771ec54be1be0cffb19e364015afc928513e9
 
 COCOAPODS: 1.5.0

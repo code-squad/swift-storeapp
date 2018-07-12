@@ -2,6 +2,7 @@ target 'StoreApp' do
   use_frameworks!
   
   pod 'SwiftLint'
+  pod 'Toaster'
 
   target 'StoreAppTests' do
     inherit! :search_paths
