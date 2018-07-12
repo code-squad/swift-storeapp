@@ -8,9 +8,9 @@
 
 import Foundation
 
-let CATEGORIES: [Category] = [.main, .soup, .side]
 
 struct StoreItems {
+    static let categories: [Category] = [.main, .soup, .side]
     let storeItem:  [Category: Items]
 
     init() {
@@ -19,7 +19,7 @@ struct StoreItems {
 
     subscript(index: Int) -> Items {
         get {
-            return storeItem[CATEGORIES[index]]!
+            return storeItem[StoreItems.categories[index]]!
         }
     }
 }

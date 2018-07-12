@@ -12,7 +12,7 @@ class ItemDataParser {
 
     class func makeStoreItems() -> [Category: Items] {
         var result = [Category: Items]()
-        for category in CATEGORIES {
+        for category in StoreItems.categories {
             result[category] = parse(fileName: category)
         }
         return result
