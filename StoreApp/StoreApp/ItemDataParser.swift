@@ -10,11 +10,12 @@ import Foundation
 
 class ItemDataParser {
 
-    private class func extractData() -> Data? {
-        let path = Bundle.main.path(forResource: "main", ofType: "json")
-        let url = URL(fileURLWithPath: path!)
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        return data
+    class func makeStoreItems() -> [Category: Items] {
+        var result = [Category: Items]()
+        for category in CATEGORIES {
+            result[category] = parse(fileName: category)
+        }
+        return result
     }
 
     private class func makeitemData(from data: Data?) -> Codable? {
@@ -24,13 +25,21 @@ class ItemDataParser {
         return items
     }
 
-    class func parse() -> [ItemData] {
-        guard let data = extractData() else {
-            print("Failed to parse")
-            return []
-        }
-        guard let items = makeitemData(from: data) as? [ItemData] else { return [] }
-        return items
+    private class func extractData(category: Category) -> Data? {
+        let path = Bundle.main.path(forResource: category.rawValue, ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        return data
     }
+
+    private class func parse(fileName category: Category) -> Items {
+        guard let data = extractData(category: category) else {
+            print("Failed to parse")
+            return Items(data: [])
+        }
+        guard let items = makeitemData(from: data) as? [ItemData] else { return Items(data:[]) }
+        return Items(data: items)
+    }
+
 
 }
