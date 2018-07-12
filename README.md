@@ -8,3 +8,7 @@
 ### Step2 (2018.07.10)
 - 오토레이아웃 적용
 - <img src="./screenshot/step2.png" width="30%"><img src="./screenshot/step2-2.png" width="30%"><img src="./screenshot/step2-3.png" width="30%">
+
+### Step3 (2018.07.12)
+- 커스텀 헤더 적용
+- <img src="./screenshot/step3.png" width="30%">
