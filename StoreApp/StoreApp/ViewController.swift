@@ -42,7 +42,7 @@ extension ViewController: UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return CATEGORIES.count
+        return StoreItems.categories.count
     }
 
 }
@@ -51,7 +51,7 @@ extension ViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)?.first as? HeaderView else { return nil }
-        headerView.data = CATEGORIES[section]
+        headerView.data = StoreItems.categories[section]
         return headerView
     }
 
