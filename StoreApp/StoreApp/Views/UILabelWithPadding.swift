@@ -42,4 +42,11 @@ class UILabelWithPadding: UILabel {
     size.height += topInset + bottomInset
     return size
   }
+  
+  func removeInsets() {
+    self.topInset = 0
+    self.bottomInset = 0
+    self.leftInset = 0
+    self.rightInset = 0
+  }
 }

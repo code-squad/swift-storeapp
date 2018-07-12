@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     didSet {
       self.storeItemTableView.delegate = self
       self.storeItemTableView.dataSource = self
-
     }
   }
   
@@ -67,8 +66,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-    
     guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? StoreItemCell else {
       return UITableViewCell()
     }
@@ -92,8 +89,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     guard let storeManager = storeManager else { return UIView() }
     
-    header.setContents(title: storeManager[at: section].title,
-                       subtitle: storeManager[at: section].subtitle)
+    header.setContent(title: storeManager[at: section].title,
+                      subtitle: storeManager[at: section].subtitle)
     
     return header
   }
