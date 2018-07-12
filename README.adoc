@@ -21,3 +21,26 @@ image:./images/result-2-4.png[45%, 45%]
 ===== 실행결과
 
 image:./images/result-3-1.png[45%, 45%]
+
+=== 4. CocoaPods 관리
+
+===== 실행결과 
+
+image:./images/result-4-1.png[45%, 45%]
+
+===== 학습거리
+* https://developer.apple.com/library/archive/featuredarticles/XcodeConcepts/Concept-Targets.html#//apple_ref/doc/uid/TP40009328-CH4-SW1[Xcode Concepts]
+** 요약
+*** Workspace
+**** 하나 이상 프로젝트가 포함되어 있음
+**** 하나 Workspace에서 여러 프로젝트가 존재할 수 있음
+*** Project 
+**** App을 구성하는 모든 파일, 리소스, 정보가 포함되어 있음
+*** Target 
+**** 프로젝트 빌드 설정 정의함
+**** 같은 프로젝트에서 서로 다른 배포판을 관리하기 위해 사용함. 예를 들어 회사 전용, 일반 전용으로 배포판을 나눌 수도 있고 배포 설정을 다르게 해서 사용할 수 있음
+**** 하나 프로젝트 안에 Target이 여러 개 있을 수도 있음
+*** Scheme 
+**** Build, Test, Profile 등을 수행할 때 어떤 동작을 할지 정의함
+**** An Xcode scheme defines a collection of targets to build, a configuration to use when building, and a collection of tests to execute
+** *_Workspace 안에 Project A, B가 있고 정해놓은 Scheme에 따라 Target 범위가 설정됨_*
