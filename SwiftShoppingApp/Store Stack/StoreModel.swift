@@ -69,7 +69,7 @@ class StoreModel {
             } catch let e {
                 completion(nil, e)
             }
-            }.resume()
+        }.resume()
     }
     
     private func loadData(from data: Data) throws -> [StoreItem] {

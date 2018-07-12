@@ -19,6 +19,7 @@ class StoreItemCell: UITableViewCell {
     @IBOutlet weak var salePriceLabel: UILabel!
     
     var tagViews: [UILabel] = []
+    var imageURL: URL?
     
     func setProductInfo(info: StoreItem) {
         headLabel.text = info.title
@@ -54,6 +55,32 @@ class StoreItemCell: UITableViewCell {
             
             labelX += label.frame.width + labelGap
         }
+        
+        if let imageURL = URL(string: info.image) {
+            self.loadImage(with: imageURL)
+        }
+    }
+    
+    func loadImage(with url: URL) {
+        self.imageURL = url
+        mainImageView.image = nil
+        
+        if let imageFromCache = CacheManager.shared.object(forKey: url as AnyObject) as? UIImage {
+            mainImageView.image = imageFromCache
+        } else {
+            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                if let error = error { print(error); return }
+                DispatchQueue.main.async(execute: {
+                    if let unwrappedData = data,
+                        let imageToCache = UIImage(data: unwrappedData) {
+                        if self.imageURL == url {
+                            self.mainImageView.image = imageToCache
+                        }
+                        CacheManager.shared.setObject(imageToCache, forKey: url as AnyObject)
+                    }
+                })
+            }).resume()
+        }
     }
 }
 
@@ -79,4 +106,9 @@ class StoreSectionHeader: UITableViewCell {
             titleLabel.text = info.title
         }
     }
+}
+
+
+class CacheManager: NSCache<AnyObject, AnyObject> {
+    static let shared = CacheManager()
 }
