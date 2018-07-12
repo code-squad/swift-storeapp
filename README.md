@@ -2,30 +2,43 @@
 
 ## 요구사항
 
-## 5. Network 프로그래밍 
+## 6. 병렬처리 
 
 #### 요구사항
 
-- [쇼팽앱 패키지관리](https://nextstep.camp/courses/-Kv6PmBDDnfeJOzqThWG/-Kv6VFlxhUm2sqJmkFNF/lessons/-L2TQl3THfAWHTJofJkX) 요구사항을 구현한 상태에서 시작한다. 
-- 네트워크 프로그래밍 관련 자료를 보고 학습한다. [강의자료](http://public.codesquad.kr/jk/storeapp-network-slide.pdf)
-- HTTP 프로토콜에 대해 학습하고 요청과 응답 방식에 대해 정리한다.
-- 네트워크 프로그래밍을 위해서 Asynchronous 방식으로 동작하는 개념을 학습한다.
+- [쇼팽앱 네트워크 프로그래밍](https://nextstep.camp/courses/-Kv6PmBDDnfeJOzqThWG/-Kv6VFlxhUm2sqJmkFNF/lessons/-L2TQngTWJge_ilnO1T-) 요구사항을 구현한 상태에서 시작한다.
+- GCD(Grand Central Dispatch)에 대해 학습하고 정리한다. [강의 자료](http://public.codesquad.kr/jk/storeapp-concurrent-programming-slide.pdf)
+- 이미지 다운로드와 캐시 처리 방식에 대해 학습한다.
 - readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
   - 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
   - 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
 
 #### 프로그래밍 요구사항
 
-- 아래 주소별로 JSON 데이터를 받아오는 모델 객체를 만든다.
-  - HTTP 프로토콜 GET 요청으로 다음 주소에서 메인반찬 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/main`
-  - HTTP 프로토콜 GET 요청으로 다음 주소에서 국.찌게 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/soup`
-  - HTTP 프로토콜 GET 요청으로 다음 주소에서 밑반찬 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/side`
-- (위 API들은 오전9시부터 밤12시까지만 동작한다.)
-- HTTP 요청은 URLSession 관련 프레임워크를 활용한다.
-- 응답으로 받은 JSON 데이터를 마찬가지 방법으로 Decode해서 StoreItem 객체로 변환한다.
-- 모델 객체는 응답이 도착하면 Notification을 보내서 테이블뷰의 해당 섹션만 업데이트한다.
+- 3개의 JSON 데이터가 모두 받고 나면 JSON 데이터에 포함된 이미지 URL을 분리해서 Image 파일들을 다운로드 받는다.
+  - 이미지 파일들을 병렬처리해서 한꺼번에 여러개를 다운로드하도록 구성한다.
+  - (선택1) GCD Queue를 활용하거나
+  - (선택2) `Download Task` 방식으로 구현한다.
+- 다운로드가 완료되면 앱 디렉토리 중에 `Cache` 디렉토리에 URL에 있는 파일명으로 저장한다.
+- 셀을 표기할 때 이미 다운로드된 이미지가 있으면 표시하고, 새로운 파일이 다운로드 완료되면 해당 이미지를 테이블뷰 셀에 뒤늦게(lazy) 표시한다.
+  - 화면에 표시할 때 다운로드를 담당하는 스레드와 화면을 처리하는 스레드를 위한 GCD Queue를 구분해서 처리한다.
+  - 이미지를 다 받을때 까지 화면이 하얗게 멈춰있지 않도록 만든다.
 
 ## 작업 이력
+
+### 6. 병렬처리
+
+#### 주요 작업 내역
+
+- 
+
+#### 날짜
+
+- 2018-07-09 21:23
+
+#### 스크린샷
+
+
 
 ### 5. Network 프로그래밍 
 
