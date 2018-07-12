@@ -24,16 +24,15 @@ class ViewController: UIViewController {
         tableView.reloadData()
         
         // 데이터 불러오기
-        model.loadData() { success in
+        model.loadData(complete: {
             DispatchQueue.main.async {
-                if success {
-                    // 불러온 데이터를 테이블뷰에 표시
-                    self.tableView.reloadData()
-                } else {
-                    print("something is fail")
-                }
+                // 불러온 데이터를 테이블뷰에 표시
+                self.tableView.reloadData()
             }
-        }
+        }, fail: { (e) in
+            print("something is fail")
+            print(e ?? "!!unknown error")
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -183,7 +182,7 @@ class StoreModel {
     
     var mySections: Array<StoreSection> = []
     
-    func loadData(reloadUI: @escaping (Bool)->()) {
+    func loadData(complete: @escaping ()->(), fail: @escaping (Error?)->()) {
         mySections = sectionInfos.map { sectionInfo in
             guard let sectionURL = sectionInfo["section_url"],
                 let sectionTitle = sectionInfo["section_title"],
@@ -195,27 +194,25 @@ class StoreModel {
         }.compactMap{ $0 }
         
         mySections.forEach { mySection in
-            self.loadData(from: mySection.url) { (productItems)  in
-                if let productItems = productItems {
-                    mySection.myitems = productItems
-                    reloadUI(true)
-                } else {
-                    reloadUI(false)
-                }
+            self.loadData(from: mySection.url) { (productItems, e)  in
+                guard let productItems = productItems else { fail(e); return; }
+                
+                mySection.myitems = productItems
+                complete()
             }
         }
     }
     
-    private func loadData(from url: String, completion: @escaping ([StoreItem]?)->()) {
-        guard let url = URL(string: url) else { completion(nil); return }
+    private func loadData(from url: String, completion: @escaping ([StoreItem]?, Error?)->()) {
+        guard let url = URL(string: url) else { completion(nil, nil); return }
         let session = URLSession(configuration: URLSessionConfiguration.default)
         session.dataTask(with:url) { (data, response, error) in
-            guard let data = data else { completion(nil); return }
+            guard let data = data else { completion(nil, nil); return }
             do {
                 let productItems: [StoreItem] = try self.loadData(from: data as Data)
-                completion(productItems)
-            } catch {
-                completion(nil)
+                completion(productItems, nil)
+            } catch let e {
+                completion(nil, e)
             }
         }.resume()
     }
