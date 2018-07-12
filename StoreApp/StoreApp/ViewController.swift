@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     @IBOutlet weak var tableView: UITableView!
     var storeItems: StoreItems!
 
@@ -18,7 +17,7 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100.0
-        storeItems = StoreItems()
+        self.storeItems = StoreItems()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,17 +29,29 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! StoreTableViewCell
-        itemCell.itemData = storeItems[indexPath.row]
+        itemCell.itemData = storeItems[indexPath.section][indexPath.row]
         return itemCell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems.count()
+        return storeItems[section].count()
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return CATEGORIES.count
     }
 
 }
 
 extension ViewController: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.backgroundColor = UIColor.gray.withAlphaComponent(0.5)
+        label.text = " " + CATEGORIES[section].description.short
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
+        return label
+    }
 
 }
 

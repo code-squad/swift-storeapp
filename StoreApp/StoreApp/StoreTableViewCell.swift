@@ -31,6 +31,8 @@ class StoreTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        itemImage.layer.borderColor = UIColor.gray.cgColor
+        itemImage.layer.borderWidth = 1.0
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
