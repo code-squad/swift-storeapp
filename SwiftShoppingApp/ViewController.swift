@@ -62,9 +62,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreSectionHeader", for: IndexPath())
         if let sectionHeader = cell as? StoreSectionHeader {
-            if let sectionInfo = model.section(with: section) {
-                sectionHeader.set(info: sectionInfo)
-            }
+            let sectionInfo = model.section(with: section)
+            sectionHeader.set(info: sectionInfo)
         }
         return cell
     }
@@ -104,7 +103,7 @@ class StoreItemCell: UITableViewCell {
         mainImageView.layer.masksToBounds = true
         
         
-        for tagView in tagViews { tagView.removeFromSuperview() }
+        tagViews.forEach { tagView in tagView.removeFromSuperview() }
         tagViews = []
         let fixedHeight: CGFloat = 22
         var labelX = headLabel.frame.origin.x
@@ -136,11 +135,6 @@ class StoreSectionHeader: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
-    func set(info sectionInfo: StoreSection) {
-        subtitleLabel.setTitle(sectionInfo.subtitle, for: .normal)
-        titleLabel.text = sectionInfo.title
-    }
-    
     override func awakeFromNib() {
         subtitleLabel.layer.borderColor = UIColor(white: 0, alpha: 0.5).cgColor
         subtitleLabel.layer.borderWidth = 1
@@ -148,6 +142,15 @@ class StoreSectionHeader: UITableViewCell {
     
     override func prepareForReuse() {
         // cell 재사용전에 호출되는 함수
+        subtitleLabel.setTitle("", for: .normal)
+        titleLabel.text = ""
+    }
+    
+    func set(info sectionInfo: StoreSection?) {
+        if let info = sectionInfo {
+            subtitleLabel.setTitle(info.subtitle, for: .normal)
+            titleLabel.text = info.title
+        }
     }
 }
 
@@ -156,9 +159,10 @@ class StoreSectionHeader: UITableViewCell {
 class StoreModel {
     
     struct Constant {
-        static let mainURL: String = "http://crong.codesquad.kr:8080/woowa/main"
-        static let soupURL: String = "http://crong.codesquad.kr:8080/woowa/soup"
-        static let sideURL: String = "http://crong.codesquad.kr:8080/woowa/side"
+        static let baseURL: String = "http://crong.codesquad.kr:8080/woowa/"
+        static let mainURL: String = baseURL + "main"
+        static let soupURL: String = baseURL + "soup"
+        static let sideURL: String = baseURL + "side"
     }
     
     private let sectionInfos: Array<Dictionary<String, String>> = [
@@ -186,9 +190,12 @@ class StoreModel {
                 let sectionSubtitle = sectionInfo["section_subtitle"] else {
                     return nil
             }
-            let mySection = StoreSection(title: sectionTitle, subtitle: sectionSubtitle, items: [])
-            self.loadData(from: sectionURL) { (productItems)  in
-                
+            let mySection = StoreSection(title: sectionTitle, subtitle: sectionSubtitle, url: sectionURL, items: [])
+            return mySection
+        }.compactMap{ $0 }
+        
+        mySections.forEach { mySection in
+            self.loadData(from: mySection.url) { (productItems)  in
                 if let productItems = productItems {
                     mySection.myitems = productItems
                     reloadUI(true)
@@ -196,8 +203,7 @@ class StoreModel {
                     reloadUI(false)
                 }
             }
-            return mySection
-        }.compactMap{ $0 }
+        }
     }
     
     private func loadData(from url: String, completion: @escaping ([StoreItem]?)->()) {
@@ -238,7 +244,7 @@ class StoreModel {
         return mySections[section]
     }
     func item(with section: Int, with row: Int) -> StoreItem? {
-        guard section < count else {
+        guard 0 <= section && section < count else {
             return nil
         }
         return mySections[section].item(with: row)
@@ -249,11 +255,13 @@ class StoreSection {
     
     private(set) var title: String
     private(set) var subtitle: String
+    let url: String
     var myitems: Array<StoreItem> = []
     
-    init(title: String, subtitle: String, items: Array<StoreItem>) {
+    init(title: String, subtitle: String, url: String, items: Array<StoreItem>) {
         self.myitems = items
         self.title = title
+        self.url = url
         self.subtitle = subtitle
     }
     
