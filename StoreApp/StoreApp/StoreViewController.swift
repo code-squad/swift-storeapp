@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class StoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -43,6 +44,11 @@ extension StoreViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return StoreItems.categories.count
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Toast(text: "\(storeItems[indexPath.section][indexPath.row].alt)\n\(storeItems[indexPath.section][indexPath.row].s_price)",
+            duration: Delay.long).show()
     }
 
 }
