@@ -20,6 +20,7 @@ class ViewController: UIViewController {
   fileprivate let cellIdentifier = "StoreItemCell"
   fileprivate let sectionHeaderIdentifier = "StoreSectionHeader"
   fileprivate let rowHeight = CGFloat(100)
+  fileprivate let headerHeight = CGFloat(80)
   fileprivate var storeManager: StoreManager? {
     didSet {
       DispatchQueue.main.async {
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
   }
   
   @objc fileprivate func refreshTableView(notification: Notification) {
-    guard let userInfo = notification.userInfo, let list = userInfo["list"] as? [StoreItems] else {
+    guard let userInfo = notification.userInfo, let list = userInfo[Constants.list] as? [StoreItems] else {
       return
     }
     
@@ -74,7 +75,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     guard let storeManager = storeManager else { return UITableViewCell() }
     
-    let item = storeManager[indexPath.section][at: indexPath.row]
+    let item = storeManager[at: indexPath.section][at: indexPath.row]
     cell.setItem(item)
     
     return cell
@@ -91,7 +92,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     guard let storeManager = storeManager else { return UIView() }
     
-    header.setContents(title: storeManager[section].title, subtitle: storeManager[section].subtitle)
+    header.setContents(title: storeManager[at: section].title,
+                       subtitle: storeManager[at: section].subtitle)
     
     return header
   }
@@ -103,6 +105,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 80
+    return headerHeight
   }
 }

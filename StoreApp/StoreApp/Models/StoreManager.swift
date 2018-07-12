@@ -11,7 +11,7 @@ import Foundation
 class StoreManager {
   private var list: [StoreItems] {
     didSet {
-      NotificationCenter.default.post(name: .storeList, object: nil, userInfo: ["list": list])
+      NotificationCenter.default.post(name: .storeList, object: nil, userInfo: [Constants.list: list])
     }
   }
   
@@ -41,7 +41,7 @@ class StoreManager {
     return list[section].count
   }
   
-  subscript(_ section: Int) -> StoreItems {
+  subscript(at section: Int) -> StoreItems {
     return list[section]
   }
 }
