@@ -53,9 +53,20 @@ extension APIServer {
 }
 
 struct DefaultAPIServer: APIServer {
-  private let host = "http://crong.codesquad.kr:8080/woowa"
-  
   func url(_ id: String) -> URL? {
-    return URL(string: "\(host)\(API.list(id).path)")
+    return URL(string: "\(Host.dev.value)\(API.list(id).path)")
+  }
+}
+
+private enum Host {
+  case dev
+}
+
+private extension Host {
+  var value: String {
+    switch self {
+    case .dev:
+      return "http://crong.codesquad.kr:8080/woowa"
+    }
   }
 }
