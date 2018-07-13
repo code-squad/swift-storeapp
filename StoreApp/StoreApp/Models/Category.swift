@@ -15,6 +15,10 @@ enum FoodType: Int, CustomStringConvertible {
     return [.main, .soup, .side]
   }
   
+  var index: Int {
+    return self.rawValue
+  }
+  
   var description: String {
     switch self {
     case .main: return "main"
