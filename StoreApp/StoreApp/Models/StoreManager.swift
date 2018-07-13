@@ -24,7 +24,7 @@ class StoreManager {
   }
   
   func generateData() {
-    SectionHeader.Kind.allValues.forEach {
+    FoodType.allValues.forEach {
       guard let data = JSONConverter.data(file: $0, fileType: FileTypes.json) else {
         return
       }

@@ -9,10 +9,10 @@
 import Foundation
 
 class StoreItems {
-  fileprivate var header: SectionHeader.Kind
+  fileprivate var header: FoodType
   fileprivate var items: [StoreItem]
   
-  init(header: SectionHeader.Kind, items: [StoreItem]) {
+  init(header: FoodType, items: [StoreItem]) {
     self.header = header
     self.items = items
   }
