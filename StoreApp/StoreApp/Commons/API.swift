@@ -52,7 +52,7 @@ extension APIServer {
   }
 }
 
-struct DefaultAPIServer: APIServer {
+private struct DefaultAPIServer: APIServer {
   func url(_ id: String) -> URL? {
     return URL(string: "\(Host.dev.value)\(API.list(id).path)")
   }
