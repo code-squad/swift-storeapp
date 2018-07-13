@@ -11,7 +11,22 @@ import Toaster
 
 class DetailViewController: UIViewController {
     
-    var storeItem: StoreItem?
+    enum ProductStatus {
+        case viewDidntLoad(productItem: ProductItem?)
+        case viewDidLoad(productItem: ProductItem?)
+        
+        func updateItemKeepStatus(to item: ProductItem?) -> ProductStatus {
+            switch self {
+            case .viewDidntLoad( _):
+                return .viewDidntLoad(productItem: item)
+            case .viewDidLoad( _):
+                return .viewDidLoad(productItem: item)
+            }
+        }
+    }
+    
+    var storeItem: StoreItem? = nil
+    var productStatus: ProductStatus = .viewDidntLoad(productItem: nil)
     var model: DetailModel = DetailModel()
     
     
@@ -36,7 +51,12 @@ class DetailViewController: UIViewController {
         pageControl.numberOfPages = 0
         pagingScrollView.delegate = self
         
-        downloadData()
+        
+        switch productStatus {
+        case .viewDidLoad(let item), .viewDidntLoad(let item):
+            self.productStatus = .viewDidLoad(productItem: item)
+            displayProductItem(with: item)
+        }
     }
     
     func downloadData() {
@@ -44,28 +64,38 @@ class DetailViewController: UIViewController {
         
         model.loadData(with: storeItem.detail_hash, completion: { (productItem, e) in
             DispatchQueue.main.async {
-                if let productItem = productItem {
-                    // ui setting
-                    self.descriptionLabel.text = productItem.product_description
-                    self.mileageLabel.text = productItem.point
-                    self.deliveryInfoLabel.text = productItem.delivery_info
-                    self.deliveryFeeLabel.text = productItem.delivery_fee
-                    self.priceLabel.text = productItem.prices.last
-                    self.pageControl.numberOfPages = productItem.thumb_images.count
-                    
-                    // load images
-                    self.loadThubImages(with: productItem.thumb_images)
-                    self.loadContentImages(with: productItem.detail_section)
-                } else {
-                    let alert = UIAlertController(title: "다운로드 실패", message: "재다운로드 하시겠습니까?", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
-                        self.downloadData()
-                    }))
-                    alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                self.productStatus = self.productStatus.updateItemKeepStatus(to: productItem)
+                switch self.productStatus {
+                case .viewDidLoad( _):
+                    self.displayProductItem(with: productItem)
+                default: break;
                 }
             }
         })
+    }
+    
+    func displayProductItem(with productItem: ProductItem?) {
+        if let productItem = productItem {
+            // ui setting
+            self.descriptionLabel.text = productItem.product_description
+            self.mileageLabel.text = productItem.point
+            self.deliveryInfoLabel.text = productItem.delivery_info
+            self.deliveryFeeLabel.text = productItem.delivery_fee
+            self.priceLabel.text = productItem.prices.last
+            self.pageControl.numberOfPages = productItem.thumb_images.count
+            
+            // load images
+            self.loadThubImages(with: productItem.thumb_images)
+            self.loadContentImages(with: productItem.detail_section)
+        } else {
+            
+            let alert = UIAlertController(title: "다운로드 실패", message: "재다운로드 하시겠습니까?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
+                self.downloadData()
+            }))
+            alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func loadThubImages(with imageURLs: [String]) {
