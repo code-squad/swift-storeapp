@@ -38,35 +38,20 @@ extension APIServer {
     guard let url = API.shared.url(foodType.description) else { return }
       
     URLSession.shared.dataTask(with: url) { (data, _, error) in
-      guard let data = data else { return }
-      
-      let decodedData = JSONConverter.decode(in: data, type: type)
-      
-      if decodedData.count > 0 {
-        completionHandler(.success(decodedData))
-      } else {
-        guard let error = error else { return }
+      if let error = error {
         completionHandler(.error(error))
+      } else {
+        let decodedData = JSONConverter.decode(in: data, type: type)
+        completionHandler(.success(decodedData))
       }
     }.resume()
   }
 }
 
 private struct DefaultAPIServer: APIServer {
+  let host: String = "http://crong.codesquad.kr:8080/woowa"
+  
   func url(_ id: String) -> URL? {
-    return URL(string: "\(Host.dev.value)\(API.list(id).path)")
-  }
-}
-
-private enum Host {
-  case dev
-}
-
-private extension Host {
-  var value: String {
-    switch self {
-    case .dev:
-      return "http://crong.codesquad.kr:8080/woowa"
-    }
+    return URL(string: "\(host)\(API.list(id).path)")
   }
 }
