@@ -25,7 +25,10 @@ class StoreViewController: UIViewController {
         let model: StoreModel = StoreModel()
         
         // 델리게이트 생성
-        self.delegate = StoreDelegate(model: model, complete: {
+        self.delegate = StoreDelegate(model: model)
+        
+        // 데이터 불러오기
+        model.loadData(completion: {
             DispatchQueue.main.async {
                 // 불러온 결과를 테이블뷰에 표시
                 self.tableView.reloadData()
@@ -33,6 +36,13 @@ class StoreViewController: UIViewController {
         }, fail: { (e) in
             print("something is fail")
             print(e ?? "!!unknown error")
+            if let error = e {
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Unknown error", preferredStyle: .alert)
+                self.present(alert, animated: true, completion: nil)
+            }
         })
         
         // 테이블뷰 델리게이트와 데이터소스 설정
@@ -56,11 +66,8 @@ class StoreDelegate: NSObject, UITableViewDataSource {
     
     let model: StoreModel
     
-    init(model: StoreModel, complete: @escaping ()->(), fail: @escaping (Error?)->()) {
+    init(model: StoreModel) {
         self.model = model
-        
-        // 데이터 불러오기
-        model.loadData(complete: complete, fail: fail)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
