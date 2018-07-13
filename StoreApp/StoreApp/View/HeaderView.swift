@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaderView: UITableViewCell {
+class HeaderView: UITableViewHeaderFooterView {
 
     @IBOutlet weak var shortDescription: UILabel!
     @IBOutlet weak var longDescription: UILabel!
@@ -26,10 +26,12 @@ class HeaderView: UITableViewCell {
         shortDescription.layer.borderColor = UIColor.gray.cgColor
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
     }
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
 }

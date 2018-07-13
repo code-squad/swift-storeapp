@@ -23,6 +23,9 @@ class StoreViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = rowHeightForCell
         self.storeItems = StoreItems()
+        tableView.register(UINib(nibName: Keyword.HeaderView.rawValue,
+                                 bundle: nil),
+                           forHeaderFooterViewReuseIdentifier: Keyword.headerView.rawValue)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +36,7 @@ class StoreViewController: UIViewController {
 extension StoreViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let itemCell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! StoreTableViewCell
+        let itemCell = tableView.dequeueReusableCell(withIdentifier: Keyword.itemCell.rawValue, for: indexPath) as! StoreTableViewCell
         itemCell.itemData = storeItems[indexPath.section][indexPath.row]
         return itemCell
     }
@@ -56,7 +59,7 @@ extension StoreViewController: UITableViewDataSource {
 extension StoreViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)?.first as? HeaderView else { return nil }
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Keyword.headerView.rawValue) as? HeaderView else { return nil }
         headerView.data = StoreItems.categories[section]
         return headerView
     }
