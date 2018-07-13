@@ -23,9 +23,6 @@ class StoreViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = rowHeightForCell
         self.storeItems = StoreItems()
-        tableView.register(UINib(nibName: Keyword.HeaderView.rawValue,
-                                 bundle: nil),
-                           forHeaderFooterViewReuseIdentifier: Keyword.headerView.rawValue)
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +56,7 @@ extension StoreViewController: UITableViewDataSource {
 extension StoreViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Keyword.headerView.rawValue) as? HeaderView else { return nil }
+        guard let headerView = tableView.dequeueReusableCell(withIdentifier: Keyword.customHeader.rawValue) as? CustomHeaderView else { return nil }
         headerView.data = StoreItems.categories[section]
         return headerView
     }
