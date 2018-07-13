@@ -30,13 +30,22 @@
 
 #### 주요 작업 내역
 
-- 
+- Model-View-ViewController 파일 분리
+- Delegate(TableViewDelegate & TableViewDataSource) 코드 분리
+- 각 개별 이미지를 병렬 다운로드
+- 개별 이미지 다운로드 후 NSCache에 저장
+- 이미지 다시 호출시 캐시 확인 후 없으면 다운로드
+- 이미지 다운로드시 `URLSession.shared.dataTask ` 로 비동기 처리 후 다운로드 완료시 `DispatchQueue.main.async ` 로 메인큐에서 셀 갱신(셀 재사용을 고려한 조건문)
 
 #### 날짜
 
-- 2018-07-09 21:23
+- 2018-07-13 10:43
 
 #### 스크린샷
+
+| 개별 이미지 로딩 전                 | 개별 이미지 로딩 후                 |
+| ----------------------------------- | ----------------------------------- |
+| ![img1](resource/lab6/IMG_9375.PNG) | ![img1](resource/lab6/IMG_9376.PNG) |
 
 
 
