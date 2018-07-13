@@ -9,10 +9,12 @@
 import Foundation
 
 struct JSONConverter {
-  static func decode<T: Codable>(in data: Data, type: [T].Type) -> [T] {
+  static func decode<T: Codable>(in data: Data?, type: [T].Type) -> [T] {
     let jsonData: [T]
     
     do {
+      guard let data = data else { return [] }
+      
       jsonData = try JSONDecoder().decode(type, from: data)
     } catch let e {
       print(e.localizedDescription)
