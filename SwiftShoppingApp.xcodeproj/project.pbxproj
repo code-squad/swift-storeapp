@@ -13,6 +13,9 @@
 		5544407220F1A0E700F79D40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5544407120F1A0E700F79D40 /* Assets.xcassets */; };
 		5544407520F1A0E700F79D40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5544407320F1A0E700F79D40 /* LaunchScreen.storyboard */; };
 		5544408020F1A0E700F79D40 /* SwiftShoppingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5544407F20F1A0E700F79D40 /* SwiftShoppingAppUITests.swift */; };
+		555E33DE20F8AC4200355137 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555E33DD20F8AC4200355137 /* DetailViewController.swift */; };
+		555E33E020F8B4D000355137 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555E33DF20F8B4D000355137 /* DetailModel.swift */; };
+		555E33E320F8D14600355137 /* PurchaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555E33E220F8D14500355137 /* PurchaseModel.swift */; };
 		559A5BE320F7814D004356FC /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A5BE220F7814D004356FC /* StoreModel.swift */; };
 		559A5BE520F7818B004356FC /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A5BE420F7818B004356FC /* StoreView.swift */; };
 		DA3CEB2ED2F7C3BA3C6B72C0 /* Pods_SwiftShoppingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD282995378DAF74B078EFA /* Pods_SwiftShoppingApp.framework */; };
@@ -39,6 +42,9 @@
 		5544407B20F1A0E700F79D40 /* SwiftShoppingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftShoppingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5544407F20F1A0E700F79D40 /* SwiftShoppingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShoppingAppUITests.swift; sourceTree = "<group>"; };
 		5544408120F1A0E700F79D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		555E33DD20F8AC4200355137 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		555E33DF20F8B4D000355137 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		555E33E220F8D14500355137 /* PurchaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseModel.swift; sourceTree = "<group>"; };
 		559A5BE220F7814D004356FC /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
 		559A5BE420F7818B004356FC /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		8B3717781AF138EF366DEA18 /* Pods-SwiftShoppingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShoppingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 			children = (
 				5544406A20F1A0E500F79D40 /* AppDelegate.swift */,
 				559A5BE620F781B3004356FC /* Store Stack */,
+				555E33E120F8B4D900355137 /* Detail Stack */,
 				5544406E20F1A0E500F79D40 /* Main.storyboard */,
 				5544407120F1A0E700F79D40 /* Assets.xcassets */,
 				5544407320F1A0E700F79D40 /* LaunchScreen.storyboard */,
@@ -113,6 +120,16 @@
 				5544408120F1A0E700F79D40 /* Info.plist */,
 			);
 			path = SwiftShoppingAppUITests;
+			sourceTree = "<group>";
+		};
+		555E33E120F8B4D900355137 /* Detail Stack */ = {
+			isa = PBXGroup;
+			children = (
+				555E33DD20F8AC4200355137 /* DetailViewController.swift */,
+				555E33DF20F8B4D000355137 /* DetailModel.swift */,
+				555E33E220F8D14500355137 /* PurchaseModel.swift */,
+			);
+			path = "Detail Stack";
 			sourceTree = "<group>";
 		};
 		559A5BE620F781B3004356FC /* Store Stack */ = {
@@ -276,10 +293,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555E33E020F8B4D000355137 /* DetailModel.swift in Sources */,
 				5544406D20F1A0E500F79D40 /* StoreViewController.swift in Sources */,
 				5544406B20F1A0E500F79D40 /* AppDelegate.swift in Sources */,
+				555E33DE20F8AC4200355137 /* DetailViewController.swift in Sources */,
 				559A5BE520F7818B004356FC /* StoreView.swift in Sources */,
 				559A5BE320F7814D004356FC /* StoreModel.swift in Sources */,
+				555E33E320F8D14600355137 /* PurchaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
