@@ -36,7 +36,13 @@ class DetailViewController: UIViewController {
         pageControl.numberOfPages = 0
         pagingScrollView.delegate = self
         
-        model.loadData(with: storeItem.detail_hash) { (productItem, e) in
+        downloadData()
+    }
+    
+    func downloadData() {
+        guard let storeItem = storeItem else { return; }
+        
+        model.loadData(with: storeItem.detail_hash, completion: { (productItem, e) in
             DispatchQueue.main.async {
                 if let productItem = productItem {
                     // ui setting
@@ -50,9 +56,16 @@ class DetailViewController: UIViewController {
                     // load images
                     self.loadThubImages(with: productItem.thumb_images)
                     self.loadContentImages(with: productItem.detail_section)
+                } else {
+                    let alert = UIAlertController(title: "다운로드 실패", message: "재다운로드 하시겠습니까?", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
+                        self.downloadData()
+                    }))
+                    alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
-        }
+        })
     }
     
     func loadThubImages(with imageURLs: [String]) {
