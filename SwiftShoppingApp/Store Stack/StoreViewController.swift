@@ -64,6 +64,8 @@ class StoreViewController: UIViewController {
             let detailViewController =  segue.destination as? DetailViewController,
             let indexPath = self.tableView.indexPathForSelectedRow {
             detailViewController.storeItem = self.delegate?.item(with: indexPath)
+            
+            detailViewController.downloadData()
         }
     }
 }
