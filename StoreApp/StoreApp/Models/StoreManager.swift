@@ -16,7 +16,7 @@ class StoreManager {
   }
   
   convenience init() {
-    self.init(list: [StoreItems              ]())
+    self.init(list: [])
   }
   
   init(list: [StoreItems]) {
@@ -42,13 +42,16 @@ class StoreManager {
 
 fileprivate extension StoreManager {
   func generateFileData() {
-    FoodType.allValues.forEach {
-      guard let data = FileLoader.data(file: $0, fileType: FileTypes.json) else {
+    FoodType.allValues.forEach { foodType in
+      guard let data = FileLoader.data(file: foodType, fileType: FileTypes.json) else {
         return
       }
       
-      list.append(StoreItems(header: $0, items: JSONConverter.decode(in: data, type: [StoreItem].self)))
+      list.append(StoreItems(header: foodType,
+                             items: JSONConverter.decode(in: data, type: [StoreItem].self)))
     }
+    
+    sortByFoodType()
   }
   
   func requestData() {
@@ -64,8 +67,13 @@ fileprivate extension StoreManager {
         }
       }
     }
+    
+    sortByFoodType()
   }
   
+  func sortByFoodType() {
+    list.sort { $0.indexOfFoodType > $1.indexOfFoodType }
+  }
 }
 
 extension Notification.Name {
