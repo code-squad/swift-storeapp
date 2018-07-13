@@ -46,7 +46,7 @@ class StoreModel {
             }
             let mySection = StoreSection(title: sectionTitle, subtitle: sectionSubtitle, url: sectionURL, items: [])
             return mySection
-            }.compactMap{ $0 }
+        }.compactMap{ $0 }
         
         mySections.forEach { mySection in
             self.loadData(from: mySection.url) { (productItems, e)  in
@@ -69,7 +69,7 @@ class StoreModel {
             } catch let e {
                 completion(nil, e)
             }
-            }.resume()
+        }.resume()
     }
     
     private func loadData(from data: Data) throws -> [StoreItem] {

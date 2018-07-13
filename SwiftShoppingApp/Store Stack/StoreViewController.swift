@@ -15,7 +15,6 @@ class StoreViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    // let model: StoreModel = StoreModel()
     var delegate: StoreDelegate? = nil
     
     override func viewDidLoad() {
@@ -38,9 +37,11 @@ class StoreViewController: UIViewController {
             print(e ?? "!!unknown error")
             if let error = e {
                 let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Unknown error", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.cancel, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         })
@@ -57,12 +58,20 @@ class StoreViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoDetailViewController",
+            let detailViewController =  segue.destination as? DetailViewController,
+            let indexPath = self.tableView.indexPathForSelectedRow {
+            detailViewController.storeItem = self.delegate?.item(with: indexPath)
+        }
+    }
 }
 
 
 // # MARK - TableView DataSource
 
-class StoreDelegate: NSObject, UITableViewDataSource {
+class StoreDelegate: NSObject {
     
     let model: StoreModel
     
@@ -70,6 +79,16 @@ class StoreDelegate: NSObject, UITableViewDataSource {
         self.model = model
     }
     
+    func item(with indexPath: IndexPath) -> StoreItem? {
+        return model.item(with: indexPath.section, with: indexPath.row)
+    }
+    
+    func detail_hash(with indexPath: IndexPath) -> String? {
+        return item(with: indexPath)?.detail_hash
+    }
+}
+
+extension StoreDelegate: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.itemCount(section: section)
     }
@@ -77,7 +96,7 @@ class StoreDelegate: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath)
         if let productCell = cell as? StoreItemCell,
-            let item = model.item(with: indexPath.section, with: indexPath.row) {
+            let item = item(with: indexPath) {
             productCell.setProductInfo(info: item)
         }
         return cell
