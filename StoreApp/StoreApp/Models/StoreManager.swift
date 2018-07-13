@@ -16,7 +16,7 @@ class StoreManager {
   }
   
   convenience init() {
-    self.init(list: [StoreItems]())
+    self.init(list: [StoreItems              ]())
   }
   
   init(list: [StoreItems]) {
@@ -24,13 +24,7 @@ class StoreManager {
   }
   
   func generateData() {
-    FoodType.allValues.forEach {
-      guard let data = FileLoader.data(file: $0, fileType: FileTypes.json) else {
-        return
-      }
-      
-      list.append(StoreItems(header: $0, items: JSONConverter.decode(in: data, type: [StoreItem].self)))
-    }
+    requestData()
   }
   
   var numberOfSections: Int {
@@ -44,6 +38,34 @@ class StoreManager {
   subscript(at section: Int) -> StoreItems {
     return list[section]
   }
+}
+
+fileprivate extension StoreManager {
+  func generateFileData() {
+    FoodType.allValues.forEach {
+      guard let data = FileLoader.data(file: $0, fileType: FileTypes.json) else {
+        return
+      }
+      
+      list.append(StoreItems(header: $0, items: JSONConverter.decode(in: data, type: [StoreItem].self)))
+    }
+  }
+  
+  func requestData() {
+    for foodType in FoodType.allValues {
+      API.shared.request(foodType: foodType, type: [StoreItem].self) { resultType in
+        switch resultType {
+        case .success(let result):
+          if let result = result as? [StoreItem] {
+            self.list.append(StoreItems(header: foodType, items: result))
+          }
+        case .error(let error):
+          print(error.localizedDescription)
+        }
+      }
+    }
+  }
+  
 }
 
 extension Notification.Name {
