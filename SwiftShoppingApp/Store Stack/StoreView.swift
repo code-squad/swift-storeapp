@@ -18,69 +18,65 @@ class StoreItemCell: UITableViewCell {
     @IBOutlet weak var originalPriceLabel: UILabel!
     @IBOutlet weak var salePriceLabel: UILabel!
     
-    var tagViews: [UILabel] = []
-    var imageURL: URL?
+    var tagLabels: [UILabel] = []
+    
+    var imageURL: String = ""
+    
+    func setUpUI() {
+        mainImageView.layer.cornerRadius = mainImageView.frame.width/2
+        mainImageView.layer.masksToBounds = true
+    }
     
     func setProductInfo(info: StoreItem) {
+        
+        setUpUI()
+        
         headLabel.text = info.title
         subheadLabel.text = info.description
         originalPriceLabel.text = "7,500"
         salePriceLabel.text = info.s_price
         
-        mainImageView.layer.cornerRadius = mainImageView.frame.width/2
-        mainImageView.layer.masksToBounds = true
-        
-        
-        tagViews.forEach { tagView in tagView.removeFromSuperview() }
-        tagViews = []
         let fixedHeight: CGFloat = 22
         var labelX = headLabel.frame.origin.x
         let labelY = salePriceLabel.frame.origin.y + salePriceLabel.frame.height + 6.0
         let labelGap: CGFloat = 3.0
-        let labelMargin: CGFloat = -2.0
-        for deliveryType in info.delivery_type {
-            let label = UILabel(frame: .zero)
+        let labelMargin: CGFloat = 4.0
+        
+        while tagLabels.count < info.delivery_type.count {
+            tagLabels.append(createTagLabel())
+        }
+        
+        tagLabels.forEach { label in label.alpha = 0 }
+        
+        for (label, deliveryType) in zip(tagLabels, info.delivery_type) {
+            label.alpha = 1
             label.text = deliveryType
-            label.backgroundColor = UIColor(red: 170.0/255.0, green: 116.0/255.0, blue: 191.0/255.0, alpha: 1.0)
             label.sizeToFit()
-            label.textAlignment = .center
-            label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-            label.textColor = .white
-            
             label.frame = CGRect(x: labelX, y: labelY,
                                  width: label.frame.width + labelMargin*2,
                                  height: fixedHeight)
-            self.addSubview(label)
-            tagViews.append(label)
-            
+
             labelX += label.frame.width + labelGap
         }
         
-        if let imageURL = URL(string: info.image) {
-            self.loadImage(with: imageURL)
+        self.mainImageView?.image = nil
+        imageURL = info.image
+        info.loadImage { image, url in
+            if self.imageURL == url {
+                self.mainImageView?.image = image
+            }
         }
     }
     
-    func loadImage(with url: URL) {
-        self.imageURL = url
-        mainImageView.image = nil
+    func createTagLabel() -> UILabel {
+        let label = UILabel(frame: .zero)
+        label.backgroundColor = UIColor(red: 170.0/255.0, green: 116.0/255.0, blue: 191.0/255.0, alpha: 1.0)
+        label.textAlignment = .center
+        label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        label.textColor = .white
         
-        if let imageFromCache = CacheManager.shared.object(forKey: url as AnyObject) as? UIImage {
-            mainImageView.image = imageFromCache
-        } else {
-            URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                if let error = error { print(error); return }
-                DispatchQueue.main.async(execute: {
-                    if let unwrappedData = data,
-                        let imageToCache = UIImage(data: unwrappedData) {
-                        if self.imageURL == url {
-                            self.mainImageView.image = imageToCache
-                        }
-                        CacheManager.shared.setObject(imageToCache, forKey: url as AnyObject)
-                    }
-                })
-            }).resume()
-        }
+        self.addSubview(label)
+        return label
     }
 }
 
@@ -109,6 +105,4 @@ class StoreSectionHeader: UITableViewCell {
 }
 
 
-class CacheManager: NSCache<AnyObject, AnyObject> {
-    static let shared = CacheManager()
-}
+
