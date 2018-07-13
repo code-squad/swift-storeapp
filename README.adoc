@@ -44,3 +44,27 @@ image:./images/result-4-1.png[45%, 45%]
 **** Build, Test, Profile 등을 수행할 때 어떤 동작을 할지 정의함
 **** An Xcode scheme defines a collection of targets to build, a configuration to use when building, and a collection of tests to execute
 ** *_Workspace 안에 Project A, B가 있고 정해놓은 Scheme에 따라 Target 범위가 설정됨_*
+
+=== 5. Networking Programming
+
+===== 실행결과
+
+image:./images/result-5-1.png[45%, 45%]
+
+===== 학습거리 
+* 에러 발생
+** http 통신이 되지 않아 해결책을 찾음
+** `App Transport Security`
+
+> App Transport Security(이후 ATS)는 iOS 9.0또는 OS X 10.11 이상 유효하며, 응용프로그램과 웹 서비스간의 안전한 연결을 위해 사용할 수 있음. ATS가 활성화되면 HTTP를 통해 통신을 할 수 없습니다. 또한 Apple에서 권장하는 요구 사항을 충족하지 않는 연결은 강제로 연결 실패 처리됩니다. 예를 들어, Apple 권장 요구 사항을 충족하지 않는 Web 페이지를 WKWebView 에서 열려고 하면 페이지로드는 실패합
+
+image:./images/error-5-1.png[45%, 45%]
+image:./images/error-5-2.png[45%, 45%]
+
+* URLSession, Alamofire
+** https://developer.apple.com/documentation/foundation/url_loading_system[URL Loading System]: Apple에서 지원하는 네트워크 관련 프레임워크
+** https://github.com/Alamofire/Alamofire[Alamofire]: Apple에서 지원하는 네트워크 관련 프레임워크를 추상화한 Wrapper
+** Alamofire를 사용하면 Wrapper 이기 때문에 코드는 깔끔해지지만 라이브러리 의존성이 생기기 때문에 메인테이너가 업데이트 지원하지 않을 때 문제가 발생함
+** Alamofire를 URLSession 원리를 모른 채 사용하면 네트워크 문제가 발생할 때 해결하기 힘듦
+
+* http://kka7.tistory.com/84[읽을거리: iOS 개발자도 잘 모르는 가장 일반적인 실수 10가지]
