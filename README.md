@@ -1,97 +1,137 @@
-# 진행 방법
+# 스위프트 쇼핑앱
 
-- 쇼핑 iOS 앱 요구사항을 파악한다.
-- 요구사항에 대한 구현을 완료한 후 자신의 github 아이디에 해당하는 브랜치에 Pull Request(이하 PR)를 통해 코드 리뷰 요청을 한다.
-- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
-- 모든 피드백을 완료하면 다음 단계를 도전하고 앞의 과정을 반복한다.
+## 요구사항
 
-# 코드 리뷰 과정
-> 저장소 브랜치에 자신의 github 아이디에 해당하는 브랜치가 존재해야 한다.
->
-> 자신의 github 아이디에 해당하는 브랜치가 있는지 확인한다.
+## 6. 병렬처리 
 
-1. 자신의 github 아이디에 해당하는 브랜치가 없는 경우 브랜치 생성 요청 채널을 통해 브랜치 생성을 요청한다.
-프로젝트를 자신의 계정으로 fork한다. 저장소 우측 상단의 fork 버튼을 활용한다.
+#### 요구사항
 
-2. fork한 프로젝트를 자신의 컴퓨터로 clone한다.
-```
-git clone https://github.com/{본인_아이디}/{저장소 아이디}
-ex) https://github.com/godrm/swift-storeapp
-```
+- [쇼팽앱 네트워크 프로그래밍](https://nextstep.camp/courses/-Kv6PmBDDnfeJOzqThWG/-Kv6VFlxhUm2sqJmkFNF/lessons/-L2TQngTWJge_ilnO1T-) 요구사항을 구현한 상태에서 시작한다.
+- GCD(Grand Central Dispatch)에 대해 학습하고 정리한다. [강의 자료](http://public.codesquad.kr/jk/storeapp-concurrent-programming-slide.pdf)
+- 이미지 다운로드와 캐시 처리 방식에 대해 학습한다.
+- readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
+  - 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
+  - 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
 
-3. clone한 프로젝트 이동
-```
-cd {저장소 아이디}
-ex) cd swift-storeapp
-```
+#### 프로그래밍 요구사항
 
-4. 본인 아이디로 브랜치를 만들기 위한 checkout
-```
-git checkout -t origin/본인_아이디
-ex) git checkout -t origin/godrm
-```
+- 3개의 JSON 데이터가 모두 받고 나면 JSON 데이터에 포함된 이미지 URL을 분리해서 Image 파일들을 다운로드 받는다.
+  - 이미지 파일들을 병렬처리해서 한꺼번에 여러개를 다운로드하도록 구성한다.
+  - (선택1) GCD Queue를 활용하거나
+  - (선택2) `Download Task` 방식으로 구현한다.
+- 다운로드가 완료되면 앱 디렉토리 중에 `Cache` 디렉토리에 URL에 있는 파일명으로 저장한다.
+- 셀을 표기할 때 이미 다운로드된 이미지가 있으면 표시하고, 새로운 파일이 다운로드 완료되면 해당 이미지를 테이블뷰 셀에 뒤늦게(lazy) 표시한다.
+  - 화면에 표시할 때 다운로드를 담당하는 스레드와 화면을 처리하는 스레드를 위한 GCD Queue를 구분해서 처리한다.
+  - 이미지를 다 받을때 까지 화면이 하얗게 멈춰있지 않도록 만든다.
 
-5. 기능 구현을 위한 브랜치 생성 (연속번호를 붙여나간다)
-```
-git checkout -b 브랜치이름
-ex) git checkout -b store-step1
-```
+## 작업 이력
 
-6. commit
-```
-git status //확인
-git rm 파일명 //삭제된 파일
-git add 파일명(or * 모두) // 추가/변경 파일
-git commit -m "메세지" // 커밋
-```
+### 6. 병렬처리
 
-7. 본인 원격 저장소에 올리기
-```
-git push --set-upstream origin 브랜치이름
-ex) git push --set-upstream origin store-step1
-```
+#### 주요 작업 내역
 
-8. pull request
-	- pull request는 github 서비스에서 진행할 수 있다.
-	- pull request는 original 저장소의 브랜치(자신의 github 아이디)와 앞 단계에서 생성한 브랜치 이름을 기준으로 한다.
+- Model-View-ViewController 파일 분리
+- Delegate(TableViewDelegate & TableViewDataSource) 코드 분리
+- 각 개별 이미지를 병렬 다운로드
+- 개별 이미지 다운로드 후 NSCache에 저장
+- 이미지 다시 호출시 캐시 확인 후 없으면 다운로드
+- 이미지 다운로드시 `URLSession.shared.dataTask ` 로 비동기 처리 후 다운로드 완료시 `DispatchQueue.main.async ` 로 메인큐에서 셀 갱신(셀 재사용을 고려한 조건문)
 
-	```
-	ex) code-squad/swift-photoframe godrm 브랜치 기준 => godrm/swift-storeapp store-step1
-	```
-	
-9. code review 및 push
-	- pull request를 통해 피드백을 받는다.
-	- 코드 리뷰 피드백에 대한 개선 작업을 하고 다시 PUSH한다.
+#### 날짜
 
-10. 기본(upstream) 브랜치 전환 및 base 저장소 추가하기(최초 시작하기 단계 한번만 하면 됨)
+- 2018-07-13 10:43
 
-	```
-	git checkout 본인_아이디
-	git remote add upstream base_저장소_url
+#### 스크린샷
 
-	ex) git checkout godrm
-	ex) git remote add upstream https://github.com/code-squad/swift-storeapp.git
-	```
+| 개별 이미지 로딩 전                 | 개별 이미지 로딩 후                 |
+| ----------------------------------- | ----------------------------------- |
+| ![img1](resource/lab6/IMG_9375.PNG) | ![img1](resource/lab6/IMG_9376.PNG) |
 
-	- 위와 같이 base 저장소 추가한 후 remote 브랜치 목록을 본다.
 
-	```
-	git remote -v
-	```
 
-11. 기본 base 저장소와 sync하기 (PR 보낸 내용을 자신의 기본 저장소와 합치기)
+### 5. Network 프로그래밍 
 
-	```
-	git fetch upstream
-	git rebase upstream/본인_아이디
-	ex) git rebase upstream/godrm
-	```
+#### 주요 작업 내역
 
-12. 다음 미션을 해결할 경우 [5단계 브랜치 생성]부터 다시 진행
+- URLSession를 활용한 HTTP요청
+- Section별로 다른 Session을 만들어 HTTP요청 후, 각각의 응답에따른 각각의 화면 갱신
+- 몇 코드 정리
 
-## 동영상을 통한 코드 리뷰() 를 통해 참고 가능
+#### 날짜
 
-- [fork하여 코드 리뷰하기](https://www.youtube.com/watch?v=ZSZoaG0PqLg) 
-- [PR 보내고 다시 PR보낼 때 유의 사항](https://www.youtube.com/watch?v=CbLNbCUsh5c&feature=youtu.be)
+- 2018-07-09 21:23
 
-## 실습 중 모든 질문은 슬랙 채널에서...
+#### 스크린샷
+
+| 네트워크 통신 전                    | 네트워크 통신 후                    |
+| ----------------------------------- | ----------------------------------- |
+| ![img1](resource/lab5/IMG_9340.PNG) | ![img2](resource/lab5/IMG_9341.PNG) |
+
+### 4. 패키지 관리 - CocoaPod
+
+#### 주요 작업 내역
+
+- Pod을 이용한 Toast 라이브러리 사용
+- 셀을 누를시 토글로 정보(타이틀, 할인된 가격) 표시
+
+#### 날짜
+
+- 2018-07-08 15:53
+
+#### 스크린샷
+
+<img src="resource/lab4/IMG_9335.PNG?raw=true" width="240"/>
+
+### 3. Custom Section 헤더 적용
+
+#### 주요 작업 내역
+
+- 로컬에있는 3개의  json 파일을 각각 불러와 섹션별로 출력
+- 커스텀 섹션 헤더 적용
+
+#### 날짜
+
+- 2018-07-08 15:22
+
+#### 스크린샷
+
+|                      섹션1                       |                      섹션2                       |                      섹션3                       |
+| :----------------------------------------------: | :----------------------------------------------: | :----------------------------------------------: |
+| ![section1](resource/lab3/IMG_9332.PNG?raw=true) | ![section1](resource/lab3/IMG_9333.PNG?raw=true) | ![section1](resource/lab3/IMG_9334.PNG?raw=true) |
+
+
+
+### 2. 오토레이아웃
+
+#### 주요 작업 내역
+
+- 상단 Section Header에 오토레이아웃 적용
+- 위 요구사항대로 Cell에 오토레이아웃 적용
+
+#### 날짜
+
+- 2018-07-08 13:44
+
+#### 스크린샷
+
+각 디바이스별 스크린샷은 [resource/iphone-big](resource/iphone-big), [resource/iphone-small](resource/iphone-small)에 저장되어 있습니다.
+
+![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-big/Screen%20Shot%202018-07-08%20at%201.42.31%20PM.png?raw=true)
+
+![Screen Shot 2018-07-08 at 1.42.31 PM](resource/iphone-small/Screen%20Shot%202018-07-08%20at%201.38.42%20PM.png?raw=true)
+
+### 1. 상품 목록
+
+#### 주요 작업 내역
+
+- 로컬에있는 json  파일 불러와 TableView에 출력
+- 상단의 섹션헤더 추가 
+- Cell 내부에 동적으로 태그 Label 출력
+
+#### 날짜
+
+- 2018-07-08 12:52
+
+#### 스크린샷
+
+<img src="resource/lab1/img1.PNG" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="340"/>
