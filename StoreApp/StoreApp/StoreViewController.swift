@@ -56,7 +56,7 @@ extension StoreViewController: UITableViewDataSource {
 extension StoreViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableCell(withIdentifier: Keyword.customHeader.rawValue) as? CustomHeaderView else { return nil }
+        guard let headerView = tableView.dequeueReusableCell(withIdentifier: Keyword.customHeader.rawValue) as? HeaderView else { return nil }
         headerView.data = StoreItems.categories[section]
         return headerView
     }

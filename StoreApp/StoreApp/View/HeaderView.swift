@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomHeaderView: UITableViewCell {
+class HeaderView: UITableViewCell {
 
     @IBOutlet weak var shortLabel: UILabel!
     @IBOutlet weak var longLabel: UILabel!
