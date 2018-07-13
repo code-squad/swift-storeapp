@@ -10,7 +10,7 @@
 		256E858443AC66F61CEF4E9B /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3C3FB91E7B6B8E8AEA5AA6 /* Pods_StoreApp.framework */; };
 		FD4EFBCD20F71BAF003F2793 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EFBCC20F71BAF003F2793 /* Category.swift */; };
 		FD560ECE20F86C2200ACBA93 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD560ECD20F86C2200ACBA93 /* Keyword.swift */; };
-		FD560ED020F86F7B00ACBA93 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD560ECF20F86F7B00ACBA93 /* CustomHeaderView.swift */; };
+		FD560ED020F86F7B00ACBA93 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD560ECF20F86F7B00ACBA93 /* HeaderView.swift */; };
 		FD579C9220E4BF8D00B067FE /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD579C9120E4BF8D00B067FE /* StoreTableViewCell.swift */; };
 		FD579C9420E4DFC400B067FE /* ItemDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD579C9320E4DFC400B067FE /* ItemDataParser.swift */; };
 		FD74FD7720F6F39900418092 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = FD74FD7620F6F39900418092 /* soup.json */; };
@@ -30,7 +30,7 @@
 		9D3C3FB91E7B6B8E8AEA5AA6 /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4EFBCC20F71BAF003F2793 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FD560ECD20F86C2200ACBA93 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
-		FD560ECF20F86F7B00ACBA93 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		FD560ECF20F86F7B00ACBA93 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		FD579C9120E4BF8D00B067FE /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		FD579C9320E4DFC400B067FE /* ItemDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataParser.swift; sourceTree = "<group>"; };
 		FD74FD7620F6F39900418092 /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				FD579C9120E4BF8D00B067FE /* StoreTableViewCell.swift */,
-				FD560ECF20F86F7B00ACBA93 /* CustomHeaderView.swift */,
+				FD560ECF20F86F7B00ACBA93 /* HeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,7 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD579C9220E4BF8D00B067FE /* StoreTableViewCell.swift in Sources */,
-				FD560ED020F86F7B00ACBA93 /* CustomHeaderView.swift in Sources */,
+				FD560ED020F86F7B00ACBA93 /* HeaderView.swift in Sources */,
 				FDCAF37220F35167005F5E07 /* StoreItems.swift in Sources */,
 				FD579C9420E4DFC400B067FE /* ItemDataParser.swift in Sources */,
 				FD9FF9B820E263BB00BE6FA6 /* StoreViewController.swift in Sources */,

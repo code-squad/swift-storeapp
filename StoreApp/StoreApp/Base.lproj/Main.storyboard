@@ -103,7 +103,7 @@
                                             <outlet property="title" destination="EiI-hP-SS4" id="btt-1R-Rmz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customHeader" rowHeight="60" id="eEP-wb-d74" customClass="CustomHeaderView" customModule="StoreApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customHeader" rowHeight="60" id="eEP-wb-d74" customClass="HeaderView" customModule="StoreApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="127" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eEP-wb-d74" id="UEh-Pu-6QC">
