@@ -2,42 +2,41 @@
 
 ## 요구사항
 
-## 7. 상품 상세화면 전환 
+## 8. 연결성 확인 Reachability 
 
 #### 요구사항
 
-- [쇼팽앱 병렬처리](https://nextstep.camp/courses/-Kv6PmBDDnfeJOzqThWG/-Kv6VFlxhUm2sqJmkFNF/lessons/-L2TQuK0yjABnlLpcgjR) 요구사항을 구현한 상태에서 시작한다.
-- 상품 상세 화면을 만들고, 주문 동작을 구현한다.
-- HTTP POST 요청 방식에 대해 학습하고 응용 방식을 구현한다.
+- [쇼팽앱 상세화면 전환 요구사항](https://nextstep.camp/courses/-Kv6PmBDDnfeJOzqThWG/-Kv6VFlxhUm2sqJmkFNF/lessons/-L2TQwlsRrwEoP0DjTQf)을 구현한 상태에서 시작한다.
+- 모빌리티(이동성) 특성과 비용을 줄일 수 있는 방법을 학습하고 적용한다. [강의자료](http://public.codesquad.kr/jk/storeapp-mobility-slide.pdf)
 - readme.md 파일을 자신의 프로젝트에 대한 설명으로 변경한다.
   - 단계별로 미션을 해결하고 리뷰를 받고나면 readme.md 파일에 주요 작업 내용(바뀐 화면 이미지, 핵심 기능 설명)과 완성 날짜시간을 기록한다.
   - 실행한 화면을 캡처해서 readme.md 파일에 포함한다.
 
 #### 프로그래밍 요구사항
 
-- ~~ViewController 를 Navigation Controller로 embed 하세요.~~
-- ~~cell을 선택하면 상품 상세 화면을 보이도록 새로운 뷰 컨트롤러를 만드세요.~~
-- ~~상세 화면 디자인은 다음 슬라이드를 참고하세요.~~<br>![img](http://public.codesquad.kr/jk/storeapp-step7-view.png)
-  
-
-- ~~상세 화면(DetailViewController)으로 선택한 cell의 `detail_hash` 값을 전달하세요.~~
-- ~~상세 화면에 대한 Delegate 프로토콜과 프로토콜을 채택하는 속성을 추가하세요.~~
-  - ~~상세 화면에서 결과를 전달하기 위한 Delegate 프로토콜을 선언하세요.~~
-  - ~~프로토콜에는 주문을 완료했을 때 호출할 메소드를 선언하세요.~~
-  - ~~ViewController에는 프로토콜을 채택하고 위의 메소드를 구현하세요.~~
-- ~~`http://crong.codesquad.kr:8080/woowa/detail/{detail_hash}` URL 형식으로 요청하고 받은 JSON 데이터를 Decode 하는 네트워크 담당 모델 객체를 만드세요.~~
-  - ~~URL 예시 `http://crong.codesquad.kr:8080/woowa/detail/H9881` 또는 `http://crong.codesquad.kr:8080/woowa/detail/HDF4C`~~
-- ~~상세 화면을 표시하기 전에 네트워크 담당 모델 객체에서 데이터를 받아서 화면 정보를 채워서 표시하세요.~~
-  - ~~self.view 커스텀 클래스를 UIScrollView로 지정하고 하위 뷰들은 self.view.contentView 에 추가하세요.~~<br>☞ StackView 사용
-  - ~~ScrollView ContentSize에 대해 찾아보고, 전체 콘텐츠 높이를 계산해서 스크롤되도록 값을 지정하세요.~~ <br>☞ StackView 사용
-  - ~~상단 ScrollView 에 thumb_images 항목의 이미지들을 Page 형태로 추가하세요. 좌우로 페이지 넘기듯이 넘어가도록 만드세요.~~
-  - ~~설명 아래부분에는 제품 상세 설명을 위해서 detail_section 항목의 이미지들을 코드로 이어서 붙이세요.~~
-- ~~[주문하기] 버튼을 누르면 델리게이트 객체에 주문 완료 메소드를 호출합니다.~~
-  - ~~프로토콜 채택한 객체는 슬랙으로 “누가-얼마짜리-메뉴” 주문을 POST 요청으로 보내는 기능을 네트워크 모델에 추가하세요.~~
-  - ~~주문을 완료하고 나면 창을 닫고 이전 화면으로 돌아가도록 작성하세요.~~
-  - ~~슬랙 incoming hook URL `https://hooks.slack.com/services/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`~~
+- 애플 Reachability 샘플 클래스로 인터넷 연결 여부를 판단한다.
+- ~~Reachability.m 또는 Alamofire를 프로젝트에 추가한다.~~
+- 앱 시작할 때 인터넷 연결이 안되어 있으면, JSON 데이터 파일로 첫 화면을 로딩한다.
+  - 그 이후 앱이 서버에 연결 가능하면 네트워크 모델을 통해서 JSON 데이터를 받아서 화면을 갱신한다.
+- 앱 실행중에 연결성이 바뀌는 경우 노티를 받아서
+  - 연결이 안되어 있는 경우 화면의 가장자리(border)를 UIColor.red 로 표시한다.
+  - 연결된 경우 border를 UIColor.green 으로 표시한다.
 
 ## 작업 이력
+
+### 8. 연결성 확인 Reachability
+
+#### 주요 작업 내역
+
+- 
+
+#### 날짜
+
+- 2018-07-13 20:02
+
+#### 스크린샷
+
+
 
 ### 7. 상품 상세화면 전환
 
