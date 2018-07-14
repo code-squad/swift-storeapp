@@ -36,8 +36,12 @@ struct StoreInfo {
         self.id = id
         self.title = title
         self.description = description
+        self.items = []
+        readFile(withId: id)
+    }
+    
+    mutating func readFile(withId id: String) {
         guard let mainJsonFilePath = Bundle.main.path(forResource: id, ofType: "json") else {
-            items = []
             return
         }
         do {
@@ -46,7 +50,6 @@ struct StoreInfo {
             self.items = json
         } catch {
             // error
-            items = []
         }
     }
     
