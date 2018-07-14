@@ -16,8 +16,30 @@
 - 모든 아이폰 사이즈에 대응해서 잘리는 화면이 없이 나와야 한다.
 - 상품기본가격이 없을 때 할인가격 Label 왼쪽 여백 조정을 하였습니다. 스토리보드에서 LayoutConstraint 을 IBOutlet 변수로 선언하여 처리하였습니다.
 - badge 값에 따라 이벤트 뱃지 노출 처리하였습니다.
-<img src="https://user-images.githubusercontent.com/1483784/42417000-4851b7ac-82b8-11e8-84d7-3af25d8fe080.png" width="320">
-<img src="https://user-images.githubusercontent.com/1483784/42416994-3520740c-82b8-11e8-9e0f-7e780e3b995f.png" width="375">
+
+iPhone 5s | iPhone X
+------------ | -------------
+<img src="https://user-images.githubusercontent.com/1483784/42417000-4851b7ac-82b8-11e8-84d7-3af25d8fe080.png" width="320"> | <img src="https://user-images.githubusercontent.com/1483784/42416994-3520740c-82b8-11e8-9e0f-7e780e3b995f.png" width="375">
+
+## Step 3
+
+- 스토리보드 ViewController에 Cell에 Section Header로 사용할 Custom Cell을 추가한다.
+- 총 섹션은 3개로 구분해서 헤더에 표시한다.
+- 섹션헤더 추가하였습니다
+- MenuHeaderView 를 분리하였는데, 피드백부탁드리겠습니다.
+- MVC에서는 View 과 Model 이 분리되어 있어야 한다고 하여, 고민이 되었습니다.
+- StoreInfo 데이터 배열을 관리하는 Store 상위 모델을 만들어서 분리하였습니다.
+- StoreInfo 에는 섹션헤더를 채울 정보와 메뉴정보 배열이 있습니다.
+- StoreItem, StoreItems 같이 헷갈릴 수 있는 이름은 신경써야겠습니다.
+
+## Step 4
+
+- Cocoapod 를 설치한다. 설치 가이드
+- https://github.com/devxoul/Toaster 저장소에 있는 Toaster 패키지를 cocoapod 으로 설치한다.
+- pod으로 설치한 Toaster 모듈을 import 하고 테이블뷰 셀을 터치하면 (didSelect) 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
+- pod 'Toaster' 로 설치하였습니다.
+- UITableViewDelegate didSelectRowAt 에서 toast 띄웠습니다
+<img src="https://user-images.githubusercontent.com/1483784/42720648-f2fb9f04-8765-11e8-9e90-1e154fe96158.png" width="320">
 
 # 진행 방법
 
