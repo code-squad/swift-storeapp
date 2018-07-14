@@ -18,6 +18,7 @@
 		555E33E320F8D14600355137 /* PurchaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555E33E220F8D14500355137 /* PurchaseModel.swift */; };
 		559A5BE320F7814D004356FC /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A5BE220F7814D004356FC /* StoreModel.swift */; };
 		559A5BE520F7818B004356FC /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A5BE420F7818B004356FC /* StoreView.swift */; };
+		55FEC35220F98B4F00D3BFED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FEC35120F98B4F00D3BFED /* NetworkManager.swift */; };
 		DA3CEB2ED2F7C3BA3C6B72C0 /* Pods_SwiftShoppingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD282995378DAF74B078EFA /* Pods_SwiftShoppingApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		555E33E220F8D14500355137 /* PurchaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseModel.swift; sourceTree = "<group>"; };
 		559A5BE220F7814D004356FC /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
 		559A5BE420F7818B004356FC /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		55FEC35120F98B4F00D3BFED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8B3717781AF138EF366DEA18 /* Pods-SwiftShoppingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShoppingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp.release.xcconfig"; sourceTree = "<group>"; };
 		9DD282995378DAF74B078EFA /* Pods_SwiftShoppingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftShoppingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A21C1DE60154F3784AB935 /* Pods-SwiftShoppingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShoppingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				5544406A20F1A0E500F79D40 /* AppDelegate.swift */,
 				559A5BE620F781B3004356FC /* Store Stack */,
 				555E33E120F8B4D900355137 /* Detail Stack */,
+				55FEC35120F98B4F00D3BFED /* NetworkManager.swift */,
 				5544406E20F1A0E500F79D40 /* Main.storyboard */,
 				5544407120F1A0E700F79D40 /* Assets.xcassets */,
 				5544407320F1A0E700F79D40 /* LaunchScreen.storyboard */,
@@ -275,10 +278,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +302,7 @@
 				5544406D20F1A0E500F79D40 /* StoreViewController.swift in Sources */,
 				5544406B20F1A0E500F79D40 /* AppDelegate.swift in Sources */,
 				555E33DE20F8AC4200355137 /* DetailViewController.swift in Sources */,
+				55FEC35220F98B4F00D3BFED /* NetworkManager.swift in Sources */,
 				559A5BE520F7818B004356FC /* StoreView.swift in Sources */,
 				559A5BE320F7814D004356FC /* StoreModel.swift in Sources */,
 				555E33E320F8D14600355137 /* PurchaseModel.swift in Sources */,
