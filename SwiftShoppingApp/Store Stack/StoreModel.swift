@@ -14,22 +14,22 @@ class StoreModel {
     
     struct Constant {
         static let baseURL: String = "http://crong.codesquad.kr:8080/woowa/"
-        static let mainURL: String = baseURL + "main"
-        static let soupURL: String = baseURL + "soup"
-        static let sideURL: String = baseURL + "side"
+        static let mainURL: String = "main"
+        static let soupURL: String = "soup"
+        static let sideURL: String = "side"
     }
     
     private let sectionInfos: Array<Dictionary<String, String>> = [
         [
-            "section_url": Constant.mainURL,
+            "section_path": Constant.mainURL,
             "section_subtitle": "메인반찬",
             "section_title": "한그릇 뚝딱 메인 요리"
         ], [
-            "section_url": Constant.soupURL,
+            "section_path": Constant.soupURL,
             "section_subtitle": "국.찌게",
             "section_title": "김이 모락모락 국.찌게"
         ], [
-            "section_url": Constant.sideURL,
+            "section_path": Constant.sideURL,
             "section_subtitle": "밑반찬",
             "section_title": "언제 먹어도 든든한 밑반찬"
         ]
@@ -37,23 +37,31 @@ class StoreModel {
     
     var mySections: Array<StoreSection> = []
     
-    func loadData(completion: @escaping ()->(), fail: @escaping (Error?)->()) {
+    func loadData(loadFromNetwork: Bool, completion: @escaping ()->(), fail: @escaping (Error?)->()) {
         mySections = sectionInfos.map { sectionInfo in
-            guard let sectionURL = sectionInfo["section_url"],
+            guard let sectionPath = sectionInfo["section_path"],
                 let sectionTitle = sectionInfo["section_title"],
                 let sectionSubtitle = sectionInfo["section_subtitle"] else {
                     return nil
             }
-            let mySection = StoreSection(title: sectionTitle, subtitle: sectionSubtitle, url: sectionURL, items: [])
+            let mySection = StoreSection(title: sectionTitle, subtitle: sectionSubtitle, path: sectionPath, items: [])
             return mySection
         }.compactMap{ $0 }
         
         mySections.forEach { mySection in
-            self.loadData(from: mySection.url) { (productItems, e)  in
-                guard let productItems = productItems else { fail(e); return; }
-                
-                mySection.myitems = productItems
-                completion()
+            if loadFromNetwork {
+                let url = Constant.baseURL + mySection.path
+                self.loadData(from: url) { (productItems, e)  in
+                    guard let productItems = productItems else { fail(e); return; }
+                    mySection.myitems = productItems
+                    completion()
+                }
+            } else {
+                self.loadData(forResource: mySection.path, ofType:"json") { (productItems, e)  in
+                    guard let productItems = productItems else { fail(e); return; }
+                    mySection.myitems = productItems
+                    completion()
+                }
             }
         }
     }
@@ -70,6 +78,21 @@ class StoreModel {
                 completion(nil, e)
             }
         }.resume()
+    }
+    
+    private func loadData(forResource: String, ofType: String, completion: @escaping ([StoreItem]?, Error?)->()) {
+        // main.json 불러와서 파싱
+        if let filePath = Bundle.main.path(forResource: forResource, ofType: ofType),
+            let data = NSData(contentsOfFile: filePath) {
+            do {
+                let productItems: [StoreItem] = try self.loadData(from: data as Data)
+                completion(productItems, nil)
+            } catch let e {
+                completion(nil, e)
+            }
+        } else {
+            completion(nil, nil)
+        }
     }
     
     private func loadData(from data: Data) throws -> [StoreItem] {
@@ -107,13 +130,13 @@ class StoreSection {
     
     private(set) var title: String
     private(set) var subtitle: String
-    let url: String
+    let path: String
     var myitems: Array<StoreItem> = []
     
-    init(title: String, subtitle: String, url: String, items: Array<StoreItem>) {
+    init(title: String, subtitle: String, path: String, items: Array<StoreItem>) {
         self.myitems = items
         self.title = title
-        self.url = url
+        self.path = path
         self.subtitle = subtitle
     }
     

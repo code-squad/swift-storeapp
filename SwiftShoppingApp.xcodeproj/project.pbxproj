@@ -19,6 +19,9 @@
 		559A5BE320F7814D004356FC /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A5BE220F7814D004356FC /* StoreModel.swift */; };
 		559A5BE520F7818B004356FC /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559A5BE420F7818B004356FC /* StoreView.swift */; };
 		55FEC35220F98B4F00D3BFED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FEC35120F98B4F00D3BFED /* NetworkManager.swift */; };
+		55FEC35420F9AD6D00D3BFED /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 55FEC35320F9AD6D00D3BFED /* main.json */; };
+		55FEC35620F9AD7A00D3BFED /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 55FEC35520F9AD7A00D3BFED /* soup.json */; };
+		55FEC35820F9AD8900D3BFED /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 55FEC35720F9AD8900D3BFED /* side.json */; };
 		DA3CEB2ED2F7C3BA3C6B72C0 /* Pods_SwiftShoppingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD282995378DAF74B078EFA /* Pods_SwiftShoppingApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		559A5BE220F7814D004356FC /* StoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
 		559A5BE420F7818B004356FC /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		55FEC35120F98B4F00D3BFED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		55FEC35320F9AD6D00D3BFED /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		55FEC35520F9AD7A00D3BFED /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		55FEC35720F9AD8900D3BFED /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		8B3717781AF138EF366DEA18 /* Pods-SwiftShoppingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShoppingApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp.release.xcconfig"; sourceTree = "<group>"; };
 		9DD282995378DAF74B078EFA /* Pods_SwiftShoppingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftShoppingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2A21C1DE60154F3784AB935 /* Pods-SwiftShoppingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftShoppingApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftShoppingApp/Pods-SwiftShoppingApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +114,9 @@
 				559A5BE620F781B3004356FC /* Store Stack */,
 				555E33E120F8B4D900355137 /* Detail Stack */,
 				55FEC35120F98B4F00D3BFED /* NetworkManager.swift */,
+				55FEC35320F9AD6D00D3BFED /* main.json */,
+				55FEC35520F9AD7A00D3BFED /* soup.json */,
+				55FEC35720F9AD8900D3BFED /* side.json */,
 				5544406E20F1A0E500F79D40 /* Main.storyboard */,
 				5544407120F1A0E700F79D40 /* Assets.xcassets */,
 				5544407320F1A0E700F79D40 /* LaunchScreen.storyboard */,
@@ -237,8 +246,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55FEC35620F9AD7A00D3BFED /* soup.json in Resources */,
 				5544407520F1A0E700F79D40 /* LaunchScreen.storyboard in Resources */,
 				5544407220F1A0E700F79D40 /* Assets.xcassets in Resources */,
+				55FEC35420F9AD6D00D3BFED /* main.json in Resources */,
+				55FEC35820F9AD8900D3BFED /* side.json in Resources */,
 				5544407020F1A0E500F79D40 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
