@@ -26,8 +26,11 @@ class StoreViewController: UIViewController {
         // 델리게이트 생성
         self.delegate = StoreDelegate(model: model)
         
+        // 네트워크 확인
+        let isConnected: Bool = NetworkManager.manager?.isConnected ?? false
+        
         // 데이터 불러오기
-        model.loadData(completion: {
+        model.loadData(loadFromNetwork : isConnected, completion: {
             DispatchQueue.main.async {
                 // 불러온 결과를 테이블뷰에 표시
                 self.tableView.reloadData()
@@ -57,6 +60,14 @@ class StoreViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkManager.manager?.reachabilityView = self.view
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NetworkManager.manager?.reachabilityView = nil
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

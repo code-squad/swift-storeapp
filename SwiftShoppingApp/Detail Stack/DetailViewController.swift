@@ -53,10 +53,20 @@ class DetailViewController: UIViewController {
         
         
         switch productStatus {
-        case .viewDidLoad(let item), .viewDidntLoad(let item):
+        case .viewDidLoad(let item):
             self.productStatus = .viewDidLoad(productItem: item)
             displayProductItem(with: item)
+        case .viewDidntLoad(let item):
+            self.productStatus = .viewDidLoad(productItem: item)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NetworkManager.manager?.reachabilityView = self.view
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NetworkManager.manager?.reachabilityView = nil
     }
     
     func downloadData() {
@@ -88,12 +98,11 @@ class DetailViewController: UIViewController {
             self.loadThubImages(with: productItem.thumb_images)
             self.loadContentImages(with: productItem.detail_section)
         } else {
-            
             let alert = UIAlertController(title: "다운로드 실패", message: "재다운로드 하시겠습니까?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: { (_) in
                 self.downloadData()
             }))
-            alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
