@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController {
 
@@ -55,5 +56,10 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storeItem = store[indexPath.section][indexPath.row]
+        let text = "\(storeItem.title ?? "") \(storeItem.s_price ?? "")"
+        Toast(text: text).show()
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
