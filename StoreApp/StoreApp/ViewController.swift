@@ -21,6 +21,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ViewController.didReceiveStoreData(notification:)),
+                                               name: .DidReceiveStoreItems, object: nil)
+    }
+    
+    @objc func didReceiveStoreData(notification: NSNotification) {
+        guard let id = notification.object as? String else {
+            return
+        }
+        let index = store.storeInfoArray.index { storeInfo -> Bool in
+            return storeInfo.id == id
+        }
+        if let section = index {
+            DispatchQueue.main.async {
+                self.tableView.reloadSections([section], with: UITableViewRowAnimation.none)
+            }
+        }
     }
 }
 
@@ -44,14 +62,14 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 60))
+        let headerView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 80))
         headerView.descriptionLabel.text = store[section].description
         headerView.titleLabelText(text: store[section].title ?? "")
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 80
     }
 }
 

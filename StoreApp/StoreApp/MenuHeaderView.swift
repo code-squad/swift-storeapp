@@ -21,14 +21,16 @@ class MenuHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        descriptionLabel.frame = CGRect(x: 0, y: 40, width: frame.size.width, height: 20)
+        self.backgroundColor = UIColor.white
+        
+        descriptionLabel.frame = CGRect(x: 0, y: 50, width: frame.size.width, height: 20)
         descriptionLabel.textAlignment = .center
         descriptionLabel.font = UIFont.boldSystemFont(ofSize: 18)
         self.addSubview(descriptionLabel)
         
         titleText = UIButton(type: UIButtonType.custom)
         titleText.isUserInteractionEnabled = false
-        titleText.contentEdgeInsets = UIEdgeInsetsMake(1, 1, 1, 1)
+        titleText.contentEdgeInsets = UIEdgeInsetsMake(1, 2, 1, 2)
         titleText.setTitleColor(UIColor.lightGray, for: UIControlState.normal)
         titleText.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         titleText.layer.borderColor = UIColor.lightGray.cgColor

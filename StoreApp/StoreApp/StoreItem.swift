@@ -26,7 +26,7 @@ struct Store {
     }
 }
 
-struct StoreInfo {
+class StoreInfo {
     var id: String?
     var title: String?
     var description: String?
@@ -36,8 +36,12 @@ struct StoreInfo {
         self.id = id
         self.title = title
         self.description = description
+        self.items = []
+        self.requestJson(withId: id)
+    }
+    
+    func readFile(withId id: String) {
         guard let mainJsonFilePath = Bundle.main.path(forResource: id, ofType: "json") else {
-            items = []
             return
         }
         do {
@@ -46,8 +50,27 @@ struct StoreInfo {
             self.items = json
         } catch {
             // error
-            items = []
         }
+    }
+    
+    func requestJson(withId id: String) {
+        guard let url = URL(string: "http://crong.codesquad.kr:8080/woowa/\(id)") else {
+            return
+        }
+        URLSession(configuration: URLSessionConfiguration.default).dataTask(with: url) { (data, response, error) in
+            defer {
+                NotificationCenter.default.post(name: .DidReceiveStoreItems, object: id)
+            }
+            guard let data = data else {
+                return
+            }
+            do {
+                let json = try JSONDecoder().decode([StoreItem].self, from: data)
+                self.items = json
+            } catch {
+                // error
+            }
+        }.resume()
     }
     
     subscript(index: Int) -> StoreItem {
@@ -79,4 +102,8 @@ struct StoreItem: Decodable {
         }
         return nil
     }
+}
+
+extension NSNotification.Name {
+    static let DidReceiveStoreItems = Notification.Name(rawValue: "DidReceiveStoreItems")
 }
