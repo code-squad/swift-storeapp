@@ -26,7 +26,7 @@ struct Store {
     }
 }
 
-struct StoreInfo {
+class StoreInfo {
     var id: String?
     var title: String?
     var description: String?
@@ -37,10 +37,10 @@ struct StoreInfo {
         self.title = title
         self.description = description
         self.items = []
-        readFile(withId: id)
+        self.requestJson(withId: id)
     }
     
-    mutating func readFile(withId id: String) {
+    func readFile(withId id: String) {
         guard let mainJsonFilePath = Bundle.main.path(forResource: id, ofType: "json") else {
             return
         }
@@ -51,6 +51,22 @@ struct StoreInfo {
         } catch {
             // error
         }
+    }
+    
+    func requestJson(withId id: String) {
+        guard let url = URL(string: "http://crong.codesquad.kr:8080/woowa/\(id)") else {
+            return
+        }
+        URLSession(configuration: URLSessionConfiguration.default).dataTask(with: url) { (data, response, error) in
+            do {
+                let json = try JSONDecoder().decode([StoreItem].self, from: data!)
+                self.items = json
+                // TODO: 응답을 받으면 Notification을 보내자.
+//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "download"), object: json)
+            } catch {
+                // error
+            }
+        }.resume()
     }
     
     subscript(index: Int) -> StoreItem {
