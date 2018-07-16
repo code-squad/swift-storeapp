@@ -44,14 +44,14 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 60))
+        let headerView = MenuHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 80))
         headerView.descriptionLabel.text = store[section].description
         headerView.titleLabelText(text: store[section].title ?? "")
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return 80
     }
 }
 
