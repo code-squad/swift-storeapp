@@ -59,7 +59,7 @@ class StoreInfo {
         }
         URLSession(configuration: URLSessionConfiguration.default).dataTask(with: url) { (data, response, error) in
             defer {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "did_receive_json"), object: id)
+                NotificationCenter.default.post(name: .DidReceiveStoreItems, object: id)
             }
             guard let data = data else {
                 return
@@ -102,4 +102,8 @@ struct StoreItem: Decodable {
         }
         return nil
     }
+}
+
+extension NSNotification.Name {
+    static let DidReceiveStoreItems = Notification.Name(rawValue: "DidReceiveStoreItems")
 }

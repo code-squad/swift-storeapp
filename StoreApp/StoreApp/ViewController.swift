@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(ViewController.didReceiveStoreData(notification:)),
-                                               name: NSNotification.Name("did_receive_json"), object: nil)
+                                               name: .DidReceiveStoreItems, object: nil)
     }
     
     @objc func didReceiveStoreData(notification: NSNotification) {
