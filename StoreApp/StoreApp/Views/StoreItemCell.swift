@@ -99,8 +99,6 @@ class StoreItemCell: UITableViewCell {
     
     for case let badgeLabel as UILabelWithPadding in badgesStackView.arrangedSubviews {
       badgeLabel.text = nil
-      badgeLabel.backgroundColor = nil
-      badgeLabel.removeInsets()
       badgesStackView.removeArrangedSubview(badgeLabel)
     }
   }
