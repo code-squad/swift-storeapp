@@ -41,6 +41,21 @@ iPhone 5s | iPhone X
 - UITableViewDelegate didSelectRowAt 에서 toast 띄웠습니다
 <img src="https://user-images.githubusercontent.com/1483784/42720648-f2fb9f04-8765-11e8-9e90-1e154fe96158.png" width="320">
 
+## Step 5
+
+### 요구사항
+
+- 주소별로 JSON 데이터를 받아오는 모델 객체를 만든다.
+- HTTP 요청은 URLSession 관련 프레임워크를 활용한다.
+- 응답으로 받은 JSON 데이터를 마찬가지 방법으로 Decode해서 StoreItem 객체로 변환한다.
+- 모델 객체는 응답이 도착하면 Notification을 보내서 테이블뷰의 해당 섹션만 업데이트한다.
+
+### 작업내용
+
+- 기존 json 파일에서 읽어오는 로직은 분리했습니다.
+- URLSession 으로 처리하려니 escaping closure 와 충돌이 나서 StoreInfo를 struct 에서 class 로 변경하였습니다.
+- 응답이 도착하면 Notification 에 id 를 넘기고, ViewController에서 id를 가진 section을 얻어와 업데이트하였습니다.
+
 # 진행 방법
 
 - 쇼핑 iOS 앱 요구사항을 파악한다.
