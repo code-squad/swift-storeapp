@@ -58,11 +58,15 @@ class StoreInfo {
             return
         }
         URLSession(configuration: URLSessionConfiguration.default).dataTask(with: url) { (data, response, error) in
+            defer {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "did_receive_json"), object: id)
+            }
+            guard let data = data else {
+                return
+            }
             do {
-                let json = try JSONDecoder().decode([StoreItem].self, from: data!)
+                let json = try JSONDecoder().decode([StoreItem].self, from: data)
                 self.items = json
-                // TODO: 응답을 받으면 Notification을 보내자.
-//                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "download"), object: json)
             } catch {
                 // error
             }

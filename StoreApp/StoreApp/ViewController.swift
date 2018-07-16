@@ -21,6 +21,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ViewController.didReceiveStoreData(notification:)),
+                                               name: NSNotification.Name("did_receive_json"), object: nil)
+    }
+    
+    @objc func didReceiveStoreData(notification: NSNotification) {
+        guard let id = notification.object as? String else {
+            return
+        }
+        let index = store.storeInfoArray.index { storeInfo -> Bool in
+            return storeInfo.id == id
+        }
+        if let section = index {
+            DispatchQueue.main.async {
+                self.tableView.reloadSections([section], with: UITableViewRowAnimation.none)
+            }
+        }
     }
 }
 
