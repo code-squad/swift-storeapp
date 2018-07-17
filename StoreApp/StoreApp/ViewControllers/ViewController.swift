@@ -70,7 +70,7 @@ class ViewController: UIViewController {
   }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     guard let storeManager = self.storeDataManager else { return 0 }
     
@@ -90,6 +90,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     return cell
   }
   
+  func numberOfSections(in tableView: UITableView) -> Int {
+    guard let storeManager = self.storeDataManager else { return 0 }
+    
+    return storeManager.numberOfSections
+  }
+}
+
+extension ViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return rowHeight
   }
@@ -105,12 +113,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                       subtitle: storeManager[at: section].subtitle)
     
     return header
-  }
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    guard let storeManager = self.storeDataManager else { return 0 }
-    
-    return storeManager.numberOfSections
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

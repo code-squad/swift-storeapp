@@ -1,5 +1,5 @@
 //
-//  ThumbnailInfo.swift
+//  Thumbnail.swift
 //  StoreApp
 //
 //  Created by yuaming on 17/07/2018.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ThumbnailInfo {
+class Thumbnail {
   fileprivate(set) var image: UIImage?
   
   init(_ imageUrl: String?) throws {
