@@ -57,8 +57,7 @@ image:./images/result-5-1.png[45%, 45%]
 ** `App Transport Security`
 ** http://blowmj.tistory.com/entry/iOS-iOS9-App-Transport-Security-설정법[App Transport Security 설정법]
 
-> App Transport Security(이후 ATS)는 iOS 9.0또는 OS X 10.11 이상 유효하며, 응용프로그램과 웹 서비스간의 안전한 연결을 위해 사용할 수 있음. ATS가 활성화되면 HTTP를 통해 통신을 할 수 없음. 또한 Apple에서 권장하는 요구 사항을 충족하지 않는 연결은 강제로 연결 실패 처리됩니다. 예를 들어, Apple 권장 요구 사항을 충족하지 않는 Web 페이지를 WKWebView 에서 열려고 하면 페이지로드는 실패함
-
+> App Transport Security(이후 ATS)는 iOS 9.0또는 OS X 10.11 이상 유효하며, 응용프로그램과 웹 서비스간의 안전한 연결을 위해 사용할 수 있음. ATS가 활성화되면 HTTP를 통해 통신을 할 수 없음. 또한 Apple에서 권장하는 요구 사항을 충족하지 않는 연결은 강제로 연결 실패 처리됨. 예를 들어, Apple 권장 요구 사항을 충족하지 않는 Web 페이지를 WKWebView 에서 열려고 하면 페이지로드는 실패함
 
 image:./images/error-5-1.png[45%, 45%]
 image:./images/error-5-2.png[45%, 45%]
@@ -76,16 +75,15 @@ image:./images/error-5-2.png[45%, 45%]
 
 ===== 실행결과
 
+image:./images/result-6-1.png[45%, 45%]
+image:./images/result-6-2.png[45%, 45%]
+
 ===== 학습거리 
 * Alamofire, SDWebImage를 cocoapod으로 설치해서 테이블 뷰 셀에 이미지를 캐싱하고 개선함
 * 병렬 처리(Parallel Processing), 동시성(Concurrency) 해결을 위한 다양한 방식에 대해 정리
 ** https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1[Concurrency Programming Guide]
 ** GCD, OperationQueue 차이점
 * https://en.wikipedia.org/wiki/Cache_%28computing%29#Web_cache[Caching]
-* Bundle, FileManager
-** https://developer.apple.com/documentation/foundation/bundle?changes=_2[Bundle] => App 내의 Bundle 접근하고 특정 파일을 찾음. 그리고, Bundle은 어떤 Target에서 Build가 되느냐에 따라 구조가 달라짐
-** https://developer.apple.com/documentation/foundation/filemanager[FileManager] => 전반적인 파일 시스템. 파일을 삭제하고 생성하고 불러거나 이동, 복사 등 작업을 할 수 있음
-* NSCache, FileManager 이용
 ** NSCache 
 *** 메모리 캐시
 *** 메모리 캐시 성격상 처리 속도가 빠르고 일반적으로 용량이 적음
@@ -96,5 +94,8 @@ image:./images/error-5-2.png[45%, 45%]
 ** http://mygumi.tistory.com/275[메모리 캐시, 디스크 캐시]
 ** http://mygumi.tistory.com/282[Data URL, Image File]
 ** https://stackoverflow.com/questions/38064042/access-files-in-var-mobile-containers-data-application-without-jailbreaking-iph[실제 장비 캐시파일 확인하는 방법]
+* Bundle, FileManager
+** https://developer.apple.com/documentation/foundation/bundle?changes=_2[Bundle] => App 내의 Bundle 접근하고 특정 파일을 찾음. 그리고, Bundle은 어떤 Target에서 Build가 되느냐에 따라 구조가 달라짐
+** https://developer.apple.com/documentation/foundation/filemanager[FileManager] => 전반적인 파일 시스템. 파일을 삭제하고 생성하고 불러거나 이동, 복사 등 작업을 할 수 있음
 * DispatchQueue.global 옵션 우선순위 
 ** https://magi82.github.io/gcd-01/[iOS GCD]
