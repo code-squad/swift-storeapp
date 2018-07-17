@@ -20,14 +20,24 @@ class ThumbnailInfo {
     guard let urlString = urlString,
       let url = API.shared.urlWithFullPath(urlString) else { return }
     
-    API.shared.request(withUrl: url) { resultType in
-      switch resultType {
-      case .success(let data):
+    let queue = DispatchQueue.global(qos: .userInitiated)
+    
+    queue.async {
+      ImageCache.fetchData(urlString) { [weak self] data in
         if let data = data {
-          self.image = UIImage(data: data)
+          self?.image = UIImage(data: data)
+        } else {
+          API.shared.request(withUrl: url) { resultType in
+            switch resultType {
+            case .success(let data):
+              guard let data = data else { return }
+              ImageCache.store(urlString, data: data)
+              self?.image = UIImage(data: data)
+            case .error(let error):
+              print(error.localizedDescription)
+            }
+          }
         }
-      case .error(let error):
-        print(error.localizedDescription)
       }
     }
   }

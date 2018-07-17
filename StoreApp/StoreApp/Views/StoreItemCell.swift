@@ -12,6 +12,9 @@ class StoreItemCell: UITableViewCell {
   fileprivate lazy var thumbnailImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.layer.masksToBounds = true
+    imageView.layer.cornerRadius = 50
+    imageView.backgroundColor = .lightGray
     return imageView
   }()
   

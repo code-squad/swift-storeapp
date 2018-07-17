@@ -43,12 +43,8 @@ class StoreDataManager {
 fileprivate extension StoreDataManager {
   func generateFileData() {
     FoodType.allValues.forEach { foodType in
-      guard let data = FileLoader.data(file: foodType, fileType: FileTypes.json) else {
-        return
-      }
-      
-      list.append(StoreItems(header: foodType,
-                             items: JSONConverter.decode(in: data, type: [StoreItem].self)))
+      let data = FileLoader.data(file: foodType, fileType: FileTypes.json)
+      loadData(data, foodType)
     }
   }
   
@@ -59,14 +55,18 @@ fileprivate extension StoreDataManager {
       API.shared.request(withUrl: url) { resultType in
         switch resultType {
         case .success(let data):
-          if let data = data {
-            let decodedData = JSONConverter.decode(in: data, type: [StoreItem].self)
-            self.list.append(StoreItems(header: foodType, items: decodedData))
-          }
+          self.loadData(data, foodType)
         case .error(let error):
           print(error.localizedDescription)
         }
       }
+    }
+  }
+  
+  func loadData(_ data: Data?, _ header: FoodType) {
+    if let data = data {
+      let decodedData = JSONConverter.decode(in: data, type: [StoreItem].self)
+      list.append(StoreItems(header: header, items: decodedData))
     }
   }
 }
