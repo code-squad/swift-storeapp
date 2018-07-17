@@ -10,7 +10,7 @@ import Foundation
 
 struct FileLoader {
   static func data(file: FoodType, fileType: FileTypes) -> Data? {
-    guard let path = Bundle.main.path(forResource: file.description, ofType: fileType.name) else { return nil }
+    guard let path = Bundle.main.path(forResource: file.name, ofType: fileType.name) else { return nil }
     
     let url = URL(fileURLWithPath: path)
     guard let data = try? Data(contentsOf: url) else { return nil }
