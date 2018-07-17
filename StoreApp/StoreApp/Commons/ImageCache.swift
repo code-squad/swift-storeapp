@@ -15,16 +15,12 @@ class ImageCache {
     return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
   }()
   
-  static func fetchData(_ fileName: String, completionHandler: @escaping (_ data: Data?) -> Void) {
+  static func fetchData(_ fileName: String) -> Data? {
     let url = cacheDirectoryUrl.appendingPathComponent(fileName)
-    if let data = FileManager.default.contents(atPath: url.path) {
-      completionHandler(data)
-    } else {
-      completionHandler(nil)
-    }
+    return FileManager.default.contents(atPath: url.path)
   }
   
-  static func store(_ fileName: String, data: Data) {
+  static func store(_ fileName: String, content data: Data) {
     let url = cacheDirectoryUrl.appendingPathComponent(fileName)
     
     do {
