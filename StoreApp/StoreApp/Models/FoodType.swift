@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  FoodType.swift
 //  StoreApp
 //
 //  Created by yuaming on 13/07/2018.
@@ -8,23 +8,15 @@
 
 import Foundation
 
-enum FoodType: Int, CustomStringConvertible {
-  case main = 0, soup, side
+enum FoodType: String {
+  case main, soup, side
   
   static var allValues: [FoodType] {
     return [.main, .soup, .side]
   }
   
-  var index: Int {
+  var name: String {
     return self.rawValue
-  }
-  
-  var description: String {
-    switch self {
-    case .main: return "main"
-    case .soup: return "soup"
-    case .side: return "side"
-    }
   }
   
   var title: String {
