@@ -17,7 +17,7 @@ struct JSONConverter {
       
       jsonData = try JSONDecoder().decode(type, from: data)
     } catch let e {
-      print(e.localizedDescription)
+      print(e)
       return []
     }
     

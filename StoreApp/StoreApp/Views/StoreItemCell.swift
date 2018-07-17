@@ -12,7 +12,6 @@ class StoreItemCell: UITableViewCell {
   fileprivate lazy var thumbnailImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.backgroundColor = .red
     return imageView
   }()
   
@@ -104,6 +103,7 @@ class StoreItemCell: UITableViewCell {
   }
   
   func setItem(_ data: StoreItem) {
+    thumbnailImageView.image = data.thumbnailInfo.image
     itemTitleLabel.text = data.title
     itemDescriptionLabel.text = data.description
     

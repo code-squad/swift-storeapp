@@ -21,7 +21,7 @@ class ViewController: UIViewController {
   fileprivate let sectionHeaderIdentifier = "StoreSectionHeader"
   fileprivate let rowHeight = CGFloat(100)
   fileprivate let headerHeight = CGFloat(80)
-  fileprivate var storeManager: StoreManager? {
+  fileprivate var storeDataManager: StoreDataManager? {
     didSet {
       DispatchQueue.main.async {
         self.storeItemTableView.reloadData()
@@ -43,8 +43,8 @@ class ViewController: UIViewController {
     
     NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: Notification.Name.storeList, object: nil)
     
-    self.storeManager = StoreManager()
-    self.storeManager?.generateData()
+    self.storeDataManager = StoreDataManager()
+    self.storeDataManager?.generateData()
   }
   
   fileprivate func configueToastView() {
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
       return
     }
     
-    self.storeManager = StoreManager(list: list)
+    self.storeDataManager = StoreDataManager(list: list)
   }
   
   deinit {
@@ -72,7 +72,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    guard let storeManager = self.storeManager else { return 0 }
+    guard let storeManager = self.storeDataManager else { return 0 }
     
     return storeManager.numberOfCells(section)
   }
@@ -82,7 +82,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
       return UITableViewCell()
     }
     
-    guard let storeManager = storeManager else { return UITableViewCell() }
+    guard let storeManager = storeDataManager else { return UITableViewCell() }
     
     let item = storeManager[at: indexPath.section][at: indexPath.row]
     cell.setItem(item)
@@ -99,7 +99,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
       return UIView()
     }
     
-    guard let storeManager = storeManager else { return UIView() }
+    guard let storeManager = storeDataManager else { return UIView() }
     
     header.setContent(title: storeManager[at: section].title,
                       subtitle: storeManager[at: section].subtitle)
@@ -108,7 +108,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    guard let storeManager = self.storeManager else { return 0 }
+    guard let storeManager = self.storeDataManager else { return 0 }
     
     return storeManager.numberOfSections
   }
@@ -118,11 +118,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let storeManager = self.storeManager else { return }
+    guard let storeManager = self.storeDataManager else { return }
     
     let item = storeManager[at: indexPath.section][at: indexPath.row]
-    if let title = item.title, let salePrice = item.salePrice {
-      Toast(text: "\(title) \(salePrice)").show()
-    }
+      Toast(text: "\(item.title) \(item.salePrice)").show()
   }
 }
