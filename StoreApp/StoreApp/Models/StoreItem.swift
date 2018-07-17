@@ -18,7 +18,7 @@ struct StoreItem: Codable {
   var imageUrl: String
   var alt: String
   var badges: [String]?
-  var thumbnailInfo: ThumbnailInfo
+  var thumbnail: Thumbnail
   
   enum CodingKeys: String, CodingKey {
     case title
@@ -43,6 +43,6 @@ struct StoreItem: Codable {
     self.imageUrl = try values.decode(String.self, forKey: .imageUrl)
     self.alt = try values.decode(String.self, forKey: .alt)
     self.badges = try? values.decode([String].self, forKey: .badges)
-    self.thumbnailInfo = try ThumbnailInfo(imageUrl)
+    self.thumbnail = try Thumbnail(imageUrl)
   }
 }

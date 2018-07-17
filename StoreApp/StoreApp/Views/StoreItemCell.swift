@@ -106,7 +106,7 @@ class StoreItemCell: UITableViewCell {
   }
   
   func setItem(_ data: StoreItem) {
-    thumbnailImageView.image = data.thumbnailInfo.image
+    thumbnailImageView.image = data.thumbnail.image
     itemTitleLabel.text = data.title
     itemDescriptionLabel.text = data.description
     

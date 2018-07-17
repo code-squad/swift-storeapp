@@ -10,7 +10,7 @@
 		87179F4D20F336DD004040E3 /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87179F4C20F336DD004040E3 /* StoreItemCell.swift */; };
 		87179F5620F33DC1004040E3 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 87179F5520F33DC1004040E3 /* main.json */; };
 		87179F5C20F33FDF004040E3 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87179F5B20F33FDF004040E3 /* StoreItem.swift */; };
-		871B4AA920FD8BF900121966 /* ThumbnailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B4AA820FD8BF900121966 /* ThumbnailInfo.swift */; };
+		871B4AA920FD8BF900121966 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B4AA820FD8BF900121966 /* Thumbnail.swift */; };
 		871B4AAB20FD92DD00121966 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871B4AAA20FD92DD00121966 /* JSONConverter.swift */; };
 		876B6BF020F74B6900A38754 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876B6BEF20F74B6900A38754 /* Constants.swift */; };
 		8771077B20F83E710042EC03 /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8771077A20F83E710042EC03 /* FoodType.swift */; };
@@ -23,6 +23,7 @@
 		87B4E54620F30E01000085E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54420F30E01000085E2 /* Main.storyboard */; };
 		87B4E54820F30E03000085E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54720F30E03000085E2 /* Assets.xcassets */; };
 		87B4E54B20F30E03000085E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B4E54920F30E03000085E2 /* LaunchScreen.storyboard */; };
+		87C0A69A20FE10D400B56F36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C0A69920FE10D400B56F36 /* DetailViewController.swift */; };
 		87CF205320F730EA00998AED /* UILabelWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF205220F730EA00998AED /* UILabelWithPadding.swift */; };
 		87CF205920F73E5C00998AED /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF205820F73E5C00998AED /* StoreItems.swift */; };
 		87CF205B20F73FCD00998AED /* StoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF205A20F73FCD00998AED /* StoreDataManager.swift */; };
@@ -53,7 +54,7 @@
 		87179F4C20F336DD004040E3 /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCell.swift; sourceTree = "<group>"; };
 		87179F5520F33DC1004040E3 /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		87179F5B20F33FDF004040E3 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
-		871B4AA820FD8BF900121966 /* ThumbnailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailInfo.swift; sourceTree = "<group>"; };
+		871B4AA820FD8BF900121966 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		871B4AAA20FD92DD00121966 /* JSONConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		876B6BEF20F74B6900A38754 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8771077A20F83E710042EC03 /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		87B4E54C20F30E03000085E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87B4E55120F30E03000085E2 /* StoreAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B4E55720F30E03000085E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87C0A69920FE10D400B56F36 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		87CF205220F730EA00998AED /* UILabelWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelWithPadding.swift; sourceTree = "<group>"; };
 		87CF205820F73E5C00998AED /* StoreItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		87CF205A20F73FCD00998AED /* StoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataManager.swift; sourceTree = "<group>"; };
@@ -173,7 +175,7 @@
 				87179F5B20F33FDF004040E3 /* StoreItem.swift */,
 				87CF205A20F73FCD00998AED /* StoreDataManager.swift */,
 				8771077A20F83E710042EC03 /* FoodType.swift */,
-				871B4AA820FD8BF900121966 /* ThumbnailInfo.swift */,
+				871B4AA820FD8BF900121966 /* Thumbnail.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				87B4E54220F30E01000085E2 /* ViewController.swift */,
+				87C0A69920FE10D400B56F36 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				871B4AAB20FD92DD00121966 /* JSONConverter.swift in Sources */,
+				87C0A69A20FE10D400B56F36 /* DetailViewController.swift in Sources */,
 				87D71C6320FDB5A200A7ABE7 /* ImageCache.swift in Sources */,
 				87CF205B20F73FCD00998AED /* StoreDataManager.swift in Sources */,
 				87179F4D20F336DD004040E3 /* StoreItemCell.swift in Sources */,
@@ -398,7 +402,7 @@
 				87B4E54120F30E01000085E2 /* AppDelegate.swift in Sources */,
 				8771077B20F83E710042EC03 /* FoodType.swift in Sources */,
 				87D231F220F721A300CD02B8 /* StoreSectionHeader.swift in Sources */,
-				871B4AA920FD8BF900121966 /* ThumbnailInfo.swift in Sources */,
+				871B4AA920FD8BF900121966 /* Thumbnail.swift in Sources */,
 				87CF205920F73E5C00998AED /* StoreItems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
