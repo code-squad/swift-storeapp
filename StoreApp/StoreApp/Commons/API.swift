@@ -9,7 +9,7 @@
 import Foundation
 
 enum API {
-  static let shared: APIServer = DefaultAPIServer()
+  static let shared: APIClient = DefaultAPI()
   case list(String)
   case getImage(String)
 }
@@ -25,20 +25,20 @@ extension API {
   }
 }
 
-enum APIServerResult {
+enum ResponseResult {
   case success(Data?)
   case error(Error)
 }
 
-protocol APIServer {
-  func url(_ id: String) -> URL?
-  func urlWithFullPath(_ fullPath: String) -> URL?
+protocol APIClient {
+  func makeUrlInList(id: String) -> URL?
+  func makeUrl(_ urlString: String) -> URL?
 }
 
-extension APIServer {
-  typealias ResultClosure = (APIServerResult) -> Void
+extension APIClient {
+  typealias ResultClosure = (ResponseResult) -> Void
   
-  func request(withUrl url: URL?, completionHandler: @escaping ResultClosure) {
+  func sendRequest(withUrl url: URL?, completionHandler: @escaping ResultClosure) {
     guard let url = url else { return }
     URLSession.shared.dataTask(with: url) { (data, response, error) in
       if let error = error {
@@ -50,14 +50,14 @@ extension APIServer {
   }
 }
 
-private struct DefaultAPIServer: APIServer {
-  let host: String = "http://crong.codesquad.kr:8080/woowa"
+class DefaultAPI: APIClient {
+  fileprivate let host: String = "http://crong.codesquad.kr:8080/woowa"
   
-  func url(_ id: String) -> URL? {
+  func makeUrlInList(id: String) -> URL? {
     return URL(string: "\(host)\(API.list(id).path)")
   }
   
-  func urlWithFullPath(_ fullPath: String) -> URL? {
-    return URL(string: "\(fullPath)")
+  func makeUrl(_ urlString: String) -> URL? {
+    return URL(string: "\(urlString)")
   }
 }
