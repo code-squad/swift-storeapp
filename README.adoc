@@ -70,3 +70,31 @@ image:./images/error-5-2.png[45%, 45%]
 ** Alamofire를 URLSession 원리를 모른 채 사용하면 네트워크 문제가 발생할 때 해결하기 힘듦
 
 * http://kka7.tistory.com/84[읽을거리: iOS 개발자도 잘 모르는 가장 일반적인 실수 10가지]
+* Alamofire로 개선함
+
+=== 6. 병렬처리
+
+===== 실행결과
+
+===== 학습거리 
+* Alamofire, SDWebImage를 cocoapod으로 설치해서 테이블 뷰 셀에 이미지를 캐싱하고 개선함
+* 병렬 처리(Parallel Processing), 동시성(Concurrency) 해결을 위한 다양한 방식에 대해 정리
+** https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1[Concurrency Programming Guide]
+** GCD, OperationQueue 차이점
+* https://en.wikipedia.org/wiki/Cache_%28computing%29#Web_cache[Caching]
+* Bundle, FileManager
+** https://developer.apple.com/documentation/foundation/bundle?changes=_2[Bundle] => App 내의 Bundle 접근하고 특정 파일을 찾음. 그리고, Bundle은 어떤 Target에서 Build가 되느냐에 따라 구조가 달라짐
+** https://developer.apple.com/documentation/foundation/filemanager[FileManager] => 전반적인 파일 시스템. 파일을 삭제하고 생성하고 불러거나 이동, 복사 등 작업을 할 수 있음
+* NSCache, FileManager 이용
+** NSCache 
+*** 메모리 캐시
+*** 메모리 캐시 성격상 처리 속도가 빠르고 일반적으로 용량이 적음
+** FileManager 이용
+*** 디스크 캐시
+*** 저장 공간은 메모리 캐시에 비해 상대적으로 크지만 파일 I/O 속도로 인해 처리 속도가 느림
+** https://erlnote.wordpress.com/2015/06/02/ios-이미지-캐시-구현하기/[iOS 이미지 캐시 구현하기]
+** http://mygumi.tistory.com/275[메모리 캐시, 디스크 캐시]
+** http://mygumi.tistory.com/282[Data URL, Image File]
+** https://stackoverflow.com/questions/38064042/access-files-in-var-mobile-containers-data-application-without-jailbreaking-iph[실제 장비 캐시파일 확인하는 방법]
+* DispatchQueue.global 옵션 우선순위 
+** https://magi82.github.io/gcd-01/[iOS GCD]
