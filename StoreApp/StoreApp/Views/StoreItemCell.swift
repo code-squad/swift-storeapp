@@ -56,9 +56,9 @@ class StoreItemCell: UITableViewCell {
     return label
   }()
   
+  fileprivate let badgeLabelInsets = UIEdgeInsets(top: 2, left: 3, bottom: 2, right: 3)
   fileprivate lazy var badgeLabel: UILabelWithPadding = {
-    let insets = UIEdgeInsets(top: 2, left: 3, bottom: 2, right: 3)
-    let label = UILabelWithPadding(frame: self.frame, padding: insets)
+    let label = UILabelWithPadding(frame: self.frame)
     label.textColor = .white
     label.font = .systemFont(ofSize: 10, weight: .regular)
     label.backgroundColor = .lightPink
@@ -101,12 +101,16 @@ class StoreItemCell: UITableViewCell {
     
     for case let badgeLabel as UILabelWithPadding in badgesStackView.arrangedSubviews {
       badgeLabel.text = nil
+      badgeLabel.removeInsets()
       badgesStackView.removeArrangedSubview(badgeLabel)
     }
   }
   
   func setItem(_ data: StoreItem) {
-    thumbnailImageView.image = data.thumbnail.image
+    DispatchQueue.main.async {
+      self.thumbnailImageView.image = data.thumbnail.image
+    }
+    
     itemTitleLabel.text = data.title
     itemDescriptionLabel.text = data.description
     
@@ -122,6 +126,7 @@ class StoreItemCell: UITableViewCell {
     if let badges = data.badges {
       badges.forEach {
         badgeLabel.text = $0
+        badgeLabel.addInsets(badgeLabelInsets)
         badgesStackView.addArrangedSubview(badgeLabel)
       }
     }

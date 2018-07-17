@@ -43,6 +43,13 @@ class UILabelWithPadding: UILabel {
     return size
   }
   
+  func addInsets(_ insets: UIEdgeInsets) {
+    self.topInset = insets.top
+    self.bottomInset = insets.bottom
+    self.leftInset = insets.left
+    self.rightInset = insets.right
+  }
+  
   func removeInsets() {
     self.topInset = 0
     self.bottomInset = 0
