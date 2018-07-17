@@ -1,5 +1,5 @@
 //
-//  StoreManager.swift
+//  StoreDataManager.swift
 //  StoreApp
 //
 //  Created by yuaming on 12/07/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StoreManager {
+class StoreDataManager {
   private var list: [StoreItems] {
     didSet {
       NotificationCenter.default.post(name: .storeList, object: nil, userInfo: [Constants.list: list])
@@ -40,7 +40,7 @@ class StoreManager {
   }
 }
 
-fileprivate extension StoreManager {
+fileprivate extension StoreDataManager {
   func generateFileData() {
     FoodType.allValues.forEach { foodType in
       guard let data = FileLoader.data(file: foodType, fileType: FileTypes.json) else {
@@ -50,29 +50,24 @@ fileprivate extension StoreManager {
       list.append(StoreItems(header: foodType,
                              items: JSONConverter.decode(in: data, type: [StoreItem].self)))
     }
-    
-    sortByFoodType()
   }
   
   func requestData() {
     for foodType in FoodType.allValues {
-      API.shared.request(foodType: foodType, type: [StoreItem].self) { resultType in
+      let url = API.shared.url(foodType.description)
+
+      API.shared.request(withUrl: url) { resultType in
         switch resultType {
-        case .success(let result):
-          if let result = result as? [StoreItem] {
-            self.list.append(StoreItems(header: foodType, items: result))
+        case .success(let data):
+          if let data = data {
+            let decodedData = JSONConverter.decode(in: data, type: [StoreItem].self)
+            self.list.append(StoreItems(header: foodType, items: decodedData))
           }
         case .error(let error):
           print(error.localizedDescription)
         }
       }
     }
-    
-    sortByFoodType()
-  }
-  
-  func sortByFoodType() {
-    list.sort { $0.indexOfFoodType > $1.indexOfFoodType }
   }
 }
 
