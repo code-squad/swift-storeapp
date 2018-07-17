@@ -10,35 +10,39 @@ import Foundation
 import UIKit
 
 class ThumbnailInfo {
-  private(set) var image: UIImage?
+  fileprivate(set) var image: UIImage?
   
   init(_ imageUrl: String?) throws {
-    self.loadImage(imageUrl)
+    self.loadImageData(imageUrl)
   }
   
-  fileprivate func loadImage(_ urlString: String?) {
-    guard let urlString = urlString,
-      let url = API.shared.urlWithFullPath(urlString) else { return }
+  fileprivate func loadImageData(_ urlString: String?) {
+    guard let urlString = urlString else { return }
     
-    let queue = DispatchQueue.global(qos: .userInitiated)
+    let dispatchQueue = DispatchQueue.global(qos: .userInitiated)
+    dispatchQueue.async {
+      if let cachedData = ImageCache.fetchData(urlString) {
+        self.image = UIImage(data: cachedData)
+      } else {
+        self.requestImageData(urlString)
+      }
+    }
+  }
+  
+  fileprivate func requestImageData(_ urlString: String) {
+    guard let url = API.shared.makeUrl(urlString) else { return }
     
-    queue.async {
-      ImageCache.fetchData(urlString) { [weak self] data in
-        if let data = data {
-          self?.image = UIImage(data: data)
-        } else {
-          API.shared.request(withUrl: url) { resultType in
-            switch resultType {
-            case .success(let data):
-              guard let data = data else { return }
-              ImageCache.store(urlString, data: data)
-              self?.image = UIImage(data: data)
-            case .error(let error):
-              print(error.localizedDescription)
-            }
-          }
-        }
+    API.shared.sendRequest(withUrl: url) { resultType in
+      switch resultType {
+      case .success(let data):
+        guard let data = data else { return }
+        ImageCache.store(urlString, content: data)
+        self.image = UIImage(data: data)
+      case .error(let error):
+        print(error.localizedDescription)
       }
     }
   }
 }
+
+
