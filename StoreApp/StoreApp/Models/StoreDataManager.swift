@@ -44,18 +44,18 @@ fileprivate extension StoreDataManager {
   func generateFileData() {
     FoodType.allValues.forEach { foodType in
       let data = FileLoader.data(file: foodType, fileType: FileTypes.json)
-      loadData(data, foodType)
+      load(data, header: foodType)
     }
   }
   
   func requestData() {
     for foodType in FoodType.allValues {
-      let url = API.shared.url(foodType.description)
+      let url = API.shared.makeUrlInList(id: foodType.name)
 
-      API.shared.request(withUrl: url) { resultType in
+      API.shared.sendRequest(withUrl: url) { resultType in
         switch resultType {
         case .success(let data):
-          self.loadData(data, foodType)
+          self.load(data, header: foodType)
         case .error(let error):
           print(error.localizedDescription)
         }
@@ -63,7 +63,7 @@ fileprivate extension StoreDataManager {
     }
   }
   
-  func loadData(_ data: Data?, _ header: FoodType) {
+  func load(_ data: Data?, header: FoodType) {
     if let data = data {
       let decodedData = JSONConverter.decode(in: data, type: [StoreItem].self)
       list.append(StoreItems(header: header, items: decodedData))
