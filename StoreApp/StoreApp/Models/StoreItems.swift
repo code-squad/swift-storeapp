@@ -32,8 +32,4 @@ class StoreItems {
   var count: Int {
     return items.count 
   }
-  
-  var indexOfFoodType: Int {
-    return header.index
-  }
 }
