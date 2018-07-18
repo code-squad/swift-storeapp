@@ -13,19 +13,20 @@ class StoreTableViewCell: UITableViewCell {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
-    @IBOutlet weak var badges: UILabel!
     @IBOutlet weak var prices: UIStackView!
-
+    @IBOutlet weak var badgeStack: UIStackView!
+    
     var itemData: ItemData! {
         didSet {
             self.title.text = itemData.title
             self.itemDescription.text = itemData.description
             self.setPriceLabels(nPrice: itemData.n_price, sPrice: itemData.s_price)
             guard let badges = itemData.badge else {
-                self.badges.isHidden = true
+                self.badgeStack.isHidden = true
                 return
             }
-            self.badges.text = badges.reduce("", +)
+            guard badgeStack.subviews.isEmpty else { return }
+            self.setDiscountBadge(texts: badges)
         }
     }
 
@@ -51,5 +52,10 @@ class StoreTableViewCell: UITableViewCell {
         sPriceLabel.text = sPrice
     }
 
-}
+    private func setDiscountBadge(texts: [String]) {
+        let badges = texts.compactMap{ $0.discountBadge() }
+        let badgeLabels = badges.map{ RoundedEdgeLabel().custom(withText: $0) }
+        self.badgeStack.addArrangedSubviews(badgeLabels)
+    }
 
+}
