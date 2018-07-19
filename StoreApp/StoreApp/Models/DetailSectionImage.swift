@@ -11,12 +11,22 @@ import UIKit
 
 class DetailSectionImage {
   var index: Int?
-  var image: UIImage?
+  var image: UIImage? {
+    didSet {
+      if index != nil {
+        NotificationCenter.default.post(name: .detailSection, object: nil, userInfo: [Constants.imageIndex: index, Constants.image: image])
+      }
+    }
+  }
   
-  init(_ imageUrl: String?, index: Int?) {
+  init(_ imageUrl: String?, index: Int? = nil) {
     self.index = index
     loadImageData(imageUrl)
   }
 }
 
 extension DetailSectionImage: ImageLoaderable { }
+
+extension Notification.Name {
+  static let detailSection = Notification.Name(Constants.detailSection)
+}
