@@ -22,14 +22,14 @@ class DetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    initialize()
+    setup()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
   }
   
-  fileprivate func initialize() {
+  fileprivate func setup() {
     NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: .detailData, object: nil)
     
     self.navigationController?.isNavigationBarHidden = true
@@ -42,7 +42,7 @@ class DetailViewController: UIViewController {
       let detailTitle = userInfo[Constants.detailTitle] as? String,
       let itemDetailData = userInfo[Constants.detailData] as? ItemDetailData else { return }
     
-    updateView(detailTitle, itemDetailData)
+    updateDetailInfoContainer(detailTitle, itemDetailData)
     configueThumbnailScrollViewSize(itemDetailData.thumbnailImageUrls.count)
   }
   
@@ -52,7 +52,7 @@ class DetailViewController: UIViewController {
 }
 
 fileprivate extension DetailViewController {
-  func updateView(_ detailTitle: String, _ data: ItemDetailData) {
+  func updateDetailInfoContainer(_ detailTitle: String, _ data: ItemDetailData) {
     titleLabel.text = detailTitle
     descriptionLabel.text = data.productDescription
     priceLabel.text = data.prices.last
