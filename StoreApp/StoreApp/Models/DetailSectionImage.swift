@@ -1,22 +1,22 @@
 //
-//  Thumbnail.swift
+//  DetailSectionImage.swift
 //  StoreApp
 //
-//  Created by yuaming on 17/07/2018.
+//  Created by yuaming on 18/07/2018.
 //  Copyright © 2018 yuaming. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class Thumbnail {
+class DetailSectionImage {
   fileprivate(set) var image: UIImage?
   
   init(_ imageUrl: String?) {
-    self.loadImageData(imageUrl)
+    loadImageData(imageUrl)
   }
   
-  fileprivate func loadImageData(_ urlString: String?) {
+  func loadImageData(_ urlString: String?) {
     guard let urlString = urlString else { return }
     
     let dispatchQueue = DispatchQueue.global(qos: .userInitiated)
@@ -29,7 +29,7 @@ class Thumbnail {
     }
   }
   
-  fileprivate func requestImageData(_ urlString: String) {
+  func requestImageData(_ urlString: String) {
     guard let url = API.shared.makeUrl(urlString) else { return }
     
     API.shared.sendRequest(withUrl: url) { resultType in
@@ -44,5 +44,3 @@ class Thumbnail {
     }
   }
 }
-
-

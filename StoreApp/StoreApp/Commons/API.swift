@@ -12,6 +12,7 @@ enum API {
   static let shared: APIClient = DefaultAPI()
   case list(String)
   case getImage(String)
+  case detail(String)
 }
 
 extension API {
@@ -21,6 +22,8 @@ extension API {
       return "/\(id)"
     case let .getImage(imagePath):
       return "\(imagePath)"
+    case let .detail(hash):
+      return "/detail/\(hash)"
     }
   }
 }
@@ -33,6 +36,7 @@ enum ResponseResult {
 protocol APIClient {
   func makeUrlInList(id: String) -> URL?
   func makeUrl(_ urlString: String) -> URL?
+  func makeUrlInDetail(hash: String) -> URL?
 }
 
 extension APIClient {
@@ -59,5 +63,9 @@ class DefaultAPI: APIClient {
   
   func makeUrl(_ urlString: String) -> URL? {
     return URL(string: "\(urlString)")
+  }
+  
+  func makeUrlInDetail(hash: String) -> URL? {
+    return URL(string: "\(host)\(API.detail(hash).path)")
   }
 }
