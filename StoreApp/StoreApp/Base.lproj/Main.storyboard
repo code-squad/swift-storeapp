@@ -75,7 +75,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRV-3e-cbx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="728"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WY-Jz-Nwf">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -84,7 +84,7 @@
                                         </constraints>
                                     </scrollView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FtX-d9-drC">
-                                        <rect key="frame" x="0.0" y="200" width="375" height="220"/>
+                                        <rect key="frame" x="0.0" y="200" width="375" height="230"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXR-nH-t9N">
                                                 <rect key="frame" x="15" y="20" width="32" height="21"/>
@@ -156,7 +156,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="220" id="7RW-hg-u0x"/>
+                                            <constraint firstAttribute="height" constant="230" id="7RW-hg-u0x"/>
                                             <constraint firstItem="4gk-Z8-RtN" firstAttribute="leading" secondItem="FtX-d9-drC" secondAttribute="leading" constant="15" id="87P-uw-vQ2"/>
                                             <constraint firstItem="HUf-Xw-fDd" firstAttribute="top" secondItem="4gk-Z8-RtN" secondAttribute="bottom" constant="15" id="8i3-iT-1Z2"/>
                                             <constraint firstItem="TEn-sY-8yD" firstAttribute="leading" secondItem="FtX-d9-drC" secondAttribute="leading" constant="15" id="CsU-r6-NRZ"/>
@@ -205,7 +205,7 @@
                             <constraint firstItem="l31-ff-yei" firstAttribute="leading" secondItem="gn1-6x-66j" secondAttribute="leading" id="Vbl-Qj-lds"/>
                             <constraint firstItem="TRV-3e-cbx" firstAttribute="top" secondItem="vHC-yu-zVe" secondAttribute="top" id="cms-9H-kn9"/>
                             <constraint firstItem="l31-ff-yei" firstAttribute="trailing" secondItem="gn1-6x-66j" secondAttribute="trailing" id="kX5-Sl-Tk2"/>
-                            <constraint firstItem="TRV-3e-cbx" firstAttribute="bottom" secondItem="l31-ff-yei" secondAttribute="bottom" id="nhP-u5-1yT"/>
+                            <constraint firstItem="TRV-3e-cbx" firstAttribute="bottom" secondItem="l31-ff-yei" secondAttribute="bottom" constant="-50" id="nhP-u5-1yT"/>
                             <constraint firstItem="TRV-3e-cbx" firstAttribute="leading" secondItem="gn1-6x-66j" secondAttribute="leading" id="sKV-jz-k8v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gn1-6x-66j"/>
@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6B-8R-COX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="31.934032983508249"/>
+            <point key="canvasLocation" x="1396" y="31.773399014778327"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xWi-rx-oWM">
