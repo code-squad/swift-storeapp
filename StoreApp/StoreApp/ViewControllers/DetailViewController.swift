@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var detailInfoContainer: UIView!
   @IBOutlet weak var sectionScrollView: UIScrollView!
   
+  fileprivate let detailSectionHeight: CGFloat = 600
   
   var itemDetail: StoreDetailItem?
   
@@ -33,7 +34,8 @@ class DetailViewController: UIViewController {
   
   fileprivate func setup() {
     NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: .detailData, object: nil)
-    NotificationCenter.default.addObserver(self, selector: #selector(updateThumbnail(_:)), name: .thumbnail, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(updateThumbnails(_:)), name: .thumbnail, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(updateDetailSection(_:)), name: .detailSection, object: nil)
     
     self.navigationController?.isNavigationBarHidden = true
     self.itemDetail?.requestData()
@@ -44,11 +46,12 @@ class DetailViewController: UIViewController {
       let detailTitle = userInfo[Constants.detailTitle] as? String,
       let itemDetailData = userInfo[Constants.detailData] as? ItemDetailData else { return }
     
+    configueSectionScrollViewSize(itemDetailData.detailSectionImageUrls.count)
     configueThumbnailScrollViewSize(itemDetailData.thumbnailImageUrls.count)
     updateDetailInfoContainer(detailTitle, itemDetailData)
   }
   
-  @objc fileprivate func updateThumbnail(_ notification: Notification) {
+  @objc fileprivate func updateThumbnails(_ notification: Notification) {
     guard let userInfo = notification.userInfo,
       let index = userInfo[Constants.imageIndex] as? Int,
       let image = userInfo[Constants.image] as? UIImage else { return }
@@ -58,12 +61,27 @@ class DetailViewController: UIViewController {
     }
   }
   
+  @objc fileprivate func updateDetailSection(_ notification: Notification) {
+    guard let userInfo = notification.userInfo,
+      let index = userInfo[Constants.imageIndex] as? Int,
+      let image = userInfo[Constants.image] as? UIImage else { return }
+    
+    DispatchQueue.main.async {
+      self.updateDetailSectionView(index: index, image: image)
+    }
+  }
+  
   @IBAction func orderButtonDidTapped(_ sender: UIButton) {
     self.navigationController?.popViewController(animated: true)
   }
 }
 
 fileprivate extension DetailViewController {
+  func configueSectionScrollViewSize(_ count: Int) {
+    sectionScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width,
+                                           height: thumbnailScrollView.frame.height +         detailInfoContainer.frame.height + detailSectionHeight * CGFloat(count))
+  }
+  
   func configueThumbnailScrollViewSize(_ count: Int) {
     thumbnailScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(count),
                                              height: thumbnailScrollView.frame.height)
@@ -80,9 +98,17 @@ fileprivate extension DetailViewController {
   
   func updateThumbnailScrollView(index: Int, image: UIImage) {
     let xCoordinate: CGFloat = thumbnailScrollView.frame.width * CGFloat(index)
-    let thumbnail = UIImageView(frame: CGRect(x: xCoordinate, y: 0, width: UIScreen.main.bounds.width, height: thumbnailScrollView.frame.height))
-    thumbnail.contentMode = .scaleAspectFit
-    thumbnail.image = image
-    thumbnailScrollView.addSubview(thumbnail)
+    let thumbnailView = UIImageView(frame: CGRect(x: xCoordinate, y: 0, width: UIScreen.main.bounds.width, height: thumbnailScrollView.frame.height))
+    thumbnailView.contentMode = .scaleAspectFill
+    thumbnailView.image = image
+    thumbnailScrollView.addSubview(thumbnailView)
+  }
+  
+  func updateDetailSectionView(index: Int, image: UIImage) {
+    let yCoordinate: CGFloat = (thumbnailScrollView.frame.height + detailInfoContainer.frame.height) + (CGFloat(index) * detailSectionHeight)
+    let detailSectionImageView = UIImageView(frame: CGRect(x: 0, y: yCoordinate, width: UIScreen.main.bounds.width, height: detailSectionHeight))
+    detailSectionImageView.contentMode = .scaleAspectFit
+    detailSectionImageView.image = image
+    sectionScrollView.addSubview(detailSectionImageView)
   }
 }
