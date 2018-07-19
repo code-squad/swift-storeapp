@@ -25,13 +25,16 @@ class DetailViewController: UIViewController {
   
   fileprivate let detailSectionHeight: CGFloat = 500
   
-  var itemDetail: StoreDetailItem?
   var orderDelegate: OrderDelegate?
+  var itemDetail: StoreDetailItem? {
+    willSet {
+      self.setupObservers()
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-    setupObservers()
   }
   
   override func viewWillAppear(_ animated: Bool) {
