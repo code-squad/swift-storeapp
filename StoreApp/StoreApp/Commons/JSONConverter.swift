@@ -9,7 +9,7 @@
 import Foundation
 
 struct JSONConverter {
-  static func decode<T: Codable>(in data: Data?, type: [T].Type) -> [T] {
+  static func decode<T: Decodable>(in data: Data?, type: [T].Type) -> [T] {
     let jsonData: [T]
     
     do {
@@ -19,6 +19,21 @@ struct JSONConverter {
     } catch let e {
       print(e)
       return []
+    }
+    
+    return jsonData
+  }
+  
+  static func decode<T: Decodable>(in data: Data?, type: T.Type) -> T? {
+    let jsonData: T
+    
+    do {
+      guard let data = data else { return nil }
+      
+      jsonData = try JSONDecoder().decode(type, from: data)
+    } catch let e {
+      print(e)
+      return nil
     }
     
     return jsonData
