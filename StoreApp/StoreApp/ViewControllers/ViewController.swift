@@ -19,6 +19,7 @@ class ViewController: UIViewController {
   
   fileprivate let cellIdentifier = "StoreItemCell"
   fileprivate let sectionHeaderIdentifier = "StoreSectionHeader"
+  fileprivate let detailViewControllerIdentifier = "DetailViewController"
   fileprivate let rowHeight = CGFloat(100)
   fileprivate let headerHeight = CGFloat(80)
   fileprivate var storeDataManager: StoreDataManager? {
@@ -123,6 +124,9 @@ extension ViewController: UITableViewDelegate {
     guard let storeManager = self.storeDataManager else { return }
     
     let item = storeManager[at: indexPath.section][at: indexPath.row]
-      Toast(text: "\(item.title) \(item.salePrice)").show()
+    if let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: detailViewControllerIdentifier) as? DetailViewController {
+      detailViewController.itemDetail = StoreDetailItem(item.title, item.detailHash)
+      self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
   }
 }
