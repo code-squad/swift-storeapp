@@ -89,6 +89,10 @@ class DetailViewController: UIViewController {
     orderDelegate?.showResult(orderInfo)
     self.navigationController?.popViewController(animated: true)
   }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
+  }
 }
 
 fileprivate extension DetailViewController {
