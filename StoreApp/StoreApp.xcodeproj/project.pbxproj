@@ -36,6 +36,7 @@
 		87D2348320FE323200BF76F0 /* ItemDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D2348220FE323200BF76F0 /* ItemDetailData.swift */; };
 		87D71C6320FDB5A200A7ABE7 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D71C6220FDB5A200A7ABE7 /* ImageCache.swift */; };
 		87E321AC210029FE00679CF9 /* ImageLoaderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E321AB210029FE00679CF9 /* ImageLoaderable.swift */; };
+		87E321AE21006DFB00679CF9 /* OrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E321AD21006DFB00679CF9 /* OrderInfo.swift */; };
 		BA2C097081E3B67FB08EF3A8 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E45BDC9157313FA8317C54 /* Pods_StoreApp.framework */; };
 		D30289D6331F9C244F9D77A7 /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640F8E58899B2CD027247C8D /* Pods_StoreAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		87D2348220FE323200BF76F0 /* ItemDetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailData.swift; sourceTree = "<group>"; };
 		87D71C6220FDB5A200A7ABE7 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		87E321AB210029FE00679CF9 /* ImageLoaderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderable.swift; sourceTree = "<group>"; };
+		87E321AD21006DFB00679CF9 /* OrderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfo.swift; sourceTree = "<group>"; };
 		DC77230390935171178147AF /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +192,7 @@
 				87CF205820F73E5C00998AED /* StoreItems.swift */,
 				871B4AA820FD8BF900121966 /* Thumbnail.swift */,
 				87E321AB210029FE00679CF9 /* ImageLoaderable.swift */,
+				87E321AD21006DFB00679CF9 /* OrderInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				876B6BF020F74B6900A38754 /* Constants.swift in Sources */,
 				8771077F20F840990042EC03 /* FileLoader.swift in Sources */,
 				87B4E54120F30E01000085E2 /* AppDelegate.swift in Sources */,
+				87E321AE21006DFB00679CF9 /* OrderInfo.swift in Sources */,
 				87E321AC210029FE00679CF9 /* ImageLoaderable.swift in Sources */,
 				8771077B20F83E710042EC03 /* FoodType.swift in Sources */,
 				87D231F220F721A300CD02B8 /* StoreSectionHeader.swift in Sources */,

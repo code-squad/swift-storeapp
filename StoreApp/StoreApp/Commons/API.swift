@@ -52,10 +52,18 @@ extension APIClient {
       }
     }.resume()
   }
+  
+  func post(withUrl url: URL?, data: Data) {
+    guard let url = url else { return }
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.httpBody = data
+    URLSession.shared.dataTask(with: request).resume()
+  }
 }
 
 class DefaultAPI: APIClient {
-  fileprivate let host: String = "http://crong.codesquad.kr:8080/woowa"
+  fileprivate let host = Host.base.path
   
   func makeUrlInList(id: String) -> URL? {
     return URL(string: "\(host)\(API.list(id).path)")
@@ -67,5 +75,21 @@ class DefaultAPI: APIClient {
   
   func makeUrlInDetail(hash: String) -> URL? {
     return URL(string: "\(host)\(API.detail(hash).path)")
+  }
+}
+
+enum Host {
+  case base
+  case order
+}
+
+extension Host {
+  var path: String {
+    switch self {
+    case .base:
+      return "http://crong.codesquad.kr:8080/woowa"
+    case .order:
+      return "https://hooks.slack.com/services/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"
+    }
   }
 }

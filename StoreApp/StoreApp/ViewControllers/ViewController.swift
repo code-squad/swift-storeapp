@@ -125,7 +125,14 @@ extension ViewController: UITableViewDelegate {
     let item = storeManager[at: indexPath.section][at: indexPath.row]
     if let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: detailViewControllerIdentifier) as? DetailViewController {
       detailViewController.itemDetail = StoreDetailItem(item.title, item.detailHash)
+      detailViewController.orderDelegate = self
       self.navigationController?.pushViewController(detailViewController, animated: true)
     }
+  }
+}
+
+extension ViewController: OrderDelegate {
+  func showResult(_ orderInfo: OrderInfo) {
+    Toast(text: orderInfo.description).show()
   }
 }

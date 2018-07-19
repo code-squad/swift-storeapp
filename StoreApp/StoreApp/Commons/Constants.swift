@@ -27,5 +27,5 @@ struct Constants {
   static let detailSection = "detailSection"
   static let imageIndex = "imageIndex"
   static let image = "image"
-  
+  static let text = "text"
 }
