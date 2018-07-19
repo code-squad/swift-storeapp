@@ -31,12 +31,26 @@ struct JSONConverter {
       guard let data = data else { return nil }
       
       jsonData = try JSONDecoder().decode(type, from: data)
-    } catch let e {
-      print(e)
+    } catch {
+      print(error)
       return nil
     }
     
     return jsonData
+  }
+  
+  static func encode<T: Encodable>(in data: T) -> Data? {
+    let jsonEncoder = JSONEncoder()
+    let encodedData: Data
+    
+    do {
+      encodedData = try jsonEncoder.encode(data)
+    } catch {
+      print(error)
+      return nil
+    }
+    
+    return encodedData
   }
 }
 

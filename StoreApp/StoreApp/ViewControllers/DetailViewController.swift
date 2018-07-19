@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol OrderDelegate: class {
+  func showResult(_ orderInfo: OrderInfo)
+}
+
 class DetailViewController: UIViewController {
   @IBOutlet weak var thumbnailScrollView: UIScrollView!
   @IBOutlet weak var titleLabel: UILabel!
@@ -19,13 +23,15 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var detailInfoContainer: UIView!
   @IBOutlet weak var sectionScrollView: UIScrollView!
   
-  fileprivate let detailSectionHeight: CGFloat = 600
+  fileprivate let detailSectionHeight: CGFloat = 500
   
   var itemDetail: StoreDetailItem?
+  var orderDelegate: OrderDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
+    setupObservers()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -33,12 +39,14 @@ class DetailViewController: UIViewController {
   }
   
   fileprivate func setup() {
+    self.itemDetail?.requestData()
+    self.navigationController?.isNavigationBarHidden = true
+  }
+  
+  fileprivate func setupObservers() {
     NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: .detailData, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(updateThumbnails(_:)), name: .thumbnail, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(updateDetailSection(_:)), name: .detailSection, object: nil)
-    
-    self.navigationController?.isNavigationBarHidden = true
-    self.itemDetail?.requestData()
   }
   
   @objc fileprivate func updateData(_ notification: Notification) {
@@ -72,6 +80,13 @@ class DetailViewController: UIViewController {
   }
   
   @IBAction func orderButtonDidTapped(_ sender: UIButton) {
+    let orderInfo = OrderInfo(name: "AMING", menu: titleLabel.text ?? "", price: priceLabel.text ?? "")
+    
+    guard let url = API.shared.makeUrl("\(Host.order.path)") else { return }
+    guard let orderResultData = JSONConverter.encode(in: [Constants.text : orderInfo.description]) else { return }
+    
+    API.shared.post(withUrl: url, data: orderResultData)
+    orderDelegate?.showResult(orderInfo)
     self.navigationController?.popViewController(animated: true)
   }
 }
