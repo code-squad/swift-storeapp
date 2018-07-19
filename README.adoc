@@ -99,3 +99,23 @@ image:./images/result-6-2.png[45%, 45%]
 ** https://developer.apple.com/documentation/foundation/filemanager[FileManager] => 전반적인 파일 시스템. 파일을 삭제하고 생성하고 불러거나 이동, 복사 등 작업을 할 수 있음
 * DispatchQueue.global 옵션 우선순위 
 ** https://magi82.github.io/gcd-01/[iOS GCD]
+
+=== 7. 상품 상세화면 전환
+
+===== 실행결과
+
+image:./images/result-7-1.png[45%, 45%]
+image:./images/result-7-2.png[45%, 45%]
+image:./images/result-7-3.png[45%, 45%]
+image:./images/result-7-4.gif[45%, 45%]
+
+===== 학습거리
+* https://developer.apple.com/documentation/code_diagnostics/main_thread_checker[Main Thread Checker] 
+** UI 업데이트처럼 Main Thread에서만 실행해야 할 요소나 동작이 있음. 이것이 지켜지는지 안 지켜는지 Main Thread Checker가 검토함. Main Thread가 수행해야 할 UI 요소나 함수가 Background Thread에서 실행될 경우 UI 업데이트가 안되거나, 화면이 깨지거나, 데이터가 오염되거나, 앱이 죽는 경우가 발생함
+
+image:./images/main-thread-checker-1.png[]
+image:./images/main-thread-checker-2.png[]
+
+* UIScrollView 
+** https://accounts.raywenderlich.com/v2/sso/login?sso=bm9uY2U9NDQxYWFmODA1NjJhMjFmZTY0NjQzYjNkNmU5MTg1YTMmY2FsbGJhY2tfdXJsPWh0dHBzJTNBJTJGJTJGd3d3LnJheXdlbmRlcmxpY2guY29tJTJGc2Vzc2lvbiUyRmNyZWF0ZQ%253D%253D&sig=18cfac022eb70efb37aa4832befd9f760ba4d8a7e410e145fbc15c7f084da4ec[UIScrollView Tutorial: Getting Started]
+** https://www.objc.io/issues/3-views/scroll-view/[Understanding Scroll Views]
