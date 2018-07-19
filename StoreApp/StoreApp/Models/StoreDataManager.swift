@@ -43,7 +43,7 @@ class StoreDataManager {
 fileprivate extension StoreDataManager {
   func generateFileData() {
     FoodType.allValues.forEach { foodType in
-      let data = FileLoader.data(file: foodType, fileType: FileTypes.json)
+      let data = FileLoader.data(fileName: foodType.name, fileType: FileTypes.json)
       load(data, header: foodType)
     }
   }
