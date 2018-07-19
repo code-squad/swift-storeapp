@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 protocol ImageLoaderable: class {
-  var image: UIImage? { set get }
+  var index: Int? { get set}
+  var image: UIImage? { get set }
 }
 
 extension ImageLoaderable {

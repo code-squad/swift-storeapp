@@ -10,13 +10,13 @@ import Foundation
 import UIKit
 
 class Thumbnail {
-  var image: UIImage?
+  var index: Int?
+  var image: UIImage? 
   
-  init(_ imageUrl: String?) {
+  init(_ imageUrl: String?, index: Int?) {
+    self.index = index
     loadImageData(imageUrl)
   }
 }
 
 extension Thumbnail: ImageLoaderable { }
-
-
