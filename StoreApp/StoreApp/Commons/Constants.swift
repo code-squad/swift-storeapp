@@ -20,4 +20,6 @@ enum FileTypes {
 
 struct Constants {
   static let list = "list"
+  static let detailTitle = "detailTitle"
+  static let detailData = "detailData"
 }
