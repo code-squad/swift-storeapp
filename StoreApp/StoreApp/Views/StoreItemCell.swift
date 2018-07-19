@@ -76,7 +76,7 @@ class StoreItemCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
-     initializeLayout()
+    initializeLayout()
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -107,10 +107,7 @@ class StoreItemCell: UITableViewCell {
   }
   
   func setItem(_ data: StoreItem) {
-    DispatchQueue.main.async {
-      self.thumbnailImageView.image = data.thumbnail.image
-    }
-    
+    setThumbnail(data.thumbnail.image)
     itemTitleLabel.text = data.title
     itemDescriptionLabel.text = data.description
     
@@ -129,6 +126,12 @@ class StoreItemCell: UITableViewCell {
         badgeLabel.addInsets(badgeLabelInsets)
         badgesStackView.addArrangedSubview(badgeLabel)
       }
+    }
+  }
+  
+  fileprivate func setThumbnail(_ image: UIImage?) {
+    DispatchQueue.main.async {
+      self.thumbnailImageView.image = image
     }
   }
   
