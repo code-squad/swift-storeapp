@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct StoreItem: Codable {
-  var title: String
-  var description: String
-  var normalPrice: String?
-  var salePrice: String
-  var deliveryTypes: [String]?
-  var detailHash: String
-  var imageUrl: String
-  var alt: String
-  var badges: [String]?
-  var thumbnail: Thumbnail
+struct StoreItem: Decodable {
+  let title: String
+  let description: String
+  let normalPrice: String?
+  let salePrice: String
+  let deliveryTypes: [String]?
+  let detailHash: String
+  let imageUrl: String
+  let alt: String
+  let badges: [String]?
+  let thumbnail: Thumbnail
   
   enum CodingKeys: String, CodingKey {
     case title
@@ -43,6 +43,6 @@ struct StoreItem: Codable {
     self.imageUrl = try values.decode(String.self, forKey: .imageUrl)
     self.alt = try values.decode(String.self, forKey: .alt)
     self.badges = try? values.decode([String].self, forKey: .badges)
-    self.thumbnail = try Thumbnail(imageUrl)
+    self.thumbnail = Thumbnail(imageUrl)
   }
 }

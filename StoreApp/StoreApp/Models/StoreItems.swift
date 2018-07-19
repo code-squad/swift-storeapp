@@ -9,8 +9,8 @@
 import Foundation
 
 class StoreItems {
-  fileprivate var header: FoodType
-  fileprivate var items: [StoreItem]
+  fileprivate let header: FoodType
+  fileprivate let items: [StoreItem]
   
   init(header: FoodType, items: [StoreItem]) {
     self.header = header
