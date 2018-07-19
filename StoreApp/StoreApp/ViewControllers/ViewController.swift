@@ -34,18 +34,20 @@ class ViewController: UIViewController {
     super.viewDidLoad()
 
     setup()
+    registerTableViewStyle()
     configueToastView()
   }
   
   fileprivate func setup() {
-    storeItemTableView.register(StoreSectionHeader.self, forHeaderFooterViewReuseIdentifier: sectionHeaderIdentifier)
-    
-    storeItemTableView.register(StoreItemCell.self, forCellReuseIdentifier: cellIdentifier)
-    
     NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: Notification.Name.storeList, object: nil)
     
     self.storeDataManager = StoreDataManager()
     self.storeDataManager?.generateData()
+  }
+  
+  fileprivate func registerTableViewStyle() {
+    storeItemTableView.register(StoreSectionHeader.self, forHeaderFooterViewReuseIdentifier: sectionHeaderIdentifier)
+    storeItemTableView.register(StoreItemCell.self, forCellReuseIdentifier: cellIdentifier)
   }
   
   fileprivate func configueToastView() {
