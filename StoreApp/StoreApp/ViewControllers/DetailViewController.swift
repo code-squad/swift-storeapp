@@ -17,6 +17,8 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var deliveryInfoLabel: UILabel!
   @IBOutlet weak var deliveryFeeLabel: UILabel!
   @IBOutlet weak var detailInfoContainer: UIView!
+  @IBOutlet weak var sectionScrollView: UIScrollView!
+  
   
   var itemDetail: StoreDetailItem?
   
@@ -31,9 +33,9 @@ class DetailViewController: UIViewController {
   
   fileprivate func setup() {
     NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: .detailData, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(updateThumbnail(_:)), name: .thumbnail, object: nil)
     
     self.navigationController?.isNavigationBarHidden = true
-    self.thumbnailScrollView.isPagingEnabled = true
     self.itemDetail?.requestData()
   }
   
@@ -42,8 +44,18 @@ class DetailViewController: UIViewController {
       let detailTitle = userInfo[Constants.detailTitle] as? String,
       let itemDetailData = userInfo[Constants.detailData] as? ItemDetailData else { return }
     
-    updateDetailInfoContainer(detailTitle, itemDetailData)
     configueThumbnailScrollViewSize(itemDetailData.thumbnailImageUrls.count)
+    updateDetailInfoContainer(detailTitle, itemDetailData)
+  }
+  
+  @objc fileprivate func updateThumbnail(_ notification: Notification) {
+    guard let userInfo = notification.userInfo,
+      let index = userInfo[Constants.imageIndex] as? Int,
+      let image = userInfo[Constants.image] as? UIImage else { return }
+    
+    DispatchQueue.main.async {
+      self.updateThumbnailScrollView(index: index, image: image)
+    }
   }
   
   @IBAction func orderButtonDidTapped(_ sender: UIButton) {
@@ -52,6 +64,11 @@ class DetailViewController: UIViewController {
 }
 
 fileprivate extension DetailViewController {
+  func configueThumbnailScrollViewSize(_ count: Int) {
+    thumbnailScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(count),
+                                             height: thumbnailScrollView.frame.height)
+  }
+  
   func updateDetailInfoContainer(_ detailTitle: String, _ data: ItemDetailData) {
     titleLabel.text = detailTitle
     descriptionLabel.text = data.productDescription
@@ -61,8 +78,11 @@ fileprivate extension DetailViewController {
     deliveryInfoLabel.text = data.deliveryInfo
   }
   
-  func configueThumbnailScrollViewSize(_ count: Int) {
-    thumbnailScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(count),
-                                             height: thumbnailScrollView.frame.height)
+  func updateThumbnailScrollView(index: Int, image: UIImage) {
+    let xCoordinate: CGFloat = thumbnailScrollView.frame.width * CGFloat(index)
+    let thumbnail = UIImageView(frame: CGRect(x: xCoordinate, y: 0, width: UIScreen.main.bounds.width, height: thumbnailScrollView.frame.height))
+    thumbnail.contentMode = .scaleAspectFit
+    thumbnail.image = image
+    thumbnailScrollView.addSubview(thumbnail)
   }
 }

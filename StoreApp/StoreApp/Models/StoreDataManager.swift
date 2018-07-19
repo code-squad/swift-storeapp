@@ -72,5 +72,5 @@ fileprivate extension StoreDataManager {
 }
 
 extension Notification.Name {
-  static let storeList = Notification.Name("StoreList")
+  static let storeList = Notification.Name(Constants.storeList)
 }
