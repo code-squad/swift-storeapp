@@ -59,9 +59,8 @@ class ViewController: UIViewController {
   }
   
   @objc fileprivate func refreshTableView(notification: Notification) {
-    guard let userInfo = notification.userInfo, let list = userInfo[Constants.list] as? [StoreItems] else {
-      return
-    }
+    guard let userInfo = notification.userInfo,
+      let list = userInfo[Constants.list] as? [StoreItems] else { return }
     
     self.storeDataManager = StoreDataManager(list: list)
   }
