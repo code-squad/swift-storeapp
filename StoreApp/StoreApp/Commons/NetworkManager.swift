@@ -12,20 +12,21 @@ import Alamofire
 class NetworkManager {
   static let shared = NetworkManager()
   fileprivate let host = Host.base.path
-  fileprivate var reachabilityManager: Alamofire.NetworkReachabilityManager?
+  fileprivate var reachabilityManager: NetworkReachabilityManager
   
   fileprivate init() {
-    self.reachabilityManager = Alamofire.NetworkReachabilityManager(host: host)
+    if let reachabilityManager = NetworkReachabilityManager(host: host) {
+      self.reachabilityManager = reachabilityManager
+    } else {
+      self.reachabilityManager = NetworkReachabilityManager(host: Host.apple.path)!
+    }
   }
   
   var isConnected: Bool {
-    guard let reachabilityManager = reachabilityManager else { return false }
     return reachabilityManager.isReachable
   }
   
   func startObserver() {
-    guard let reachabilityManager = self.reachabilityManager else { return }
-    
     NotificationCenter.default.post(name: .isConnected,
                                     object: nil,
                                     userInfo: [Constants.isConnected: isConnected])
@@ -34,7 +35,6 @@ class NetworkManager {
   }
   
   func stopObserver() {
-    guard let reachabilityManager = self.reachabilityManager else { return }
     reachabilityManager.stopListening()
   }
   

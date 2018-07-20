@@ -10,20 +10,22 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+  fileprivate let networkManager = NetworkManager.shared
+  
   var window: UIWindow?
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
     NotificationCenter.default.addObserver(self, selector: #selector(updateConnectedFlag(_:)), name: Notification.Name.isConnected, object: nil)
     
-    NetworkManager.shared.startObserver()
+    networkManager.startObserver()
     setStatusBarOption()
     
     return true
   }
   
   func applicationDidEnterBackground(_ application: UIApplication) {
-    NetworkManager.shared.stopObserver()
+    networkManager.stopObserver()
   }
   
   @objc fileprivate func updateConnectedFlag(_ notification: Notification) {
