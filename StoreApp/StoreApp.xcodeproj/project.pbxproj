@@ -30,6 +30,7 @@
 		87CF205320F730EA00998AED /* UILabelWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF205220F730EA00998AED /* UILabelWithPadding.swift */; };
 		87CF205920F73E5C00998AED /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF205820F73E5C00998AED /* StoreItems.swift */; };
 		87CF205B20F73FCD00998AED /* StoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CF205A20F73FCD00998AED /* StoreDataManager.swift */; };
+		87CFEAB02101812A006BC43C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CFEAAF2101812A006BC43C /* NetworkManager.swift */; };
 		87D231EA20F6F4FB00CD02B8 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D231E920F6F4FB00CD02B8 /* soup.json */; };
 		87D231EC20F6F58C00CD02B8 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D231EB20F6F58C00CD02B8 /* side.json */; };
 		87D231F220F721A300CD02B8 /* StoreSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D231F120F721A300CD02B8 /* StoreSectionHeader.swift */; };
@@ -84,6 +85,7 @@
 		87CF205220F730EA00998AED /* UILabelWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelWithPadding.swift; sourceTree = "<group>"; };
 		87CF205820F73E5C00998AED /* StoreItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		87CF205A20F73FCD00998AED /* StoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataManager.swift; sourceTree = "<group>"; };
+		87CFEAAF2101812A006BC43C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		87D231E920F6F4FB00CD02B8 /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		87D231EB20F6F58C00CD02B8 /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		87D231F120F721A300CD02B8 /* StoreSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSectionHeader.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		87E787EE20F39C2B005497AB /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				87CFEAAF2101812A006BC43C /* NetworkManager.swift */,
 				871B4AAA20FD92DD00121966 /* JSONConverter.swift */,
 				876B6BEF20F74B6900A38754 /* Constants.swift */,
 				8771077C20F83F8A0042EC03 /* API.swift */,
@@ -352,10 +355,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87CFEAB02101812A006BC43C /* NetworkManager.swift in Sources */,
 				871B4AAB20FD92DD00121966 /* JSONConverter.swift in Sources */,
 				87D2348320FE323200BF76F0 /* ItemDetailData.swift in Sources */,
 				87B966CF20FF3D8F002DCA09 /* DetailSectionImage.swift in Sources */,

@@ -3,6 +3,7 @@ target 'StoreApp' do
   
   pod 'SwiftLint'
   pod 'Toaster'
+  pod 'Alamofire'
 
   target 'StoreAppTests' do
     inherit! :search_paths
