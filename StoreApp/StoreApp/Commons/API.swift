@@ -81,6 +81,7 @@ class DefaultAPI: APIClient {
 enum Host {
   case base
   case order
+  case apple
 }
 
 extension Host {
@@ -90,6 +91,8 @@ extension Host {
       return "http://crong.codesquad.kr:8080/woowa"
     case .order:
       return "https://hooks.slack.com/services/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"
+    case .apple:
+      return "https://www.apple.com"
     }
   }
 }
