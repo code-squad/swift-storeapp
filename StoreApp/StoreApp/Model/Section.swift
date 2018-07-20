@@ -20,29 +20,29 @@ class Section: SectionData {
     var itemSet = StoreItems()
 
     required init(category: Category) {
-        let session = URLSession(configuration: .default)
-        let task = session.dataTask(with: category.url) { [weak self] (data, response, error) in
+        URLSession.shared.dataTask(with: category.url) { [self, category] (data, response, error) in
             if let error = error {
                 print("DataTask error: \(error)\n")
                 return
             }
             if let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
-                let items = ItemDataParser.makeStoreItemsFromSession(data: data)
-                self?.setItems(items)
+                let items = ItemDataParser.makeStoreItemsFromSession(category: category, data: data)
+                self.setItems(items)
             } else {
                 print("DataTask error: response \n")
                 return
             }
-        }
-        task.resume()
+        }.resume()
     }
 
     func setItems(_ items: [Category: Items]) {
         self.itemSet = StoreItems(data: items)
+        NotificationCenter.default.post(name: .sectionSetComplete, object: self, userInfo: ["sectionData":self])
     }
 
     func category() -> Category {
         return self.itemSet.category()
     }
+
 
 }
