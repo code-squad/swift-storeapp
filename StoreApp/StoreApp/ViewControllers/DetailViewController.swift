@@ -43,7 +43,6 @@ class DetailViewController: UIViewController {
   
   fileprivate func setup() {
     self.itemDetail?.requestData()
-    self.navigationController?.isNavigationBarHidden = true
   }
   
   fileprivate func setupObservers() {
