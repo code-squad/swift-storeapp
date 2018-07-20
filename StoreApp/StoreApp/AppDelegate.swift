@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
-    NotificationCenter.default.addObserver(self, selector: #selector(canConnect(_:)), name: Notification.Name.isConnected, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(updateConnectedFlag(_:)), name: Notification.Name.isConnected, object: nil)
     
     NetworkManager.shared.startObserver()
     setStatusBarOption()
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     NetworkManager.shared.stopObserver()
   }
   
-  @objc fileprivate func canConnect(_ notification: Notification) {
+  @objc fileprivate func updateConnectedFlag(_ notification: Notification) {
     guard let userInfo = notification.userInfo,
       let isConnected = userInfo[Constants.isConnected] as? Bool else { return }
     
