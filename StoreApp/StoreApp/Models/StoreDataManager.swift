@@ -9,7 +9,8 @@
 import Foundation
 
 class StoreDataManager {
-  private var list: [StoreItems] {
+  private var isConnected: Bool = false
+  private var list: [StoreItems] = [] {
     didSet {
       NotificationCenter.default.post(name: .storeList, object: nil, userInfo: [Constants.list: list])
     }
@@ -17,6 +18,15 @@ class StoreDataManager {
   
   convenience init() {
     self.init(list: [])
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(canConnected(_:)), name: Notification.Name.isConnected, object: nil)
+  }
+  
+  @objc fileprivate func canConnected(_ notification: Notification) {
+    guard let userInfo = notification.userInfo,
+      let isConnected = userInfo[Constants.isConnected] as? Bool else { return }
+    
+    self.isConnected = isConnected
   }
   
   init(list: [StoreItems]) {
@@ -24,7 +34,11 @@ class StoreDataManager {
   }
   
   func generateData() {
-    requestData()
+    if isConnected {
+      requestData()
+    } else {
+      generateFileData()
+    }
   }
   
   var numberOfSections: Int {
@@ -37,6 +51,10 @@ class StoreDataManager {
   
   subscript(at section: Int) -> StoreItems {
     return list[section]
+  }
+  
+  deinit {
+    NotificationCenter.default.removeObserver(self)
   }
 }
 
