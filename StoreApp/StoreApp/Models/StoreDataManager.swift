@@ -19,10 +19,10 @@ class StoreDataManager {
   convenience init() {
     self.init(list: [])
     
-    NotificationCenter.default.addObserver(self, selector: #selector(canConnected(_:)), name: Notification.Name.isConnected, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(updateConnectedFlag(_:)), name: Notification.Name.isConnected, object: nil)
   }
   
-  @objc fileprivate func canConnected(_ notification: Notification) {
+  @objc fileprivate func updateConnectedFlag(_ notification: Notification) {
     guard let userInfo = notification.userInfo,
       let isConnected = userInfo[Constants.isConnected] as? Bool else { return }
     
