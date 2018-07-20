@@ -18,12 +18,17 @@ class NetworkManager {
     self.reachabilityManager = Alamofire.NetworkReachabilityManager(host: host)
   }
   
+  var isConnected: Bool {
+    guard let reachabilityManager = reachabilityManager else { return false }
+    return reachabilityManager.isReachable
+  }
+  
   func startObserver() {
     guard let reachabilityManager = self.reachabilityManager else { return }
     
     NotificationCenter.default.post(name: .isConnected,
                                     object: nil,
-                                    userInfo: [Constants.isConnected: reachabilityManager.isReachable])
+                                    userInfo: [Constants.isConnected: isConnected])
   
     reachabilityManager.startListening()
   }

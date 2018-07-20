@@ -41,7 +41,7 @@ class ViewController: UIViewController {
   fileprivate func setup() {
     NotificationCenter.default.addObserver(self, selector: #selector(refreshTableView(notification:)), name: Notification.Name.storeList, object: nil)
     
-    self.storeDataManager = StoreDataManager(list: [])
+    self.storeDataManager = StoreDataManager()
     self.storeDataManager?.generateData()
   }
   
