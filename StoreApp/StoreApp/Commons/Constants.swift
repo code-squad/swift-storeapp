@@ -28,4 +28,5 @@ struct Constants {
   static let imageIndex = "imageIndex"
   static let image = "image"
   static let text = "text"
+  static let isConnected = "isConnected"
 }
