@@ -119,3 +119,17 @@ image:./images/main-thread-checker-2.png[]
 * UIScrollView 
 ** https://accounts.raywenderlich.com/v2/sso/login?sso=bm9uY2U9NDQxYWFmODA1NjJhMjFmZTY0NjQzYjNkNmU5MTg1YTMmY2FsbGJhY2tfdXJsPWh0dHBzJTNBJTJGJTJGd3d3LnJheXdlbmRlcmxpY2guY29tJTJGc2Vzc2lvbiUyRmNyZWF0ZQ%253D%253D&sig=18cfac022eb70efb37aa4832befd9f760ba4d8a7e410e145fbc15c7f084da4ec[UIScrollView Tutorial: Getting Started]
 ** https://www.objc.io/issues/3-views/scroll-view/[Understanding Scroll Views]
+
+=== 8. Reachability
+
+===== 실행결과 
+
+image:./images/result-8-1.png[45%, 45%]
+image:./images/result-8-2.png[45%, 45%]
+
+===== 학습거리
+* Reachability
+** https://github.com/Alamofire/Alamofire/blob/master/Source/NetworkReachabilityManager.swift[Alamofire - NetworkReachabilityManager]
+** https://developer.apple.com/library/archive/samplecode/Reachability/Introduction/Intro.html#//apple_ref/doc/uid/DTS40007324-Intro-DontLinkElementID_2[Reachability]
+* 앱에서 사용자 비용을 줄이기 위해 데이터 캐시를 언제 어떻게 써야할까?
+* 캐싱을 위해 다루는 기술 요소가 어떤 것이 있는가?
