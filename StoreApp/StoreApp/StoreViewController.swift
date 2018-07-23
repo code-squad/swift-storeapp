@@ -15,40 +15,63 @@ class StoreViewController: UIViewController {
     let rowHeightForCell: CGFloat = 100
     let rowHeightForHeader: CGFloat = 60
 
-    var storeItems: StoreItems!
+    var storeItems = StoreItems()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(setComplete(notification:)), name: .sectionSetComplete, object: nil)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = rowHeightForCell
-        self.storeItems = StoreItems()
+        for category in StoreItems.categories {
+            storeItems.set(with: category)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
+    private func resetTableView(indexPaths: [IndexPath]) {
+        DispatchQueue.main.sync { [weak self] in
+            self?.tableView.beginUpdates()
+            self?.tableView.insertRows(at: indexPaths, with: .automatic)
+            self?.tableView.endUpdates()
+        }
+    }
+
+    @objc func setComplete(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let section = userInfo[Keyword.sectionPath] else { return }
+        guard let sectionNumber = section as? [IndexPath] else { return }
+        self.resetTableView(indexPaths: sectionNumber)
+    }
+
 }
 
 extension StoreViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard !self.storeItems.isEmpty() else { return UITableViewCell() }
         let itemCell = tableView.dequeueReusableCell(withIdentifier: Keyword.itemCell.rawValue, for: indexPath) as! StoreTableViewCell
         itemCell.itemData = storeItems[indexPath.section][indexPath.row]
         return itemCell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems[section].count()
+        guard !self.storeItems.isEmpty() else { return 0 }
+        return self.storeItems[section].count()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return StoreItems.categories.count
+        guard !self.storeItems.isEmpty() else { return 0 }
+        return self.storeItems.countOfHeaders()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Toast(text: "\(storeItems[indexPath.section][indexPath.row].alt)\n\(storeItems[indexPath.section][indexPath.row].s_price)",
-            duration: Delay.long).show()
+            duration: Delay.short).show()
+
     }
 
 }
