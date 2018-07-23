@@ -32,10 +32,6 @@ class StoreItems {
         return self.storeItem.keys.count
     }
 
-    func category() -> Category {
-        return self.storeItem.keys.first!
-    }
-
     func update(key: Category, value: Items) {
         self.storeItem[key] = value
     }
@@ -58,10 +54,10 @@ class StoreItems {
 
     func setFromURL(_ items: [Category: Items]) {
         self.update(key: items.keys.first!, value: items.values.first!)
-        let temp = IndexPath(row: 1, section: 0)
-        let indexPath = Array(0..<self.storeItem[items.keys.first!]!.count()).map {IndexPath(row: $0, section: items.keys.first!.hashValue)}
-        NotificationCenter.default.post(name: .sectionSetComplete, object: self, userInfo: [Keyword.sectionPath : indexPath])
-
+        let indexPaths = Array(0..<self.storeItem[items.firstKey()]!.count()).map {IndexPath(row: $0, section: items.firstKey().sectionNumber)}
+        NotificationCenter.default.post(name: .sectionSetComplete,
+                                        object: self,
+                                        userInfo: [Keyword.sectionPath : indexPaths])
     }
 }
 

@@ -41,7 +41,7 @@ class ItemDataParser {
         return Items(data: items)
     }
 
-    class func parseDatafromSession(data: Data) -> Items {
+    private class func parseDatafromSession(data: Data) -> Items {
         guard let items = makeitemData(from: data) as? [ItemData] else { return Items(data:[]) }
         return Items(data: items)
     }
