@@ -8,6 +8,10 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let sectionSetComplete = Notification.Name("sectionSetComplete")
+}
+
 extension UIFont {
     func bold() -> UIFont {
         return UIFont.boldSystemFont(ofSize: self.pointSize)
