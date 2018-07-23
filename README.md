@@ -16,3 +16,7 @@
 ### Step4 (2018.07.12)
 - Toaster 라이브러리 사용
 - <img src="./screenshot/step4.png" width="30%">
+
+### Step5 (2018.07.23)
+- `insertRows()`, `URLSession.shared.dataTask`
+- <img src="./screenshot/step5.png" width="30%">
