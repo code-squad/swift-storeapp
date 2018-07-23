@@ -13,6 +13,7 @@ enum Keyword: String {
     case headerView
     case itemCell
     case customHeader
+    case sectionPath
 }
 
 enum DiscountBadge: String {
