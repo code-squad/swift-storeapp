@@ -19,11 +19,14 @@ class StoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(setComplete(notification:)), name: .sectionSetComplete, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setComplete(notification:)),
+                                               name: .sectionSetComplete,
+                                               object: nil)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = rowHeightForCell
-        for category in StoreItems.categories {
+        StoreItems.categories.forEach { (category) in
             storeItems.set(with: category)
         }
     }

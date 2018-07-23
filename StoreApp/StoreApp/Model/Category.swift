@@ -35,4 +35,14 @@ enum Category: String {
         }
     }
 
+    var sectionNumber: Int {
+        switch self {
+        case .main:
+            return 0
+        case .soup:
+            return 1
+        case .side:
+            return 2
+        }
+    }
 }
