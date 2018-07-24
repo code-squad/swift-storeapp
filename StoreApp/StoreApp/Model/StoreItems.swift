@@ -50,15 +50,20 @@ class StoreItems {
 
     func setFromURL(_ items: [Category: Items]) {
         self.update(key: items.keys.first!, value: items.values.first!)
-        let indexPaths = Array(0..<self.storeItem[items.firstKey()]!.count()).map {IndexPath(row: $0, section: items.firstKey().sectionNumber)}
-        NotificationCenter.default.post(name: .sectionSetComplete,
-                                        object: self,
-                                        userInfo: [Keyword.sectionPath : indexPaths])
+        if let firstKey = items.firstKey {
+            let indexPaths = Array(0..<self.storeItem[firstKey]!.count).map {IndexPath(row: $0, section: firstKey.sectionNumber)}
+            NotificationCenter.default.post(name: .sectionSetComplete,
+                                            object: self,
+                                            userInfo: [Keyword.sectionPath : indexPaths])
+        }
     }
 }
 
 struct Items {
     let items: [ItemData]
+    var count: Int {
+        return self.items.count
+    }
 
     init() {
         self.items = []
@@ -73,11 +78,6 @@ struct Items {
             return items[index]
         }
     }
-
-    func count() -> Int {
-        return self.items.count
-    }
-
 }
 
 struct ItemData: Codable {
@@ -92,8 +92,9 @@ struct ItemData: Codable {
     var badge: [String]?
 }
 
-extension Dictionary where Key == Category {
-    func firstKey() -> Category {
+extension Dictionary where Key == Category, Value == Items {
+    var firstKey: Category? {
+        guard self.count > 0 else { return nil }
         return self.keys.first!
     }
 }
