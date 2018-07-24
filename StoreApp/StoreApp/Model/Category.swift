@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Category: String {
+enum Category: String, CategoryProtocol {
     case main
     case soup
     case side
