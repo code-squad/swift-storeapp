@@ -61,7 +61,7 @@ extension StoreViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.storeItems[section].count()
+        return self.storeItems[section].count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
