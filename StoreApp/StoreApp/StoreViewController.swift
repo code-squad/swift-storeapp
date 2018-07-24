@@ -55,19 +55,16 @@ class StoreViewController: UIViewController {
 extension StoreViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard !self.storeItems.isEmpty() else { return UITableViewCell() }
         let itemCell = tableView.dequeueReusableCell(withIdentifier: Keyword.itemCell.rawValue, for: indexPath) as! StoreTableViewCell
         itemCell.itemData = storeItems[indexPath.section][indexPath.row]
         return itemCell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard !self.storeItems.isEmpty() else { return 0 }
         return self.storeItems[section].count()
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard !self.storeItems.isEmpty() else { return 0 }
         return self.storeItems.countOfHeaders()
     }
 
