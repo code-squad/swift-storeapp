@@ -24,10 +24,6 @@ class StoreItems {
         }
     }
 
-    func isEmpty() -> Bool {
-        return self.storeItem.count == 0
-    }
-
     func countOfHeaders() -> Int {
         return self.storeItem.keys.count
     }
