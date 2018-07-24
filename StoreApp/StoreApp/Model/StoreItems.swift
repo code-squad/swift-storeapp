@@ -33,30 +33,17 @@ class StoreItems {
     }
 
     func set(with category: Category) {
-        URLSession.shared.dataTask(with: category.url) { [self, category] (data, response, error) in
-            if let error = error {
-                print("DataTask error: \(error)\n")
-                return
+        DataSetter<Category>.set(with: category) { items in
+            self.update(key: items.keys.first!, value: items.values.first!)
+            if let firstKey = items.firstKey {
+                let indexPaths = Array(0..<self.storeItem[firstKey]!.count).map {IndexPath(row: $0, section: firstKey.sectionNumber)}
+                NotificationCenter.default.post(name: .sectionSetComplete,
+                                                object: self,
+                                                userInfo: [Keyword.sectionPath : indexPaths])
             }
-            if let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
-                let items = ItemDataParser.makeStoreItemsFromSession(category: category, data: data)
-                self.setFromURL(items)
-            } else {
-                print("DataTask error: response \n")
-                return
-            }
-        }.resume()
-    }
-
-    func setFromURL(_ items: [Category: Items]) {
-        self.update(key: items.keys.first!, value: items.values.first!)
-        if let firstKey = items.firstKey {
-            let indexPaths = Array(0..<self.storeItem[firstKey]!.count).map {IndexPath(row: $0, section: firstKey.sectionNumber)}
-            NotificationCenter.default.post(name: .sectionSetComplete,
-                                            object: self,
-                                            userInfo: [Keyword.sectionPath : indexPaths])
         }
     }
+
 }
 
 struct Items {

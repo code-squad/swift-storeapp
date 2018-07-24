@@ -10,11 +10,9 @@ import Foundation
 
 class ItemDataParser {
 
-    class func makeStoreItems() -> [Category: Items] {
+    class func makeStoreItemsFromJSON(with category: Category) -> [Category: Items] {
         var result = [Category: Items]()
-        for category in StoreItems.categories {
-            result[category] = parse(fileName: category)
-        }
+        result[category] = parse(fileName: category)
         return result
     }
 
