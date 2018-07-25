@@ -21,6 +21,7 @@ class StoreTableViewCell: UITableViewCell {
             self.title.text = itemData.title
             self.itemDescription.text = itemData.description
             self.setPriceLabels(nPrice: itemData.n_price, sPrice: itemData.s_price)
+            self.setItemImage(imageURL: self.itemData.image)
             guard let badges = itemData.badge else {
                 self.badgeStack.isHidden = true
                 return
@@ -32,13 +33,25 @@ class StoreTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        itemImage.layer.borderColor = UIColor.gray.cgColor
-        itemImage.layer.borderWidth = 1.0
+        setItemImageConfig()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
 
+    private func setItemImageConfig() {
+        itemImage.layer.borderColor = UIColor.gray.cgColor
+        itemImage.layer.borderWidth = 1.0
+        itemImage.contentMode = .scaleAspectFit
+    }
+
+    private func setItemImage(imageURL: String) {
+        ImageSetter.download(with: imageURL, handler: { imagePath in
+            DispatchQueue.main.sync {
+                self.itemImage.image = UIImage(contentsOfFile: imagePath)
+            }
+        })
     }
 
     private func setPriceLabels(nPrice: String?, sPrice: String) {
