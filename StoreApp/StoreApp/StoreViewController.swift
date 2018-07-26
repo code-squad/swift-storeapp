@@ -19,6 +19,11 @@ class StoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        #if DEBUG
+        self.deleteCache()
+        #endif
+
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(setComplete(notification:)),
                                                name: .sectionSetComplete,
@@ -48,6 +53,25 @@ class StoreViewController: UIViewController {
         guard let section = userInfo[Keyword.sectionPath] else { return }
         guard let sectionNumber = section as? [IndexPath] else { return }
         self.resetTableView(indexPaths: sectionNumber)
+    }
+
+    // DEBUG
+    private func deleteCache() {
+        let cacheURL = ImageSetter.fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        do {
+            let fileNames = try ImageSetter.fileManager.contentsOfDirectory(atPath: cacheURL.path)
+            print("all files in cache: \(fileNames)")
+            for file in fileNames {
+                let imageSavingPath = cacheURL.appendingPathComponent(file)
+                if (file.hasSuffix(".jpg")) {
+                    try ImageSetter.fileManager.removeItem(atPath: imageSavingPath.path)
+                }
+                let files = try ImageSetter.fileManager.contentsOfDirectory(atPath: cacheURL.path)
+                print("all files in cache after deleting images: \(files)")
+            }
+        } catch {
+            print("Could not clear temp folder: \(error)")
+        }
     }
 
 }
