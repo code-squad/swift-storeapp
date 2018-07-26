@@ -14,6 +14,7 @@ enum Keyword: String {
     case itemCell
     case customHeader
     case sectionPath
+    case refreshImage
 }
 
 enum DiscountBadge: String {

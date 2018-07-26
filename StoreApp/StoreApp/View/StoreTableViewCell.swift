@@ -49,9 +49,18 @@ class StoreTableViewCell: UITableViewCell {
     private func setItemImage(imageURL: String) {
         ImageSetter.download(with: imageURL, handler: { imageData in
             DispatchQueue.main.async { [weak self] in
-                self?.itemImage.image = UIImage(data: imageData)
+                if let loadedData = imageData {
+                    self?.itemImage.image = UIImage(data: loadedData)
+                } else {
+                    self?.setErrorImage()
+                }
             }
         })
+    }
+
+    private func setErrorImage() {
+        itemImage.backgroundColor = UIColor.gray
+        itemImage.image = UIImage(named: Keyword.refreshImage.rawValue)
     }
 
     private func setPriceLabels(nPrice: String?, sPrice: String) {

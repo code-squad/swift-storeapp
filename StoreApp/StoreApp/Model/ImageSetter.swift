@@ -11,7 +11,7 @@ import Foundation
 class ImageSetter {
     static let fileManager = FileManager.default
 
-    class func download(with url: String, handler: @escaping((Data) -> Void)) {
+    class func download(with url: String, handler: @escaping((Data?) -> Void)) {
         let cacheURL = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
         let imageSavingPath = cacheURL.appendingPathComponent(URL(string: url)!.lastPathComponent)
 
@@ -21,6 +21,7 @@ class ImageSetter {
             URLSession.shared.downloadTask(with: URL(string: url)!) { (tmpLocation, response, error) in
                 if let error = error {
                     print("Image download Error log: \(error)\n")
+                    handler(nil)
                 }
                 if let response = response as? HTTPURLResponse, response.statusCode == 200, let tmpLocation = tmpLocation {
                     do {
@@ -28,9 +29,11 @@ class ImageSetter {
                         if let imageData = try? Data(contentsOf: imageSavingPath) {
                             handler(imageData)
                         } else {
-                            print("MOVE Error!")
+                            handler(nil)
                         }
-                    } catch { print("MOVE Error!") }
+                    } catch {
+                        handler(nil)
+                    }
                 }
             }.resume()
         }
