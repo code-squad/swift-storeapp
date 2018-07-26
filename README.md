@@ -20,3 +20,8 @@
 ### Step5 (2018.07.23)
 - `insertRows()`, `URLSession.shared.dataTask`
 - <img src="./screenshot/step5.png" width="30%">
+
+### Step5 (2018.07.26)
+- 이미지 다운로드 병렬처리
+- `URLSession.shared.downloadTask`, `FileManager` 
+- <img src="./screenshot/step6.png" width="30%">
