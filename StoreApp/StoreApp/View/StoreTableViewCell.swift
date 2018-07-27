@@ -15,9 +15,11 @@ class StoreTableViewCell: UITableViewCell {
     @IBOutlet weak var itemDescription: UILabel!
     @IBOutlet weak var prices: UIStackView!
     @IBOutlet weak var badgeStack: UIStackView!
-    
+    var detailHash: DetailHash!
+
     var itemData: ItemData! {
         didSet {
+            self.detailHash = DetailHash(code: itemData.detail_hash)
             self.title.text = itemData.title
             self.itemDescription.text = itemData.description
             self.setPriceLabels(nPrice: itemData.n_price, sPrice: itemData.s_price)
@@ -28,6 +30,7 @@ class StoreTableViewCell: UITableViewCell {
             }
             guard badgeStack.subviews.isEmpty else { return }
             self.setDiscountBadge(texts: badges)
+            
         }
     }
 
