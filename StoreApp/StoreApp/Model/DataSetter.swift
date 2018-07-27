@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol CategoryProtocol {
+protocol URLDataProtocol {
     var url: URL { get }
 }
 
-class DataSetter<T: CategoryProtocol> {
+class DataSetter<T: URLDataProtocol> {
     typealias T = Category
 
     class func set(with category: T, handler: @escaping(([Category:Items]) -> Void)) {
