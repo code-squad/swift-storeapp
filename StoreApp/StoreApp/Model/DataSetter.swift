@@ -9,7 +9,7 @@
 import Foundation
 
 protocol URLDataProtocol {
-    var url: URL { get set }
+    var url: URL { get }
 }
 
 class DataSetter<T: URLDataProtocol> {
