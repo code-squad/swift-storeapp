@@ -19,7 +19,7 @@ class StoreTableViewCell: UITableViewCell {
 
     var itemData: ItemData! {
         didSet {
-            self.detailHash = DetailHash(code: itemData.detail_hash)
+            self.detailHash = DetailHash(code: itemData.detail_hash, itemTitle: itemData.title)
             self.title.text = itemData.title
             self.itemDescription.text = itemData.description
             self.setPriceLabels(nPrice: itemData.n_price, sPrice: itemData.s_price)

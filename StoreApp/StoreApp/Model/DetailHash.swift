@@ -12,8 +12,10 @@ class DetailHash {
     let baseURL = URL(string: "http://crong.codesquad.kr:8080/woowa/detail/")!
     var url: URL
     var detailData: ItemHashData!
+    var itemTitle: String
 
-    init(code: String) {
+    init(code: String, itemTitle: String) {
+        self.itemTitle = itemTitle
         self.url = baseURL.appendingPathComponent(code)
         setDetailData()
     }
@@ -26,7 +28,7 @@ class DetailHash {
         }
     }
 
-    func itemData() -> DetailItemInfo {
+    func detailItemInfo() -> DetailItemInfo {
         return self.detailData.data
     }
 }
