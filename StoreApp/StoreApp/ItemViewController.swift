@@ -10,17 +10,26 @@ import UIKit
 
 class ItemViewController: UIViewController {
 
+    @IBOutlet weak var ItemImages: UIScrollView!
+    @IBOutlet weak var titleLabels: UIStackView!
+    @IBOutlet weak var detailLabels: UIStackView!
+    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var detailView: UIScrollView!
+    var itemHashData: DetailItemInfo!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
