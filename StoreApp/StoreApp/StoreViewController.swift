@@ -96,8 +96,13 @@ extension StoreViewController: UITableViewDataSource {
         Toast(text: "\(storeItems[indexPath.section][indexPath.row].alt)\n\(storeItems[indexPath.section][indexPath.row].s_price)",
             duration: Delay.short).show()
 
+        if let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "itemDetailView") as? ItemViewController {
+            if let selectedCell = tableView.cellForRow(at: indexPath) as? StoreTableViewCell {
+                nextVC.itemData = selectedCell.detailHash
+            }
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
-
 }
 
 extension StoreViewController: UITableViewDelegate {

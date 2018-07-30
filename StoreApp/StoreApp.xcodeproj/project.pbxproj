@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		256E858443AC66F61CEF4E9B /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D3C3FB91E7B6B8E8AEA5AA6 /* Pods_StoreApp.framework */; };
+		FD140EF0210E0CAC007D53F3 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD140EEF210E0CAC007D53F3 /* ItemViewController.swift */; };
+		FD2E512C210AC4600094F08D /* DetailHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2E512B210AC4600094F08D /* DetailHash.swift */; };
+		FD2E512D210AF3EE0094F08D /* DetailHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2E512B210AC4600094F08D /* DetailHash.swift */; };
+		FD2E512E210AF3F20094F08D /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87808A2106F9810009CF8D /* DataSetter.swift */; };
+		FD2E512F210AF3F50094F08D /* ImageSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD59698E2108777100507E0C /* ImageSetter.swift */; };
 		FD4EFBCD20F71BAF003F2793 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EFBCC20F71BAF003F2793 /* Category.swift */; };
 		FD560ECE20F86C2200ACBA93 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD560ECD20F86C2200ACBA93 /* Keyword.swift */; };
 		FD560ED020F86F7B00ACBA93 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD560ECF20F86F7B00ACBA93 /* HeaderView.swift */; };
@@ -51,6 +56,8 @@
 		2DAE1D613D37F3CF3C1CDE83 /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		42621628F70685D8071111C8 /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9D3C3FB91E7B6B8E8AEA5AA6 /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD140EEF210E0CAC007D53F3 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		FD2E512B210AC4600094F08D /* DetailHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHash.swift; sourceTree = "<group>"; };
 		FD4EFBCC20F71BAF003F2793 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FD560ECD20F86C2200ACBA93 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		FD560ECF20F86F7B00ACBA93 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -139,6 +146,7 @@
 				FDF6FE0F20F74A6A00243256 /* Model */,
 				FD9FF9B520E263BB00BE6FA6 /* AppDelegate.swift */,
 				FD9FF9B720E263BB00BE6FA6 /* StoreViewController.swift */,
+				FD140EEF210E0CAC007D53F3 /* ItemViewController.swift */,
 				FD9FF9B920E263BB00BE6FA6 /* Main.storyboard */,
 				FD9FF9BE20E263BC00BE6FA6 /* LaunchScreen.storyboard */,
 				FD9FF9C120E263BC00BE6FA6 /* Info.plist */,
@@ -169,6 +177,7 @@
 				FD6C1C0D20FF3F4F00E7A082 /* CustomExtension.swift */,
 				FD87808A2106F9810009CF8D /* DataSetter.swift */,
 				FD59698E2108777100507E0C /* ImageSetter.swift */,
+				FD2E512B210AC4600094F08D /* DetailHash.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,8 +344,10 @@
 				FD579C9420E4DFC400B067FE /* ItemDataParser.swift in Sources */,
 				FD9FF9B820E263BB00BE6FA6 /* StoreViewController.swift in Sources */,
 				FD9FF9B620E263BB00BE6FA6 /* AppDelegate.swift in Sources */,
+				FD140EF0210E0CAC007D53F3 /* ItemViewController.swift in Sources */,
 				FD560ECE20F86C2200ACBA93 /* Keyword.swift in Sources */,
 				FD4EFBCD20F71BAF003F2793 /* Category.swift in Sources */,
+				FD2E512C210AC4600094F08D /* DetailHash.swift in Sources */,
 				FD663E6D20FB239100BC4D5D /* RoundedEdgeLabel.swift in Sources */,
 				FD59698F2108777100507E0C /* ImageSetter.swift in Sources */,
 				FD6C1C0E20FF3F4F00E7A082 /* CustomExtension.swift in Sources */,
@@ -348,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDC701052101AD2E00BEAD7C /* ItemDataParser.swift in Sources */,
+				FD2E512E210AF3F20094F08D /* DataSetter.swift in Sources */,
 				FDC701062101AD2E00BEAD7C /* StoreItems.swift in Sources */,
 				FDC701082101AD2E00BEAD7C /* Category.swift in Sources */,
 				FDC701092101AD2E00BEAD7C /* Keyword.swift in Sources */,
@@ -355,6 +367,8 @@
 				FDC7010C2101AD5200BEAD7C /* RoundedEdgeLabel.swift in Sources */,
 				FDC700FC2101AC4000BEAD7C /* StoreAppUnitTests.swift in Sources */,
 				FDC701042101ACEB00BEAD7C /* HeaderView.swift in Sources */,
+				FD2E512D210AF3EE0094F08D /* DetailHash.swift in Sources */,
+				FD2E512F210AF3F50094F08D /* ImageSetter.swift in Sources */,
 				FDC701032101ACDC00BEAD7C /* StoreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
