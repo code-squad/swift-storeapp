@@ -25,6 +25,10 @@ class DetailHash {
             }
         }
     }
+
+    func itemData() -> DetailItemInfo {
+        return self.detailData.data
+    }
 }
 
 class HashDataSetter {
@@ -38,7 +42,6 @@ class HashDataSetter {
                 do {
                     let parsedData = try JSONDecoder().decode(ItemHashData.self, from: data)
                     handler(parsedData)
-                    print(parsedData)
                 } catch {
                     print("Parse Error!!!")
                 }
