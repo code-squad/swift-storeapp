@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemViewController: UIViewController {
-    @IBOutlet weak var ItemImages: UIScrollView!
+    @IBOutlet weak var itemImages: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabels: UIStackView!
@@ -24,6 +24,7 @@ class ItemViewController: UIViewController {
         }
     }
     var detailInfo: DetailItemInfo!
+    var thumbnailImages = [UIImageView]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,33 @@ class ItemViewController: UIViewController {
         setPointLabel()
         setDeliveryInfoLabel()
         setDeliveryFeeLabel()
+        setThumbnailImages()
+    }
+
+    private func setThumbnailImages() {
+        self.downloadItemImages(urls: self.detailInfo.thumbImages)
+    }
+
+    private func downloadItemImages(urls: [String]) {
+        urls.forEach { imageURL in
+            ImageSetter.download(with: imageURL, handler: { imageData in
+                DispatchQueue.main.async { [weak self] in
+                    if let loadedData = imageData {
+                        let image = UIImageView(image: UIImage(data: loadedData))
+                        self?.thumbnailImages.append(image)
+                        if self?.thumbnailImages.count == urls.count {
+                            // download thumbnail finished
+                        }
+                    } else {
+                        let image = UIImageView(image: UIImage(named: Keyword.refreshImage.rawValue))
+                        self?.thumbnailImages.append(image)
+                        if self?.thumbnailImages.count == urls.count {
+                            // download thumbnail finished
+                        }
+                    }
+                }
+            })
+        }
     }
 
     private func setTitleLabels() {
