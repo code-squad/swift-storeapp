@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemViewController: UIViewController {
-    @IBOutlet weak var itemImages: UIScrollView!
+    @IBOutlet weak var thumbnailScrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabels: UIStackView!
@@ -28,6 +28,10 @@ class ItemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setThumbnailScrollView),
+                                               name: .thumbnailDownloaded,
+                                               object: self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +47,7 @@ class ItemViewController: UIViewController {
 
     private func setThumbnailImages() {
         self.downloadItemImages(urls: self.detailInfo.thumbImages)
+        // download와 scrollview세팅
     }
 
     private func downloadItemImages(urls: [String]) {
@@ -53,17 +58,29 @@ class ItemViewController: UIViewController {
                         let image = UIImageView(image: UIImage(data: loadedData))
                         self?.thumbnailImages.append(image)
                         if self?.thumbnailImages.count == urls.count {
-                            // download thumbnail finished
+                            NotificationCenter.default.post(name: .thumbnailDownloaded, object: self)
                         }
                     } else {
                         let image = UIImageView(image: UIImage(named: Keyword.refreshImage.rawValue))
                         self?.thumbnailImages.append(image)
                         if self?.thumbnailImages.count == urls.count {
-                            // download thumbnail finished
+                            NotificationCenter.default.post(name: .thumbnailDownloaded, object: self)
                         }
                     }
                 }
             })
+        }
+    }
+
+    @objc func setThumbnailScrollView() {
+        self.thumbnailScrollView.isPagingEnabled = true
+        for i in 0..<thumbnailImages.count {
+            thumbnailImages[i].contentMode = .scaleAspectFill
+            thumbnailImages[i].clipsToBounds = true
+            let xPosition = self.view.frame.width * CGFloat(i)
+            thumbnailImages[i].frame = CGRect(x: xPosition, y: 0, width: self.thumbnailScrollView.frame.width, height: self.thumbnailScrollView.frame.height)
+            thumbnailScrollView.contentSize.width = self.view.frame.width * CGFloat(i+1)
+            thumbnailScrollView.addSubview(thumbnailImages[i])
         }
     }
 
