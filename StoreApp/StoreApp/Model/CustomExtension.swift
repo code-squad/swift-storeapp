@@ -11,6 +11,7 @@ import UIKit
 extension Notification.Name {
     static let sectionSetComplete = Notification.Name("sectionSetComplete")
     static let thumbnailDownloaded = Notification.Name("thumbnailDownloaded")
+    static let detailImageDownloaded = Notification.Name("detailImageDownloaded")
 }
 
 extension UIFont {

@@ -218,7 +218,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-we-okO" userLabel="detailView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-we-okO" userLabel="detailView">
                                 <rect key="frame" x="0.0" y="400" width="375" height="267"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2L-oh-Du0">
@@ -348,7 +348,7 @@
                         <outlet property="deliveryFee" destination="Pdh-Ys-xqf" id="Wx3-xB-XOP"/>
                         <outlet property="deliveryInfo" destination="rkg-Sz-1Kk" id="Kqo-l9-rba"/>
                         <outlet property="descriptionLabel" destination="7GO-Fa-mxv" id="UDL-nB-1ef"/>
-                        <outlet property="detailView" destination="3VV-we-okO" id="aqb-8L-ox3"/>
+                        <outlet property="detailScrollView" destination="3VV-we-okO" id="aqb-8L-ox3"/>
                         <outlet property="pointLabel" destination="0cK-Vd-LqD" id="Lsh-Dn-jwy"/>
                         <outlet property="priceLabels" destination="r9U-d4-6e9" id="UWx-LZ-BP7"/>
                         <outlet property="thumbnailScrollView" destination="ifn-Q5-8PI" id="mBx-M9-oie"/>

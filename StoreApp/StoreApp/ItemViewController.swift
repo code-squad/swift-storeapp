@@ -16,7 +16,7 @@ class ItemViewController: UIViewController {
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var deliveryFee: UILabel!
     @IBOutlet weak var deliveryInfo: UILabel!
-    @IBOutlet weak var detailView: UIScrollView!
+    @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var buyButton: UIButton!
     var itemData: DetailHash! {
         didSet {
@@ -25,12 +25,17 @@ class ItemViewController: UIViewController {
     }
     var detailInfo: DetailItemInfo!
     var thumbnailImages = [UIImageView]()
+    var detailImages = [UIImageView]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(setThumbnailScrollView),
                                                name: .thumbnailDownloaded,
+                                               object: self)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setDetailScrollView),
+                                               name: .detailImageDownloaded,
                                                object: self)
     }
 
@@ -43,6 +48,8 @@ class ItemViewController: UIViewController {
         setDeliveryInfoLabel()
         setDeliveryFeeLabel()
         setThumbnailImages()
+        setDetailImages()
+        buyButton.layer.zPosition = 1
     }
 
     private func setThumbnailImages() {
@@ -84,6 +91,44 @@ class ItemViewController: UIViewController {
         }
     }
 
+    private func setDetailImages() {
+        self.downloadDetailImages(urls: self.detailInfo.detailSection)
+    }
+
+    private func downloadDetailImages(urls:[String]) {
+        urls.forEach { imageURL in
+            ImageSetter.download(with: imageURL, handler: { imageData in
+                DispatchQueue.main.async { [weak self] in
+                    if let loadedData = imageData {
+                        let image = UIImageView(image: UIImage(data: loadedData))
+                        self?.detailImages.append(image)
+                        if self?.detailImages.count == urls.count {
+                            NotificationCenter.default.post(name: .detailImageDownloaded, object: self)
+                        }
+                    } else {
+                        let image = UIImageView(image: UIImage(named: Keyword.refreshImage.rawValue))
+                        self?.detailImages.append(image)
+                        if self?.detailImages.count == urls.count {
+                            NotificationCenter.default.post(name: .detailImageDownloaded, object: self)
+                        }
+                    }
+                }
+            })
+        }
+    }
+
+    @objc func setDetailScrollView() {
+        detailScrollView.contentSize.height = self.detailScrollView.frame.height * CGFloat(detailImages.count)
+        for i in 0..<detailImages.count {
+            detailImages[i].contentMode = .scaleAspectFill
+            detailImages[i].clipsToBounds = true
+            let yPosition = self.detailScrollView.frame.height * CGFloat(i)
+            detailImages[i].frame = CGRect(x: self.detailScrollView.frame.origin.x, y: yPosition,
+                                           width: self.detailScrollView.frame.width, height: self.detailScrollView.frame.height)
+            detailScrollView.addSubview(detailImages[i])
+        }
+    }
+
     private func setTitleLabels() {
         titleLabel.text = itemData.itemTitle
         descriptionLabel.text = detailInfo.productDescription
@@ -118,15 +163,5 @@ class ItemViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
