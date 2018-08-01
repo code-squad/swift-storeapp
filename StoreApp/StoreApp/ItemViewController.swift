@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemViewController: UIViewController {
+class ItemViewController: UIViewController, OrderDelegate {
     @IBOutlet weak var thumbnailScrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -165,7 +165,10 @@ class ItemViewController: UIViewController {
     }
 
     @IBAction func orderButtonTapped(_ sender: Any) {
-
+        let purchasedItem = OrderItem(title: itemData.itemTitle,
+                                      prices: itemData.detailItemInfo().prices)
+        order(product: purchasedItem)
     }
 
 }
+
