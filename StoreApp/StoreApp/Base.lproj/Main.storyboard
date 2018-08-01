@@ -217,6 +217,9 @@
                                 <state key="normal" title="주문하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="orderButtonTapped:" destination="NTX-tX-uFn" eventType="touchUpInside" id="oG0-YX-e0z"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-we-okO" userLabel="detailView">
                                 <rect key="frame" x="0.0" y="400" width="375" height="267"/>
