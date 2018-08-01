@@ -14,7 +14,25 @@ protocol OrderDelegate {
 
 extension OrderDelegate {
     func order(product: OrderItem) {
-        print("구매: \(product.title)\n금액: \(product.price)")
+        guard let url = URL(string: "https://hooks.slack.com/services/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") else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        let payload = ["text": ">>> 배고픈 알린😋 : \(product.title)을(를) \(product.price)에 구매했습니다. 🥘🍲🍡🥗🍕🍛"]
+
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: payload, options: []) else { return }
+        request.httpBody = httpBody
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Order Error-\(error)")
+            }
+            if let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
+                if let str = String(data: data, encoding: String.Encoding.utf8) {
+                    print("\(str)")
+                }
+            }
+        }.resume()
     }
 }
 
