@@ -183,7 +183,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-Q5-8PI">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-Q5-8PI" customClass="ItemDetailScrollView" customModule="StoreApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="148"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="41a-Or-aEj" userLabel="titleLabels">
@@ -221,7 +221,7 @@
                                     <action selector="orderButtonTapped:" destination="NTX-tX-uFn" eventType="touchUpInside" id="oG0-YX-e0z"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-we-okO" userLabel="detailView">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-we-okO" userLabel="detailView" customClass="ItemDetailScrollView" customModule="StoreApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="400" width="375" height="220"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o2L-oh-Du0">
@@ -352,10 +352,10 @@
                         <outlet property="deliveryFee" destination="Pdh-Ys-xqf" id="Wx3-xB-XOP"/>
                         <outlet property="deliveryInfo" destination="rkg-Sz-1Kk" id="Kqo-l9-rba"/>
                         <outlet property="descriptionLabel" destination="7GO-Fa-mxv" id="UDL-nB-1ef"/>
-                        <outlet property="detailScrollView" destination="3VV-we-okO" id="aqb-8L-ox3"/>
+                        <outlet property="detailScrollView" destination="3VV-we-okO" id="sdV-P7-lke"/>
                         <outlet property="pointLabel" destination="0cK-Vd-LqD" id="Lsh-Dn-jwy"/>
                         <outlet property="priceLabels" destination="r9U-d4-6e9" id="UWx-LZ-BP7"/>
-                        <outlet property="thumbnailScrollView" destination="ifn-Q5-8PI" id="mBx-M9-oie"/>
+                        <outlet property="thumbnailScrollView" destination="ifn-Q5-8PI" id="efF-VF-aBn"/>
                         <outlet property="titleLabel" destination="kbX-Vf-P2T" id="oTT-Xm-I8X"/>
                     </connections>
                 </viewController>
