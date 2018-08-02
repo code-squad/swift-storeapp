@@ -29,6 +29,13 @@
 - 상품 이미지를 로드할 수 없을 때 refresh 이미지 표시
 - <img src="./screenshot/step6-2.png" width="30%">
 
+### Step7 (2018.08.02)
+- 상품 상세화면 전환
+- 스크롤뷰 구현
+- 주문기능 구현
+  - Slack으로(Slack incoming hook) “누가-얼마짜리-메뉴” 주문을 POST 요청으로 보내는 기능을 구현
+- <img src="./screenshot/step7.gif" width="30%">   <img src="./screenshot/step7-2.png" width="30%">
+
 ## 어려웠던 부분
 ### 1. 데드락(Deadlock)
 - 문제 코드   
