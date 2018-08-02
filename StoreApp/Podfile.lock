@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (4.7.2)
   - Toaster (2.1.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - Toaster
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - Toaster
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: ae3e9ade2340f542ad523f63881c2467de3082af
+PODFILE CHECKSUM: 5afbce6d57d191541703d7a7688081ed2e4993e5
 
 COCOAPODS: 1.5.3
