@@ -44,4 +44,18 @@ class ImageSetter {
             let existData = try? Data(contentsOf: imageSavingPath)
             return existData
     }
+
+    class func downloadDetailImages(urls: [String], completion: Notification.Name) {
+        var imgData = [Data?]()
+        urls.forEach { imageURL in
+            ImageSetter.download(with: imageURL, handler: { imageData in
+                DispatchQueue.main.async {
+                    imgData.append(imageData)
+                    if imgData.count == urls.count {
+                        NotificationCenter.default.post(name: completion, object: self, userInfo: [completion:imgData])
+                    }
+                }
+            })
+        }
+    }
 }

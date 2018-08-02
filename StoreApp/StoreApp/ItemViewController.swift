@@ -30,11 +30,11 @@ class ItemViewController: UIViewController, OrderDelegate {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(setThumbnailScrollView(notification:)),
                                                name: .thumbnailDownloaded,
-                                               object: self)
+                                               object: ImageSetter.self)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(setDetailScrollView(notification:)),
                                                name: .detailImageDownloaded,
-                                               object: self)
+                                               object: ImageSetter.self)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,47 +50,43 @@ class ItemViewController: UIViewController, OrderDelegate {
     }
 
     private func setThumbnailImages() {
-        self.downloadItemImages(urls: self.detailInfo.thumbImages,
+        ImageSetter.downloadDetailImages(urls: self.detailInfo.thumbImages,
                                 completion: Notification.Name.thumbnailDownloaded)
     }
 
     private func setDetailImages() {
-        self.downloadItemImages(urls: self.detailInfo.detailSection,
+        ImageSetter.downloadDetailImages(urls: self.detailInfo.detailSection,
                                 completion: Notification.Name.detailImageDownloaded)
-    }
-
-    private func downloadItemImages(urls: [String], completion: Notification.Name) {
-        var images = [UIImageView]()
-        urls.forEach { imageURL in
-            ImageSetter.download(with: imageURL, handler: { imageData in
-                DispatchQueue.main.async { [weak self] in
-                    if let loadedData = imageData {
-                        let image = UIImageView(image: UIImage(data: loadedData))
-                        images.append(image)
-                    } else {
-                        let image = UIImageView(image: UIImage(named: Keyword.refreshImage.rawValue))
-                        images.append(image)
-                    }
-                    if images.count == urls.count {
-                        NotificationCenter.default.post(name: completion, object: self, userInfo: [completion:images])
-                    }
-                }
-            })
-        }
     }
 
     @objc func setThumbnailScrollView(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
-        guard let images = userInfo[Notification.Name.thumbnailDownloaded] as? [UIImageView] else { return }
+        guard let imageData = userInfo[Notification.Name.thumbnailDownloaded] as? [Data?] else { return }
 
+        let scrollImages: [UIImageView] = imageData.map {
+            if let data = $0 {
+                return UIImageView(image: UIImage(data: data))
+            } else {
+                return UIImageView(image: UIImage(named: Keyword.refreshImage.rawValue))
+            }
+        }
         self.thumbnailScrollView.isPagingEnabled = true
-        self.thumbnailScrollView.setScrollView(images: images)
+        self.thumbnailScrollView.setScrollView(images: scrollImages)
     }
 
     @objc func setDetailScrollView(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
-        guard let images = userInfo[Notification.Name.detailImageDownloaded] as? [UIImageView] else { return }
-        self.detailScrollView.setScrollView(images: images)
+        guard let imageData = userInfo[Notification.Name.detailImageDownloaded] as? [Data?] else { return }
+
+        let scrollImages: [UIImageView] = imageData.map {
+            if let data = $0 {
+                return UIImageView(image: UIImage(data: data))
+            } else {
+                return UIImageView(image: UIImage(named: Keyword.refreshImage.rawValue))
+            }
+        }
+
+        self.detailScrollView.setScrollView(images: scrollImages)
     }
 
     private func setTitleLabels() {
