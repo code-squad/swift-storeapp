@@ -24,17 +24,15 @@ class ItemViewController: UIViewController, OrderDelegate {
         }
     }
     var detailInfo: DetailItemInfo!
-    var thumbnailImages = [UIImageView]()
-    var detailImages = [UIImageView]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(setThumbnailScrollView),
+                                               selector: #selector(setThumbnailScrollView(notification:)),
                                                name: .thumbnailDownloaded,
                                                object: self)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(setDetailScrollView),
+                                               selector: #selector(setDetailScrollView(notification:)),
                                                name: .detailImageDownloaded,
                                                object: self)
     }
@@ -49,83 +47,65 @@ class ItemViewController: UIViewController, OrderDelegate {
         setDeliveryFeeLabel()
         setThumbnailImages()
         setDetailImages()
-        buyButton.layer.zPosition = 1
     }
 
     private func setThumbnailImages() {
-        self.downloadItemImages(urls: self.detailInfo.thumbImages)
-        // download와 scrollview세팅
-    }
-
-    private func downloadItemImages(urls: [String]) {
-        urls.forEach { imageURL in
-            ImageSetter.download(with: imageURL, handler: { imageData in
-                DispatchQueue.main.async { [weak self] in
-                    if let loadedData = imageData {
-                        let image = UIImageView(image: UIImage(data: loadedData))
-                        self?.thumbnailImages.append(image)
-                        if self?.thumbnailImages.count == urls.count {
-                            NotificationCenter.default.post(name: .thumbnailDownloaded, object: self)
-                        }
-                    } else {
-                        let image = UIImageView(image: UIImage(named: Keyword.refreshImage.rawValue))
-                        self?.thumbnailImages.append(image)
-                        if self?.thumbnailImages.count == urls.count {
-                            NotificationCenter.default.post(name: .thumbnailDownloaded, object: self)
-                        }
-                    }
-                }
-            })
-        }
-    }
-
-    @objc func setThumbnailScrollView() {
-        self.thumbnailScrollView.isPagingEnabled = true
-        for i in 0..<thumbnailImages.count {
-            thumbnailImages[i].contentMode = .scaleAspectFill
-            thumbnailImages[i].clipsToBounds = true
-            let xPosition = self.view.frame.width * CGFloat(i)
-            thumbnailImages[i].frame = CGRect(x: xPosition, y: 0, width: self.thumbnailScrollView.frame.width, height: self.thumbnailScrollView.frame.height)
-            thumbnailScrollView.contentSize.width = self.view.frame.width * CGFloat(i+1)
-            thumbnailScrollView.addSubview(thumbnailImages[i])
-        }
+        self.downloadItemImages(urls: self.detailInfo.thumbImages,
+                                completion: Notification.Name.thumbnailDownloaded)
     }
 
     private func setDetailImages() {
-        self.downloadDetailImages(urls: self.detailInfo.detailSection)
+        self.downloadItemImages(urls: self.detailInfo.detailSection,
+                                completion: Notification.Name.detailImageDownloaded)
     }
 
-    private func downloadDetailImages(urls:[String]) {
+    private func downloadItemImages(urls: [String], completion: Notification.Name) {
+        var images = [UIImageView]()
         urls.forEach { imageURL in
             ImageSetter.download(with: imageURL, handler: { imageData in
                 DispatchQueue.main.async { [weak self] in
                     if let loadedData = imageData {
                         let image = UIImageView(image: UIImage(data: loadedData))
-                        self?.detailImages.append(image)
-                        if self?.detailImages.count == urls.count {
-                            NotificationCenter.default.post(name: .detailImageDownloaded, object: self)
-                        }
+                        images.append(image)
                     } else {
                         let image = UIImageView(image: UIImage(named: Keyword.refreshImage.rawValue))
-                        self?.detailImages.append(image)
-                        if self?.detailImages.count == urls.count {
-                            NotificationCenter.default.post(name: .detailImageDownloaded, object: self)
-                        }
+                        images.append(image)
+                    }
+                    if images.count == urls.count {
+                        NotificationCenter.default.post(name: completion, object: self, userInfo: [completion:images])
                     }
                 }
             })
         }
     }
 
-    @objc func setDetailScrollView() {
-        detailScrollView.contentSize.height = self.detailScrollView.frame.height * CGFloat(detailImages.count)
-        for i in 0..<detailImages.count {
-            detailImages[i].contentMode = .scaleAspectFill
-            detailImages[i].clipsToBounds = true
+    @objc func setThumbnailScrollView(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let images = userInfo[Notification.Name.thumbnailDownloaded] as? [UIImageView] else { return }
+
+        self.thumbnailScrollView.isPagingEnabled = true
+        for i in 0..<images.count {
+            images[i].contentMode = .scaleAspectFill
+            images[i].clipsToBounds = true
+            let xPosition = self.view.frame.width * CGFloat(i)
+            images[i].frame = CGRect(x: xPosition, y: 0, width: self.thumbnailScrollView.frame.width, height: self.thumbnailScrollView.frame.height)
+            thumbnailScrollView.contentSize.width = self.view.frame.width * CGFloat(i+1)
+            thumbnailScrollView.addSubview(images[i])
+        }
+    }
+
+    @objc func setDetailScrollView(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let images = userInfo[Notification.Name.detailImageDownloaded] as? [UIImageView] else { return }
+
+        detailScrollView.contentSize.height = self.detailScrollView.frame.height * CGFloat(images.count)
+        for i in 0..<images.count {
+            images[i].contentMode = .scaleAspectFill
+            images[i].clipsToBounds = true
             let yPosition = self.detailScrollView.frame.height * CGFloat(i)
-            detailImages[i].frame = CGRect(x: self.detailScrollView.frame.origin.x, y: yPosition,
+            images[i].frame = CGRect(x: self.detailScrollView.frame.origin.x, y: yPosition,
                                            width: self.detailScrollView.frame.width, height: self.detailScrollView.frame.height)
-            detailScrollView.addSubview(detailImages[i])
+            detailScrollView.addSubview(images[i])
         }
     }
 
