@@ -17,7 +17,7 @@ extension OrderDelegate {
     func order(product: OrderItem) {
         guard let url = URL(string: OrderKeyword.url.rawValue) else { return }
         var request = URLRequest(url: url)
-        request.httpMethod = OrderKeyword.url.rawValue
+        request.httpMethod = OrderKeyword.httpPostRequest.rawValue
         request.addValue(OrderKeyword.dataType.rawValue, forHTTPHeaderField: OrderKeyword.headerField.rawValue)
         let payload = ["text": ">>> 배고픈 알린😋 : \(product.title)을(를) \(product.price)에 구매했습니다. 🥘🍲🍡🥗🍕🍛"]
         guard let httpBody = try? JSONSerialization.data(withJSONObject: payload, options: []) else { return }
