@@ -168,6 +168,7 @@ class ItemViewController: UIViewController, OrderDelegate {
         let purchasedItem = OrderItem(title: itemData.itemTitle,
                                       prices: itemData.detailItemInfo().prices)
         order(product: purchasedItem)
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

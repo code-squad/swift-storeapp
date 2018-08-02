@@ -17,6 +17,13 @@ enum Keyword: String {
     case refreshImage
 }
 
+enum OrderKeyword: String {
+    case url = "https://hooks.slack.com/services/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"
+    case httpRequest = "POST"
+    case dataType = "application/json"
+    case headerField = "Content-Type"
+}
+
 enum DiscountBadge: String {
     case Launching = "론칭특가"
     case Event = "이벤트특가"
