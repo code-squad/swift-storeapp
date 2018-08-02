@@ -9,14 +9,14 @@
 import UIKit
 
 class ItemViewController: UIViewController, OrderDelegate {
-    @IBOutlet weak var thumbnailScrollView: UIScrollView!
+    @IBOutlet weak var thumbnailScrollView: ItemDetailScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabels: UIStackView!
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var deliveryFee: UILabel!
     @IBOutlet weak var deliveryInfo: UILabel!
-    @IBOutlet weak var detailScrollView: UIScrollView!
+    @IBOutlet weak var detailScrollView: ItemDetailScrollView!
     @IBOutlet weak var buyButton: UIButton!
     var itemData: DetailHash! {
         didSet {
@@ -84,29 +84,13 @@ class ItemViewController: UIViewController, OrderDelegate {
         guard let images = userInfo[Notification.Name.thumbnailDownloaded] as? [UIImageView] else { return }
 
         self.thumbnailScrollView.isPagingEnabled = true
-        for i in 0..<images.count {
-            images[i].contentMode = .scaleAspectFill
-            images[i].clipsToBounds = true
-            let xPosition = self.view.frame.width * CGFloat(i)
-            images[i].frame = CGRect(x: xPosition, y: 0, width: self.thumbnailScrollView.frame.width, height: self.thumbnailScrollView.frame.height)
-            thumbnailScrollView.contentSize.width = self.view.frame.width * CGFloat(i+1)
-            thumbnailScrollView.addSubview(images[i])
-        }
+        self.thumbnailScrollView.setScrollView(images: images)
     }
 
     @objc func setDetailScrollView(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         guard let images = userInfo[Notification.Name.detailImageDownloaded] as? [UIImageView] else { return }
-
-        detailScrollView.contentSize.height = self.detailScrollView.frame.height * CGFloat(images.count)
-        for i in 0..<images.count {
-            images[i].contentMode = .scaleAspectFill
-            images[i].clipsToBounds = true
-            let yPosition = self.detailScrollView.frame.height * CGFloat(i)
-            images[i].frame = CGRect(x: self.detailScrollView.frame.origin.x, y: yPosition,
-                                           width: self.detailScrollView.frame.width, height: self.detailScrollView.frame.height)
-            detailScrollView.addSubview(images[i])
-        }
+        self.detailScrollView.setScrollView(images: images)
     }
 
     private func setTitleLabels() {

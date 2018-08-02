@@ -13,6 +13,8 @@
 		FD2E512D210AF3EE0094F08D /* DetailHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2E512B210AC4600094F08D /* DetailHash.swift */; };
 		FD2E512E210AF3F20094F08D /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87808A2106F9810009CF8D /* DataSetter.swift */; };
 		FD2E512F210AF3F50094F08D /* ImageSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD59698E2108777100507E0C /* ImageSetter.swift */; };
+		FD412C022112D924002F7240 /* ItemDetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD412C012112D924002F7240 /* ItemDetailScrollView.swift */; };
+		FD412C032112D930002F7240 /* ItemDetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD412C012112D924002F7240 /* ItemDetailScrollView.swift */; };
 		FD4EFBCD20F71BAF003F2793 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4EFBCC20F71BAF003F2793 /* Category.swift */; };
 		FD560ECE20F86C2200ACBA93 /* Keyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD560ECD20F86C2200ACBA93 /* Keyword.swift */; };
 		FD560ED020F86F7B00ACBA93 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD560ECF20F86F7B00ACBA93 /* HeaderView.swift */; };
@@ -59,6 +61,7 @@
 		9D3C3FB91E7B6B8E8AEA5AA6 /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD140EEF210E0CAC007D53F3 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 		FD2E512B210AC4600094F08D /* DetailHash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHash.swift; sourceTree = "<group>"; };
+		FD412C012112D924002F7240 /* ItemDetailScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailScrollView.swift; sourceTree = "<group>"; };
 		FD4EFBCC20F71BAF003F2793 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FD560ECD20F86C2200ACBA93 /* Keyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyword.swift; sourceTree = "<group>"; };
 		FD560ECF20F86F7B00ACBA93 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -188,6 +191,7 @@
 		FDF6FE1020F74A9400243256 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD412C012112D924002F7240 /* ItemDetailScrollView.swift */,
 				FD579C9120E4BF8D00B067FE /* StoreTableViewCell.swift */,
 				FD560ECF20F86F7B00ACBA93 /* HeaderView.swift */,
 				FD663E6C20FB239100BC4D5D /* RoundedEdgeLabel.swift */,
@@ -341,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD579C9220E4BF8D00B067FE /* StoreTableViewCell.swift in Sources */,
+				FD412C022112D924002F7240 /* ItemDetailScrollView.swift in Sources */,
 				FD87808B2106F9810009CF8D /* DataSetter.swift in Sources */,
 				FD560ED020F86F7B00ACBA93 /* HeaderView.swift in Sources */,
 				FDCAF37220F35167005F5E07 /* StoreItems.swift in Sources */,
@@ -370,6 +375,7 @@
 				FDC7010B2101AD2E00BEAD7C /* CustomExtension.swift in Sources */,
 				FDC7010C2101AD5200BEAD7C /* RoundedEdgeLabel.swift in Sources */,
 				FDC700FC2101AC4000BEAD7C /* StoreAppUnitTests.swift in Sources */,
+				FD412C032112D930002F7240 /* ItemDetailScrollView.swift in Sources */,
 				FDC701042101ACEB00BEAD7C /* HeaderView.swift in Sources */,
 				FD2E512D210AF3EE0094F08D /* DetailHash.swift in Sources */,
 				FD2E512F210AF3F50094F08D /* ImageSetter.swift in Sources */,
