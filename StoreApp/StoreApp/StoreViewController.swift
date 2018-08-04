@@ -8,6 +8,7 @@
 
 import UIKit
 import Toaster
+import Alamofire
 
 class StoreViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +22,7 @@ class StoreViewController: UIViewController {
         super.viewDidLoad()
 
         #if DEBUG
-        self.deleteCache()
+        //self.deleteCache()
         #endif
 
         NotificationCenter.default.addObserver(self,
@@ -32,7 +33,7 @@ class StoreViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = rowHeightForCell
         StoreItems.categories.forEach { (category) in
-            storeItems.set(with: category)
+            self.storeItems.set(with: category)
         }
     }
 
@@ -60,14 +61,12 @@ class StoreViewController: UIViewController {
         let cacheURL = ImageSetter.fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
         do {
             let fileNames = try ImageSetter.fileManager.contentsOfDirectory(atPath: cacheURL.path)
-            print("all files in cache: \(fileNames)")
             for file in fileNames {
                 let imageSavingPath = cacheURL.appendingPathComponent(file)
                 if (file.hasSuffix(".jpg")) {
                     try ImageSetter.fileManager.removeItem(atPath: imageSavingPath.path)
                 }
                 let files = try ImageSetter.fileManager.contentsOfDirectory(atPath: cacheURL.path)
-                print("all files in cache after deleting images: \(files)")
             }
         } catch {
             print("Could not clear temp folder: \(error)")

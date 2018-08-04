@@ -18,7 +18,7 @@ class DataSetter<T: URLDataProtocol> {
     class func set(with category: T, handler: @escaping(([Category:Items]) -> Void)) {
         URLSession.shared.dataTask(with: category.url) { [category] (data, response, error) in
             if let error = error {
-                print("Network error: \(error) \n")
+                print("네트워크에러(DataSetter): \(error) \n")
                 let result = ItemDataParser.makeStoreItemsFromJSON(with: category)
                 handler(result)
             }
@@ -26,7 +26,7 @@ class DataSetter<T: URLDataProtocol> {
                 let result = ItemDataParser.makeStoreItemsFromSession(category: category, data: data)
                 handler(result)
             } else {
-                print("DataTask error: response \n")
+                print("DataTask error: \(response) \n")
                 let result = ItemDataParser.makeStoreItemsFromJSON(with: category)
                 handler(result)
             }
