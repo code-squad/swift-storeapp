@@ -28,6 +28,7 @@
 		FD74FD7920F6F41500418092 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = FD74FD7820F6F41500418092 /* side.json */; };
 		FD7F12DD2111B33D007E9779 /* OrderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F12DC2111B33D007E9779 /* OrderDelegate.swift */; };
 		FD87808B2106F9810009CF8D /* DataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD87808A2106F9810009CF8D /* DataSetter.swift */; };
+		FD904B9521159C6B0006BFE7 /* HashDataSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD904B9421159C6B0006BFE7 /* HashDataSetter.swift */; };
 		FD9FF9B620E263BB00BE6FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9FF9B520E263BB00BE6FA6 /* AppDelegate.swift */; };
 		FD9FF9B820E263BB00BE6FA6 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9FF9B720E263BB00BE6FA6 /* StoreViewController.swift */; };
 		FD9FF9BB20E263BB00BE6FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD9FF9B920E263BB00BE6FA6 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		FD74FD7820F6F41500418092 /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		FD7F12DC2111B33D007E9779 /* OrderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDelegate.swift; sourceTree = "<group>"; };
 		FD87808A2106F9810009CF8D /* DataSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSetter.swift; sourceTree = "<group>"; };
+		FD904B9421159C6B0006BFE7 /* HashDataSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashDataSetter.swift; sourceTree = "<group>"; };
 		FD9FF9B220E263BB00BE6FA6 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9FF9B520E263BB00BE6FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD9FF9B720E263BB00BE6FA6 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				FD2E512B210AC4600094F08D /* DetailHash.swift */,
 				FD7F12DC2111B33D007E9779 /* OrderDelegate.swift */,
 				FD2369B5211413040015193A /* NetworkManager.swift */,
+				FD904B9421159C6B0006BFE7 /* HashDataSetter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				FD9FF9B620E263BB00BE6FA6 /* AppDelegate.swift in Sources */,
 				FD140EF0210E0CAC007D53F3 /* ItemViewController.swift in Sources */,
 				FD560ECE20F86C2200ACBA93 /* Keyword.swift in Sources */,
+				FD904B9521159C6B0006BFE7 /* HashDataSetter.swift in Sources */,
 				FD2369B6211413040015193A /* NetworkManager.swift in Sources */,
 				FD4EFBCD20F71BAF003F2793 /* Category.swift in Sources */,
 				FD2E512C210AC4600094F08D /* DetailHash.swift in Sources */,
