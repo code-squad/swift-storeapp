@@ -12,6 +12,7 @@ extension Notification.Name {
     static let sectionSetComplete = Notification.Name("sectionSetComplete")
     static let thumbnailDownloaded = Notification.Name("thumbnailDownloaded")
     static let detailImageDownloaded = Notification.Name("detailImageDownloaded")
+    static let reachabilityChanged = Notification.Name("reachabilityChanged")
 }
 
 extension UIFont {

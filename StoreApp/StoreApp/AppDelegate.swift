@@ -7,16 +7,39 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        NotificationCenter.default.addObserver(self, selector: #selector(setStatusbarColor(notification:)), name: .reachabilityChanged, object: nil)
+        NetworkManager.shared.startNetworkReachabilityObserver()
         return true
+    }
+
+    @objc func setStatusbarColor(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let status = userInfo["reachabilityStatus"] as? NetworkReachabilityManager.NetworkReachabilityStatus else { return }
+        switch status {
+        case .notReachable:
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor.red
+            print("The network is not reachable") // 0
+        case .unknown :
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor.purple
+            print("It is unknown whether the network is reachable") // 1
+
+        case .reachable(.ethernetOrWiFi):
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor.blue
+                    UIApplication.shared.statusBarView?.startBlink()
+            print("The network is reachable over the WiFi connection") // 2
+
+        case .reachable(.wwan):
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor.green
+            print("The network is reachable over the WWAN connection") // wwan number value
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -41,6 +64,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
 
+extension UIApplication {
+
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+
+}
+
+extension UIView {
+
+    func startBlink() {
+        UIView.animate(withDuration: 0.8,
+                       delay:0.0,
+                       options:[.curveEaseInOut, .autoreverse, .repeat],
+                       animations: { self.alpha = 0.3 },
+                       completion: nil)
+    }
+
+    func stopBlink() {
+        layer.removeAllAnimations()
+        alpha = 1
+    }
 }
 

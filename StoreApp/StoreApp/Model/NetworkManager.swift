@@ -33,6 +33,7 @@ class NetworkManager {
             case .reachable(.wwan):
                 print("The network is reachable over the WWAN connection") // wwan number value
             }
+            NotificationCenter.default.post(name: .reachabilityChanged, object: self, userInfo: ["reachabilityStatus":status])
             print("이전 연결: \(self.reachabilityManager?.previousFlags.rawValue))")
         }
 
