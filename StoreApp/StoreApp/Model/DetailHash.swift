@@ -38,7 +38,7 @@ class HashDataSetter {
     class func set(url: URL, handler: @escaping((ItemHashData)->Void)) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
-                print("Network error: \(error) \n")
+                print("네트워크에러: \(error) \n")
             }
             if let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
                 do {
@@ -48,7 +48,7 @@ class HashDataSetter {
                     print("Parse Error!!!")
                 }
             } else {
-                print("Data error!")
+                print("데이터 에러!")
             }
         }.resume()
     }

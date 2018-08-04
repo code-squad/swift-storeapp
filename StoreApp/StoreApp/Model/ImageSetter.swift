@@ -16,11 +16,11 @@ class ImageSetter {
         let imageSavingPath = cacheURL.appendingPathComponent(URL(string: url)!.lastPathComponent)
 
         if let imageData = existFile(at: imageSavingPath) {
-            handler(imageData)
+            handler(imageData) // 네트워크에러일때 cache에서 이미지 가져옴 
         } else {
             URLSession.shared.downloadTask(with: URL(string: url)!) { (tmpLocation, response, error) in
                 if let error = error {
-                    print("Image download Error log: \(error)\n")
+                    print("이미지 다운로드 에러(ImageSetter): \(error)\n")
                     handler(nil)
                 }
                 if let response = response as? HTTPURLResponse, response.statusCode == 200, let tmpLocation = tmpLocation {
