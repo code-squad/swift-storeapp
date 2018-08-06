@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Category: String, URLDataProtocol {
+enum Category: String {
     case main
     case soup
     case side
