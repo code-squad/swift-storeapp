@@ -21,7 +21,7 @@ class DetailHash {
     }
 
     private func setDetailData() {
-        HashDataSetter.set(url: self.url) { [weak self] (itemData) in
+        HashDataSetter.tryDownload(url: self.url) { [weak self] (itemData) in
             DispatchQueue.main.async {
                 self?.detailData = itemData
             }
