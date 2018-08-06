@@ -168,7 +168,6 @@
                     <navigationItem key="navigationItem" id="3md-4j-psg"/>
                     <connections>
                         <outlet property="tableView" destination="IYx-ZJ-wMd" id="aCB-2Z-R5y"/>
-                        <segue destination="NTX-tX-uFn" kind="show" identifier="toItemDetail" id="CM3-K0-4XG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -184,20 +183,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifn-Q5-8PI" customClass="ItemDetailScrollView" customModule="StoreApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="148"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="148"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="41a-Or-aEj" userLabel="titleLabels">
-                                <rect key="frame" x="20" y="227" width="45" height="42.5"/>
+                                <rect key="frame" x="20" y="227" width="45" height="85.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbX-Vf-P2T" userLabel="title">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="63.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GO-Fa-mxv" userLabel="description">
-                                        <rect key="frame" x="0.0" y="26.5" width="45" height="16"/>
+                                        <rect key="frame" x="0.0" y="69.5" width="45" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -364,5 +363,48 @@
             </objects>
             <point key="canvasLocation" x="1013.6" y="132.68365817091455"/>
         </scene>
+        <!--Unreachable View Controller-->
+        <scene sceneID="liA-P0-7UX">
+            <objects>
+                <viewController storyboardIdentifier="unreachableViewController" id="hWH-wH-lXj" customClass="UnreachableViewController" customModule="StoreApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2CR-uT-eM1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-internet-connection" translatesAutoresizingMaskIntoConstraints="NO" id="9HM-a8-w5D">
+                                <rect key="frame" x="94" y="120" width="187.5" height="187.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9HM-a8-w5D" secondAttribute="height" multiplier="1:1" id="3u9-oM-4eY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Yk-iyM">
+                                <rect key="frame" x="-0.5" y="332.5" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.51200358072916674" green="0.51200358072916674" blue="0.51200358072916674" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9HM-a8-w5D" firstAttribute="centerX" secondItem="2CR-uT-eM1" secondAttribute="centerX" id="Tbe-1o-SdO"/>
+                            <constraint firstItem="i5M-Yk-iyM" firstAttribute="top" secondItem="9HM-a8-w5D" secondAttribute="bottom" constant="25" id="Tug-i2-9fE"/>
+                            <constraint firstItem="i5M-Yk-iyM" firstAttribute="centerX" secondItem="2CR-uT-eM1" secondAttribute="centerX" id="ev6-7S-ORY"/>
+                            <constraint firstItem="9HM-a8-w5D" firstAttribute="top" secondItem="O9H-bC-e1G" secondAttribute="top" constant="100" id="gm6-kx-WVe"/>
+                            <constraint firstItem="i5M-Yk-iyM" firstAttribute="width" secondItem="2CR-uT-eM1" secondAttribute="width" id="hGw-7c-zKD"/>
+                            <constraint firstItem="9HM-a8-w5D" firstAttribute="width" secondItem="2CR-uT-eM1" secondAttribute="width" multiplier="1:2" id="yn1-fK-s4a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O9H-bC-e1G"/>
+                    </view>
+                    <connections>
+                        <outlet property="noNetworkLabel" destination="i5M-Yk-iyM" id="8zs-sG-hhQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bxx-Z7-oHR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013.6" y="893.70314842578716"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="no-internet-connection" width="256" height="256"/>
+    </resources>
 </document>
