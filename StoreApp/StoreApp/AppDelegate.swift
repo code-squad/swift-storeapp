@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch status {
         case .notReachable:
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor.red
+                    UIApplication.shared.statusBarView?.stopBlink()
             print("The network is not reachable") // 0
         case .unknown :
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor.purple
@@ -38,7 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         case .reachable(.wwan):
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor.green
-            print("The network is reachable over the WWAN connection") // wwan number value
+                    UIApplication.shared.statusBarView?.startBlink()
+                    print("The network is reachable over the WWAN connection") // wwan number value
         }
     }
 
