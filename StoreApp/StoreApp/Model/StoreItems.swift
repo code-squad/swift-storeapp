@@ -33,13 +33,12 @@ class StoreItems {
     }
 
     func set(with category: Category) {
-        DataSetter<Category>.set(with: category) { items in
+        DataSetter.tryDownload(url: category) { items in
             self.update(key: items.keys.first!, value: items.values.first!)
             if let firstKey = items.firstKey {
-                let indexPaths = Array(0..<self.storeItem[firstKey]!.count).map {IndexPath(row: $0, section: firstKey.sectionNumber)}
                 NotificationCenter.default.post(name: .sectionSetComplete,
                                                 object: self,
-                                                userInfo: [Keyword.sectionPath : indexPaths])
+                                                userInfo: [Keyword.sectionPath : firstKey])
             }
         }
     }

@@ -8,25 +8,23 @@
 
 import Foundation
 
-protocol URLDataProtocol {
-    var url: URL { get }
-}
+class DataSetter {
 
-class DataSetter<T: URLDataProtocol> {
-    typealias T = Category
+    class func tryDownload(url: Category, handler: @escaping (([Category:Items]) -> Void)) {
+        if NetworkManager.shared.reachable {
+            DataSetter.set(with: url, handler: handler)
+        } else {
+            let result = ItemDataParser.makeStoreItemsFromJSON(with: url)
+            handler(result)
+        }
+    }
 
-    class func set(with category: T, handler: @escaping(([Category:Items]) -> Void)) {
+    private class func set(with category: Category, handler: @escaping(([Category:Items]) -> Void)) {
         URLSession.shared.dataTask(with: category.url) { [category] (data, response, error) in
-            if let error = error {
-                print("네트워크에러(DataSetter): \(error) \n")
-                let result = ItemDataParser.makeStoreItemsFromJSON(with: category)
-                handler(result)
-            }
             if let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
                 let result = ItemDataParser.makeStoreItemsFromSession(category: category, data: data)
                 handler(result)
             } else {
-                print("DataTask error: \(response) \n")
                 let result = ItemDataParser.makeStoreItemsFromJSON(with: category)
                 handler(result)
             }
