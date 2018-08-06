@@ -34,6 +34,10 @@ enum DeliveryBadge: String {
     case Nation = "전국택배"
 }
 
+enum ProgramDescription: String {
+    case UnreachableNetworkInKorean = "네트워크에 연결할 수 없습니다 :(\n잠시 후에 다시 시도해주세요."
+}
+
 extension String {
     func discountBadge() -> DiscountBadge? {
         switch self {
