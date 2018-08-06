@@ -50,7 +50,7 @@ class StoreTableViewCell: UITableViewCell {
     }
 
     private func setItemImage(imageURL: String) {
-        ImageSetter.download(with: imageURL, handler: { imageData in
+        ImageSetter.tryDownload(url: imageURL, handler: { imageData in
             DispatchQueue.main.async { [weak self] in
                 if let loadedData = imageData {
                     self?.itemImage.image = UIImage(data: loadedData)
