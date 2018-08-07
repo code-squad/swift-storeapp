@@ -52,11 +52,11 @@ import UIKit
         switch withText {
         case .Launching:
             self.text = withText.rawValue
-            self.backgroundColor = UIColor(r: 204, g: 147, b: 238)
+            self.backgroundColor = UIColor(named: SystemColor.Label.LightPurple.rawValue)
             return self
         case .Event:
             self.text = withText.rawValue
-            self.backgroundColor = UIColor(r: 255, g: 211, b: 79)
+            self.backgroundColor = UIColor(named: SystemColor.Label.Yellow.rawValue)
             return self
         }
     }

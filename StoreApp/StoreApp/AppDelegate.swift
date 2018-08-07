@@ -25,20 +25,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let status = userInfo["reachabilityStatus"] as? NetworkReachabilityManager.NetworkReachabilityStatus else { return }
         switch status {
         case .notReachable:
-                    UIApplication.shared.statusBarView?.backgroundColor = UIColor.red
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Pink.rawValue)
                     UIApplication.shared.statusBarView?.stopBlink()
             print("The network is not reachable") // 0
         case .unknown :
-                    UIApplication.shared.statusBarView?.backgroundColor = UIColor.purple
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Yellow.rawValue)
             print("It is unknown whether the network is reachable") // 1
 
         case .reachable(.ethernetOrWiFi):
-                    UIApplication.shared.statusBarView?.backgroundColor = UIColor.blue
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Blue.rawValue)!
                     UIApplication.shared.statusBarView?.startBlink()
             print("The network is reachable over the WiFi connection") // 2
 
         case .reachable(.wwan):
-                    UIApplication.shared.statusBarView?.backgroundColor = UIColor.green
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Teal.rawValue)
                     UIApplication.shared.statusBarView?.startBlink()
                     print("The network is reachable over the WWAN connection") // wwan number value
         }
