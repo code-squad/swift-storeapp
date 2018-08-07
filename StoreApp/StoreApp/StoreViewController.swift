@@ -47,9 +47,9 @@ class StoreViewController: UIViewController {
         }
     }
 
-    private func resetTableView(indexPaths: Category) {
+    private func resetTableView(of header: Category) {
         DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadSections(IndexSet(0..<(self?.storeItems.storeItem.keys.count)!), with: .automatic)
+            self?.tableView.reloadSections(IndexSet(integer:header.sectionNumber), with: .automatic)
         }
     }
 
@@ -57,7 +57,7 @@ class StoreViewController: UIViewController {
         guard let userInfo = notification.userInfo else { return }
         guard let section = userInfo[Keyword.sectionPath] else { return }
         guard let category = section as? Category else { return }
-        self.resetTableView(indexPaths: category)
+        self.resetTableView(of: category)
     }
 
     // DEBUG

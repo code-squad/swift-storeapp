@@ -20,7 +20,8 @@ class StoreItems {
 
     subscript(index: Int) -> Items {
         get {
-            return storeItem[StoreItems.categories[index]]!
+            guard let items = storeItem[StoreItems.categories[index]] else { return Items() }
+            return items
         }
     }
 
