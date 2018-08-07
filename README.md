@@ -36,6 +36,12 @@
   - Slack으로(Slack incoming hook) “누가-얼마짜리-메뉴” 주문을 POST 요청으로 보내는 기능을 구현
 - <img src="./screenshot/step7.gif" width="30%">   <img src="./screenshot/step7-2.png" width="30%">
 
+### Step8 (2018.08.07)
+- 네트워크 연결성 확인
+- StatusBar 변경으로 연결성 구분
+  - wifi: 파란색 / WWAN: 하늘색 / 네트워크 유실: 빨간색
+- <img src="./screenshot/step8.gif" width="40%">
+
 ## 어려웠던 부분
 ### 1. 데드락(Deadlock)
 - 문제 코드   
