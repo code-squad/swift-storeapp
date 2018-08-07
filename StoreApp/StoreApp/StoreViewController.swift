@@ -20,9 +20,6 @@ class StoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        #if DEBUG
-        // self.deleteCache()
-        #endif
         NotificationCenter.default.addObserver(self, selector: #selector(dataReload), name: .reachabilityChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setComplete(notification:)),name: .sectionSetComplete,object: nil)
         tableView.delegate = self
@@ -38,12 +35,8 @@ class StoreViewController: UIViewController {
     }
 
     @objc func dataReload() {
-        if NetworkManager.shared.reachable {
-            StoreItems.categories.forEach { (category) in
-                self.storeItems.set(with: category)
-            }
-        } else {
-            print("RootView - dataReload. Not reachable")
+        StoreItems.categories.forEach { (category) in
+            self.storeItems.set(with: category)
         }
     }
 
@@ -58,23 +51,6 @@ class StoreViewController: UIViewController {
         guard let section = userInfo[Keyword.sectionPath] else { return }
         guard let category = section as? Category else { return }
         self.resetTableView(of: category)
-    }
-
-    // DEBUG
-    private func deleteCache() {
-        let cacheURL = ImageSetter.fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        do {
-            let fileNames = try ImageSetter.fileManager.contentsOfDirectory(atPath: cacheURL.path)
-            for file in fileNames {
-                let imageSavingPath = cacheURL.appendingPathComponent(file)
-                if (file.hasSuffix(".jpg")) {
-                    try ImageSetter.fileManager.removeItem(atPath: imageSavingPath.path)
-                }
-                let files = try ImageSetter.fileManager.contentsOfDirectory(atPath: cacheURL.path)
-            }
-        } catch {
-            print("Could not clear temp folder: \(error)")
-        }
     }
 
     private func toUnreachableView() {
@@ -106,19 +82,19 @@ extension StoreViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if NetworkManager.shared.reachable {
-            self.runToast(indexPath: indexPath)
-
-            if let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "itemDetailView") as? ItemViewController {
-                if let selectedCell = tableView.cellForRow(at: indexPath) as? StoreTableViewCell {
+        if let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "itemDetailView") as? ItemViewController {
+            if let selectedCell = tableView.cellForRow(at: indexPath) as? StoreTableViewCell {
+                if selectedCell.isHashDataEnable {
+                    self.runToast(indexPath: indexPath)
                     nextVC.itemData = selectedCell.detailHash
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+                } else {
+                    self.toUnreachableView()
                 }
-                self.navigationController?.pushViewController(nextVC, animated: true)
             }
-        } else {
-            self.toUnreachableView()
         }
     }
+
 }
 
 extension StoreViewController: UITableViewDelegate {
