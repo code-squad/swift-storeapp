@@ -10,25 +10,25 @@ import Foundation
 
 class HashDataSetter {
 
-    class func tryDownload(url: URL, handler: @escaping ((ItemHashData) -> Void)) {
+    class func tryDownload(url: URL, handler: @escaping ((ItemHashData?) -> Void)) {
         if NetworkManager.shared.reachable {
             HashDataSetter.set(url: url, handler: handler)
         } else {
-            print("[HashDataSetter] Not Reachable - Show network error view(UnreachableViewController)")
+            handler(nil)
         }
     }
 
-    private class func set(url: URL, handler: @escaping((ItemHashData)->Void)) {
+    private class func set(url: URL, handler: @escaping((ItemHashData?)->Void)) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let response = response as? HTTPURLResponse, response.statusCode == 200, let data = data {
                 do {
                     let parsedData = try JSONDecoder().decode(ItemHashData.self, from: data)
                     handler(parsedData)
                 } catch {
-                    print("Parse Error!!!")
+                    handler(nil)
                 }
             } else {
-                print("데이터 에러!")
+                handler(nil)
             }
             }.resume()
     }

@@ -34,6 +34,11 @@ class StoreTableViewCell: UITableViewCell {
         }
     }
 
+    lazy var isHashDataEnable: Bool = {
+        guard self.detailHash.isItemHashDataExisting() else { return false }
+        return true
+    }()
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setItemImageConfig()

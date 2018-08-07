@@ -11,7 +11,7 @@ import Foundation
 class DetailHash {
     let baseURL = URL(string: "http://crong.codesquad.kr:8080/woowa/detail/")!
     var url: URL
-    var detailData: ItemHashData!
+    var itemHashData: ItemHashData!
     var itemTitle: String
 
     init(code: String, itemTitle: String) {
@@ -23,13 +23,18 @@ class DetailHash {
     private func setDetailData() {
         HashDataSetter.tryDownload(url: self.url) { [weak self] (itemData) in
             DispatchQueue.main.async {
-                self?.detailData = itemData
+                self?.itemHashData = itemData
             }
         }
     }
 
     func detailItemInfo() -> DetailItemInfo {
-        return self.detailData.data
+        return self.itemHashData.data
+    }
+
+    func isItemHashDataExisting() -> Bool {
+        guard self.itemHashData != nil else { return false }
+        return true
     }
 }
 
