@@ -20,15 +20,11 @@ class StoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         #if DEBUG
-        //self.deleteCache()
+        // self.deleteCache()
         #endif
-
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(setComplete(notification:)),
-                                               name: .sectionSetComplete,
-                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataReload), name: .reachabilityChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setComplete(notification:)),name: .sectionSetComplete,object: nil)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = rowHeightForCell
@@ -41,19 +37,27 @@ class StoreViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    private func resetTableView(indexPaths: [IndexPath]) {
-        DispatchQueue.main.sync { [weak self] in
-            self?.tableView.beginUpdates()
-            self?.tableView.insertRows(at: indexPaths, with: .automatic)
-            self?.tableView.endUpdates()
+    @objc func dataReload() {
+        if NetworkManager.shared.reachable {
+            StoreItems.categories.forEach { (category) in
+                self.storeItems.set(with: category)
+            }
+        } else {
+            print("RootView - dataReload. Not reachable")
+        }
+    }
+
+    private func resetTableView(indexPaths: Category) {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadSections(IndexSet(0..<(self?.storeItems.storeItem.keys.count)!), with: .automatic)
         }
     }
 
     @objc func setComplete(notification: Notification) {
         guard let userInfo = notification.userInfo else { return }
         guard let section = userInfo[Keyword.sectionPath] else { return }
-        guard let sectionNumber = section as? [IndexPath] else { return }
-        self.resetTableView(indexPaths: sectionNumber)
+        guard let category = section as? Category else { return }
+        self.resetTableView(indexPaths: category)
     }
 
     // DEBUG
@@ -73,6 +77,16 @@ class StoreViewController: UIViewController {
         }
     }
 
+    private func toUnreachableView() {
+        if let unreachableVC = self.storyboard?.instantiateViewController(withIdentifier: "unreachableViewController") as? UnreachableViewController {
+            self.navigationController?.pushViewController(unreachableVC, animated: true)
+        }
+    }
+
+    private func runToast(indexPath: IndexPath) {
+        Toast(text: "\(storeItems[indexPath.section][indexPath.row].alt)\n\(storeItems[indexPath.section][indexPath.row].s_price)",
+            duration: Delay.short).show()
+    }
 }
 
 extension StoreViewController: UITableViewDataSource {
@@ -92,14 +106,17 @@ extension StoreViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Toast(text: "\(storeItems[indexPath.section][indexPath.row].alt)\n\(storeItems[indexPath.section][indexPath.row].s_price)",
-            duration: Delay.short).show()
+        if NetworkManager.shared.reachable {
+            self.runToast(indexPath: indexPath)
 
-        if let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "itemDetailView") as? ItemViewController {
-            if let selectedCell = tableView.cellForRow(at: indexPath) as? StoreTableViewCell {
-                nextVC.itemData = selectedCell.detailHash
+            if let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "itemDetailView") as? ItemViewController {
+                if let selectedCell = tableView.cellForRow(at: indexPath) as? StoreTableViewCell {
+                    nextVC.itemData = selectedCell.detailHash
+                }
+                self.navigationController?.pushViewController(nextVC, animated: true)
             }
-            self.navigationController?.pushViewController(nextVC, animated: true)
+        } else {
+            self.toUnreachableView()
         }
     }
 }
