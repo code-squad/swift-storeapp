@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
         NotificationCenter.default.addObserver(self, selector: #selector(setStatusbarColor(notification:)), name: .reachabilityChanged, object: nil)
         NetworkManager.shared.startNetworkReachabilityObserver()
         return true
@@ -26,19 +27,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch status {
         case .notReachable:
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Pink.rawValue)
+                    UIApplication.shared.statusBarStyle = .lightContent
                     UIApplication.shared.statusBarView?.stopBlink()
             print("The network is not reachable") // 0
         case .unknown :
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Yellow.rawValue)
-            print("It is unknown whether the network is reachable") // 1
+                    UIApplication.shared.statusBarStyle = .default
+                    UIApplication.shared.statusBarView?.stopBlink()
+                    print("It is unknown whether the network is reachable") // 1
 
         case .reachable(.ethernetOrWiFi):
-                    UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Blue.rawValue)!
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Blue.rawValue)
+                    UIApplication.shared.statusBarStyle = .lightContent
                     UIApplication.shared.statusBarView?.startBlink()
             print("The network is reachable over the WiFi connection") // 2
 
         case .reachable(.wwan):
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Teal.rawValue)
+                    UIApplication.shared.statusBarStyle = .lightContent
                     UIApplication.shared.statusBarView?.startBlink()
                     print("The network is reachable over the WWAN connection") // wwan number value
         }
