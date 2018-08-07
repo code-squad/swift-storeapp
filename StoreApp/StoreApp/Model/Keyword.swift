@@ -24,6 +24,20 @@ enum OrderKeyword: String {
     case headerField = "Content-Type"
 }
 
+enum SystemColor {
+    enum StatusBar: String {
+        case Blue = "iOSSystemBlue"
+        case Pink = "iOSSystemPink"
+        case Teal = "iOSSystemTeal"
+        case Yellow = "iOSSystemYellow"
+    }
+
+    enum Label: String {
+        case LightPurple = "LabelLightPurple"
+        case Yellow = "LabelYellow"
+    }
+}
+
 enum DiscountBadge: String {
     case Launching = "론칭특가"
     case Event = "이벤트특가"
