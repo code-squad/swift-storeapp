@@ -30,6 +30,7 @@ enum SystemColor {
         case Pink = "iOSSystemPink"
         case Teal = "iOSSystemTeal"
         case Yellow = "iOSSystemYellow"
+        case Orange = "iOSSystemOrange"
     }
 
     enum Label: String {
