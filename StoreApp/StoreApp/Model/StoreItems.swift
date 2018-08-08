@@ -16,6 +16,7 @@ class StoreItems {
         self.storeItem = [Category.main: Items(),
                           Category.soup: Items(),
                           Category.side: Items()]
+        NotificationCenter.default.addObserver(self, selector: #selector(resetData), name: .reachabilityChanged, object: nil)
     }
 
     subscript(index: Int) -> Items {
@@ -33,7 +34,13 @@ class StoreItems {
         self.storeItem[key] = value
     }
 
-    func set(with category: Category) {
+    func set() {
+        StoreItems.categories.forEach { (category) in
+            self.loadData(of: category)
+        }
+    }
+
+    private func loadData(of category: Category) {
         DataSetter.tryDownload(url: category) { items in
             self.update(key: items.keys.first!, value: items.values.first!)
             if let firstKey = items.firstKey {
@@ -42,6 +49,11 @@ class StoreItems {
                                                 userInfo: [Keyword.sectionPath : firstKey])
             }
         }
+    }
+
+    // Execute when Reachability changed
+    @objc func resetData() {
+        self.set()
     }
 
 }
