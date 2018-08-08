@@ -18,8 +18,6 @@ class ImageSetter {
         if NetworkManager.shared.reachable {
             ImageSetter.download(url: url, handler: handler)
         } else {
-            print("Not Reachable - ImageSetter")
-            // cache에서
             let imageData = cacheImageData(at: imageSavingPath)
             handler(imageData)
         }
