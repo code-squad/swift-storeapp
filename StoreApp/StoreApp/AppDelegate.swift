@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("The network is reachable over the WiFi connection") // 2
 
         case .reachable(.wwan):
-                    UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Teal.rawValue)
+                    UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Orange.rawValue)
                     UIApplication.shared.statusBarStyle = .lightContent
                     UIApplication.shared.statusBarView?.startBlink()
                     print("The network is reachable over the WWAN connection") // wwan number value
