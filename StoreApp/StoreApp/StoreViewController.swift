@@ -20,30 +20,15 @@ class StoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(dataReload), name: .reachabilityChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setComplete(notification:)),name: .sectionSetComplete,object: nil)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = rowHeightForCell
-        StoreItems.categories.forEach { (category) in
-            self.storeItems.set(with: category)
-        }
+        self.storeItems.set()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-
-    @objc func dataReload() {
-        StoreItems.categories.forEach { (category) in
-            self.storeItems.set(with: category)
-        }
-    }
-
-    private func resetTableView(of header: Category) {
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadSections(IndexSet(integer:header.sectionNumber), with: .automatic)
-        }
     }
 
     @objc func setComplete(notification: Notification) {
@@ -53,6 +38,12 @@ class StoreViewController: UIViewController {
         self.resetTableView(of: category)
     }
 
+    private func resetTableView(of header: Category) {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadSections(IndexSet(integer:header.sectionNumber), with: .automatic)
+        }
+    }
+    
     private func toUnreachableView() {
         if let unreachableVC = self.storyboard?.instantiateViewController(withIdentifier: "unreachableViewController") as? UnreachableViewController {
             self.navigationController?.pushViewController(unreachableVC, animated: true)
