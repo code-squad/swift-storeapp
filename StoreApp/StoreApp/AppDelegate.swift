@@ -29,24 +29,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Pink.rawValue)
                     UIApplication.shared.statusBarStyle = .lightContent
                     UIApplication.shared.statusBarView?.stopBlink()
-            print("The network is not reachable") // 0
         case .unknown :
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Yellow.rawValue)
                     UIApplication.shared.statusBarStyle = .default
                     UIApplication.shared.statusBarView?.stopBlink()
-                    print("It is unknown whether the network is reachable") // 1
-
         case .reachable(.ethernetOrWiFi):
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Blue.rawValue)
                     UIApplication.shared.statusBarStyle = .lightContent
                     UIApplication.shared.statusBarView?.startBlink()
-            print("The network is reachable over the WiFi connection") // 2
-
         case .reachable(.wwan):
                     UIApplication.shared.statusBarView?.backgroundColor = UIColor(named: SystemColor.StatusBar.Orange.rawValue)
                     UIApplication.shared.statusBarStyle = .lightContent
                     UIApplication.shared.statusBarView?.startBlink()
-                    print("The network is reachable over the WWAN connection") // wwan number value
         }
     }
 
