@@ -17,7 +17,7 @@ struct StoreItem: Decodable {
     let description: String
     let normalPrice: String?
     let salePrice: String
-    let badge: [String]?
+    let badges: [String]?
     
     enum CodingKeys: String, CodingKey {
         case detailHash = "detail_hash"
@@ -28,6 +28,6 @@ struct StoreItem: Decodable {
         case description
         case normalPrice = "n_price"
         case salePrice = "s_price"
-        case badge
+        case badges = "badge"
     }
 }

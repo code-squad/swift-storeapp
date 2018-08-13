@@ -8,11 +8,15 @@
 
 import Foundation
 
-struct StoreItemList {
+class StoreItemList {
     private var storeItems: [StoreItem] = []
     
     var count: Int {
         return storeItems.count
+    }
+    
+    func add(storeItems: [StoreItem]) {
+        self.storeItems.append(contentsOf: storeItems)
     }
     
     subscript(index: Int) -> StoreItem {
