@@ -17,14 +17,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        // Do any additional setup after loading the view, typically from a nib.
+        tableView.delegate = self
+        tableView.rowHeight = 110
+        storeItems.extractJSONData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
 
 }
 
@@ -42,5 +42,12 @@ extension ViewController: UITableViewDataSource {
         return itemCell
     }
     
+}
+
+extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
