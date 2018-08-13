@@ -9,8 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var storeTableView: UITableView!
+    
+    private var storeItemList: StoreItemList!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        storeTableView.delegate = self
+        storeTableView.dataSource = self
+        self.storeItemList = StoreItemList()
     }
 }
