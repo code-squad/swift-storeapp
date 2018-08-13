@@ -8,9 +8,11 @@
 
 import Foundation
 
-struct StoreItems {
+class StoreItems {
     
     private var storeItems = [StoreItem]()
+    
+    let decoder = JSONDecoder()
     
     var itemCount: Int {
         return storeItems.count
@@ -18,6 +20,21 @@ struct StoreItems {
 
     subscript(index: Int) -> StoreItem {
         return storeItems[index]
+    }
+    
+    func extractJSONData() {
+        guard let path = Bundle.main.path(forResource: "main", ofType: "json") else { return }
+        let url = URL(fileURLWithPath: path)
+        guard let data = try? Data(contentsOf: url) else { return }
+        self.storeItems = jsonDecode(data)
+    }
+    
+    func jsonDecode(_ data: Data) -> [StoreItem] {
+        do {
+            return try decoder.decode([StoreItem].self, from: data)
+        } catch  {
+            return []
+        }
     }
     
 }

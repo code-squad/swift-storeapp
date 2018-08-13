@@ -13,13 +13,15 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemTitle: UILabel!
     @IBOutlet weak var itemDescription: UILabel!
-    @IBOutlet weak var itemPrice: UILabel!
+    @IBOutlet weak var nPrice: UILabel!
+    @IBOutlet weak var sPrice: UILabel!
     @IBOutlet weak var eventBadge: UILabel!
     
     func reset(_ item: StoreItem) {
         itemTitle.text = item.title
         itemDescription.text = item.description
-        itemPrice.text = item.s_price
+        nPrice.text = item.n_price
+        sPrice.text = item.s_price
         eventBadge.text = item.badge?.reduce("", +)
     }
     
