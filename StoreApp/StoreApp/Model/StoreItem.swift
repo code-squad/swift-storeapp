@@ -10,7 +10,7 @@ import Foundation
 
 struct StoreItems {
     
-    let storeItems: [StoreItem]
+    private var storeItems = [StoreItem]()
     
     var itemCount: Int {
         return storeItems.count
