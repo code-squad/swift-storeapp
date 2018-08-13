@@ -17,7 +17,6 @@ class PriceLabel: UILabel {
             isHidden = true
             return
         }
-        isHidden = false
         let attributeString =  NSMutableAttributedString(string: text)
         attributeString.addAttribute(.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
         self.attributedText = attributeString

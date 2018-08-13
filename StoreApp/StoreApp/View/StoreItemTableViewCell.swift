@@ -17,6 +17,7 @@ class StoreItemTableViewCell: UITableViewCell {
     @IBOutlet weak var badgeStackView: UIStackView!
     
     override func prepareForReuse() {
+        normalPriceLabel.isHidden = false
         normalPriceLabel.text = nil
         badgeStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
