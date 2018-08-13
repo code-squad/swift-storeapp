@@ -23,6 +23,9 @@ class ItemCell: UITableViewCell {
         nPrice.text = item.n_price
         sPrice.text = item.s_price
         eventBadge.text = item.badge?.reduce("", +)
+        if item.badge != nil {
+            eventBadge.backgroundColor = UIColor.purple
+        }
     }
     
 }
