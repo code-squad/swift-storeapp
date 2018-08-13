@@ -9,7 +9,11 @@
 import Foundation
 
 struct StoreItemList {
-    private var storeItems: [StoreItem]
+    private var storeItems: [StoreItem] = []
+    
+    var count: Int {
+        return storeItems.count
+    }
     
     subscript(index: Int) -> StoreItem {
         return storeItems[index]
