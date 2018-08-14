@@ -11,6 +11,9 @@ import Foundation
 class StoreItemList {
     private var storeItems: [StoreItem] = []
     
+    init() {
+    }
+    
     init(storeItems: [StoreItem]) {
         self.storeItems = storeItems
     }
@@ -19,8 +22,9 @@ class StoreItemList {
         return storeItems.count
     }
     
-    func add(storeItems: [StoreItem]) {
-        self.storeItems.append(contentsOf: storeItems)
+    func loadDatafrom(fileName: String) {
+        guard let loaded = JSONParser.parseFromAsset(fileName: fileName, dataType: [StoreItem].self) else { return }
+        self.storeItems = loaded
     }
     
     subscript(index: Int) -> StoreItem {
