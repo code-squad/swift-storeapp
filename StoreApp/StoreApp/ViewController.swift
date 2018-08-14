@@ -37,17 +37,7 @@ extension ViewController: UITableViewDataSource {
         guard let storeCell = tableView.dequeueReusableCell(withIdentifier: storeItemCellIdentifier, for: indexPath) as? StoreItemTableViewCell else {
             return UITableViewCell()
         }
-        set(cell: storeCell, storeItem: storeItem)
+        storeCell.set(storeItem: storeItem)
         return storeCell
-    }
-    
-    private func set(cell: StoreItemTableViewCell, storeItem: StoreItem) {
-        cell.titleLabel.text = storeItem.title
-        cell.descriptionLabel.text = storeItem.description
-        cell.salePriceLabel.setSalePrice(storeItem.salePrice)
-        cell.normalPriceLabel.setNormalPrice(storeItem.normalPrice)
-        if let badges = storeItem.badges {
-            badges.forEach { cell.badgeStackView.addArrangedSubview(BadgeLabel(frame: .zero, text: $0)) }
-        }
     }
 }
