@@ -20,8 +20,8 @@ class ItemCell: UITableViewCell {
     func reset(_ item: StoreItem) {
         itemTitle.text = item.title
         itemDescription.text = item.description
-        nPrice.text = item.n_price
-        sPrice.text = item.s_price
+        nPrice.text = item.nPrice
+        sPrice.text = item.sPrice
         eventBadge.text = item.badge?.reduce("", +)
         if item.badge != nil {
             eventBadge.backgroundColor = UIColor.purple
