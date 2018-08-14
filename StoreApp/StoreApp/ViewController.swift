@@ -16,10 +16,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        storeItems.extractJSONData()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 110
-        storeItems.extractJSONData()
     }
 
     override func didReceiveMemoryWarning() {
