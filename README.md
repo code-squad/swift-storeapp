@@ -36,7 +36,7 @@
 
 
 
-<img src="images/iPhone5.png" width="50%">
+<img src="images/iPhone5s.png" width="50%">
 <img src="images/iPhone6.png" width="50%">
 <img src="images/iPhone7.png" width="50%">
 <img src="images/iPhone8.png" width="50%">
