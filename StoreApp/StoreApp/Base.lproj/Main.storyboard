@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +32,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hh2-3Q-D8o">
-                                                    <rect key="frame" x="5" y="5" width="94" height="89.5"/>
+                                                    <rect key="frame" x="5" y="3" width="94" height="94"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="hh2-3Q-D8o" secondAttribute="height" multiplier="1:1" id="NDK-Ju-yho"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5wf-bI-ABI">
                                                     <rect key="frame" x="104" y="5" width="60.5" height="89.5"/>
@@ -66,12 +70,11 @@
                                             <constraints>
                                                 <constraint firstItem="5wf-bI-ABI" firstAttribute="top" secondItem="64I-Mm-Uca" secondAttribute="top" constant="5" id="3f0-9r-0aq"/>
                                                 <constraint firstItem="5wf-bI-ABI" firstAttribute="leading" secondItem="hh2-3Q-D8o" secondAttribute="trailing" constant="5" id="6Kw-IG-lkh"/>
-                                                <constraint firstAttribute="bottom" secondItem="hh2-3Q-D8o" secondAttribute="bottom" constant="5" id="DPa-fd-FZh"/>
                                                 <constraint firstItem="hh2-3Q-D8o" firstAttribute="leading" secondItem="64I-Mm-Uca" secondAttribute="leading" constant="5" id="IDl-JO-kt9"/>
                                                 <constraint firstAttribute="bottom" secondItem="5wf-bI-ABI" secondAttribute="bottom" constant="5" id="ZIT-bV-ZRU"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5wf-bI-ABI" secondAttribute="trailing" constant="10" id="ZsY-Nt-Rz2"/>
-                                                <constraint firstItem="hh2-3Q-D8o" firstAttribute="top" secondItem="64I-Mm-Uca" secondAttribute="top" constant="5" id="he8-uP-eA3"/>
                                                 <constraint firstItem="hh2-3Q-D8o" firstAttribute="width" secondItem="64I-Mm-Uca" secondAttribute="width" multiplier="1:4" id="tH8-uU-bYg"/>
+                                                <constraint firstItem="hh2-3Q-D8o" firstAttribute="centerY" secondItem="64I-Mm-Uca" secondAttribute="centerY" id="xDK-ry-apM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
