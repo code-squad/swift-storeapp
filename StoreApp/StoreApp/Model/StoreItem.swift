@@ -12,8 +12,6 @@ class StoreItems {
     
     private var storeItems = [StoreItem]()
     
-    let decoder = JSONDecoder()
-    
     var itemCount: Int {
         return storeItems.count
     }
@@ -30,6 +28,7 @@ class StoreItems {
     }
     
     func jsonDecode(_ data: Data) -> [StoreItem] {
+        let decoder = JSONDecoder()
         do {
             return try decoder.decode([StoreItem].self, from: data)
         } catch  {
