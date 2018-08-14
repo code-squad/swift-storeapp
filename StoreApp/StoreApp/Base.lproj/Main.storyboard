@@ -34,7 +34,7 @@
                                                     <rect key="frame" x="5" y="5" width="94" height="89.5"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5wf-bI-ABI">
-                                                    <rect key="frame" x="104" y="5" width="104.5" height="89.5"/>
+                                                    <rect key="frame" x="104" y="5" width="60.5" height="89.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWb-XP-x97">
                                                             <rect key="frame" x="0.0" y="0.0" width="34.5" height="19.5"/>
@@ -43,30 +43,19 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fle-LR-jVj" userLabel="Description">
-                                                            <rect key="frame" x="0.0" y="24.5" width="104.5" height="13.5"/>
+                                                            <rect key="frame" x="0.0" y="24.5" width="60.5" height="13.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RUd-Vm-oNo">
-                                                            <rect key="frame" x="0.0" y="43" width="104.5" height="18"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NPrice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne0-hk-PMH" customClass="PriceLabel" customModule="StoreApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPrice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeZ-wS-dEu" customClass="PriceLabel" customModule="StoreApp" customModuleProvider="target">
-                                                                    <rect key="frame" x="51" y="0.0" width="53.5" height="18"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
+                                                            <rect key="frame" x="0.0" y="43" width="53.5" height="0.0"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" priority="250" id="a7j-UA-kio"/>
+                                                            </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B1f-Rb-BBY">
-                                                            <rect key="frame" x="0.0" y="66" width="50" height="23.5"/>
+                                                            <rect key="frame" x="0.0" y="48" width="50" height="41.5"/>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -89,8 +78,7 @@
                                             <outlet property="badgeStackView" destination="B1f-Rb-BBY" id="01x-zd-Psk"/>
                                             <outlet property="descriptionLabel" destination="Fle-LR-jVj" id="Qgt-yr-oaX"/>
                                             <outlet property="itemImageView" destination="hh2-3Q-D8o" id="ceG-J6-cM3"/>
-                                            <outlet property="normalPriceLabel" destination="Ne0-hk-PMH" id="N5G-wM-5Oq"/>
-                                            <outlet property="salePriceLabel" destination="SeZ-wS-dEu" id="wNe-WV-jbl"/>
+                                            <outlet property="priceStackView" destination="RUd-Vm-oNo" id="3pq-QY-mbK"/>
                                             <outlet property="titleLabel" destination="aWb-XP-x97" id="rQL-MH-wMQ"/>
                                         </connections>
                                     </tableViewCell>
