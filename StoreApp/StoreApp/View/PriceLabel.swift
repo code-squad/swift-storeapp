@@ -11,20 +11,32 @@ import UIKit
 class PriceLabel: UILabel {
     
     private let salePriceTextColor = UIColor.init(red: 54/256, green: 193/256, blue: 187/256, alpha: 1)
+    private let normalPriceFontSize: CGFloat = 13
+    private let salePriceFontSize: CGFloat = 17
     
-    func setNormalPrice(_ text: String?) {
-        guard let text = text else {
-            isHidden = true
-            return
-        }
-        let attributeString =  NSMutableAttributedString(string: text)
-        attributeString.addAttribute(.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
-        self.attributedText = attributeString
+    convenience init(frame: CGRect, normalPrice: String) {
+        self.init(frame: frame)
+        text = normalPrice
+        attributedText = setNormalPrice(normalPrice)
+        textColor = UIColor.darkGray
+        font = font.withSize(normalPriceFontSize)
     }
     
-    func setSalePrice(_ text: String) {
-        let textColor = salePriceTextColor
-        self.text = text
-        self.textColor = textColor
+    convenience init(frame: CGRect, salePrice: String) {
+        self.init(frame: frame)
+        text = salePrice
+        set(salePrice: salePrice)
+    }
+    
+    private func setNormalPrice(_ text: String) -> NSMutableAttributedString {
+        let attributeString =  NSMutableAttributedString(string: text)
+        attributeString.addAttribute(.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+    
+    private func set(salePrice: String) {
+        self.text = salePrice
+        textColor = salePriceTextColor
+        font = UIFont.boldSystemFont(ofSize: salePriceFontSize)
     }
 }
