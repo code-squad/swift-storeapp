@@ -13,16 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var storeTableView: UITableView!
     private let storeItemCellIdentifier = "storeItemCell"
     private var storeItemList: StoreItemList!
-
-    private func setStoreItemListData() {
-        guard let loaded = JSONParser.parseFromAsset(fileName: "main", dataType: [StoreItem].self) else { return }
-        storeItemList = StoreItemList(storeItems: loaded)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         storeTableView.dataSource = self
-        setStoreItemListData()
+        self.storeItemList = StoreItemList()
+        storeItemList.loadDatafrom(fileName: "main")
     }
 }
 
