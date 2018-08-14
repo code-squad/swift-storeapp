@@ -19,3 +19,29 @@
 
 ### 학습꺼리
 * Swift 객체에 대한 Encoding & Decoding 방식에 대해 학습한다. [공식 자료](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
+
+
+## step2
+
+### 프로그래밍 요구사항
+* 스토리보드 ViewController에 Cell을 Content View를 기준으로 하위 뷰들에 오토레이아웃을 적용한다.
+	* 메뉴 이미지 뷰는 top, bottom, lead 제약을 주고 width 제약을 넣는다. height와 width 비율은 1:1로 aspectRatio를 맞춘다.
+	* 타이틀 제목은 메뉴 이미지보다 10pt 우측에 lead 제약을 주고, top, tail 제약을 주고, height 제약을 준다.
+	* 상세 설명도 top 제약만 타이틀 제목보다 4pt 띄우고, 나머지는 타이틀에 맞춘다.
+	* 메뉴 가격도 width 제약을 넣고, 나머지는 타이틀과 마찬가지로 제약을 준다.
+	* 이벤트 배지는 최소width 제약만 주고 글자 내용에 맞추고, 없을 경우 감춘다.
+
+### 목표 실행 화면
+* 모든 아이폰 사이즈에 대응해서 잘리는 화면이 없이 나와야 한다.
+
+
+
+<img src="images/iPhone5.png" width="50%">
+<img src="images/iPhone6.png" width="50%">
+<img src="images/iPhone7.png" width="50%">
+<img src="images/iPhone8.png" width="50%">
+<img src="images/iPhone8plus.png" width="50%">
+<img src="images/iPhoneX.png" width="50%">
+
+### 학습꺼리
+[오토레이아웃 강의 자료](http://public.codesquad.kr/jk/storeapp-layout-slide.pdf)
