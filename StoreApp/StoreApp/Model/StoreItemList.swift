@@ -11,6 +11,10 @@ import Foundation
 class StoreItemList {
     private var storeItems: [StoreItem] = []
     
+    init(storeItems: [StoreItem]) {
+        self.storeItems = storeItems
+    }
+    
     var count: Int {
         return storeItems.count
     }
