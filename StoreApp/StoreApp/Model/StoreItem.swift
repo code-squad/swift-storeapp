@@ -20,8 +20,8 @@ class StoreItems {
         return storeItems[index]
     }
     
-    func extractJSONData() {
-        guard let path = Bundle.main.path(forResource: "main", ofType: "json") else { return }
+    init(_ resourceName: String) {
+        guard let path = Bundle.main.path(forResource: resourceName, ofType: "json") else { return }
         let url = URL(fileURLWithPath: path)
         guard let data = try? Data(contentsOf: url) else { return }
         self.storeItems = jsonDecode(data)

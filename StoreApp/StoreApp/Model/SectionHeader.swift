@@ -9,14 +9,15 @@
 import Foundation
 
 struct SectionHeader {
-    private let title: String
-    private let subTitle: String
-    private let storeItems: StoreItems
+    
+    let title: String
+    let subTitle: String
+    let storeItems: StoreItems
     
     init(_ header: Header) {
         self.title = header.title
         self.subTitle = header.subTitle
-        self.storeItems = StoreItems()
+        self.storeItems = StoreItems(header.fileName)
     }
     
     enum Header {
@@ -49,6 +50,19 @@ struct SectionHeader {
         }
     }
     
+}
+
+struct Headers {
+    
+    var headers = [SectionHeader]()
+    
+    init() {
+        self.headers = [SectionHeader(.main), SectionHeader(.soup), SectionHeader(.side)]
+    }
+
+    func getHeaders() -> [SectionHeader] {
+        return self.headers
+    }
 }
 
 
