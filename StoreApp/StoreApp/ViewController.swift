@@ -17,8 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         storeTableView.dataSource = self
-        self.storeItemList = StoreItemList()
-        storeItemList.loadDatafrom(fileName: "main")
+        self.storeItemList = StoreItemList(jsonFileName: "main")
     }
 }
 
