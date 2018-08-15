@@ -18,19 +18,21 @@
 		738EF2472121AC4600F826F8 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2462121AC4600F826F8 /* PriceLabel.swift */; };
 		739C03F621242EB8006C39D5 /* StoreItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF21A21216CC900F826F8 /* StoreItemList.swift */; };
 		739C03FC212431A2006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
-		739C03FD212431A9006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
+		739C0402212435D6006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
+		739C040A212436F2006C39D5 /* StoreAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E24B5E2124142300C766CC /* StoreAppUnitTests.swift */; };
 		73C37B4D2121EBFF0050791D /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C37B4C2121EBFF0050791D /* BadgeLabel.swift */; };
+		73C6040C21244D220089729D /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C6040B21244D220089729D /* SectionInfo.swift */; };
+		73C6040D21244D220089729D /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C6040B21244D220089729D /* SectionInfo.swift */; };
 		73E24B4F21233B6E00C766CC /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4C21233B6E00C766CC /* soup.json */; };
 		73E24B5021233B6E00C766CC /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4D21233B6E00C766CC /* side.json */; };
 		73E24B5121233B6E00C766CC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4E21233B6E00C766CC /* main.json */; };
 		73E24B53212408A900C766CC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E24B52212408A900C766CC /* DataManager.swift */; };
-		73E24B5F2124142300C766CC /* StoreAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E24B5E2124142300C766CC /* StoreAppUnitTests.swift */; };
 		73E24B662124143000C766CC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E24B52212408A900C766CC /* DataManager.swift */; };
 		73E24B672124143400C766CC /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF216212152EE00F826F8 /* StoreItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		73E24B612124142300C766CC /* PBXContainerItemProxy */ = {
+		739C04072124364F006C39D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 738EF1F92121320700F826F8 /* Project object */;
 			proxyType = 1;
@@ -53,6 +55,7 @@
 		738EF2462121AC4600F826F8 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
 		739C03FB212431A2006C39D5 /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
 		73C37B4C2121EBFF0050791D /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
+		73C6040B21244D220089729D /* SectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
 		73E24B4C21233B6E00C766CC /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		73E24B4D21233B6E00C766CC /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		73E24B4E21233B6E00C766CC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -131,6 +134,7 @@
 				739C03FB212431A2006C39D5 /* FoodCategory.swift */,
 				738EF216212152EE00F826F8 /* StoreItem.swift */,
 				738EF21A21216CC900F826F8 /* StoreItemList.swift */,
+				73C6040B21244D220089729D /* SectionInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,7 +197,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				73E24B622124142300C766CC /* PBXTargetDependency */,
+				739C04082124364F006C39D5 /* PBXTargetDependency */,
 			);
 			name = StoreAppUnitTests;
 			productName = StoreAppUnitTests;
@@ -275,6 +279,7 @@
 				73C37B4D2121EBFF0050791D /* BadgeLabel.swift in Sources */,
 				73E24B53212408A900C766CC /* DataManager.swift in Sources */,
 				738EF21B21216CC900F826F8 /* StoreItemList.swift in Sources */,
+				73C6040C21244D220089729D /* SectionInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,20 +288,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				73E24B672124143400C766CC /* StoreItem.swift in Sources */,
-				73E24B5F2124142300C766CC /* StoreAppUnitTests.swift in Sources */,
+				739C040A212436F2006C39D5 /* StoreAppUnitTests.swift in Sources */,
 				739C03F621242EB8006C39D5 /* StoreItemList.swift in Sources */,
-				739C03FD212431A9006C39D5 /* FoodCategory.swift in Sources */,
+				73C6040D21244D220089729D /* SectionInfo.swift in Sources */,
 				73E24B662124143000C766CC /* DataManager.swift in Sources */,
+				739C0402212435D6006C39D5 /* FoodCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		73E24B622124142300C766CC /* PBXTargetDependency */ = {
+		739C04082124364F006C39D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 738EF2002121320700F826F8 /* StoreApp */;
-			targetProxy = 73E24B612124142300C766CC /* PBXContainerItemProxy */;
+			targetProxy = 739C04072124364F006C39D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
