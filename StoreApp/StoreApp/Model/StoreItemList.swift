@@ -25,6 +25,14 @@ class StoreItemList {
         return storeItems.count
     }
     
+    var title: String {
+        return listTitle
+    }
+    
+    var description: String {
+        return listDescription
+    }
+    
     subscript(index: Int) -> StoreItem {
         return storeItems[index]
     }
