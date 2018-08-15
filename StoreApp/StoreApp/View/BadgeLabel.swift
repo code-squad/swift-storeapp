@@ -10,8 +10,8 @@ import UIKit
 
 class BadgeLabel: UILabel {
     
-    private let topInset: CGFloat = 0
-    private let bottomInset: CGFloat = 0
+    private let topInset: CGFloat = 3.0
+    private let bottomInset: CGFloat = 3.0
     private let leftInset: CGFloat = 5.0
     private let rightInset: CGFloat = 5.0
     private let badgeBackgroundColor = UIColor(red: 168/255, green: 117/255, blue: 188/255, alpha: 1)

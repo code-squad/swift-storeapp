@@ -19,14 +19,6 @@ struct SectionInfo {
         return storeItemLists.count
     }
     
-    func sectionTitle(at index: Int) -> String {
-        return storeItemLists[index].title
-    }
-    
-    func sectionDescription(at index: Int) -> String {
-        return storeItemLists[index].description
-    }
-    
     subscript(index: Int) -> StoreItemList {
         return storeItemLists[index]
     }

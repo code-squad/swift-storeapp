@@ -25,15 +25,17 @@ class StoreItemList {
         return storeItems.count
     }
     
+    subscript(index: Int) -> StoreItem {
+        return storeItems[index]
+    }
+}
+
+extension StoreItemList: HeaderViewLabelTextSetter {
     var title: String {
         return listTitle
     }
     
     var description: String {
         return listDescription
-    }
-    
-    subscript(index: Int) -> StoreItem {
-        return storeItems[index]
     }
 }

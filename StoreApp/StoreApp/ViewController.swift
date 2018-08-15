@@ -12,12 +12,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var storeTableView: UITableView!
     private let storeItemCellIdentifier = "storeItemCell"
+    private let customHeaderViewReuseId = "customHeaderView"
     private var sectionInfo: SectionInfo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        storeTableView.dataSource = self
         self.sectionInfo = SectionInfo(categories: FoodCategory.allCases)
+        storeTableView.register(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: customHeaderViewReuseId)
     }
 }
 
@@ -30,16 +31,26 @@ extension ViewController: UITableViewDataSource {
         return sectionInfo[section].count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionInfo[section].title
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let storeItem = sectionInfo[indexPath.section][indexPath.row]
         guard let storeCell = tableView.dequeueReusableCell(withIdentifier: storeItemCellIdentifier, for: indexPath) as? StoreItemTableViewCell else {
             return UITableViewCell()
         }
-        storeCell.set(storeItem: storeItem)
+        storeCell.setLabel(with: storeItem)
         return storeCell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: customHeaderViewReuseId) as? SectionHeaderView else {
+            return nil
+        }
+        headerView.setLabel(with: sectionInfo[section])
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
     }
 }
