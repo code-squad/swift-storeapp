@@ -12,22 +12,30 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var storeTableView: UITableView!
     private let storeItemCellIdentifier = "storeItemCell"
-    private var storeItemList: StoreItemList!
+    private var sectionInfo: SectionInfo!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         storeTableView.dataSource = self
-        self.storeItemList = StoreItemList(jsonFileName: "main")
+        self.sectionInfo = SectionInfo(categories: FoodCategory.allCases)
     }
 }
 
 extension ViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionInfo.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItemList.count
+        return sectionInfo[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "header title"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeItem = storeItemList[indexPath.row]
+        let storeItem = sectionInfo[indexPath.section][indexPath.row]
         guard let storeCell = tableView.dequeueReusableCell(withIdentifier: storeItemCellIdentifier, for: indexPath) as? StoreItemTableViewCell else {
             return UITableViewCell()
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum FoodCategory: String {
+enum FoodCategory: String, CaseIterable {
     case main
     case soup
     case side

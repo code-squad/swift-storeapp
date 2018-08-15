@@ -21,17 +21,17 @@ class StoreAppUnitTests: XCTestCase {
     }
     
     func testInitStorItemListFrom_main_success() {
-        let storeItemList = StoreItemList(jsonFileName: "main")
+        let storeItemList = StoreItemList(.main)
         XCTAssertNotNil(storeItemList)
     }
     
     func testInitStoreItemListFrom_side_success() {
-        let storeItemList = StoreItemList(jsonFileName: "side")
+        let storeItemList = StoreItemList(.side)
         XCTAssertNotNil(storeItemList)
     }
     
     func testInitStoreItemListFrom_soup_success() {
-        let storeItemList = StoreItemList(jsonFileName: "soup")
+        let storeItemList = StoreItemList(.soup)
         XCTAssertNotNil(storeItemList)
     }
 }

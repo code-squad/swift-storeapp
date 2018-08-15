@@ -10,11 +10,15 @@ import Foundation
 
 class StoreItemList {
     private var storeItems: [StoreItem]
+    private var listTitle: String
+    private var listDescription: String
     
-    init?(jsonFileName: String) {
-        guard let data = DataManager.readDataFromJson(fileName: jsonFileName) else { return nil }
+    init?(_ foodCategory: FoodCategory) {
+        guard let data = DataManager.readDataFromJson(fileName: foodCategory.rawValue) else { return nil }
         guard let storeItems = DataManager.decode(data: data, type: [StoreItem].self) else { return nil }
         self.storeItems = storeItems
+        listTitle = foodCategory.title
+        listDescription = foodCategory.description
     }
     
     var count: Int {
