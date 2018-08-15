@@ -45,3 +45,18 @@
 
 ### 학습꺼리
 [오토레이아웃 강의 자료](http://public.codesquad.kr/jk/storeapp-layout-slide.pdf)
+
+
+## step 3
+
+### 프로그래밍 요구사항
+* 다음 2개 파일을 다운로드해서 프로젝트에 복사하고 JSONDecoder를 활용해서 모델 객체를 기존 main과 함께 섹션(section)을 구분할 수 있도록 개선한다.
+* 스토리보드 ViewController에 Cell에 Section Header로 사용할 Custom Cell을 추가한다.
+	* 총 섹션은 3개로 구분해서 헤더에 다음과 같이 표시한다.
+	* main => `메인반찬 / 한그릇 뚝딱 메인 요리`
+	* soup => `국.찌게 / 김이 모락모락 국.찌게`
+	* side => `밑반찬 / 언제 먹어도 든든한 밑반찬`
+
+	
+
+<img src="images/main.png" width="33%"><img src="images/soup.png" width="33%"><img src="images/side.png" width="33%">
