@@ -9,22 +9,16 @@
 import Foundation
 
 class StoreItemList {
-    private var storeItems: [StoreItem] = []
+    private var storeItems: [StoreItem]
     
-    init() {
-    }
-    
-    init(storeItems: [StoreItem]) {
+    init?(jsonFileName: String) {
+        guard let data = DataManager.readDataFromJson(fileName: jsonFileName) else { return nil }
+        guard let storeItems = DataManager.decode(data: data, type: [StoreItem].self) else { return nil }
         self.storeItems = storeItems
     }
     
     var count: Int {
         return storeItems.count
-    }
-    
-    func loadDatafrom(fileName: String) {
-        guard let loaded = JSONParser.parseFromAsset(fileName: fileName, dataType: [StoreItem].self) else { return }
-        self.storeItems = loaded
     }
     
     subscript(index: Int) -> StoreItem {
