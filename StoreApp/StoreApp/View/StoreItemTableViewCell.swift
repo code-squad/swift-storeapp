@@ -20,7 +20,7 @@ class StoreItemTableViewCell: UITableViewCell {
         badgeStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
     
-    func setLabel(with setter: StoreItemCellLabelTextSetter) {
+    func setLabel(with setter: StoreItemLabelTextSettable) {
         titleLabel.text = setter.title
         descriptionLabel.text = setter.description
         setNormalPrice(setter.normalPrice)

@@ -51,7 +51,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 3).isActive = true
     }
     
-    func setLabel(with setter: HeaderViewLabelTextSetter) {
+    func setLabel(with setter: LabelTextSettable) {
         titleLabel.text = setter.title
         descriptionLabel.text = setter.description
     }

@@ -26,8 +26,8 @@
 		73C6040F21245A230089729D /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C6040E21245A230089729D /* SectionHeaderView.swift */; };
 		73C6041021245A230089729D /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C6040E21245A230089729D /* SectionHeaderView.swift */; };
 		73C604112124709D0089729D /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C37B4C2121EBFF0050791D /* BadgeLabel.swift */; };
-		73C60414212476E50089729D /* HeaderViewLabelTextSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C60413212476E50089729D /* HeaderViewLabelTextSetter.swift */; };
-		73C60415212476E50089729D /* HeaderViewLabelTextSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C60413212476E50089729D /* HeaderViewLabelTextSetter.swift */; };
+		73C60414212476E50089729D /* LabelTextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C60413212476E50089729D /* LabelTextSettable.swift */; };
+		73C60415212476E50089729D /* LabelTextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C60413212476E50089729D /* LabelTextSettable.swift */; };
 		73E24B4F21233B6E00C766CC /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4C21233B6E00C766CC /* soup.json */; };
 		73E24B5021233B6E00C766CC /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4D21233B6E00C766CC /* side.json */; };
 		73E24B5121233B6E00C766CC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4E21233B6E00C766CC /* main.json */; };
@@ -62,7 +62,7 @@
 		73C37B4C2121EBFF0050791D /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		73C6040B21244D220089729D /* SectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
 		73C6040E21245A230089729D /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
-		73C60413212476E50089729D /* HeaderViewLabelTextSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewLabelTextSetter.swift; sourceTree = "<group>"; };
+		73C60413212476E50089729D /* LabelTextSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextSettable.swift; sourceTree = "<group>"; };
 		73E24B4C21233B6E00C766CC /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		73E24B4D21233B6E00C766CC /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		73E24B4E21233B6E00C766CC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		73C60412212476750089729D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				73C60413212476E50089729D /* HeaderViewLabelTextSetter.swift */,
+				73C60413212476E50089729D /* LabelTextSettable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 				73E24B53212408A900C766CC /* DataManager.swift in Sources */,
 				738EF21B21216CC900F826F8 /* StoreItemList.swift in Sources */,
 				73C6040C21244D220089729D /* SectionInfo.swift in Sources */,
-				73C60414212476E50089729D /* HeaderViewLabelTextSetter.swift in Sources */,
+				73C60414212476E50089729D /* LabelTextSettable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +311,7 @@
 				739C03F621242EB8006C39D5 /* StoreItemList.swift in Sources */,
 				73C6040D21244D220089729D /* SectionInfo.swift in Sources */,
 				73C6041021245A230089729D /* SectionHeaderView.swift in Sources */,
-				73C60415212476E50089729D /* HeaderViewLabelTextSetter.swift in Sources */,
+				73C60415212476E50089729D /* LabelTextSettable.swift in Sources */,
 				73E24B662124143000C766CC /* DataManager.swift in Sources */,
 				73C604112124709D0089729D /* BadgeLabel.swift in Sources */,
 				739C0402212435D6006C39D5 /* FoodCategory.swift in Sources */,
