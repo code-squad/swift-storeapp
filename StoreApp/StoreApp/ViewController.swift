@@ -54,4 +54,11 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 70
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        ToastCenter.default.cancelAll()
+        let storeItem = sectionInfo[indexPath.section][indexPath.row]
+        Toast(text: "\(storeItem.title) \(storeItem.salePrice)").show()
+    }
 }
