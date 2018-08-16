@@ -30,7 +30,7 @@ class StoreItemList {
     }
 }
 
-extension StoreItemList: HeaderViewLabelTextSetter {
+extension StoreItemList: LabelTextSettable {
     var title: String {
         return listTitle
     }

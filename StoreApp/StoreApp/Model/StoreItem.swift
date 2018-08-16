@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StoreItem: Decodable, StoreItemCellLabelTextSetter {
+struct StoreItem: Decodable, StoreItemLabelTextSettable {
     let detailHash: String
     let imageURL: String
     let alt: String

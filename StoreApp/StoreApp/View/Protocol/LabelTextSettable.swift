@@ -6,12 +6,12 @@
 //  Copyright © 2018년 moon. All rights reserved.
 //
 
-protocol HeaderViewLabelTextSetter {
+protocol LabelTextSettable {
     var title: String { get }
     var description: String { get }
 }
 
-protocol StoreItemCellLabelTextSetter: HeaderViewLabelTextSetter {
+protocol StoreItemLabelTextSettable: LabelTextSettable {
     var normalPrice: String? { get }
     var salePrice: String { get }
     var badges: [String]? { get }
