@@ -54,15 +54,12 @@ struct SectionHeader {
 
 struct Headers {
     
-    var headers = [SectionHeader]()
+    private(set) var headers = [SectionHeader]()
     
     init() {
         self.headers = [SectionHeader(.main), SectionHeader(.soup), SectionHeader(.side)]
     }
 
-    func getHeaders() -> [SectionHeader] {
-        return self.headers
-    }
 }
 
 
