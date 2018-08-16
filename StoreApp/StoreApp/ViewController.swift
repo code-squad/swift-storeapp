@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let headers = Headers().getHeaders()
+    let headers = Headers().headers
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,10 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "itemCell"
-        guard let itemCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ItemCell else {
+        guard let itemCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.itemCell.rawValue, for: indexPath) as? ItemCell else {
             return UITableViewCell()
         }
-        itemCell.reset(headers[indexPath.section].storeItems[indexPath.row])
+        itemCell.set(headers[indexPath.section].storeItems[indexPath.row])
         return itemCell
     }
     
@@ -47,10 +46,8 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cellIdentifier = "headerCell"
-        guard let sectionHeader = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? HeaderCell else { return nil }
-        sectionHeader.titleLabel.text = headers[section].title
-        sectionHeader.descriptionLabel.text = headers[section].subTitle
+        guard let sectionHeader = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.headerCell.rawValue) as? HeaderCell else { return nil }
+        sectionHeader.set(headers, section)
         return sectionHeader
     }
     
@@ -75,6 +72,11 @@ extension ViewController: UITableViewDelegate {
         }
     }
     
+}
+
+enum CellIdentifier: String {
+    case itemCell
+    case headerCell
 }
 
 

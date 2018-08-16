@@ -17,7 +17,7 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var sPrice: UILabel!
     @IBOutlet weak var badgeStackView: UIStackView!
     
-    func reset(_ item: StoreItem) {
+    func set(_ item: StoreItem) {
         itemTitle.text = item.title
         itemDescription.text = item.description
         sPrice.text = item.sPrice

@@ -13,7 +13,11 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    @IBOutlet weak var stackView: UIStackView!
+    func set(_ headers: [SectionHeader],_ section: Int) {
+        titleLabel.text = headers[section].title
+        descriptionLabel.text = headers[section].subTitle
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.layer.borderWidth = 0.5
