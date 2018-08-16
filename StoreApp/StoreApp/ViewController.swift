@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController {
 
@@ -59,6 +60,11 @@ extension ViewController: UITableViewDataSource {
 }
 
 extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = headers[indexPath.section].storeItems[indexPath.row]
+        Toast(text: item.title + "\n" + item.sPrice).show()
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollHeight = tableView.rowHeight
