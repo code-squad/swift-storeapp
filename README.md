@@ -33,3 +33,12 @@
 	- 뷰컨트롤러가 셀이나 헤더뷰의 속성을 설정하기 위한 메서드에 인자로 모델전부를 넘겨주던 부분을 필요한 부분을 프로토콜로 넘겨주도록 개선하였습니다.
 	- 테이블뷰 섹션의 Custom Header를 커스텀할 때 이전 단계에 사용하던 `BadgeLabel`을 재사용하였습니다.
 	
+# Step. 4
+- 완성날짜: 2018년 8월 16일
+- Toaster 적용
+
+<img src="images/step4_demo.gif" width="50%">
+
+- Keyword
+	- CocoaPods, SwiftLint, Carthage, Homebrew
+	- Xcode Project Terms : [참고1](https://stackoverflow.com/questions/20637435/xcode-what-is-a-target-and-scheme-in-plain-language/20637892#20637892), [참고2](https://www.edwith.org/boostcourse-ios/lecture/16841/)
