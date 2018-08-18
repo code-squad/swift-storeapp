@@ -9,15 +9,16 @@
 import Foundation
 
 class StoreItemList {
-    private var storeItems: [StoreItem]
+    private var storeItems: [StoreItem] = []
     private var listTitle: String
     private var listDescription: String
     
     init?(_ foodCategory: FoodCategory) {
-        guard let storeItems = DataManager.readStoreItemsFromJSON(fileName: foodCategory.rawValue, [StoreItem].self) else { return nil }
-        self.storeItems = storeItems
         listTitle = foodCategory.title
         listDescription = foodCategory.description
+        DataManager.fetchStoreItemsFromStoreAPI(foodCategory) { [unowned self] storeItems in
+            self.storeItems = storeItems
+        }
     }
     
     var count: Int {
