@@ -21,6 +21,8 @@
 		739C03FC212431A2006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
 		739C0402212435D6006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
 		739C040A212436F2006C39D5 /* StoreAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E24B5E2124142300C766CC /* StoreAppUnitTests.swift */; };
+		73BFCC282127FE1A00C5345F /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCC272127FE1A00C5345F /* StoreAPI.swift */; };
+		73BFCC292127FE1A00C5345F /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCC272127FE1A00C5345F /* StoreAPI.swift */; };
 		73C37B4D2121EBFF0050791D /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C37B4C2121EBFF0050791D /* BadgeLabel.swift */; };
 		73C6040C21244D220089729D /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C6040B21244D220089729D /* SectionInfo.swift */; };
 		73C6040D21244D220089729D /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C6040B21244D220089729D /* SectionInfo.swift */; };
@@ -63,6 +65,7 @@
 		738EF21C21216ECC00F826F8 /* StoreItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemTableViewCell.swift; sourceTree = "<group>"; };
 		738EF2462121AC4600F826F8 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
 		739C03FB212431A2006C39D5 /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
+		73BFCC272127FE1A00C5345F /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
 		73C37B4C2121EBFF0050791D /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		73C6040B21244D220089729D /* SectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
 		73C6040E21245A230089729D /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				73E24B52212408A900C766CC /* DataManager.swift */,
+				73BFCC272127FE1A00C5345F /* StoreAPI.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -397,6 +401,7 @@
 				73C6040F21245A230089729D /* SectionHeaderView.swift in Sources */,
 				738EF217212152EE00F826F8 /* StoreItem.swift in Sources */,
 				738EF2072121320700F826F8 /* ViewController.swift in Sources */,
+				73BFCC282127FE1A00C5345F /* StoreAPI.swift in Sources */,
 				738EF2052121320700F826F8 /* AppDelegate.swift in Sources */,
 				738EF21D21216ECC00F826F8 /* StoreItemTableViewCell.swift in Sources */,
 				739C03FC212431A2006C39D5 /* FoodCategory.swift in Sources */,
@@ -419,6 +424,7 @@
 				73C6040D21244D220089729D /* SectionInfo.swift in Sources */,
 				73C6041021245A230089729D /* SectionHeaderView.swift in Sources */,
 				73C60415212476E50089729D /* LabelTextSettable.swift in Sources */,
+				73BFCC292127FE1A00C5345F /* StoreAPI.swift in Sources */,
 				73E24B662124143000C766CC /* DataManager.swift in Sources */,
 				73C604112124709D0089729D /* BadgeLabel.swift in Sources */,
 				739C0402212435D6006C39D5 /* FoodCategory.swift in Sources */,
@@ -576,7 +582,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StoreApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.StoreApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -591,7 +600,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StoreApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.StoreApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -606,7 +618,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StoreAppUnitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.StoreAppUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -622,7 +638,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = StoreAppUnitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.StoreAppUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
