@@ -20,4 +20,18 @@ struct StoreAPI {
         components.path += "/\(category.rawValue)"
         return components.url
     }
+    
+    static func fetchStoreItems(_ foodCategory: FoodCategory, completionHandler: @escaping (Data?, Error?) -> Void) {
+        guard let url = StoreAPI.storeURL(category: foodCategory) else { return }
+        let session = URLSession(configuration: .default)
+        let request = URLRequest(url: url)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completionHandler(nil, error)
+                return
+            }
+            completionHandler(data, nil)
+        }
+        task.resume()
+    }
 }
