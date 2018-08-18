@@ -16,10 +16,16 @@ struct DataManager {
         return decoded
     }
     
-    static func readDataFromJson(fileName: String) -> Data? {
+    static func readDataFromJSON(fileName: String) -> Data? {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else { return nil }
         let fileUrl = URL(fileURLWithPath: path)
         guard let data = try? Data(contentsOf: fileUrl) else { return nil }
         return data
+    }
+    
+    static func readStoreItemsFromJSON<Model: Decodable>(fileName: String, _ type: Model.Type) -> Model? {
+        guard let data = self.readDataFromJSON(fileName: fileName) else { return nil }
+        let storeItems = self.decode(data: data, type: type)
+        return storeItems
     }
 }
