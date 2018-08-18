@@ -34,4 +34,19 @@ class StoreAppUnitTests: XCTestCase {
         let storeItemList = StoreItemList(.soup)
         XCTAssertNotNil(storeItemList)
     }
+    
+    func testMakeStoreAPIURL_main_success() {
+        let url = StoreAPI.storeURL(category: .main)
+        XCTAssertEqual(URL(string: "http://crong.codesquad.kr:8080/woowa/main"), url)
+    }
+    
+    func testMakeStoreAPIURL_side_success() {
+        let url = StoreAPI.storeURL(category: .side)
+        XCTAssertEqual(URL(string: "http://crong.codesquad.kr:8080/woowa/side"), url)
+    }
+    
+    func testMakeStoreAPIURL_soup_success() {
+        let url = StoreAPI.storeURL(category: .soup)
+        XCTAssertEqual(URL(string: "http://crong.codesquad.kr:8080/woowa/soup"), url)
+    }
 }
