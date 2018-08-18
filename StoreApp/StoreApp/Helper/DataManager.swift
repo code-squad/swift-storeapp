@@ -29,22 +29,14 @@ struct DataManager {
         return storeItems
     }
     
-    static func fetchStoreItemsFromStoreAPI(_ foodCategory: FoodCategory, _ completion: @escaping ([StoreItem]) -> Void) {
-        guard let url = StoreAPI.storeURL(category: foodCategory) else { return }
-        let session = URLSession(configuration: .default)
-        let request = URLRequest(url: url)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // Error발생 시 파일에서 데이터를 읽음.
-            if let _ = error {
-                if let storeItems = readStoreItemsFromJSON(fileName: foodCategory.rawValue, [StoreItem].self) {
-                    completion(storeItems)
-                }
-                return
+    static func fetchStoreItemsFromStoreAPI(_ foodCategory: FoodCategory, completionHandler: @escaping ([StoreItem]) -> Void) {
+        StoreAPI.fetchStoreItems(foodCategory) { (data, error) in
+            if error != nil {
+                guard let storeItems = readStoreItemsFromJSON(fileName: foodCategory.rawValue, [StoreItem].self) else { return }
+                completionHandler(storeItems)
             }
-            guard let data = data else { return }
-            guard let storeItems = DataManager.decode(data: data, type: [StoreItem].self) else { return }
-            completion(storeItems)
+            guard let data = data, let storeItems = decode(data: data, type: [StoreItem].self) else { return }
+            completionHandler(storeItems)
         }
-        task.resume()
     }
 }
