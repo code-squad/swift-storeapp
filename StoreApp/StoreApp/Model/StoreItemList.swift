@@ -18,6 +18,7 @@ class StoreItemList {
         listDescription = foodCategory.description
         DataManager.fetchStoreItemsFromStoreAPI(foodCategory) { [unowned self] storeItems in
             self.storeItems = storeItems
+            NotificationCenter.default.post(name: .didStoreItemsSet, object: self)
         }
     }
     

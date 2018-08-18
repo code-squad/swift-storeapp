@@ -21,6 +21,7 @@
 		739C03FC212431A2006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
 		739C0402212435D6006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
 		739C040A212436F2006C39D5 /* StoreAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E24B5E2124142300C766CC /* StoreAppUnitTests.swift */; };
+		73BDA975212875E100E4C031 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDA974212875E100E4C031 /* NotificationExtension.swift */; };
 		73BFCC282127FE1A00C5345F /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCC272127FE1A00C5345F /* StoreAPI.swift */; };
 		73BFCC292127FE1A00C5345F /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCC272127FE1A00C5345F /* StoreAPI.swift */; };
 		73C37B4D2121EBFF0050791D /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C37B4C2121EBFF0050791D /* BadgeLabel.swift */; };
@@ -65,6 +66,7 @@
 		738EF21C21216ECC00F826F8 /* StoreItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemTableViewCell.swift; sourceTree = "<group>"; };
 		738EF2462121AC4600F826F8 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
 		739C03FB212431A2006C39D5 /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
+		73BDA974212875E100E4C031 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		73BFCC272127FE1A00C5345F /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
 		73C37B4C2121EBFF0050791D /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		73C6040B21244D220089729D /* SectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				73E24B52212408A900C766CC /* DataManager.swift */,
 				73BFCC272127FE1A00C5345F /* StoreAPI.swift */,
+				73BDA974212875E100E4C031 /* NotificationExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				73E24B53212408A900C766CC /* DataManager.swift in Sources */,
 				738EF21B21216CC900F826F8 /* StoreItemList.swift in Sources */,
 				73C6040C21244D220089729D /* SectionInfo.swift in Sources */,
+				73BDA975212875E100E4C031 /* NotificationExtension.swift in Sources */,
 				73C60414212476E50089729D /* LabelTextSettable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

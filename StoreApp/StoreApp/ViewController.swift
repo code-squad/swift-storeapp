@@ -16,10 +16,21 @@ class ViewController: UIViewController {
     private let customHeaderViewReuseId = "customHeaderView"
     private var sectionInfo: SectionInfo!
     
+    private func configureNotificationObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didStoreItemsSet(_:)), name: .didStoreItemsSet, object: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sectionInfo = SectionInfo(categories: FoodCategory.allCases)
         storeTableView.register(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: customHeaderViewReuseId)
+        configureNotificationObserver()
+        self.sectionInfo = SectionInfo(categories: FoodCategory.allCases)
+    }
+    
+    @objc private func didStoreItemsSet(_ notification: Notification) {
+        OperationQueue.main.addOperation { [unowned self] in
+            self.storeTableView.reloadData()
+        }
     }
 }
 
