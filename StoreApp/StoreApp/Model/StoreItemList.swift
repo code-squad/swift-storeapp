@@ -17,8 +17,10 @@ class StoreItemList {
         listTitle = foodCategory.title
         listDescription = foodCategory.description
         DataManager.fetchStoreItemsFromStoreAPI(foodCategory) { [unowned self] storeItems in
-            self.storeItems = storeItems
-            NotificationCenter.default.post(name: .didStoreItemsSet, object: self)
+            DispatchQueue.customSerialQueue.async {
+                self.storeItems = storeItems
+                NotificationCenter.default.post(name: .didStoreItemsSet, object: self, userInfo: ["sectionInfo":foodCategory])
+            }
         }
     }
     
@@ -39,4 +41,8 @@ extension StoreItemList: LabelTextSettable {
     var description: String {
         return listDescription
     }
+}
+
+extension DispatchQueue {
+    static let customSerialQueue = DispatchQueue(label: "customSerial")
 }

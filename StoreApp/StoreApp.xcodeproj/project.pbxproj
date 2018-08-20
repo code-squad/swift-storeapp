@@ -32,6 +32,10 @@
 		73C604112124709D0089729D /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C37B4C2121EBFF0050791D /* BadgeLabel.swift */; };
 		73C60414212476E50089729D /* LabelTextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C60413212476E50089729D /* LabelTextSettable.swift */; };
 		73C60415212476E50089729D /* LabelTextSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C60413212476E50089729D /* LabelTextSettable.swift */; };
+		73C7D795212A8A5400B5A6AD /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDA974212875E100E4C031 /* NotificationExtension.swift */; };
+		73C7D796212AB80D00B5A6AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2062121320700F826F8 /* ViewController.swift */; };
+		73C7D797212AB97700B5A6AD /* StoreItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF21C21216ECC00F826F8 /* StoreItemTableViewCell.swift */; };
+		73C7D798212AC91600B5A6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2042121320700F826F8 /* AppDelegate.swift */; };
 		73E24B4F21233B6E00C766CC /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4C21233B6E00C766CC /* soup.json */; };
 		73E24B5021233B6E00C766CC /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4D21233B6E00C766CC /* side.json */; };
 		73E24B5121233B6E00C766CC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4E21233B6E00C766CC /* main.json */; };
@@ -423,10 +427,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				73E24B672124143400C766CC /* StoreItem.swift in Sources */,
+				73C7D795212A8A5400B5A6AD /* NotificationExtension.swift in Sources */,
 				739C040A212436F2006C39D5 /* StoreAppUnitTests.swift in Sources */,
 				739C03F621242EB8006C39D5 /* StoreItemList.swift in Sources */,
+				73C7D798212AC91600B5A6AD /* AppDelegate.swift in Sources */,
 				73C6040D21244D220089729D /* SectionInfo.swift in Sources */,
+				73C7D797212AB97700B5A6AD /* StoreItemTableViewCell.swift in Sources */,
 				73C6041021245A230089729D /* SectionHeaderView.swift in Sources */,
+				73C7D796212AB80D00B5A6AD /* ViewController.swift in Sources */,
 				73C60415212476E50089729D /* LabelTextSettable.swift in Sources */,
 				73BFCC292127FE1A00C5345F /* StoreAPI.swift in Sources */,
 				73E24B662124143000C766CC /* DataManager.swift in Sources */,

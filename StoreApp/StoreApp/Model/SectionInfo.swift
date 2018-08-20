@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct SectionInfo {
-    private var storeItemLists: [StoreItemList]
+class SectionInfo {
+    private var storeItemLists: [StoreItemList] = []
     
     init(categories: [FoodCategory]) {
         self.storeItemLists = categories.compactMap { StoreItemList($0) }
