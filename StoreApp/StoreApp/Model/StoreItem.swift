@@ -20,11 +20,12 @@ class StoreItems {
         return storeItems[index]
     }
     
-    init(_ resourceName: String) {
-        guard let path = Bundle.main.path(forResource: resourceName, ofType: "json") else { return }
-        let url = URL(fileURLWithPath: path)
-        guard let data = try? Data(contentsOf: url) else { return }
-        self.storeItems = jsonDecode(data)
+    init(url: String) {
+        guard let path = URL(string: url) else { return }
+        URLSession.shared.dataTask(with: path) {( data, response, error ) in
+            guard let data = data else { return }
+            self.storeItems = self.jsonDecode(data)
+        }.resume()
     }
     
     func jsonDecode(_ data: Data) -> [StoreItem] {
