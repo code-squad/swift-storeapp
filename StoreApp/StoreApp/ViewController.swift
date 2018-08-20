@@ -9,6 +9,8 @@
 import UIKit
 import Toaster
 
+var loadItems = "loadstoreItems"
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -20,10 +22,17 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 110
+        NotificationCenter.default.addObserver(self, selector: #selector(loadStoreItems(notification:)), name: NSNotification.Name(rawValue: loadItems), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @objc func loadStoreItems(notification: Notification) {
+        DispatchQueue.main.sync {
+            self.tableView.reloadData()
+        }
     }
 
 }
