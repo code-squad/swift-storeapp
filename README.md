@@ -135,3 +135,30 @@ CocoaPods는 프로젝트를 확장하는데 도움을 준다
 
 #### 참고링크
 [iOS: Workspace, Project, Target, Scheme](http://suho.berlin/engineering/ios/ios-workspace-project-target-scheme/)
+
+
+## step5
+
+### 요구사항
+* 네트워크 프로그래밍 관련 자료를 보고 학습한다. [강의자료](http://public.codesquad.kr/jk/storeapp-network-slide.pdf)
+* HTTP 프로토콜에 대해 학습하고 요청과 응답 방식에 대해 정리한다.
+* 네트워크 프로그래밍을 위해서 Asynchronous 방식으로 동작하는 개념을 학습한다.
+
+
+### 프로그래밍 요구사항
+* 아래 주소별로 JSON 데이터를 받아오는 모델 객체를 만든다.
+HTTP 프로토콜 GET 요청으로 다음 주소에서 메인반찬 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/main`
+* HTTP 프로토콜 GET 요청으로 다음 주소에서 국.찌게 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/soup`
+* HTTP 프로토콜 GET 요청으로 다음 주소에서 밑반찬 JSON 데이터를 받는다. `http://crong.codesquad.kr:8080/woowa/side`
+(위 API들은 오전9시부터 밤12시까지만 동작한다.)
+* HTTP 요청은 URLSession 관련 프레임워크를 활용한다.
+* 응답으로 받은 JSON 데이터를 마찬가지 방법으로 Decode해서 StoreItem 객체로 변환한다.
+* 모델 객체는 응답이 도착하면 Notification을 보내서 테이블뷰의 해당 섹션만 업데이트한다.
+
+
+<img src="images/step5.png" width="50%">
+
+
+### 학습꺼리
+* 알라모파이어(alamofire) 라는 네트워크 처리 프레임워크에 대해 학습하고 정리한다. [저장소 주소](https://github.com/Alamofire/Alamofire)
+* URLSession에 비해서 편리한 점이 무엇인지 확인한다.
