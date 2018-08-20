@@ -25,6 +25,7 @@ class StoreItems {
         URLSession.shared.dataTask(with: path) {(data, response, error) in
             guard let data = data else { return }
             self.storeItems = self.jsonDecode(data)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: loadItems), object: self)
         }.resume()
     }
     
