@@ -17,13 +17,21 @@ struct SectionHeader {
     init(_ header: Header) {
         self.title = header.title
         self.subTitle = header.subTitle
-        self.storeItems = StoreItems(header.fileName)
+        self.storeItems = StoreItems.init(url: header.url)
     }
     
     enum Header {
         case main
         case soup
         case side
+        
+        var url: String {
+            switch self {
+            case .main: return "http://crong.codesquad.kr:8080/woowa/main"
+            case .soup: return "http://crong.codesquad.kr:8080/woowa/soup"
+            case .side: return "http://crong.codesquad.kr:8080/woowa/side"
+            }
+        }
         
         var fileName: String {
             switch self {
