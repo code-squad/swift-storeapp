@@ -22,7 +22,7 @@ class StoreItems {
     
     init(url: String) {
         guard let path = URL(string: url) else { return }
-        URLSession.shared.dataTask(with: path) {( data, response, error ) in
+        URLSession.shared.dataTask(with: path) {(data, response, error) in
             guard let data = data else { return }
             self.storeItems = self.jsonDecode(data)
         }.resume()
