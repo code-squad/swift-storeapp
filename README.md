@@ -42,3 +42,13 @@
 - Keyword
 	- CocoaPods, SwiftLint, Carthage, Homebrew
 	- Xcode Project Terms : [참고1](https://stackoverflow.com/questions/20637435/xcode-what-is-a-target-and-scheme-in-plain-language/20637892#20637892), [참고2](https://www.edwith.org/boostcourse-ios/lecture/16841/)
+	
+
+# Step. 5
+- 완성날짜: 2018년 8월 21일
+
+<img src="images/step5_demo.gif" width="50%">
+
+
+- Keyword
+	- HTTP protocol, URLSession, asyn/sync, NotificationCenter Queue, DispatchQueue(GCD), Serial/Concurrent Queue, reload tableView's sections, reload tableView, 비동기 데이터 fetch + View의 업데이트 동기처리
