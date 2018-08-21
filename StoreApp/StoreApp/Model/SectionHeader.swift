@@ -13,11 +13,13 @@ struct SectionHeader {
     let title: String
     let subTitle: String
     let storeItems: StoreItems
+    let headerName: String
     
     init(_ header: Header) {
         self.title = header.title
         self.subTitle = header.subTitle
-        self.storeItems = StoreItems.init(url: header.url)
+        self.storeItems = StoreItems.init(header)
+        self.headerName = header.fileName
     }
     
     enum Header {
@@ -65,7 +67,14 @@ struct Headers {
     private(set) var headers = [SectionHeader]()
     
     init() {
-        self.headers = [SectionHeader(.main), SectionHeader(.soup), SectionHeader(.side)]
+        headers.append(SectionHeader(.main))
+        headers.append(SectionHeader(.soup))
+        headers.append(SectionHeader(.side))
+    }
+    
+    func makeIndexPath(_ header: SectionHeader.Header) -> [IndexPath] {
+        guard let headerIndex = headers.index(where: {$0.headerName == header.fileName}) else { return [] }
+        return Array(0..<headers[headerIndex].storeItems.itemCount).map({IndexPath(row: $0, section: headerIndex)})
     }
 
 }

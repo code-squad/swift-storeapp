@@ -9,20 +9,18 @@
 import UIKit
 import Toaster
 
-var loadItems = "loadstoreItems"
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let headers = Headers().headers
+    let headers = Headers()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 110
-        NotificationCenter.default.addObserver(self, selector: #selector(loadStoreItems(notification:)), name: NSNotification.Name(rawValue: loadItems), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(loadStoreItems(notification:)), name: NSNotification.Name(rawValue: NotiName.loadItems.rawValue), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,8 +28,11 @@ class ViewController: UIViewController {
     }
     
     @objc func loadStoreItems(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let header = userInfo[NotiName.sectionName.rawValue] as? SectionHeader.Header else { return }
+        let indexPath = self.headers.makeIndexPath(header)
         DispatchQueue.main.sync {
-            self.tableView.reloadData()
+            self.tableView.insertRows(at: indexPath, with: .none)
         }
     }
 
@@ -40,24 +41,24 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return headers[section].storeItems.itemCount
+        return headers.headers[section].storeItems.itemCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let itemCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.itemCell.rawValue, for: indexPath) as? ItemCell else {
             return UITableViewCell()
         }
-        itemCell.set(headers[indexPath.section].storeItems[indexPath.row])
+        itemCell.set(headers.headers[indexPath.section].storeItems[indexPath.row])
         return itemCell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return headers.count
+        return headers.headers.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let sectionHeader = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.headerCell.rawValue) as? HeaderCell else { return nil }
-        sectionHeader.set(headers, section)
+        sectionHeader.set(headers.headers, section)
         return sectionHeader
     }
     
@@ -71,7 +72,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = headers[indexPath.section].storeItems[indexPath.row]
+        let item = headers.headers[indexPath.section].storeItems[indexPath.row]
         Toast(text: item.title + "\n" + item.sPrice).show()
     }
     
