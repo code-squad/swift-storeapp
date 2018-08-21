@@ -9,6 +9,10 @@
 import Foundation
 
 class StoreItemList {
+    
+    static let customSerialQueue = DispatchQueue(label: "customSerial")
+    static let notificationInfoKey = "sectionInfo"
+    
     private var storeItems: [StoreItem] = []
     private var listTitle: String
     private var listDescription: String
@@ -17,9 +21,9 @@ class StoreItemList {
         listTitle = foodCategory.title
         listDescription = foodCategory.description
         DataManager.fetchStoreItemsFromStoreAPI(foodCategory) { [unowned self] storeItems in
-            DispatchQueue.customSerialQueue.async {
+            StoreItemList.customSerialQueue.async {
                 self.storeItems = storeItems
-                NotificationCenter.default.post(name: .didStoreItemsSet, object: self, userInfo: ["sectionInfo":foodCategory])
+                NotificationCenter.default.post(name: .didStoreItemsSet, object: self, userInfo: [StoreItemList.notificationInfoKey:foodCategory])
             }
         }
     }
@@ -41,8 +45,4 @@ extension StoreItemList: LabelTextSettable {
     var description: String {
         return listDescription
     }
-}
-
-extension DispatchQueue {
-    static let customSerialQueue = DispatchQueue(label: "customSerial")
 }
