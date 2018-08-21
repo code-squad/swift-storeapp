@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func didStoreItemsSet(_ notification: Notification) {
-        guard let sectionInfo = notification.userInfo?["sectionInfo"] as? FoodCategory else { return }
+        guard let sectionInfo = notification.userInfo?[StoreItemList.notificationInfoKey] as? FoodCategory else { return }
         guard let sectionIndex: Int = FoodCategory.allCases.firstIndex(of: sectionInfo) else { return }
         DispatchQueue.main.sync { [unowned self] in
             self.storeTableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
