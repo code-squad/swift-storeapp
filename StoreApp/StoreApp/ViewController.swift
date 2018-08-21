@@ -30,9 +30,6 @@ class ViewController: UIViewController {
     @objc private func didStoreItemsSet(_ notification: Notification) {
         guard let sectionInfo = notification.userInfo?["sectionInfo"] as? FoodCategory else { return }
         guard let sectionIndex: Int = FoodCategory.allCases.firstIndex(of: sectionInfo) else { return }
-        // 현재 Queue가 "CustomSerial인지 확인"
-        let name = __dispatch_queue_get_label(nil)
-        print(String(cString: name, encoding: .utf8))
         DispatchQueue.main.sync { [unowned self] in
             self.storeTableView.reloadSections(IndexSet(integer: sectionIndex), with: .automatic)
         }
