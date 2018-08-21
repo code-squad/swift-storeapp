@@ -20,12 +20,12 @@ class StoreItems {
         return storeItems[index]
     }
     
-    init(url: String) {
-        guard let path = URL(string: url) else { return }
-        URLSession.shared.dataTask(with: path) {(data, response, error) in
+    init(_ header: SectionHeader.Header) {
+        guard let url = URL(string: header.url) else { return }
+        URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else { return }
-            self.storeItems = self.jsonDecode(data)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: loadItems), object: self)
+                self.storeItems = self.jsonDecode(data)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotiName.loadItems.rawValue), object: self, userInfo: [NotiName.sectionName.rawValue: header])
         }.resume()
     }
     
@@ -62,6 +62,11 @@ struct StoreItem: Decodable {
         case sPrice = "s_price"
         case badge
     }
+}
+
+enum NotiName: String {
+    case loadItems
+    case sectionName
 }
 
 
