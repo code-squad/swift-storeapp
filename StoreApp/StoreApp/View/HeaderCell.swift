@@ -13,9 +13,9 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    func set(_ headers: [SectionHeader],_ section: Int) {
-        titleLabel.text = headers[section].title
-        descriptionLabel.text = headers[section].subTitle
+    func set(_ headers: SectionHeader) {
+        titleLabel.text = headers.title
+        descriptionLabel.text = headers.subTitle
     }
     
     override func awakeFromNib() {

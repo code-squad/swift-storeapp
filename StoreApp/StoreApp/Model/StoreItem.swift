@@ -12,7 +12,7 @@ class StoreItems {
     
     private var storeItems = [StoreItem]()
     
-    var itemCount: Int {
+    var count: Int {
         return storeItems.count
     }
 

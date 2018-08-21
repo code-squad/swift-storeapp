@@ -64,7 +64,11 @@ struct SectionHeader {
 
 struct Headers {
     
-    private(set) var headers = [SectionHeader]()
+    private var headers = [SectionHeader]()
+    
+    var count: Int {
+        return headers.count
+    }
     
     init() {
         headers.append(SectionHeader(.main))
@@ -72,9 +76,17 @@ struct Headers {
         headers.append(SectionHeader(.side))
     }
     
+    subscript(index: Int) -> SectionHeader {
+        return headers[index]
+    }
+    
     func makeIndexPath(_ header: SectionHeader.Header) -> [IndexPath] {
         guard let headerIndex = headers.index(where: {$0.headerName == header.fileName}) else { return [] }
-        return Array(0..<headers[headerIndex].storeItems.itemCount).map({IndexPath(row: $0, section: headerIndex)})
+        return Array(0..<headers[headerIndex].storeItems.count).map({IndexPath(row: $0, section: headerIndex)})
+    }
+    
+    func makeStoreItem(_ indexPath: IndexPath) -> StoreItem {
+        return headers[indexPath.section].storeItems[indexPath.row]
     }
 
 }

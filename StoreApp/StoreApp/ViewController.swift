@@ -41,24 +41,24 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return headers.headers[section].storeItems.itemCount
+        return headers[section].storeItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let itemCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.itemCell.rawValue, for: indexPath) as? ItemCell else {
             return UITableViewCell()
         }
-        itemCell.set(headers.headers[indexPath.section].storeItems[indexPath.row])
+        itemCell.set(headers[indexPath.section].storeItems[indexPath.row])
         return itemCell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return headers.headers.count
+        return headers.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let sectionHeader = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.headerCell.rawValue) as? HeaderCell else { return nil }
-        sectionHeader.set(headers.headers, section)
+        sectionHeader.set(headers[section])
         return sectionHeader
     }
     
@@ -72,7 +72,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = headers.headers[indexPath.section].storeItems[indexPath.row]
+        let item = headers[indexPath.section].storeItems[indexPath.row]
         Toast(text: item.title + "\n" + item.sPrice).show()
     }
     
