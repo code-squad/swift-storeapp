@@ -24,6 +24,7 @@
 		73BDA975212875E100E4C031 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDA974212875E100E4C031 /* NotificationExtension.swift */; };
 		73BFCC282127FE1A00C5345F /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCC272127FE1A00C5345F /* StoreAPI.swift */; };
 		73BFCC292127FE1A00C5345F /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCC272127FE1A00C5345F /* StoreAPI.swift */; };
+		73C23541212C729100A5A6F6 /* PriceLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2462121AC4600F826F8 /* PriceLabel.swift */; };
 		73C37B4D2121EBFF0050791D /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C37B4C2121EBFF0050791D /* BadgeLabel.swift */; };
 		73C6040C21244D220089729D /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C6040B21244D220089729D /* SectionInfo.swift */; };
 		73C6040D21244D220089729D /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C6040B21244D220089729D /* SectionInfo.swift */; };
@@ -438,6 +439,7 @@
 				73C60415212476E50089729D /* LabelTextSettable.swift in Sources */,
 				73BFCC292127FE1A00C5345F /* StoreAPI.swift in Sources */,
 				73E24B662124143000C766CC /* DataManager.swift in Sources */,
+				73C23541212C729100A5A6F6 /* PriceLabel.swift in Sources */,
 				73C604112124709D0089729D /* BadgeLabel.swift in Sources */,
 				739C0402212435D6006C39D5 /* FoodCategory.swift in Sources */,
 			);
