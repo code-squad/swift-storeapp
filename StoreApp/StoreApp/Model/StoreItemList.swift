@@ -10,7 +10,7 @@ import Foundation
 
 class StoreItemList {
     
-    static let customSerialQueue = DispatchQueue(label: "customSerial")
+    static let customSerialQueue = DispatchQueue(label: "customSerial", qos: .utility)
     static let notificationInfoKey = "sectionInfo"
     
     private var storeItems: [StoreItem] = []

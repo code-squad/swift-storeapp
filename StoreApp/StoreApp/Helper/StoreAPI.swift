@@ -24,7 +24,10 @@ struct StoreAPI {
     
     static func fetchStoreItems(_ foodCategory: FoodCategory, completionHandler: @escaping (Data?, Error?) -> Void) {
         guard let url = StoreAPI.storeURL(category: foodCategory) else { return }
-        let session = URLSession(configuration: .default)
+        let configure = URLSessionConfiguration.default
+        configure.timeoutIntervalForRequest = 3
+        
+        let session = URLSession(configuration: configure)
         let request = URLRequest(url: url)
         let task = session.dataTask(with: request) { (data, response, error) in
             guard let response = response as? HTTPURLResponse, response.statusCode == successCode else {
