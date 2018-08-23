@@ -162,3 +162,30 @@ HTTP 프로토콜 GET 요청으로 다음 주소에서 메인반찬 JSON 데이�
 ### 학습꺼리
 * 알라모파이어(alamofire) 라는 네트워크 처리 프레임워크에 대해 학습하고 정리한다. [저장소 주소](https://github.com/Alamofire/Alamofire)
 * URLSession에 비해서 편리한 점이 무엇인지 확인한다.
+
+
+## step6
+
+### 요구사항
+* GCD(Grand Central Dispatch)에 대해 학습하고 정리한다. [강의 자료](http://public.codesquad.kr/jk/storeapp-concurrent-programming-slide.pdf)
+* 이미지 다운로드와 캐시 처리 방식에 대해 학습한다.
+
+### 프로그래밍 요구사항
+* 3개의 JSON 데이터가 모두 받고 나면 JSON 데이터에 포함된 이미지 URL을 분리해서 Image 파일들을 다운로드 받는다.
+	* 이미지 파일들을 병렬처리해서 한꺼번에 여러개를 다운로드하도록 구성한다.
+	* (선택1) GCD Queue를 활용하거나
+	* (선택2)`Download Task` 방식으로 구현한다.
+* 다운로드가 완료되면 앱 디렉토리 중에 `Cache` 디렉토리에 URL에 있는 파일명으로 저장한다.
+* 셀을 표기할 때 이미 다운로드된 이미지가 있으면 표시하고, 새로운 파일이 다운로드 완료되면 해당 이미지를 테이블뷰 셀에 뒤늦게(lazy) 표시한다.
+	* 화면에 표시할 때 다운로드를 담당하는 스레드와 화면을 처리하는 스레드를 위한 GCD Queue를 구분해서 처리한다.
+	* 이미지를 다 받을때 까지 화면이 하얗게 멈춰있지 않도록 만든다.
+
+
+<img src="images/step6.png" width="50%">
+
+
+### 학습꺼리
+* 병렬처리(Parallel Processing)과 동시성(Concurrency) 해결을 위한 다양한 방식에 대해 공부하고 비교해서 정리한다.
+	* [애플 Concurrency Programming Guide](https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1)
+	* GCD와 OperationQueue 차이점을 정리한다.
+* (선택미션) Alamofire 나 SDWebImage를 cocoapod으로 설치해서 테이블 뷰 셀에 이미지를 캐싱하고 표시하는 방식을 개선한다.
