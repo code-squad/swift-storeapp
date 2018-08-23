@@ -38,4 +38,15 @@ struct StoreAPI {
         }
         task.resume()
     }
+    
+    static func downloadThumbnailImage(imageURL: URL, session: URLSession, _ completionHandler: @escaping (URL?, Error?) -> Void) {
+        let request = URLRequest(url: imageURL)
+        session.downloadTask(with: request) { (tempURL, response, error) in
+            guard let tempURL = tempURL else {
+                completionHandler(nil, error)
+                return
+            }
+            completionHandler(tempURL, nil)
+        }.resume()
+    }
 }
