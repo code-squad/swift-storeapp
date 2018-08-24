@@ -22,6 +22,7 @@
 		D69BD9A72123CDD300C218C6 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = D69BD9A62123CDD300C218C6 /* side.json */; };
 		D69BD9A92123DEDE00C218C6 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BD9A82123DEDE00C218C6 /* SectionHeader.swift */; };
 		D69BD9AB21240F7D00C218C6 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BD9AA21240F7D00C218C6 /* HeaderCell.swift */; };
+		D69BD9EB212FC37600C218C6 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69BD9EA212FC37600C218C6 /* ImageData.swift */; };
 		D9C77DDBF0FC115E2B4C16AC /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408807717A56883232B147B6 /* Pods_StoreApp.framework */; };
 		E45E8E70F679B699F0C3EDC0 /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05773DFA81FD31DD60924FD /* Pods_StoreAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		D69BD9A62123CDD300C218C6 /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		D69BD9A82123DEDE00C218C6 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		D69BD9AA21240F7D00C218C6 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		D69BD9EA212FC37600C218C6 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			children = (
 				D69BD9612121630A00C218C6 /* StoreItem.swift */,
 				D69BD9A82123DEDE00C218C6 /* SectionHeader.swift */,
+				D69BD9EA212FC37600C218C6 /* ImageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				D69BD9342121308D00C218C6 /* ViewController.swift in Sources */,
 				D69BD9AB21240F7D00C218C6 /* HeaderCell.swift in Sources */,
 				D69BD9322121308D00C218C6 /* AppDelegate.swift in Sources */,
+				D69BD9EB212FC37600C218C6 /* ImageData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

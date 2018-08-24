@@ -21,7 +21,9 @@ class ItemCell: UITableViewCell {
         itemTitle.text = item.title
         itemDescription.text = item.description
         sPrice.text = item.sPrice
-        fetchItemImages(item.image)
+        let imageData = ImageData().fetchItemImages(item.image)
+        guard let data = imageData else { return }
+        setItemImages(data)
         
         if let price = item.nPrice {
             nPrice.text = price
@@ -42,43 +44,8 @@ class ItemCell: UITableViewCell {
         
     }
     
-    private func fetchItemImages(_ imageURL: String) {
-        guard let fileURL = makeImageURL(imageURL) else { return }
-        if FileManager.default.fileExists(atPath: fileURL.path) {
-            guard let data = loadImageData(fileURL) else { return }
-            self.itemImage.image = UIImage(data: data)
-        } else { //파일이 없을경우 파일 생성후 데이터 저장
-            DispatchQueue.global().async {
-                guard let data = self.saveImageData(imageURL, fileURL) else { return }
-                DispatchQueue.main.async {
-                    self.itemImage.image = UIImage(data: data)
-                }
-            }
-        }
-    }
-    
-    private func makeImageURL(_ imageURL: String) -> URL? {
-        
-        //urls(for:in:) 메소드를 통해 특정 경로에 접근한 후 추가 경로를 cachesDirectory로 지정
-        guard let path = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
-        
-        guard let url = URL(string: imageURL) else { return nil }
-        
-        //imageURL에서 경로 /구분자를 이용해 문자열을 분리한 후 마지막 문자열을 기존의 경로에 추가
-        let fileURL = path.appendingPathComponent(url.lastPathComponent)
-        
-        return fileURL
-    }
-    
-    private func loadImageData(_ url: URL) -> Data? {
-        return FileManager.default.contents(atPath: url.path)
-    }
-    
-    private func saveImageData(_ imageURL: String,_ fileURL: URL) -> Data? {
-        guard let url = URL(string: imageURL) else { return nil }
-        guard let data = try? Data(contentsOf: url) else { return nil }
-        FileManager.default.createFile(atPath: fileURL.path, contents: data, attributes: nil)
-        return data
+    private func setItemImages(_ data: Data) {
+        self.itemImage.image = UIImage(data: data)
     }
 
     override func prepareForReuse() {
