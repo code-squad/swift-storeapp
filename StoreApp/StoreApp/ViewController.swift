@@ -15,10 +15,6 @@ class ViewController: UIViewController, URLSessionDelegate {
     private let storeItemCellIdentifier = "storeItemCell"
     private let customHeaderViewReuseId = "customHeaderView"
     private var sectionInfo: SectionInfo!
-    lazy var imageDownloadSession: URLSession = {
-        let configuration = URLSessionConfiguration.background(withIdentifier: "imageDownloadSessionConfig")
-        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-    }()
     
     private func configureNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didStoreItemsSet(_:)), name: .didStoreItemsSet, object: nil)
