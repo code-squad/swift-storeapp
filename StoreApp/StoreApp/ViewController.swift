@@ -9,12 +9,16 @@
 import UIKit
 import Toaster
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, URLSessionDelegate {
     
     @IBOutlet weak var storeTableView: UITableView!
     private let storeItemCellIdentifier = "storeItemCell"
     private let customHeaderViewReuseId = "customHeaderView"
     private var sectionInfo: SectionInfo!
+    lazy var imageDownloadSession: URLSession = {
+        let configuration = URLSessionConfiguration.background(withIdentifier: "imageDownloadSessionConfig")
+        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }()
     
     private func configureNotificationObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didStoreItemsSet(_:)), name: .didStoreItemsSet, object: nil)
@@ -51,6 +55,9 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         storeCell.setLabel(with: storeItem)
+        DispatchQueue.main.async {
+            storeCell.setThumbnailImage(with: storeItem)
+        }
         return storeCell
     }
 }
@@ -73,5 +80,11 @@ extension ViewController: UITableViewDelegate {
         ToastCenter.default.cancelAll()
         let storeItem = sectionInfo[indexPath.section][indexPath.row]
         Toast(text: "\(storeItem.title) \(storeItem.salePrice)").show()
+    }
+}
+
+extension ViewController: URLSessionDownloadDelegate {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        print(location)
     }
 }
