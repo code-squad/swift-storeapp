@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Toaster
 
 struct ImageManager {
     
@@ -34,18 +33,9 @@ struct ImageManager {
     
     fileprivate static func downloadImage(session: URLSession, imageURL: URL, saveURL: URL) {
         StoreAPI.downloadThumbnailImage(imageURL: imageURL, session: session) { (tempURL, error) in
-            if error != nil {
-                ToastCenter.default.cancelAll()
-                Toast(text: "Image Download Fail.").show()
-                return
-            }
-            do {
-                guard let tempURL = tempURL else { return }
-                try FileManager.default.moveItem(at: tempURL, to: saveURL)
-            } catch let error {
-                Toast(text: "Can't copy image to cache directory : \(error)").show()
-                return
-            }
+            guard error == nil else { return }
+            guard let tempURL = tempURL else { return }
+            try? FileManager.default.moveItem(at: tempURL, to: saveURL)
         }
     }
 }
