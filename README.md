@@ -58,5 +58,7 @@
 
 <img src="images/step6_demo.gif" width="50%">
 
+<img src="images/step6_error_demo.png" width="50%">
+
 - Keyword
 	- DispatchQueue.main, UI update, Concurrency Programming Guide, URLSession, URLSessionDownloadTask, FileManager, Caching, OperationQueue, 이미지 다운로드 시 GCD와 downloadTask의 차이
