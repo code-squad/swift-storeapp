@@ -38,6 +38,7 @@
 		73C7D797212AB97700B5A6AD /* StoreItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF21C21216ECC00F826F8 /* StoreItemTableViewCell.swift */; };
 		73C7D798212AC91600B5A6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2042121320700F826F8 /* AppDelegate.swift */; };
 		73D4FD5F212F716200F28682 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4FD5E212F716200F28682 /* ImageManager.swift */; };
+		73D4FD61212F82A800F28682 /* ImageSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4FD60212F82A800F28682 /* ImageSettable.swift */; };
 		73E24B4F21233B6E00C766CC /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4C21233B6E00C766CC /* soup.json */; };
 		73E24B5021233B6E00C766CC /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4D21233B6E00C766CC /* side.json */; };
 		73E24B5121233B6E00C766CC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4E21233B6E00C766CC /* main.json */; };
@@ -79,6 +80,7 @@
 		73C6040E21245A230089729D /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		73C60413212476E50089729D /* LabelTextSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextSettable.swift; sourceTree = "<group>"; };
 		73D4FD5E212F716200F28682 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		73D4FD60212F82A800F28682 /* ImageSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSettable.swift; sourceTree = "<group>"; };
 		73E24B4C21233B6E00C766CC /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		73E24B4D21233B6E00C766CC /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		73E24B4E21233B6E00C766CC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				73C60413212476E50089729D /* LabelTextSettable.swift */,
+				73D4FD60212F82A800F28682 /* ImageSettable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				738EF2072121320700F826F8 /* ViewController.swift in Sources */,
 				73BFCC282127FE1A00C5345F /* StoreAPI.swift in Sources */,
 				738EF2052121320700F826F8 /* AppDelegate.swift in Sources */,
+				73D4FD61212F82A800F28682 /* ImageSettable.swift in Sources */,
 				738EF21D21216ECC00F826F8 /* StoreItemTableViewCell.swift in Sources */,
 				73D4FD5F212F716200F28682 /* ImageManager.swift in Sources */,
 				739C03FC212431A2006C39D5 /* FoodCategory.swift in Sources */,
