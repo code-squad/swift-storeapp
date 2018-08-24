@@ -52,3 +52,11 @@
 
 - Keyword
 	- HTTP protocol, URLSession, asyn/sync, NotificationCenter Queue, DispatchQueue(GCD), Serial/Concurrent Queue, reload tableView's sections, reload tableView, 비동기 데이터 fetch + View의 업데이트 동기처리
+	
+# Step. 6
+- 완성날짜: 2018년 8월 24일
+
+<img src="images/step6_demo.gif" width="50%">
+
+- Keyword
+	- DispatchQueue.main, UI update, Concurrency Programming Guide, URLSession, URLSessionDownloadTask, FileManager, Caching, OperationQueue, 이미지 다운로드 시 GCD와 downloadTask의 차이
