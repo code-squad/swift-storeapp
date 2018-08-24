@@ -18,6 +18,12 @@ class StoreItemTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         priceStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         badgeStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        itemImageView.image = nil
+    }
+    
+    func setThumbnailImage(with setter: StoreItemImageSettable) {
+        let imagePath = ImageManager.imagePath(string: setter.imageURL)
+        itemImageView.image = UIImage(contentsOfFile: imagePath)
     }
     
     func setLabel(with setter: StoreItemLabelTextSettable) {
