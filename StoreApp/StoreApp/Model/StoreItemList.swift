@@ -13,7 +13,11 @@ class StoreItemList {
     static let customSerialQueue = DispatchQueue(label: "customSerial", qos: .utility)
     static let notificationInfoKey = "sectionInfo"
     
-    private var storeItems: [StoreItem] = []
+    private var storeItems: [StoreItem] = [] {
+        didSet {
+            downloadThumbnailImages()
+        }
+    }
     private var listTitle: String
     private var listDescription: String
     
@@ -26,6 +30,11 @@ class StoreItemList {
                 NotificationCenter.default.post(name: .didStoreItemsSet, object: self, userInfo: [StoreItemList.notificationInfoKey:foodCategory])
             }
         }
+    }
+    
+    private func downloadThumbnailImages() {
+        let imageURLs = storeItems.map { $0.imageURL }
+        ImageManager.downloadThumbnailImages(from: imageURLs)
     }
     
     var count: Int {
