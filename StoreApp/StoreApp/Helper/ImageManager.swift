@@ -25,12 +25,14 @@ struct ImageManager {
     }
     
     fileprivate static func tryDownloadImages(session: URLSession, _ imageURLs: [URL]) {
-        imageURLs.forEach { tryDownloadImage(session: session, imageURL: $0) }
+        imageURLs.forEach {
+            let saveURL = cacheURL.appendingPathComponent($0.lastPathComponent)
+            if FileManager.default.fileExists(atPath: saveURL.path) { return }
+            downloadImage(session: session, imageURL: $0, saveURL: saveURL)
+        }
     }
     
-    fileprivate static func tryDownloadImage(session: URLSession, imageURL: URL) {
-        let saveURL = cacheURL.appendingPathComponent(imageURL.lastPathComponent)
-        if FileManager.default.fileExists(atPath: saveURL.path) { return }
+    fileprivate static func downloadImage(session: URLSession, imageURL: URL, saveURL: URL) {
         StoreAPI.downloadThumbnailImage(imageURL: imageURL, session: session) { (tempURL, error) in
             if error != nil {
                 ToastCenter.default.cancelAll()
