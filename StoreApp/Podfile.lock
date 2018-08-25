@@ -1,20 +1,24 @@
 PODS:
+  - Alamofire (4.7.2)
   - SwiftLint (0.25.1)
   - Toaster (2.1.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - SwiftLint
   - Toaster
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - SwiftLint
     - Toaster
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   Toaster: a6c9532de1ded8105e77376f7dffeb2e12b46dbb
 
-PODFILE CHECKSUM: ef0603da01a3e74a5f6fa3d1fd189a71e4f8b4a8
+PODFILE CHECKSUM: e1122edaefb0de2daa9035b454fc6c6aa8dfe338
 
 COCOAPODS: 1.5.3

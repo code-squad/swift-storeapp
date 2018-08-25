@@ -111,6 +111,7 @@
         <!--View Controller-->
         <scene sceneID="mYT-e3-pUN">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HtA-jK-Z2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="p4v-3s-m4L" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LHh-Pt-MWi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -197,9 +198,8 @@
                         <viewLayoutGuide key="safeArea" id="5jr-0Z-ajK"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HtA-jK-Z2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1710" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QJv-ud-fkc">
@@ -213,6 +213,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="oJe-mK-tNz"/>
+                        <segue destination="p4v-3s-m4L" kind="show" id="ixb-SN-kDS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECu-MI-md2" userLabel="First Responder" sceneMemberID="firstResponder"/>
