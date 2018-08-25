@@ -38,7 +38,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
     }
     
     private func setup() {
-        self.contentView.backgroundColor = .white
+        self.contentView.backgroundColor = UIColor(red: 253/256, green: 245/256, blue: 167/256, alpha: 1)
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
         

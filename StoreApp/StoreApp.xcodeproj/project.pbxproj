@@ -21,6 +21,7 @@
 		739C03FC212431A2006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
 		739C0402212435D6006C39D5 /* FoodCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739C03FB212431A2006C39D5 /* FoodCategory.swift */; };
 		739C040A212436F2006C39D5 /* StoreAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E24B5E2124142300C766CC /* StoreAppUnitTests.swift */; };
+		73A381732131A75700A1F0DA /* StoreItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A381722131A75700A1F0DA /* StoreItemDetailViewController.swift */; };
 		73BDA975212875E100E4C031 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BDA974212875E100E4C031 /* NotificationExtension.swift */; };
 		73BFCC282127FE1A00C5345F /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCC272127FE1A00C5345F /* StoreAPI.swift */; };
 		73BFCC292127FE1A00C5345F /* StoreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BFCC272127FE1A00C5345F /* StoreAPI.swift */; };
@@ -73,6 +74,7 @@
 		738EF21C21216ECC00F826F8 /* StoreItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemTableViewCell.swift; sourceTree = "<group>"; };
 		738EF2462121AC4600F826F8 /* PriceLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabel.swift; sourceTree = "<group>"; };
 		739C03FB212431A2006C39D5 /* FoodCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory.swift; sourceTree = "<group>"; };
+		73A381722131A75700A1F0DA /* StoreItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailViewController.swift; sourceTree = "<group>"; };
 		73BDA974212875E100E4C031 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
 		73BFCC272127FE1A00C5345F /* StoreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAPI.swift; sourceTree = "<group>"; };
 		73C37B4C2121EBFF0050791D /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				738EF23C21219D5100F826F8 /* View */,
 				738EF2042121320700F826F8 /* AppDelegate.swift */,
 				738EF2062121320700F826F8 /* ViewController.swift */,
+				73A381722131A75700A1F0DA /* StoreItemDetailViewController.swift */,
 				738EF2082121320700F826F8 /* Main.storyboard */,
 				738EF20B2121320800F826F8 /* Assets.xcassets */,
 				738EF20D2121320800F826F8 /* LaunchScreen.storyboard */,
@@ -418,6 +421,7 @@
 				738EF217212152EE00F826F8 /* StoreItem.swift in Sources */,
 				738EF2072121320700F826F8 /* ViewController.swift in Sources */,
 				73BFCC282127FE1A00C5345F /* StoreAPI.swift in Sources */,
+				73A381732131A75700A1F0DA /* StoreItemDetailViewController.swift in Sources */,
 				738EF2052121320700F826F8 /* AppDelegate.swift in Sources */,
 				73D4FD61212F82A800F28682 /* ImageSettable.swift in Sources */,
 				738EF21D21216ECC00F826F8 /* StoreItemTableViewCell.swift in Sources */,
@@ -536,7 +540,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -590,7 +594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
