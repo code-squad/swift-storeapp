@@ -8,9 +8,19 @@
 
 import UIKit
 
+protocol DetailHashSettable {
+    var detailHash: String { get }
+}
+
 class DetailViewController: UIViewController {
+    
+    private var detailHash: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func setDetailHash(_ setter: DetailHashSettable) {
+        self.detailHash = setter.detailHash
     }
 }
