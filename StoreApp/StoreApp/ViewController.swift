@@ -27,6 +27,16 @@ class ViewController: UIViewController, URLSessionDelegate {
         self.sectionInfo = SectionInfo(categories: FoodCategory.allCases)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     @objc private func didStoreItemsSet(_ notification: Notification) {
         guard let sectionInfo = notification.userInfo?[StoreItemList.notificationInfoKey] as? FoodCategory else { return }
         guard let sectionIndex: Int = FoodCategory.allCases.firstIndex(of: sectionInfo) else { return }
@@ -71,14 +81,15 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        ToastCenter.default.cancelAll()
         let storeItem = sectionInfo[indexPath.section][indexPath.row]
-        Toast(text: "\(storeItem.title) \(storeItem.salePrice)").show()
+        showItemOnToast(title: storeItem.title, price: storeItem.salePrice)
+        
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
-}
-
-extension ViewController: URLSessionDownloadDelegate {
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print(location)
+    
+    private func showItemOnToast(title: String, price: String) {
+        ToastCenter.default.cancelAll()
+        Toast(text: "\(title) \(price)").show()
     }
 }
