@@ -85,6 +85,7 @@ extension ViewController: UITableViewDelegate {
         showItemOnToast(title: storeItem.title, price: storeItem.salePrice)
         
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
+        detailVC.setDetailHash(storeItem)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     

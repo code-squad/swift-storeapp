@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StoreItem: Decodable, StoreItemLabelTextSettable, StoreItemImageSettable {
+struct StoreItem: Decodable, StoreItemLabelTextSettable, StoreItemImageSettable, DetailHashSettable {
     let detailHash: String
     let imageURL: String
     let alt: String
