@@ -15,7 +15,7 @@ class StoreItemTableViewCell: UITableViewCell {
     @IBOutlet weak var priceStackView: UIStackView!
     @IBOutlet weak var badgeStackView: UIStackView!
     
-    fileprivate let emptyImage = UIImage(named: "emptyImage")
+    fileprivate let emptyImageName = "emptyImage"
     
     override func prepareForReuse() {
         priceStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
@@ -24,12 +24,15 @@ class StoreItemTableViewCell: UITableViewCell {
     }
     
     func setThumbnailImage(with setter: StoreItemImageSettable) {
-        let imagePath = ImageManager.imagePath(string: setter.imageURL)
-        guard let thumbnailImage = UIImage(contentsOfFile: imagePath) else {
-            itemImageView.image = emptyImage
-            return
+        ImageManager.donwloadThumbnailImage(setter.imageURL) { (imageData) in
+            DispatchQueue.main.async { [unowned self] in
+                guard let imageData = imageData else {
+                    self.itemImageView.image = UIImage(named: self.emptyImageName)
+                    return
+                }
+                self.itemImageView.image = UIImage(data: imageData)
+            }
         }
-        itemImageView.image = thumbnailImage
     }
     
     func setLabel(with setter: StoreItemLabelTextSettable) {

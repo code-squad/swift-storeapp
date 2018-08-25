@@ -7,35 +7,23 @@
 //
 
 import Foundation
+import Alamofire
 
 struct ImageManager {
     
-    fileprivate static let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+    fileprivate static var cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     
-    static func imagePath(string url: String) -> String {
-        guard let imageURL = URL(string: url)?.lastPathComponent else { return "" }
-        return cacheURL.appendingPathComponent(imageURL).path
-    }
-    
-    static func downloadThumbnailImages(from urls: [String]) {
-        let downloadSession = URLSession(configuration: .default)
-        let imageURLs = urls.compactMap { URL(string: $0) }
-        tryDownloadImages(session: downloadSession, imageURLs)
-    }
-    
-    fileprivate static func tryDownloadImages(session: URLSession, _ imageURLs: [URL]) {
-        imageURLs.forEach {
-            let saveURL = cacheURL.appendingPathComponent($0.lastPathComponent)
-            if FileManager.default.fileExists(atPath: saveURL.path) { return }
-            downloadImage(session: session, imageURL: $0, saveURL: saveURL)
-        }
-    }
-    
-    fileprivate static func downloadImage(session: URLSession, imageURL: URL, saveURL: URL) {
-        StoreAPI.downloadThumbnailImage(imageURL: imageURL, session: session) { (tempURL, error) in
-            guard error == nil else { return }
-            guard let tempURL = tempURL else { return }
-            try? FileManager.default.moveItem(at: tempURL, to: saveURL)
+    static func donwloadThumbnailImage(_ url: String, _ completionHandler: @escaping (Data?) -> Void) {
+        guard let imageURL = URL(string: url) else { return }
+        let fileURL = cacheURL.appendingPathComponent(imageURL.lastPathComponent)
+        let destination: DownloadRequest.DownloadFileDestination = { _, _ in return (fileURL, []) }
+        Alamofire.download(imageURL, to: destination).responseData { response in
+            guard let loaded = response.value else {
+                guard let localData = try? Data(contentsOf: fileURL) else { return }
+                completionHandler(localData)
+                return
+            }
+            completionHandler(loaded)
         }
     }
 }

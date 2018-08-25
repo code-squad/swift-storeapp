@@ -51,9 +51,7 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         storeCell.setLabel(with: storeItem)
-        DispatchQueue.main.async {
-            storeCell.setThumbnailImage(with: storeItem)
-        }
+        storeCell.setThumbnailImage(with: storeItem)
         return storeCell
     }
 }
