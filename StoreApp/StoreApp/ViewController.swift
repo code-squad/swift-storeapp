@@ -80,12 +80,11 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         let storeItem = sectionInfo[indexPath.section][indexPath.row]
-        showItemOnToast(title: storeItem.title, price: storeItem.salePrice)
-        
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
         detailVC.setDetailHash(storeItem)
+        detailVC.delegate = self
+        tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
@@ -93,4 +92,7 @@ extension ViewController: UITableViewDelegate {
         ToastCenter.default.cancelAll()
         Toast(text: "\(title) \(price)").show()
     }
+}
+
+extension ViewController: DetailViewControllerDelegate {
 }
