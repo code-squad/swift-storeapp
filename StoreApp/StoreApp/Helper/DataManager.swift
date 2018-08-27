@@ -43,7 +43,7 @@ struct DataManager {
         }
     }
     
-    static func fetchHashData(_ hash: String, completionHandler: @escaping (HashData) -> Void) {
+    static func fetchHashData(_ hash: String, _ completionHandler: @escaping (HashData) -> Void) {
         guard let url = StoreAPI.makeURL(from: detailPath + "/\(hash)") else { return }
         Alamofire.request(url).responseJSON { response in
             guard let jsonData = response.data else { return }

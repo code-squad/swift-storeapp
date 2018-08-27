@@ -10,6 +10,7 @@ import UIKit
 
 protocol DetailHashSettable {
     var detailHash: String { get }
+    var title: String { get }
 }
 
 protocol DetailViewControllerDelegate: class {
@@ -17,19 +18,25 @@ protocol DetailViewControllerDelegate: class {
 
 class DetailViewController: UIViewController {
     
-    // MARK: IBOutlet
     @IBOutlet weak var detailView: DetailView!
     
     weak var delegate: DetailViewControllerDelegate?
-    private var detailHash: String?
-
+    private var hashData: HashData?
+    private var detailViewSetwrapper: (() -> Void)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         detailView.delegate = self
+        detailViewSetwrapper()
     }
     
     func setDetailHash(_ setter: DetailHashSettable) {
-        self.detailHash = setter.detailHash
+        self.detailViewSetwrapper = {
+            DataManager.fetchHashData(setter.detailHash) { [weak self] hashData in
+                self?.detailView.setTitleLabelText(setter.title)
+                self?.detailView.setDetailLabelText(with: hashData.data)
+            }
+        }
     }
 }
 

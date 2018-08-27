@@ -18,7 +18,7 @@ struct HashData: Decodable {
     }
 }
 
-struct DetailItem: Decodable {
+struct DetailItem: Decodable, DetailViewLabelSettable {
     let topImageURL: String
     let thumbnailImageURLs: [String]
     let productDescription: String
