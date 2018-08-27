@@ -10,7 +10,21 @@ import Foundation
 
 struct ImageData {
     
-    func makeImageURL(_ imageURL: String) -> URL? {
+    static func fetchItemImages(_ imageURL: String) -> Data? {
+        var data: Data!
+        guard let fileURL = makeImageURL(imageURL) else { return nil }
+        if isFileExists(fileURL) {
+            guard let loadData = loadImageData(fileURL) else { return nil }
+            data = loadData
+        }
+        return data
+    }
+    
+    static func isFileExists(_ fileURL: URL) -> Bool {
+        return FileManager.default.fileExists(atPath: fileURL.path)
+    }
+    
+    static func makeImageURL(_ imageURL: String) -> URL? {
         //urls(for:in:) 메소드를 통해 특정 경로에 접근한 후 추가 경로를 cachesDirectory로 지정
         guard let path = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
         guard let url = URL(string: imageURL) else { return nil }
@@ -19,11 +33,11 @@ struct ImageData {
         return fileURL
     }
     
-    func loadImageData(_ url: URL) -> Data? {
+    static func loadImageData(_ url: URL) -> Data? {
         return FileManager.default.contents(atPath: url.path)
     }
     
-    func saveImageData(_ imageURL: String,_ fileURL: URL) -> Data? {
+    static func saveImageData(_ imageURL: String,_ fileURL: URL) -> Data? {
         guard let url = URL(string: imageURL) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         FileManager.default.createFile(atPath: fileURL.path, contents: data, attributes: nil)

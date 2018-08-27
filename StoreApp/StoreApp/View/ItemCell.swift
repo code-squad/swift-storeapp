@@ -16,14 +16,16 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var nPrice: UILabel!
     @IBOutlet weak var sPrice: UILabel!
     @IBOutlet weak var badgeStackView: UIStackView!
-    var imageData = ImageData()
-    
     
     func set(_ item: StoreItem) {
         itemTitle.text = item.title
         itemDescription.text = item.description
         sPrice.text = item.sPrice
-        fetchItemImages(item.image)
+        
+        guard let data = ImageData.fetchItemImages(item.image) else { return }
+        existItemImage(item.image,data)
+        notExistItemImage(item.image)
+        
         
         if let price = item.nPrice {
             nPrice.text = price
@@ -44,14 +46,18 @@ class ItemCell: UITableViewCell {
         
     }
     
-    func fetchItemImages(_ imageURL: String) {
-        guard let fileURL = imageData.makeImageURL(imageURL) else { return }
-        if FileManager.default.fileExists(atPath: fileURL.path) {
-            guard let data = imageData.loadImageData(fileURL) else { return }
+    func existItemImage(_ imageURL: String,_ data: Data) {
+        guard let fileURL = ImageData.makeImageURL(imageURL) else { return }
+        if ImageData.isFileExists(fileURL) {
             self.itemImage.image = UIImage(data: data)
-        } else { //파일이 없을경우 파일 생성후 데이터 저장
+        }
+    }
+    
+    func notExistItemImage(_ imageURL: String) {
+        guard let fileURL = ImageData.makeImageURL(imageURL) else { return }
+        if !ImageData.isFileExists(fileURL) {
             DispatchQueue.global().async {
-                guard let data = self.imageData.saveImageData(imageURL, fileURL) else { return }
+                guard let data = ImageData.saveImageData(imageURL, fileURL) else { return }
                 DispatchQueue.main.async {
                     self.itemImage.image = UIImage(data: data)
                 }
