@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import Alamofire
 
 struct DataManager {
+    
+    private static let detailPath = "detail"
     
     private static func decode<Model: Decodable>(data: Data, type: Model.Type) -> Model? {
         let decoder = JSONDecoder()
@@ -37,6 +40,15 @@ struct DataManager {
             }
             guard let data = data, let storeItems = decode(data: data, type: [StoreItem].self) else { return }
             completionHandler(storeItems)
+        }
+    }
+    
+    static func fetchHashData(_ hash: String, completionHandler: @escaping (HashData) -> Void) {
+        guard let url = StoreAPI.makeURL(from: detailPath + "/\(hash)") else { return }
+        Alamofire.request(url).responseJSON { response in
+            guard let jsonData = response.data else { return }
+            guard let hashData = decode(data: jsonData, type: HashData.self) else { return }
+            completionHandler(hashData)
         }
     }
 }

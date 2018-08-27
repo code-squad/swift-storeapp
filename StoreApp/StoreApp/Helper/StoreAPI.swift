@@ -14,16 +14,16 @@ struct StoreAPI {
     private static let path = "/woowa"
     private static let successCode = 200
     
-    static func storeURL(category: FoodCategory) -> URL? {
+    static func makeURL(from lastComponent: String) -> URL? {
         guard var components = URLComponents(string: baseURL) else { return nil }
         components.port = portNumber
         components.path = self.path
-        components.path += "/\(category.rawValue)"
+        components.path += "/\(lastComponent)"
         return components.url
     }
     
     static func fetchStoreItems(_ foodCategory: FoodCategory, completionHandler: @escaping (Data?, Error?) -> Void) {
-        guard let url = StoreAPI.storeURL(category: foodCategory) else { return }
+        guard let url = self.makeURL(from: foodCategory.rawValue) else { return }
         let configure = URLSessionConfiguration.default
         configure.timeoutIntervalForRequest = 3
         
