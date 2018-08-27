@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		063F7BC6A52F3FA64330E740 /* Pods_StoreAppUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173777498B2A9A0DF967D09B /* Pods_StoreAppUnitTests.framework */; };
+		7336DE7221330DC300907F87 /* HashData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336DE7121330DC300907F87 /* HashData.swift */; };
 		738EF2052121320700F826F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2042121320700F826F8 /* AppDelegate.swift */; };
 		738EF2072121320700F826F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2062121320700F826F8 /* ViewController.swift */; };
 		738EF20A2121320700F826F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738EF2082121320700F826F8 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		173777498B2A9A0DF967D09B /* Pods_StoreAppUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7336DE7121330DC300907F87 /* HashData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashData.swift; sourceTree = "<group>"; };
 		735AE5E7B2E5A63A5069595A /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		738EF2012121320700F826F8 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738EF2042121320700F826F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				738EF216212152EE00F826F8 /* StoreItem.swift */,
 				738EF21A21216CC900F826F8 /* StoreItemList.swift */,
 				73C6040B21244D220089729D /* SectionInfo.swift */,
+				7336DE7121330DC300907F87 /* HashData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				739C03FC212431A2006C39D5 /* FoodCategory.swift in Sources */,
 				738EF2472121AC4600F826F8 /* PriceLabel.swift in Sources */,
 				73C37B4D2121EBFF0050791D /* BadgeLabel.swift in Sources */,
+				7336DE7221330DC300907F87 /* HashData.swift in Sources */,
 				73E24B53212408A900C766CC /* DataManager.swift in Sources */,
 				738EF21B21216CC900F826F8 /* StoreItemList.swift in Sources */,
 				73C6040C21244D220089729D /* SectionInfo.swift in Sources */,
