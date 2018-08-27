@@ -27,4 +27,15 @@ struct DetailItem: Decodable {
     let deliveryFee: String
     let prices: [String]
     let detailSectionURLs: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case topImageURL = "top_image"
+        case thumbnailImageURLs = "thumb_images"
+        case productDescription = "product_description"
+        case point
+        case deliveryInfo = "delivery_info"
+        case deliveryFee = "delivery_fee"
+        case prices
+        case detailSectionURLs = "detail_section"
+    }
 }
