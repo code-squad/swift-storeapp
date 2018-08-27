@@ -48,4 +48,14 @@ class DetailView: UIView {
         self.deliveryFeeLabel.text = setter.deliveryFee
         self.priceLabel.text = setter.prices.last
     }
+    
+    func addTopThumbnailImages(_ data: Data) {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(data: data)
+        imageView.contentMode = .scaleAspectFill
+        let originX: CGFloat = self.frame.width * CGFloat(thumbnailImagesScrollView.subviews.count - 1)
+        imageView.frame = CGRect(x: originX, y: 0, width: self.frame.width, height: thumbnailImagesScrollView.frame.height)
+        thumbnailImagesScrollView.addSubview(imageView)
+        thumbnailImagesScrollView.contentSize.width += imageView.frame.width
+    }
 }

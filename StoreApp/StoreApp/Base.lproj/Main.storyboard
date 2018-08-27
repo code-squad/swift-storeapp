@@ -119,7 +119,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRW-FO-p63" customClass="DetailView" customModule="StoreApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="587"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EJ-b7-xlx">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EJ-b7-xlx">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="130.5"/>
                                     </scrollView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="37" placeholderIntrinsicHeight="21" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5c-Wn-u7Y">
@@ -199,6 +199,7 @@
                                     <constraint firstItem="DfJ-gu-SZb" firstAttribute="leading" secondItem="cc3-vr-t1l" secondAttribute="leading" id="54i-bc-ljf"/>
                                     <constraint firstItem="cc3-vr-t1l" firstAttribute="leading" secondItem="Py0-uu-nLG" secondAttribute="trailing" constant="25" id="9CK-yW-szO"/>
                                     <constraint firstAttribute="trailing" secondItem="2yY-iQ-DOp" secondAttribute="trailing" constant="15" id="9g4-bD-68j"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="V5c-Wn-u7Y" secondAttribute="trailing" constant="15" id="AUd-oa-TlZ"/>
                                     <constraint firstItem="Py0-uu-nLG" firstAttribute="leading" secondItem="CRW-FO-p63" secondAttribute="leading" constant="15" id="C4z-ai-trv"/>
                                     <constraint firstAttribute="trailing" secondItem="Bsj-k0-OP3" secondAttribute="trailing" id="Elz-LM-Usd"/>
                                     <constraint firstItem="Bsj-k0-OP3" firstAttribute="top" secondItem="CFa-yt-3o6" secondAttribute="bottom" constant="14.5" id="FOj-3f-Fnw"/>
@@ -212,6 +213,7 @@
                                     <constraint firstItem="8EJ-b7-xlx" firstAttribute="top" secondItem="CRW-FO-p63" secondAttribute="top" id="TkN-Hy-93H"/>
                                     <constraint firstItem="Py0-uu-nLG" firstAttribute="top" secondItem="rB7-gr-s3e" secondAttribute="bottom" constant="10" id="Uwq-XB-kKA"/>
                                     <constraint firstItem="ndw-Ku-G6z" firstAttribute="top" secondItem="V5c-Wn-u7Y" secondAttribute="bottom" constant="10" id="VkU-TX-NdH"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ndw-Ku-G6z" secondAttribute="trailing" constant="15" id="Y38-1E-aLn"/>
                                     <constraint firstItem="CFa-yt-3o6" firstAttribute="leading" secondItem="DfJ-gu-SZb" secondAttribute="leading" id="Zvt-OG-q2g"/>
                                     <constraint firstItem="HfF-Qa-s84" firstAttribute="top" secondItem="ndw-Ku-G6z" secondAttribute="bottom" constant="10" id="af0-u7-vrH"/>
                                     <constraint firstItem="rB7-gr-s3e" firstAttribute="top" secondItem="HfF-Qa-s84" secondAttribute="bottom" constant="10" id="djO-FE-cAV"/>
