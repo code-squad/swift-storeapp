@@ -22,6 +22,11 @@ class ItemCell: UITableViewCell {
         itemDescription.text = item.description
         sPrice.text = item.sPrice
         
+        guard let data = ImageData.fetchItemImages(item.image) else { return }
+        existItemImage(item.image,data)
+        notExistItemImage(item.image)
+        
+        
         if let price = item.nPrice {
             nPrice.text = price
             nPrice.isHidden = false
@@ -38,8 +43,28 @@ class ItemCell: UITableViewCell {
             newBadge.textColor = .white
             badgeStackView.addArrangedSubview(newBadge)
         }
+        
     }
     
+    func existItemImage(_ imageURL: String,_ data: Data) {
+        guard let fileURL = ImageData.makeImageURL(imageURL) else { return }
+        if ImageData.isFileExists(fileURL) {
+            self.itemImage.image = UIImage(data: data)
+        }
+    }
+    
+    func notExistItemImage(_ imageURL: String) {
+        guard let fileURL = ImageData.makeImageURL(imageURL) else { return }
+        if !ImageData.isFileExists(fileURL) {
+            DispatchQueue.global().async {
+                guard let data = ImageData.saveImageData(imageURL, fileURL) else { return }
+                DispatchQueue.main.async {
+                    self.itemImage.image = UIImage(data: data)
+                }
+            }
+        }
+    }
+
     override func prepareForReuse() {
         self.badgeStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
