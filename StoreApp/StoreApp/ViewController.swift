@@ -95,4 +95,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController: DetailViewControllerDelegate {
+    func showToast(menu: String, price: String) {
+        showItemOnToast(title: menu, price: price)
+    }
 }

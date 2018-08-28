@@ -14,6 +14,7 @@ protocol DetailHashSettable {
 }
 
 protocol DetailViewControllerDelegate: class {
+    func showToast(menu: String, price: String)
 }
 
 class DetailViewController: UIViewController {
@@ -28,6 +29,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         detailView.delegate = self
         detailViewSetwrapper()
+        disableTapDelay()
+    }
+    
+    private func disableTapDelay() {
+        guard let rootView = self.view as? UIScrollView else { return }
+        rootView.delaysContentTouches = false
     }
     
     func setDetailHash(_ setter: DetailHashSettable) {
@@ -70,9 +77,10 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController: DetailViewDelegate {
-    func orderButtonDidTapped(_ orderButton: UIButton) {
-    }
-    
-    func didAddDetailImage(_ height: CGFloat) {
+    func orderButtonDidTapped(price: String?, menu: String?) {
+        guard let price = price, let menu = menu else { return }
+        StoreAPI.postHook(who: "Mason", price: price, menu: menu)
+        self.navigationController?.popToRootViewController(animated: true)
+        delegate?.showToast(menu: menu, price: price)
     }
 }

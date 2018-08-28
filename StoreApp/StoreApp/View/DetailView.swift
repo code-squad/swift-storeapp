@@ -9,8 +9,7 @@
 import UIKit
 
 protocol DetailViewDelegate: class {
-    func orderButtonDidTapped(_ orderButton: UIButton)
-    func didAddDetailImage(_ height: CGFloat)
+    func orderButtonDidTapped(price: String?, menu: String?)
 }
 
 protocol DetailViewLabelSettable {
@@ -35,6 +34,7 @@ class DetailView: UIView {
     @IBOutlet weak var detailSectionStackView: UIStackView!
     
     @IBAction func orderItem(_ sender: UIButton) {
+        delegate?.orderButtonDidTapped(price: priceLabel.text, menu: titleLabel.text)
     }
     
     func setTitleLabelText(_ title: String) {
