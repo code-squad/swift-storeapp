@@ -53,13 +53,18 @@ class DetailViewController: UIViewController {
     }
     
     func setDetailImages(_ imageURLs: [String]) {
-        imageURLs.forEach { setDetailImage($0) }
+        for (index, imageURL) in imageURLs.enumerated() {
+            detailView.addImageViewToDetailSection()
+            setDetailImage(index: index, imageURL)
+        }
     }
     
-    private func setDetailImage(_ imageURL: String) {
+    private func setDetailImage(index: Int, _ imageURL: String) {
         ImageManager.downloadThumbnailImage(imageURL) { [weak self] data in
             guard let data = data else { return }
-            self?.detailView.addDetailImage(data)
+            DispatchQueue.main.async {
+                self?.detailView.addImageToDetailSection(at: index, data)
+            }
         }
     }
 }

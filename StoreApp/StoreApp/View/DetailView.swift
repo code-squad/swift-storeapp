@@ -59,13 +59,20 @@ class DetailView: UIView {
         thumbnailImagesScrollView.contentSize.width += imageView.frame.width
     }
     
-    func addDetailImage(_ data: Data) {
+    func addImageViewToDetailSection() {
         let imageView = UIImageView(frame: .zero)
-        imageView.image = UIImage(data: data)
         imageView.contentMode = .scaleAspectFit
-        self.detailSectionStackView.addArrangedSubview(imageView)
+        detailSectionStackView.addArrangedSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+    }
+    
+    func addImageToDetailSection(at index: Int, _ imageData: Data) {
+        guard let imageView = detailSectionStackView.arrangedSubviews[index] as? UIImageView else { return }
+        guard let image = UIImage(data: imageData) else { return }
+        imageView.image = image
+        // 이미지의 비율을 유지하면서 뷰의 크기를 조절.
+        let imageViewHeight = image.size.height / image.size.width * imageView.bounds.width
+        imageView.heightAnchor.constraint(equalToConstant: imageViewHeight).isActive = true
     }
 }
