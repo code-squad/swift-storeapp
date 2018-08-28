@@ -49,4 +49,22 @@ struct StoreAPI {
             completionHandler(tempURL, nil)
         }.resume()
     }
+    
+    static func postHook(who: String, price: String, menu: String) {
+        guard let url = URL(string: PostInfo.hookURL) else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = PostInfo.httpMethod
+        request.addValue(PostInfo.headerValue, forHTTPHeaderField: PostInfo.httpHeaderField)
+        let parameters = ["text": "\(who)이 \(menu)를 주문했습니다. 가격: \(price)"]
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        request.httpBody = httpBody
+        URLSession.shared.dataTask(with: request).resume()
+    }
+    
+    fileprivate struct PostInfo {
+        static let hookURL = "https://hooks.slack.com/services/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"
+        static let httpMethod = "POST"
+        static let headerValue = "application/json"
+        static let httpHeaderField = "Content-Type"
+    }
 }
