@@ -125,23 +125,9 @@
                                             <constraint firstAttribute="height" constant="144" id="HQ2-8O-Fbo"/>
                                         </constraints>
                                     </scrollView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bsj-k0-OP3" userLabel="detail section">
+                                    <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Bsj-k0-OP3" userLabel="detail section">
                                         <rect key="frame" x="0.0" y="344" width="375" height="263"/>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqo-N0-wK8">
-                                        <rect key="frame" x="0.0" y="607" width="375" height="60"/>
-                                        <color key="backgroundColor" red="0.21176470588235294" green="0.75686274509803919" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="Byq-CE-wMc"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <state key="normal" title="주문하기">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="orderItem:" destination="CRW-FO-p63" eventType="touchUpInside" id="lVk-Vc-DC0"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sA2-Da-rKR">
                                         <rect key="frame" x="0.0" y="144" width="375" height="200"/>
                                         <subviews>
@@ -259,8 +245,6 @@
                                     <constraint firstItem="Bsj-k0-OP3" firstAttribute="leading" secondItem="CRW-FO-p63" secondAttribute="leading" id="m0d-jm-3uW"/>
                                     <constraint firstAttribute="trailing" secondItem="sA2-Da-rKR" secondAttribute="trailing" id="mMl-Js-uNd"/>
                                     <constraint firstItem="8EJ-b7-xlx" firstAttribute="width" secondItem="CRW-FO-p63" secondAttribute="width" id="s72-hl-hfx"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fqo-N0-wK8" secondAttribute="trailing" id="x2m-Rv-rcg"/>
-                                    <constraint firstItem="Fqo-N0-wK8" firstAttribute="leading" secondItem="CRW-FO-p63" secondAttribute="leading" id="zQZ-yF-pBn"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="deliveryFeeLabel" destination="DfJ-gu-SZb" id="qpu-gf-TaX"/>
@@ -273,16 +257,32 @@
                                     <outlet property="titleLabel" destination="V5c-Wn-u7Y" id="mfb-95-YE0"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqo-N0-wK8">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.21176470588235294" green="0.75686274509803919" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Byq-CE-wMc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="주문하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="orderItem:" destination="CRW-FO-p63" eventType="touchUpInside" id="lVk-Vc-DC0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CRW-FO-p63" firstAttribute="top" secondItem="LHh-Pt-MWi" secondAttribute="top" id="Gfx-3b-K1q"/>
-                            <constraint firstItem="5jr-0Z-ajK" firstAttribute="bottom" secondItem="Fqo-N0-wK8" secondAttribute="bottom" id="IyG-ll-3Q9"/>
                             <constraint firstItem="CRW-FO-p63" firstAttribute="leading" secondItem="LHh-Pt-MWi" secondAttribute="leading" id="UMN-GB-YzE"/>
                             <constraint firstItem="CRW-FO-p63" firstAttribute="width" secondItem="LHh-Pt-MWi" secondAttribute="width" id="hUS-Dk-O8K"/>
+                            <constraint firstItem="Fqo-N0-wK8" firstAttribute="trailing" secondItem="5jr-0Z-ajK" secondAttribute="trailing" id="iUa-c4-syK"/>
                             <constraint firstItem="CRW-FO-p63" firstAttribute="height" secondItem="LHh-Pt-MWi" secondAttribute="height" priority="250" id="sOO-t2-lXE"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Bsj-k0-OP3" secondAttribute="bottom" constant="60" id="shu-La-DO9"/>
+                            <constraint firstItem="Fqo-N0-wK8" firstAttribute="leading" secondItem="5jr-0Z-ajK" secondAttribute="leading" id="uhq-Zy-c9o"/>
                             <constraint firstItem="CRW-FO-p63" firstAttribute="trailing" secondItem="LHh-Pt-MWi" secondAttribute="trailing" id="ytd-dV-ONa"/>
+                            <constraint firstItem="5jr-0Z-ajK" firstAttribute="bottom" secondItem="Fqo-N0-wK8" secondAttribute="bottom" id="zrl-FX-4ty"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5jr-0Z-ajK"/>
                     </view>
