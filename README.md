@@ -62,3 +62,20 @@
 
 - Keyword
 	- DispatchQueue.main, UI update, Concurrency Programming Guide, URLSession, URLSessionDownloadTask, FileManager, Caching, OperationQueue, 이미지 다운로드 시 GCD와 downloadTask의 차이
+	
+# Step. 7
+- 완성날짜: 2018년 8월 29일
+
+<img src="images/step7_demo.gif" width="50%">
+
+- 주요작업사항
+	- 상세화면을 나타내는 DetailViewController 구현
+	- ViewController, DetailViewController, DetailView의 관계와 Delegate활용. 프로토콜(인터페이스)를 통한 값 전달
+	- Alamofire를 이용한 데이터 요청 및 JSON데이터 다루기
+	- UIScrollView의 ContentView인 DetailView 구현
+	- UIScrollView의 페이징 구현
+	- URLRequest와 URLSession을 이용한 HTTP POST요청보내기
+	- UIStackView on ContentView on UIScrollView 다루기
+- Keyword
+	- 병렬로 날아오는 데이터의 동기처리, 전체화면 스크롤뷰, 스크롤뷰 ContentSize, Alamofire, 클로저(Wrapper)사용해보기(setDetailHash), UIScrollView의 페이징
+	- "데이터는 어떻게 넘어올지 모른다."에 대응하기
