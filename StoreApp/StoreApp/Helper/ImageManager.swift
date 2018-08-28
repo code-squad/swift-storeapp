@@ -13,7 +13,7 @@ struct ImageManager {
     
     fileprivate static var cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     
-    static func donwloadThumbnailImage(_ url: String, _ completionHandler: @escaping (Data?) -> Void) {
+    static func downloadThumbnailImage(_ url: String, _ completionHandler: @escaping (Data?) -> Void) {
         guard let imageURL = URL(string: url) else { return }
         let fileURL = cacheURL.appendingPathComponent(imageURL.lastPathComponent)
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in return (fileURL, []) }

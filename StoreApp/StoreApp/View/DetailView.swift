@@ -10,6 +10,7 @@ import UIKit
 
 protocol DetailViewDelegate: class {
     func orderButtonDidTapped(_ orderButton: UIButton)
+    func didAddDetailImage(_ height: CGFloat)
 }
 
 protocol DetailViewLabelSettable {
@@ -34,7 +35,6 @@ class DetailView: UIView {
     @IBOutlet weak var detailSectionStackView: UIStackView!
     
     @IBAction func orderItem(_ sender: UIButton) {
-        delegate?.orderButtonDidTapped(sender)
     }
     
     func setTitleLabelText(_ title: String) {
@@ -49,13 +49,23 @@ class DetailView: UIView {
         self.priceLabel.text = setter.prices.last
     }
     
-    func addTopThumbnailImages(_ data: Data) {
+    func addThumbnailImage(_ data: Data) {
         let imageView = UIImageView(frame: .zero)
         imageView.image = UIImage(data: data)
         imageView.contentMode = .scaleAspectFill
         let originX: CGFloat = self.frame.width * CGFloat(thumbnailImagesScrollView.subviews.count - 1)
-        imageView.frame = CGRect(x: originX, y: 0, width: self.frame.width, height: thumbnailImagesScrollView.frame.height)
+        imageView.frame = CGRect(x: originX, y: 0, width: self.frame.width, height:thumbnailImagesScrollView.frame.height)
         thumbnailImagesScrollView.addSubview(imageView)
         thumbnailImagesScrollView.contentSize.width += imageView.frame.width
+    }
+    
+    func addDetailImage(_ data: Data) {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(data: data)
+        imageView.contentMode = .scaleAspectFit
+        self.detailSectionStackView.addArrangedSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: self.widthAnchor).isActive = true
     }
 }

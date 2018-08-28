@@ -24,7 +24,7 @@ class StoreItemTableViewCell: UITableViewCell {
     }
     
     func setThumbnailImage(with setter: StoreItemImageSettable) {
-        ImageManager.donwloadThumbnailImage(setter.imageURL) { (imageData) in
+        ImageManager.downloadThumbnailImage(setter.imageURL) { (imageData) in
             DispatchQueue.main.async { [unowned self] in
                 guard let imageData = imageData else {
                     self.itemImageView.image = UIImage(named: self.emptyImageName)

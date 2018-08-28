@@ -35,24 +35,39 @@ class DetailViewController: UIViewController {
             DataManager.fetchHashData(setter.detailHash) { [weak self] hashData in
                 self?.detailView.setTitleLabelText(setter.title)
                 self?.detailView.setDetailLabelText(with: hashData.data)
-                self?.setDetailSection(hashData.data.thumbnailImageURLs)
+                self?.setThumbnailImages(hashData.data.thumbnailImageURLs)
+                self?.setDetailImages(hashData.data.detailSectionURLs)
             }
         }
     }
     
-    func setDetailSection(_ imageURLs: [String]) {
-        imageURLs.forEach { setTopThumbnailImages($0) }
+    func setThumbnailImages(_ imageURLs: [String]) {
+        imageURLs.forEach { setThumbnailImage($0) }
     }
     
-    private func setTopThumbnailImages(_ imageURL: String) {
-        ImageManager.donwloadThumbnailImage(imageURL) { (data) in
+    private func setThumbnailImage(_ imageURL: String) {
+        ImageManager.downloadThumbnailImage(imageURL) { [weak self] data in
             guard let data = data else { return }
-            self.detailView.addTopThumbnailImages(data)
+            self?.detailView.addThumbnailImage(data)
+        }
+    }
+    
+    func setDetailImages(_ imageURLs: [String]) {
+        imageURLs.forEach { setDetailImage($0) }
+    }
+    
+    private func setDetailImage(_ imageURL: String) {
+        ImageManager.downloadThumbnailImage(imageURL) { [weak self] data in
+            guard let data = data else { return }
+            self?.detailView.addDetailImage(data)
         }
     }
 }
 
 extension DetailViewController: DetailViewDelegate {
     func orderButtonDidTapped(_ orderButton: UIButton) {
+    }
+    
+    func didAddDetailImage(_ height: CGFloat) {
     }
 }
