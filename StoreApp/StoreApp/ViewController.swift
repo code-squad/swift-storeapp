@@ -82,7 +82,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storeItem = sectionInfo[indexPath.section][indexPath.row]
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
-        detailVC.setDetailHash(storeItem)
+        detailVC.setDetailHash(title: storeItem.title, detailHash: storeItem.detailHash)
         detailVC.delegate = self
         tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(detailVC, animated: true)
