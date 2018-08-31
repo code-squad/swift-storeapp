@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol DetailHashSettable {
-    var detailHash: String { get }
-    var title: String { get }
-}
-
 protocol DetailViewControllerDelegate: class {
     func showToast(menu: String, price: String)
 }
@@ -33,10 +28,10 @@ class DetailViewController: UIViewController {
         detailViewSetwrapper()
     }
     
-    func setDetailHash(_ setter: DetailHashSettable) {
+    func setDetailHash(title: String, detailHash: String) {
         self.detailViewSetwrapper = {
-            DataManager.fetchHashData(setter.detailHash) { [weak self] hashData in
-                self?.detailView.setTitleLabelText(setter.title)
+            DataManager.fetchHashData(detailHash) { [weak self] hashData in
+                self?.detailView.setTitleLabelText(title)
                 self?.detailView.setDetailLabelText(with: hashData.data)
                 self?.setThumbnailImages(hashData.data.thumbnailImageURLs)
                 self?.setDetailImages(hashData.data.detailSectionURLs)
