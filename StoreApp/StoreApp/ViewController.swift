@@ -60,8 +60,7 @@ extension ViewController: UITableViewDataSource {
         guard let storeCell = tableView.dequeueReusableCell(withIdentifier: storeItemCellIdentifier, for: indexPath) as? StoreItemTableViewCell else {
             return UITableViewCell()
         }
-        storeCell.setLabel(with: storeItem)
-        storeCell.setThumbnailImage(with: storeItem)
+        storeCell.set(with: storeItem)
         return storeCell
     }
 }

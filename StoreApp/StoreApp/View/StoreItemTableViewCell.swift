@@ -23,7 +23,12 @@ class StoreItemTableViewCell: UITableViewCell {
         itemImageView.image = nil
     }
     
-    func setThumbnailImage(with setter: StoreItemImageSettable) {
+    func set(with storeItem: StoreItemImageSettable & StoreItemLabelTextSettable) {
+        setLabel(with: storeItem)
+        setThumbnailImage(with: storeItem)
+    }
+    
+    private func setThumbnailImage(with setter: StoreItemImageSettable) {
         ImageManager.downloadThumbnailImage(setter.imageURL) { (imageData) in
             DispatchQueue.main.async { [unowned self] in
                 guard let imageData = imageData else {
@@ -35,7 +40,7 @@ class StoreItemTableViewCell: UITableViewCell {
         }
     }
     
-    func setLabel(with setter: StoreItemLabelTextSettable) {
+    private func setLabel(with setter: StoreItemLabelTextSettable) {
         titleLabel.text = setter.title
         descriptionLabel.text = setter.description
         setNormalPrice(setter.normalPrice)
