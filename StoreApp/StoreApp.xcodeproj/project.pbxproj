@@ -40,6 +40,7 @@
 		73C7D796212AB80D00B5A6AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2062121320700F826F8 /* ViewController.swift */; };
 		73C7D797212AB97700B5A6AD /* StoreItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF21C21216ECC00F826F8 /* StoreItemTableViewCell.swift */; };
 		73C7D798212AC91600B5A6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2042121320700F826F8 /* AppDelegate.swift */; };
+		73D465D22138B0CB00D73352 /* HookInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73D465D12138B0CB00D73352 /* HookInfo.plist */; };
 		73D4FD5F212F716200F28682 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4FD5E212F716200F28682 /* ImageManager.swift */; };
 		73D4FD61212F82A800F28682 /* ImageSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D4FD60212F82A800F28682 /* ImageSettable.swift */; };
 		73E24B4F21233B6E00C766CC /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 73E24B4C21233B6E00C766CC /* soup.json */; };
@@ -85,6 +86,7 @@
 		73C6040B21244D220089729D /* SectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
 		73C6040E21245A230089729D /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		73C60413212476E50089729D /* LabelTextSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextSettable.swift; sourceTree = "<group>"; };
+		73D465D12138B0CB00D73352 /* HookInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HookInfo.plist; sourceTree = "<group>"; };
 		73D4FD5E212F716200F28682 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		73D4FD60212F82A800F28682 /* ImageSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSettable.swift; sourceTree = "<group>"; };
 		73E24B4C21233B6E00C766CC /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				738EF20B2121320800F826F8 /* Assets.xcassets */,
 				738EF20D2121320800F826F8 /* LaunchScreen.storyboard */,
 				738EF2102121320800F826F8 /* Info.plist */,
+				73D465D12138B0CB00D73352 /* HookInfo.plist */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73D465D22138B0CB00D73352 /* HookInfo.plist in Resources */,
 				73E24B5121233B6E00C766CC /* main.json in Resources */,
 				73E24B5021233B6E00C766CC /* side.json in Resources */,
 				73E24B4F21233B6E00C766CC /* soup.json in Resources */,
