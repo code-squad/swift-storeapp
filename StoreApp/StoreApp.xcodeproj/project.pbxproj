@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		063F7BC6A52F3FA64330E740 /* Pods_StoreAppUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173777498B2A9A0DF967D09B /* Pods_StoreAppUnitTests.framework */; };
 		7336DE7221330DC300907F87 /* HashData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7336DE7121330DC300907F87 /* HashData.swift */; };
+		7342657D2145B5E2006AC6B4 /* ReachabilityListner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7342657C2145B5E2006AC6B4 /* ReachabilityListner.swift */; };
 		738EF2052121320700F826F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2042121320700F826F8 /* AppDelegate.swift */; };
 		738EF2072121320700F826F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738EF2062121320700F826F8 /* ViewController.swift */; };
 		738EF20A2121320700F826F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 738EF2082121320700F826F8 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		173777498B2A9A0DF967D09B /* Pods_StoreAppUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7336DE7121330DC300907F87 /* HashData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashData.swift; sourceTree = "<group>"; };
+		7342657C2145B5E2006AC6B4 /* ReachabilityListner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityListner.swift; sourceTree = "<group>"; };
 		735AE5E7B2E5A63A5069595A /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		738EF2012121320700F826F8 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		738EF2042121320700F826F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				73BFCC272127FE1A00C5345F /* StoreAPI.swift */,
 				73BDA974212875E100E4C031 /* NotificationExtension.swift */,
 				73D4FD5E212F716200F28682 /* ImageManager.swift */,
+				7342657C2145B5E2006AC6B4 /* ReachabilityListner.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				738EF21B21216CC900F826F8 /* StoreItemList.swift in Sources */,
 				73C6040C21244D220089729D /* SectionInfo.swift in Sources */,
 				73BDA975212875E100E4C031 /* NotificationExtension.swift in Sources */,
+				7342657D2145B5E2006AC6B4 /* ReachabilityListner.swift in Sources */,
 				73C60414212476E50089729D /* LabelTextSettable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,4 +10,5 @@ import Foundation
 
 extension Notification.Name {
     static let didStoreItemsSet = Notification.Name("didStoreItemsSet")
+    static let connectionDidChanged = Notification.Name("connectionDidChanged")
 }
