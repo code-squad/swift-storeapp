@@ -17,12 +17,11 @@ struct ImageManager {
         guard let imageURL = URL(string: url) else { return }
         let fileURL = cacheURL.appendingPathComponent(imageURL.lastPathComponent)
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in return (fileURL, []) }
+        if let localData = try? Data(contentsOf: fileURL) {
+            completionHandler(localData)
+        }
         Alamofire.download(imageURL, to: destination).responseData { response in
-            guard let loaded = response.value else {
-                guard let localData = try? Data(contentsOf: fileURL) else { return }
-                completionHandler(localData)
-                return
-            }
+            guard let loaded = response.value else { return }
             completionHandler(loaded)
         }
     }
