@@ -12,6 +12,11 @@ import Alamofire
 class ReachabilityListener {
     private let networkReachbilityManager: NetworkReachabilityManager
     
+    init?() {
+        guard let networkReachbilityManager = NetworkReachabilityManager() else { return nil }
+        self.networkReachbilityManager = networkReachbilityManager
+    }
+    
     init?(host: String) {
         guard let networkReachbilityManager = NetworkReachabilityManager(host: host) else { return nil }
         self.networkReachbilityManager = networkReachbilityManager
