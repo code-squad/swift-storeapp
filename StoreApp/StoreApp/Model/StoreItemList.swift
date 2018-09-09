@@ -16,16 +16,27 @@ class StoreItemList {
     private var storeItems: [StoreItem] = []
     private var listTitle: String
     private var listDescription: String
+    private var foodCategory: FoodCategory
     
-    init?(_ foodCategory: FoodCategory) {
+    private lazy var completionHandler: ([StoreItem]) -> Void = { [unowned self] storeItems in
+        StoreItemList.customSerialQueue.async {
+            self.storeItems = storeItems
+            NotificationCenter.default.post(name: .didStoreItemsSet, object: self, userInfo: [StoreItemList.notificationInfoKey:self.foodCategory])
+        }
+    }
+    
+    init(_ foodCategory: FoodCategory) {
         listTitle = foodCategory.title
         listDescription = foodCategory.description
-        DataManager.fetchStoreItemsFromStoreAPI(foodCategory) { [unowned self] storeItems in
-            StoreItemList.customSerialQueue.async {
-                self.storeItems = storeItems
-                NotificationCenter.default.post(name: .didStoreItemsSet, object: self, userInfo: [StoreItemList.notificationInfoKey:foodCategory])
-            }
-        }
+        self.foodCategory = foodCategory
+    }
+    
+    func fetchStoreItemsFromAPI() {
+        DataManager.fetchStoreItemsFromStoreAPI(foodCategory, completionHandler: self.completionHandler)
+    }
+    
+    func fetchSotreItemsFromFile() {
+        DataManager.readStoreItemsFromFile(foodCategory, completionHandler: self.completionHandler)
     }
     
     var count: Int {

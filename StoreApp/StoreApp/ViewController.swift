@@ -24,7 +24,7 @@ class ViewController: UIViewController, URLSessionDelegate {
         super.viewDidLoad()
         storeTableView.register(SectionHeaderView.self, forHeaderFooterViewReuseIdentifier: customHeaderViewReuseId)
         configureNotificationObserver()
-        self.sectionInfo = SectionInfo(categories: FoodCategory.allCases)
+        self.sectionInfo = SectionInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
