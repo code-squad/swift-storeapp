@@ -43,6 +43,11 @@ struct DataManager {
         }
     }
     
+    static func readStoreItemsFromFile(_ foodCategory: FoodCategory, completionHandler: @escaping ([StoreItem]) -> Void) {
+        guard let storeItems = readStoreItemsFromJSON(fileName: foodCategory.rawValue, [StoreItem].self) else { return }
+        completionHandler(storeItems)
+    }
+    
     static func fetchHashData(_ hash: String, _ completionHandler: @escaping (HashData) -> Void) {
         guard let url = StoreAPI.makeURL(from: detailPath + "/\(hash)") else { return }
         Alamofire.request(url).responseJSON { response in
