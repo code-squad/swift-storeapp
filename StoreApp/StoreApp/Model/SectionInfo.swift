@@ -9,7 +9,7 @@
 import Foundation
 
 class SectionInfo {
-    private var storeItemLists: [StoreItemList] = []
+    private var storeItemLists: [StoreItemsFetchable] = []
     
     init() {
         self.storeItemLists = FoodCategory.allCases.map { StoreItemList($0) }
@@ -20,8 +20,9 @@ class SectionInfo {
         return storeItemLists.count
     }
     
-    subscript(index: Int) -> StoreItemList {
-        return storeItemLists[index]
+    subscript(index: Int) -> StoreItemList? {
+        guard let storeItemList = storeItemLists[index] as? StoreItemList else { return nil }
+        return storeItemList
     }
     
     @objc func fetchStoreItemFromStoreAPI(_ notification: Notification) {

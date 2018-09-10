@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol StoreItemsFetchable {
+    func fetchStoreItemsFromAPI()
+    func fetchSotreItemsFromFile()
+    func completionHandler() -> (([StoreItem]) -> Void)
+    var count: Int { get }
+    subscript(index: Int) -> StoreItem { get }
+}
+
 class StoreItemList {
     
     static let customSerialQueue = DispatchQueue(label: "customSerial", qos: .utility)
@@ -18,31 +26,12 @@ class StoreItemList {
     private var listDescription: String
     private var foodCategory: FoodCategory
     
-    private lazy var completionHandler: ([StoreItem]) -> Void = { [unowned self] storeItems in
-        StoreItemList.customSerialQueue.async {
-            self.storeItems = storeItems
-            NotificationCenter.default.post(name: .didStoreItemsSet, object: self, userInfo: [StoreItemList.notificationInfoKey:self.foodCategory])
-        }
-    }
-    
     init(_ foodCategory: FoodCategory) {
         listTitle = foodCategory.title
         listDescription = foodCategory.description
         self.foodCategory = foodCategory
     }
-    
-    func fetchStoreItemsFromAPI() {
-        DataManager.fetchStoreItemsFromStoreAPI(foodCategory, completionHandler: self.completionHandler)
-    }
-    
-    func fetchSotreItemsFromFile() {
-        DataManager.readStoreItemsFromFile(foodCategory, completionHandler: self.completionHandler)
-    }
-    
-    var count: Int {
-        return storeItems.count
-    }
-    
+
     subscript(index: Int) -> StoreItem {
         return storeItems[index]
     }
@@ -55,5 +44,29 @@ extension StoreItemList: LabelTextSettable {
     
     var description: String {
         return listDescription
+    }
+}
+
+extension StoreItemList: StoreItemsFetchable {
+    
+    var count: Int {
+        return storeItems.count
+    }
+    
+    func fetchStoreItemsFromAPI() {
+        DataManager.fetchStoreItemsFromStoreAPI(foodCategory, completionHandler: self.completionHandler())
+    }
+    
+    func fetchSotreItemsFromFile() {
+        DataManager.readStoreItemsFromFile(foodCategory, completionHandler: self.completionHandler())
+    }
+    
+    func completionHandler() -> (([StoreItem]) -> Void) {
+        return { [unowned self] storeItems in
+            StoreItemList.customSerialQueue.async {
+                self.storeItems = storeItems
+                NotificationCenter.default.post(name: .didStoreItemsSet, object: self, userInfo: [StoreItemList.notificationInfoKey:self.foodCategory])
+            }
+        }
     }
 }
