@@ -52,11 +52,11 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionInfo[section].count
+        return sectionInfo[section]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let storeItem = sectionInfo[indexPath.section][indexPath.row]
+        guard let storeItem = sectionInfo[indexPath.section]?[indexPath.row] else { return UITableViewCell() }
         guard let storeCell = tableView.dequeueReusableCell(withIdentifier: storeItemCellIdentifier, for: indexPath) as? StoreItemTableViewCell else {
             return UITableViewCell()
         }
@@ -70,7 +70,9 @@ extension ViewController: UITableViewDelegate {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: customHeaderViewReuseId) as? SectionHeaderView else {
             return nil
         }
-        headerView.setLabel(with: sectionInfo[section])
+        if let sectionInfo = sectionInfo[section] {
+            headerView.setLabel(with: sectionInfo)
+        }
         return headerView
     }
     
@@ -79,7 +81,7 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storeItem = sectionInfo[indexPath.section][indexPath.row]
+        guard let storeItem = sectionInfo[indexPath.section]?[indexPath.row] else { return }
         guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "detailVC") as? DetailViewController else { return }
         detailVC.setDetailHash(title: storeItem.title, detailHash: storeItem.detailHash)
         detailVC.delegate = self
