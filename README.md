@@ -79,3 +79,9 @@
 - Keyword
 	- 병렬로 날아오는 데이터의 동기처리, 전체화면 스크롤뷰, 스크롤뷰 ContentSize, Alamofire, 클로저(Wrapper)사용해보기(setDetailHash), UIScrollView의 페이징
 	- "데이터는 어떻게 넘어올지 모른다."에 대응하기
+	
+# Step. 8
+
+<img src="images/step8_demo1.png" width="50%">
+
+<img src="images/step8_demo2.png" width="50%">
