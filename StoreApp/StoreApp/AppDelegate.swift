@@ -22,11 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     @objc func updateBorderColor(_ notification: Notification) {
-        guard let isConnecting = notification.userInfo?["connectionInfo"] as? Bool else { return }
-        window?.layer.borderColor = isConnecting ? UIColor.green.cgColor : UIColor.red.cgColor
+        guard let reachabilityListener = reachabilityListener else { return }
+        window?.layer.borderColor = reachabilityListener.isReachable ? UIColor.green.cgColor : UIColor.red.cgColor
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        reachabilityListener?.stopListening()
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     }

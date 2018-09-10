@@ -25,9 +25,9 @@ class SectionInfo {
     }
     
     @objc func fetchStoreItemFromStoreAPI(_ notification: Notification) {
-        guard let isConnecting = notification.userInfo?["connectionInfo"] as? Bool else { return }
+        guard let reachabilityListener = notification.object as? ReachabilityListener else { return }
         storeItemLists.forEach {
-            isConnecting ? $0.fetchStoreItemsFromAPI() : $0.fetchSotreItemsFromFile()
+            reachabilityListener.isReachable ? $0.fetchStoreItemsFromAPI() : $0.fetchSotreItemsFromFile()
         }
     }
 }

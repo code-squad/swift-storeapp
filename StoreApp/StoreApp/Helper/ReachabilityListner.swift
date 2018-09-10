@@ -22,10 +22,13 @@ class ReachabilityListener {
         self.networkReachbilityManager = networkReachbilityManager
     }
     
+    var isReachable: Bool {
+        return networkReachbilityManager.isReachable
+    }
+    
     func startListening() {
         networkReachbilityManager.listener = { _ in
-            NotificationCenter.default.post(name: .connectionDidChanged, object: self,
-                                            userInfo: ["connectionInfo": self.networkReachbilityManager.isReachable])
+            NotificationCenter.default.post(name: .connectionDidChanged, object: self)
         }
         networkReachbilityManager.startListening()
     }
