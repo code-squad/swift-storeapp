@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/oingbong/Documents/CodeSquad/Level3/swift-storeapp/StoreApp/StoreApp/StoreItemCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:StoreApp.xcodeproj">
    </FileRef>
    <FileRef
