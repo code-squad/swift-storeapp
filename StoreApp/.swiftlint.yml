@@ -1,0 +1,12 @@
+disabled_rules :
+ - trailing_whitespace
+ - cyclomatic_complexity
+ - force_cast
+ - identifier_name
+
+line_length :
+ - 300 # warning
+ - 400 # error
+
+excluded :
+ - Pods
