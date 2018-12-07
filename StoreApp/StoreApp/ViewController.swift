@@ -9,9 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var storeItems: StoreItems?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        guard let jsonData = Parser.json(fileName: "main") else { return }
+        guard let items = Parser.storeItems(from: jsonData) else { return }
+        storeItems = StoreItems(data: items)
     }
 }

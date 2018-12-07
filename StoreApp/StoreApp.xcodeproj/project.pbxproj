@@ -19,6 +19,7 @@
 		477CDE3421B90F6500C378E3 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477CDE3321B90F6500C378E3 /* StoreItem.swift */; };
 		477CDE3621B9103E00C378E3 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477CDE3521B9103E00C378E3 /* StoreItems.swift */; };
 		477CDE3A21B9119C00C378E3 /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477CDE3921B9119C00C378E3 /* StoreItemCell.swift */; };
+		47B88ACF21BA12C400963FBC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B88ACE21BA12C400963FBC /* Parser.swift */; };
 		DE9895BA703FABFBFC5A90D1 /* Pods_StoreAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82A07AA046211B3EF51B0CDB /* Pods_StoreAppUITests.framework */; };
 		F6BC7483082F3EAC03648C55 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB010101AA8950E9866C0CEA /* Pods_StoreApp.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +62,7 @@
 		477CDE3321B90F6500C378E3 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		477CDE3521B9103E00C378E3 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		477CDE3921B9119C00C378E3 /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreItemCell.swift; path = "/Users/oingbong/Documents/CodeSquad/Level3/swift-storeapp/StoreApp/StoreApp/StoreItemCell.swift"; sourceTree = "<absolute>"; };
+		47B88ACE21BA12C400963FBC /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		5FB514BAC41F61B2CFB568D7 /* Pods_StoreAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A07AA046211B3EF51B0CDB /* Pods_StoreAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD07CEBB5624CEDE5B212C52 /* Pods-StoreAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreAppUITests/Pods-StoreAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				477CDE0221B90D4700C378E3 /* AppDelegate.swift */,
 				477CDE0421B90D4700C378E3 /* ViewController.swift */,
+				47B88ACE21BA12C400963FBC /* Parser.swift */,
 				477CDE0621B90D4700C378E3 /* Main.storyboard */,
 				477CDE0921B90D4900C378E3 /* Assets.xcassets */,
 				477CDE0B21B90D4900C378E3 /* LaunchScreen.storyboard */,
@@ -401,6 +404,7 @@
 			files = (
 				477CDE3421B90F6500C378E3 /* StoreItem.swift in Sources */,
 				477CDE0521B90D4700C378E3 /* ViewController.swift in Sources */,
+				47B88ACF21BA12C400963FBC /* Parser.swift in Sources */,
 				477CDE3A21B9119C00C378E3 /* StoreItemCell.swift in Sources */,
 				477CDE3621B9103E00C378E3 /* StoreItems.swift in Sources */,
 				477CDE0321B90D4700C378E3 /* AppDelegate.swift in Sources */,
