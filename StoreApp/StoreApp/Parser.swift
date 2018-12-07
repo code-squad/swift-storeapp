@@ -23,9 +23,6 @@ struct Parser {
     static func storeItems(from data: Data) -> [StoreItem]? {
         do {
             let items = try JSONDecoder().decode([StoreItem].self, from: data)
-            for item in items {
-                print(item)
-            }
             return items
         } catch let error {
             print(error.localizedDescription)
