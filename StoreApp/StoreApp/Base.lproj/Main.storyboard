@@ -86,14 +86,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="badgeFirst" destination="VRH-Fc-3t1" id="co5-e2-PL9"/>
-                                            <outlet property="badgeSecond" destination="56E-aU-xfm" id="fBT-7F-qrU"/>
+                                            <outlet property="badgeFirstLabel" destination="VRH-Fc-3t1" id="co5-e2-PL9"/>
+                                            <outlet property="badgeSecondLabel" destination="56E-aU-xfm" id="fBT-7F-qrU"/>
                                             <outlet property="badgeStackView" destination="qsF-ja-yDA" id="Gun-j8-e0s"/>
                                             <outlet property="descLabel" destination="tn7-Hk-FtW" id="NEo-uB-DfZ"/>
                                             <outlet property="menuImage" destination="Z5j-IP-inW" id="AO5-TM-il9"/>
-                                            <outlet property="nPrice" destination="6Yy-RD-bV6" id="7iL-ML-LaT"/>
+                                            <outlet property="nPriceLabel" destination="6Yy-RD-bV6" id="7iL-ML-LaT"/>
                                             <outlet property="priceStackView" destination="mZL-KL-FMz" id="m1G-cV-M8a"/>
-                                            <outlet property="sPrice" destination="4Td-vc-0bj" id="wZD-iy-6ME"/>
+                                            <outlet property="sPriceLabel" destination="4Td-vc-0bj" id="wZD-iy-6ME"/>
                                             <outlet property="titleLabel" destination="qNi-je-A6t" id="FE9-mh-Fzd"/>
                                         </connections>
                                     </tableViewCell>
