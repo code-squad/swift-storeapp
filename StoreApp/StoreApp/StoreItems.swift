@@ -8,10 +8,14 @@
 
 import Foundation
 
-struct StoreItems {
-    var items: [StoreItem]
+struct StoreItems: Decodable {
+    var data: [StoreItem]
+    
+    var count: Int {
+        return data.count
+    }
     
     subscript(index: Int) -> StoreItem {
-        return items[index]
+        return data[index]
     }
 }
