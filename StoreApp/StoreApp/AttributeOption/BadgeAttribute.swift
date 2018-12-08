@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum BadgeAttribute {
+enum BadgeAttribute: Attributable {
     case purple
     case orange
     case black
