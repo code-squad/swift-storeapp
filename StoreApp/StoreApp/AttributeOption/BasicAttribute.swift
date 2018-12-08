@@ -7,7 +7,7 @@
 //
 
 import UIKit
-enum BasicAttribute {
+enum BasicAttribute: Attributable {
     case title
     case desc
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum PriceAttribute {
+enum PriceAttribute: Attributable {
     case nPrice
     case sPrice
     
