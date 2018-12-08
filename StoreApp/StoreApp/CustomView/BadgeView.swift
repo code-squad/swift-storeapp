@@ -27,7 +27,7 @@ class BadgeView: UIStackView, Decorating {
         }
     }
     
-    func hiddenViewItem() {
+    private func hiddenViewItem() {
         for subview in self.arrangedSubviews {
             subview.isHidden = true
         }

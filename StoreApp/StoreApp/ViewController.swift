@@ -30,7 +30,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath) as! StoreItemCell
         guard let items = storeItems?[indexPath.row] else { return UITableViewCell(frame: CGRect(origin: .zero, size: .zero))}
-        cell.configure(with: items)
+        cell.configure(from: items)
         return cell
     }
 }
