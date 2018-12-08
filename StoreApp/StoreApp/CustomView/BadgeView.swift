@@ -8,7 +8,8 @@
 
 import UIKit
 
-class BadgeView: UIStackView {
+class BadgeView: UIStackView, Decorating {
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -21,18 +22,18 @@ class BadgeView: UIStackView {
             for index in 0..<badgeList.count {
                 self.arrangedSubviews[index].isHidden = false
                 guard let badgeLabel = self.arrangedSubviews[index] as? UILabel else { continue }
-                badgeLabel.attributedText = decorateString(option: .purple, string: badgeList[index])
+                badgeLabel.attributedText = decorateString(option: BadgeAttribute.purple, string: badgeList[index])
             }
         }
     }
     
-    private func hiddenViewItem() {
+    func hiddenViewItem() {
         for subview in self.arrangedSubviews {
             subview.isHidden = true
         }
     }
     
-    private func decorateString(option: BadgeAttribute, string: String) -> NSMutableAttributedString {
+    func decorateString(option: Attributable, string: String) -> NSMutableAttributedString {
         let attributedOption = option.style
         let attributedString = NSMutableAttributedString(string: string, attributes: attributedOption)
         return attributedString
