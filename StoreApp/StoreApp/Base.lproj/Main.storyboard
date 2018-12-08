@@ -47,7 +47,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="mZL-KL-FMz">
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="mZL-KL-FMz" customClass="PriceView" customModule="StoreApp" customModuleProvider="target">
                                                     <rect key="frame" x="123" y="49" width="86" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
@@ -65,7 +65,7 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qsF-ja-yDA">
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qsF-ja-yDA" customClass="BadgeView" customModule="StoreApp" customModuleProvider="target">
                                                     <rect key="frame" x="123" y="72" width="86" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
@@ -86,14 +86,14 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="badgeFirstLabel" destination="VRH-Fc-3t1" id="co5-e2-PL9"/>
-                                            <outlet property="badgeSecondLabel" destination="56E-aU-xfm" id="fBT-7F-qrU"/>
-                                            <outlet property="badgeStackView" destination="qsF-ja-yDA" id="Gun-j8-e0s"/>
+                                            <outlet property="badgeFirstLabel" destination="VRH-Fc-3t1" id="FRf-3g-o35"/>
+                                            <outlet property="badgeSecondLabel" destination="56E-aU-xfm" id="KEa-nF-k8j"/>
+                                            <outlet property="badgeView" destination="qsF-ja-yDA" id="5rS-aH-vtq"/>
                                             <outlet property="descLabel" destination="tn7-Hk-FtW" id="NEo-uB-DfZ"/>
                                             <outlet property="menuImage" destination="Z5j-IP-inW" id="AO5-TM-il9"/>
-                                            <outlet property="nPriceLabel" destination="6Yy-RD-bV6" id="7iL-ML-LaT"/>
-                                            <outlet property="priceStackView" destination="mZL-KL-FMz" id="m1G-cV-M8a"/>
-                                            <outlet property="sPriceLabel" destination="4Td-vc-0bj" id="wZD-iy-6ME"/>
+                                            <outlet property="nPriceLabel" destination="6Yy-RD-bV6" id="Ap5-4s-vpF"/>
+                                            <outlet property="priceView" destination="mZL-KL-FMz" id="X4P-fm-STc"/>
+                                            <outlet property="sPriceLabel" destination="4Td-vc-0bj" id="hQE-3h-hhc"/>
                                             <outlet property="titleLabel" destination="qNi-je-A6t" id="FE9-mh-Fzd"/>
                                         </connections>
                                     </tableViewCell>

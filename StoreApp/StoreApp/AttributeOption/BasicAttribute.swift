@@ -1,13 +1,12 @@
 //
-//  AttributeOption.swift
+//  BasicAttribute.swift
 //  StoreApp
 //
-//  Created by oingbong on 07/12/2018.
+//  Created by oingbong on 08/12/2018.
 //  Copyright © 2018 oingbong. All rights reserved.
 //
 
 import UIKit
-
 enum BasicAttribute {
     case title
     case desc
@@ -15,7 +14,7 @@ enum BasicAttribute {
     var style: [NSAttributedString.Key: Any] {
         let style = NSAttributedString.Key.self
         switch self {
-        case .title: 
+        case .title:
             let result = [style.font: UIFont.boldSystemFont(ofSize: 14)]
             return result
         case .desc:
