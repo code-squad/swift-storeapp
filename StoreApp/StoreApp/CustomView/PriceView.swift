@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PriceView: UIStackView {
+class PriceView: UIStackView, Decorating {
     required init(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -19,22 +19,22 @@ class PriceView: UIStackView {
         // nPrice
         if let price = item.n_price, let firstLabel = self.arrangedSubviews[0] as? UILabel {
             firstLabel.isHidden = false
-            firstLabel.attributedText = decorateString(option: .nPrice, string: price)
+            firstLabel.attributedText = decorateString(option: PriceAttribute.nPrice, string: price)
         }
 
         // sPrice
         guard let secondLabel = self.arrangedSubviews[1] as? UILabel else { return }
         secondLabel.isHidden = false
-        secondLabel.attributedText = decorateString(option: .sPrice, string: item.s_price)
+        secondLabel.attributedText = decorateString(option: PriceAttribute.sPrice, string: item.s_price)
     }
     
-    private func hiddenViewItem() {
+    func hiddenViewItem() {
         for subview in self.arrangedSubviews {
             subview.isHidden = true
         }
     }
     
-    private func decorateString(option: PriceAttribute, string: String) -> NSMutableAttributedString {
+    func decorateString(option: Attributable, string: String) -> NSMutableAttributedString {
         let attributedOption = option.style
         let attributedString = NSMutableAttributedString(string: string, attributes: attributedOption)
         return attributedString
