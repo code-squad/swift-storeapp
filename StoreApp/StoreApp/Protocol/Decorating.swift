@@ -10,6 +10,5 @@ import Foundation
 
 protocol Decorating {
     func configure(from item: StoreItem)
-    func hiddenViewItem()
     func decorateString(option: Attributable, string: String) -> NSMutableAttributedString
 }

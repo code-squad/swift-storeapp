@@ -28,7 +28,7 @@ class PriceView: UIStackView, Decorating {
         secondLabel.attributedText = decorateString(option: PriceAttribute.sPrice, string: item.s_price)
     }
     
-    func hiddenViewItem() {
+    private func hiddenViewItem() {
         for subview in self.arrangedSubviews {
             subview.isHidden = true
         }

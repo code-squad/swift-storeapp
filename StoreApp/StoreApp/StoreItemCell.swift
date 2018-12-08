@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StoreItemCell: UITableViewCell {
+class StoreItemCell: UITableViewCell, Decorating {
     @IBOutlet weak var menuImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
@@ -18,12 +18,12 @@ class StoreItemCell: UITableViewCell {
     @IBOutlet weak var badgeFirstLabel: UILabel!
     @IBOutlet weak var badgeSecondLabel: UILabel!
     
-    func configure(with item: StoreItem) {
+    func configure(from item: StoreItem) {
         // title
-        titleLabel.attributedText = decorateString(option: .title, string: item.title)
+        titleLabel.attributedText = decorateString(option: BasicAttribute.title, string: item.title)
         
         // desc
-        descLabel.attributedText = decorateString(option: .desc, string: item.description)
+        descLabel.attributedText = decorateString(option: BasicAttribute.desc, string: item.description)
         
         // price
         priceView.addSubview(nPriceLabel)
@@ -36,7 +36,7 @@ class StoreItemCell: UITableViewCell {
         badgeView.configure(from: item)
     }
     
-    private func decorateString(option: BasicAttribute, string: String) -> NSMutableAttributedString {
+    func decorateString(option: Attributable, string: String) -> NSMutableAttributedString {
         let attributedOption = option.style
         let attributedString = NSMutableAttributedString(string: string, attributes: attributedOption)
         return attributedString
