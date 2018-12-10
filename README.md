@@ -13,3 +13,19 @@
 
 ### 첨부파일
 ![Step1](CaptureImage/Step1.png)
+
+# Step2
+> 오토레이아웃 적용
+
+### 작업 중 문제점
+ - TableViewController 가 아닌 ViewController 에 Delegate & Datasource 를 따르려고 했기 때문에 컨트롤러 안에 따로 추가했던 테이블뷰의 레이아웃이 넘어가는 문제때문에 원하던 결과가 나오지 않게 되었습니다.
+ - 이를 수정하기 위해 테이블뷰 역시 오토레이아웃 적용을 하여 고정을 시키고 하위 뷰들의 오토레이아웃을 적용 시켰습니다.
+ 
+ ### 첨부파일
+ ![Step2_5s](CaptureImage/Step2/Step2_5s.png) 
+![Step2_8](CaptureImage/Step2/Step2_8.png)
+![Step2_8plus](CaptureImage/Step2/Step2_8plus.png)
+![Step2_X](CaptureImage/Step2/Step2_X.png)
+![Step2_XR](CaptureImage/Step2/Step2_XR.png)
+![Step2_XS](CaptureImage/Step2/Step2_XS.png)
+![Step2_XSMax](CaptureImage/Step2/Step2_XSMax.png)
