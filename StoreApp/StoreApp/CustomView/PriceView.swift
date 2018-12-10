@@ -9,11 +9,17 @@
 import UIKit
 
 class PriceView: UIStackView, Decorating {
+    @IBOutlet weak var nPriceLabel: UILabel!
+    @IBOutlet weak var sPriceLabel: UILabel!
+    
     required init(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     func configure(from item: StoreItem) {
+        self.addSubview(nPriceLabel)
+        self.addSubview(sPriceLabel)
+        
         hiddenViewItem()
 
         // nPrice
