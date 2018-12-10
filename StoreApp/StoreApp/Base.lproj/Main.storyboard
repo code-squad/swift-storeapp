@@ -72,6 +72,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="86" id="az2-9B-2Tu"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outlet property="nPriceLabel" destination="6Yy-RD-bV6" id="8FB-RY-cNS"/>
+                                                        <outlet property="sPriceLabel" destination="4Td-vc-0bj" id="Wio-bG-c3x"/>
+                                                    </connections>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qsF-ja-yDA" customClass="BadgeView" customModule="StoreApp" customModuleProvider="target">
                                                     <rect key="frame" x="103" y="72" width="86" height="20.5"/>
@@ -92,6 +96,10 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="86" id="Gx1-4F-cKa"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outlet property="badgeFirstLabel" destination="VRH-Fc-3t1" id="hvT-D5-Ucw"/>
+                                                        <outlet property="badgeSecondLabel" destination="56E-aU-xfm" id="4dT-Ob-HNh"/>
+                                                    </connections>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -111,14 +119,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="badgeFirstLabel" destination="VRH-Fc-3t1" id="FRf-3g-o35"/>
-                                            <outlet property="badgeSecondLabel" destination="56E-aU-xfm" id="KEa-nF-k8j"/>
                                             <outlet property="badgeView" destination="qsF-ja-yDA" id="5rS-aH-vtq"/>
                                             <outlet property="descLabel" destination="tn7-Hk-FtW" id="NEo-uB-DfZ"/>
                                             <outlet property="menuImage" destination="Z5j-IP-inW" id="AO5-TM-il9"/>
-                                            <outlet property="nPriceLabel" destination="6Yy-RD-bV6" id="Ap5-4s-vpF"/>
                                             <outlet property="priceView" destination="mZL-KL-FMz" id="X4P-fm-STc"/>
-                                            <outlet property="sPriceLabel" destination="4Td-vc-0bj" id="hQE-3h-hhc"/>
                                             <outlet property="titleLabel" destination="qNi-je-A6t" id="FE9-mh-Fzd"/>
                                         </connections>
                                     </tableViewCell>

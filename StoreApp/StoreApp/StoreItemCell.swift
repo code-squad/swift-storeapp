@@ -12,11 +12,7 @@ class StoreItemCell: UITableViewCell, Decorating {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var priceView: PriceView!
-    @IBOutlet weak var nPriceLabel: UILabel!
-    @IBOutlet weak var sPriceLabel: UILabel!
     @IBOutlet weak var badgeView: BadgeView!
-    @IBOutlet weak var badgeFirstLabel: UILabel!
-    @IBOutlet weak var badgeSecondLabel: UILabel!
     
     func configure(from item: StoreItem) {
         // title
@@ -26,13 +22,9 @@ class StoreItemCell: UITableViewCell, Decorating {
         descLabel.attributedText = decorateString(option: BasicAttribute.desc, string: item.description)
         
         // price
-        priceView.addSubview(nPriceLabel)
-        priceView.addSubview(sPriceLabel)
         priceView.configure(from: item)
         
         // badge
-        badgeView.addSubview(badgeFirstLabel)
-        badgeView.addSubview(badgeSecondLabel)
         badgeView.configure(from: item)
     }
     

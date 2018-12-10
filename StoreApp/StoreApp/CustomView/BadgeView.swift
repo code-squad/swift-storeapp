@@ -9,12 +9,17 @@
 import UIKit
 
 class BadgeView: UIStackView, Decorating {
+    @IBOutlet weak var badgeFirstLabel: UILabel!
+    @IBOutlet weak var badgeSecondLabel: UILabel!
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
     }
     
     func configure(from item: StoreItem) {
+        self.addSubview(badgeFirstLabel)
+        self.addSubview(badgeSecondLabel)
+        
         hiddenViewItem()
         
         // Badge
