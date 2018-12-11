@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var store = Store()
+    private var store = Store()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +21,12 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return store.storeItemGroup[section].sectionObjects.count
+        return store[section].sectionObjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath) as! StoreItemCell
-        let items = store.storeItemGroup[indexPath.section].sectionObjects[indexPath.row]
+        let items = store[indexPath.section].sectionObjects[indexPath.row]
         cell.configure(from: items)
         return cell
     }
@@ -41,11 +41,11 @@ extension ViewController: UITableViewDelegate {
 // for Section
 extension ViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return store.storeItemGroup.count
+        return store.storeItemGroupCount
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return store.storeItemGroup[section].sectionName
+        return store[section].sectionName
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
