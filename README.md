@@ -50,3 +50,12 @@
 ![Step3_12](CaptureImage/Step3_21.png) 
 ![Step3_21](CaptureImage/Step3_12.png) 
 ![Step3_22](CaptureImage/Step3_22.png) 
+
+# Step4
+> Toaster 적용
+
+### 작업
+- commit 에는 포함되어 있지 않지만 4.0 버전 기준으로 Toast 파일의 NotificationCenter AddObserver 의 이름을 수정하였습니다.
+
+### 첨부파일
+![Step4Demo](CaptureImage/Step4Demo.gif)
