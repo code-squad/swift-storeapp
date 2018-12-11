@@ -10,7 +10,8 @@ import Foundation
 
 struct Store {
     private var storeItemGroup = [StoreItemGroup]()
-    var topic = [Topic]()
+    private var topic = [Topic]()
+    
     var storeItemGroupCount: Int {
         return storeItemGroup.count
     }
@@ -42,8 +43,11 @@ struct Store {
         return items
     }
     
-    // for return StoreItemGroup (not topic)
     subscript(index: Int) -> StoreItemGroup {
         return storeItemGroup[index]
+    }
+    
+    subscript(index: Int) -> Topic {
+        return topic[index]
     }
 }
