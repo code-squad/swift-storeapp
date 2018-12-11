@@ -27,6 +27,9 @@
 		47B88ADB21BB8B2900963FBC /* PriceAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B88ADA21BB8B2900963FBC /* PriceAttribute.swift */; };
 		47B88AE021BB8DDB00963FBC /* Attributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B88ADF21BB8DDB00963FBC /* Attributable.swift */; };
 		47B88AE321BB8FB700963FBC /* Decorating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B88AE221BB8FB700963FBC /* Decorating.swift */; };
+		47B88AFC21BF5B9E00963FBC /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 47B88AFB21BF5B9E00963FBC /* soup.json */; };
+		47B88AFE21BF5BAD00963FBC /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 47B88AFD21BF5BAD00963FBC /* side.json */; };
+		47B88B0121BF813D00963FBC /* StoreItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B88B0021BF813D00963FBC /* StoreItemGroup.swift */; };
 		DE9895BA703FABFBFC5A90D1 /* Pods_StoreAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82A07AA046211B3EF51B0CDB /* Pods_StoreAppUITests.framework */; };
 		F6BC7483082F3EAC03648C55 /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB010101AA8950E9866C0CEA /* Pods_StoreApp.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +80,9 @@
 		47B88ADA21BB8B2900963FBC /* PriceAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceAttribute.swift; sourceTree = "<group>"; };
 		47B88ADF21BB8DDB00963FBC /* Attributable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributable.swift; sourceTree = "<group>"; };
 		47B88AE221BB8FB700963FBC /* Decorating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decorating.swift; sourceTree = "<group>"; };
+		47B88AFB21BF5B9E00963FBC /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		47B88AFD21BF5BAD00963FBC /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		47B88B0021BF813D00963FBC /* StoreItemGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemGroup.swift; sourceTree = "<group>"; };
 		5FB514BAC41F61B2CFB568D7 /* Pods_StoreAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A07AA046211B3EF51B0CDB /* Pods_StoreAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD07CEBB5624CEDE5B212C52 /* Pods-StoreAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreAppUITests/Pods-StoreAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +144,7 @@
 		477CDE0121B90D4700C378E3 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				47B88AFF21BF5BC800963FBC /* Json */,
 				47B88ADC21BB8B5A00963FBC /* AttributeOption */,
 				47B88ADD21BB8BBA00963FBC /* Model */,
 				47B88ADE21BB8BD600963FBC /* CustomView */,
@@ -149,7 +156,6 @@
 				477CDE0921B90D4900C378E3 /* Assets.xcassets */,
 				477CDE0B21B90D4900C378E3 /* LaunchScreen.storyboard */,
 				477CDE0E21B90D4900C378E3 /* Info.plist */,
-				477CDE3121B90F4400C378E3 /* main.json */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -187,6 +193,7 @@
 			children = (
 				477CDE3321B90F6500C378E3 /* StoreItem.swift */,
 				477CDE3521B9103E00C378E3 /* StoreItems.swift */,
+				47B88B0021BF813D00963FBC /* StoreItemGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +215,16 @@
 				47B88AE221BB8FB700963FBC /* Decorating.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		47B88AFF21BF5BC800963FBC /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				477CDE3121B90F4400C378E3 /* main.json */,
+				47B88AFB21BF5B9E00963FBC /* soup.json */,
+				47B88AFD21BF5BAD00963FBC /* side.json */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 		625FF5BA1B6F0B42C36B54C8 /* Pods */ = {
@@ -341,9 +358,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47B88AFC21BF5B9E00963FBC /* soup.json in Resources */,
 				477CDE0D21B90D4900C378E3 /* LaunchScreen.storyboard in Resources */,
 				477CDE0A21B90D4900C378E3 /* Assets.xcassets in Resources */,
 				477CDE3221B90F4400C378E3 /* main.json in Resources */,
+				47B88AFE21BF5BAD00963FBC /* side.json in Resources */,
 				477CDE0821B90D4700C378E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +476,7 @@
 			files = (
 				47B88AE021BB8DDB00963FBC /* Attributable.swift in Sources */,
 				47B88AD321BB78D200963FBC /* PriceView.swift in Sources */,
+				47B88B0121BF813D00963FBC /* StoreItemGroup.swift in Sources */,
 				47B88ADB21BB8B2900963FBC /* PriceAttribute.swift in Sources */,
 				477CDE3421B90F6500C378E3 /* StoreItem.swift in Sources */,
 				47B88AE321BB8FB700963FBC /* Decorating.swift in Sources */,
