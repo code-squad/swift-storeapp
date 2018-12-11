@@ -33,3 +33,20 @@
 ![Step2_XR](CaptureImage/Step2/Step2_XR.png)
 ![Step2_XS](CaptureImage/Step2/Step2_XS.png)
 ![Step2_XSMax](CaptureImage/Step2/Step2_XSMax.png)
+
+# Step3
+> 커스텀 헤더 적용
+
+### 작업
+1. 커스텀 헤더 적용
+    - StoreHeaderCell
+    - Topic Model
+2. 오토레이아웃 추가 적용
+    - Horizontally in Container : Custom Header 의 중앙정렬
+    - 최소 width 적용 : 스토리보드 안에서 >= value 설정하여 최소값 적용
+
+### 첨부파일
+![Step3_11](CaptureImage/Step3_11.png) 
+![Step3_12](CaptureImage/Step3_21.png) 
+![Step3_21](CaptureImage/Step3_12.png) 
+![Step3_22](CaptureImage/Step3_22.png) 
