@@ -11,19 +11,29 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var storeItemGorup = [StoreItemGroup]()
+    var topic = [Topic]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        appendTopic()
         appendItem()
     }
     
+    private func appendTopic() {
+        let main = Topic(englihsName: "main", koreanName: "메인반찬", desc: "한그릇 뚝딱 메인 요리")
+        let soup = Topic(englihsName: "soup", koreanName: "국.찌게", desc: "김이 모락모락 국.찌게")
+        let side = Topic(englihsName: "side", koreanName: "밑반찬", desc: "언제 먹어도 든든한 밑반찬")
+        topic.append(main)
+        topic.append(soup)
+        topic.append(side)
+    }
+    
     private func appendItem() {
-        let topics = ["main", "soup", "side"]
-        for topic in topics {
-            guard let mainItems = parse(topic: topic) else { continue }
-            storeItemGorup.append(StoreItemGroup(sectionName: topic, sectionObjects: mainItems))
+        for item in topic {
+            guard let mainItems = parse(topic: item.englihsName) else { continue }
+            storeItemGorup.append(StoreItemGroup(sectionName: item.englihsName, sectionObjects: mainItems))
         }
     }
     
@@ -53,6 +63,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+// for Section
 extension ViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return storeItemGorup.count
@@ -60,5 +71,15 @@ extension ViewController {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return storeItemGorup[section].sectionName
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreHeaderCell") as! StoreHeaderCell
+        cell.configure(from: topic[section])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
 }
