@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -16,6 +17,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        self.configureAppearance()
+    }
+    
+    func configureAppearance() {
+        let appearance = ToastView.appearance()
+        appearance.backgroundColor = .lightGray
+        appearance.textColor = .black
+        appearance.font = .boldSystemFont(ofSize: 16)
+        appearance.textInsets = UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
+        appearance.bottomOffsetPortrait = 100
+        appearance.cornerRadius = 20
     }
 }
 
@@ -35,6 +47,12 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ToastCenter.default.cancelAll()
+        let item = store[indexPath.section].sectionObjects[indexPath.row]
+        Toast(text: "\(item.title) \(item.s_price)").show()
     }
 }
 
