@@ -9,8 +9,11 @@
 import Foundation
 
 struct Store {
-    var storeItemGroup = [StoreItemGroup]()
+    private var storeItemGroup = [StoreItemGroup]()
     var topic = [Topic]()
+    var storeItemGroupCount: Int {
+        return storeItemGroup.count
+    }
     
     init() {
         appendTopic()
@@ -37,5 +40,10 @@ struct Store {
         guard let jsonData = Parser.json(fileName: topic) else { return nil }
         guard let items = Parser.storeItems(from: jsonData) else { return nil }
         return items
+    }
+    
+    // for return StoreItemGroup (not topic)
+    subscript(index: Int) -> StoreItemGroup {
+        return storeItemGroup[index]
     }
 }
