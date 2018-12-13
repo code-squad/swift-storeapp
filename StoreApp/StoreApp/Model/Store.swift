@@ -9,11 +9,11 @@
 import Foundation
 
 class Store {
-    static let keyJsonFail = Notification.Name(Key.notiError)
+    static let keyJsonFail = Notification.Name(NotiKey.error)
     
     private var storeItemGroup = [StoreItemGroup]() {
         didSet {
-            let key = Notification.Name(Key.notiUpdateItem)
+            let key = Notification.Name(NotiKey.updateItem)
             NotificationCenter.default.post(name: key, object: nil)
         }
     }
