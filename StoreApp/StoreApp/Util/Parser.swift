@@ -19,14 +19,12 @@ struct Parser {
         }
     }
     
-    static func jsonUrl(fileName: String, handler: @escaping ([StoreItem]?) -> Void) {
+    static func jsonUrl(fileName: String, handler: @escaping (Data?) -> Void) {
         let urlString = Key.url + fileName
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil { return }
-            guard let reponseData = data else { return }
-            let items = storeItems(from: reponseData)
-            handler(items)
+            handler(data)
         }
         task.resume()
     }

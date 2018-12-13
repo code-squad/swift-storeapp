@@ -59,11 +59,12 @@ class Store {
     // for url
     private func parseUrl(topic: String) {
         Parser.jsonUrl(fileName: topic) { (storeItems) in
-            guard let items = storeItems else {
+            guard let items = storeItems, let storeItems = Parser.storeItems(from: items) else {
                 NotificationCenter.default.post(name: Store.key, object: nil)
                 return
             }
-            self.storeItemGroup.append(StoreItemGroup(sectionName: topic, sectionObjects: items))
+            self.storeItemGroup.append(StoreItemGroup.init(sectionName: topic, sectionObjects: storeItems))
+            
         }
     }
     
