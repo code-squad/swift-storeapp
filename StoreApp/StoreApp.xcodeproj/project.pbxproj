@@ -148,6 +148,15 @@
 			path = ToasterSource;
 			sourceTree = "<group>";
 		};
+		4702170621C24AAE00D51039 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				47B88ACE21BA12C400963FBC /* Parser.swift */,
+				4702170421C2429E00D51039 /* Key.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		477CDDF621B90D4700C378E3 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				470216FA21C1F83700D51039 /* ToasterSource */,
+				4702170621C24AAE00D51039 /* Util */,
 				47B88AFF21BF5BC800963FBC /* Json */,
 				47B88ADC21BB8B5A00963FBC /* AttributeOption */,
 				47B88ADD21BB8BBA00963FBC /* Model */,
@@ -181,8 +191,6 @@
 				47B88AE121BB8FA000963FBC /* Protocol */,
 				477CDE0221B90D4700C378E3 /* AppDelegate.swift */,
 				477CDE0421B90D4700C378E3 /* ViewController.swift */,
-				47B88ACE21BA12C400963FBC /* Parser.swift */,
-				4702170421C2429E00D51039 /* Key.swift */,
 				477CDE0621B90D4700C378E3 /* Main.storyboard */,
 				477CDE0921B90D4900C378E3 /* Assets.xcassets */,
 				477CDE0B21B90D4900C378E3 /* LaunchScreen.storyboard */,

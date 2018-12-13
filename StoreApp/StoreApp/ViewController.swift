@@ -68,13 +68,22 @@ extension ViewController {
 
 extension ViewController {
     private func configureObservers() {
-        let key = Notification.Name(Key.notification)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: key, object: nil)
+        let keyUpdateItem = Notification.Name(Key.notiUpdateItem)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: keyUpdateItem, object: nil)
+        let keyError = Notification.Name(Key.notiError)
+        NotificationCenter.default.addObserver(self, selector: #selector(alert), name: keyError, object: nil)
     }
     
     @objc private func updateItems() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    @objc private func alert() {
+        let alert = UIAlertController(title: nil, message: Key.errorMessage, preferredStyle: .alert)
+        let action = UIAlertAction(title: Key.alertButtonTitle, style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }
