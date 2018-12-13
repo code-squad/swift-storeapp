@@ -14,6 +14,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureObservers()
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -62,5 +63,18 @@ extension ViewController {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+}
+
+extension ViewController {
+    private func configureObservers() {
+        let key = Notification.Name("updateItem")
+        NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: key, object: nil)
+    }
+    
+    @objc private func updateItems() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }

@@ -20,6 +20,20 @@ struct Parser {
         }
     }
     
+    static func jsonUrl(fileName: String, handler: @escaping ([StoreItem]?) -> Void) {
+        guard let url = URL(string: "http://crong.codesquad.kr:8080/woowa/\(fileName)") else { return }
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let err = error {
+                print(err.localizedDescription)
+                return
+            }
+            guard let reponseData = data else { return }
+            let items = storeItems(from: reponseData)
+            handler(items)
+        }
+        task.resume()
+    }
+    
     static func storeItems(from data: Data) -> [StoreItem]? {
         do {
             let items = try JSONDecoder().decode([StoreItem].self, from: data)
