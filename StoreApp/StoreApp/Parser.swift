@@ -10,7 +10,7 @@ import Foundation
 
 struct Parser {
     static func json(fileName: String) -> Data? {
-        guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else { return nil }
+        guard let path = Bundle.main.path(forResource: fileName, ofType: Key.jsonType) else { return nil }
         do {
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: path))
             return jsonData
@@ -21,7 +21,8 @@ struct Parser {
     }
     
     static func jsonUrl(fileName: String, handler: @escaping ([StoreItem]?) -> Void) {
-        guard let url = URL(string: "http://crong.codesquad.kr:8080/woowa/\(fileName)") else { return }
+        let urlString = Key.url + fileName
+        guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let err = error {
                 print(err.localizedDescription)
