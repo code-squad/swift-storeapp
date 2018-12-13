@@ -25,7 +25,6 @@ class Store {
     
     init() {
         appendTopic()
-        appendItem()
     }
     
     private func appendTopic() {
@@ -37,7 +36,7 @@ class Store {
         topic.append(side)
     }
     
-    private func appendItem() {
+    func appendItem() {
         for item in topic {
             parseUrl(topic: item.englihsName)
         }

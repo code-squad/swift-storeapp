@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureObservers()
+        store.appendItem()
         tableView.dataSource = self
         tableView.delegate = self
     }
