@@ -60,3 +60,16 @@
 
 ### 첨부파일
 ![Step4Demo](CaptureImage/Step4Demo.gif)
+
+# Step5
+> URLSession 사용
+
+### 작업
+1. 기존 내장 json파일이 아닌 URLSession으로 데이터를 받아오도록 변경하였습니다.
+2. 데이터가 변경되면 Notification 사용해서 데이터를 테이블뷰에서 다시 리로드하도록 하였습니다.
+3. 데이터를 제대로 받지 못하는 경우에는 alert을 띄워서 사용자에게 알릴 수 있도록 하였습니다.
+4. `App Transport Security Settings` for HTTP
+
+### 첨부파일
+![Step5_1](CaptureImage/Step5_1Demo.gif)
+![Step5_2](CaptureImage/Step5_2Demo.gif)
