@@ -11,6 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var store = Store()
+    private let errorMessage = "데이터를 가져오는데 에러가 발생하였습니다."
+    private let alertButtonTitle = "어쩔 수 없죠.."
+    private let storeItemCell = "StoreItemCell"
+    private let storeHeaderCell = "StoreHeaderCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +30,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Key.storeItemCell, for: indexPath) as! StoreItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: storeItemCell, for: indexPath) as! StoreItemCell
         let items = store[indexPath.section].sectionObjects[indexPath.row]
         cell.configure(from: items)
         return cell
@@ -56,7 +60,7 @@ extension ViewController {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Key.storeHeaderCell) as! StoreHeaderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: storeHeaderCell) as! StoreHeaderCell
         cell.configure(from: store[section])
         return cell
     }
@@ -67,10 +71,11 @@ extension ViewController {
 }
 
 extension ViewController {
+    
     private func configureObservers() {
-        let keyUpdateItem = Notification.Name(Key.notiUpdateItem)
+        let keyUpdateItem = Notification.Name(NotiKey.updateItem)
         NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: keyUpdateItem, object: nil)
-        let keyError = Notification.Name(Key.notiError)
+        let keyError = Notification.Name(NotiKey.error)
         NotificationCenter.default.addObserver(self, selector: #selector(alert), name: keyError, object: nil)
     }
     
@@ -81,8 +86,8 @@ extension ViewController {
     }
     
     @objc private func alert() {
-        let alert = UIAlertController(title: nil, message: Key.errorMessage, preferredStyle: .alert)
-        let action = UIAlertAction(title: Key.alertButtonTitle, style: .default, handler: nil)
+        let alert = UIAlertController(title: nil, message: errorMessage, preferredStyle: .alert)
+        let action = UIAlertAction(title: alertButtonTitle, style: .default, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
