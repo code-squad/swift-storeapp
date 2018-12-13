@@ -46,10 +46,10 @@
     - 최소 width 적용 : 스토리보드 안에서 >= value 설정하여 최소값 적용
 
 ### 첨부파일
-![Step3_11](CaptureImage/Step3_11.png) 
-![Step3_12](CaptureImage/Step3_21.png) 
-![Step3_21](CaptureImage/Step3_12.png) 
-![Step3_22](CaptureImage/Step3_22.png) 
+![Step3_1_1](CaptureImage/Step3_1_1.png) 
+![Step3_1_2](CaptureImage/Step3_1_2.png) 
+![Step3_2_1](CaptureImage/Step3_2_1.png) 
+![Step3_2_2](CaptureImage/Step3_2_2.png) 
 
 # Step4
 > Toaster 적용
