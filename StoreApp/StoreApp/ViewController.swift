@@ -26,7 +26,7 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath) as! StoreItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Key.storeItemCell, for: indexPath) as! StoreItemCell
         let items = store[indexPath.section].sectionObjects[indexPath.row]
         cell.configure(from: items)
         return cell
@@ -56,7 +56,7 @@ extension ViewController {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StoreHeaderCell") as! StoreHeaderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Key.storeHeaderCell) as! StoreHeaderCell
         cell.configure(from: store[section])
         return cell
     }
@@ -68,7 +68,7 @@ extension ViewController {
 
 extension ViewController {
     private func configureObservers() {
-        let key = Notification.Name("updateItem")
+        let key = Notification.Name(Key.notification)
         NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: key, object: nil)
     }
     

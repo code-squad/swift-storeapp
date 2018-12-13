@@ -11,7 +11,7 @@ import Foundation
 class Store {
     private var storeItemGroup = [StoreItemGroup]() {
         didSet {
-            let key = Notification.Name("updateItem")
+            let key = Notification.Name(Key.notification)
             NotificationCenter.default.post(name: key, object: nil)
         }
     }
