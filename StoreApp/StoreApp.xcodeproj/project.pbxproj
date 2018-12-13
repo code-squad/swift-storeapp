@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2D9F51F9E30DA7E0AC927852 /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FB514BAC41F61B2CFB568D7 /* Pods_StoreAppTests.framework */; };
+		470216FC21C1F8A900D51039 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470216FB21C1F8A900D51039 /* Toast.swift */; };
+		470216FE21C1F8B900D51039 /* ToastCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470216FD21C1F8B900D51039 /* ToastCenter.swift */; };
+		4702170021C1F8C200D51039 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470216FF21C1F8C200D51039 /* ToastView.swift */; };
+		4702170221C1F8C900D51039 /* ToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4702170121C1F8C900D51039 /* ToastWindow.swift */; };
 		477CDE0321B90D4700C378E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477CDE0221B90D4700C378E3 /* AppDelegate.swift */; };
 		477CDE0521B90D4700C378E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477CDE0421B90D4700C378E3 /* ViewController.swift */; };
 		477CDE0821B90D4700C378E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477CDE0621B90D4700C378E3 /* Main.storyboard */; };
@@ -59,6 +63,10 @@
 		2C560C267D16964B91261008 /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		43406702F98EF31273A3B462 /* Pods-StoreAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreAppTests/Pods-StoreAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		466BFA7525EE56DC8AE2E077 /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
+		470216FB21C1F8A900D51039 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		470216FD21C1F8B900D51039 /* ToastCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastCenter.swift; sourceTree = "<group>"; };
+		470216FF21C1F8C200D51039 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		4702170121C1F8C900D51039 /* ToastWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWindow.swift; sourceTree = "<group>"; };
 		477CDDFF21B90D4700C378E3 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		477CDE0221B90D4700C378E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		477CDE0421B90D4700C378E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +135,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		470216FA21C1F83700D51039 /* ToasterSource */ = {
+			isa = PBXGroup;
+			children = (
+				470216FB21C1F8A900D51039 /* Toast.swift */,
+				470216FD21C1F8B900D51039 /* ToastCenter.swift */,
+				470216FF21C1F8C200D51039 /* ToastView.swift */,
+				4702170121C1F8C900D51039 /* ToastWindow.swift */,
+			);
+			path = ToasterSource;
+			sourceTree = "<group>";
+		};
 		477CDDF621B90D4700C378E3 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +171,7 @@
 		477CDE0121B90D4700C378E3 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				470216FA21C1F83700D51039 /* ToasterSource */,
 				47B88AFF21BF5BC800963FBC /* Json */,
 				47B88ADC21BB8B5A00963FBC /* AttributeOption */,
 				47B88ADD21BB8BBA00963FBC /* Model */,
@@ -274,7 +294,6 @@
 				477CDDFC21B90D4700C378E3 /* Frameworks */,
 				477CDDFD21B90D4700C378E3 /* Resources */,
 				477CDE3021B90E0600C378E3 /* ShellScript */,
-				E29D6BC7341A142D531C36E2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -458,28 +477,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E29D6BC7341A142D531C36E2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StoreApp/Pods-StoreApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F3C31E042E56E54E8C302DE5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -510,12 +507,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				47B88AE021BB8DDB00963FBC /* Attributable.swift in Sources */,
+				4702170021C1F8C200D51039 /* ToastView.swift in Sources */,
 				47B88AD321BB78D200963FBC /* PriceView.swift in Sources */,
 				47B88B0121BF813D00963FBC /* StoreItemGroup.swift in Sources */,
+				470216FC21C1F8A900D51039 /* Toast.swift in Sources */,
 				47B88B1321BFAEE800963FBC /* Store.swift in Sources */,
 				47B88ADB21BB8B2900963FBC /* PriceAttribute.swift in Sources */,
+				4702170221C1F8C900D51039 /* ToastWindow.swift in Sources */,
 				477CDE3421B90F6500C378E3 /* StoreItem.swift in Sources */,
 				47B88B0F21BF9EAC00963FBC /* Topic.swift in Sources */,
+				470216FE21C1F8B900D51039 /* ToastCenter.swift in Sources */,
 				47B88AE321BB8FB700963FBC /* Decorating.swift in Sources */,
 				477CDE0521B90D4700C378E3 /* ViewController.swift in Sources */,
 				47B88B0D21BF900F00963FBC /* StoreHeaderCell.swift in Sources */,

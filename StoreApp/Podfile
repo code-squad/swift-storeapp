@@ -6,7 +6,6 @@ target 'StoreApp' do
   use_frameworks!
 
   pod 'SwiftLint'
-  pod 'Toaster'
 
   # Pods for StoreApp
 
