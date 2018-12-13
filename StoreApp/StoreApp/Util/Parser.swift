@@ -14,8 +14,7 @@ struct Parser {
         do {
             let jsonData = try Data(contentsOf: URL(fileURLWithPath: path))
             return jsonData
-        } catch let error {
-            print(error.localizedDescription)
+        } catch {
             return nil
         }
     }
@@ -24,10 +23,7 @@ struct Parser {
         let urlString = Key.url + fileName
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let err = error {
-                print(err.localizedDescription)
-                return
-            }
+            if error != nil { return }
             guard let reponseData = data else { return }
             let items = storeItems(from: reponseData)
             handler(items)
@@ -39,9 +35,9 @@ struct Parser {
         do {
             let items = try JSONDecoder().decode([StoreItem].self, from: data)
             return items
-        } catch let error {
-            print(error.localizedDescription)
+        } catch {
+            return nil
         }
-        return nil
+        
     }
 }
