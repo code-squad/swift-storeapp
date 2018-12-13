@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Toaster
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
