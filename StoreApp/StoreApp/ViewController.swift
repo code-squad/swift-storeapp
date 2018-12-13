@@ -16,17 +16,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        self.configureAppearance()
-    }
-    
-    func configureAppearance() {
-        let appearance = ToastView.appearance()
-        appearance.backgroundColor = .lightGray
-        appearance.textColor = .black
-        appearance.font = .boldSystemFont(ofSize: 16)
-        appearance.textInsets = UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
-        appearance.bottomOffsetPortrait = 100
-        appearance.cornerRadius = 20
     }
 }
 
