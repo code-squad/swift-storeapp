@@ -32,13 +32,12 @@ struct Parser {
         task.resume()
     }
     
-    static func storeItems(from data: Data) -> [StoreItem]? {
+    static func decode<T: Decodable>(from data: Data) -> T? {
         do {
-            let items = try JSONDecoder().decode([StoreItem].self, from: data)
+            let items = try JSONDecoder().decode(T.self, from: data)
             return items
         } catch {
             return nil
         }
-        
     }
 }
