@@ -44,7 +44,7 @@ class Store {
     
     // for file
     private func parse(topic: String) -> [StoreItem]? {
-        guard let jsonData = Parser.json(fileName: topic), let items = Parser.storeItems(from: jsonData) else {
+        guard let jsonData = Parser.json(fileName: topic), let items: [StoreItem] = Parser.decode(from: jsonData) else {
             NotificationCenter.default.post(name: Store.keyJsonFail, object: nil)
             return nil
         }
@@ -54,12 +54,11 @@ class Store {
     // for url
     private func parseUrl(topic: String) {
         Parser.jsonUrl(fileName: topic) { (storeItems) in
-            guard let items = storeItems, let storeItems = Parser.storeItems(from: items) else {
+            guard let items = storeItems, let storeItems: [StoreItem] = Parser.decode(from: items) else {
                 NotificationCenter.default.post(name: Store.keyJsonFail, object: nil)
                 return
             }
             self.storeItemGroup.append(StoreItemGroup(sectionName: topic, sectionObjects: storeItems))
-            
         }
     }
     
