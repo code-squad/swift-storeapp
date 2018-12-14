@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NotiKey {
-    static let updateItem = "updateItem"
-    static let error = "error"
+struct NotificationKey {
+    static let updateItem = Notification.Name("updateItem")
+    static let error = Notification.Name("error")
 }

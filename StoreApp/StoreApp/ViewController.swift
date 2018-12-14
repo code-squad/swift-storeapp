@@ -74,10 +74,8 @@ extension ViewController {
 extension ViewController {
     
     private func configureObservers() {
-        let keyUpdateItem = Notification.Name(NotiKey.updateItem)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: keyUpdateItem, object: nil)
-        let keyError = Notification.Name(NotiKey.error)
-        NotificationCenter.default.addObserver(self, selector: #selector(alert), name: keyError, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: NotificationKey.updateItem, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(alert), name: NotificationKey.error, object: nil)
     }
     
     @objc private func updateItems() {

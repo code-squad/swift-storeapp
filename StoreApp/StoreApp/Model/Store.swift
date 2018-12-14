@@ -9,15 +9,12 @@
 import Foundation
 
 class Store {
-    static let keyJsonFail = Notification.Name(NotiKey.error)
-    
+    private var topic = [Topic]()
     private var storeItemGroup = [StoreItemGroup]() {
         didSet {
-            let key = Notification.Name(NotiKey.updateItem)
-            NotificationCenter.default.post(name: key, object: nil)
+            NotificationCenter.default.post(name: NotificationKey.updateItem, object: nil)
         }
     }
-    private var topic = [Topic]()
     
     var storeItemGroupCount: Int {
         return storeItemGroup.count
@@ -45,7 +42,7 @@ class Store {
     // for file
     private func parse(topic: String) -> [StoreItem]? {
         guard let jsonData = Parser.json(fileName: topic), let items: [StoreItem] = Parser.decode(from: jsonData) else {
-            NotificationCenter.default.post(name: Store.keyJsonFail, object: nil)
+            NotificationCenter.default.post(name: NotificationKey.error, object: nil)
             return nil
         }
         return items
@@ -55,7 +52,7 @@ class Store {
     private func parseUrl(topic: String) {
         Parser.jsonUrl(fileName: topic) { (storeItems) in
             guard let items = storeItems, let storeItems: [StoreItem] = Parser.decode(from: items) else {
-                NotificationCenter.default.post(name: Store.keyJsonFail, object: nil)
+                NotificationCenter.default.post(name: NotificationKey.error, object: nil)
                 return
             }
             self.storeItemGroup.append(StoreItemGroup(sectionName: topic, sectionObjects: storeItems))
