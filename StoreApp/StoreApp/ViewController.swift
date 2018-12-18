@@ -50,7 +50,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-// for Section
+// MARK: Section
 extension ViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return store.storeItemGroupCount
@@ -74,8 +74,8 @@ extension ViewController {
     }
 }
 
+// MARK: Observers
 extension ViewController {
-    
     private func configureObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: NotificationKey.updateItem, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(alert), name: NotificationKey.error, object: nil)
