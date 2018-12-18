@@ -73,3 +73,19 @@
 ### 첨부파일
 ![Step5_1](CaptureImage/Step5_1Demo.gif)
 ![Step5_2](CaptureImage/Step5_2Demo.gif)
+
+# Step6
+> 이미지 병렬처리
+
+### 작업
+1. 이미지 병렬처리를 위해 아래와 같은 로직으로 작성하였습니다.
+```
+1. json 데이터 다운로드 이후에 작업 진행
+    1) storeItemGroup 데이터 변경되면 -> self.tableView.reloadData
+    2) 이미지 다운로드 -> 완료되면 각 셀 단위별로 self.tableView.reloadRows
+2. UITableViewCell 나타낼 때 이미지는 이미지 파일명 기준으로 앱 디렉토리 안에 Cache 디렉토리에서 찾아서 있으면 이미지를 세팅하고 없으면 무시합니다.   
+```
+2. 카멜케이스 네이밍 방식을 위해서 `CodingKeys` 사용
+
+### 첨부파일
+![Step6](CaptureImage/Step6Demo.gif)
