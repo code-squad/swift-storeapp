@@ -15,7 +15,7 @@ class StoreItemCell: UITableViewCell, Decorating {
     @IBOutlet weak var badgeView: BadgeView!
     
     func configure(from item: StoreItem) {
-        // image
+        // MARK: image
         let fileName = item.image.components(separatedBy: "/").last!
         let destinaionURL = LocalFileManager.filePath(fileName: fileName)
         var data: Data? = nil
@@ -24,19 +24,20 @@ class StoreItemCell: UITableViewCell, Decorating {
         } catch let error {
             print("read error : \(error.localizedDescription)")
         }
-        guard let imageData = data else { return }
-        menuImage.image = UIImage(data: imageData)
+        if let imageData = data {
+            menuImage.image = UIImage(data: imageData)
+        }
         
-        // title
+        // MARK: title
         titleLabel.attributedText = decorateString(option: BasicAttribute.title, string: item.title)
-        
-        // desc
+
+        // MARK: desc
         descLabel.attributedText = decorateString(option: BasicAttribute.desc, string: item.description)
         
-        // price
+        // MARK: price
         priceView.configure(from: item)
         
-        // badge
+        // MARK: badge
         badgeView.configure(from: item)
     }
     

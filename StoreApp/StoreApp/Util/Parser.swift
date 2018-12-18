@@ -42,8 +42,7 @@ struct Parser {
         }
     }
     
-    static func imageDownLoad(with storeItem: StoreItem, handler: @escaping (Bool) -> Void) {
-        guard let url = URL(string: storeItem.image) else { return }
+    static func imageDownLoad(with url: URL, handler: @escaping (Bool) -> Void) {
         let task = URLSession.shared.downloadTask(with: url) { (location, _, error) in
             let destinaionURL = LocalFileManager.filePath(fileName: url.lastPathComponent)
             try? FileManager.default.removeItem(at: destinaionURL)

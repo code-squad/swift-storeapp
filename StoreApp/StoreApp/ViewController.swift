@@ -62,7 +62,10 @@ extension ViewController {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: storeHeaderCell) as! StoreHeaderCell
-        cell.configure(from: store[section])
+        guard let topic = Topic(rawValue: section) else {
+            return UIView(frame: CGRect(origin: .zero, size: .zero))
+        }
+        cell.configure(from: topic)
         return cell
     }
     

@@ -16,7 +16,7 @@ class StoreHeaderCell: UITableViewCell {
         self.nameLabel.attributedText = decorateString(option: TopicAttribute.name, string: item.koreanName)
         self.nameLabel.layer.borderColor = UIColor.gray.cgColor
         self.nameLabel.layer.borderWidth = 1
-        self.descLabel.attributedText = decorateString(option: TopicAttribute.desc, string: item.desc)
+        self.descLabel.attributedText = decorateString(option: TopicAttribute.desc, string: item.description)
     }
     
     func decorateString(option: Attributable, string: String) -> NSMutableAttributedString {
