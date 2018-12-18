@@ -21,8 +21,8 @@ class StoreItemCell: UITableViewCell, Decorating {
         var data: Data? = nil
         do {
             data = try Data(contentsOf: destinaionURL)
-        } catch let error {
-            print("read error : \(error.localizedDescription)")
+        } catch {
+            NotificationCenter.default.post(name: NotificationKey.error, object: nil)
         }
         if let imageData = data {
             menuImage.image = UIImage(data: imageData)

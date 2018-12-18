@@ -48,8 +48,8 @@ struct Parser {
             try? FileManager.default.removeItem(at: destinaionURL)
             do {
                 try FileManager.default.moveItem(at: location!, to: destinaionURL)
-            } catch let error {
-                print("Could not move file to disk : \(error.localizedDescription)")
+            } catch {
+                NotificationCenter.default.post(name: NotificationKey.error, object: nil)
             }
             handler(true)
         }
