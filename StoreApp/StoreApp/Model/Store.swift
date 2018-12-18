@@ -21,7 +21,9 @@ class Store {
     
     func appendItem() {
         for item in Topic.allCases {
-            parseUrl(topic: item)
+            parseUrl(topic: item) { (storeItemGroup) in
+                self.imageUrl(at: item.rawValue, with: storeItemGroup)
+            }
         }
     }
     
@@ -35,7 +37,7 @@ class Store {
     }
     
     // MARK: for url
-    private func parseUrl(topic: Topic) {
+    private func parseUrl(topic: Topic, handler: @escaping (StoreItemGroup) -> Void ) {
         Parser.jsonUrl(fileName: topic.englihsName) { (storeItems) in
             guard let items = storeItems, let storeItems: [StoreItem] = Parser.decode(from: items) else {
                 NotificationCenter.default.post(name: NotificationKey.error, object: nil)
@@ -43,7 +45,7 @@ class Store {
             }
             let storeItemGroup = StoreItemGroup(sectionName: topic.englihsName, sectionObjects: storeItems)
             self.storeItemGroup.append(storeItemGroup)
-            self.imageUrl(at: topic.rawValue, with: storeItemGroup)
+            handler(storeItemGroup)
         }
     }
     
