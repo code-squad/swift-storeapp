@@ -9,13 +9,25 @@
 import Foundation
 
 struct StoreItem: Decodable {
-    var detail_hash: String
+    var detailHash: String
     var image: String
     var alt: String
-    var delivery_type: [String]
+    var deliveryType: [String]
     var title: String
     var description: String
-    var n_price: String?
-    var s_price: String
+    var nPrice: String?
+    var sPrice: String
     var badge: [String]?
+    
+    enum CodingKeys: String, CodingKey {
+        case detailHash = "detail_hash"
+        case image = "image"
+        case alt = "alt"
+        case deliveryType = "delivery_type"
+        case title = "title"
+        case description = "description"
+        case nPrice = "n_price"
+        case sPrice = "s_price"
+        case badge = "badge"
+    }
 }
