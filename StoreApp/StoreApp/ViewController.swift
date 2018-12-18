@@ -46,7 +46,7 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ToastCenter.default.cancelAll()
         let item = store[indexPath.section].sectionObjects[indexPath.row]
-        Toast(text: "\(item.title) \(item.s_price)").show()
+        Toast(text: "\(item.title) \(item.sPrice)").show()
     }
 }
 
