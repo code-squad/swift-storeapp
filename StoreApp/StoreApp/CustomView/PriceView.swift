@@ -22,13 +22,13 @@ class PriceView: UIStackView, Decorating {
         
         hiddenViewItem()
 
-        // nPrice
+        // MARK: nPrice
         if let price = item.n_price, let firstLabel = self.arrangedSubviews[0] as? UILabel {
             firstLabel.isHidden = false
             firstLabel.attributedText = decorateString(option: PriceAttribute.nPrice, string: price)
         }
 
-        // sPrice
+        // MARK: sPrice
         guard let secondLabel = self.arrangedSubviews[1] as? UILabel else { return }
         secondLabel.isHidden = false
         secondLabel.attributedText = decorateString(option: PriceAttribute.sPrice, string: item.s_price)

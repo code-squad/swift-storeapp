@@ -22,7 +22,7 @@ class BadgeView: UIStackView, Decorating {
         
         hiddenViewItem()
         
-        // Badge
+        // MARK: Badge
         if let badgeList = item.badge, badgeList.count > 0 {
             for index in 0..<badgeList.count {
                 self.arrangedSubviews[index].isHidden = false
