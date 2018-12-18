@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Parser {
     static let jsonType = "json"
@@ -25,7 +26,7 @@ struct Parser {
     static func jsonUrl(fileName: String, handler: @escaping (Data?) -> Void) {
         let urlString = woowaUrl + fileName
         guard let url = URL(string: urlString) else { return }
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
             if error != nil { return }
             handler(data)
         }
@@ -39,5 +40,21 @@ struct Parser {
         } catch {
             return nil
         }
+    }
+    
+    static func imageDownLoad(with storeItem: StoreItem, handler: @escaping (Bool) -> Void) {
+        guard let url = URL(string: storeItem.image) else { return }
+        let task = URLSession.shared.downloadTask(with: url) { (location, _, error) in
+            let destinaionURL = LocalFileManager.filePath(fileName: url.lastPathComponent)
+            try? FileManager.default.removeItem(at: destinaionURL)
+            do {
+                try FileManager.default.moveItem(at: location!, to: destinaionURL)
+            } catch let error {
+                print("Could not move file to disk : \(error.localizedDescription)")
+            }
+            handler(true)
+        }
+        
+        task.resume()
     }
 }

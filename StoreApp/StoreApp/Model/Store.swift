@@ -13,6 +13,9 @@ class Store {
     private var storeItemGroup = [StoreItemGroup]() {
         didSet {
             NotificationCenter.default.post(name: NotificationKey.updateItem, object: nil)
+            if topic.count == storeItemGroup.count {
+                imageUrl()
+            }
         }
     }
     
@@ -56,6 +59,21 @@ class Store {
                 return
             }
             self.storeItemGroup.append(StoreItemGroup(sectionName: topic, sectionObjects: storeItems))
+        }
+    }
+    
+    // for image
+    private func imageUrl() {
+        for groupIndex in 0..<storeItemGroup.count {
+            for index in 0..<storeItemGroup[groupIndex].sectionObjects.count {
+                DispatchQueue.global().async {
+                    Parser.imageDownLoad(with: self.storeItemGroup[groupIndex].sectionObjects[index], handler: { (isSuccess) in
+                        if isSuccess {
+                            NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["section": groupIndex, "row": index])
+                        }
+                    })
+                }
+            }
         }
     }
     
