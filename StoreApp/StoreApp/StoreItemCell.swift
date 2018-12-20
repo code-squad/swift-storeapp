@@ -18,14 +18,8 @@ class StoreItemCell: UITableViewCell, Decorating {
         // MARK: image
         let fileName = item.image.components(separatedBy: "/").last!
         let destinaionURL = LocalFileManager.filePath(fileName: fileName)
-        var data: Data? = nil
-        do {
-            data = try Data(contentsOf: destinaionURL)
-        } catch {
-            NotificationCenter.default.post(name: NotificationKey.error, object: nil)
-        }
-        if let imageData = data {
-            menuImage.image = UIImage(data: imageData)
+        if let data = imageData(with: destinaionURL) {
+            menuImage.image = UIImage(data: data)
         }
         
         // MARK: title
@@ -39,6 +33,14 @@ class StoreItemCell: UITableViewCell, Decorating {
         
         // MARK: badge
         badgeView.configure(from: item)
+    }
+    
+    private func imageData(with destinaionURL: URL) -> Data? {
+        do {
+            return try Data(contentsOf: destinaionURL)
+        } catch {
+            return nil
+        }
     }
     
     func decorateString(option: Attributable, string: String) -> NSMutableAttributedString {

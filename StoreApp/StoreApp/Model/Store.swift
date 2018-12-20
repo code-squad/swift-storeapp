@@ -57,11 +57,7 @@ class Store {
             if !isExist {
                 guard let url = URL(string: storeItemGroup.sectionObjects[index].image) else { return }
                 DispatchQueue.global().async {
-                    Parser.imageDownLoad(with: url, handler: { (isSuccess) in
-                        if isSuccess {
-                            NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["section": sectionIndex, "row": index])
-                        }
-                    })
+                    Parser.imageDownLoad(with: url)
                 }
             }
         }
