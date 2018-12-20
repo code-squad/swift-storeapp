@@ -20,4 +20,13 @@ struct LocalFileManager {
         let testData = FileManager.default.fileExists(atPath: destinaionURL.path)
         return testData
     }
+    
+    static func imageData(with fileName: String) -> Data? {
+        let destinaionURL = self.filePath(fileName: fileName)
+        do {
+            return try Data(contentsOf: destinaionURL)
+        } catch {
+            return nil
+        }
+    }
 }
