@@ -52,13 +52,17 @@ class Store {
     // MARK: for image
     private func imageUrl(at sectionIndex: Int, with storeItemGroup: StoreItemGroup) {
         for index in 0..<storeItemGroup.sectionObjects.count {
-            guard let url = URL(string: storeItemGroup.sectionObjects[index].image) else { return }
-            DispatchQueue.global().async {
-                Parser.imageDownLoad(with: url, handler: { (isSuccess) in
-                    if isSuccess {
-                        NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["section": sectionIndex, "row": index])
-                    }
-                })
+            let fileName = storeItemGroup.sectionObjects[index].image.components(separatedBy: "/").last!
+            let isExist = LocalFileManager.fileExists(fileName: fileName)
+            if !isExist {
+                guard let url = URL(string: storeItemGroup.sectionObjects[index].image) else { return }
+                DispatchQueue.global().async {
+                    Parser.imageDownLoad(with: url, handler: { (isSuccess) in
+                        if isSuccess {
+                            NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["section": sectionIndex, "row": index])
+                        }
+                    })
+                }
             }
         }
     }
