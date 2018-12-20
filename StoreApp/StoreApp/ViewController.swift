@@ -79,6 +79,7 @@ extension ViewController {
     private func configureObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: NotificationKey.updateItem, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(alert), name: NotificationKey.error, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateItemCell(_:)), name: NotificationKey.updateItemCell, object: nil)
     }
     
     @objc private func updateItems() {
@@ -92,5 +93,17 @@ extension ViewController {
         let action = UIAlertAction(title: alertButtonTitle, style: .default, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc private func updateItemCell(_ notification: Notification) {
+        guard let section = notification.userInfo?["section"] as? Int else { return }
+        guard let row = notification.userInfo?["row"] as? Int else { return }
+        guard let fileName = notification.userInfo?["fileName"] as? String else { return }
+        let indexPath = IndexPath(row: row, section: section)
+        DispatchQueue.main.async {
+            if let data = LocalFileManager.imageData(with: fileName) {
+                self.tableView.cellForRow(at: indexPath)?.imageView?.image = UIImage(data: data)
+            }
+        }
     }
 }
