@@ -14,4 +14,10 @@ struct LocalFileManager {
         let destinaionURL = filePath[0].appendingPathComponent(fileName)
         return destinaionURL
     }
+    
+    static func fileExists(fileName: String) -> Bool {
+        let destinaionURL = self.filePath(fileName: fileName)
+        let testData = FileManager.default.fileExists(atPath: destinaionURL.path)
+        return testData
+    }
 }
