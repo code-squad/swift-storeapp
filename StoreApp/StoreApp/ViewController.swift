@@ -96,14 +96,9 @@ extension ViewController {
     }
     
     @objc private func updateItemCell(_ notification: Notification) {
-        guard let section = notification.userInfo?["section"] as? Int else { return }
-        guard let row = notification.userInfo?["row"] as? Int else { return }
-        guard let fileName = notification.userInfo?["fileName"] as? String else { return }
-        let indexPath = IndexPath(row: row, section: section)
+        guard let indexPath = notification.userInfo?["indexPath"] as? IndexPath else { return }
         DispatchQueue.main.async {
-            if let data = LocalFileManager.imageData(with: fileName) {
-                self.tableView.cellForRow(at: indexPath)?.imageView?.image = UIImage(data: data)
-            }
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
 }

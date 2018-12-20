@@ -56,14 +56,19 @@ class Store {
             let isExist = LocalFileManager.fileExists(fileName: fileName)
             if !isExist {
                 guard let url = URL(string: storeItemGroup.sectionObjects[index].image) else { return }
-                DispatchQueue.global().async {
-                    Parser.imageDownLoad(with: url, handler: { (isSuccess) in
-                        if isSuccess {
-                            NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["section": sectionIndex, "row": index, "fileName": fileName])
-                        }
-                    })
-                }
+                let indexPath = IndexPath(row: index, section: sectionIndex)
+                download(url: url, indexPath: indexPath)
             }
+        }
+    }
+    
+    private func download(url: URL, indexPath: IndexPath) {
+        DispatchQueue.global().async {
+            Parser.imageDownLoad(with: url, handler: { (isSuccess) in
+                if isSuccess {
+                    NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["indexPath": indexPath])
+                }
+            })
         }
     }
 
