@@ -44,9 +44,14 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        ToastCenter.default.cancelAll()
-        let item = store[indexPath.section].sectionObjects[indexPath.row]
-        Toast(text: "\(item.title) \(item.sPrice)").show()
+//        ToastCenter.default.cancelAll()
+//        let item = store[indexPath.section].sectionObjects[indexPath.row]
+//        Toast(text: "\(item.title) \(item.sPrice)").show()
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
+        // 여기에 해쉬값 가져오기
+        let hash = store.detailHash(with: indexPath)
+        detailVC.configure(with: hash)
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
