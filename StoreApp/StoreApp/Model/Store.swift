@@ -71,6 +71,11 @@ class Store {
             })
         }
     }
+    
+    // MARK: for Detail
+    func detailHash(with indexPath: IndexPath) -> String {
+        return storeItemGroup[indexPath.section].sectionObjects[indexPath.row].detailHash
+    }
 
     subscript(index: Int) -> StoreItemGroup {
         return storeItemGroup[index]

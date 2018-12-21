@@ -9,8 +9,18 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    private var storeDetail = StoreDetail()
+    @IBOutlet var detailView: DetailView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func configure(with hash: String) {
+        storeDetail.parseURL(with: hash) { (detailItem) in
+            DispatchQueue.main.async {
+                self.detailView.configure(with: detailItem)
+            }
+        }
     }
 }
