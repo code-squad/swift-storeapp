@@ -64,10 +64,8 @@ class Store {
     
     private func download(url: URL, indexPath: IndexPath) {
         DispatchQueue.global().async {
-            Parser.imageDownLoad(with: url, handler: { (isSuccess) in
-                if isSuccess {
-                    NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["indexPath": indexPath])
-                }
+            Parser.imageDownLoad(with: url, handler: { (_) in
+                NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["indexPath": indexPath])
             })
         }
     }
