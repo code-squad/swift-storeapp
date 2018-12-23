@@ -290,6 +290,9 @@
                                 <state key="normal" title="주문하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickOrder:" destination="Lgf-W8-cCL" eventType="touchUpInside" id="a4A-Vf-ukK"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLm-Lj-NbR">
                                 <rect key="frame" x="0.0" y="320" width="375" height="317"/>

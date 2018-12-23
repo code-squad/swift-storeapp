@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailView.delegate = self
     }
     
     func configure(with hash: String) {
@@ -22,5 +23,11 @@ class DetailViewController: UIViewController {
                 self.detailView.configure(with: detailItem)
             }
         }
+    }
+}
+
+extension DetailViewController: Orderable {
+    func orderToSlack(with orderSheet: OrderSheet) {
+        // post Slack
     }
 }

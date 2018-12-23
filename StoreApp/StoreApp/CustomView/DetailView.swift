@@ -25,6 +25,9 @@ class DetailView: UIView {
     @IBOutlet weak var deliveryInfoLabel: UILabel!
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     
+    weak var delegate: Orderable?
+    private let customer = "오잉봉"
+    
     func configure(with item: DetailItem) {
         // MARK: Scroll View
         configureScrollView(with: item)
@@ -68,5 +71,10 @@ class DetailView: UIView {
                 handler(fileName)
             })
         }
+    }
+    
+    @IBAction func clickOrder(_ sender: Any) {
+        let orderSheet = OrderSheet(customer: customer, price: priceLabel.text, menu: titleLabel.text)
+        delegate?.orderToSlack(with: orderSheet)
     }
 }
