@@ -42,7 +42,7 @@ struct Parser {
         }
     }
     
-    static func imageDownLoad(with url: URL, handler: @escaping (Bool) -> Void) {
+    static func imageDownLoad(with url: URL, handler: @escaping (String) -> Void) {
         let task = URLSession.shared.downloadTask(with: url) { (location, _, error) in
             let destinaionURL = LocalFileManager.filePath(fileName: url.lastPathComponent)
             try? FileManager.default.removeItem(at: destinaionURL)
@@ -51,9 +51,9 @@ struct Parser {
             } catch {
                 NotificationCenter.default.post(name: NotificationKey.error, object: nil)
             }
-            handler(true)
+            
+            handler(url.lastPathComponent)
         }
-        
         task.resume()
     }
 }
