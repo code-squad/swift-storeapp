@@ -67,7 +67,7 @@ class DetailView: UIView {
     
     private func download(with url: URL, handler: @escaping (String) -> Void) {
         DispatchQueue.global().async {
-            Parser.imageDownLoad(with: url, handler: { (fileName) in
+            NetworkManager.imageDownLoad(with: url, handler: { (fileName) in
                 handler(fileName)
             })
         }
