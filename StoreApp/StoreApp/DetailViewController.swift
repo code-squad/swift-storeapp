@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
 // MARK: post Slack
 extension DetailViewController: Orderable {
     func orderToSlack(with orderSheet: OrderSheet) {
-        Parser.slackUrl(with: orderSheet) { (_) in
+        NetworkManager.slackUrl(with: orderSheet) { (_) in
             // 디테일 뷰 닫고 이전화면 돌아가기
         }
     }

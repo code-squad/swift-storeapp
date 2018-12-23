@@ -9,6 +9,18 @@
 import Foundation
 
 struct LocalFileManager {
+    static let jsonType = "json"
+    
+    static func json(fileName: String) -> Data? {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: jsonType) else { return nil }
+        do {
+            let jsonData = try Data(contentsOf: URL(fileURLWithPath: path))
+            return jsonData
+        } catch {
+            return nil
+        }
+    }
+    
     static func filePath(fileName: String) -> URL {
         let filePath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
         let destinaionURL = filePath[0].appendingPathComponent(fileName)

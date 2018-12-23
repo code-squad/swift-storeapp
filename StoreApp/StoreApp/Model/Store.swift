@@ -29,7 +29,7 @@ class Store {
     
     // MARK: for file
     private func parse(topic: String) -> [StoreItem]? {
-        guard let jsonData = Parser.json(fileName: topic), let items: [StoreItem] = Parser.decode(from: jsonData) else {
+        guard let jsonData = LocalFileManager.json(fileName: topic), let items: [StoreItem] = Parser.decode(from: jsonData) else {
             NotificationCenter.default.post(name: NotificationKey.error, object: nil)
             return nil
         }
@@ -38,7 +38,7 @@ class Store {
     
     // MARK: for url
     private func parseUrl(topic: Topic, handler: @escaping (StoreItemGroup) -> Void ) {
-        Parser.jsonUrl(fileName: topic.englihsName) { (storeItems) in
+        NetworkManager.jsonUrl(fileName: topic.englihsName) { (storeItems) in
             guard let items = storeItems, let storeItems: [StoreItem] = Parser.decode(from: items) else {
                 NotificationCenter.default.post(name: NotificationKey.error, object: nil)
                 return
@@ -64,7 +64,7 @@ class Store {
     
     private func download(url: URL, indexPath: IndexPath) {
         DispatchQueue.global().async {
-            Parser.imageDownLoad(with: url, handler: { (_) in
+            NetworkManager.imageDownLoad(with: url, handler: { (_) in
                 NotificationCenter.default.post(name: NotificationKey.updateItemCell, object: nil, userInfo: ["indexPath": indexPath])
             })
         }

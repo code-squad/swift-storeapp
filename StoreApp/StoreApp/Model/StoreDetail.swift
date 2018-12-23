@@ -12,7 +12,7 @@ class StoreDetail {
     private var hashData: DetailHashData?
     
     func parseURL(with hash: String, handler: @escaping (DetailItem) -> Void) {
-        Parser.jsonUrl(fileName: "Detail/" + hash) { (jsonData) in
+        NetworkManager.jsonUrl(fileName: "Detail/" + hash) { (jsonData) in
             guard let data = jsonData, let item: DetailHashData = Parser.decode(from: data) else { return }
             self.hashData = item
             handler(item.data)
