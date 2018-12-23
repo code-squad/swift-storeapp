@@ -17,10 +17,10 @@ class DetailViewController: UIViewController {
         detailView.delegate = self
     }
     
-    func configure(with hash: String) {
+    func configure(with hash: String, title: String) {
         storeDetail.parseURL(with: hash) { (detailItem) in
             DispatchQueue.main.async {
-                self.detailView.configure(with: detailItem)
+                self.detailView.configure(with: detailItem, title: title)
             }
         }
     }

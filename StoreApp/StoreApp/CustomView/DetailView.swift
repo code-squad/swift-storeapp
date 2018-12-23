@@ -28,9 +28,23 @@ class DetailView: UIView {
     weak var delegate: Orderable?
     private let customer = "오잉봉"
     
-    func configure(with item: DetailItem) {
+    func configure(with item: DetailItem, title: String) {
         // MARK: Scroll View
         configureScrollView(with: item)
+        
+        // MARK: Info
+        configureInfo(with: item, title: title)
+    }
+    
+    private func configureInfo(with item: DetailItem, title: String) {
+        titleLabel.text = title
+        descriptionLabel.text = item.productDescription
+        if let price = item.prices.first {
+            priceLabel.text = price
+        }
+        pointLabel.text = item.point
+        deliveryInfoLabel.text = item.deliveryInfo
+        deliveryFeeLabel.text = item.deliveryFee
     }
     
     private func configureScrollView(with item: DetailItem) {
@@ -72,6 +86,8 @@ class DetailView: UIView {
             })
         }
     }
+    
+    
     
     @IBAction func clickOrder(_ sender: Any) {
         let orderSheet = OrderSheet(customer: customer, price: priceLabel.text, menu: titleLabel.text)
