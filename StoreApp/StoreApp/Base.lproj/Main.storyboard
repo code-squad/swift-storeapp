@@ -201,7 +201,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="629"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="eGw-ro-hDw">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdX-Y7-hRg">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -335,16 +335,6 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZrM-Kn-VlS">
                                                 <rect key="frame" x="0.0" y="300" width="375" height="317"/>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdv-tI-dsD">
-                                                <rect key="frame" x="0.0" y="617" width="375" height="30"/>
-                                                <color key="backgroundColor" red="0.40686747218233144" green="0.88777121113989632" blue="0.84721248521773329" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <state key="normal" title="주문하기">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="clickOrder:" destination="Lgf-W8-cCL" eventType="touchUpInside" id="a4A-Vf-ukK"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -356,13 +346,29 @@
                                     <constraint firstItem="eGw-ro-hDw" firstAttribute="width" secondItem="QLg-C7-Nc2" secondAttribute="width" id="l2l-8D-sbX"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pdv-tI-dsD">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.40686747218233144" green="0.88777121113989632" blue="0.84721248521773329" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4lu-bY-IX9"/>
+                                </constraints>
+                                <state key="normal" title="주문하기">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickOrder:" destination="Lgf-W8-cCL" eventType="touchUpInside" id="a4A-Vf-ukK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Jcm-jW-5kn" firstAttribute="bottom" secondItem="QLg-C7-Nc2" secondAttribute="bottom" constant="18" id="7sE-cT-53R"/>
                             <constraint firstItem="QLg-C7-Nc2" firstAttribute="leading" secondItem="Jcm-jW-5kn" secondAttribute="leading" id="FXA-Py-wTm"/>
                             <constraint firstItem="Jcm-jW-5kn" firstAttribute="trailing" secondItem="QLg-C7-Nc2" secondAttribute="trailing" id="Fuo-jb-5kR"/>
+                            <constraint firstItem="Jcm-jW-5kn" firstAttribute="bottom" secondItem="Pdv-tI-dsD" secondAttribute="bottom" id="dae-LQ-dHP"/>
                             <constraint firstItem="QLg-C7-Nc2" firstAttribute="top" secondItem="Jcm-jW-5kn" secondAttribute="top" id="dcx-Oz-rb3"/>
+                            <constraint firstItem="Pdv-tI-dsD" firstAttribute="trailing" secondItem="Jcm-jW-5kn" secondAttribute="trailing" id="nb7-xr-u8T"/>
+                            <constraint firstItem="Pdv-tI-dsD" firstAttribute="leading" secondItem="Jcm-jW-5kn" secondAttribute="leading" id="u48-1B-fLQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jcm-jW-5kn"/>
                         <connections>
