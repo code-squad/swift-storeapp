@@ -37,25 +37,34 @@ struct NetworkManager {
         task.resume()
     }
     
-    static func slackUrl(with orderSheet: OrderSheet, handler: @escaping (Bool?) -> Void) {
+    static func slackUrl(with orderSheet: OrderSheet, handler: @escaping (Bool) -> Void) {
         guard let customer = orderSheet.customer else { return }
         guard let price = orderSheet.price else { return }
         guard let menu = orderSheet.menu else { return }
         let message = "🤡 \(customer)님이 \(price)짜리 \(menu)를 주문하였습니다 🤡"
         let body = ["text": message]
-        post(with: slackUrl, body: body) { (_) in
-            handler(true)
+        post(with: slackUrl, body: body) { (isSuccess) in
+            handler(isSuccess)
         }
     }
     
-    static private func post(with destinationUrl: String, body: Dictionary<String, String>, handler: @escaping (Bool?) -> Void) {
-        guard let url = URL(string: destinationUrl) else { return }
+    static private func post(with destinationUrl: String, body: Dictionary<String, String>, handler: @escaping (Bool) -> Void) {
+        guard let url = URL(string: destinationUrl) else {
+            handler(false)
+            return
+        }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        guard let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted) else { return }
+        guard let jsonBody = try? JSONSerialization.data(withJSONObject: body, options: .prettyPrinted) else {
+            handler(false)
+            return
+        }
         request.httpBody = jsonBody
         let task = URLSession.shared.dataTask(with: request) { (_, _, error) in
-            if error != nil { return }
+            if error != nil {
+                handler(false)
+                return
+            }
             handler(true)
         }
         task.resume()
