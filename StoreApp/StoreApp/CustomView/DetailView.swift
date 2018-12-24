@@ -135,3 +135,4 @@ class DetailView: UIView {
 
 // MARK: Reference
 // StackView in ScrollView - https://medium.com/@jongwonwoo/uiscrollview-%EC%95%88%EC%97%90%EC%84%9C-uistackview-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-738a77355a8
+// StackView Scroll - https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll

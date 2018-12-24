@@ -89,3 +89,47 @@
 
 ### 첨부파일
 ![Step6](CaptureImage/Step6Demo.gif)
+
+# Step7
+> 상품 상세화면 전환
+
+### 작업
+1. 상세화면 모델과 컨트톨러, 뷰 생성
+2. 상단 페이지 스크롤 이미지와 하단 상세화면 이미지들을 비동기로 가져오도록 처리
+3. 주문하기 관련 작업
+    - 델리게이트 프로토콜 (Orderable) 추가
+    - 주문하는 작업(슬랙 연동) 추가
+4. 네트워크 매니저 객체 분리
+5. 상세화면 구조를 아래와 같이 구성
+```
+View
+    ScrollView
+        StackView 
+            ScrollView  -> Thumbnail Image (Page Scroll)
+            View        -> Info (Price, title etc)
+            StackView   -> Detail Section (Image)
+            
+추가 적용
+1. ScrollView 아래 StackView에 옵션 적용 - Distribution Option : Equal Spacing
+2. 마지막 StackView 에 ImageView 추가할 때 줄어든 이미지의 넓이만큼 높이도 같은 비율로 줄이는 코드 추가
+```
+
+### 시간 걸렸던 작업
+> 화면 구성 관련한 작업이 오래 걸렸습니다. 아래 구조들은 요구사항 적용에 실패 혹은 잘 하지 못했던 사례입니다.
+```
+1. 첫번째 방법 : 화면 전체가 스크롤되지 않고 각 스크롤뷰 안에서만 스크롤이 되었습니다.
+View
+    ScrollView
+    View
+    ScrollView
+
+2. 두번째 방법 : StackView 이미지들의 사이즈가 원하는 방법대로 화면에 적용되지 않았습니다.
+ScrollView
+    ScrollView
+    View
+    StackView 
+```
+
+### 참고
+ - [UIScrollView 안에서 UIStackView 사용하기 – Jongwon Woo – Medium](https://medium.com/@jongwonwoo/uiscrollview-%EC%95%88%EC%97%90%EC%84%9C-uistackview-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-738a77355a8)
+ - [ios - Is it possible for UIStackView to scroll? - Stack Overflow](https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll)
