@@ -135,6 +135,9 @@ ScrollView
     StackView 
 ```
 
+### 애매한 내용
+1. 주문버튼 클릭시 성공 / 실패 여부에 따라 popViewController 를 하려고 했으나 비동기 처리 때문인지 클로저 밖에서 popViewController가 적용되었습니다. 
+
 ### 참고
  - [UIScrollView 안에서 UIStackView 사용하기 – Jongwon Woo – Medium](https://medium.com/@jongwonwoo/uiscrollview-%EC%95%88%EC%97%90%EC%84%9C-uistackview-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-738a77355a8)
  - [ios - Is it possible for UIStackView to scroll? - Stack Overflow](https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll)
