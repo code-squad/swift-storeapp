@@ -141,3 +141,6 @@ ScrollView
 ### 참고
  - [UIScrollView 안에서 UIStackView 사용하기 – Jongwon Woo – Medium](https://medium.com/@jongwonwoo/uiscrollview-%EC%95%88%EC%97%90%EC%84%9C-uistackview-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-738a77355a8)
  - [ios - Is it possible for UIStackView to scroll? - Stack Overflow](https://stackoverflow.com/questions/31668970/is-it-possible-for-uistackview-to-scroll)
+
+### 첨부파일
+![Step7](CaptureImage/Step7Demo.gif)
