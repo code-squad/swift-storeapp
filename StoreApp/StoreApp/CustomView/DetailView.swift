@@ -9,7 +9,7 @@
 import UIKit
 
 class DetailView: UIView {
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var thumbnailView: ThumbnailView!
     @IBOutlet weak var descriptionView: DescriptionView!
     @IBOutlet weak var detailSection: UIStackView!
     @IBOutlet weak var orderButton: UIButton!
@@ -20,7 +20,7 @@ class DetailView: UIView {
     
     func configure(with item: DetailItem, title: String) {
         // MARK: Scroll View
-        configureScrollView(with: item)
+        thumbnailView.configure(with: item)
         
         // MARK: Info
         descriptionView.configure(with: item, title: title)
@@ -34,39 +34,6 @@ class DetailView: UIView {
             NetworkManager.imageDownLoad(with: url, handler: { (fileName) in
                 handler(fileName)
             })
-        }
-    }
-    
-    // MARK: Scroll View
-    private func configureScrollView(with item: DetailItem) {
-        let itemCount = item.thumbImages.count
-        scrollView.contentSize = CGSize(width: self.frame.width * CGFloat(itemCount), height: scrollView.frame.height)
-        for index in 0..<itemCount {
-            guard let fileName = item.thumbImages[index].components(separatedBy: "/").last else { continue }
-            let isExist = LocalFileManager.fileExists(fileName: fileName)
-            if isExist {
-                addThumbImage(with: fileName)
-            } else {
-                downloadThumbImage(with: item.thumbImages[index])
-            }
-        }
-    }
-    
-    private func addThumbImage(with fileName: String) {
-        guard let data = LocalFileManager.imageData(with: fileName) else { return }
-        let imageView = UIImageView(image: UIImage(data: data))
-        imageView.contentMode = .scaleAspectFill
-        let xValue = scrollView.frame.width * CGFloat(scrollView.subviews.count - basicPropertyScrollView)
-        imageView.frame = CGRect(x: xValue, y: 0, width: scrollView.frame.width, height: scrollView.frame.height)
-        scrollView.addSubview(imageView)
-    }
-    
-    private func downloadThumbImage(with imageURL: String) {
-        guard let url = URL(string: imageURL) else { return }
-        download(with: url) { (fileName) in
-            DispatchQueue.main.async {
-                self.addThumbImage(with: fileName)
-            }
         }
     }
     

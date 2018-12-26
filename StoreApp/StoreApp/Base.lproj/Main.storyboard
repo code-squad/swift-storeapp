@@ -203,7 +203,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="eGw-ro-hDw">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdX-Y7-hRg">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdX-Y7-hRg" customClass="ThumbnailView" customModule="StoreApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="9mN-hG-HAs"/>
@@ -387,7 +387,7 @@
                             <outlet property="descriptionView" destination="i7K-0e-HYC" id="r1A-Ci-0BC"/>
                             <outlet property="detailSection" destination="ZrM-Kn-VlS" id="UIK-nO-7lz"/>
                             <outlet property="orderButton" destination="Pdv-tI-dsD" id="ssC-CM-JEh"/>
-                            <outlet property="scrollView" destination="KdX-Y7-hRg" id="jHN-6J-2j9"/>
+                            <outlet property="thumbnailView" destination="KdX-Y7-hRg" id="ZLv-bx-OMF"/>
                         </connections>
                     </view>
                     <connections>
