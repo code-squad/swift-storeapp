@@ -344,7 +344,7 @@
                                                     <outlet property="titleLabel" destination="LlU-xM-bPR" id="MTv-Vd-Cj2"/>
                                                 </connections>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZrM-Kn-VlS">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZrM-Kn-VlS" customClass="DetailSectionView" customModule="StoreApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="300" width="375" height="317"/>
                                             </stackView>
                                         </subviews>
@@ -385,7 +385,7 @@
                         <viewLayoutGuide key="safeArea" id="Jcm-jW-5kn"/>
                         <connections>
                             <outlet property="descriptionView" destination="i7K-0e-HYC" id="r1A-Ci-0BC"/>
-                            <outlet property="detailSection" destination="ZrM-Kn-VlS" id="UIK-nO-7lz"/>
+                            <outlet property="detailSectionView" destination="ZrM-Kn-VlS" id="Loy-qM-a5K"/>
                             <outlet property="orderButton" destination="Pdv-tI-dsD" id="ssC-CM-JEh"/>
                             <outlet property="thumbnailView" destination="KdX-Y7-hRg" id="ZLv-bx-OMF"/>
                         </connections>
