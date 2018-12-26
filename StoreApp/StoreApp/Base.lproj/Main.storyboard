@@ -209,7 +209,7 @@
                                                     <constraint firstAttribute="height" constant="150" id="9mN-hG-HAs"/>
                                                 </constraints>
                                             </scrollView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7K-0e-HYC">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7K-0e-HYC" customClass="DescriptionView" customModule="StoreApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="150" width="375" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlU-xM-bPR">
@@ -331,6 +331,18 @@
                                                     <constraint firstItem="M5o-iy-TTK" firstAttribute="leading" secondItem="i7K-0e-HYC" secondAttribute="leading" constant="8" id="zFH-oB-N6Y"/>
                                                     <constraint firstItem="whi-Se-AAV" firstAttribute="top" secondItem="iVc-V3-k3o" secondAttribute="bottom" constant="6" id="zhO-AG-ZpZ"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="deliberyFeeTitleLabel" destination="Jha-0e-E0n" id="jxk-pV-odO"/>
+                                                    <outlet property="deliveryFeeLabel" destination="lwv-aE-N1S" id="iUZ-Is-2aE"/>
+                                                    <outlet property="deliveryInfoLabel" destination="JmL-wa-IoR" id="yAp-um-u5g"/>
+                                                    <outlet property="deliveryInfoTitleLabel" destination="KD9-75-8de" id="2nE-aH-g0O"/>
+                                                    <outlet property="descriptionLabel" destination="iVc-V3-k3o" id="3IR-DB-gwu"/>
+                                                    <outlet property="pointLabel" destination="MEZ-PM-8X3" id="DP3-PW-VgH"/>
+                                                    <outlet property="pointTitleLabel" destination="M5o-iy-TTK" id="PM9-bJ-bYj"/>
+                                                    <outlet property="priceLabel" destination="ffo-6T-UiW" id="vSX-4q-QRj"/>
+                                                    <outlet property="priceTitleLabel" destination="J2f-Hl-fQu" id="TMh-qp-cNx"/>
+                                                    <outlet property="titleLabel" destination="LlU-xM-bPR" id="MTv-Vd-Cj2"/>
+                                                </connections>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZrM-Kn-VlS">
                                                 <rect key="frame" x="0.0" y="300" width="375" height="317"/>
@@ -372,20 +384,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jcm-jW-5kn"/>
                         <connections>
-                            <outlet property="deliberyFeeTitleLabel" destination="Jha-0e-E0n" id="EdI-p8-LHd"/>
-                            <outlet property="deliveryFeeLabel" destination="lwv-aE-N1S" id="dHY-Lu-f43"/>
-                            <outlet property="deliveryInfoLabel" destination="JmL-wa-IoR" id="xTD-bL-mic"/>
-                            <outlet property="deliveryInfoTitleLabel" destination="KD9-75-8de" id="vB0-fD-IVR"/>
-                            <outlet property="descriptionLabel" destination="iVc-V3-k3o" id="vlD-Gh-UXk"/>
-                            <outlet property="descriptionView" destination="i7K-0e-HYC" id="l6V-pk-YGC"/>
+                            <outlet property="descriptionView" destination="i7K-0e-HYC" id="r1A-Ci-0BC"/>
                             <outlet property="detailSection" destination="ZrM-Kn-VlS" id="UIK-nO-7lz"/>
                             <outlet property="orderButton" destination="Pdv-tI-dsD" id="ssC-CM-JEh"/>
-                            <outlet property="pointLabel" destination="MEZ-PM-8X3" id="9Fu-sU-zwH"/>
-                            <outlet property="pointTitleLabel" destination="M5o-iy-TTK" id="n0a-jc-khC"/>
-                            <outlet property="priceLabel" destination="ffo-6T-UiW" id="G5K-Mx-0PR"/>
-                            <outlet property="priceTitleLabel" destination="J2f-Hl-fQu" id="xNr-fG-lpS"/>
                             <outlet property="scrollView" destination="KdX-Y7-hRg" id="jHN-6J-2j9"/>
-                            <outlet property="titleLabel" destination="LlU-xM-bPR" id="Xq3-DF-ySk"/>
                         </connections>
                     </view>
                     <connections>

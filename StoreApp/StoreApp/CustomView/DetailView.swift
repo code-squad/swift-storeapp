@@ -10,20 +10,9 @@ import UIKit
 
 class DetailView: UIView {
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var descriptionView: DescriptionView!
     @IBOutlet weak var detailSection: UIStackView!
     @IBOutlet weak var orderButton: UIButton!
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var priceTitleLabel: UILabel!
-    @IBOutlet weak var pointTitleLabel: UILabel!
-    @IBOutlet weak var deliveryInfoTitleLabel: UILabel!
-    @IBOutlet weak var deliberyFeeTitleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var pointLabel: UILabel!
-    @IBOutlet weak var deliveryInfoLabel: UILabel!
-    @IBOutlet weak var deliveryFeeLabel: UILabel!
     
     weak var delegate: Orderable?
     private let customer = "오잉봉"
@@ -34,7 +23,7 @@ class DetailView: UIView {
         configureScrollView(with: item)
         
         // MARK: Info
-        configureInfo(with: item, title: title)
+        descriptionView.configure(with: item, title: title)
         
         // MARK: Detail Section
         configureDetailSection(with: item)
@@ -81,18 +70,6 @@ class DetailView: UIView {
         }
     }
     
-    // MARK: Info
-    private func configureInfo(with item: DetailItem, title: String) {
-        titleLabel.text = title
-        descriptionLabel.text = item.productDescription
-        if let price = item.prices.first {
-            priceLabel.text = price
-        }
-        pointLabel.text = item.point
-        deliveryInfoLabel.text = item.deliveryInfo
-        deliveryFeeLabel.text = item.deliveryFee
-    }
-    
     // MARK: Detail Section
     private func configureDetailSection(with item: DetailItem) {
         let itemCount = item.detailSection.count
@@ -128,7 +105,8 @@ class DetailView: UIView {
     
     // MARK: Click Button
     @IBAction func clickOrder(_ sender: Any) {
-        let orderSheet = OrderSheet(customer: customer, price: priceLabel.text, menu: titleLabel.text)
+        guard let (title, price) = descriptionView.itemInfo() as? (String, String) else { return }
+        let orderSheet = OrderSheet(customer: customer, price: price, menu: title)
         delegate?.orderToSlack(with: orderSheet)
     }
 }
