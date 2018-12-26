@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThumbnailView: UIScrollView {
+class ThumbnailView: UIScrollView, ImageGroup {
     private let basicPropertyScrollView = 2
     
     func configure(with item: DetailItem) {
@@ -18,14 +18,14 @@ class ThumbnailView: UIScrollView {
             guard let fileName = item.thumbImages[index].components(separatedBy: "/").last else { continue }
             let isExist = LocalFileManager.fileExists(fileName: fileName)
             if isExist {
-                addThumbImage(with: fileName)
+                addImages(with: fileName)
             } else {
-                downloadThumbImage(with: item.thumbImages[index])
+                downloadImages(with: item.thumbImages[index])
             }
         }
     }
     
-    func addThumbImage(with fileName: String) {
+    func addImages(with fileName: String) {
         guard let data = LocalFileManager.imageData(with: fileName) else { return }
         let imageView = UIImageView(image: UIImage(data: data))
         imageView.contentMode = .scaleAspectFill
@@ -34,20 +34,12 @@ class ThumbnailView: UIScrollView {
         self.addSubview(imageView)
     }
     
-    func downloadThumbImage(with imageURL: String) {
+    func downloadImages(with imageURL: String) {
         guard let url = URL(string: imageURL) else { return }
-        download(with: url) { (fileName) in
+        NetworkManager.imageDownLoad(with: url, handler: { (fileName) in
             DispatchQueue.main.async {
-                self.addThumbImage(with: fileName)
+                self.addImages(with: fileName)
             }
-        }
-    }
-    
-    private func download(with url: URL, handler: @escaping (String) -> Void) {
-        DispatchQueue.global().async {
-            NetworkManager.imageDownLoad(with: url, handler: { (fileName) in
-                handler(fileName)
-            })
-        }
+        })
     }
 }
