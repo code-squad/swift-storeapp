@@ -15,6 +15,12 @@ class ViewController: UIViewController {
     private let alertButtonTitle = "어쩔 수 없죠.."
     private let storeItemCell = "StoreItemCell"
     private let storeHeaderCell = "StoreHeaderCell"
+    
+    private let titleSuccess = "주문성공"
+    private let titleFail = "주문실패"
+    private let messageSuccess = "😍 배송이 시작되면 또 안내드릴게요! 😍"
+    private let messageFail = "😱 주문에 실패하였습니다. 다시 주문해주세요! 😱"
+    private let buttonTitle = "확인"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,13 +50,11 @@ extension ViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        ToastCenter.default.cancelAll()
-//        let item = store[indexPath.section].sectionObjects[indexPath.row]
-//        Toast(text: "\(item.title) \(item.sPrice)").show()
         guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else { return }
         let hash = store.detailHash(with: indexPath)
         let title = store.title(with: indexPath)
         detailVC.configure(with: hash, title: title)
+        detailVC.delegate = self
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
@@ -105,5 +109,22 @@ extension ViewController {
         DispatchQueue.main.async {
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
+    }
+}
+
+extension ViewController: OrderToast {
+    func show(with orderSheet: OrderSheet, status: Bool) {
+        guard let customer = orderSheet.customer else { return }
+        guard let price = orderSheet.price else { return }
+        guard let menu = orderSheet.menu else { return }
+        ToastCenter.default.cancelAll()
+        let title = status ? titleSuccess : titleFail
+        let message = status ? messageSuccess : messageFail
+        let menuInfo = status ? "\(message)\n\(menu)\n\(price)" : ""
+        let toastText = """
+        \(customer)님 \(title)
+        \(menuInfo)
+        """
+        Toast(text: toastText).show()
     }
 }
