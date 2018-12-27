@@ -25,7 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureObservers()
-        store.appendItem()
+        guard let isReachable = ReachabilityManager.shared.initialNetworkStatus() else { return }
+        store.appendItem(with: isReachable)
         tableView.dataSource = self
         tableView.delegate = self
     }

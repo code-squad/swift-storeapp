@@ -15,20 +15,26 @@ class ReachabilityManager {
     
     func startNetworkReachabilityObserver() {
         alamofireReachabilityManager?.listener = { status in
-            var networkStatus = NetworkStatus.unknown
-            switch status {
-            case .notReachable:
-                networkStatus = NetworkStatus.notReachable
-            case .unknown:
-                networkStatus = NetworkStatus.unknown
-            case .reachable(.ethernetOrWiFi):
-                networkStatus = NetworkStatus.ethernetOrWiFi
-            case .reachable(.wwan):
-                networkStatus = NetworkStatus.wwan
-            }
+            let networkStatus = self.network(with: status)
             NotificationCenter.default.post(name: NotificationKey.networkStatus, object: nil, userInfo: ["status": networkStatus])
         }
-        
         alamofireReachabilityManager?.startListening()
+    }
+    
+    private func network(with status: NetworkReachabilityManager.NetworkReachabilityStatus ) -> NetworkStatus {
+        switch status {
+        case .notReachable:
+            return NetworkStatus.notReachable
+        case .unknown:
+            return NetworkStatus.unknown
+        case .reachable(.ethernetOrWiFi):
+            return NetworkStatus.ethernetOrWiFi
+        case .reachable(.wwan):
+            return NetworkStatus.wwan
+        }
+    }
+    
+    func initialNetworkStatus() -> Bool? {
+        return alamofireReachabilityManager?.isReachable
     }
 }
