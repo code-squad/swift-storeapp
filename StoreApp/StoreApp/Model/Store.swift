@@ -19,7 +19,11 @@ class Store {
         return storeItemGroup.count
     }
     
-    func appendItem() {
+    func appendItem(with isReachable: Bool) {
+        isReachable ? connectedInternet() : unConnectedInternet()
+    }
+    
+    private func connectedInternet() {
         for item in Topic.allCases {
             parseUrl(topic: item) { (storeItemGroup) in
                 self.imageUrl(at: item.rawValue, with: storeItemGroup)
@@ -27,13 +31,20 @@ class Store {
         }
     }
     
-    // MARK: for file
-    private func parse(topic: String) -> [StoreItem]? {
-        guard let jsonData = LocalFileManager.json(fileName: topic), let items: [StoreItem] = Parser.decode(from: jsonData) else {
-            NotificationCenter.default.post(name: NotificationKey.error, object: nil)
-            return nil
+    private func unConnectedInternet() {
+        for item in Topic.allCases {
+            parse(topic: item)
         }
-        return items
+    }
+    
+    // MARK: for file
+    private func parse(topic: Topic) {
+        guard let jsonData = LocalFileManager.json(fileName: topic.englihsName), let storeItems: [StoreItem] = Parser.decode(from: jsonData) else {
+            NotificationCenter.default.post(name: NotificationKey.error, object: nil)
+            return
+        }
+        let storeItemGroup = StoreItemGroup(sectionName: topic.englihsName, sectionObjects: storeItems)
+        self.storeItemGroup.append(storeItemGroup)
     }
     
     // MARK: for url
