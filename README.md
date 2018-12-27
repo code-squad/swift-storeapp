@@ -144,3 +144,19 @@ ScrollView
 
 ### 첨부파일
 ![Step7](CaptureImage/Step7Demo.gif)
+
+# Step8
+> 연결성 확인 Reachability
+
+### 작업
+1.  Alamofire 라이브러리 추가
+2. ReachabilityManager 으로 인터넷 연결 확인
+3. 데이터 추가 로직 변경
+    Before - Download json and Image
+    After - Connected Internet : Download json and Image & UnConnected Internet : Read json file
+
+### 헤맸던 부분
+- NetworkReachabilityManager.listener 함수는 처음부터 인터넷 연결이 안된 경우에는 status를 리턴 받지 못해 상태를 알 수가 없습니다. 단, 인터넷 연결(WIFI or WWAN)이 된 상태에서 인터넷 연결이 안되는 경우로 변경된다면 상관없습니다.
+
+### 첨부파일
+![Step8](CaptureImage/Step8Demo.gif)
