@@ -12,5 +12,4 @@ struct NotificationKey {
     static let updateItem = Notification.Name("updateItem")
     static let error = Notification.Name("error")
     static let updateItemCell = Notification.Name("updateItemCell")
-    static let networkStatus = Notification.Name("networkStatus")
 }
