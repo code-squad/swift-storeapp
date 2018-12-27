@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     private let titleFail = "주문실패"
     private let messageSuccess = "😍 배송이 시작되면 또 안내드릴게요! 😍"
     private let messageFail = "😱 주문에 실패하였습니다. 다시 주문해주세요! 😱"
-    private let buttonTitle = "확인"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +28,6 @@ class ViewController: UIViewController {
         store.appendItem()
         tableView.dataSource = self
         tableView.delegate = self
-        updateBorderColor()
-    }
-    
-    func updateBorderColor() {
-        self.view.layer.borderWidth = 3
-        self.view.layer.borderColor = UIColor.red.cgColor
     }
 }
 
