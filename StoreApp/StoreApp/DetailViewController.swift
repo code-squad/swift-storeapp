@@ -16,7 +16,6 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureObservers()
-        netwo
         detailView.delegate = self
     }
     
