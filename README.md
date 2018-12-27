@@ -158,5 +158,9 @@ ScrollView
 ### 헤맸던 부분
 - NetworkReachabilityManager.listener 함수는 처음부터 인터넷 연결이 안된 경우에는 status를 리턴 받지 못해 상태를 알 수가 없습니다. 단, 인터넷 연결(WIFI or WWAN)이 된 상태에서 인터넷 연결이 안되는 경우로 변경된다면 상관없습니다.
 
+### 연결 확인 layer 적용 뷰
+ - 첨부파일에서 확인되듯이 View Debugger 를 이용해서 rootViewController 의 색상 변경 적용 레이어를 확인했을 때 NavigationViewController에 적용되는 것을 확인할 수 있었습니다.
+
 ### 첨부파일
-![Step8](CaptureImage/Step8Demo.gif)
+![Step8Demo](CaptureImage/Step8Demo.gif)
+![Step8](CaptureImage/Step8.png)
