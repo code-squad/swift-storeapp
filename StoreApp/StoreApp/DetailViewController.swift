@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ReachabilityManager.shared.startNetworkReachabilityObserver()
         configureObservers()
         detailView.delegate = self
     }
