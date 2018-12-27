@@ -13,6 +13,7 @@
 		4702170021C1F8C200D51039 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 470216FF21C1F8C200D51039 /* ToastView.swift */; };
 		4702170221C1F8C900D51039 /* ToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4702170121C1F8C900D51039 /* ToastWindow.swift */; };
 		4702170521C2429E00D51039 /* NotificationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4702170421C2429E00D51039 /* NotificationKey.swift */; };
+		4709403321D49F3C00554753 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4709403221D49F3C00554753 /* NetworkStatus.swift */; };
 		4711BB4221D491C4006344D9 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4711BB4121D491C4006344D9 /* ReachabilityManager.swift */; };
 		47175C8521CC830A0086BAF6 /* StoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47175C8421CC830A0086BAF6 /* StoreDetail.swift */; };
 		47175C8721CC87EA0086BAF6 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47175C8621CC87EA0086BAF6 /* DetailView.swift */; };
@@ -84,6 +85,7 @@
 		470216FF21C1F8C200D51039 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		4702170121C1F8C900D51039 /* ToastWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWindow.swift; sourceTree = "<group>"; };
 		4702170421C2429E00D51039 /* NotificationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationKey.swift; sourceTree = "<group>"; };
+		4709403221D49F3C00554753 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		4711BB4121D491C4006344D9 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = StoreApp/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		47175C8421CC830A0086BAF6 /* StoreDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetail.swift; sourceTree = "<group>"; };
 		47175C8621CC87EA0086BAF6 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				47DE420121C8E8520060ED6E /* LocalFileManager.swift */,
 				47CFD2D821CFE66300C8C462 /* NetworkManager.swift */,
 				4711BB4121D491C4006344D9 /* ReachabilityManager.swift */,
+				4709403221D49F3C00554753 /* NetworkStatus.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				47B88B1121BF9F8D00963FBC /* TopicAttribute.swift in Sources */,
 				47B88AD721BB8ACA00963FBC /* BasicAttribute.swift in Sources */,
 				477CDE3621B9103E00C378E3 /* StoreItems.swift in Sources */,
+				4709403321D49F3C00554753 /* NetworkStatus.swift in Sources */,
 				477CDE0321B90D4700C378E3 /* AppDelegate.swift in Sources */,
 				47C3252021D32317006AA45A /* DetailSectionView.swift in Sources */,
 				47CFD2D521CFCC6E00C8C462 /* Orderable.swift in Sources */,
