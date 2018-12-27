@@ -14,6 +14,7 @@
 		4702170221C1F8C900D51039 /* ToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4702170121C1F8C900D51039 /* ToastWindow.swift */; };
 		4702170521C2429E00D51039 /* NotificationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4702170421C2429E00D51039 /* NotificationKey.swift */; };
 		4709403321D49F3C00554753 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4709403221D49F3C00554753 /* NetworkStatus.swift */; };
+		4709403521D4AD6700554753 /* defaultImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4709403421D4AD6600554753 /* defaultImage.jpg */; };
 		4711BB4221D491C4006344D9 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4711BB4121D491C4006344D9 /* ReachabilityManager.swift */; };
 		47175C8521CC830A0086BAF6 /* StoreDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47175C8421CC830A0086BAF6 /* StoreDetail.swift */; };
 		47175C8721CC87EA0086BAF6 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47175C8621CC87EA0086BAF6 /* DetailView.swift */; };
@@ -86,6 +87,7 @@
 		4702170121C1F8C900D51039 /* ToastWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWindow.swift; sourceTree = "<group>"; };
 		4702170421C2429E00D51039 /* NotificationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationKey.swift; sourceTree = "<group>"; };
 		4709403221D49F3C00554753 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
+		4709403421D4AD6600554753 /* defaultImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultImage.jpg; sourceTree = "<group>"; };
 		4711BB4121D491C4006344D9 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReachabilityManager.swift; path = StoreApp/ReachabilityManager.swift; sourceTree = SOURCE_ROOT; };
 		47175C8421CC830A0086BAF6 /* StoreDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetail.swift; sourceTree = "<group>"; };
 		47175C8621CC87EA0086BAF6 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				47B88ADD21BB8BBA00963FBC /* Model */,
 				47B88ADE21BB8BD600963FBC /* CustomView */,
 				47B88AE121BB8FA000963FBC /* Protocol */,
+				4709403421D4AD6600554753 /* defaultImage.jpg */,
 				477CDE0221B90D4700C378E3 /* AppDelegate.swift */,
 				477CDE0421B90D4700C378E3 /* ViewController.swift */,
 				477CDE0621B90D4700C378E3 /* Main.storyboard */,
@@ -463,6 +466,7 @@
 				477CDE0A21B90D4900C378E3 /* Assets.xcassets in Resources */,
 				477CDE3221B90F4400C378E3 /* main.json in Resources */,
 				47B88AFE21BF5BAD00963FBC /* side.json in Resources */,
+				4709403521D4AD6700554753 /* defaultImage.jpg in Resources */,
 				477CDE0821B90D4700C378E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
