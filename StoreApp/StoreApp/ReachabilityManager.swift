@@ -13,10 +13,12 @@ class ReachabilityManager {
     static let shared = ReachabilityManager()
     let alamofireReachabilityManager = NetworkReachabilityManager()
     
-    func startNetworkReachabilityObserver() {
+    func startNetworkReachabilityObserver(with vc: UIViewController?) {
         alamofireReachabilityManager?.listener = { status in
             let networkStatus = self.network(with: status)
-            NotificationCenter.default.post(name: NotificationKey.networkStatus, object: nil, userInfo: ["status": networkStatus])
+            guard let viewController = vc else { return }
+            viewController.view.layer.borderColor = networkStatus.color
+            viewController.view.layer.borderWidth = networkStatus.width
         }
         alamofireReachabilityManager?.startListening()
     }

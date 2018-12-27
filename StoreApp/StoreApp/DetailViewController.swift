@@ -15,8 +15,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ReachabilityManager.shared.startNetworkReachabilityObserver()
-        configureObservers()
         detailView.delegate = self
     }
     
@@ -36,18 +34,5 @@ extension DetailViewController: Orderable {
             self.delegate?.show(with: orderSheet, status: isSuccess)
         }
         self.navigationController?.popViewController(animated: true)
-    }
-}
-
-// MARK: Observers
-extension DetailViewController {
-    private func configureObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(networkStatus(_:)), name: NotificationKey.networkStatus, object: nil)
-    }
-    
-    @objc private func networkStatus(_ notification: Notification) {
-        guard let status = notification.userInfo?["status"] as? NetworkStatus else { return }
-        self.view.layer.borderColor = status.color
-        self.view.layer.borderWidth = status.width
     }
 }

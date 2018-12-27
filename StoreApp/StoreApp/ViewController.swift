@@ -90,7 +90,6 @@ extension ViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateItems), name: NotificationKey.updateItem, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(alert), name: NotificationKey.error, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateItemCell(_:)), name: NotificationKey.updateItemCell, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(networkStatus(_:)), name: NotificationKey.networkStatus, object: nil)
     }
     
     @objc private func updateItems() {
@@ -111,12 +110,6 @@ extension ViewController {
         DispatchQueue.main.async {
             self.tableView.reloadRows(at: [indexPath], with: .automatic)
         }
-    }
-    
-    @objc private func networkStatus(_ notification: Notification) {
-        guard let status = notification.userInfo?["status"] as? NetworkStatus else { return }
-        self.view.layer.borderColor = status.color
-        self.view.layer.borderWidth = status.width
     }
 }
 
