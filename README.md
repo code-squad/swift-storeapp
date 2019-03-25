@@ -9,9 +9,9 @@
 
 ![](http://public.codesquad.kr/jk/storeapp-step1-celldesign.png)
 
-- JSONDecoder를 활용해서 내부에 Array<StoreItem> 타입으로 변환하는 DataSource에서 사용할 모델 객체를 만든다.
-- subscript로 배열에 index로 접근하면 StoreItem 구조체를 반환한다.
-- StoreItem은 Decodable 프로토콜을 채택하고, main.json에 있는 키와 값을 매핑해서 속성으로 갖도록 구현한다.
+- JSON 파일을 받아서 JSONDecoder를 활용해서 내부에 Array<StoreItem> 타입으로 변환하는 DataSource에서 사용할 모델 객체를 만든다.
+	* subscript로 배열에 index로 접근하면 StoreItem 구조체를 반환한다.
+	* StoreItem은 Decodable 프로토콜을 채택하고, main.json에 있는 키와 값을 매핑해서 속성으로 갖도록 구현한다.
 - UITableViewDataSource 프로토콜 구현 부분에서 cell을 위에서 만든 DataSource 모델 객체에 접근해서 테이블뷰를 표시한다.
 
 
