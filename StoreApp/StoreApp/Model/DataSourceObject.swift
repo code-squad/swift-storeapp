@@ -18,10 +18,12 @@ class DataSourceObject : NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = MyCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: self.defaultCellIdentifier)
+        let cell = UITableViewCell()
         
-        cell.textLabel?.text = friends[indexPath.row].name
-        cell.detailTextLabel?.text = "나이 : \(friends[indexPath.row].age)  전화번호 : \(friends[indexPath.row].mobileNumber)"
+//        let cell = MyCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: self.defaultCellIdentifier)
+        
+//        cell.textLabel?.text = friends[indexPath.row].name
+//        cell.detailTextLabel?.text = "나이 : \(friends[indexPath.row].age)  전화번호 : \(friends[indexPath.row].mobileNumber)"
         
         return cell
     }
