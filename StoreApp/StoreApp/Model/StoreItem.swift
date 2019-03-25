@@ -8,19 +8,39 @@
 
 import Foundation
 
-class Food {
+class StoreItem : Codable{
     
-    let hash = ""
+    let detail_hash : String
     
-    let iamge = ""
+    let image : String
     
-    let alt = ""
+    let alt : String
     
-    let delivery_type = ""
+    let delivery_type : [String]
     
-    let title = ""
+    let title : String
     
-    let description = ""
+    let description : String
     
-    let s_price = ""
+    let s_price : String
+    
+    init?(json: [String: Any]) {
+        guard
+            let detail_hash = json["detail_hash"] as? String,
+            let image = json["image"] as? String,
+            let alt = json["alt"] as? String,
+            let delivery_type = json["delivery_type"] as? [String],
+            let title = json["title"] as? String,
+            let description = json["description"] as? String,
+            let s_price = json["s_price"] as? String
+        else { return nil }
+        
+        self.detail_hash = detail_hash
+        self.image = image
+        self.alt = alt
+        self.delivery_type = delivery_type
+        self.title = title
+        self.description = description
+        self.s_price = s_price
+    }
 }
