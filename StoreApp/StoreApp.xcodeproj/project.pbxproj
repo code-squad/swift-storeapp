@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688D82248E54D002B80A0 /* DataSourceObject.swift */; };
 		D55688DC2248E687002B80A0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* CustomCell.swift */; };
+		D55688DE2248E96C002B80A0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = D55688DD2248E96C002B80A0 /* main.json */; };
+		D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DF2248EA50002B80A0 /* StoreItem.swift */; };
 		D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575547D2248E29E0000A3D1 /* AppDelegate.swift */; };
 		D57554802248E29E0000A3D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575547F2248E29E0000A3D1 /* ViewController.swift */; };
 		D57554832248E29E0000A3D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D57554812248E29E0000A3D1 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
 		D55688DB2248E687002B80A0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D55688DD2248E96C002B80A0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		D55688DF2248EA50002B80A0 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		D575547A2248E29E0000A3D1 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D575547D2248E29E0000A3D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D575547F2248E29E0000A3D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,8 +85,10 @@
 		D55688DA2248E665002B80A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D55688DD2248E96C002B80A0 /* main.json */,
 				D55688D82248E54D002B80A0 /* DataSourceObject.swift */,
 				D55688DB2248E687002B80A0 /* CustomCell.swift */,
+				D55688DF2248EA50002B80A0 /* StoreItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 			files = (
 				D57554882248E29E0000A3D1 /* LaunchScreen.storyboard in Resources */,
 				D57554852248E29E0000A3D1 /* Assets.xcassets in Resources */,
+				D55688DE2248E96C002B80A0 /* main.json in Resources */,
 				D57554832248E29E0000A3D1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +290,7 @@
 			files = (
 				D57554802248E29E0000A3D1 /* ViewController.swift in Sources */,
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
+				D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */,
 				D55688DC2248E687002B80A0 /* CustomCell.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
 			);
