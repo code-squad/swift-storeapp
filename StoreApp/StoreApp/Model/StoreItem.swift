@@ -44,3 +44,8 @@ class StoreItem : Codable{
         self.s_price = s_price
     }
 }
+
+/// 스토어아이템 리스트를 전역변수로 선언한다
+var storeItems : [StoreItem] = {
+    StoreItemMaker().makeStoreItem()
+}()
