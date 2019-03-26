@@ -11,31 +11,25 @@ import UIKit
 class DataSourceObject : NSObject, UITableViewDataSource {
     private let defaultCellIdentifier : String = "CustomCell"
     
+    /// 스토어아이템 맥스 카운트를 저장한다
+    var storeItemManager : StoreItemManager
+    
+    init(storeItemManager: StoreItemManager){
+        self.storeItemManager = storeItemManager
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems.count
+        return self.storeItemManager.count()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: defaultCellIdentifier, for: indexPath) as! CustomCell
         
+        let storeItem = self.storeItemManager.getStoreItem(index: indexPath.row)
         
-        let storeItem = storeItems[indexPath.row]
-        
-        cell.title.text = storeItem.title
-        cell.itemDescription.text  = storeItem.description
-        cell.s_price.text  = storeItem.s_price
-        cell.delivery_type.text = {
-            var result = ""
-            for text in storeItem.delivery_type {
-                result.append(text)
-                result += ","
-            }
-            result.removeLast()
-            return result
-        }()
+        //storeItem 을 받아서 각 변수에 입력한다
+        cell.inputCellData(storeItem: storeItem)
             
         return cell
     }
