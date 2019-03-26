@@ -10,20 +10,19 @@ import UIKit
 
 class CustomCell : UITableViewCell {
     /// 이미지
-//    @IBOutlet weak var imageView: UIImage
-//    
-//    /// 타이틀
-//    @IBOutlet weak var title: UILabel!
-//    
-//    /// 상세설명
-//    @IBOutlet weak var subscription: UILabel!
-//    
-//    
-//    /// 메뉴 가격
-//    @IBOutlet weak var price: UILabel!
-//    
-//    
-//    /// 이벤트 배지
-//    @IBOutlet weak var eventBadge: UILabel!
+    @IBOutlet weak var itemImageView: UIImageView!
+    
+    /// 타이틀
+    @IBOutlet weak var title: UILabel!
+    
+    /// 상세설명
+    @IBOutlet weak var itemDescription: UILabel!
+    
+    /// 메뉴 가격
+    @IBOutlet weak var s_price: UILabel!
+    
+    /// 이벤트 배지
+    @IBOutlet weak var delivery_type: UILabel!
     
 }
+
