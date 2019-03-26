@@ -24,5 +24,21 @@ class CustomCell : UITableViewCell {
     /// 이벤트 배지
     @IBOutlet weak var delivery_type: UILabel!
     
+    /// storeItem 객체를 받아서 cell에 반영
+    func inputCellData(storeItem: StoreItem) {
+        // storeItem 을 받아서 각 변수에 입력한다
+        self.title.text = storeItem.title
+        self.itemDescription.text  = storeItem.description
+        self.s_price.text  = storeItem.s_price
+        self.delivery_type.text = {
+            var result = ""
+            for text in storeItem.delivery_type {
+                result.append(text)
+                result += ","
+            }
+            result.removeLast()
+            return result
+        }()
+    }
 }
 
