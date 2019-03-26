@@ -9,22 +9,34 @@
 import UIKit
 
 class DataSourceObject : NSObject, UITableViewDataSource {
-    private let defaultCellIdentifier : String = "defaultCell"
+    private let defaultCellIdentifier : String = "CustomCell"
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return storeItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: defaultCellIdentifier, for: indexPath) as! CustomCell
         
-//        let cell = MyCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: self.defaultCellIdentifier)
         
-//        cell.textLabel?.text = friends[indexPath.row].name
-//        cell.detailTextLabel?.text = "나이 : \(friends[indexPath.row].age)  전화번호 : \(friends[indexPath.row].mobileNumber)"
+        let storeItem = storeItems[indexPath.row]
         
+        cell.title.text = storeItem.title
+        cell.itemDescription.text  = storeItem.description
+        cell.s_price.text  = storeItem.s_price
+        cell.delivery_type.text = {
+            var result = ""
+            for text in storeItem.delivery_type {
+                result.append(text)
+                result += ","
+            }
+            result.removeLast()
+            return result
+        }()
+            
         return cell
     }
     
