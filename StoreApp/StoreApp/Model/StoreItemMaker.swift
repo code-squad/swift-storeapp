@@ -11,7 +11,7 @@ import os
 
 class StoreItemMaker {
     /// json 배열을 받아서 스토어아이템 배열로 리턴
-    private func makeStoreItemList(jsonArray: Array<[String : Any]>) -> [StoreItem] {
+    static private func makeStoreItemList(jsonArray: Array<[String : Any]>) -> [StoreItem] {
         // 결과리턴배열
         var result : [StoreItem] = []
         
@@ -32,7 +32,7 @@ class StoreItemMaker {
     }
     
     /// json path 를 받아서 스토어아이템 배열로 만들어서 리턴
-    private func makeStoreItemList(jsonPath: String) -> [StoreItem] {
+    static private func makeStoreItemList(jsonPath: String) -> [StoreItem] {
         // 리턴용 변수
         var result : [StoreItem] = []
         // path 에서 추출시도
@@ -60,7 +60,7 @@ class StoreItemMaker {
     }
     
     /// 스토어아이템 배열을 리턴한다
-    func makeStoreItem() -> [StoreItem] {
+    static func makeStoreItem() -> [StoreItem] {
         // 물품 리스트 선언
         var storeItemList : [StoreItem] = []
         
