@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D54109452249F9420047CDC6 /* StoreItemMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54109442249F9420047CDC6 /* StoreItemMaker.swift */; };
+		D5410947224A3F790047CDC6 /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5410946224A3F790047CDC6 /* StoreItemManager.swift */; };
 		D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688D82248E54D002B80A0 /* DataSourceObject.swift */; };
 		D55688DC2248E687002B80A0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* CustomCell.swift */; };
 		D55688DE2248E96C002B80A0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = D55688DD2248E96C002B80A0 /* main.json */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		D54109442249F9420047CDC6 /* StoreItemMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemMaker.swift; sourceTree = "<group>"; };
+		D5410946224A3F790047CDC6 /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
 		D55688DB2248E687002B80A0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		D55688DD2248E96C002B80A0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				D55688DB2248E687002B80A0 /* CustomCell.swift */,
 				D55688DF2248EA50002B80A0 /* StoreItem.swift */,
 				D54109442249F9420047CDC6 /* StoreItemMaker.swift */,
+				D5410946224A3F790047CDC6 /* StoreItemManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				D57554802248E29E0000A3D1 /* ViewController.swift in Sources */,
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
 				D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */,
+				D5410947224A3F790047CDC6 /* StoreItemManager.swift in Sources */,
 				D55688DC2248E687002B80A0 /* CustomCell.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
 			);
