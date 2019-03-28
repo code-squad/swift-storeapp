@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var storeItemTableView: UITableView!
     
     /// 스토어아이템 리스트를 생성
-    private let dataSourceObject = DataSourceObject(storeItemManager: StoreItemSlot(storeItemList: StoreItemMaker.makeStoreItem()))
+    private let dataSourceObject = DataSourceObject(storeItemContainer: StoreItemMaker.makeStoreItemContainer())
     
     override func viewDidLoad() {
         super.viewDidLoad()
