@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D54109452249F9420047CDC6 /* StoreItemMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54109442249F9420047CDC6 /* StoreItemMaker.swift */; };
-		D5410947224A3F790047CDC6 /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5410946224A3F790047CDC6 /* StoreItemManager.swift */; };
+		D5410947224A3F790047CDC6 /* StoreItemSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5410946224A3F790047CDC6 /* StoreItemSlot.swift */; };
 		D5439862224CAD1E00635C95 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = D5439860224CAD1E00635C95 /* side.json */; };
 		D5439863224CAD1E00635C95 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = D5439861224CAD1E00635C95 /* soup.json */; };
 		D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688D82248E54D002B80A0 /* DataSourceObject.swift */; };
@@ -43,7 +43,7 @@
 
 /* Begin PBXFileReference section */
 		D54109442249F9420047CDC6 /* StoreItemMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemMaker.swift; sourceTree = "<group>"; };
-		D5410946224A3F790047CDC6 /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
+		D5410946224A3F790047CDC6 /* StoreItemSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemSlot.swift; sourceTree = "<group>"; };
 		D5439860224CAD1E00635C95 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		D5439861224CAD1E00635C95 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				D55688DB2248E687002B80A0 /* MyCustomCell.swift */,
 				D55688DF2248EA50002B80A0 /* StoreItem.swift */,
 				D54109442249F9420047CDC6 /* StoreItemMaker.swift */,
-				D5410946224A3F790047CDC6 /* StoreItemManager.swift */,
+				D5410946224A3F790047CDC6 /* StoreItemSlot.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,7 +314,7 @@
 				D57554802248E29E0000A3D1 /* ViewController.swift in Sources */,
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
 				D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */,
-				D5410947224A3F790047CDC6 /* StoreItemManager.swift in Sources */,
+				D5410947224A3F790047CDC6 /* StoreItemSlot.swift in Sources */,
 				D55688DC2248E687002B80A0 /* MyCustomCell.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
 			);

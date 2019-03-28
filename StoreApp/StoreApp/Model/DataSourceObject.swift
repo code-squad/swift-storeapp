@@ -12,9 +12,9 @@ class DataSourceObject : NSObject, UITableViewDataSource {
     private let defaultCellIdentifier : String = "MyCustomCell"
     
     /// 스토어아이템 맥스 카운트를 저장한다
-    var storeItemManager : StoreItemManager
+    var storeItemManager : StoreItemSlot
     
-    init(storeItemManager: StoreItemManager){
+    init(storeItemManager: StoreItemSlot){
         self.storeItemManager = storeItemManager
     }
     
