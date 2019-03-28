@@ -19,8 +19,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 셀 높이는 전체 화면의 1/6
-        self.storeItemTableView.rowHeight  = view.bounds.height / 6
         // 테이블뷰에 데이터소스 입력
         self.storeItemTableView.dataSource = dataSourceObject
         
