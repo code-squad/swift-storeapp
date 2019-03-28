@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StoreItemManager {
+class StoreItemSlot {
     var storeItemList : [StoreItem]
     
     init(storeItemList: [StoreItem]){
