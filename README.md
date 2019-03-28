@@ -45,9 +45,18 @@
 
 ### 작동화면
 
-
-
-
+![](swift_storeApp_step2_20190328.png)
 
 
 ### 구현내용
+
+- 이미지 constraints
+	* leading,top,bottom spacing to superVeiw = 10 px
+	* width 100
+	* aspect 1:1
+
+- label
+	* label 을 스택뷰 내부에 구현
+	* leading spacing to 이미 = 10
+	* fill Equally
+	* 스타일 설정 : 제목 두껍게, 설명 회색, 가격 파랑색 
