@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCell : UITableViewCell {
+class MyCustomCell : UITableViewCell {
     /// 이미지
     @IBOutlet weak var itemImageView: UIImageView!
     
@@ -24,10 +24,6 @@ class CustomCell : UITableViewCell {
     /// 이벤트 배지
     @IBOutlet weak var delivery_type: UILabel!
     
-    @IBOutlet weak var labelStackView: UIStackView!
-    
-    @IBOutlet weak var customCellContentView: CustomCell!
-    
     /// storeItem 객체를 받아서 cell에 반영
     func inputCellData(storeItem: StoreItem) {
         // 아이템 이미지 추출시도
@@ -36,7 +32,7 @@ class CustomCell : UITableViewCell {
             self.itemImageView.image = itemImage
         } // 이미지 추출 실패시 공백뷰 생성
         else {
-            self.itemImageView.backgroundColor = UIColor.blue
+            self.itemImageView.backgroundColor = UIColor.darkGray
         }
     
         // storeItem 을 받아서 각 변수에 입력한다
