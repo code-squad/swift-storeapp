@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D505B93A224B797600E691C3 /* cardgameapp-refresh-app.png in Resources */ = {isa = PBXBuildFile; fileRef = D505B939224B797600E691C3 /* cardgameapp-refresh-app.png */; };
 		D54109452249F9420047CDC6 /* StoreItemMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54109442249F9420047CDC6 /* StoreItemMaker.swift */; };
 		D5410947224A3F790047CDC6 /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5410946224A3F790047CDC6 /* StoreItemManager.swift */; };
 		D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688D82248E54D002B80A0 /* DataSourceObject.swift */; };
-		D55688DC2248E687002B80A0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* CustomCell.swift */; };
+		D55688DC2248E687002B80A0 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* MyCustomCell.swift */; };
 		D55688DE2248E96C002B80A0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = D55688DD2248E96C002B80A0 /* main.json */; };
 		D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DF2248EA50002B80A0 /* StoreItem.swift */; };
 		D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575547D2248E29E0000A3D1 /* AppDelegate.swift */; };
@@ -40,10 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D505B939224B797600E691C3 /* cardgameapp-refresh-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cardgameapp-refresh-app.png"; sourceTree = "<group>"; };
 		D54109442249F9420047CDC6 /* StoreItemMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemMaker.swift; sourceTree = "<group>"; };
 		D5410946224A3F790047CDC6 /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
-		D55688DB2248E687002B80A0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D55688DB2248E687002B80A0 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		D55688DD2248E96C002B80A0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		D55688DF2248EA50002B80A0 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		D575547A2248E29E0000A3D1 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,9 +91,10 @@
 		D55688DA2248E665002B80A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D505B939224B797600E691C3 /* cardgameapp-refresh-app.png */,
 				D55688DD2248E96C002B80A0 /* main.json */,
 				D55688D82248E54D002B80A0 /* DataSourceObject.swift */,
-				D55688DB2248E687002B80A0 /* CustomCell.swift */,
+				D55688DB2248E687002B80A0 /* MyCustomCell.swift */,
 				D55688DF2248EA50002B80A0 /* StoreItem.swift */,
 				D54109442249F9420047CDC6 /* StoreItemMaker.swift */,
 				D5410946224A3F790047CDC6 /* StoreItemManager.swift */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D57554882248E29E0000A3D1 /* LaunchScreen.storyboard in Resources */,
+				D505B93A224B797600E691C3 /* cardgameapp-refresh-app.png in Resources */,
 				D57554852248E29E0000A3D1 /* Assets.xcassets in Resources */,
 				D55688DE2248E96C002B80A0 /* main.json in Resources */,
 				D57554832248E29E0000A3D1 /* Main.storyboard in Resources */,
@@ -299,7 +303,7 @@
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
 				D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */,
 				D5410947224A3F790047CDC6 /* StoreItemManager.swift in Sources */,
-				D55688DC2248E687002B80A0 /* CustomCell.swift in Sources */,
+				D55688DC2248E687002B80A0 /* MyCustomCell.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
