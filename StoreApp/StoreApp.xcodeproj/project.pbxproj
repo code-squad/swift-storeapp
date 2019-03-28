@@ -12,6 +12,8 @@
 		D5439862224CAD1E00635C95 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = D5439860224CAD1E00635C95 /* side.json */; };
 		D5439863224CAD1E00635C95 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = D5439861224CAD1E00635C95 /* soup.json */; };
 		D5439865224CB4E400635C95 /* StoreItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5439864224CB4E400635C95 /* StoreItemContainer.swift */; };
+		D543986D224CCFEE00635C95 /* MyCustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D543986C224CCFEE00635C95 /* MyCustomHeader.swift */; };
+		D543986F224CD09000635C95 /* MyCustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D543986E224CD09000635C95 /* MyCustomHeader.xib */; };
 		D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688D82248E54D002B80A0 /* DataSourceObject.swift */; };
 		D55688DC2248E687002B80A0 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* MyCustomCell.swift */; };
 		D55688DE2248E96C002B80A0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = D55688DD2248E96C002B80A0 /* main.json */; };
@@ -23,6 +25,7 @@
 		D57554882248E29E0000A3D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D57554862248E29E0000A3D1 /* LaunchScreen.storyboard */; };
 		D57554932248E29F0000A3D1 /* StoreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57554922248E29F0000A3D1 /* StoreAppTests.swift */; };
 		D575549E2248E29F0000A3D1 /* StoreAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575549D2248E29F0000A3D1 /* StoreAppUITests.swift */; };
+		D5E974E5224CEED80075151C /* MyHeaderContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E974E4224CEED80075151C /* MyHeaderContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,8 @@
 		D5439860224CAD1E00635C95 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		D5439861224CAD1E00635C95 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		D5439864224CB4E400635C95 /* StoreItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemContainer.swift; sourceTree = "<group>"; };
+		D543986C224CCFEE00635C95 /* MyCustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomHeader.swift; sourceTree = "<group>"; };
+		D543986E224CD09000635C95 /* MyCustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomHeader.xib; sourceTree = "<group>"; };
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
 		D55688DB2248E687002B80A0 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		D55688DD2248E96C002B80A0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -65,6 +70,7 @@
 		D57554992248E29F0000A3D1 /* StoreAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D575549D2248E29F0000A3D1 /* StoreAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppUITests.swift; sourceTree = "<group>"; };
 		D575549F2248E29F0000A3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5E974E4224CEED80075151C /* MyHeaderContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHeaderContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 				D55688DF2248EA50002B80A0 /* StoreItem.swift */,
 				D5410946224A3F790047CDC6 /* StoreItemSlot.swift */,
 				D5439864224CB4E400635C95 /* StoreItemContainer.swift */,
+				D5E974E4224CEED80075151C /* MyHeaderContent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +179,8 @@
 		D57554AB2248E4C60000A3D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D543986C224CCFEE00635C95 /* MyCustomHeader.swift */,
+				D543986E224CD09000635C95 /* MyCustomHeader.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +294,7 @@
 			files = (
 				D5439862224CAD1E00635C95 /* side.json in Resources */,
 				D57554882248E29E0000A3D1 /* LaunchScreen.storyboard in Resources */,
+				D543986F224CD09000635C95 /* MyCustomHeader.xib in Resources */,
 				D57554852248E29E0000A3D1 /* Assets.xcassets in Resources */,
 				D55688DE2248E96C002B80A0 /* main.json in Resources */,
 				D5439863224CAD1E00635C95 /* soup.json in Resources */,
@@ -315,12 +325,14 @@
 			files = (
 				D54109452249F9420047CDC6 /* StoreItemMaker.swift in Sources */,
 				D57554802248E29E0000A3D1 /* ViewController.swift in Sources */,
+				D5E974E5224CEED80075151C /* MyHeaderContent.swift in Sources */,
 				D5439865224CB4E400635C95 /* StoreItemContainer.swift in Sources */,
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
 				D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */,
 				D5410947224A3F790047CDC6 /* StoreItemSlot.swift in Sources */,
 				D55688DC2248E687002B80A0 /* MyCustomCell.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
+				D543986D224CCFEE00635C95 /* MyCustomHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
