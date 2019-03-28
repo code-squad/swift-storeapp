@@ -12,21 +12,24 @@ class DataSourceObject : NSObject, UITableViewDataSource {
     private let defaultCellIdentifier : String = "MyCustomCell"
     
     /// 스토어아이템 맥스 카운트를 저장한다
-    var storeItemManager : StoreItemSlot
+    var storeItemContainer : StoreItemContainer
     
-    init(storeItemManager: StoreItemSlot){
-        self.storeItemManager = storeItemManager
+    init(storeItemContainer: StoreItemContainer){
+        self.storeItemContainer = storeItemContainer
     }
     
+    /// 센션당 로우 카운트 리턴
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.storeItemManager.count()
+        return self.storeItemContainer.getCount(number: section)
     }
     
+    /// 셀 리턴
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: defaultCellIdentifier, for: indexPath) as! MyCustomCell
         
-        let storeItem = self.storeItemManager.getStoreItem(index: indexPath.row)
+        let storeItem = self.storeItemContainer.getStoreItem(indexPath: indexPath)
+        
         
         //storeItem 을 받아서 각 변수에 입력한다
         cell.inputCellData(storeItem: storeItem)
@@ -34,7 +37,9 @@ class DataSourceObject : NSObject, UITableViewDataSource {
         return cell
     }
     
+    /// 세션 카운트 리턴
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.storeItemContainer.count()
     }
+    
 }
