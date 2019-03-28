@@ -9,7 +9,7 @@
 import UIKit
 
 class DataSourceObject : NSObject, UITableViewDataSource {
-    private let defaultCellIdentifier : String = "CustomCell"
+    private let defaultCellIdentifier : String = "MyCustomCell"
     
     /// 스토어아이템 맥스 카운트를 저장한다
     var storeItemManager : StoreItemManager
@@ -24,7 +24,7 @@ class DataSourceObject : NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: defaultCellIdentifier, for: indexPath) as! CustomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: defaultCellIdentifier, for: indexPath) as! MyCustomCell
         
         let storeItem = self.storeItemManager.getStoreItem(index: indexPath.row)
         
