@@ -10,9 +10,6 @@ import Foundation
 import os
 
 class StoreItemMaker {
-    /// 전체 json 파일명 목록
-    static private let allJSONFileName = ["main","side","soup"]
-    
     /// json 배열을 받아서 스토어아이템 배열로 리턴
     static private func makeStoreItemList(jsonArray: Array<[String : Any]>) -> [StoreItem] {
         // 결과리턴배열
@@ -63,7 +60,7 @@ class StoreItemMaker {
     }
     
     /// 스토어아이템 배열을 리턴한다
-    static private func makeStoreItem(fileName: String) -> StoreItemSlot {
+    static func makeStoreItem(fileName: String) -> StoreItemSlot {
         // 물품 리스트 선언
         var storeItemList : [StoreItem] = []
         
@@ -78,17 +75,17 @@ class StoreItemMaker {
         return StoreItemSlot(storeItemList: storeItemList)
     }
     
-    /// 전체 스토어 아이템을 추출해서 컨테이너로 리턴한다
-    static func makeStoreItemContainer() -> StoreItemContainer {
-        // 결과용 변수
-        let storeItemContainer = StoreItemContainer()
-        
-        // 모든 json 파일을 추출한다
-        for fileName in self.allJSONFileName {
-            let storeItemSlot = makeStoreItem(fileName: fileName)
-            storeItemContainer.addStoreItemSlot(storeItemSlot: storeItemSlot)
-        }
-        // 결과리턴
-        return storeItemContainer
-    }
+//    /// 전체 스토어 아이템을 추출해서 컨테이너로 리턴한다
+//    static func makeStoreItemContainer() -> StoreItemContainer {
+//        // 결과용 변수
+//        let storeItemContainer = StoreItemContainer()
+//        
+//        // 모든 json 파일을 추출한다
+//        for fileName in self.allJSONFileName {
+//            let storeItemSlot = makeStoreItem(fileName: fileName)
+//            storeItemContainer.addStoreItemSlot(storeItemSlot: storeItemSlot)
+//        }
+//        // 결과리턴
+//        return storeItemContainer
+//    }
 }
