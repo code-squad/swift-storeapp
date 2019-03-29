@@ -11,26 +11,30 @@ import UIKit
 class DataSourceObject : NSObject, UITableViewDataSource  {
     private let defaultCellIdentifier : String = "MyCustomCell"
     
-    
     /// 헤더컨텐트를 받는다
-    var headContentManager = MyHeaderContentManager()
+    private var headContentManager = MyHeaderContentManager()
     
     /// 스토어아이템 맥스 카운트를 저장한다
-    var storeItemContainer : StoreItemContainer = StoreItemContainer()
+   private  var storeItemContainer : StoreItemContainer = StoreItemContainer()
     
     override init(){}
     init(storeItemContainer: StoreItemContainer){
         self.storeItemContainer = storeItemContainer
     }
     
+    /// 헤더컨텐트를 받아서 매니저에 추가
+    func addHeaderContent(myHeaderContent: MyHeaderContent){
+        self.headContentManager.addContent(myHeaderContent: myHeaderContent)
+    }
+    
     /// 데이터소스에 데이터 입력
     func inputData(storeItemSlot: StoreItemSlot){
-        self.storeItemContainer.addStoreItemSlot(storeItemSlot: storeItemSlot)
+        self.storeItemContainer.add(storeItemSlot: storeItemSlot)
     }
     
     /// 센션당 로우 카운트 리턴
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.storeItemContainer.getCount(number: section)
+        return self.storeItemContainer.count(index: section)
     }
     
     /// 셀 리턴
@@ -38,7 +42,7 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: defaultCellIdentifier, for: indexPath) as! MyCustomCell
         
-        let storeItem = self.storeItemContainer.getStoreItem(indexPath: indexPath)
+        let storeItem = self.storeItemContainer.storeItem(indexPath: indexPath)
         
         
         //storeItem 을 받아서 각 변수에 입력한다
@@ -60,10 +64,10 @@ extension   DataSourceObject : UITableViewDelegate {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyCustomHeader") as! MyCustomHeader
         
         // 헤더컨텐트를 꺼낸다
-        let headContent = self.headContentManager.getMyHeaderContent(index: section)
+        let headContent = self.headContentManager[section]
         
         headerView.headerTitle.text = headContent.title
-        headerView.headerText.text = headContent.text
+        headerView.headerText.text = headContent.adCopy
         
         return headerView
     }
