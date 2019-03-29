@@ -23,9 +23,8 @@ class ViewController: UIViewController {
     private let allHeaderTitle = ["메인반찬","국.찌게","밑반찬"]
     private let allHedaerText = ["한그릇 뚝딱 메인 요리","김이 모락모락 국.찌게","언제 먹어도 든든한 밑반찬"]
     
-    /// 헤더컨텐트매니저
-    private let headerContentmanager = MyHeaderContentManager()
-    
+    /// 커스텀헤더 파일명
+    private let nibFileName = "MyCustomHeader"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +32,7 @@ class ViewController: UIViewController {
         // 헤더컨텐트 매니서 데이터 입력
         for count in 0..<allHeaderTitle.count {
             let myHeaderContent = MyHeaderContent(title: allHeaderTitle[count], text: allHedaerText[count])
-            self.headerContentmanager.addContect(myHeaderContent: myHeaderContent)
+            self.dataSourceObject.addHeaderContent(myHeaderContent: myHeaderContent)
         }
         
         // 테이블뷰에 데이터소스 입력
@@ -47,11 +46,9 @@ class ViewController: UIViewController {
         }
         
         // 테이블뷰에 커스텀 헤더 등록
-        let headerNib = UINib.init(nibName: "MyCustomHeader", bundle: Bundle.main)
+        let headerNib = UINib.init(nibName: nibFileName, bundle: Bundle.main)
         self.storeItemTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "MyCustomHeader")
         
-        // 델리게이트에 헤드컨텐트 입력
-        self.dataSourceObject.headContentManager = self.headerContentmanager
         
         // 테이블뷰에 델리게이트 입력
         self.storeItemTableView.delegate = self.dataSourceObject
