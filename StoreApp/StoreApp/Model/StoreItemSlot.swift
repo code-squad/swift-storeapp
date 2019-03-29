@@ -16,7 +16,7 @@ class StoreItemSlot {
     }
     
     /// 인덱스를 받아서 해당 객체를 리턴한다
-    func getStoreItem(index: Int) -> StoreItem {
+    func storeItem(index: Int) -> StoreItem {
         return self.storeItemList[index]
     }
     
