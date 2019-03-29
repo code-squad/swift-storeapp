@@ -24,15 +24,11 @@ class MyHeaderContentManager{
     private var list : [MyHeaderContent] = []
     
     /// myHeaderContent 내용추가
-    func addContent(myHeaderContent: MyHeaderContent){
+    func add(myHeaderContent: MyHeaderContent){
         self.list.append(myHeaderContent)
     }
     
-    /// 인덱스를 받아서 해당 헤더컨텐트를 리턴
-    func getMyHeaderContent(index: Int) -> MyHeaderContent {
-        return self.list[index]
-    }
-    
+    /// 인덱스를 받아서 헤더컨텐트 리턴
     subscript(index: Int) -> MyHeaderContent {
         return self.list[index]
     }

@@ -24,7 +24,7 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
     
     /// 헤더컨텐트를 받아서 매니저에 추가
     func addHeaderContent(myHeaderContent: MyHeaderContent){
-        self.headContentManager.addContent(myHeaderContent: myHeaderContent)
+        self.headContentManager.add(myHeaderContent: myHeaderContent)
     }
     
     /// 데이터소스에 데이터 입력
