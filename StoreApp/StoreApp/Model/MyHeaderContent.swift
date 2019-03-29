@@ -11,25 +11,29 @@ import Foundation
 /// 헤더의 타이틀과 텍스트를 가진다
 class MyHeaderContent {
     let title : String
-    let text : String
+    let adCopy : String
     
     init(title: String, text: String){
         self.title = title
-        self.text = text
+        self.adCopy = text
     }
 }
 
 /// 헤더컨텐트의 배열을 가진다
 class MyHeaderContentManager{
-    var list : [MyHeaderContent] = []
+    private var list : [MyHeaderContent] = []
     
     /// myHeaderContent 내용추가
-    func addContect(myHeaderContent: MyHeaderContent){
+    func addContent(myHeaderContent: MyHeaderContent){
         self.list.append(myHeaderContent)
     }
     
     /// 인덱스를 받아서 해당 헤더컨텐트를 리턴
     func getMyHeaderContent(index: Int) -> MyHeaderContent {
+        return self.list[index]
+    }
+    
+    subscript(index: Int) -> MyHeaderContent {
         return self.list[index]
     }
 }
