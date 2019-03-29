@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     /// 테이블뷰에 커스텀 헤더 등록
     func inputCustomHeader(){
         let headerNib = UINib.init(nibName: nibFileName, bundle: Bundle.main)
-        self.storeItemTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "MyCustomHeader")
+        self.storeItemTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: nibFileName)
     }
     
     override func viewDidLoad() {
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         inputStoreItemData()
         
         // 테이블뷰에 커스텀 헤더 등록
-        inputCustomHeader()        
+        inputCustomHeader()
         
         // 테이블뷰에 델리게이트 입력
         self.storeItemTableView.delegate = self.dataSourceObject
