@@ -9,7 +9,7 @@
 import Foundation
 
 class StoreItemContainer {
-    var storeItemSlotList : [StoreItemSlot] = []
+    private var storeItemSlotList : [StoreItemSlot] = []
     
     init(){}
     
