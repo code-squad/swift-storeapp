@@ -74,18 +74,4 @@ class StoreItemMaker {
         
         return StoreItemSlot(storeItemList: storeItemList)
     }
-    
-//    /// 전체 스토어 아이템을 추출해서 컨테이너로 리턴한다
-//    static func makeStoreItemContainer() -> StoreItemContainer {
-//        // 결과용 변수
-//        let storeItemContainer = StoreItemContainer()
-//        
-//        // 모든 json 파일을 추출한다
-//        for fileName in self.allJSONFileName {
-//            let storeItemSlot = makeStoreItem(fileName: fileName)
-//            storeItemContainer.addStoreItemSlot(storeItemSlot: storeItemSlot)
-//        }
-//        // 결과리턴
-//        return storeItemContainer
-//    }
 }
