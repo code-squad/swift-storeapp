@@ -12,24 +12,21 @@ class StoreItemContainer {
     var storeItemSlotList : [StoreItemSlot] = []
     
     init(){}
-    init(storeItemSlotList: [StoreItemSlot]){
-        self.storeItemSlotList = storeItemSlotList
-    }
     
     
     /// 스토어아이템 슬롯을 받아서 추가한다
-    func addStoreItemSlot(storeItemSlot: StoreItemSlot) {
+    func add(storeItemSlot: StoreItemSlot) {
         self.storeItemSlotList.append(storeItemSlot)
     }
     
     /// 스토어아이템 슬롯 번호를 받아서 count 를 리턴한다
-    func getCount(number: Int) -> Int {
-        return self.storeItemSlotList[number].count()
+    func count(index: Int) -> Int {
+        return self.storeItemSlotList[index].count()
     }
     
     /// 인덱스패스를 받아서 해당 아이템을 리턴
-    func getStoreItem(indexPath: IndexPath) -> StoreItem {
-        return self.storeItemSlotList[indexPath.section].getStoreItem(index: indexPath.row)
+    func storeItem(indexPath: IndexPath) -> StoreItem {
+        return self.storeItemSlotList[indexPath.section].storeItem(index: indexPath.row)
     }
     
     /// 전체 스토어아이템 슬롯의 count 리턴
