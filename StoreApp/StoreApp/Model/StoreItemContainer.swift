@@ -33,4 +33,12 @@ class StoreItemContainer {
     func count() -> Int {
         return self.storeItemSlotList.count
     }
+    
+    /// 인덱스패스를 받아서 타이틀, 가격을 문자열로 리턴
+    func toastMessage(indexPath: IndexPath) -> String {
+        // 인덱스패스를 받아서 메세지 추출
+        let message = self.storeItemSlotList[indexPath.section].toastMessage(index: indexPath.row)
+        // 메세지 리턴
+        return message
+    }
 }

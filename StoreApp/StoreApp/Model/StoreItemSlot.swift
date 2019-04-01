@@ -24,4 +24,9 @@ class StoreItemSlot {
     func count() -> Int {
         return self.storeItemList.count
     }
+    
+    /// 인덱스를 받아서 해당 객체의 토스트 메세지를 리턴한다
+    func toastMessage(index: Int) -> String {
+        return self.storeItemList[index].toastMessage()
+    }
 }

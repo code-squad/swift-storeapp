@@ -43,4 +43,9 @@ class StoreItem : Codable{
         self.description = description
         self.s_price = s_price
     }
+    
+    /// 자신의 제목과 가격을 리턴한다.
+    func toastMessage() -> String {
+        return "\(self.title) : \(self.s_price)"
+    }
 }
