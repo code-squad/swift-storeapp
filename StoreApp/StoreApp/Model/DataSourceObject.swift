@@ -59,6 +59,7 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
 
 }
 
+/// 델리게이트 기능 확장
 extension   DataSourceObject : UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MyCustomHeader") as! MyCustomHeader
@@ -75,5 +76,7 @@ extension   DataSourceObject : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 100
     }
+    
+    
 }
 
