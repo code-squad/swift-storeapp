@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Toaster
+
 
 class DataSourceObject : NSObject, UITableViewDataSource  {
     private let defaultCellIdentifier : String = "MyCustomCell"
@@ -77,6 +79,19 @@ extension   DataSourceObject : UITableViewDelegate {
         return 100
     }
     
-    
+    /// 로우가 선택되면 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 떠있는 토스트를 지운다
+        ToastCenter.default.cancelAll()
+        
+        // 토스트에 들어갈 텍스트
+        let toastText = self.storeItemContainer.toastMessage(indexPath: indexPath)
+        
+        // 토스트 메세지 생성
+        let toastMessage = Toast(text: toastText, duration: Delay.short)
+        
+        // 토스트 메세지 출력
+        toastMessage.show()
+    }
 }
 
