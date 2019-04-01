@@ -95,3 +95,27 @@
 	* 헤더내용객체를 배열로 소유
 - 데이터소스가 델리게이트 채택
 	* 헤더컨텐트매니저에서 헤더내용 추출, 헤더로 전달
+
+	
+-
+	
+# step 4
+
+### 요구조건
+
+- Cocoapod 를 설치한다. 
+ - https://github.com/devxoul/Toaster 저장소에 있는 Toaster 패키지를 cocoapod 으로 설치한다.
+ - pod으로 설치한 Toaster 모듈을 import 하고 테이블뷰 셀을 터치하면 (didSelect) 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
+
+ 
+### 작동화면
+
+![](swift_storeApp_step4_20190401.gif)
+
+
+### 구현방법
+
+- cocoapod 설치 
+- cocoapod 를 통해서 Toaster 추가
+- indexPath 를 받아서 storeItem 의 제목과 가격을 리턴하는 함수 추가
+- 셀 선택시 이전에 있던 Toaster 삭제하고 새 Toaster 출력
