@@ -26,6 +26,15 @@ class ViewController: UIViewController {
     /// 커스텀헤더 파일명
     private let nibFileName = "MyCustomHeader"
     
+    /// json 데이터 URL
+    private let jsonURLList : [String] = ["https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/course"]
+    
+//    let mainURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main"
+//    let gookURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup"
+//    let mitURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/course"
+    
+    
+    
     /// 헤더컨텐트 매니저 데이터를 데이터소스에 입력한다
     func inputHeaderContent(){
         // 헤더컨텐트 매니저 데이터 입력
@@ -52,8 +61,46 @@ class ViewController: UIViewController {
         self.storeItemTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: nibFileName)
     }
     
+    /// url 을 받아서 데이터 리턴
+    
+    private func dataFrom(unCheckedURL: String) -> Data? {
+        // 세션 생성, 환경설정
+        let defaultSession = URLSession(configuration: .default)
+        
+        guard let url = URL(string: "\(unCheckedURL)") else {
+            os_log("잘못된 URL 입니다.")
+            return nil
+        }
+        
+        // Request
+        let request = URLRequest(url: url)
+        
+        // 결과 리턴용
+        var resultData : Data? = nil
+        
+        // dataTask
+        let dataTask = defaultSession.dataTask(with: request) { data, response, error in
+            // getting Data Error
+            guard error == nil else {
+                print("Error occur: \(String(describing: error))")
+                return
+            }
+            
+            guard let jsonData = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
+                return ()
+            }
+                resultData = jsonData
+        }
+        dataTask.resume()
+        return resultData
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         // 헤더컨텐트 매니저 데이터 입력
         inputHeaderContent()
