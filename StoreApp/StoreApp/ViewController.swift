@@ -36,34 +36,72 @@ class ViewController: UIViewController {
     
     
     /// 헤더컨텐트 매니저 데이터를 데이터소스에 입력한다
-    func inputHeaderContent(){
+    func inputHeaderContent(dataSourceObject: DataSourceObject){
         // 헤더컨텐트 매니저 데이터 입력
         for count in 0..<allHeaderTitle.count {
             let myHeaderContent = MyHeaderContent(title: allHeaderTitle[count], text: allHedaerText[count])
-            self.dataSourceObject.addHeaderContent(myHeaderContent: myHeaderContent)
+            dataSourceObject.addHeaderContent(myHeaderContent: myHeaderContent)
         }
     }
     
+    /// JSONData 배열을 받아서 입력받은 데이터소스에 스토어아이템으로 변환시켜서 넣는다
+    func inputDataList(JSONDataList: [Data], dataSourceObject: DataSourceObject) {
+        for jsonData in JSONDataList {
+            
+            inputData(JSONData: jsonData, dataSourceObject: dataSourceObject)
+        }
+    }
+    
+    /// JSON data 받아서 Data 형태로 치환한다
+    func inputData(JSONData: Data, dataSourceObject: DataSourceObject){
+        // JSONData를 스토어아이템 배열로 치환
+        let storeItemList = StoreItemMaker.makeStoreItemList(jsonData: JSONData)
+        // 슬롯으로 생성
+        
+        let storeItemSlot = StoreItemSlot(storeItemList: storeItemList)
+        
+        // 데이터소스에 추가
+        dataSourceObject.inputData(storeItemSlot: storeItemSlot)
+    }
+    
     /// 스토어 정보를 데이터소스에 입력한다
-    func inputStoreItemData(){
+    func inputStoreItemData(dataSourceObject: DataSourceObject){
         // JSON 에서 파일명 추출
         for fileName in self.allJSONFileName {
             // 파일명으로 스토어아이템 슬롯 추출
             let storeItemSlot = StoreItemMaker.makeStoreItem(fileName: fileName)
             // 스토어아이템 데이터 추가
-            self.dataSourceObject.inputData(storeItemSlot: storeItemSlot)
+            dataSourceObject.inputData(storeItemSlot: storeItemSlot)
         }
     }
     
     /// 테이블뷰에 커스텀 헤더 등록
-    func inputCustomHeader(){
+    func inputCustomHeader(tableView: UITableView){
         let headerNib = UINib.init(nibName: nibFileName, bundle: Bundle.main)
-        self.storeItemTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: nibFileName)
+        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: nibFileName)
+    }
+    
+    /// URL 배열을 받아서 Data 배열로 리턴
+    func makeDataListFrom(unCheckedURLList: [String], dataSourceObject: DataSourceObject) -> [Data] {
+        // 리턴용 변수
+        var jsonDataList : [Data] = []
+        
+        for url in self.jsonURLList {
+            // 데이터 추출 성공시 결과변수에 추가
+            if let data = dataFrom(unCheckedURL: url, dataSourceObject: dataSourceObject) {
+                jsonDataList.append(data)
+            } // 실패시 로깅
+            else {
+                os_log("url 에서 Data 추출 실패")
+            }
+        }
+        
+        // 결과 리턴
+        return jsonDataList
     }
     
     /// url 을 받아서 데이터 리턴
-    
-    private func dataFrom(unCheckedURL: String) -> Data? {
+    private func dataFrom(unCheckedURL: String, dataSourceObject: DataSourceObject) -> Data? {
         // 세션 생성, 환경설정
         let defaultSession = URLSession(configuration: .default)
         
@@ -82,14 +120,19 @@ class ViewController: UIViewController {
         let dataTask = defaultSession.dataTask(with: request) { data, response, error in
             // getting Data Error
             guard error == nil else {
-                print("Error occur: \(String(describing: error))")
+                os_log("url 접속실패")
                 return
             }
             
-            guard let jsonData = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else  {
-                return ()
-            }
+            if let jsonData = data, let response = response as? HTTPURLResponse, response.statusCode == 200   {
+                // 데이터 받기 성공
                 resultData = jsonData
+                
+                self.inputData(JSONData: jsonData, dataSourceObject: dataSourceObject)
+                
+                self.dataSourceObject.
+            }
+            
         }
         dataTask.resume()
         return resultData
@@ -100,19 +143,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         // 헤더컨텐트 매니저 데이터 입력
-        inputHeaderContent()
+        inputHeaderContent(dataSourceObject: self.dataSourceObject)
         
         // 테이블뷰에 데이터소스 입력
-        self.storeItemTableView.dataSource = self.dataSourceObject
+//        self.storeItemTableView.dataSource = self.dataSourceObject
+        let jsonDataList = makeDataListFrom(unCheckedURLList: self.jsonURLList, dataSourceObject: self.dataSourceObject)
+//        inputDataList(JSONDataList: jsonDataList, dataSourceObject: self.dataSourceObject)
         
         /// 스토어 정보를 데이터소스에 입력한다
-        inputStoreItemData()
+        inputStoreItemData(dataSourceObject: self.dataSourceObject)
         
         // 테이블뷰에 커스텀 헤더 등록
-        inputCustomHeader()
+        inputCustomHeader(tableView: self.storeItemTableView)
         
         // 테이블뷰에 델리게이트 입력
         self.storeItemTableView.delegate = self.dataSourceObject
