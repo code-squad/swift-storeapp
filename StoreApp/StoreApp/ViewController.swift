@@ -9,6 +9,11 @@
 import UIKit
 import os
 
+/// 노티 이름 선언
+extension Notification.Name {
+    static let storeItemSlotAdded = Notification.Name("storeItemSlotAdded")
+}
+
 class ViewController: UIViewController {
     /// 테이블뷰
     @IBOutlet weak var storeItemTableView: UITableView!
@@ -28,11 +33,7 @@ class ViewController: UIViewController {
     
     /// json 데이터 URL
     private let jsonURLList : [String] = ["https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/course"]
-    
-//    let mainURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main"
-//    let gookURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup"
-//    let mitURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/course"
-    
+
     
     
     /// 헤더컨텐트 매니저 데이터를 데이터소스에 입력한다
@@ -44,15 +45,7 @@ class ViewController: UIViewController {
         }
     }
     
-//    /// JSONData 배열을 받아서 입력받은 데이터소스에 스토어아이템으로 변환시켜서 넣는다
-//    func inputDataList(JSONDataList: [Data], dataSourceObject: DataSourceObject) {
-//        for jsonData in JSONDataList {
-//
-//            inputData(JSONData: jsonData, dataSourceObject: dataSourceObject)
-//        }
-//    }
-    
-    /// JSON data 받아서 Data 형태로 치환한다
+    /// JSON data 받아서 스토어아이템 슬롯으로 변환, 데이터소스오브젝트에 넣는다
     func inputData(JSONData: Data, dataSourceObject: DataSourceObject, index: Int){
         // JSONData를 스토어아이템 배열로 치환
         let storeItemList = StoreItemMaker.makeStoreItemList(jsonData: JSONData)
@@ -66,18 +59,9 @@ class ViewController: UIViewController {
         // 로깅을 위한 정수형 -> 문자형 변환
         let indexString : String = String(index)
         os_log("데이터소스에 슬롯추가완료. index : %@",indexString)
+        
+        NotificationCenter.default.post(name: .storeItemSlotAdded, object: index)
     }
-    
-//    /// 스토어 정보를 데이터소스에 입력한다
-//    func inputStoreItemData(dataSourceObject: DataSourceObject){
-//        // JSON 에서 파일명 추출
-//        for fileName in self.allJSONFileName {
-//            // 파일명으로 스토어아이템 슬롯 추출
-//            let storeItemSlot = StoreItemMaker.makeStoreItem(fileName: fileName)
-//            // 스토어아이템 데이터 추가
-//            dataSourceObject.inputData(storeItemSlot: storeItemSlot)
-//        }
-//    }
     
     /// 테이블뷰에 커스텀 헤더 등록
     func inputCustomHeader(tableView: UITableView){
@@ -121,30 +105,49 @@ class ViewController: UIViewController {
             }
             
             if let jsonData = data, let response = response as? HTTPURLResponse, response.statusCode == 200   {
-                
+                // json data 를 데이터 입력으로 보낸다
                 self.inputData(JSONData: jsonData, dataSourceObject: dataSourceObject, index: index)
-                
             }
-            
         }
         dataTask.resume()
     }
     
-    
+    /// 노티 생성 함수
+    func makeNoti(){
+        NotificationCenter.default.addObserver(self, selector: #selector(afterSlotAdded(notification:)), name: .storeItemSlotAdded, object: nil)
+    }
+
+    /// 슬롯추가됨 노티 포스트시 리로드 실행
+    @objc func afterSlotAdded(notification: Notification){
+        os_log("슬롯추가됨 노티발생")
+        
+        // 인덱스를 받아서 해당 섹션 리로드
+        if let index = notification.object as? Int {
+            DispatchQueue.main.async {
+                self.storeItemTableView.reloadSections(IndexSet(integer: index), with: .none)
+//                self.storeItemTableView.reloadData()
+            }
+            
+        } // 인덱스가 없으면 작동안함
+        else {
+            os_log("슬롯추가 노티에서 인덱스 추출실패")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 노티 옵저버 생성
+        makeNoti()
         
         // 헤더컨텐트 매니저 데이터 입력
         inputHeaderContent(dataSourceObject: self.dataSourceObject)
         
         // 테이블뷰에 데이터소스 입력
-//        self.storeItemTableView.dataSource = self.dataSourceObject
-        makeDataListFrom(unCheckedURLList: self.jsonURLList, dataSourceObject: self.dataSourceObject)
-//        inputDataList(JSONDataList: jsonDataList, dataSourceObject: self.dataSourceObject)
+        self.storeItemTableView.dataSource = self.dataSourceObject
         
-        /// 스토어 정보를 데이터소스에 입력한다
-//        inputStoreItemData(dataSourceObject: self.dataSourceObject)
+        // 데이터소스 내부 값 입력
+        makeDataListFrom(unCheckedURLList: self.jsonURLList, dataSourceObject: self.dataSourceObject)
         
         // 테이블뷰에 커스텀 헤더 등록
         inputCustomHeader(tableView: self.storeItemTableView)
