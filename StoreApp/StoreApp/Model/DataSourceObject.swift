@@ -34,6 +34,11 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         self.storeItemContainer.add(storeItemSlot: storeItemSlot)
     }
     
+    /// 데이터소스 인덱스에 데이터 입력
+    func inputData(storeItemSlot: StoreItemSlot, index: Int){
+        self.storeItemContainer.add(storeItemSlot: storeItemSlot, index: index)
+    }
+    
     /// 센션당 로우 카운트 리턴
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.storeItemContainer.count(index: section)
@@ -58,7 +63,10 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         return self.storeItemContainer.count()
     }
     
-
+    /// 비어있는 슬롯을 만든다
+    func addEmptyStoreItemSlot(){
+        self.storeItemContainer.makeEmptyItemSlot()
+    }
 }
 
 /// 델리게이트 기능 확장
