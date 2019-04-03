@@ -32,24 +32,77 @@ class StoreItemMaker {
     }
     
     /// json path 를 받아서 스토어아이템 배열로 만들어서 리턴
-    static private func makeStoreItemList(jsonPath: String) -> [StoreItem] {
+//    static private func makeStoreItemList(jsonPath: String) -> [StoreItem] {
+//        // 리턴용 변수
+//        var result : [StoreItem] = []
+//        // path 에서 추출시도
+//        do {
+//            // 위치에서 데이터 추출
+//            let data = try Data(contentsOf: URL(fileURLWithPath: jsonPath), options: .mappedIfSafe)
+//            // 데이터 json 형태로 추출
+//            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+//            // json 데이터를 배열로 추출
+//            if let jsonList = jsonResult as? Array<[String : Any]> {
+//                // json 배열의 모든 객체를 추가시도
+//                result = makeStoreItemList(jsonArray: jsonList)
+//                // 추가가 성공하면 리턴
+//                return result
+//            } // json 을 추출은 했지만 스토어아이템 배열화 실패시
+//            else {
+//                os_log("json 을 추출 성공, 스토어아이템 배열화 실패")
+//                return result
+//            }
+//        } catch {
+//            // 에러시
+//            os_log("json 전체 파싱 실패")
+//            return result
+//        }
+//    }
+    
+    /// 스토어아이템 배열을 리턴한다
+//    static func makeStoreItem(fileName: String) -> StoreItemSlot {
+//        // 물품 리스트 선언
+//        var storeItemList : [StoreItem] = []
+//
+//        // json 파일 위치 찾기
+//        if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
+//            storeItemList = makeStoreItemList(jsonPath: path)
+//        } // json 파일이 없을때
+//        else {
+//            os_log("json 파일이 없습니다. 파일명 : %@",fileName)
+//        }
+//
+//        return StoreItemSlot(storeItemList: storeItemList)
+//    }
+    
+    
+    
+    
+    /// json data 를 받아서 스토어아이템 배열로 만들어서 리턴
+    static func makeStoreItemList(jsonData: Data) -> [StoreItem] {
         // 리턴용 변수
         var result : [StoreItem] = []
         // path 에서 추출시도
         do {
-            // 위치에서 데이터 추출
-            let data = try Data(contentsOf: URL(fileURLWithPath: jsonPath), options: .mappedIfSafe)
             // 데이터 json 형태로 추출
-            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+            let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
+            os_log("data 에서 json 추출")
             // json 데이터를 배열로 추출
-            if let jsonList = jsonResult as? Array<[String : Any]> {
-                // json 배열의 모든 객체를 추가시도
-                result = makeStoreItemList(jsonArray: jsonList)
-                // 추가가 성공하면 리턴
-                return result
+            if let jsonDict = jsonResult as? [String : Any] {
+                
+                if let jsonList = jsonDict["body"] as? Array<[String : Any]> {
+                    // json 배열의 모든 객체를 추가시도
+                    result = makeStoreItemList(jsonArray: jsonList)
+                    
+                    os_log("json data 슬롯으로 생성 성공")
+                    
+                    // 추가가 성공하면 리턴
+                    return result
+                }
+                
             } // json 을 추출은 했지만 스토어아이템 배열화 실패시
             else {
-                os_log("json 을 추출 성공, 스토어아이템 배열화 실패")
+                os_log("스토어아이템 배열화 실패")
                 return result
             }
         } catch {
@@ -57,21 +110,6 @@ class StoreItemMaker {
             os_log("json 전체 파싱 실패")
             return result
         }
-    }
-    
-    /// 스토어아이템 배열을 리턴한다
-    static func makeStoreItem(fileName: String) -> StoreItemSlot {
-        // 물품 리스트 선언
-        var storeItemList : [StoreItem] = []
-        
-        // json 파일 위치 찾기
-        if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
-            storeItemList = makeStoreItemList(jsonPath: path)
-        } // json 파일이 없을때
-        else {
-            os_log("json 파일이 없습니다. 파일명 : %@",fileName)
-        }
-        
-        return StoreItemSlot(storeItemList: storeItemList)
+        return result
     }
 }
