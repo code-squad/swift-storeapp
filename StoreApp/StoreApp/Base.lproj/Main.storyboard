@@ -77,12 +77,20 @@
                                                                 <constraint firstItem="Rhz-sp-UTw" firstAttribute="leading" secondItem="Rsb-pC-Duf" secondAttribute="leading" id="WEM-3a-9Fp"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="delivery_type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jb9-rk-Fvx">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fd5-rE-zb0">
                                                             <rect key="frame" x="0.0" y="74.666666666666671" width="294.33333333333331" height="25"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-2l-Pdp">
+                                                                    <rect key="frame" x="-1" y="0.0" width="34" height="25"/>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="gHC-2l-Pdp" secondAttribute="bottom" id="Tfb-nC-QVc"/>
+                                                                <constraint firstItem="gHC-2l-Pdp" firstAttribute="top" secondItem="fd5-rE-zb0" secondAttribute="top" id="cCP-im-Brk"/>
+                                                                <constraint firstItem="gHC-2l-Pdp" firstAttribute="leading" secondItem="fd5-rE-zb0" secondAttribute="leading" id="wWn-zT-Dga"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </stackView>
@@ -99,7 +107,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="delivery_type" destination="Jb9-rk-Fvx" id="xbh-Oj-S2E"/>
+                                            <outlet property="badgeStackView" destination="gHC-2l-Pdp" id="QiX-fA-53a"/>
                                             <outlet property="itemDescription" destination="SPt-9n-1Gz" id="WGL-0w-j3a"/>
                                             <outlet property="itemImageView" destination="t2P-je-h2C" id="AIM-Gr-S6J"/>
                                             <outlet property="n_price" destination="Rhz-sp-UTw" id="Zk8-YZ-NYH"/>
@@ -125,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-557" y="-179"/>
+            <point key="canvasLocation" x="-557.97101449275362" y="-179.34782608695653"/>
         </scene>
     </scenes>
 </document>
