@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +36,6 @@
                                                     <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="t2P-je-h2C" secondAttribute="height" multiplier="1:1" id="0WL-VK-FZk"/>
-                                                        <constraint firstAttribute="width" constant="100" id="aqi-t5-6Uy"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Dxt-by-t5j">
@@ -73,6 +73,7 @@
                                                 <constraint firstItem="t2P-je-h2C" firstAttribute="top" secondItem="53u-d1-X8h" secondAttribute="top" constant="10" id="7xh-O1-JT2"/>
                                                 <constraint firstItem="Dxt-by-t5j" firstAttribute="leading" secondItem="t2P-je-h2C" secondAttribute="trailing" constant="10" id="MKV-uT-Orx"/>
                                                 <constraint firstAttribute="trailing" secondItem="Dxt-by-t5j" secondAttribute="trailing" id="QNJ-nd-D29"/>
+                                                <constraint firstItem="t2P-je-h2C" firstAttribute="width" secondItem="53u-d1-X8h" secondAttribute="width" multiplier="0.2" id="S2o-Mx-Q18"/>
                                                 <constraint firstItem="t2P-je-h2C" firstAttribute="leading" secondItem="53u-d1-X8h" secondAttribute="leading" constant="10" id="UJC-fM-Zab"/>
                                                 <constraint firstItem="Dxt-by-t5j" firstAttribute="top" secondItem="t2P-je-h2C" secondAttribute="top" id="jd1-Cc-tjY"/>
                                                 <constraint firstItem="Dxt-by-t5j" firstAttribute="height" secondItem="t2P-je-h2C" secondAttribute="height" id="pZg-Hz-HFM"/>
