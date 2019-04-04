@@ -34,8 +34,6 @@ class ViewController: UIViewController {
     /// json 데이터 URL
     private let jsonURLList : [String] = ["https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/course"]
 
-    
-    
     /// 헤더컨텐트 매니저 데이터를 데이터소스에 입력한다
     func inputHeaderContent(dataSourceObject: DataSourceObject){
         // 헤더컨텐트 매니저 데이터 입력
@@ -53,14 +51,18 @@ class ViewController: UIViewController {
         // 슬롯으로 생성        
         let storeItemSlot = StoreItemSlot(storeItemList: storeItemList)
         
-        // 데이터소스에 추가
-        dataSourceObject.inputData(storeItemSlot: storeItemSlot, index: index)
-        
-        // 로깅을 위한 정수형 -> 문자형 변환
-        let indexString : String = String(index)
-        os_log("데이터소스에 슬롯추가완료. index : %@",indexString)
-        
-        NotificationCenter.default.post(name: .storeItemSlotAdded, object: index)
+        // 데이터 입력부터 리로드 까지를 한덩이로 묶어서 DispatchQueue 에 넣는다
+        DispatchQueue.main.async {
+            // 생성된 객체를 데이터소스에 입력
+            dataSourceObject.inputData(storeItemSlot: storeItemSlot, index: index)
+            
+            // 로깅을 위한 정수형 -> 문자형 변환
+            let indexString : String = String(index)
+            os_log("데이터소스에 슬롯추가완료. index : %@",indexString)
+            
+            // 데이터가 추가됬으니 해당 섹션만 리로드
+            NotificationCenter.default.post(name: .storeItemSlotAdded, object: index)
+        }
     }
     
     /// 테이블뷰에 커스텀 헤더 등록
@@ -105,8 +107,15 @@ class ViewController: UIViewController {
             }
             
             if let jsonData = data, let response = response as? HTTPURLResponse, response.statusCode == 200   {
-                // json data 를 데이터 입력으로 보낸다
+                // 로깅을 위한 형변환
+                let indexString = String(index)
+                os_log("jsonData 데이터소스에 추가 시도, index : %@",indexString)
+                
+                // url 에서 데이터를 가져오는데 성공했으면 해당 데이터를 객체변환 하는 함수에 전달
                 self.inputData(JSONData: jsonData, dataSourceObject: dataSourceObject, index: index)
+                
+                // 성공로그
+                os_log("jsonData 데이터소스에 추가 성공, index : %@",indexString)
             }
         }
         dataTask.resume()
@@ -114,20 +123,24 @@ class ViewController: UIViewController {
     
     /// 노티 생성 함수
     func makeNoti(){
+        // 스토어아이템 추가시 노티
         NotificationCenter.default.addObserver(self, selector: #selector(afterSlotAdded(notification:)), name: .storeItemSlotAdded, object: nil)
     }
-
+    
     /// 슬롯추가됨 노티 포스트시 리로드 실행
     @objc func afterSlotAdded(notification: Notification){
         os_log("슬롯추가됨 노티발생")
         
         // 인덱스를 받아서 해당 섹션 리로드
         if let index = notification.object as? Int {
-            DispatchQueue.main.async {
-                self.storeItemTableView.reloadSections(IndexSet(integer: index), with: .none)
-//                self.storeItemTableView.reloadData()
-            }
+            // 로깅을 위한 형변환
+            let indexString = String(index)
+            os_log("노티 후 섹션 %@ 리로드 시도",indexString)
             
+            // 섹션 리로드
+            self.storeItemTableView.reloadSections(IndexSet(integer: index), with: .top)
+            
+            os_log("노티 후 섹션 %@ 리로드 성공",indexString)
         } // 인덱스가 없으면 작동안함
         else {
             os_log("슬롯추가 노티에서 인덱스 추출실패")
