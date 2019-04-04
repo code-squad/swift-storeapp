@@ -24,6 +24,8 @@ class StoreItem : Codable{
     
     let s_price : String
     
+    var n_price : String = ""
+    
     init?(json: [String: Any]) {
         guard
             let detail_hash = json["detail_hash"] as? String,
@@ -42,6 +44,10 @@ class StoreItem : Codable{
         self.title = title
         self.description = description
         self.s_price = s_price
+        // n_price 는 없을수도 있음. 있으면 값 입력, 없으면 기본값 유지
+        if let nPrice = json["n_price"] as? String {
+            self.n_price = nPrice + "  "
+        }
     }
     
     /// 자신의 제목과 가격을 리턴한다.
