@@ -136,7 +136,14 @@
 
 ### 작동화면
 
-
-
+![](swift_storeApp_step5_20190404.gif)
 
 ### 구현내용
+
+- urlSession 이용해서 데이터를 가져오는 객체, 함수 생성
+- 가져온 JSON 데이터를 객체화 
+- 객체가 생성되면 이하의 단계 DispatchQueue.main.async 비동기로 진행
+	* 생성된 객체를 UITableViewDataSourceObejct 에 입력
+	* 입력된 섹션만 reloadSection 
+
+ 
