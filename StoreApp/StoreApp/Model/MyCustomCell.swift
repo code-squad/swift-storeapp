@@ -24,6 +24,17 @@ class MyCustomCell : UITableViewCell {
     /// 이벤트 배지
     @IBOutlet weak var delivery_type: UILabel!
     
+    @IBOutlet weak var n_price: UILabel!
+    
+    
+    /// 취소선 만드는 함수
+    private func makeStrikeThrough(text: String) -> NSMutableAttributedString{
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
+        attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
+        return attributeString
+    }
+    
+    
     /// storeItem 객체를 받아서 cell에 반영
     func inputCellData(storeItem: StoreItem) {
         // 아이템 이미지 추출시도
@@ -48,6 +59,10 @@ class MyCustomCell : UITableViewCell {
             result.removeLast()
             return result
         }()
+        
+//        self.n_price.text  = storeItem.n_price
+        
+        self.n_price.attributedText = makeStrikeThrough(text: storeItem.n_price)
     }
 }
 
