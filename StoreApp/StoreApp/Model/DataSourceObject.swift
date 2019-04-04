@@ -49,12 +49,14 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: defaultCellIdentifier, for: indexPath) as! MyCustomCell
         
+        cell.badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+        
         let storeItem = self.storeItemContainer.storeItem(indexPath: indexPath)
         
         
         //storeItem 을 받아서 각 변수에 입력한다
         cell.inputCellData(storeItem: storeItem)
-            
+        
         return cell
     }
     
