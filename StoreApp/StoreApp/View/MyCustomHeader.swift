@@ -16,8 +16,6 @@ class MyCustomHeader : UITableViewHeaderFooterView {
 }
 
 extension UIView {
-    
-    
     @IBInspectable
     var borderWidth: CGFloat {
         get {
