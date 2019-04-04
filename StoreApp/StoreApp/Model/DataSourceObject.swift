@@ -84,7 +84,7 @@ extension   DataSourceObject : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 80
     }
     
     /// 로우가 선택되면 타이틀 메뉴와 (할인된)최종 가격 정보를 toast 형태로 표시한다.
