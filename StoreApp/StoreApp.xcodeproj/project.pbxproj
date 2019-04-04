@@ -47,13 +47,6 @@
 			remoteGlobalIDString = D550E12A22561D2000BD5C30;
 			remoteInfo = URLWorkerTests;
 		};
-		D550E14622561DDF00BD5C30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D550E13B22561D2000BD5C30 /* URLWorker.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D550E12022561D2000BD5C30;
-			remoteInfo = URLWorker;
-		};
 		D575548F2248E29F0000A3D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D57554722248E29E0000A3D1 /* Project object */;
@@ -276,7 +269,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				D550E14722561DDF00BD5C30 /* PBXTargetDependency */,
 			);
 			name = StoreApp;
 			productName = StoreApp;
@@ -534,11 +526,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D550E14722561DDF00BD5C30 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = URLWorker;
-			targetProxy = D550E14622561DDF00BD5C30 /* PBXContainerItemProxy */;
-		};
 		D57554902248E29F0000A3D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D57554792248E29E0000A3D1 /* StoreApp */;
