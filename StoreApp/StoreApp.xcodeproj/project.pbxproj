@@ -17,6 +17,7 @@
 		D5439865224CB4E400635C95 /* StoreItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5439864224CB4E400635C95 /* StoreItemContainer.swift */; };
 		D543986D224CCFEE00635C95 /* MyCustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D543986C224CCFEE00635C95 /* MyCustomHeader.swift */; };
 		D543986F224CD09000635C95 /* MyCustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D543986E224CD09000635C95 /* MyCustomHeader.xib */; };
+		D550E1162256010D00BD5C30 /* URLWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D550E1152256010D00BD5C30 /* URLWorker.swift */; };
 		D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688D82248E54D002B80A0 /* DataSourceObject.swift */; };
 		D55688DC2248E687002B80A0 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* MyCustomCell.swift */; };
 		D55688DE2248E96C002B80A0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = D55688DD2248E96C002B80A0 /* main.json */; };
@@ -64,6 +65,7 @@
 		D5439864224CB4E400635C95 /* StoreItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemContainer.swift; sourceTree = "<group>"; };
 		D543986C224CCFEE00635C95 /* MyCustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomHeader.swift; sourceTree = "<group>"; };
 		D543986E224CD09000635C95 /* MyCustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomHeader.xib; sourceTree = "<group>"; };
+		D550E1152256010D00BD5C30 /* URLWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLWorker.swift; sourceTree = "<group>"; };
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
 		D55688DB2248E687002B80A0 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		D55688DD2248E96C002B80A0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				D5410946224A3F790047CDC6 /* StoreItemSlot.swift */,
 				D5439864224CB4E400635C95 /* StoreItemContainer.swift */,
 				D5E974E4224CEED80075151C /* MyHeaderContent.swift */,
+				D550E1152256010D00BD5C30 /* URLWorker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,7 +215,6 @@
 				60387CA670B13E9557F18C0F /* Pods-StoreAppUITests.debug.xcconfig */,
 				99803C212F73C7A918573DD1 /* Pods-StoreAppUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -369,15 +371,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-StoreAppTests-checkManifestLockResult.txt",
 			);
@@ -391,15 +389,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-StoreAppUITests-checkManifestLockResult.txt",
 			);
@@ -413,15 +407,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-StoreApp/Pods-StoreApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Toaster/Toaster.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toaster.framework",
 			);
@@ -435,15 +425,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-StoreApp-checkManifestLockResult.txt",
 			);
@@ -461,6 +447,7 @@
 			files = (
 				D54109452249F9420047CDC6 /* StoreItemMaker.swift in Sources */,
 				D57554802248E29E0000A3D1 /* ViewController.swift in Sources */,
+				D550E1162256010D00BD5C30 /* URLWorker.swift in Sources */,
 				D5E974E5224CEED80075151C /* MyHeaderContent.swift in Sources */,
 				D5439865224CB4E400635C95 /* StoreItemContainer.swift in Sources */,
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
