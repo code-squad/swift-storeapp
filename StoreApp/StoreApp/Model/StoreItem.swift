@@ -16,7 +16,7 @@ class StoreItem : Codable{
     
     let alt : String
     
-    let delivery_type : [String]
+    let badge : [String]
     
     let title : String
     
@@ -31,7 +31,7 @@ class StoreItem : Codable{
             let detail_hash = json["detail_hash"] as? String,
             let image = json["image"] as? String,
             let alt = json["alt"] as? String,
-            let delivery_type = json["delivery_type"] as? [String],
+            let badge = json["badge"] as? [String],
             let title = json["title"] as? String,
             let description = json["description"] as? String,
             let s_price = json["s_price"] as? String
@@ -40,7 +40,7 @@ class StoreItem : Codable{
         self.detail_hash = detail_hash
         self.image = image
         self.alt = alt
-        self.delivery_type = delivery_type
+        self.badge = badge
         self.title = title
         self.description = description
         self.s_price = s_price
