@@ -18,13 +18,15 @@ class MyCustomCell : UITableViewCell {
     /// 상세설명
     @IBOutlet weak var itemDescription: UILabel!
     
+    /// 메뉴 할인전 가격
+    @IBOutlet weak var n_price: UILabel!
+    
     /// 메뉴 가격
     @IBOutlet weak var s_price: UILabel!
     
     /// 이벤트 배지
-    @IBOutlet weak var delivery_type: UILabel!
+    @IBOutlet weak var badgeStackView: UIStackView!
     
-    @IBOutlet weak var n_price: UILabel!
     
     
     /// 취소선 만드는 함수
@@ -50,18 +52,29 @@ class MyCustomCell : UITableViewCell {
         self.title.text = storeItem.title
         self.itemDescription.text  = storeItem.description
         self.s_price.text  = storeItem.s_price
-        self.delivery_type.text = {
-            var result = ""
-            for text in storeItem.delivery_type {
-                result.append(text)
-                result += ","
-            }
-            result.removeLast()
-            return result
-        }()
         
-//        self.n_price.text  = storeItem.n_price
+        // 딜리버리 타입 배열만큼 반복
+        for badgeText in storeItem.badge {
+            let badgeLable = UILabel()
+            
+            // 텍스트 입력
+            badgeLable.text = badgeText
+            
+            // 스타일 적용
+            badgeLable.backgroundColor = UIColor.purple
+            badgeLable.textColor = UIColor.white
+            
+            // 배지 레이블 추가
+            self.badgeStackView.addArrangedSubview(badgeLable)
+            
+            // 공백용 레이블 생성
+            let blankLable = UILabel()
+            blankLable.text = "  "
+            // 추가
+            self.badgeStackView.addArrangedSubview(blankLable)
+        }
         
+        // 할인전 가격에 스타일 적용
         self.n_price.attributedText = makeStrikeThrough(text: storeItem.n_price)
     }
 }
