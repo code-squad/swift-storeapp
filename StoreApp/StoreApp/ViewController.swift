@@ -60,19 +60,20 @@ class ViewController: UIViewController {
         os_log("슬롯추가됨 노티발생")
         
         // 인덱스를 받아서 해당 섹션 리로드
-        if let index = notification.object as? Int {
-            // 로깅을 위한 형변환
-            let indexString = String(index)
-            os_log("노티 후 섹션 %@ 리로드 시도",indexString)
-            
-            // 섹션 리로드
-            self.storeItemTableView.reloadSections(IndexSet(integer: index), with: .top)
-            
-            os_log("노티 후 섹션 %@ 리로드 성공",indexString)
-        } // 인덱스가 없으면 작동안함
-        else {
+        guard let index = notification.object as? Int else  {
+            // 인덱스가 없으면 작동안함
             os_log("슬롯추가 노티에서 인덱스 추출실패")
+            return ()
         }
+        
+        // 로깅을 위한 형변환
+        let indexString = String(index)
+        os_log("노티 후 섹션 %@ 리로드 시도",indexString)
+        
+        // 섹션 리로드
+        self.storeItemTableView.reloadSections(IndexSet(integer: index), with: .top)
+        
+        os_log("노티 후 섹션 %@ 리로드 성공",indexString)
     }
     
     override func viewDidLoad() {
