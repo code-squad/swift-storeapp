@@ -28,7 +28,7 @@ class URLWorker {
             os_log("데이터소스에 슬롯추가완료. index : %@",indexString)
             
             // 데이터가 추가됬으니 해당 섹션만 리로드
-            NotificationCenter.default.post(name: .storeItemSlotAdded, object: index)
+            NotificationCenter.default.post(name: .didAddStoreItemSlot, object: index)
         }
     }
     
