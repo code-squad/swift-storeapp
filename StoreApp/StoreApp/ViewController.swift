@@ -11,7 +11,7 @@ import os
 
 /// 노티 이름 선언
 extension Notification.Name {
-    static let storeItemSlotAdded = Notification.Name("storeItemSlotAdded")
+    static let didAddStoreItemSlot = Notification.Name("didAddStoreItemSlot")
 }
 
 class ViewController: UIViewController {
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
     /// 노티 생성 함수
     func makeNoti(){
         // 스토어아이템 추가시 노티
-        NotificationCenter.default.addObserver(self, selector: #selector(afterSlotAdded(notification:)), name: .storeItemSlotAdded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(afterSlotAdded(notification:)), name: .didAddStoreItemSlot, object: nil)
     }
     
     /// 슬롯추가됨 노티 포스트시 리로드 실행
