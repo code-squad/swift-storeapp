@@ -49,7 +49,7 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: defaultCellIdentifier, for: indexPath) as! MyCustomCell
         
-        cell.badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+        cell.resetBadgeView()
         
         let storeItem = self.storeItemContainer.storeItem(indexPath: indexPath)
         

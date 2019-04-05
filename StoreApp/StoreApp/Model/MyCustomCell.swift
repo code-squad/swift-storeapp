@@ -77,5 +77,10 @@ class MyCustomCell : UITableViewCell {
         // 할인전 가격에 스타일 적용
         self.n_price.attributedText = makeStrikeThrough(text: storeItem.n_price)
     }
+    
+    /// 셀의 배지 초기화
+    func resetBadgeView(){
+        self.badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+    }
 }
 
