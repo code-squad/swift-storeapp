@@ -32,9 +32,16 @@ class StoreItemSlot {
         return self.storeItemList[index].toastMessage()
     }
     
-    /// 내부 리스트를 리턴한다
+    /// 내부 리스트를 리턴하고 본래 리스트는 비운다.
     func allItems() -> [StoreItem] {
-        return self.storeItemList
+        // 리턴용 변수에 기존값을 연결한다
+        let result = self.storeItemList
+        
+        // 기존값은 비운다
+        self.storeItemList = []
+        
+        // 결과 리턴
+        return result
     }
     
     /// 슬롯을 받아서 자기자신에 추가한다
