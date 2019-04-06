@@ -8,6 +8,7 @@
 
 import UIKit
 import os
+import My
 
 /// 노티 이름 선언
 extension Notification.Name {
