@@ -34,9 +34,14 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         self.storeItemContainer.add(storeItemSlot: storeItemSlot)
     }
     
-    /// 데이터소스 인덱스에 데이터 입력
+    /// 데이터소스 인덱스에 슬롯 추가
     func inputData(storeItemSlot: StoreItemSlot, index: Int){
         self.storeItemContainer.add(storeItemSlot: storeItemSlot, index: index)
+    }
+    
+    /// 데이터소스 인덱스에 스토어아이템 배열 추가
+    func inputData(storeItemSlot: [StoreItem], index: Int){
+        self.storeItemContainer.add(storeItemList: storeItemSlot, index: index)
     }
     
     /// 센션당 로우 카운트 리턴
@@ -68,6 +73,13 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
     /// 비어있는 슬롯을 만든다
     func addEmptyStoreItemSlot(){
         self.storeItemContainer.makeEmptyItemSlot()
+    }
+    
+    /// 비어있는 슬롯을 입력값 개수만큼 만든다
+    func addEmptyStoreItemSlot(count: Int){
+        for _ in 0..<count {
+            self.storeItemContainer.makeEmptyItemSlot()            
+        }
     }
 }
 

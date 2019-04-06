@@ -59,4 +59,8 @@ class StoreItemContainer {
         self.storeItemSlotList.append(StoreItemSlot())
     }
     
+    /// 인덱스와 스토어아이템배열을 받아서 해당 인덱스에 추가해준다
+    func add(storeItemList: [StoreItem], index: Int){
+        self.storeItemSlotList[index].add(storeItemList: storeItemList)
+    }
 }
