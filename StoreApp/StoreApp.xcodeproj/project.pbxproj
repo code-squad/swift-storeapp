@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		543AA21AF2E3D15263C1E225 /* Pods_StoreAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA8C4F492F801211FD0D8E3 /* Pods_StoreAppUITests.framework */; };
-		72AD84C2913D44E573F486FA /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90BEDA9A35C62C4F558AA77C /* Pods_StoreApp.framework */; };
 		D133AD745C9098B89DE021DE /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401C48E18DD13A6D1B7CD2B2 /* Pods_StoreAppTests.framework */; };
 		D54109452249F9420047CDC6 /* StoreItemMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54109442249F9420047CDC6 /* StoreItemMaker.swift */; };
 		D5410947224A3F790047CDC6 /* StoreItemSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5410946224A3F790047CDC6 /* StoreItemSlot.swift */; };
@@ -17,9 +16,10 @@
 		D5439865224CB4E400635C95 /* StoreItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5439864224CB4E400635C95 /* StoreItemContainer.swift */; };
 		D543986D224CCFEE00635C95 /* MyCustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D543986C224CCFEE00635C95 /* MyCustomHeader.swift */; };
 		D543986F224CD09000635C95 /* MyCustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D543986E224CD09000635C95 /* MyCustomHeader.xib */; };
-		D550E1162256010D00BD5C30 /* URLWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D550E1152256010D00BD5C30 /* URLWorker.swift */; };
+		D5449C5E2258724800DB9106 /* MyURLDataMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5449C5B2258723F00DB9106 /* MyURLDataMaker.framework */; };
+		D5449C5F2258724800DB9106 /* MyURLDataMaker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5449C5B2258723F00DB9106 /* MyURLDataMaker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D550E1482257555F00BD5C30 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* MyCustomCell.swift */; };
 		D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688D82248E54D002B80A0 /* DataSourceObject.swift */; };
-		D55688DC2248E687002B80A0 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* MyCustomCell.swift */; };
 		D55688DE2248E96C002B80A0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = D55688DD2248E96C002B80A0 /* main.json */; };
 		D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DF2248EA50002B80A0 /* StoreItem.swift */; };
 		D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575547D2248E29E0000A3D1 /* AppDelegate.swift */; };
@@ -33,19 +33,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D550E14022561D2200BD5C30 /* PBXContainerItemProxy */ = {
+		D5449C5A2258723F00DB9106 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D550E13B22561D2000BD5C30 /* URLWorker.xcodeproj */;
+			containerPortal = D5449C552258723F00DB9106 /* MyURLDataMaker.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D550E12122561D2000BD5C30;
-			remoteInfo = URLWorker;
+			remoteGlobalIDString = D5449C3922586F8900DB9106;
+			remoteInfo = MyURLDataMaker;
 		};
-		D550E14222561D2200BD5C30 /* PBXContainerItemProxy */ = {
+		D5449C5C2258723F00DB9106 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D550E13B22561D2000BD5C30 /* URLWorker.xcodeproj */;
+			containerPortal = D5449C552258723F00DB9106 /* MyURLDataMaker.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D550E12A22561D2000BD5C30;
-			remoteInfo = URLWorkerTests;
+			remoteGlobalIDString = D5449C4222586F8900DB9106;
+			remoteInfo = MyURLDataMakerTests;
+		};
+		D5449C602258724800DB9106 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5449C552258723F00DB9106 /* MyURLDataMaker.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D5449C3822586F8900DB9106;
+			remoteInfo = MyURLDataMaker;
 		};
 		D575548F2248E29F0000A3D1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -63,6 +70,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D550E1532257560D00BD5C30 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D5449C5F2258724800DB9106 /* MyURLDataMaker.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		401C48E18DD13A6D1B7CD2B2 /* Pods_StoreAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C7E91CB1BAD350A75941723 /* Pods-StoreAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppTests.release.xcconfig"; path = "Target Support Files/Pods-StoreAppTests/Pods-StoreAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,8 +100,8 @@
 		D5439864224CB4E400635C95 /* StoreItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemContainer.swift; sourceTree = "<group>"; };
 		D543986C224CCFEE00635C95 /* MyCustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomHeader.swift; sourceTree = "<group>"; };
 		D543986E224CD09000635C95 /* MyCustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomHeader.xib; sourceTree = "<group>"; };
+		D5449C552258723F00DB9106 /* MyURLDataMaker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyURLDataMaker.xcodeproj; path = ../../../MyURLDataMaker/MyURLDataMaker.xcodeproj; sourceTree = "<group>"; };
 		D550E1152256010D00BD5C30 /* URLWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLWorker.swift; path = ../../URLWorker/URLWorker/URLWorker.swift; sourceTree = "<group>"; };
-		D550E13B22561D2000BD5C30 /* URLWorker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = URLWorker.xcodeproj; path = URLWorker/URLWorker.xcodeproj; sourceTree = "<group>"; };
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
 		D55688DB2248E687002B80A0 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		D55688DD2248E96C002B80A0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -107,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72AD84C2913D44E573F486FA /* Pods_StoreApp.framework in Frameworks */,
+				D5449C5E2258724800DB9106 /* MyURLDataMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,11 +161,11 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		D550E13C22561D2000BD5C30 /* Products */ = {
+		D5449C562258723F00DB9106 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D550E14122561D2200BD5C30 /* URLWorker.framework */,
-				D550E14322561D2200BD5C30 /* URLWorkerTests.xctest */,
+				D5449C5B2258723F00DB9106 /* MyURLDataMaker.framework */,
+				D5449C5D2258723F00DB9106 /* MyURLDataMakerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +188,7 @@
 		D57554712248E29E0000A3D1 = {
 			isa = PBXGroup;
 			children = (
+				D5449C552258723F00DB9106 /* MyURLDataMaker.xcodeproj */,
 				D575547C2248E29E0000A3D1 /* StoreApp */,
 				D57554912248E29F0000A3D1 /* StoreAppTests */,
 				D575549C2248E29F0000A3D1 /* StoreAppUITests */,
@@ -245,7 +267,6 @@
 		FA86B12DE49DFF539BAA0B3E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D550E13B22561D2000BD5C30 /* URLWorker.xcodeproj */,
 				90BEDA9A35C62C4F558AA77C /* Pods_StoreApp.framework */,
 				401C48E18DD13A6D1B7CD2B2 /* Pods_StoreAppTests.framework */,
 				6EA8C4F492F801211FD0D8E3 /* Pods_StoreAppUITests.framework */,
@@ -265,10 +286,12 @@
 				D57554772248E29E0000A3D1 /* Frameworks */,
 				D57554782248E29E0000A3D1 /* Resources */,
 				F47C0CE85D88C2ACF4D58259 /* [CP] Embed Pods Frameworks */,
+				D550E1532257560D00BD5C30 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D5449C612258724800DB9106 /* PBXTargetDependency */,
 			);
 			name = StoreApp;
 			productName = StoreApp;
@@ -352,8 +375,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = D550E13C22561D2000BD5C30 /* Products */;
-					ProjectRef = D550E13B22561D2000BD5C30 /* URLWorker.xcodeproj */;
+					ProductGroup = D5449C562258723F00DB9106 /* Products */;
+					ProjectRef = D5449C552258723F00DB9106 /* MyURLDataMaker.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -366,18 +389,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		D550E14122561D2200BD5C30 /* URLWorker.framework */ = {
+		D5449C5B2258723F00DB9106 /* MyURLDataMaker.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = URLWorker.framework;
-			remoteRef = D550E14022561D2200BD5C30 /* PBXContainerItemProxy */;
+			path = MyURLDataMaker.framework;
+			remoteRef = D5449C5A2258723F00DB9106 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D550E14322561D2200BD5C30 /* URLWorkerTests.xctest */ = {
+		D5449C5D2258723F00DB9106 /* MyURLDataMakerTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = URLWorkerTests.xctest;
-			remoteRef = D550E14222561D2200BD5C30 /* PBXContainerItemProxy */;
+			path = MyURLDataMakerTests.xctest;
+			remoteRef = D5449C5C2258723F00DB9106 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -495,13 +518,12 @@
 			files = (
 				D54109452249F9420047CDC6 /* StoreItemMaker.swift in Sources */,
 				D57554802248E29E0000A3D1 /* ViewController.swift in Sources */,
-				D550E1162256010D00BD5C30 /* URLWorker.swift in Sources */,
 				D5E974E5224CEED80075151C /* MyHeaderContent.swift in Sources */,
 				D5439865224CB4E400635C95 /* StoreItemContainer.swift in Sources */,
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
 				D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */,
+				D550E1482257555F00BD5C30 /* MyCustomCell.swift in Sources */,
 				D5410947224A3F790047CDC6 /* StoreItemSlot.swift in Sources */,
-				D55688DC2248E687002B80A0 /* MyCustomCell.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
 				D543986D224CCFEE00635C95 /* MyCustomHeader.swift in Sources */,
 			);
@@ -526,6 +548,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D5449C612258724800DB9106 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MyURLDataMaker;
+			targetProxy = D5449C602258724800DB9106 /* PBXContainerItemProxy */;
+		};
 		D57554902248E29F0000A3D1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D57554792248E29E0000A3D1 /* StoreApp */;
@@ -669,6 +696,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 641D8C9D614476153715FE0B /* Pods-StoreApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3AMK47TW4P;
@@ -685,6 +713,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75270A19A6F22AF491DBCB7E /* Pods-StoreApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3AMK47TW4P;
