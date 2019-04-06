@@ -54,4 +54,11 @@ class StoreItemSlot {
             self.storeItemList.append(item)
         }
     }
+    
+    /// 스토어아이템 배열을 받아서 추가한다
+    func add(storeItemList: [StoreItem]){
+        for item in storeItemList {
+            self.storeItemList.append(item)
+        }
+    }
 }
