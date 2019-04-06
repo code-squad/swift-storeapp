@@ -101,7 +101,6 @@
 		D543986C224CCFEE00635C95 /* MyCustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomHeader.swift; sourceTree = "<group>"; };
 		D543986E224CD09000635C95 /* MyCustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomHeader.xib; sourceTree = "<group>"; };
 		D5449C552258723F00DB9106 /* MyURLDataMaker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyURLDataMaker.xcodeproj; path = ../../../MyURLDataMaker/MyURLDataMaker.xcodeproj; sourceTree = "<group>"; };
-		D550E1152256010D00BD5C30 /* URLWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLWorker.swift; path = ../../URLWorker/URLWorker/URLWorker.swift; sourceTree = "<group>"; };
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
 		D55688DB2248E687002B80A0 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		D55688DD2248E96C002B80A0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -180,7 +179,6 @@
 				D5410946224A3F790047CDC6 /* StoreItemSlot.swift */,
 				D5439864224CB4E400635C95 /* StoreItemContainer.swift */,
 				D5E974E4224CEED80075151C /* MyHeaderContent.swift */,
-				D550E1152256010D00BD5C30 /* URLWorker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
