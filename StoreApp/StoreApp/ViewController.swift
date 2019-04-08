@@ -101,20 +101,28 @@ class ViewController: UIViewController {
             }
     }
     
+    
     /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
-    func dataSourceDataFrom(urlList: [String]){
+    func dataSourceDataFrom(url: String, index: Int){
+        // url 리스트에 연결 시도
+        if self.myDataLoader.dataFrom(unCheckedURL: self.jsonURLList[index],
+                                      index: index,
+                                      completion: self.toDataSourceAdd) {
+            // 연결 성공
+            os_log("URL Session 연결 성공")
+        } // 연결 실패
+        else {
+            os_log("URL Session 연결 실패")
+        }
+    }
+    
+    
+    /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
+    func dataSourceDataListFrom(urlList: [String]){
         // url 리스트 카운팅
         for count in 0..<urlList.count {
             // url 리스트에 연결 시도
-            if self.myDataLoader.dataFrom(unCheckedURL: self.jsonURLList[count],
-                                          index: count,
-                                          completion: self.toDataSourceAdd) {
-                // 연결 성공
-                os_log("URL Session 연결 성공")
-            } // 연결 실패
-            else {
-                os_log("URL Session 연결 실패")
-            }
+            dataSourceDataFrom(url: urlList[count], index: count)
         }
     }
     
@@ -134,7 +142,7 @@ class ViewController: UIViewController {
         self.dataSourceObject.addEmptyStoreItemSlot(count: self.jsonURLList.count)
         
         // url 에서 데이터소스 데이터 추출
-        dataSourceDataFrom(urlList: self.jsonURLList)
+        dataSourceDataListFrom(urlList: self.jsonURLList)
         
         // 테이블뷰에 커스텀 헤더 등록
         inputCustomHeader(tableView: self.storeItemTableView)
