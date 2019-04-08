@@ -45,5 +45,6 @@ class StoreItemSlot {
         os_log("데이터소스에 슬롯추가완료. index : %@",indexString)
         
         NotificationCenter.default.post(name: .didAddStoreItemSlot, object: index)
+        os_log("노티 발생 완료. index : %@",indexString)
     }
 }
