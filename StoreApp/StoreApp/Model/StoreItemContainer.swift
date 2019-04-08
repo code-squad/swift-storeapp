@@ -49,11 +49,6 @@ class StoreItemContainer {
         }
     }
     
-    /// 인덱스와 슬롯을 받아서 해당 인덱스에 추가해준다
-    func add(storeItemSlot: StoreItemSlot, index: Int){
-        self.storeItemSlotList[index].add(storeItemSlot: storeItemSlot)
-    }
-    
     /// 비어있는 슬롯을 만든다
     func makeEmptyItemSlot(){
         self.storeItemSlotList.append(StoreItemSlot())

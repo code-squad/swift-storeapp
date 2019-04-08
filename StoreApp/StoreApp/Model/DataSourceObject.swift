@@ -34,11 +34,6 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         self.storeItemContainer.add(storeItemSlot: storeItemSlot)
     }
     
-    /// 데이터소스 인덱스에 슬롯 추가
-    func inputData(storeItemSlot: StoreItemSlot, index: Int){
-        self.storeItemContainer.add(storeItemSlot: storeItemSlot, index: index)
-    }
-    
     /// 데이터소스 인덱스에 스토어아이템 배열 추가
     func inputData(storeItemSlot: [StoreItem], index: Int){
         self.storeItemContainer.add(storeItemList: storeItemSlot, index: index)
