@@ -83,7 +83,7 @@ class ViewController: UIViewController {
     }
     
     /// 데이터를 받아서 데이터소스에 입력하고 섹션을 리로드 한다. 비동기.
-    func add(data: Data, index: Int){
+    func toDataSourceAdd(data: Data, index: Int){
         // 비동기 시장
         DispatchQueue.main.async {
             // 받은 데이터를 스토어아이템 배열로 변형
@@ -101,6 +101,23 @@ class ViewController: UIViewController {
             }
     }
     
+    /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
+    func dataSourceDataFrom(urlList: [String]){
+        // url 리스트 카운팅
+        for count in 0..<urlList.count {
+            // url 리스트에 연결 시도
+            if self.myDataLoader.dataFrom(unCheckedURL: self.jsonURLList[count],
+                                          index: count,
+                                          completion: self.toDataSourceAdd) {
+                // 연결 성공
+                os_log("URL Session 연결 성공")
+            } // 연결 실패
+            else {
+                os_log("URL Session 연결 실패")
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,18 +133,8 @@ class ViewController: UIViewController {
         // json 리스트만큼 섹션 추가
         self.dataSourceObject.addEmptyStoreItemSlot(count: self.jsonURLList.count)
         
-        for count in 0..<self.jsonURLList.count {
-            // url 리스트에 연결 시도
-            if self.myDataLoader.dataFrom(unCheckedURL: self.jsonURLList[count],
-                             index: count,
-                             completion: self.add) {
-                // 연결 성공
-                os_log("URL Session 연결 성공")
-            } // 연결 실패
-            else {
-                os_log("URL Session 연결 실패")
-            }
-        }
+        // url 에서 데이터소스 데이터 추출
+        dataSourceDataFrom(urlList: self.jsonURLList)
         
         // 테이블뷰에 커스텀 헤더 등록
         inputCustomHeader(tableView: self.storeItemTableView)
