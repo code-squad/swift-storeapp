@@ -101,7 +101,6 @@ class ViewController: UIViewController {
             }
     }
     
-    
     /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
     func dataSourceDataFrom(url: String, index: Int){
         // url 리스트에 연결 시도
@@ -115,7 +114,6 @@ class ViewController: UIViewController {
             os_log("URL Session 연결 실패")
         }
     }
-    
     
     /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
     func dataSourceDataListFrom(urlList: [String]){
