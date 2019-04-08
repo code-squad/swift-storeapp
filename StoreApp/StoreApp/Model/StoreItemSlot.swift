@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os
 
 class StoreItemSlot {
     private var storeItemList : [StoreItem] = []
@@ -33,9 +34,16 @@ class StoreItemSlot {
     }
     
     /// 스토어아이템 배열을 받아서 추가한다
-    func add(storeItemList: [StoreItem]){
+    func add(storeItemList: [StoreItem], index: Int){
         for item in storeItemList {
             self.storeItemList.append(item)
         }
+        // 추가가 완료되면 노티생성
+        
+        // 로깅을 위한 정수형 -> 문자형 변환
+        let indexString : String = String(index)
+        os_log("데이터소스에 슬롯추가완료. index : %@",indexString)
+        
+        NotificationCenter.default.post(name: .didAddStoreItemSlot, object: index)
     }
 }
