@@ -22,13 +22,11 @@ class ViewController: UIViewController {
     /// MyURLDataMaker 내부객체 선언
     let myDataLoader = MyDataLoader()
     
-    
+    /// 커스텀 디스패치큐 생성
+    let customSerialQueue = DispatchQueue(label: "customSerial", qos: .default)
     
     /// 데이터소스
     private let dataSourceObject = DataSourceObject()
-    
-    /// 전체 json 파일명 목록
-//    private let allJSONFileName = ["main","soup","side"]
     
     /// 헤더 상세내용
     private let allHeaderTitle = ["메인반찬","국.찌게","밑반찬"]
@@ -39,7 +37,7 @@ class ViewController: UIViewController {
     
     /// json 데이터 URL
     private let jsonURLList : [String] = ["https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/course"]
-
+    
     /// 헤더컨텐트 매니저 데이터를 데이터소스에 입력한다
     func inputHeaderContent(dataSourceObject: DataSourceObject){
         // 헤더컨텐트 매니저 데이터 입력
@@ -76,29 +74,24 @@ class ViewController: UIViewController {
         let indexString = String(index)
         os_log("노티 후 섹션 %@ 리로드 시도",indexString)
         
-        // 섹션 리로드
-        self.storeItemTableView.reloadSections(IndexSet(integer: index), with: .top)
-        
-        os_log("노티 후 섹션 %@ 리로드 성공",indexString)
+        DispatchQueue.main.sync {
+            // 섹션 리로드
+            self.storeItemTableView.reloadSections(IndexSet(integer: index), with: .top)
+            os_log("노티 후 섹션 %@ 리로드 성공",indexString)
+        }
     }
+    
     
     /// 데이터를 받아서 데이터소스에 입력하고 섹션을 리로드 한다. 비동기.
     func toDataSourceAdd(data: Data, index: Int){
-        // 비동기 시장
-        DispatchQueue.main.async {
+        // 커스텀 동기 시작
+        self.customSerialQueue.sync {
             // 받은 데이터를 스토어아이템 배열로 변형
             let storeItems = StoreItemMaker.makeStoreItemList(jsonData: data)
             
             // 스토어아이템배열을 데이터소스에 추가
             self.dataSourceObject.inputData(storeItemSlot: storeItems, index: index)
-            
-            // 로깅을 위한 정수형 -> 문자형 변환
-            let indexString : String = String(index)
-            os_log("데이터소스에 슬롯추가완료. index : %@",indexString)
-            
-            // 데이터가 추가됬으니 해당 섹션만 리로드
-            NotificationCenter.default.post(name: .didAddStoreItemSlot, object: index)
-            }
+        }        
     }
     
     /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
@@ -106,7 +99,7 @@ class ViewController: UIViewController {
         // url 리스트에 연결 시도
         if self.myDataLoader.dataFrom(unCheckedURL: self.jsonURLList[index],
                                       index: index,
-                                      completion: self.toDataSourceAdd) {
+                                      completion: toDataSourceAdd) {
             // 연결 성공
             os_log("URL Session 연결 성공")
         } // 연결 실패
