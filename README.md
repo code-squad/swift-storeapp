@@ -142,8 +142,33 @@
 
 - urlSession 이용해서 데이터를 가져오는 객체, 함수 생성
 - 가져온 JSON 데이터를 객체화 
-- 객체가 생성되면 이하의 단계 DispatchQueue.main.async 비동기로 진행
+- 객체가 생성되면 이하의 단계 Custom DispatchQueue.sync 동기로 진행
 	* 생성된 객체를 UITableViewDataSourceObejct 에 입력
 	* 입력된 섹션만 reloadSection 
+	* reloadSection 은 DispatchQueue.main.sync 동기로 진행
 
+
+-
+
+
+# step 6 병렬처리
+
+### 요구사항
  
+- 3개의 JSON 데이터가 모두 받고 나면 JSON 데이터에 포함된 이미지 URL을 분리해서 Image 파일들을 다운로드 받는다.
+- 이미지 파일들을 병렬처리해서 한꺼번에 여러개를 다운로드하도록 구성한다.
+	* (선택1) GCD Queue를 활용하거나
+	* (선택2) Download Task 방식으로 구현한다.
+- 다운로드가 완료되면 앱 디렉토리 중에 Cache 디렉토리에 URL에 있는 파일명으로 저장한다.
+- 셀을 표기할 때 이미 다운로드된 이미지가 있으면 표시하고, 새로운 파일이 다운로드 완료되면 해당 이미지를 테이블뷰 셀에 뒤늦게(lazy) 표시한다.
+	* 화면에 표시할 때 다운로드를 담당하는 스레드와 화면을 처리하는 스레드를 위한 GCD Queue를 구분해서 처리한다.
+	* 이미지를 다 받을때 까지 화면이 하얗게 멈춰있지 않도록 만든다.
+
+
+### 동작화면
+
+
+
+
+
+### 구현내용
