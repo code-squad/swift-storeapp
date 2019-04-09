@@ -58,4 +58,9 @@ class StoreItemContainer {
     func add(storeItemList: [StoreItem], index: Int){
         self.storeItemSlotList[index].add(storeItemList: storeItemList, index: index)
     }
+    
+    /// 섹션인덱스, 로우인덱스를 받아서 해당 커스텀셀을 넘긴다
+    func storeItem(section: Int, row: Int) -> StoreItem {
+        return self.storeItemSlotList[section].storeItem(row: row)
+    }
 }
