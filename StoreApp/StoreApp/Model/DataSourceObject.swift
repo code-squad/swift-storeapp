@@ -76,6 +76,17 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
             self.storeItemContainer.makeEmptyItemSlot()            
         }
     }
+    
+    /// 섹션인덱스, 로우인덱스를 받아서 해당 커스텀셀을 넘긴다
+    private func storeItem(section: Int, row: Int) -> StoreItem {
+        return self.storeItemContainer.storeItem(section: section, row: row)
+    }
+    
+    /// 섹션인덱스, 로우인덱스를 받아서 해당 셀의 이미지 주소를 넘긴다
+    func itemImageURL(section: Int, row: Int) -> String {
+        let storeItem = self.storeItem(section: section, row: row)
+        return storeItem.image
+    }
 }
 
 /// 델리게이트 기능 확장
