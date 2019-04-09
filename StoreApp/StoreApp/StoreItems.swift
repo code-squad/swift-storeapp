@@ -10,4 +10,9 @@ import Foundation
 
 struct StoreItems {
     private var storeItems = [StoreItem]()
+    
+    subscript(index: Int) -> StoreItem? {
+        guard 0 <= index, index < storeItems.count else { return nil }
+        return storeItems[index]
+    }
 }
