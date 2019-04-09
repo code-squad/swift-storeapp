@@ -47,4 +47,9 @@ class StoreItemSlot {
         NotificationCenter.default.post(name: .didAddStoreItemSlot, object: index)
         os_log("노티 발생 완료. index : %@",indexString)
     }
+    
+    /// 로우인덱스를 받아서 해당 셀을 리턴
+    func storeItem(row: Int) -> StoreItem {
+        return self.storeItemList[row]
+    }
 }
