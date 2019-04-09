@@ -172,13 +172,13 @@
 		D55688DA2248E665002B80A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D55688D82248E54D002B80A0 /* DataSourceObject.swift */,
 				D55688DB2248E687002B80A0 /* MyCustomCell.swift */,
 				D54109442249F9420047CDC6 /* StoreItemMaker.swift */,
 				D55688DF2248EA50002B80A0 /* StoreItem.swift */,
 				D5410946224A3F790047CDC6 /* StoreItemSlot.swift */,
 				D5439864224CB4E400635C95 /* StoreItemContainer.swift */,
 				D5E974E4224CEED80075151C /* MyHeaderContent.swift */,
+				D55688D82248E54D002B80A0 /* DataSourceObject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
