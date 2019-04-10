@@ -10,12 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var storeItems: [StoreItem]? = nil
+    var storeItems: [StoreItem] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        storeItems = JSONParser.parseJSONData()
+        guard let storeItems = JSONParser.parseJSONData() else { return }
+        self.storeItems = storeItems
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 }
 
@@ -25,12 +28,21 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return storeItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseQueue", for: indexPath) as? StoreItemCell else { return UITableViewCell() }
+        storeItems[indexPath.row].access { detail_hash, image, alt, delivery_type, title, description, n_price, s_price, badge in
+            cell.set(imagePath: image, title: title, description: description)
+        }
+        return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 144
     }
 }
 

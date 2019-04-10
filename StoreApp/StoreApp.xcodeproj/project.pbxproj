@@ -14,6 +14,8 @@
 		9D1837EA225DE16E001F02F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D1837E8225DE16E001F02F4 /* LaunchScreen.storyboard */; };
 		9D1837F2225DE3A7001F02F4 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837F1225DE3A7001F02F4 /* JSONParser.swift */; };
 		9D1837F4225DE95F001F02F4 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837F3225DE95F001F02F4 /* StoreItem.swift */; };
+		9D1837F8225E1388001F02F4 /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837F7225E1388001F02F4 /* StoreItemCell.swift */; };
+		9D1837FA225E205B001F02F4 /* StoreItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837F9225E205A001F02F4 /* StoreItemDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		9D1837EB225DE16E001F02F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D1837F1225DE3A7001F02F4 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		9D1837F3225DE95F001F02F4 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		9D1837F7225E1388001F02F4 /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCell.swift; sourceTree = "<group>"; };
+		9D1837F9225E205A001F02F4 /* StoreItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				9D1837EB225DE16E001F02F4 /* Info.plist */,
 				9D1837F1225DE3A7001F02F4 /* JSONParser.swift */,
 				9D1837F3225DE95F001F02F4 /* StoreItem.swift */,
+				9D1837F7225E1388001F02F4 /* StoreItemCell.swift */,
+				9D1837F9225E205A001F02F4 /* StoreItemDTO.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -143,7 +149,9 @@
 			files = (
 				9D1837E2225DE16C001F02F4 /* ViewController.swift in Sources */,
 				9D1837E0225DE16C001F02F4 /* AppDelegate.swift in Sources */,
+				9D1837F8225E1388001F02F4 /* StoreItemCell.swift in Sources */,
 				9D1837F4225DE95F001F02F4 /* StoreItem.swift in Sources */,
+				9D1837FA225E205B001F02F4 /* StoreItemDTO.swift in Sources */,
 				9D1837F2225DE3A7001F02F4 /* JSONParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

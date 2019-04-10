@@ -9,13 +9,17 @@
 import Foundation
 
 class StoreItem: Decodable {
-     var detail_hash: String
-     var image: String
-     var alt: String
-     var delivery_type: [String]
-     var title: String
-     var description: String
-     var n_price: String?
-     var s_price: String
-     var badge: [String]?
+    private var detail_hash: String
+    private var image: String
+    private var alt: String
+    private var delivery_type: [String]
+    private var title: String
+    private var description: String
+    private var n_price: String?
+    private var s_price: String
+    private var badge: [String]?
+    
+    func access(form: (String, String, String, [String], String, String, String?, String, [String]?) -> Void) {
+        form(detail_hash, image, alt, delivery_type, title, description, n_price, s_price, badge)
+    }
 }
