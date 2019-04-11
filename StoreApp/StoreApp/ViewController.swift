@@ -10,21 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    private let storeItems: StoreItems = StoreItems()
     private let storeAppDataSource = StoreAppDataSource()
     private let storeAppDelegate = StoreAppDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        storeAppDataSource.set(row: storeItems.count())
-        storeItems.access { items in
-            var itemDTOs: [StoreItemDTO] = []
-            for item in items { itemDTOs.append(item.getDTO()) }
-            storeAppDataSource.setCell(information: itemDTOs)
-        }
         tableView.dataSource = storeAppDataSource
         tableView.delegate = storeAppDelegate
-        
     }
 }

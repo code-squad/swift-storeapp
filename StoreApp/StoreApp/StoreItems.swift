@@ -20,7 +20,7 @@ class StoreItems {
         return storeItems.count
     }
     
-    func access(form: ([StoreItem]) -> Void) {
-        form(storeItems)
+    func access(at index: Int ,form: (StoreItem) -> Void) {
+        form(storeItems[index])
     }
 }
