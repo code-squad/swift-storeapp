@@ -87,6 +87,21 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         let storeItem = self.storeItem(section: section, row: row)
         return storeItem.image
     }
+    
+    /// 섹션인덱스를 받아서 해당 섹션의 모든 셀의 이미지url 울 배열로 리턴한다
+    func itemImageURLs(section: Int) -> [String] {
+        // 이미지url 배열
+        var result: [String] = []
+        
+        // 해당 섹션의 모든 로우가 대상
+        for count in 0..<self.storeItemContainer.count(index: section) {
+            let url = itemImageURL(section: section, row: count)
+            result.append(url)
+        }
+        
+        return result
+    }
+    
 }
 
 /// 델리게이트 기능 확장
