@@ -10,43 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    var storeItems: [StoreItem] = []
+    private let storeItems: StoreItems = StoreItems()
+    private let storeAppDataSource = StoreAppDataSource()
+    private let storeAppDelegate = StoreAppDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        guard let storeItems = JSONParser.parseJSONData() else { return }
-        self.storeItems = storeItems
-        tableView.dataSource = self
-        tableView.delegate = self
-    }
-}
-
-extension ViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseQueue", for: indexPath) as? StoreItemCell else { return UITableViewCell() }
-        storeItems[indexPath.row].access { detail_hash, image, alt, delivery_type, title, description, n_price, s_price, badge in
-            let itemDTO = StoreItemDTO(detail_hash, image, alt,
-                                       delivery_type, title, description,
-                                       n_price, s_price, badge)
-            
-            cell.set(itemDTO)
+        storeAppDataSource.set(row: storeItems.count())
+        storeItems.access { items in
+            var itemDTOs: [StoreItemDTO] = []
+            for item in items { itemDTOs.append(item.getDTO()) }
+            storeAppDataSource.setCell(information: itemDTOs)
         }
-        return cell
+        tableView.dataSource = storeAppDataSource
+        tableView.delegate = storeAppDelegate
+        
     }
 }
-
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 144
-    }
-}
-
