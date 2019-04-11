@@ -27,7 +27,7 @@ class StoreItem : Decodable {
     
     var n_price : String = ""
     
-    var imageFileURL = ""
+    lazy var imageFileURL = ""
     
     init?(json: [String: Any]) {
         guard  let detail_hash = json["detail_hash"] as? String else {
