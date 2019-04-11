@@ -37,6 +37,26 @@ class MyImageMaker {
         }
     }
     
+    /// url 배열을 지정해서 저장한다
+    private func saveURLList(section: Int){
+        // 가독성을 위해 작업할 url 배열을 변수로 선언
+        let savedURLs = self.savedURLsList[section]
+        
+        // 모든 url배열을 파일들로 저장한다
+        for count in 0..<savedURLs.count {
+            save(imageURL: savedURLs[count], section: section, row: count)
+        }
+    }
+    
+    /// 모든 섹션이 추가되면 파일저장을 시작한다
+    private func saveAllURL(){
+        // url 배열을 추출
+        for savedURLsListCount in 0..<self.savedURLsList.count {
+            // url배열을 파일들로 저장한다
+            saveURLList(section: savedURLsListCount)
+        }
+    }
+    
     /// 섹션인덱스와 url 배열을 받아서 저장한다
     func getURLs(section: Int, urls: [String]){
         // 완료 추가한다
@@ -48,15 +68,7 @@ class MyImageMaker {
         // 모든 섹션이 추가되면 파일을 저장한다
         if self.maxSectionCount == self.finishedSectionCount {
             // url 배열을 추출
-            for savedURLsListCount in 0..<self.savedURLsList.count {
-                
-                let savedURLs = self.savedURLsList[savedURLsListCount]
-                
-                // url배열들을 파일들로 저장한다
-                for urlCount in 0..<savedURLs.count {
-                    save(imageURL: savedURLs[urlCount], section: savedURLsListCount, row: urlCount)
-                }
-            }
+            saveAllURL()
         }
     }
     
@@ -129,10 +141,11 @@ class MyImageMaker {
                     // 다운로드 성공 노티 포스트
                     NotificationCenter.default.post(name: .didDownloadImageFile, object: self, userInfo: userInfo)
                     
-                } catch (let writeError) {
+                } // 파일복사 작업 실패시
+                catch (let writeError) {
                     print("Error creating a file \(destinationFileUrl) : \(writeError)")
                 }
-                
+                // 웹 연결 실패시
             } else {
                 os_log("Error took place while downloading a file. Error description: %@", (error?.localizedDescription)!);
             }
