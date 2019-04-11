@@ -34,7 +34,6 @@ class StoreItemCell: UITableViewCell {
         let s_priceLabel = madeS_PriceLabel(text: s_price)
         if let n_price = n_price {
             let n_priceLabel = madeN_PriceLabel(text: n_price)
-            n_priceLabel.attributedText = NSAttributedString(string: n_price, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue])
             priceLabels.addArrangedSubview(n_priceLabel)
         }
         priceLabels.addArrangedSubview(s_priceLabel)
@@ -61,7 +60,7 @@ class StoreItemCell: UITableViewCell {
     private func madeN_PriceLabel(text: String) -> UILabel {
         let n_priceLabel = UILabel()
         n_priceLabel.font = n_priceLabel.font.withSize(15)
-        n_priceLabel.text = text
+        n_priceLabel.attributedText = NSAttributedString(string: text, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue])
         n_priceLabel.textColor = UIColor.lightGray
         return n_priceLabel
     }
