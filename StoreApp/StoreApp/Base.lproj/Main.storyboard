@@ -33,7 +33,6 @@
                                                     <rect key="frame" x="121" y="11" width="254" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                    <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWS-Oh-low">
@@ -47,10 +46,16 @@
                                                     <rect key="frame" x="0.0" y="11" width="113" height="103"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ugs-wF-S5c">
+                                                    <rect key="frame" x="121" y="65" width="122" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </stackView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="BWS-Oh-low" id="vCc-rv-QWS"/>
+                                            <outlet property="itemImage" destination="gNU-aE-LhR" id="haM-0X-b88"/>
+                                            <outlet property="priceLabels" destination="Ugs-wF-S5c" id="uoL-rj-TPa"/>
                                             <outlet property="titleLabel" destination="vyW-p9-Itx" id="OCZ-oe-6Ij"/>
                                         </connections>
                                     </tableViewCell>
