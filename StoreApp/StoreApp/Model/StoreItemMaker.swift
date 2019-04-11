@@ -47,7 +47,7 @@ class StoreItemMaker {
                     // json 배열의 모든 객체를 추가시도
                     result = makeStoreItemList(jsonArray: jsonList)
                     
-                    os_log("json data 슬롯으로 생성 성공")
+                    os_log("json data -> StoreItem 배열로 생성 성공")
                     
                     // 추가가 성공하면 리턴
                     return result
