@@ -9,28 +9,22 @@
 import UIKit
 
 class StoreAppDataSource: NSObject, UITableViewDataSource {
-    private var row: Int = 0
-    private var cellInformation: [StoreItemDTO] = []
-    
-    func set(row: Int) {
-        self.row = row
-    }
-    
-    func setCell(information: [StoreItemDTO]) {
-        self.cellInformation = information
-    }
-    
+    private var storeItems: StoreItems = StoreItems()
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return row
+        return storeItems.count()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseQueue", for: indexPath) as? StoreItemCell else { return UITableViewCell() }
-        cell.set(cellInformation[indexPath.row])
+        storeItems.access(at: indexPath.row) { item in
+            let itemDTO = item.getDTO()
+            cell.set(itemDTO)
+        }
         return cell
     }
 }
