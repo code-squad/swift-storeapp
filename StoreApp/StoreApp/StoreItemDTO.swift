@@ -19,9 +19,9 @@ struct StoreItemDTO {
     let s_price: String
     let badge: [String]?
     
-    init(detail_hash: String, image: String, alt: String,
-         delivery_type: [String], title: String, description: String,
-         n_price: String?, s_price: String, badge: [String]?) {
+    init(_ detail_hash: String, _ image: String, _ alt: String,
+         _ delivery_type: [String], _ title: String, _ description: String,
+         _ n_price: String?, _ s_price: String, _ badge: [String]?) {
         self.detail_hash = detail_hash
         self.image = image
         self.alt = alt

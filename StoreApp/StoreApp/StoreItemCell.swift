@@ -25,20 +25,19 @@ class StoreItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func set(_ imagePath: String, _ title: String, _ description: String,
-             _ n_price: String?, _ s_price: String, _ badge: [String]?) {
+    func set(_ itemDTO: StoreItemDTO) {
         removeArrangedAllViews()
-        titleLabel.text = title
-        descriptionLabel.text = description
+        titleLabel.text = itemDTO.title
+        descriptionLabel.text = itemDTO.description
     
-        let s_priceLabel = madeS_PriceLabel(text: s_price)
-        if let n_price = n_price {
+        let s_priceLabel = madeS_PriceLabel(text: itemDTO.s_price)
+        if let n_price = itemDTO.n_price {
             let n_priceLabel = madeN_PriceLabel(text: n_price)
             priceLabels.addArrangedSubview(n_priceLabel)
         }
         priceLabels.addArrangedSubview(s_priceLabel)
         
-        if let badge = badge { madeBadgeLabels(badge) }
+        if let badge = itemDTO.badge { madeBadgeLabels(badge) }
         
     }
 
