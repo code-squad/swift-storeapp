@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os
 
 class MyCustomCell : UITableViewCell {
     /// 이미지
@@ -28,14 +29,12 @@ class MyCustomCell : UITableViewCell {
     @IBOutlet weak var badgeStackView: UIStackView!
     
     
-    
     /// 취소선 만드는 함수
     private func makeStrikeThrough(text: String) -> NSMutableAttributedString{
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
         attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
         return attributeString
     }
-    
     
     /// storeItem 객체를 받아서 cell에 반영
     func inputCellData(storeItem: StoreItem){    
@@ -74,7 +73,15 @@ class MyCustomCell : UITableViewCell {
         self.badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
     }
     
-    //
+    /// 이미지를 받아서 이미지뷰에 세팅
+    func setImage(imageFileURL: String){
+        self.itemImageView.image = UIImage(named: imageFileURL)
+    }
+    
+    /// 리유즈셀 을 위해서 이미지 제거
+    func resetImage(){
+        self.itemImageView.image = UIImage()
+    }
 }
 
 
