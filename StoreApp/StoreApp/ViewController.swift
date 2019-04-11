@@ -34,7 +34,8 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseQueue", for: indexPath) as? StoreItemCell else { return UITableViewCell() }
         storeItems[indexPath.row].access { detail_hash, image, alt, delivery_type, title, description, n_price, s_price, badge in
-            cell.set(imagePath: image, title: title, description: description)
+            cell.set(image, title, description,
+                    n_price, s_price, badge)
         }
         return cell
     }
