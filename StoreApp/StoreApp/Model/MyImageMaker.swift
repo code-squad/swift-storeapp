@@ -94,12 +94,15 @@ class MyImageMaker {
         let destinationFileUrl = documentsUrl.appendingPathComponent(fileName)
         
         //Create URL to the source file you want to download
-        let fileURL = URL(string: imageURL)
+        guard let fileURL = URL(string: imageURL) else {
+            os_log("입력된 파일url을 URL 형으로 변환하지 못했습니다. fileURL : %@", imageURL)
+            return ()
+        }
         
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         
-        let request = URLRequest(url:fileURL!)
+        let request = URLRequest(url:fileURL)
         
         // downloadTask 시작
         let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
@@ -111,7 +114,7 @@ class MyImageMaker {
                     // 연결 성공 로깅
                     os_log("Successfully downloaded. Status code: %@",statusCodeString)
                 }
-                
+                // 파일 다운로드 복사 작업 시작
                 do {
                     // 같은이름의 파일이 있다면 삭제한다
                     try? FileManager.default.removeItem(at: destinationFileUrl)
