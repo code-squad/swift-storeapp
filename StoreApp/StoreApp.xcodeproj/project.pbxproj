@@ -18,6 +18,7 @@
 		D543986F224CD09000635C95 /* MyCustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D543986E224CD09000635C95 /* MyCustomHeader.xib */; };
 		D5449C5E2258724800DB9106 /* MyURLDataMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5449C5B2258723F00DB9106 /* MyURLDataMaker.framework */; };
 		D5449C5F2258724800DB9106 /* MyURLDataMaker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5449C5B2258723F00DB9106 /* MyURLDataMaker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5449C6A225C7C9800DB9106 /* MyImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5449C69225C7C9800DB9106 /* MyImageMaker.swift */; };
 		D550E1482257555F00BD5C30 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688DB2248E687002B80A0 /* MyCustomCell.swift */; };
 		D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55688D82248E54D002B80A0 /* DataSourceObject.swift */; };
 		D55688DE2248E96C002B80A0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = D55688DD2248E96C002B80A0 /* main.json */; };
@@ -101,6 +102,7 @@
 		D543986C224CCFEE00635C95 /* MyCustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomHeader.swift; sourceTree = "<group>"; };
 		D543986E224CD09000635C95 /* MyCustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomHeader.xib; sourceTree = "<group>"; };
 		D5449C552258723F00DB9106 /* MyURLDataMaker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MyURLDataMaker.xcodeproj; path = ../../../MyURLDataMaker/MyURLDataMaker.xcodeproj; sourceTree = "<group>"; };
+		D5449C69225C7C9800DB9106 /* MyImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageMaker.swift; sourceTree = "<group>"; };
 		D55688D82248E54D002B80A0 /* DataSourceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceObject.swift; sourceTree = "<group>"; };
 		D55688DB2248E687002B80A0 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		D55688DD2248E96C002B80A0 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				D5439864224CB4E400635C95 /* StoreItemContainer.swift */,
 				D5E974E4224CEED80075151C /* MyHeaderContent.swift */,
 				D55688D82248E54D002B80A0 /* DataSourceObject.swift */,
+				D5449C69225C7C9800DB9106 /* MyImageMaker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */,
 				D550E1482257555F00BD5C30 /* MyCustomCell.swift in Sources */,
 				D5410947224A3F790047CDC6 /* StoreItemSlot.swift in Sources */,
+				D5449C6A225C7C9800DB9106 /* MyImageMaker.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
 				D543986D224CCFEE00635C95 /* MyCustomHeader.swift in Sources */,
 			);
