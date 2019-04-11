@@ -57,6 +57,8 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         //storeItem 을 받아서 각 변수에 입력한다
         cell.inputCellData(storeItem: storeItem)
         
+        cell.setImage(imageFileURL: storeItem.imageFileURL)
+        
         return cell
     }
     
@@ -100,6 +102,15 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         }
         
         return result
+    }
+    
+    /// 이미지, 섹션인덱스, 로우넘버를 받아서 해당 셀의 이미지파일주소 입력
+    func set(imageFileURL: String, section: Int, row: Int){
+        // 해당 아이템 추출
+        let storeItem = self.storeItem(section: section, row: row)
+        
+        // 이미지파일주소 입력
+        storeItem.imageFileURL = imageFileURL
     }
     
 }
