@@ -38,7 +38,7 @@ class MyCustomCell : UITableViewCell {
     
     
     /// storeItem 객체를 받아서 cell에 반영
-    func inputCellData(storeItem: StoreItem) {    
+    func inputCellData(storeItem: StoreItem){    
         // storeItem 을 받아서 각 변수에 입력한다
         self.title.text = storeItem.title
         self.itemDescription.text  = storeItem.description
@@ -73,5 +73,8 @@ class MyCustomCell : UITableViewCell {
     func resetBadgeView(){
         self.badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
     }
+    
+    //
 }
+
 
