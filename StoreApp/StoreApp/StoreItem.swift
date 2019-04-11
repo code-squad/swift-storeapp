@@ -19,7 +19,9 @@ class StoreItem: Decodable {
     private var s_price: String
     private var badge: [String]?
     
-    func access(form: (String, String, String, [String], String, String, String?, String, [String]?) -> Void) {
-        form(detail_hash, image, alt, delivery_type, title, description, n_price, s_price, badge)
+    func getDTO() -> StoreItemDTO {
+        return StoreItemDTO(detail_hash, image, alt,
+                            delivery_type, title, description,
+                            n_price, s_price, badge)
     }
 }
