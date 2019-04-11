@@ -38,6 +38,10 @@ class ViewController: UIViewController {
     /// json 데이터 URL
     private let jsonURLList : [String] = ["https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/course"]
     
+    /// 이미지메이커
+    private let myImageMaker = MyImageMaker()
+    
+    
     /// 헤더컨텐트 매니저 데이터를 데이터소스에 입력한다
     func inputHeaderContent(dataSourceObject: DataSourceObject){
         // 헤더컨텐트 매니저 데이터 입력
@@ -91,6 +95,11 @@ class ViewController: UIViewController {
             
             // 스토어아이템배열을 데이터소스에 추가
             self.dataSourceObject.inputData(storeItemSlot: storeItems, index: index)
+            
+            // 리로드 완료를 체크
+            self.myImageMaker.getURLs(section: index,
+                                      urls: self.dataSourceObject.itemImageURLs(section: index))
+            
         }        
     }
     
@@ -132,6 +141,9 @@ class ViewController: UIViewController {
         // json 리스트만큼 섹션 추가
         self.dataSourceObject.addEmptyStoreItemSlot(count: self.jsonURLList.count)
         
+        // 이미지메이커 초기세팅
+        self.myImageMaker.setMaxSectionCount(count: self.jsonURLList.count)
+        
         // url 에서 데이터소스 데이터 추출
         dataSourceDataListFrom(urlList: self.jsonURLList)
         
@@ -140,6 +152,13 @@ class ViewController: UIViewController {
         
         // 테이블뷰에 델리게이트 입력
         self.storeItemTableView.delegate = self.dataSourceObject
+        
+        // 각셀에 이미지 로딩
+        
+        self.customSerialQueue.sync {
+            
+        }
+        
         
         // end of viewDidLoad
     }
