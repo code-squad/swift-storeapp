@@ -13,11 +13,13 @@ import MyURLDataMaker
 /// 노티 이름 선언
 extension Notification.Name {
     static let didAddStoreItemSlot = Notification.Name("didAddStoreItemSlot")
+    static let didDownloadImageFile = Notification.Name("didDownloadImageFile")
 }
 
 class ViewController: UIViewController {
     /// 테이블뷰
     @IBOutlet weak var storeItemTableView: UITableView!
+    
     
     /// MyURLDataMaker 내부객체 선언
     let myDataLoader = MyDataLoader()
@@ -36,7 +38,12 @@ class ViewController: UIViewController {
     private let nibFileName = "MyCustomHeader"
     
     /// json 데이터 URL
-    private let jsonURLList : [String] = ["https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup","https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/course"]
+    private let jsonURLList : [String] =
+        [
+        "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main",
+        "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup",
+        "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/side"
+    ]
     
     /// 이미지메이커
     private let myImageMaker = MyImageMaker()
@@ -58,9 +65,32 @@ class ViewController: UIViewController {
     }
     
     /// 노티 생성 함수
-    func makeNoti(){
+    func makeNotificationObserver(){
         // 스토어아이템 추가시 노티
         NotificationCenter.default.addObserver(self, selector: #selector(afterSlotAdded(notification:)), name: .didAddStoreItemSlot, object: nil)
+        // 이미지파일 다운로드 완료시 노티
+        NotificationCenter.default.addObserver(self, selector: #selector(afterDownloadImageFile(notification:)), name: .didDownloadImageFile , object: nil)
+    }
+    
+    /// 이미지파일 다운 완료시 이미지 파일을 셀에 적용
+    @objc func afterDownloadImageFile(notification: Notification){
+        guard
+            let fileName = notification.userInfo?["fileName"] as? String,
+            let section = notification.userInfo?["section"] as? Int,
+            let row = notification.userInfo?["row"] as? Int else {
+                os_log("이미지 다운 노티 유저인포 잘못됨")
+                return ()
+        }
+        
+        os_log("이미지 다운로드 완료 노티를 받음")
+
+        // 데이터소스 셀에 이미지파일주소 를 넣는다
+        self.dataSourceObject.set(imageFileURL: fileName, section: section, row: row)
+        
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: row, section: section)
+            self.storeItemTableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
     
     /// 슬롯추가됨 노티 포스트시 리로드 실행
@@ -130,7 +160,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // 노티 옵저버 생성
-        makeNoti()
+        makeNotificationObserver()
         
         // 헤더컨텐트 매니저 데이터 입력
         inputHeaderContent(dataSourceObject: self.dataSourceObject)
@@ -152,12 +182,6 @@ class ViewController: UIViewController {
         
         // 테이블뷰에 델리게이트 입력
         self.storeItemTableView.delegate = self.dataSourceObject
-        
-        // 각셀에 이미지 로딩
-        
-        self.customSerialQueue.sync {
-            
-        }
         
         
         // end of viewDidLoad
