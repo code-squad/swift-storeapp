@@ -17,10 +17,10 @@ class MyImageMaker {
     private var finishedSectionCount = 0
     
     /// url 배열들
-    private var urls : [[String]] = []
+    private var savedURLsList : [[String]] = []
     
-    /// 이미지 배열들
-    private var images : [[UIImage]] = []
+    // Create destination URL
+    let folderUrl: URL =  FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first as URL!
     
     /// 리로드 완료된 섹션 카운트 + 1
     func addFinishedCount(){
@@ -33,8 +33,7 @@ class MyImageMaker {
         
         // 맥스값만큼 빈 url 배열을 추가해준다
         for _ in 0..<count {
-            self.urls.append([])
-            self.images.append([])
+            self.savedURLsList.append([])
         }
     }
     
@@ -44,11 +43,20 @@ class MyImageMaker {
         self.addFinishedCount()
         
         // url 입력
-        self.urls[section] = urls
+        self.savedURLsList[section] = urls
         
-        // 파일들을 저장한다
-        for url in urls {
-            save(imageURL: url)
+        // 모든 섹션이 추가되면 파일을 저장한다
+        if self.maxSectionCount == self.finishedSectionCount {
+            // url 배열을 추출
+            for savedURLsListCount in 0..<self.savedURLsList.count {
+                
+                let savedURLs = self.savedURLsList[savedURLsListCount]
+                
+                // url배열들을 파일들로 저장한다
+                for urlCount in 0..<savedURLs.count {
+                    save(imageURL: savedURLs[urlCount], section: savedURLsListCount, row: urlCount)
+                }
+            }
         }
     }
     
@@ -72,7 +80,7 @@ class MyImageMaker {
         return fileName
     }
     
-    func save(imageURL: String){
+    private func save(imageURL: String, section: Int, row: Int){
         // 시작 로깅
         os_log("url 다운로드 시도 : %@",imageURL)
         
@@ -82,7 +90,7 @@ class MyImageMaker {
         }
         
         // Create destination URL
-        let documentsUrl: URL =  FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first as URL!
+        let documentsUrl: URL =  self.folderUrl
         let destinationFileUrl = documentsUrl.appendingPathComponent(fileName)
         
         //Create URL to the source file you want to download
@@ -93,22 +101,37 @@ class MyImageMaker {
         
         let request = URLRequest(url:fileURL!)
         
+        // downloadTask 시작
         let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
             if let tempLocalUrl = tempLocalUrl, error == nil {
-                // Success
+                // 연결 시도가 성공한다면
                 if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    print("Successfully downloaded. Status code: \(statusCode)")
+                    // 로깅용 형변환
+                    let statusCodeString = String(statusCode)
+                    // 연결 성공 로깅
+                    os_log("Successfully downloaded. Status code: %@",statusCodeString)
                 }
                 
                 do {
+                    // 같은이름의 파일이 있다면 삭제한다
+                    try? FileManager.default.removeItem(at: destinationFileUrl)
+                    
+                    // 다운로드 시도
                     try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
                     os_log("다운로드 성공 : %@", fileName)
+                    
+                    // 다운로드 성공 노티를 위한 인포 작성
+                    let userInfo: [String : Any] = ["fileName" : destinationFileUrl.path, "section" : section, "row" : row]
+                    
+                    // 다운로드 성공 노티 포스트
+                    NotificationCenter.default.post(name: .didDownloadImageFile, object: self, userInfo: userInfo)
+                    
                 } catch (let writeError) {
                     print("Error creating a file \(destinationFileUrl) : \(writeError)")
                 }
                 
             } else {
-                print("Error took place while downloading a file. Error description: %@", error?.localizedDescription);
+                os_log("Error took place while downloading a file. Error description: %@", (error?.localizedDescription)!);
             }
         }
         task.resume()
