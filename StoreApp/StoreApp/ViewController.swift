@@ -122,6 +122,11 @@ class ViewController: UIViewController {
             self.myImageMaker.getURLs(section: index,
                                       urls: self.dataSourceObject.itemImageURLs(section: index))
             
+            // 모든 섹션 데이터주입이 완료됬는지 체크
+            if self.dataSourceObject.isAllSectionAdded() {
+                // 모든 섹션이 완료되면 이미지 다운로드를 시작한다
+                self.myImageMaker.saveAllURL()
+            }
         }        
     }
     
