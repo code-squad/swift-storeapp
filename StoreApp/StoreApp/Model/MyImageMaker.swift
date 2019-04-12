@@ -129,7 +129,7 @@ class MyImageMaker {
                     
                 } // 파일복사 작업 실패시
                 catch (let writeError) {
-                    print("Error creating a file \(destinationFileUrl) : \(writeError)")
+                    os_log("Error creating a file %@ : %@", destinationFileUrl.path, writeError.localizedDescription)
                 }
                 // 웹 연결 실패시
             } else {
