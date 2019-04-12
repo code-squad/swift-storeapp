@@ -113,6 +113,18 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         storeItem.imageFileURL = imageFileURL
     }
     
+    /// 모든 섹션 로우 입력이 완료됬는지 체크
+    func isAllSectionAdded() -> Bool{
+        // 모든 섹션이 대상
+        for count in 0..<self.storeItemContainer.count() {
+            // 섹션이 하나라도 로우가 0이면 거짓 리턴
+            if self.storeItemContainer.count(index: count) == 0 {
+                return false
+            }
+        }
+        // 모든 섹션 체크가 끝나면 리턴
+        return true
+    }    
 }
 
 /// 델리게이트 기능 확장
