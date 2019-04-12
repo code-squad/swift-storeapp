@@ -69,4 +69,33 @@ label.attributedText = NSAttributedString(string: text, attributes: [.strikethro
 
 
 
- 
+
+
+### Step 2
+
+![screen](./2.png)
+
+*  AutoLayout이 CustomCell 에서 적용되지 않음
+
+
+
+**Custom Cell AutoLayout 적용**
+
+ 처음 작업할 때, MainStoryboard에서 Constraint를 적용해주었다. 그런데 예상과 다르게 실행하였을 때 레이아웃이 적용이 되지않았다.
+
+ Cell을 TableView에 만들고 Custom으로 적용해줄 때 Custom Class를 등록해준다. 그 때 Content View의 Custom Class도 함께 설정이 되어진다.
+
+![ㅁㅈㅇ](./3.png)
+
+ 여기서 Content View를 선택 후, Custom Class를 UIView로 바꿔주어야 한다. Custom Class로 지정되어있을 시, Interface Builder에서 인식을 하지 못하는 듯했다.
+
+
+
+**실행화면**
+
+<img src="5s.png" height="500px"/> <img src="6.png" height="500px"/>
+
+<img src="7.png" height="500px"/><img src="8.png" height="500px"/>
+
+<img src="XS.png" height="500px"/><img src="XSmax.png" height="500px"/>
+
