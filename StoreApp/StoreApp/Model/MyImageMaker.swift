@@ -29,23 +29,23 @@ class MyImageMaker {
         }
     }
     
+    /// 모든 섹션이 추가되면 파일저장을 시작한다
+    func saveAllURL(completion: @escaping (_ imageURL: String, _ section: Int, _ row: Int) -> ()){
+        // url 배열을 추출
+        for savedURLsListCount in 0..<self.savedURLsList.count {
+            // url배열을 파일들로 저장한다
+            saveURLList(section: savedURLsListCount, completion: completion)
+        }
+    }
+    
     /// url 배열을 지정해서 저장한다
-    private func saveURLList(section: Int){
+    private func saveURLList(section: Int, completion: @escaping (_ imageURL: String, _ section: Int, _ row: Int) -> ()){
         // 가독성을 위해 작업할 url 배열을 변수로 선언
         let savedURLs = self.savedURLsList[section]
         
         // 모든 url배열을 파일들로 저장한다
         for count in 0..<savedURLs.count {
-            save(imageURL: savedURLs[count], section: section, row: count)
-        }
-    }
-    
-    /// 모든 섹션이 추가되면 파일저장을 시작한다
-    func saveAllURL(){
-        // url 배열을 추출
-        for savedURLsListCount in 0..<self.savedURLsList.count {
-            // url배열을 파일들로 저장한다
-            saveURLList(section: savedURLsListCount)
+            save(imageURL: savedURLs[count], section: section, row: count, completion: completion)
         }
     }
     
@@ -75,7 +75,10 @@ class MyImageMaker {
         return fileName
     }
     
-    private func save(imageURL: String, section: Int, row: Int){
+    func save(imageURL: String,
+                      section: Int,
+                      row: Int,
+                      completion: @escaping (_ imageURL: String, _ section: Int, _ row: Int) -> ()){
         // 시작 로깅
         os_log("url 다운로드 시도 : %@",imageURL)
         
