@@ -13,20 +13,12 @@ class MyImageMaker {
     /// 섹션 카운트
     private var maxSectionCount = 0
     
-    /// 리로드 완료된 섹션 카운트
-    private var finishedSectionCount = 0
-    
     /// url 배열들
     private var savedURLsList : [[String]] = []
     
     // Create destination URL
     let folderUrl: URL =  FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first as URL!
-    
-    /// 리로드 완료된 섹션 카운트 + 1
-    func addFinishedCount(){
-        self.finishedSectionCount += 1
-    }
-    
+
     /// 섹션 카운트 초기값 선언
     func setMaxSectionCount(count: Int){
         self.maxSectionCount = count
@@ -49,7 +41,7 @@ class MyImageMaker {
     }
     
     /// 모든 섹션이 추가되면 파일저장을 시작한다
-    private func saveAllURL(){
+    func saveAllURL(){
         // url 배열을 추출
         for savedURLsListCount in 0..<self.savedURLsList.count {
             // url배열을 파일들로 저장한다
@@ -59,17 +51,8 @@ class MyImageMaker {
     
     /// 섹션인덱스와 url 배열을 받아서 저장한다
     func getURLs(section: Int, urls: [String]){
-        // 완료 추가한다
-        self.addFinishedCount()
-        
         // url 입력
         self.savedURLsList[section] = urls
-        
-        // 모든 섹션이 추가되면 파일을 저장한다
-        if self.maxSectionCount == self.finishedSectionCount {
-            // url 배열을 추출
-            saveAllURL()
-        }
     }
     
     /// image url 을 받아서 파일명만 리턴 : 마지막 / 뒤만 리턴
