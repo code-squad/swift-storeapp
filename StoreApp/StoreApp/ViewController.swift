@@ -107,6 +107,10 @@ class ViewController: UIViewController {
         }
     }
     
+    /// 다운로드 실패시 탈출 클로저
+    func didFailDownload(imageURL: String, section: Int, row: Int){
+        self.myImageMaker.save(imageURL: imageURL, section: section, row: row, completion: didFailDownload)
+    }
     
     /// 데이터를 받아서 데이터소스에 입력하고 섹션을 리로드 한다. 비동기.
     func toDataSourceAdd(data: Data, index: Int){
@@ -125,7 +129,7 @@ class ViewController: UIViewController {
             // 모든 섹션 데이터주입이 완료됬는지 체크
             if self.dataSourceObject.isAllSectionAdded() {
                 // 모든 섹션이 완료되면 이미지 다운로드를 시작한다
-                self.myImageMaker.saveAllURL()
+                self.myImageMaker.saveAllURL(completion: didFailDownload)
             }
         }        
     }
