@@ -13,7 +13,8 @@ class StoreItemCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabels: UIStackView!
-    private var badgeLabels: [UILabel] = []
+
+    @IBOutlet var badgeLabels: [UILabel]!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,9 +37,7 @@ class StoreItemCell: UITableViewCell {
             priceLabels.addArrangedSubview(n_priceLabel)
         }
         priceLabels.addArrangedSubview(s_priceLabel)
-        
         if let badge = itemDTO.badge { madeBadgeLabels(badge) }
-        
     }
 
     private func removeArrangedAllViews() {
@@ -46,6 +45,7 @@ class StoreItemCell: UITableViewCell {
             priceLabels.removeArrangedSubview(subView)
             subView.removeFromSuperview()
         }
+        for label in badgeLabels { label.isHidden = true }
     }
     
     private func madeS_PriceLabel(text: String) -> UILabel {
@@ -65,17 +65,11 @@ class StoreItemCell: UITableViewCell {
     }
     
     private func madeBadgeLabels(_ badge: [String]) {
-        var positionX = priceLabels.frame.minX
-        for each in badge {
-            let badgeLabel = UILabel(frame: CGRect(x: positionX, y: priceLabels.frame.maxY + 5, width: 70, height: 25))
-            badgeLabel.text = each
-            badgeLabel.backgroundColor = UIColor.purple
-            badgeLabel.textColor = UIColor.white
-            badgeLabel.textAlignment = .center
-            badgeLabel.font = badgeLabel.font.withSize(14)
-            addSubview(badgeLabel)
-            badgeLabels.append(badgeLabel)
-            positionX += 5
+        for index in 0..<badge.count {
+            badgeLabels[index].isHidden = false
+            badgeLabels[index].text = badge[index]
+            badgeLabels[index].textColor = UIColor.white
+            badgeLabels[index].backgroundColor = UIColor.purple
         }
     }
 }

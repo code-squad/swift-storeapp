@@ -23,6 +23,7 @@ class StoreAppDataSource: NSObject, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseQueue", for: indexPath) as? StoreItemCell else { return UITableViewCell() }
         storeItems.access(at: indexPath.row) { item in
             let itemDTO = item.getDTO()
+            cell.translatesAutoresizingMaskIntoConstraints = false
             cell.set(itemDTO)
         }
         return cell
