@@ -13,7 +13,6 @@ class StoreItemCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabels: UIStackView!
-
     @IBOutlet var badgeLabels: [UILabel]!
     
     override func awakeFromNib() {
@@ -45,7 +44,9 @@ class StoreItemCell: UITableViewCell {
             priceLabels.removeArrangedSubview(subView)
             subView.removeFromSuperview()
         }
-        for label in badgeLabels { label.isHidden = true }
+        for label in badgeLabels {
+            label.isHidden = true
+        }
     }
     
     private func madeS_PriceLabel(text: String) -> UILabel {
@@ -66,6 +67,7 @@ class StoreItemCell: UITableViewCell {
     
     private func madeBadgeLabels(_ badge: [String]) {
         for index in 0..<badge.count {
+            badgeLabels[index].translatesAutoresizingMaskIntoConstraints = false
             badgeLabels[index].isHidden = false
             badgeLabels[index].text = badge[index]
             badgeLabels[index].textColor = UIColor.white
