@@ -37,14 +37,6 @@ class ViewController: UIViewController {
     /// 커스텀헤더 파일명
     private let nibFileName = "MyCustomHeader"
     
-    /// json 데이터 URL
-    private let jsonURLList : [String] =
-        [
-        "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main",
-        "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup",
-        "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/side"
-    ]
-    
     /// 이미지메이커
     private let myImageMaker = MyImageMaker()
     
@@ -136,7 +128,7 @@ class ViewController: UIViewController {
     /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
     func dataSourceDataFrom(url: String, index: Int){
         // url 리스트에 연결 시도
-        if self.myDataLoader.dataFrom(unCheckedURL: self.jsonURLList[index],
+        if self.myDataLoader.dataFrom(unCheckedURL: self.myDataLoader.jsonURLList[index],
                                       index: index,
                                       completion: toDataSourceAdd) {
             // 연결 성공
@@ -169,13 +161,13 @@ class ViewController: UIViewController {
         self.storeItemTableView.dataSource = self.dataSourceObject
         
         // json 리스트만큼 섹션 추가
-        self.dataSourceObject.addEmptyStoreItemSlot(count: self.jsonURLList.count)
+        self.dataSourceObject.addEmptyStoreItemSlot(count: self.myDataLoader.jsonURLList.count)
         
         // 이미지메이커 초기세팅
-        self.myImageMaker.setMaxSectionCount(count: self.jsonURLList.count)
+        self.myImageMaker.setMaxSectionCount(count: self.myDataLoader.jsonURLList.count)
         
         // url 에서 데이터소스 데이터 추출
-        dataSourceDataListFrom(urlList: self.jsonURLList)
+        dataSourceDataListFrom(urlList: self.myDataLoader.jsonURLList)
         
         // 테이블뷰에 커스텀 헤더 등록
         inputCustomHeader(tableView: self.storeItemTableView)
