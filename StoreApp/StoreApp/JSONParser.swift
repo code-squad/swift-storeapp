@@ -11,12 +11,16 @@ import Foundation
 struct JSONParser {
     static func getText(from url: String) -> String? {
         guard let url = URL(string: url) else { return nil }
-        guard let textFromURL = try? String(contentsOf: url, encoding: .utf8) else { return nil }
-        return textFromURL
+        return try? String(contentsOf: url, encoding: .utf8)
     }
     
-    static func parseJSONData() -> [StoreItem]? {
-        guard let jsonData = getText(from: "http://public.codesquad.kr/jk/storeapp/main.json") else { return nil }
+    static func getTextFrom(file: String) -> String? {
+        var fileURL = URL(fileURLWithPath: FileURL.projectFolderURL)
+        fileURL.appendPathComponent(file)
+        return try? String(contentsOf: fileURL, encoding: .utf8)
+    }
+    
+    static func parseJSONData(from jsonData: String) -> [StoreItem]? {
         let jsonDecoder = JSONDecoder()
         guard let data = jsonData.data(using: .utf8) else { return nil }
         return try? jsonDecoder.decode(Array<StoreItem>.self, from: data)
