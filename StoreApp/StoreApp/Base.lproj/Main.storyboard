@@ -22,8 +22,44 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="headerCell" rowHeight="70" id="Jht-xL-ywF" customClass="StoreHeaderCell" customModule="StoreApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jht-xL-ywF" id="OL2-MB-puS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZB-SW-ltD">
+                                                    <rect key="frame" x="0.0" y="35" width="375" height="28"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4k8-Rl-lM2">
+                                                    <rect key="frame" x="162.5" y="17" width="50" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="2aj-bO-nPr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hZB-SW-ltD" firstAttribute="leading" secondItem="OL2-MB-puS" secondAttribute="leading" id="2pL-yA-BdB"/>
+                                                <constraint firstItem="4k8-Rl-lM2" firstAttribute="top" secondItem="OL2-MB-puS" secondAttribute="topMargin" constant="6" id="7wb-wD-T2j"/>
+                                                <constraint firstItem="4k8-Rl-lM2" firstAttribute="centerX" secondItem="OL2-MB-puS" secondAttribute="centerX" id="Ud3-lL-2YV"/>
+                                                <constraint firstAttribute="trailing" secondItem="hZB-SW-ltD" secondAttribute="trailing" id="Y2q-ce-BQj"/>
+                                                <constraint firstItem="hZB-SW-ltD" firstAttribute="top" secondItem="4k8-Rl-lM2" secondAttribute="bottom" constant="2" id="yqs-tH-HKC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="hZB-SW-ltD" id="KCC-8m-26C"/>
+                                            <outlet property="themeLabel" destination="4k8-Rl-lM2" id="Wjq-Od-07w"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseQueue" rowHeight="125" id="OGz-GI-PeQ" customClass="StoreItemCell" customModule="StoreApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="125"/>
+                                        <rect key="frame" x="0.0" y="98" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OGz-GI-PeQ" id="v4X-uE-ahE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>

@@ -12,4 +12,14 @@ class StoreAppDelegate: NSObject ,UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 144
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreHeaderCell.identifier) as? StoreHeaderCell else { return UITableViewCell() }
+        cell.set(at: section)
+        return cell
+    }
 }

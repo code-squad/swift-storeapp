@@ -9,6 +9,8 @@
 import UIKit
 
 class StoreItemCell: UITableViewCell {
+    static let identifier = "reuseQueue"
+    
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -31,14 +33,4 @@ class StoreItemCell: UITableViewCell {
         priceLabels.set(itemDTO.s_price, itemDTO.n_price)
         badgeLabels.set(itemDTO.badge)
     }
-    
-//    private func madeBadgeLabels(_ badge: [String]) {
-//        for index in 0..<badge.count {
-//            badgeLabels[index].translatesAutoresizingMaskIntoConstraints = false
-//            badgeLabels[index].isHidden = false
-//            badgeLabels[index].text = badge[index]
-//            badgeLabels[index].textColor = UIColor.white
-//            badgeLabels[index].backgroundColor = UIColor.purple
-//        }
-//    }
 }

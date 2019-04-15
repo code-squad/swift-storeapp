@@ -23,19 +23,31 @@ class StoreItems {
         self.mainItems = mainItems
         self.soupItems = soupItems
         self.sideItems = sideItems
-        
-        print("""
-            mainItems: \(mainItems)
-            soupItems: \(soupItems)
-            sideItems: \(sideItems)
-            """)
+    }
+    
+    func countItems(at section: Int) -> Int {
+        guard let theme = SectionTheme(rawValue: section) else { return 0 }
+        switch theme {
+        case .main: return mainItems.count
+        case .soup: return soupItems.count
+        case .side: return sideItems.count
+        }
     }
     
     func count() -> Int {
         return mainItems.count
     }
     
-    func access(at index: Int ,form: (StoreItem) -> Void) {
+    func access(at index: Int, form: (StoreItem) -> Void) {
         form(mainItems[index])
+    }
+    
+    func access(of theme: Int, at index: Int, form: (StoreItem) -> Void) {
+        guard let theme = SectionTheme(rawValue: theme) else { return }
+        switch theme {
+        case .main: form(mainItems[index])
+        case .soup: form(soupItems[index])
+        case .side: form(sideItems[index])
+        }
     }
 }
