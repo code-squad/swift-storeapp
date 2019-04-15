@@ -9,13 +9,13 @@
 import UIKit
 
 class StoreItemDetailView: UIView {
+    @IBOutlet weak var title:UILabel!
+    @IBOutlet weak var adCopy:UILabel!
+    @IBOutlet weak var s_price:UILabel!
+    @IBOutlet weak var n_price:UILabel!
+    @IBOutlet weak var point:UILabel!
+    @IBOutlet weak var delivery_type:UILabel!
+    @IBOutlet weak var delivery_price:UILabel!
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
