@@ -99,3 +99,44 @@ label.attributedText = NSAttributedString(string: text, attributes: [.strikethro
 
 <img src="XS.png" height="500px"/><img src="XSmax.png" height="500px"/>
 
+
+
+
+
+### Step 3
+
+![awd](./9.png)
+
+* TableView Section Header를 ProtoType Cell을 이용하여 Custom하기
+
+
+
+**TableView Section Header Custom 하기**
+
+ Custom Cell을 이용하여 Header를 만들기 때문에, 이전에 TableView에서 Cell을 만들어주었던 것과 동일하게 StoryBoard에서 TableView에 Cell을 하나 생성해준다. 그 후 Custom Cell을 만들어주었던 것과 동일하게 Custom Class를 만들어주고 연결시켜준다.
+
+ 그럼 이 Custom Cell을 `TableViewDataSource` 에서 생성해주는 것이 아닌 `TableViewDelegate` `func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?` 메소드를 활용하여 생성해줄 것이다.
+
+```swift
+// Section Header에 사용 될 테이블 뷰 셀
+class StoreHeaderCell: UITableViewCell {
+  @IBOutlet weak var themeLabel: UILabel!
+  @IBOutlet weak var descriptionLabel: UILabel!
+}
+
+// Delegate를 구현한 클래스
+class StoreAppDelegate: NSObject ,UITableViewDelegate {
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: 			StoreHeaderCell.identifier) as? StoreHeaderCell else { return UITableViewCell() }
+    cell.set(at: section)
+    return cell
+  }
+}
+```
+
+
+
+**실행화면**
+
+<img src="10.png" height="500px"/><img src="11.png" height="500px"/>
+
