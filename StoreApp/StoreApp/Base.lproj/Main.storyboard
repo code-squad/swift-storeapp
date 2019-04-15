@@ -53,72 +53,86 @@
                                                         <constraint firstAttribute="width" secondItem="gNU-aE-LhR" secondAttribute="height" multiplier="1:1" id="Ie5-7l-bCR"/>
                                                     </constraints>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ugs-wF-S5c">
-                                                    <rect key="frame" x="134.5" y="64" width="120" height="25"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ugs-wF-S5c" customClass="PriceLabelsView" customModule="StoreApp" customModuleProvider="target">
+                                                    <rect key="frame" x="134.5" y="64" width="130" height="25"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NtH-uN-Ijn">
+                                                            <rect key="frame" x="0.0" y="0.0" width="62.5" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eas-Kq-Oxz">
+                                                            <rect key="frame" x="67.5" y="0.0" width="62.5" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="4d7-Lh-u0r"/>
                                                         <constraint firstAttribute="height" constant="25" id="UuE-Hx-XGb"/>
+                                                        <constraint firstAttribute="width" constant="130" id="ivV-HG-gCk"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outlet property="firstLabel" destination="NtH-uN-Ijn" id="Xvc-pj-Jam"/>
+                                                        <outlet property="secondLabel" destination="Eas-Kq-Oxz" id="7ES-2E-o1c"/>
+                                                    </connections>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5N-rN-tJF">
-                                                    <rect key="frame" x="134.5" y="94" width="60" height="17"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3Na-oM-9wx" customClass="BadgeLabelsView" customModule="StoreApp" customModuleProvider="target">
+                                                    <rect key="frame" x="134" y="94" width="200" height="25"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGg-Z9-nEb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="65.5" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhB-yF-cmh">
+                                                            <rect key="frame" x="67.5" y="0.0" width="65" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLz-ze-2LG">
+                                                            <rect key="frame" x="134.5" y="0.0" width="65.5" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="Zos-8Y-Ao6"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="wxq-zT-AUu"/>
+                                                        <constraint firstAttribute="height" constant="25" id="d8h-fe-Axp"/>
+                                                        <constraint firstAttribute="width" constant="200" id="dhM-PG-3SB"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4U4-hw-JN0">
-                                                    <rect key="frame" x="196.5" y="94" width="60" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Cz5-ds-ewW"/>
-                                                        <constraint firstAttribute="height" constant="17" id="cGh-DE-D0J"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmS-Z1-Ui1">
-                                                    <rect key="frame" x="258.5" y="94" width="60" height="17"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="WHR-wW-oEE"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="ltI-XW-ctS"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <connections>
+                                                        <outletCollection property="badgeLabels" destination="aGg-Z9-nEb" collectionClass="NSMutableArray" id="nGd-yB-HNO"/>
+                                                        <outletCollection property="badgeLabels" destination="XhB-yF-cmh" collectionClass="NSMutableArray" id="9RD-gq-Exh"/>
+                                                        <outletCollection property="badgeLabels" destination="BLz-ze-2LG" collectionClass="NSMutableArray" id="oL0-9d-dJf"/>
+                                                    </connections>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vyW-p9-Itx" firstAttribute="top" secondItem="v4X-uE-ahE" secondAttribute="top" constant="10" id="89t-sP-YGv"/>
                                                 <constraint firstAttribute="trailing" secondItem="vyW-p9-Itx" secondAttribute="trailing" id="DWh-Mz-dD3"/>
-                                                <constraint firstItem="A5N-rN-tJF" firstAttribute="top" secondItem="Ugs-wF-S5c" secondAttribute="bottom" constant="5" id="FLB-RG-PlC"/>
-                                                <constraint firstItem="kmS-Z1-Ui1" firstAttribute="top" secondItem="Ugs-wF-S5c" secondAttribute="bottom" constant="5" id="Nqy-6O-JQN"/>
-                                                <constraint firstItem="A5N-rN-tJF" firstAttribute="leading" secondItem="gNU-aE-LhR" secondAttribute="trailing" constant="10" id="ffd-Ii-RE4"/>
+                                                <constraint firstItem="3Na-oM-9wx" firstAttribute="top" secondItem="Ugs-wF-S5c" secondAttribute="bottom" constant="5" id="Pdv-7z-jQ5"/>
                                                 <constraint firstItem="Ugs-wF-S5c" firstAttribute="leading" secondItem="gNU-aE-LhR" secondAttribute="trailing" constant="10" id="j1I-Sx-TRs"/>
-                                                <constraint firstItem="4U4-hw-JN0" firstAttribute="leading" secondItem="A5N-rN-tJF" secondAttribute="trailing" constant="2" id="j9n-PF-0sh"/>
-                                                <constraint firstItem="kmS-Z1-Ui1" firstAttribute="leading" secondItem="4U4-hw-JN0" secondAttribute="trailing" constant="2" id="jTW-Pj-5cX"/>
                                                 <constraint firstItem="BWS-Oh-low" firstAttribute="leading" secondItem="gNU-aE-LhR" secondAttribute="trailing" constant="10" id="kee-kd-Wdl"/>
                                                 <constraint firstItem="vyW-p9-Itx" firstAttribute="leading" secondItem="gNU-aE-LhR" secondAttribute="trailing" constant="10" id="mDK-aZ-RCf"/>
                                                 <constraint firstItem="gNU-aE-LhR" firstAttribute="top" secondItem="v4X-uE-ahE" secondAttribute="top" id="o1r-k9-Iz9"/>
                                                 <constraint firstAttribute="bottom" secondItem="gNU-aE-LhR" secondAttribute="bottom" id="pc8-Tz-bDh"/>
+                                                <constraint firstItem="3Na-oM-9wx" firstAttribute="leading" secondItem="gNU-aE-LhR" secondAttribute="trailing" constant="9.5" id="pk2-80-URA"/>
                                                 <constraint firstItem="BWS-Oh-low" firstAttribute="top" secondItem="vyW-p9-Itx" secondAttribute="bottom" constant="4" id="rV3-sA-4MG"/>
-                                                <constraint firstItem="4U4-hw-JN0" firstAttribute="top" secondItem="Ugs-wF-S5c" secondAttribute="bottom" constant="5" id="toJ-uz-JdT"/>
                                                 <constraint firstItem="Ugs-wF-S5c" firstAttribute="top" secondItem="BWS-Oh-low" secondAttribute="bottom" constant="10" id="va7-z1-EUz"/>
                                                 <constraint firstAttribute="trailing" secondItem="BWS-Oh-low" secondAttribute="trailing" id="xbj-LW-Bok"/>
                                                 <constraint firstItem="gNU-aE-LhR" firstAttribute="leading" secondItem="v4X-uE-ahE" secondAttribute="leading" id="zza-YU-5Cr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="badgeLabels" destination="3Na-oM-9wx" id="y3s-ZM-cRm"/>
                                             <outlet property="descriptionLabel" destination="BWS-Oh-low" id="vCc-rv-QWS"/>
                                             <outlet property="itemImage" destination="gNU-aE-LhR" id="haM-0X-b88"/>
-                                            <outlet property="priceLabels" destination="Ugs-wF-S5c" id="uoL-rj-TPa"/>
+                                            <outlet property="priceLabels" destination="Ugs-wF-S5c" id="Zvt-Dq-SqG"/>
                                             <outlet property="titleLabel" destination="vyW-p9-Itx" id="OCZ-oe-6Ij"/>
-                                            <outletCollection property="badgeLabels" destination="A5N-rN-tJF" collectionClass="NSMutableArray" id="byg-I4-bma"/>
-                                            <outletCollection property="badgeLabels" destination="4U4-hw-JN0" collectionClass="NSMutableArray" id="VDy-LW-2jR"/>
-                                            <outletCollection property="badgeLabels" destination="kmS-Z1-Ui1" collectionClass="NSMutableArray" id="dSj-Bf-lk9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

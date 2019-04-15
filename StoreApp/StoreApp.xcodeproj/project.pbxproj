@@ -19,6 +19,8 @@
 		9D1837FE225F32E3001F02F4 /* StoreAppDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837FD225F32E3001F02F4 /* StoreAppDataSource.swift */; };
 		9D183800225F3347001F02F4 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837FF225F3347001F02F4 /* StoreItems.swift */; };
 		9D183802225F397B001F02F4 /* StoreAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D183801225F397B001F02F4 /* StoreAppDelegate.swift */; };
+		9D18380B2260B2CA001F02F4 /* PriceLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18380A2260B2CA001F02F4 /* PriceLabelsView.swift */; };
+		9D18382D22645D11001F02F4 /* BadgeLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18382C22645D11001F02F4 /* BadgeLabelsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		9D1837FD225F32E3001F02F4 /* StoreAppDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppDataSource.swift; sourceTree = "<group>"; };
 		9D1837FF225F3347001F02F4 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		9D183801225F397B001F02F4 /* StoreAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppDelegate.swift; sourceTree = "<group>"; };
+		9D18380A2260B2CA001F02F4 /* PriceLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabelsView.swift; sourceTree = "<group>"; };
+		9D18382C22645D11001F02F4 /* BadgeLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabelsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 		9D1837DE225DE16C001F02F4 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				9D1838052260AF4A001F02F4 /* View */,
+				9D1838042260AF2F001F02F4 /* TableView */,
 				9D1837DF225DE16C001F02F4 /* AppDelegate.swift */,
 				9D1837E1225DE16C001F02F4 /* ViewController.swift */,
 				9D1837E3225DE16C001F02F4 /* Main.storyboard */,
@@ -76,13 +82,29 @@
 				9D1837EB225DE16E001F02F4 /* Info.plist */,
 				9D1837F1225DE3A7001F02F4 /* JSONParser.swift */,
 				9D1837F3225DE95F001F02F4 /* StoreItem.swift */,
-				9D1837F7225E1388001F02F4 /* StoreItemCell.swift */,
 				9D1837F9225E205A001F02F4 /* StoreItemDTO.swift */,
-				9D1837FD225F32E3001F02F4 /* StoreAppDataSource.swift */,
 				9D1837FF225F3347001F02F4 /* StoreItems.swift */,
-				9D183801225F397B001F02F4 /* StoreAppDelegate.swift */,
 			);
 			path = StoreApp;
+			sourceTree = "<group>";
+		};
+		9D1838042260AF2F001F02F4 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				9D1837F7225E1388001F02F4 /* StoreItemCell.swift */,
+				9D1837FD225F32E3001F02F4 /* StoreAppDataSource.swift */,
+				9D183801225F397B001F02F4 /* StoreAppDelegate.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		9D1838052260AF4A001F02F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D18380A2260B2CA001F02F4 /* PriceLabelsView.swift */,
+				9D18382C22645D11001F02F4 /* BadgeLabelsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,10 +179,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D1837FE225F32E3001F02F4 /* StoreAppDataSource.swift in Sources */,
+				9D18382D22645D11001F02F4 /* BadgeLabelsView.swift in Sources */,
 				9D183802225F397B001F02F4 /* StoreAppDelegate.swift in Sources */,
 				9D1837E2225DE16C001F02F4 /* ViewController.swift in Sources */,
 				9D183800225F3347001F02F4 /* StoreItems.swift in Sources */,
 				9D1837E0225DE16C001F02F4 /* AppDelegate.swift in Sources */,
+				9D18380B2260B2CA001F02F4 /* PriceLabelsView.swift in Sources */,
 				9D1837F8225E1388001F02F4 /* StoreItemCell.swift in Sources */,
 				9D1837F4225DE95F001F02F4 /* StoreItem.swift in Sources */,
 				9D1837FA225E205B001F02F4 /* StoreItemDTO.swift in Sources */,
