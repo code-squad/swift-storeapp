@@ -12,18 +12,17 @@ class StoreAppDataSource: NSObject, UITableViewDataSource {
     private var storeItems: StoreItems = StoreItems()
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems.count()
+        return storeItems.countItems(at: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "reuseQueue", for: indexPath) as? StoreItemCell else { return UITableViewCell() }
-        storeItems.access(at: indexPath.row) { item in
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreItemCell.identifier, for: indexPath) as? StoreItemCell else { return UITableViewCell() }
+        storeItems.access(of: indexPath.section, at: indexPath.row) { item in
             let itemDTO = item.getDTO()
-            cell.translatesAutoresizingMaskIntoConstraints = false
             cell.set(itemDTO)
         }
         return cell
