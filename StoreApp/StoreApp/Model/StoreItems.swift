@@ -14,9 +14,9 @@ class StoreItems {
     private var sideItems: [StoreItem] = []
     
     init() {
-        guard let mainItemsData = JSONParser.getText(from: FileURL.mainItemURL),
-              let soupItemsData = JSONParser.getTextFrom(file: "soup.json"),
-              let sideItemsData = JSONParser.getTextFrom(file: "side.json") else { return }
+        guard let mainItemsData = JSONParser.getTextFrom(file: FileName.mainItem),
+              let soupItemsData = JSONParser.getTextFrom(file: FileName.soupItem),
+              let sideItemsData = JSONParser.getTextFrom(file: FileName.sideItem) else { return }
         guard let mainItems = JSONParser.parseJSONData(from: mainItemsData),
               let soupItems = JSONParser.parseJSONData(from: soupItemsData),
               let sideItems = JSONParser.parseJSONData(from: sideItemsData) else { return }

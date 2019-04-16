@@ -108,6 +108,7 @@ label.attributedText = NSAttributedString(string: text, attributes: [.strikethro
 ![awd](./9.png)
 
 * TableView Section Header를 ProtoType Cell을 이용하여 Custom하기
+* 프로젝트 Bundle에서 파일 가져오기
 
 
 
@@ -133,6 +134,47 @@ class StoreAppDelegate: NSObject ,UITableViewDelegate {
   }
 }
 ```
+
+
+
+
+
+**프로젝트 번들에 접근해서 파일 가져오기** (IOS 샌드박스 구조 공부 필요)
+
+ IOS에서는 Mac과 폴더가 이뤄진 구조가 다르기 때문에, 절대경로를 사용할 수 없다. 이를 위해 상대경로가 필요하다. 여기서 문제를 해결할 때, 처음에 절대경로를 이용해서 피드백을 받았다. 이후 Bundle에 대해알아보고 사용법을 익혀 사용해보았다.
+
+ 우선 `Bundle` 이란? 앱의 정보와 자료를 하나의 공간에 그룹화해서 저장한 디렉토리이다.
+
+ 번들을 사용하기 위해 Swift의 `Bundle` 클래스를 이용하였다. `Bundle` 클래스의 자세한 사용법은 공식문서를 읽어보면 될 것 같다. StoreApp에선 Bundle안의 Json 파일의 경로를 읽어오기 위해 `path`  메소드를 사용하였다.
+
+
+
+1. 프로젝트 번들에 파일이나 이미지를 추가하기 위해 Xcode Project폴더를 들어가야한다.
+
+![ㅁㅈㅇ](./12.png)
+
+2. 선택 후 오른쪽 화면에 Target을 현재 프로젝트로 선택 후, `Build Phase` 항목 중 `Copy Bundle Resources` 항목을 선택하여준다.
+
+![ㅁㅈㅇ](./13.png)
+
+3. 여기서 `+` 버튼을 눌러 원하는 파일을 추가하여 준다.
+
+
+
+ 이렇게 해주면 이제 Bundle에 파일을 준비했고 사용할 준비가 모두 끝났다. 이제부터 `Bundle` 클래스를 사용해 Path를 읽어오고 파일에 접근해 내용을 읽어오면 된다.
+
+```swift
+static func searchPathFromBundle(of file: String) -> String? {
+  // 파일 이름을 매개변수로 받아와 확장자와 파일이름으로 나누어 구분하였다.
+  let fileNameAndExtension = file.split(separator: ".").map { String.init($0) }
+  guard fileNameAndExtension.count == 2 else { return nil }
+  
+  // path함수를 사용하면 main 번들 내에 forResource: 에 인자로 넣어준 파일이름을 가지고 ofType: 의 확장자를 가		 진 파일의 Path를 찾아준다. 
+  return Bundle.main.path(forResource: fileNameAndExtension[0], ofType: fileNameAndExtension[1])
+}
+```
+
+
 
 
 
