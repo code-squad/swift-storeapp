@@ -58,7 +58,7 @@
                                             <outlet property="themeLabel" destination="4k8-Rl-lM2" id="Wjq-Od-07w"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseQueue" rowHeight="125" id="OGz-GI-PeQ" customClass="StoreItemCell" customModule="StoreApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="125" id="OGz-GI-PeQ" customClass="StoreItemCell" customModule="StoreApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="98" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OGz-GI-PeQ" id="v4X-uE-ahE">
