@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import os
+import os.log
 
 class MyImageMaker {
     /// 섹션 카운트

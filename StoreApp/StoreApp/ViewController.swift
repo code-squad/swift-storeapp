@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import os
+import os.log
 import MyURLDataMaker
 
 /// 노티 이름 선언
@@ -159,6 +159,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        self.isN
         
         // 노티 옵저버 생성
         makeNotificationObserver()

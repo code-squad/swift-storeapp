@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import os
+import os.log
 
 class StoreItemSlot {
     private var storeItemList : [StoreItem] = []

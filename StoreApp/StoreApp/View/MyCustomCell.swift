@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import os
+import os.log
 
 class MyCustomCell : UITableViewCell {
     /// 이미지

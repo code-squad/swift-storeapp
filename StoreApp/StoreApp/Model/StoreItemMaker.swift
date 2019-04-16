@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import os
+import os.log
 
 class StoreItemMaker {
     /// json 배열을 받아서 스토어아이템 배열로 리턴
