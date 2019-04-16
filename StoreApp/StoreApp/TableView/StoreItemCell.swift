@@ -9,7 +9,7 @@
 import UIKit
 
 class StoreItemCell: UITableViewCell {
-    static let identifier = "reuseQueue"
+    static let identifier = "itemCell"
     
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

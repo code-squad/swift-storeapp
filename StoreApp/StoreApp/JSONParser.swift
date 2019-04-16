@@ -25,4 +25,9 @@ struct JSONParser {
         guard let data = jsonData.data(using: .utf8) else { return nil }
         return try? jsonDecoder.decode(Array<StoreItem>.self, from: data)
     }
+    
+    static func searchFile() {
+        let bundle = Bundle.main.path(forResource: "side", ofType: "json")
+        print(bundle)
+    }
 }

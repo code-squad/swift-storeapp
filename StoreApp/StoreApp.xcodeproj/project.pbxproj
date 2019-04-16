@@ -21,6 +21,9 @@
 		9D183802225F397B001F02F4 /* StoreAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D183801225F397B001F02F4 /* StoreAppDelegate.swift */; };
 		9D18380B2260B2CA001F02F4 /* PriceLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18380A2260B2CA001F02F4 /* PriceLabelsView.swift */; };
 		9D18382D22645D11001F02F4 /* BadgeLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18382C22645D11001F02F4 /* BadgeLabelsView.swift */; };
+		9D4ABB7C2265B684004CE4D6 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D4ABB7A2265B684004CE4D6 /* soup.json */; };
+		9D4ABB7D2265B684004CE4D6 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D4ABB7B2265B684004CE4D6 /* side.json */; };
+		9D4ABB802265B790004CE4D6 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D4ABB7F2265B790004CE4D6 /* main.json */; };
 		9DCAF06322648B3200A84F01 /* FileURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAF06222648B3200A84F01 /* FileURL.swift */; };
 		9DCAF066226490F800A84F01 /* SectionTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAF065226490F800A84F01 /* SectionTheme.swift */; };
 		9DCAF06A226497F100A84F01 /* StoreHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAF069226497F100A84F01 /* StoreHeaderCell.swift */; };
@@ -43,6 +46,9 @@
 		9D183801225F397B001F02F4 /* StoreAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppDelegate.swift; sourceTree = "<group>"; };
 		9D18380A2260B2CA001F02F4 /* PriceLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabelsView.swift; sourceTree = "<group>"; };
 		9D18382C22645D11001F02F4 /* BadgeLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabelsView.swift; sourceTree = "<group>"; };
+		9D4ABB7A2265B684004CE4D6 /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		9D4ABB7B2265B684004CE4D6 /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		9D4ABB7F2265B790004CE4D6 /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		9DCAF06222648B3200A84F01 /* FileURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileURL.swift; sourceTree = "<group>"; };
 		9DCAF065226490F800A84F01 /* SectionTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTheme.swift; sourceTree = "<group>"; };
 		9DCAF069226497F100A84F01 /* StoreHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreHeaderCell.swift; sourceTree = "<group>"; };
@@ -62,6 +68,7 @@
 		9D1837D3225DE16C001F02F4 = {
 			isa = PBXGroup;
 			children = (
+				9D4ABB7E2265B72F004CE4D6 /* jsonFile */,
 				9D1837DE225DE16C001F02F4 /* StoreApp */,
 				9D1837DD225DE16C001F02F4 /* Products */,
 			);
@@ -112,6 +119,16 @@
 				9D18382C22645D11001F02F4 /* BadgeLabelsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9D4ABB7E2265B72F004CE4D6 /* jsonFile */ = {
+			isa = PBXGroup;
+			children = (
+				9D4ABB7F2265B790004CE4D6 /* main.json */,
+				9D4ABB7B2265B684004CE4D6 /* side.json */,
+				9D4ABB7A2265B684004CE4D6 /* soup.json */,
+			);
+			path = jsonFile;
 			sourceTree = "<group>";
 		};
 		9DCAF06422648F5600A84F01 /* Model */ = {
@@ -182,6 +199,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D4ABB802265B790004CE4D6 /* main.json in Resources */,
+				9D4ABB7C2265B684004CE4D6 /* soup.json in Resources */,
+				9D4ABB7D2265B684004CE4D6 /* side.json in Resources */,
 				9D1837EA225DE16E001F02F4 /* LaunchScreen.storyboard in Resources */,
 				9D1837E7225DE16E001F02F4 /* Assets.xcassets in Resources */,
 				9D1837E5225DE16C001F02F4 /* Main.storyboard in Resources */,
