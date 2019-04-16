@@ -24,7 +24,7 @@
 		9D4ABB7C2265B684004CE4D6 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D4ABB7A2265B684004CE4D6 /* soup.json */; };
 		9D4ABB7D2265B684004CE4D6 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D4ABB7B2265B684004CE4D6 /* side.json */; };
 		9D4ABB802265B790004CE4D6 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D4ABB7F2265B790004CE4D6 /* main.json */; };
-		9DCAF06322648B3200A84F01 /* FileURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAF06222648B3200A84F01 /* FileURL.swift */; };
+		9DCAF06322648B3200A84F01 /* FileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAF06222648B3200A84F01 /* FileName.swift */; };
 		9DCAF066226490F800A84F01 /* SectionTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAF065226490F800A84F01 /* SectionTheme.swift */; };
 		9DCAF06A226497F100A84F01 /* StoreHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCAF069226497F100A84F01 /* StoreHeaderCell.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +49,7 @@
 		9D4ABB7A2265B684004CE4D6 /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		9D4ABB7B2265B684004CE4D6 /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		9D4ABB7F2265B790004CE4D6 /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
-		9DCAF06222648B3200A84F01 /* FileURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileURL.swift; sourceTree = "<group>"; };
+		9DCAF06222648B3200A84F01 /* FileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileName.swift; sourceTree = "<group>"; };
 		9DCAF065226490F800A84F01 /* SectionTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTheme.swift; sourceTree = "<group>"; };
 		9DCAF069226497F100A84F01 /* StoreHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreHeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +95,7 @@
 				9D1837E8225DE16E001F02F4 /* LaunchScreen.storyboard */,
 				9D1837EB225DE16E001F02F4 /* Info.plist */,
 				9D1837F1225DE3A7001F02F4 /* JSONParser.swift */,
-				9DCAF06222648B3200A84F01 /* FileURL.swift */,
+				9DCAF06222648B3200A84F01 /* FileName.swift */,
 				9DCAF065226490F800A84F01 /* SectionTheme.swift */,
 			);
 			path = StoreApp;
@@ -223,7 +223,7 @@
 				9D1837E0225DE16C001F02F4 /* AppDelegate.swift in Sources */,
 				9DCAF06A226497F100A84F01 /* StoreHeaderCell.swift in Sources */,
 				9D18380B2260B2CA001F02F4 /* PriceLabelsView.swift in Sources */,
-				9DCAF06322648B3200A84F01 /* FileURL.swift in Sources */,
+				9DCAF06322648B3200A84F01 /* FileName.swift in Sources */,
 				9D1837F8225E1388001F02F4 /* StoreItemCell.swift in Sources */,
 				9D1837F4225DE95F001F02F4 /* StoreItem.swift in Sources */,
 				9D1837FA225E205B001F02F4 /* StoreItemDTO.swift in Sources */,

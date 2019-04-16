@@ -9,25 +9,20 @@
 import Foundation
 
 struct JSONParser {
-    static func getText(from url: String) -> String? {
-        guard let url = URL(string: url) else { return nil }
-        return try? String(contentsOf: url, encoding: .utf8)
-    }
-    
     static func getTextFrom(file: String) -> String? {
-        var fileURL = URL(fileURLWithPath: FileURL.projectFolderURL)
-        fileURL.appendPathComponent(file)
-        return try? String(contentsOf: fileURL, encoding: .utf8)
+        guard let filePath = searchPathFromBundle(of: file) else { return nil }
+        return try? String(contentsOfFile: filePath, encoding: .utf8)
     }
     
+    static func searchPathFromBundle(of file: String) -> String? {
+        let fileNameAndExtension = file.split(separator: ".").map { String.init($0) }
+        guard fileNameAndExtension.count == 2 else { return nil }
+        return Bundle.main.path(forResource: fileNameAndExtension[0], ofType: fileNameAndExtension[1])
+    }
+
     static func parseJSONData(from jsonData: String) -> [StoreItem]? {
         let jsonDecoder = JSONDecoder()
         guard let data = jsonData.data(using: .utf8) else { return nil }
         return try? jsonDecoder.decode(Array<StoreItem>.self, from: data)
-    }
-    
-    static func searchFile() {
-        let bundle = Bundle.main.path(forResource: "side", ofType: "json")
-        print(bundle)
     }
 }
