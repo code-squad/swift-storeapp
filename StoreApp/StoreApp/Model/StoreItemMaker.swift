@@ -31,14 +31,28 @@ class StoreItemMaker {
         return result
     }
     
+    /// jsonData 를 받아서 any 형으로 리턴. json 분석을 거친다.
+    static func jsonSerialization(jsonData: Data) -> Any? {
+        do {
+            // 데이터 json 형태로 추출
+            let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
+             return jsonResult
+            
+        } catch {
+            // 에러시
+            os_log("data 에서 JSON 변환 실패")
+            return nil
+        }
+    }
+    
     /// json data 를 받아서 스토어아이템 배열로 만들어서 리턴
     static func makeStoreItemList(jsonData: Data) -> [StoreItem] {
         // 리턴용 변수
         var result : [StoreItem] = []
         // path 에서 추출시도
-        do {
-            // 데이터 json 형태로 추출
-            let jsonResult = try JSONSerialization.jsonObject(with: jsonData, options: .mutableLeaves)
+            guard let jsonResult = jsonSerialization(jsonData: jsonData) else {
+                return result
+            }
             os_log("data 에서 json 추출")
             // json 데이터를 배열로 추출
             if let jsonDict = jsonResult as? [String : Any] {
@@ -58,11 +72,6 @@ class StoreItemMaker {
                 os_log("스토어아이템 배열화 실패")
                 return result
             }
-        } catch {
-            // 에러시
-            os_log("json 전체 파싱 실패")
-            return result
-        }
         return result
     }
 }
