@@ -10,6 +10,13 @@ import UIKit
 import Toaster
 
 class StoreAppDelegate: NSObject, UITableViewDelegate {
+    private var storeItems: StoreItems
+    private var toast: Toast?
+    
+    init(_ storeItems: StoreItems) {
+        self.storeItems = storeItems
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 144
     }
@@ -24,7 +31,16 @@ class StoreAppDelegate: NSObject, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        toast?.cancel()
+        storeItems.access(of: indexPath.section, at: indexPath.row) { item in
+            let itemDTO = item.getDTO()
+            let toastText = """
+            \(itemDTO.title)
+            \(itemDTO.s_price)
+            """
+            self.toast = Toast(text: toastText)
+            self.toast?.show()
+        }
     }
 }

@@ -10,8 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    private let storeAppDataSource = StoreAppDataSource()
-    private let storeAppDelegate = StoreAppDelegate()
+    private var storeItems = StoreItems()
+    private lazy var storeAppDataSource = StoreAppDataSource(storeItems)
+    private lazy var storeAppDelegate = StoreAppDelegate(storeItems)
     
     override func viewDidLoad() {
         super.viewDidLoad()

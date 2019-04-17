@@ -9,7 +9,11 @@
 import UIKit
 
 class StoreAppDataSource: NSObject, UITableViewDataSource {
-    private var storeItems: StoreItems = StoreItems()
+    private var storeItems: StoreItems
+    
+    init(_ storeItems: StoreItems) {
+        self.storeItems = storeItems
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
