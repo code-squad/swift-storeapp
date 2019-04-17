@@ -10,7 +10,7 @@ import UIKit
 
 class StoreAppDataSource: NSObject, UITableViewDataSource {
     private var storeItems: StoreItems = StoreItems()
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
