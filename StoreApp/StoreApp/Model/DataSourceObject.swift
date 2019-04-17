@@ -124,7 +124,20 @@ class DataSourceObject : NSObject, UITableViewDataSource  {
         }
         // 모든 섹션 체크가 끝나면 리턴
         return true
-    }    
+    }
+    
+    /// 인덱스패스를 받아서 해당 셀의 detail_hash 를 리턴한다
+    func detailHash(indexPath: IndexPath) -> String {
+        let detailhash = self.storeItemContainer.storeItem(indexPath: indexPath).detail_hash
+        return detailhash
+    }
+    
+    /// 인덱스패스를 받아서 해당 셀의 title 리턴한다
+    func title(indexPath: IndexPath) -> String {
+        let title = self.storeItemContainer.storeItem(indexPath: indexPath).title
+        return title
+    }
+    
 }
 
 /// 델리게이트 기능 확장
