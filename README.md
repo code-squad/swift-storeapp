@@ -182,3 +182,48 @@ static func searchPathFromBundle(of file: String) -> String? {
 
 <img src="10.png" height="500px"/><img src="11.png" height="500px"/>
 
+
+
+
+
+## Step 4
+
+![awd](./14.png)
+
+* CocoaPod 이용하여 외부 라이브러리 다운받기
+
+
+
+
+
+**CocoaPod**
+
+ `CocoaPod이란?` 외부 라이브러리를 관리하기 쉽도록 도와주는 의존성 관리 도구이다. 애플 플랫폼에서 사용할 수 있는 도구인데 여러가지가 있다. 
+
+ 예) `CocoaPods`, `Carthage`, `Swift Package Manager`
+
+ 이번 스텝에서는 `CocoaPads`을 이용하여 `Toaster` 라이브러리를 다운받아 import하여 사용하였다. 지금부터 CocoaPod 다운부터 사용까지 알아볼것이다.
+
+
+
+1. CocoaPods을 사용하기 앞서 Terminal Rudy를 이용하여 다운하여야 한다.
+
+   `$sudo gem install cocoapods` 명령어를 터미널에 입력하여 다운한다.
+
+2. 프로젝트에 CocoaPod을 다운받기위해 프로젝트 디렉토리로 이동한다. `$cd` 명령어를 이용한다.
+
+3. 이동 후, 프로젝트 폴더에 PodFile을 다운받아준다.
+
+   `$pod init` 명령어를 터미널에 입력한다.
+
+4. `cocoapods.org` 홈페이지에서 필요한 라이브러리 파일을 찾는다.
+
+5. `$pod init` 후에 생긴 podfile을 열어 `target do`, `end` 사이 다운받으려는 라이브러리를 입력한다.
+
+6. Terminal에서 `$pod install` 명령어를 입력하여 원하는 라이브러리를 프로젝트에 다운받는다.
+
+
+
+ 이렇게하면 pod Library 다운이 모두 끝났다. 이후 파일을 열어 `import 라이브러리이름` 을 입력하여 사용하면 된다.
+
+​     
