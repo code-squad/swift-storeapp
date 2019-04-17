@@ -38,10 +38,6 @@ class StoreItems {
         return mainItems.count
     }
     
-    func access(at index: Int, form: (StoreItem) -> Void) {
-        form(mainItems[index])
-    }
-    
     func access(of theme: Int, at index: Int, form: (StoreItem) -> Void) {
         guard let theme = SectionTheme(rawValue: theme) else { return }
         switch theme {

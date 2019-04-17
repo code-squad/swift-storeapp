@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Toaster
 
-class StoreAppDelegate: NSObject ,UITableViewDelegate {
+class StoreAppDelegate: NSObject, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 144
     }
@@ -21,5 +22,9 @@ class StoreAppDelegate: NSObject ,UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StoreHeaderCell.identifier) as? StoreHeaderCell else { return UITableViewCell() }
         cell.set(at: section)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
     }
 }

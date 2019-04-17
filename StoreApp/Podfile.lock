@@ -1,0 +1,16 @@
+PODS:
+  - Toaster (2.2.0)
+
+DEPENDENCIES:
+  - Toaster
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Toaster
+
+SPEC CHECKSUMS:
+  Toaster: c1a81b376edcc2470157b4d1ee1e9341d3b96455
+
+PODFILE CHECKSUM: 2df91c6d3fc61803339c146f12b769deafc7bc15
+
+COCOAPODS: 1.6.1
