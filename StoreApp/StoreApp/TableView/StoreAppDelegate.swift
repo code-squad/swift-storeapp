@@ -11,7 +11,6 @@ import Toaster
 
 class StoreAppDelegate: NSObject, UITableViewDelegate {
     private var storeItems: StoreItems
-    private var toast: Toast?
     
     init(_ storeItems: StoreItems) {
         self.storeItems = storeItems
@@ -32,15 +31,14 @@ class StoreAppDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        toast?.cancel()
+        ToastCenter.default.cancelAll()
         storeItems.access(of: indexPath.section, at: indexPath.row) { item in
             let itemDTO = item.getDTO()
             let toastText = """
             \(itemDTO.title)
             \(itemDTO.s_price)
             """
-            self.toast = Toast(text: toastText)
-            self.toast?.show()
+            Toast(text: toastText).show()
         }
     }
 }
