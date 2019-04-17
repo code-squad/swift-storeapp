@@ -32,6 +32,7 @@
 		D575549E2248E29F0000A3D1 /* StoreAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575549D2248E29F0000A3D1 /* StoreAppUITests.swift */; };
 		D5E974E5224CEED80075151C /* MyHeaderContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E974E4224CEED80075151C /* MyHeaderContent.swift */; };
 		D5FB6B46226704D500D75B46 /* StoreItemDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FB6B45226704D500D75B46 /* StoreItemDetailModel.swift */; };
+		D5FB6B48226705E100D75B46 /* StoreItemDetailMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FB6B47226705E100D75B46 /* StoreItemDetailMaker.swift */; };
 		D5FCB4C02264716900629DB0 /* StoreItemDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB4BF2264716900629DB0 /* StoreItemDetailCell.swift */; };
 		D5FCB4C2226471A500629DB0 /* StoreItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB4C1226471A500629DB0 /* StoreItemDetailView.swift */; };
 		D5FCB4C42265C0AF00629DB0 /* StoreItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB4C32265C0AF00629DB0 /* StoreItemDetailViewController.swift */; };
@@ -126,6 +127,7 @@
 		D575549F2248E29F0000A3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5E974E4224CEED80075151C /* MyHeaderContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHeaderContent.swift; sourceTree = "<group>"; };
 		D5FB6B45226704D500D75B46 /* StoreItemDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailModel.swift; sourceTree = "<group>"; };
+		D5FB6B47226705E100D75B46 /* StoreItemDetailMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailMaker.swift; sourceTree = "<group>"; };
 		D5FCB4BF2264716900629DB0 /* StoreItemDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailCell.swift; sourceTree = "<group>"; };
 		D5FCB4C1226471A500629DB0 /* StoreItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailView.swift; sourceTree = "<group>"; };
 		D5FCB4C32265C0AF00629DB0 /* StoreItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				D55688D82248E54D002B80A0 /* DataSourceObject.swift */,
 				D5449C69225C7C9800DB9106 /* MyImageMaker.swift */,
 				D5FB6B45226704D500D75B46 /* StoreItemDetailModel.swift */,
+				D5FB6B47226705E100D75B46 /* StoreItemDetailMaker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				D57554802248E29E0000A3D1 /* ViewController.swift in Sources */,
 				D5FCB4C2226471A500629DB0 /* StoreItemDetailView.swift in Sources */,
 				D5E974E5224CEED80075151C /* MyHeaderContent.swift in Sources */,
+				D5FB6B48226705E100D75B46 /* StoreItemDetailMaker.swift in Sources */,
 				D5FCB4C02264716900629DB0 /* StoreItemDetailCell.swift in Sources */,
 				D5439865224CB4E400635C95 /* StoreItemContainer.swift in Sources */,
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
