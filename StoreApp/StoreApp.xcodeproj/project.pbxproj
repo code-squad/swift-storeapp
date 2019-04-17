@@ -31,8 +31,10 @@
 		D57554932248E29F0000A3D1 /* StoreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57554922248E29F0000A3D1 /* StoreAppTests.swift */; };
 		D575549E2248E29F0000A3D1 /* StoreAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D575549D2248E29F0000A3D1 /* StoreAppUITests.swift */; };
 		D5E974E5224CEED80075151C /* MyHeaderContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E974E4224CEED80075151C /* MyHeaderContent.swift */; };
+		D5FB6B46226704D500D75B46 /* StoreItemDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FB6B45226704D500D75B46 /* StoreItemDetailModel.swift */; };
 		D5FCB4C02264716900629DB0 /* StoreItemDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB4BF2264716900629DB0 /* StoreItemDetailCell.swift */; };
 		D5FCB4C2226471A500629DB0 /* StoreItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB4C1226471A500629DB0 /* StoreItemDetailView.swift */; };
+		D5FCB4C42265C0AF00629DB0 /* StoreItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FCB4C32265C0AF00629DB0 /* StoreItemDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,8 +125,10 @@
 		D575549D2248E29F0000A3D1 /* StoreAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppUITests.swift; sourceTree = "<group>"; };
 		D575549F2248E29F0000A3D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5E974E4224CEED80075151C /* MyHeaderContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHeaderContent.swift; sourceTree = "<group>"; };
+		D5FB6B45226704D500D75B46 /* StoreItemDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailModel.swift; sourceTree = "<group>"; };
 		D5FCB4BF2264716900629DB0 /* StoreItemDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailCell.swift; sourceTree = "<group>"; };
 		D5FCB4C1226471A500629DB0 /* StoreItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailView.swift; sourceTree = "<group>"; };
+		D5FCB4C32265C0AF00629DB0 /* StoreItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDetailViewController.swift; sourceTree = "<group>"; };
 		E2CEFCA3AC192ABD9C531A5E /* Pods-StoreAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppTests.debug.xcconfig"; path = "Target Support Files/Pods-StoreAppTests/Pods-StoreAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +189,7 @@
 				D5E974E4224CEED80075151C /* MyHeaderContent.swift */,
 				D55688D82248E54D002B80A0 /* DataSourceObject.swift */,
 				D5449C69225C7C9800DB9106 /* MyImageMaker.swift */,
+				D5FB6B45226704D500D75B46 /* StoreItemDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,10 +220,10 @@
 		D575547C2248E29E0000A3D1 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				D5FB6B432267048700D75B46 /* ViewController */,
 				D543985F224CAD0300635C95 /* JSON */,
 				D55688DA2248E665002B80A0 /* Model */,
 				D57554AB2248E4C60000A3D1 /* View */,
-				D575547F2248E29E0000A3D1 /* ViewController.swift */,
 				D57554812248E29E0000A3D1 /* Main.storyboard */,
 				D57554842248E29E0000A3D1 /* Assets.xcassets */,
 				D575547D2248E29E0000A3D1 /* AppDelegate.swift */,
@@ -256,6 +261,15 @@
 				D5FCB4C1226471A500629DB0 /* StoreItemDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D5FB6B432267048700D75B46 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D575547F2248E29E0000A3D1 /* ViewController.swift */,
+				D5FCB4C32265C0AF00629DB0 /* StoreItemDetailViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		E7FD0B488C9D5CD230BBDB8B /* Pods */ = {
@@ -531,10 +545,12 @@
 				D5439865224CB4E400635C95 /* StoreItemContainer.swift in Sources */,
 				D55688D92248E54D002B80A0 /* DataSourceObject.swift in Sources */,
 				D55688E02248EA50002B80A0 /* StoreItem.swift in Sources */,
+				D5FCB4C42265C0AF00629DB0 /* StoreItemDetailViewController.swift in Sources */,
 				D550E1482257555F00BD5C30 /* MyCustomCell.swift in Sources */,
 				D5410947224A3F790047CDC6 /* StoreItemSlot.swift in Sources */,
 				D5449C6A225C7C9800DB9106 /* MyImageMaker.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
+				D5FB6B46226704D500D75B46 /* StoreItemDetailModel.swift in Sources */,
 				D543986D224CCFEE00635C95 /* MyCustomHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

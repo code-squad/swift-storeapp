@@ -157,6 +157,35 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if segue.identifier == "showDetail" {
+            guard let storeItemDetailViewController = segue.destination as? StoreItemDetailViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedCell = sender as? MyCustomCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = self.storeItemTableView.indexPath(for: selectedCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let detailHash = self.dataSourceObject.detailHash(indexPath: indexPath)
+            storeItemDetailViewController.detailHash = detailHash
+            
+        }
+        else {
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
+    }
+    
+    func prepare(segue: UIStoryboardSegue, sender: AnyObject?) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
