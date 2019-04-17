@@ -11,7 +11,7 @@ import os.log
 
 class StoreItemDetailModel {
     
-    var topIamge : String = ""
+    var top_image : String = ""
     
     var thumb_images : [String] = []
     
@@ -31,8 +31,8 @@ class StoreItemDetailModel {
     
     /// json Data 를 받아서 생성
     init?(json: [String: Any]) {
-        guard  let topIamge = json["topIamge"] as? String else {
-            os_log("StoreItemDetailModel 생성실패 : topIamge")
+        guard  let top_image = json["top_image"] as? String else {
+            os_log("StoreItemDetailModel 생성실패 : top_image")
             return nil
         }
         guard   let thumb_images = json["thumb_images"] as? [String]  else {
@@ -64,7 +64,7 @@ class StoreItemDetailModel {
             return nil
         }
         
-        self.topIamge = topIamge
+        self.top_image = top_image
         self.thumb_images = thumb_images
         self.product_description = product_description
         self.point = point
