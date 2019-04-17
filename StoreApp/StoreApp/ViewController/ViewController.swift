@@ -157,40 +157,36 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    /// 셀이 선택되서 디테일뷰로 넘어가는 함수
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
+        // 세그 확인
         if segue.identifier == "showDetail" {
             guard let storeItemDetailViewController = segue.destination as? StoreItemDetailViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
-            
+            // 선택된 뷰가 셀인지 체크
             guard let selectedCell = sender as? MyCustomCell else {
                 fatalError("Unexpected sender: \(String(describing: sender))")
             }
-            
+            // 셀에서 인덱스 패스 추출
             guard let indexPath = self.storeItemTableView.indexPath(for: selectedCell) else {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
+            // 값을 넘겨준다.
             let detailHash = self.dataSourceObject.detailHash(indexPath: indexPath)
             storeItemDetailViewController.detailHash = detailHash
+            let title = self.dataSourceObject.title(indexPath: indexPath)
+            storeItemDetailViewController.title = title
             
-        }
+        } // 세그 확인 실패시
         else {
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
     }
     
-    func prepare(segue: UIStoryboardSegue, sender: AnyObject?) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.isN
-        
         // 노티 옵저버 생성
         makeNotificationObserver()
         
