@@ -176,8 +176,8 @@ class ViewController: UIViewController {
             // 값을 넘겨준다.
             let detailHash = self.dataSourceObject.detailHash(indexPath: indexPath)
             storeItemDetailViewController.detailHash = detailHash
-            let title = self.dataSourceObject.title(indexPath: indexPath)
-            storeItemDetailViewController.title = title
+            let detailTitle = self.dataSourceObject.title(indexPath: indexPath)
+            storeItemDetailViewController.detailTitle = detailTitle
             
         } // 세그 확인 실패시
         else {
