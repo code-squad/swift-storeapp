@@ -10,16 +10,29 @@ import Foundation
 import os.log
 
 class StoreItemDetailMaker {
+    /// 생성자 사용 못하게 숨김
+    private init(){}
     
     /// json 배열을 받아서 스토어아이템 배열로 리턴
-    static private func makeStoreItemList(jsonData: [String : Any]) -> StoreItemDetailModel? {
-        // data 를 키로 문자열배열 추출
-        guard let data = jsonData["data"] as? [String : Any] else {
+    class func makeStoreItemDetailModel(anyData: Data) -> StoreItemDetailModel? {
+        // data 를 JSON 으로 변환
+        guard let data = StoreItemMaker.jsonSerialization(jsonData: anyData) else {
+            return nil
+        }
+        
+        // json data 를 사전형으로 변환
+        guard let checkedJSONData = data as? [String : Any] else {
              os_log("jsondata 에서 디테일모델용 data 생성 실패")
             return nil
         }
         
-        guard let storeItemDetailModel = StoreItemDetailModel(json: data) else {
+        // data 를 키로 문자열배열 추출
+        guard let jsonData = checkedJSONData["data"] as? [String : Any] else {
+            os_log("jsondata 에서 디테일모델용 data 생성 실패")
+            return nil
+        }
+        
+        guard let storeItemDetailModel = StoreItemDetailModel(json: jsonData) else {
              os_log("스토어아이템 디테일모델 생성 실패")
             return nil
         }
