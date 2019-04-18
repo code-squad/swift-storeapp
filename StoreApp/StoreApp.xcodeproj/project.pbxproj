@@ -17,9 +17,9 @@
 		9D1837F4225DE95F001F02F4 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837F3225DE95F001F02F4 /* StoreItem.swift */; };
 		9D1837F8225E1388001F02F4 /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837F7225E1388001F02F4 /* StoreItemCell.swift */; };
 		9D1837FA225E205B001F02F4 /* StoreItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837F9225E205A001F02F4 /* StoreItemDTO.swift */; };
-		9D1837FE225F32E3001F02F4 /* StoreAppDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837FD225F32E3001F02F4 /* StoreAppDataSource.swift */; };
+		9D1837FE225F32E3001F02F4 /* StoreTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837FD225F32E3001F02F4 /* StoreTableViewDataSource.swift */; };
 		9D183800225F3347001F02F4 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1837FF225F3347001F02F4 /* StoreItems.swift */; };
-		9D183802225F397B001F02F4 /* StoreAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D183801225F397B001F02F4 /* StoreAppDelegate.swift */; };
+		9D183802225F397B001F02F4 /* StoreTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D183801225F397B001F02F4 /* StoreTableViewDelegate.swift */; };
 		9D18380B2260B2CA001F02F4 /* PriceLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18380A2260B2CA001F02F4 /* PriceLabelsView.swift */; };
 		9D18382D22645D11001F02F4 /* BadgeLabelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18382C22645D11001F02F4 /* BadgeLabelsView.swift */; };
 		9D4ABB7C2265B684004CE4D6 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D4ABB7A2265B684004CE4D6 /* soup.json */; };
@@ -45,9 +45,9 @@
 		9D1837F3225DE95F001F02F4 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		9D1837F7225E1388001F02F4 /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCell.swift; sourceTree = "<group>"; };
 		9D1837F9225E205A001F02F4 /* StoreItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDTO.swift; sourceTree = "<group>"; };
-		9D1837FD225F32E3001F02F4 /* StoreAppDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppDataSource.swift; sourceTree = "<group>"; };
+		9D1837FD225F32E3001F02F4 /* StoreTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewDataSource.swift; sourceTree = "<group>"; };
 		9D1837FF225F3347001F02F4 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
-		9D183801225F397B001F02F4 /* StoreAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppDelegate.swift; sourceTree = "<group>"; };
+		9D183801225F397B001F02F4 /* StoreTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewDelegate.swift; sourceTree = "<group>"; };
 		9D18380A2260B2CA001F02F4 /* PriceLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceLabelsView.swift; sourceTree = "<group>"; };
 		9D18382C22645D11001F02F4 /* BadgeLabelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabelsView.swift; sourceTree = "<group>"; };
 		9D4ABB7A2265B684004CE4D6 /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
@@ -122,8 +122,8 @@
 		9D1838042260AF2F001F02F4 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				9D1837FD225F32E3001F02F4 /* StoreAppDataSource.swift */,
-				9D183801225F397B001F02F4 /* StoreAppDelegate.swift */,
+				9D1837FD225F32E3001F02F4 /* StoreTableViewDataSource.swift */,
+				9D183801225F397B001F02F4 /* StoreTableViewDelegate.swift */,
 				9D1837F7225E1388001F02F4 /* StoreItemCell.swift */,
 				9DCAF069226497F100A84F01 /* StoreHeaderCell.swift */,
 			);
@@ -291,9 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D1837FE225F32E3001F02F4 /* StoreAppDataSource.swift in Sources */,
+				9D1837FE225F32E3001F02F4 /* StoreTableViewDataSource.swift in Sources */,
 				9D18382D22645D11001F02F4 /* BadgeLabelsView.swift in Sources */,
-				9D183802225F397B001F02F4 /* StoreAppDelegate.swift in Sources */,
+				9D183802225F397B001F02F4 /* StoreTableViewDelegate.swift in Sources */,
 				9D1837E2225DE16C001F02F4 /* ViewController.swift in Sources */,
 				9D183800225F3347001F02F4 /* StoreItems.swift in Sources */,
 				9D1837E0225DE16C001F02F4 /* AppDelegate.swift in Sources */,

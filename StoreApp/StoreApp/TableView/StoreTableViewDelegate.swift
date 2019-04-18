@@ -9,7 +9,7 @@
 import UIKit
 import Toaster
 
-class StoreAppDelegate: NSObject, UITableViewDelegate {
+class StoreTableViewDelegate: NSObject, UITableViewDelegate {
     private var storeItems: StoreItems
     
     init(_ storeItems: StoreItems) {
