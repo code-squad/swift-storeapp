@@ -87,10 +87,6 @@ class StoreItemDetailViewController: UIViewController {
         // 전달받은 디테일해쉬를 디코드. 실패할경우 계속 시도한다
         tryConnectData(detailHash: self.detailHash)
         
-        // 스크롤뷰 설정
-        self.myScrollView.setMainSubView()
-        
-        
         
         // end of viewDidLoad
     }
