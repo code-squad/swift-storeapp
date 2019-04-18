@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoreAppDataSource: NSObject, UITableViewDataSource {
+class StoreTableViewDataSource: NSObject, UITableViewDataSource {
     private var storeItems: StoreItems
     
     init(_ storeItems: StoreItems) {
