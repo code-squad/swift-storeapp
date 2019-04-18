@@ -12,40 +12,28 @@ import os.log
 
 class MyScrollView: UIScrollView {
     
-    private var mainSubView = UIView()
-
-    func setMainSubView(){
-        self.mainSubView.frame = CGRect(x: 0, y: 0, width: 0, height: self.bounds.height)
-        
-        self.contentSize = self.bounds.size
-        
-        self.addSubview(self.mainSubView)
-    }
-    
     func add(image: UIImage){
+        // 사진을 동기로 추가
         DispatchQueue.main.async {
-            
-            // 추가할 새 이미지뷰 생성. 사이즈는 스크롤뷰와 같음
+            // 추가할 새 이미지뷰 생성. 사이즈는 스크롤뷰 프레임과 같음
             let newImageView = UIImageView(frame: self.frame)
-            // 새 이미지 추출
+            // 새 이미지 적용
             newImageView.image = image
             
-            // 새 사진의 시작점은 메인서브뷰의 가로축 끝
-            newImageView.frame.origin.x = self.mainSubView.frame.width
+            // 새 사진의 시작점은 메인서브뷰의 가로축 끝. 서브뷰 2개(스크롤바)가 미리 추가되므로 -2 를 해준다.
+            newImageView.frame.origin.x = self.frame.width * CGFloat(self.subviews.count - 2)
             
-            // 새 메인서브뷰 가로길이 계산
-            let newWidth = self.mainSubView.frame.width + self.bounds.width
+            // 새 컨텐츠 가로길이 계산
+            let newWidth = self.contentSize.width + self.bounds.width
+            // 새 컨텐츠 사이즈 계산
             let newSize = CGSize(width: newWidth, height: self.bounds.height)
-            let newFrame = CGRect(origin: CGPoint(x: 0, y: 0), size: newSize)
-            // 새 길이 적용
+            // 새 사이즈 적용
             self.contentSize = newSize
-            self.mainSubView.frame = newFrame
             
             // 새이미지뷰 추가
-            self.mainSubView.addSubview(newImageView)
+            self.addSubview(newImageView)
             
             os_log("스크롤뷰에 이미지 추가 완료")
         }
-        
     }
 }
