@@ -32,13 +32,18 @@ class StoreItemDetailMaker {
             return nil
         }
         
-        guard let storeItemDetailModel = StoreItemDetailModel(json: jsonData) else {
+        // 디테일 모델 생성
+        let detailModel = StoreItemDetailModel()
+        
+        let result = detailModel.setting(json: jsonData)
+        
+        guard result == true else {
              os_log("스토어아이템 디테일모델 생성 실패")
             return nil
         }
         
         //결과리턴
-        return storeItemDetailModel
+        return detailModel
     }
     
 }
