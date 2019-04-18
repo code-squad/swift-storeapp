@@ -29,39 +29,41 @@ class StoreItemDetailModel {
     
     var detail_section : [String] = []
     
+    init(){}
+    
     /// json Data 를 받아서 생성
-    init?(json: [String: Any]) {
+    func setting(json: [String: Any]) -> Bool {
         guard  let top_image = json["top_image"] as? String else {
             os_log("StoreItemDetailModel 생성실패 : top_image")
-            return nil
+            return false
         }
         guard   let thumb_images = json["thumb_images"] as? [String]  else {
             os_log("StoreItemDetailModel 생성실패 : thumb_images")
-            return nil
+            return false
         }
         guard   let product_description = json["product_description"] as? String  else {
             os_log("StoreItemDetailModel 생성실패 : product_description")
-            return nil
+            return false
         }
         guard    let point = json["point"] as? String  else {
             os_log("StoreItemDetailModel 생성실패 : point")
-            return nil
+            return false
         }
         guard    let delivery_info = json["delivery_info"] as? String  else {
             os_log("StoreItemDetailModel 생성실패 : delivery_info")
-            return nil
+            return false
         }
         guard    let delivery_fee = json["delivery_fee"] as? String  else {
             os_log("StoreItemDetailModel 생성실패 : delivery_fee")
-            return nil
+            return false
         }
         guard    let prices = json["prices"] as? [String]  else {
             os_log("StoreItemDetailModel 생성실패 : prices")
-            return nil
+            return false
         }
         guard    let detail_section = json["detail_section"] as? [String]  else {
             os_log("StoreItemDetailModel 생성실패 : detail_section")
-            return nil
+            return false
         }
         
         self.top_image = top_image
@@ -72,6 +74,9 @@ class StoreItemDetailModel {
         self.delivery_fee = delivery_fee
         self.prices = prices
         self.detail_section = detail_section
+        
+        // 설정 모두 완료
+        return true
     }
 
     /// 타이틀은 이전 셀에서 넘겨받기때문에 직접 수정한다
