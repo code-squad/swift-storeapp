@@ -14,4 +14,9 @@ struct JSONParser {
         guard let data = jsonData.data(using: .utf8) else { return nil }
         return try? jsonDecoder.decode(Array<StoreItem>.self, from: data)
     }
+    
+    static func parseJSONData(_ data: Data) -> ItemFromHTTP? {
+        let jsonDecoder = JSONDecoder()
+        return try? jsonDecoder.decode(ItemFromHTTP.self, from: data)
+    }
 }

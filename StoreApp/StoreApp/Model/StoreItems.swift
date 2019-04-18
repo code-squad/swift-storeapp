@@ -8,21 +8,48 @@
 
 import Foundation
 
+extension NSNotification.Name {
+    static let setMain = NSNotification.Name(rawValue: "setMain")
+    static let setSoup = NSNotification.Name(rawValue: "setSoup")
+    static let setSide = NSNotification.Name(rawValue: "setSide")
+}
+
 class StoreItems {
     private var mainItems: [StoreItem] = []
     private var soupItems: [StoreItem] = []
     private var sideItems: [StoreItem] = []
     
     init() {
-        guard let mainItemsData = FileReader.getTextFrom(file: FileName.mainItem),
-              let soupItemsData = FileReader.getTextFrom(file: FileName.soupItem),
-              let sideItemsData = FileReader.getTextFrom(file: FileName.sideItem) else { return }
-        guard let mainItems = JSONParser.parseJSONData(from: mainItemsData),
-              let soupItems = JSONParser.parseJSONData(from: soupItemsData),
-              let sideItems = JSONParser.parseJSONData(from: sideItemsData) else { return }
-        self.mainItems = mainItems
-        self.soupItems = soupItems
-        self.sideItems = sideItems
+//        guard let mainItemsData = FileReader.getTextFrom(file: FileName.mainItem),
+//              let soupItemsData = FileReader.getTextFrom(file: FileName.soupItem),
+//              let sideItemsData = FileReader.getTextFrom(file: FileName.sideItem) else { return }
+//        guard let mainItems = JSONParser.parseJSONData(from: mainItemsData),
+//              let soupItems = JSONParser.parseJSONData(from: soupItemsData),
+//              let sideItems = JSONParser.parseJSONData(from: sideItemsData) else { return }
+//        self.mainItems = mainItems
+//        self.soupItems = soupItems
+//        self.sideItems = sideItems
+    }
+    
+    func getDataFromNetwork() {
+        NetworkHandler.getData(from: ServerURL.main)
+        NetworkHandler.getData(from: ServerURL.soup)
+        NetworkHandler.getData(from: ServerURL.side)
+    }
+    
+    func setMain(_ items: [StoreItem]) {
+        self.mainItems = items
+        NotificationCenter.default.post(name: .setMain, object: nil)
+    }
+    
+    func setSoup(_ items: [StoreItem]) {
+        self.soupItems = items
+        NotificationCenter.default.post(name: .setSoup, object: nil)
+    }
+    
+    func setSide(_ items: [StoreItem]) {
+        self.sideItems = items
+        NotificationCenter.default.post(name: .setSide, object: nil)
     }
     
     func countItems(at section: Int) -> Int {
@@ -32,10 +59,6 @@ class StoreItems {
         case .soup: return soupItems.count
         case .side: return sideItems.count
         }
-    }
-    
-    func count() -> Int {
-        return mainItems.count
     }
     
     func access(of theme: Int, at index: Int, form: (StoreItem) -> Void) {
