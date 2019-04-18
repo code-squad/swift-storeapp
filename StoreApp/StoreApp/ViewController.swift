@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         registSetObserver()
         registReloadObserver()
         storeItems.getDataFromNetwork()
-        tableView.dataSource = storeAppDataSource
         tableView.delegate = storeAppDelegate
+        tableView.dataSource = storeAppDataSource
     }
 }
 
@@ -64,6 +64,7 @@ extension ViewController {
     @objc func reloadMainSection() {
         let mainSection = IndexSet(integer: SectionTheme.main.rawValue)
         tableView.reloadSections(mainSection, with: .automatic)
+        
     }
     
     @objc func reloadSoupSection() {
@@ -73,6 +74,6 @@ extension ViewController {
     
     @objc func reloadSideSection() {
         let sideSection = IndexSet(integer: SectionTheme.side.rawValue)
-        tableView.reloadSections(sideSection, with: .automatic)
+        self.tableView.reloadSections(sideSection, with: .automatic)
     }
 }
