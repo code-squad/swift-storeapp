@@ -147,7 +147,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNv-rR-mBD">
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzK-vP-8TY" userLabel="topScroll View" customClass="MyScrollView" customModule="StoreApp" customModuleProvider="target">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzK-vP-8TY" userLabel="topScroll View" customClass="MyScrollView" customModule="StoreApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pzK-vP-8TY" secondAttribute="height" multiplier="1:1" id="Q3y-7k-gVR"/>
@@ -279,22 +279,15 @@
                                             <outlet property="title" destination="bVQ-XR-pwk" id="km6-Oe-HfI"/>
                                         </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HTL-gB-7oD">
-                                        <rect key="frame" x="0.0" y="636" width="414" height="127"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="eX8-9F-hND" firstAttribute="top" secondItem="pzK-vP-8TY" secondAttribute="bottom" constant="8" id="9ok-g9-1eq"/>
                                     <constraint firstAttribute="trailing" secondItem="pzK-vP-8TY" secondAttribute="trailing" id="B5s-LN-fcX"/>
-                                    <constraint firstItem="HTL-gB-7oD" firstAttribute="top" secondItem="eX8-9F-hND" secondAttribute="bottom" constant="8" id="JIW-Br-Luo"/>
-                                    <constraint firstItem="HTL-gB-7oD" firstAttribute="leading" secondItem="eX8-9F-hND" secondAttribute="leading" id="Urs-Ef-g7i"/>
                                     <constraint firstItem="pzK-vP-8TY" firstAttribute="top" secondItem="dNv-rR-mBD" secondAttribute="top" id="XEG-0g-Ev6"/>
                                     <constraint firstAttribute="trailing" secondItem="eX8-9F-hND" secondAttribute="trailing" id="dsY-xs-83m"/>
                                     <constraint firstItem="pzK-vP-8TY" firstAttribute="leading" secondItem="dNv-rR-mBD" secondAttribute="leading" id="nkg-W9-qHM"/>
                                     <constraint firstItem="eX8-9F-hND" firstAttribute="leading" secondItem="dNv-rR-mBD" secondAttribute="leading" id="qet-qd-8Fc"/>
-                                    <constraint firstItem="HTL-gB-7oD" firstAttribute="trailing" secondItem="eX8-9F-hND" secondAttribute="trailing" id="sRM-1K-l5T"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -312,7 +305,6 @@
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="detailSections" destination="HTL-gB-7oD" id="AnI-4c-zqG"/>
                         <outlet property="detailView" destination="eX8-9F-hND" id="Lrf-ps-apw"/>
                         <outlet property="myScrollView" destination="pzK-vP-8TY" id="Ye6-0h-Xw0"/>
                     </connections>

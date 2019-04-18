@@ -20,8 +20,8 @@ class MyScrollView: UIScrollView {
             // 새 이미지 적용
             newImageView.image = image
             
-            // 새 사진의 시작점은 메인서브뷰의 가로축 끝. 서브뷰 2개(스크롤바)가 미리 추가되므로 -2 를 해준다.
-            newImageView.frame.origin.x = self.frame.width * CGFloat(self.subviews.count - 2)
+            // 새 사진의 시작점은 메인서브뷰의 가로축 끝. 스크롤바가 미리 추가되므로 -1 를 해준다.
+            newImageView.frame.origin.x = self.frame.width * CGFloat(self.subviews.count - 1)
             
             // 새 컨텐츠 가로길이 계산
             let newWidth = self.contentSize.width + self.bounds.width
