@@ -1,5 +1,5 @@
 //
-//  StorePresenter.swift
+//  StoreTableView.swift
 //  StoreApp
 //
 //  Created by 조재흥 on 19. 4. 19..
@@ -8,8 +8,6 @@
 
 import Foundation
 
-class StorePresenter {
-
-    private let storeItems = StoreItems()
+protocol StoreTableView {
     
 }

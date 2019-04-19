@@ -16,6 +16,7 @@
 		7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80E9225C8D09001828F5 /* StoreItems.swift */; };
 		7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80EB225C8D38001828F5 /* StoreItem.swift */; };
 		7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */; };
+		7DCB0D192269B5E500BE1F2F /* StoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB0D182269B5E500BE1F2F /* StoreTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		7D0B80E9225C8D09001828F5 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		7D0B80EB225C8D38001828F5 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresenter.swift; sourceTree = "<group>"; };
+		7DCB0D182269B5E500BE1F2F /* StoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +66,9 @@
 			children = (
 				7D01B452225C8A1100471C5F /* AppDelegate.swift */,
 				7D01B454225C8A1100471C5F /* ViewController.swift */,
-				7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */,
-				7DCB0D152269A9DA00BE1F2F /* Model */,
+				7DCB0D1B2269B62900BE1F2F /* Presenters */,
+				7DCB0D1A2269B61F00BE1F2F /* ViewProtocols */,
+				7DCB0D152269A9DA00BE1F2F /* Models */,
 				7D01B456225C8A1100471C5F /* Main.storyboard */,
 				7D01B459225C8A1200471C5F /* Assets.xcassets */,
 				7D01B45B225C8A1200471C5F /* LaunchScreen.storyboard */,
@@ -75,13 +78,29 @@
 			path = StoreApp;
 			sourceTree = "<group>";
 		};
-		7DCB0D152269A9DA00BE1F2F /* Model */ = {
+		7DCB0D152269A9DA00BE1F2F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				7D0B80E9225C8D09001828F5 /* StoreItems.swift */,
 				7D0B80EB225C8D38001828F5 /* StoreItem.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7DCB0D1A2269B61F00BE1F2F /* ViewProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				7DCB0D182269B5E500BE1F2F /* StoreTableView.swift */,
+			);
+			path = ViewProtocols;
+			sourceTree = "<group>";
+		};
+		7DCB0D1B2269B62900BE1F2F /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +180,7 @@
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
 				7D01B453225C8A1100471C5F /* AppDelegate.swift in Sources */,
 				7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */,
+				7DCB0D192269B5E500BE1F2F /* StoreTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
