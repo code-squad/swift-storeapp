@@ -63,13 +63,12 @@ extension ViewController {
     
     @objc func reloadMainSection() {
         let mainSection = IndexSet(integer: SectionTheme.main.rawValue)
-        tableView.reloadSections(mainSection, with: .automatic)
-        
+        self.tableView.reloadSections(mainSection, with: .automatic)
     }
     
     @objc func reloadSoupSection() {
         let soupSection = IndexSet(integer: SectionTheme.soup.rawValue)
-        tableView.reloadSections(soupSection, with: .automatic)
+        self.tableView.reloadSections(soupSection, with: .automatic)
     }
     
     @objc func reloadSideSection() {

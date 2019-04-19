@@ -265,3 +265,81 @@ static func searchPathFromBundle(of file: String) -> String? {
 
 1. 프로젝트의 설정을 침범하지 않기 때문에, 개발자가 라이브러리 사용을 위해 연결을 해주어야한다. 그렇기 때문에, 잘못 연결할 경우 문제가 발생한다.
 2. 모든 연결은 개발자의 몫이기 때문에 번거롭다.
+
+
+
+
+
+### Step 5
+
+![screen](./15.png)
+
+* URLSession을 이용하여 네트워크로부터 데이터를 받기
+* 비동기 / 동기 처리방식
+
+
+
+**URLSession 사용**
+
+ 기본적으로 `URLSession` 은 HTTP 통신과 같은 구조를 가진다. `Request` , `Response`  구조이다. 사용하기 위해 우선 `URLSession` 객체를 만들어 통신할 서버를 설정한다. 다음으로 `Response` 는 `URLSession` 의 `Task Completion Handler` 형태로 받거나 `URLSessionDelegate` 를 통해 지정된 메소드를 호출하는 형태로 Response를 받는다.
+
+URLSession 세가지 타입
+
+1. **Default Session**: 기존적인 Session. 디스크 기반 캐싱을 지원한다.
+2. **Ephemeral Session**: 세션관련 데이터 메모리에 올가가 있다. 어떠한 데이터도 저장 X
+3. **Background Session**: 앱 종료후에도 통신을 지원한다.
+
+Session Task 세가지 타입
+
+1. **Data Task**: Data 객체를 주고받는 Task
+2. **Upload Task**: Server로 디스크로부터 Data를 Send하는 Task, Background Upload역시 지원한다.
+3. **Download Task**: 서버로부터 파일을 다운로드하는 Task
+
+
+
+1. 사용을 위해 우선 `URLSession` 객체를 생성
+2. Server URL로 `URLRequest` 객체 생성
+3. `DataTask` 생성 여기에 완료 Handler로 Response를 받고 할 행동을 지정
+4. `DataTask.resume()` 으로 Task 실행, 여기서 실행하게 되면 Thread가 하나 더 생기게 된다.
+
+```swift
+struct NetworkHandler {
+  static func getData(from urlType: ServerURL) {
+    guard let url = URL(string: urlType.rawValue) else { return }
+    let request = URLRequest(url: url)
+    let session = URLSession(configuration: .default)
+
+    let dataTask = session.dataTask(with: request) { data, response, error in
+    	guard error == nil else { return }
+     	guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
+      guard let parseData = JSONParser.parseJSONData(data) else { return }
+      DispatchQueue.main.async {
+      	switch urlType {
+        case .main:
+        	NotificationCenter.default.post(name: .getMain, object: nil, userInfo: ["main": parseData.body])
+        case .soup:
+          NotificationCenter.default.post(name: .getSoup, object: nil, userInfo: ["soup": parseData.body])
+        case .side:
+          NotificationCenter.default.post(name: .getSide, object: nil, userInfo: ["side": parseData.body])
+        }
+      }
+    }
+    dataTask.resume()
+  }
+}
+
+```
+
+ 여기서 Resume()으로 Task를 실행하게 되면 Thread가 하나 더 생겨서 실행되게 된다. 여기서 만약 핸들러에 UI를 조작하는 코드가 있을 시 문제가 발생한다.
+
+ 비동기 방식이기 때문에 UI를 여러개가 건드리게 된다. UI는 항상 main Thread에서만 Update되어야 한다. 이를 해결하기 위해 비동기 처리 **GCD**을 이용할 것이다.
+
+
+
+**GCD 비동기 처리**
+
+ `Dispatch Queue`을 사용하면 비동기식/동기식으로 임의의 코드블록을 수행할 수 있다. 기본적으로 Queue이기 때문에 `FIFO` 방식이다. 앱에서 사용가능한 여러가지 타입이 있다.
+
+1. **Serial Queue**: 큐에 추가된 순서대로 하번에 하나의 Task를 수행한다. 필요한 만큼 Queue 생성이 가능하다. 단 하	드웨어의 성능에 맞추어야 한다. 예를 들어 4개를 생성시 한 큐는 하나의 Task만 수행하지만 동시에 4개의 			Task가 실행된다.
+2. **Concurrent Queue**:  큐에 Task가 추가된 순서대로 계속 실행된다.
+3. **Main Dispatch Queue**: 전역적으로 사용 가능한 Serial Queue이다. 이 큐는 앱의 실행루프와 함께 작동하여 큐에 있는    Task의 실행을 실행루프에 연결된 다른 이벤트 소스의 실행과 얽힌다. 즉 Main Thread
