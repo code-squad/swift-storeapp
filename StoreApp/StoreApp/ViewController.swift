@@ -10,11 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //MARK: - Properties
+    //MARK: IBOutlet
     @IBOutlet weak var storeTableView: UITableView!
     
+    //MARK: Presenter
+    private let storePresenter = StorePresenter()
+    
+    //MARK: - Methods
+    //MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        storeTableView.dataSource = storePresenter
     }
 }
 
+extension ViewController: StoreTableView {
+    
+}
