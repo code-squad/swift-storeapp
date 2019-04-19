@@ -343,3 +343,9 @@ struct NetworkHandler {
 1. **Serial Queue**: 큐에 추가된 순서대로 하번에 하나의 Task를 수행한다. 필요한 만큼 Queue 생성이 가능하다. 단 하	드웨어의 성능에 맞추어야 한다. 예를 들어 4개를 생성시 한 큐는 하나의 Task만 수행하지만 동시에 4개의 			Task가 실행된다.
 2. **Concurrent Queue**:  큐에 Task가 추가된 순서대로 계속 실행된다.
 3. **Main Dispatch Queue**: 전역적으로 사용 가능한 Serial Queue이다. 이 큐는 앱의 실행루프와 함께 작동하여 큐에 있는    Task의 실행을 실행루프에 연결된 다른 이벤트 소스의 실행과 얽힌다. 즉 Main Thread
+
+
+
+**실행화면**
+
+<img src="16.gif" height="500px"/>
