@@ -12,6 +12,8 @@ class StoreTableViewCell: UITableViewCell {
     @IBOutlet weak var menuImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailedDescriptionLabel: UILabel!
+    @IBOutlet weak var salePriceLabel: UILabel!
+    @IBOutlet weak var naturalPriceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
