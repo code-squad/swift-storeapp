@@ -29,26 +29,46 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sh-GN-qBy">
-                                <rect key="frame" x="102" y="16.5" width="242" height="14"/>
+                                <rect key="frame" x="102" y="16.5" width="242" height="14.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvV-22-7Uf">
-                                <rect key="frame" x="102" y="34.5" width="242" height="10"/>
+                                <rect key="frame" x="102" y="35" width="242" height="10"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="8"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3qj-hx-K4t">
+                                <rect key="frame" x="102" y="53" width="242" height="14.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nbp-3d-rNX">
+                                        <rect key="frame" x="0.0" y="0.0" width="22" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="8"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VM3-JN-ImD">
+                                        <rect key="frame" x="26" y="0.0" width="216" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.36862745098039218" green="0.74509803921568629" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="100" id="2DN-ZM-pS6"/>
                             <constraint firstItem="3Sh-GN-qBy" firstAttribute="top" secondItem="r2A-m4-8uu" secondAttribute="top" constant="8" id="2tD-HI-sQJ"/>
+                            <constraint firstItem="3qj-hx-K4t" firstAttribute="trailing" secondItem="3Sh-GN-qBy" secondAttribute="trailing" id="C1B-nr-f3x"/>
                             <constraint firstAttribute="bottom" secondItem="r2A-m4-8uu" secondAttribute="bottom" constant="8" id="Iee-dd-qPz"/>
                             <constraint firstItem="r2A-m4-8uu" firstAttribute="leading" secondItem="UPm-tc-jYr" secondAttribute="leading" constant="8" id="NqE-JW-1uS"/>
                             <constraint firstAttribute="trailing" secondItem="3Sh-GN-qBy" secondAttribute="trailing" constant="12" id="RsK-VN-Qeg"/>
                             <constraint firstItem="VvV-22-7Uf" firstAttribute="leading" secondItem="3Sh-GN-qBy" secondAttribute="leading" id="TyY-Gr-4I1"/>
+                            <constraint firstItem="3qj-hx-K4t" firstAttribute="top" secondItem="VvV-22-7Uf" secondAttribute="bottom" constant="8" id="WcM-qz-ZTf"/>
+                            <constraint firstItem="3qj-hx-K4t" firstAttribute="leading" secondItem="3Sh-GN-qBy" secondAttribute="leading" id="lLJ-YJ-k0E"/>
                             <constraint firstItem="VvV-22-7Uf" firstAttribute="top" secondItem="3Sh-GN-qBy" secondAttribute="bottom" constant="4" id="lVq-gm-lML"/>
                             <constraint firstItem="3Sh-GN-qBy" firstAttribute="leading" secondItem="r2A-m4-8uu" secondAttribute="trailing" constant="10" id="s27-MH-3Us"/>
                             <constraint firstItem="r2A-m4-8uu" firstAttribute="top" secondItem="UPm-tc-jYr" secondAttribute="top" constant="8" id="tUc-bT-NyS"/>
@@ -67,6 +87,8 @@
             <connections>
                 <outlet property="detailedDescriptionLabel" destination="VvV-22-7Uf" id="pGE-XN-9zn"/>
                 <outlet property="menuImageView" destination="r2A-m4-8uu" id="xob-At-uyB"/>
+                <outlet property="naturalPriceLabel" destination="VM3-JN-ImD" id="eyA-Il-muz"/>
+                <outlet property="salePriceLabel" destination="Nbp-3d-rNX" id="3pv-qv-nkQ"/>
                 <outlet property="titleLabel" destination="3Sh-GN-qBy" id="GHG-BN-lvw"/>
             </connections>
             <point key="canvasLocation" x="153.62318840579712" y="104.46428571428571"/>
