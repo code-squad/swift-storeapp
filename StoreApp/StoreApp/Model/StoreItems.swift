@@ -31,6 +31,10 @@ class StoreItems {
         NetworkHandler.getData(from: ServerURL.side)
     }
     
+    func countCategory() -> Int {
+        return SectionTheme.allCases.count
+    }
+    
     func countItems(at section: Int) -> Int {
         guard let theme = SectionTheme(rawValue: section) else { return 0 }
         switch theme {

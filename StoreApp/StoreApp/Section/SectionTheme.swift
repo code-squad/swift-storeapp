@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SectionTheme: Int {
+enum SectionTheme: Int, CaseIterable {
     case main = 0
     case soup = 1
     case side = 2
