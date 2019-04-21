@@ -13,11 +13,17 @@ struct NetworkHandler {
         guard let url = URL(string: urlType.rawValue) else { return }
         let request = URLRequest(url: url)
         let session = URLSession(configuration: .default)
-        
+       
         let dataTask = session.dataTask(with: request) { data, response, error in
-            guard error == nil else { return }
-            guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
-            guard let parseData = JSONParser.parseJSONData(data) else { return }
+            guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200, error == nil else {
+                print("Occur Error")
+                NotificationCenter.default.post(name: .networkingError, object: nil)
+                return
+            }
+            guard let parseData = JSONParser.parseJSONData(data) else {
+                NotificationCenter.default.post(name: .parsingError, object: nil)
+                return
+            }
             switch urlType {
             case .main:
                 NotificationCenter.default.post(name: .getMain, object: nil, userInfo: ["main": parseData.body])
