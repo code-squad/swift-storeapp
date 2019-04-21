@@ -10,11 +10,15 @@ import UIKit
 
 class BadgeStackView: UIStackView {
 
-    func add(badges: [String]) {
-        for badgeText in badges {
-            let badge = BadgeLabel(frame: .zero)
-            badge.text = badgeText
-            self.addArrangedSubview(badge)
+    func addBadges(_ texts: [String]) {
+        for text in texts {
+            addBadge(text)
         }
+    }
+    
+    func addBadge(_ text: String) {
+        let badgeLabel = BadgeLabel(frame: .zero)
+        badgeLabel.text = text
+        self.addArrangedSubview(badgeLabel)
     }
 }
