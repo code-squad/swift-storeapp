@@ -10,7 +10,7 @@ import Foundation
 
 struct NetworkHandler {
     static func getData(from urlType: ServerURL) {
-        guard let url = URL(string: urlType.rawValue) else { return }
+        guard let url = URL(string: ServerURL.server + urlType.rawValue) else { return }
         let request = URLRequest(url: url)
         let session = URLSession(configuration: .default)
        

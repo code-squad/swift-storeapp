@@ -26,9 +26,7 @@ class StoreItems {
     }
     
     func getDataFromNetwork() {
-        NetworkHandler.getData(from: ServerURL.main)
-        NetworkHandler.getData(from: ServerURL.soup)
-        NetworkHandler.getData(from: ServerURL.side)
+        for url in ServerURL.allCases { NetworkHandler.getData(from: url) }
     }
     
     func countCategory() -> Int {
@@ -51,18 +49,6 @@ class StoreItems {
         case .soup: form(soupItems[index])
         case .side: form(sideItems[index])
         }
-    }
-    
-    func getMainItem() -> [StoreItem] {
-        return mainItems
-    }
-    
-    func getSoupItem() -> [StoreItem] {
-        return soupItems
-    }
-    
-    func getSideItem() -> [StoreItem] {
-        return sideItems
     }
 }
 

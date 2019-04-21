@@ -8,8 +8,11 @@
 
 import Foundation
 
-enum ServerURL: String {
-    case main = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main"
-    case soup = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup"
-    case side = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/side"
+enum ServerURL: String, CaseIterable {
+    static var server: String {
+        return "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
+    }
+    case main = "main"
+    case soup = "soup"
+    case side = "side"
 }
