@@ -17,7 +17,7 @@ class StoreTableViewCell: UITableViewCell {
     @IBOutlet weak var detailedDescriptionLabel: UILabel!
     @IBOutlet weak var naturalPriceLabel: UILabel!
     @IBOutlet weak var salePriceLabel: UILabel!
-    @IBOutlet weak var badgeStackView: UIStackView!
+    @IBOutlet weak var badgeStackView: BadgeStackView!
     
     //MARK: Type
     static let nibName = "StoreTableViewCell"
@@ -46,10 +46,7 @@ class StoreTableViewCell: UITableViewCell {
         }
         salePriceLabel.text = storeItem.s_price
         if let badges = storeItem.badge, badges.isEmpty == false {
-            for badgeText in badges {
-                let badge = badgeLabel(with: badgeText)
-                badgeStackView.addArrangedSubview(badge)
-            }
+            badgeStackView.add(badges: badges)
             badgeStackView.isHidden = false
         }
     }
@@ -64,12 +61,6 @@ class StoreTableViewCell: UITableViewCell {
         salePriceLabel.text = nil
         badgeStackView.removeAllArrangedSubviews()
         badgeStackView.isHidden = true
-    }
-    
-    private func badgeLabel(with text: String) -> UILabel {
-        let badgeLabel = BadgeLabel(frame: .zero)
-        badgeLabel.text = text
-        return badgeLabel
     }
 }
 

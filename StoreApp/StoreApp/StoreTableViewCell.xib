@@ -61,7 +61,7 @@
                                     <constraint firstAttribute="width" priority="749" constant="6" id="akp-bA-ig1"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ven-e8-PvF">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ven-e8-PvF" customClass="BadgeStackView" customModule="StoreApp" customModuleProvider="target">
                                 <rect key="frame" x="102" y="72.5" width="6" height="6"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="749" constant="6" id="SlD-so-CuE"/>
