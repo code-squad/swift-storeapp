@@ -46,7 +46,7 @@ class StoreTableViewCell: UITableViewCell {
         }
         salePriceLabel.text = storeItem.s_price
         if let badges = storeItem.badge, badges.isEmpty == false {
-            badgeStackView.add(badges: badges)
+            badgeStackView.addBadges(badges)
             badgeStackView.isHidden = false
         }
     }
