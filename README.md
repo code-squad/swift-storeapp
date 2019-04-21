@@ -37,15 +37,8 @@ naturalPriceLabel.attributedText = n_price.strikeThrough()
 
 #### `Bundle.main`을 이용하여 특정 파일에 접근할 수 있다는 것을 배웠습니다.
 
-ex1)  
 ```swift
 let pathOfData = Bundle.main.path(forResource: "main", ofType: "json")
-```
-
-ex2)
-```swift
-storeTableView.register(UINib(nibName: StoreTableViewCell.nibName, bundle: nil),
-forCellReuseIdentifier: StoreTableViewCell.identifier)
 ```
 
 ### 실행화면
