@@ -35,6 +35,7 @@ class StoreTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    //MARK: Instance
     func show(with storeItem: StoreItem) {
         emptyAll()
         titleLabel.text = storeItem.title
@@ -44,8 +45,16 @@ class StoreTableViewCell: UITableViewCell {
             naturalPriceLabel.isHidden = false
         }
         salePriceLabel.text = storeItem.s_price
+        if let badges = storeItem.badge, badges.isEmpty == false {
+            for badgeText in badges {
+                let badge = badgeLabel(with: badgeText)
+                badgeStackView.addArrangedSubview(badge)
+            }
+            badgeStackView.isHidden = false
+        }
     }
     
+    //MARK: Private
     private func emptyAll() {
         menuImageView.image = nil
         titleLabel.text = nil
@@ -55,6 +64,12 @@ class StoreTableViewCell: UITableViewCell {
         salePriceLabel.text = nil
         badgeStackView.removeAllArrangedSubviews()
         badgeStackView.isHidden = true
+    }
+    
+    private func badgeLabel(with text: String) -> UILabel {
+        let badgeLabel = BadgeLabel(frame: .zero)
+        badgeLabel.text = text
+        return badgeLabel
     }
 }
 
