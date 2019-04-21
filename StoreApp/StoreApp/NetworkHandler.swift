@@ -16,7 +16,6 @@ struct NetworkHandler {
        
         let dataTask = session.dataTask(with: request) { data, response, error in
             guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200, error == nil else {
-                print("Occur Error")
                 NotificationCenter.default.post(name: .networkingError, object: nil)
                 return
             }

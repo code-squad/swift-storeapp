@@ -58,21 +58,18 @@ extension StoreItems {
     @objc func setMainItem(notification: NSNotification) {
         guard let mainItems = notification.userInfo?["main"] as? [StoreItem] else { return }
         self.mainItems = mainItems
-        print("main : \(mainItems)")
         NotificationCenter.default.post(name: .setMain, object: nil)
     }
     
     @objc func setSoupItem(notification: NSNotification) {
         guard let soupItems = notification.userInfo?["soup"] as? [StoreItem] else { return }
         self.soupItems = soupItems
-         print("soup : \(soupItems)")
         NotificationCenter.default.post(name: .setSoup, object: nil)
     }
     
     @objc func setSideItem(notification: NSNotification) {
         guard let sideItems = notification.userInfo?["side"] as? [StoreItem] else { return }
         self.sideItems = sideItems
-        print("side : \(sideItems)")
         NotificationCenter.default.post(name: .setSide, object: nil)
     }
 }
