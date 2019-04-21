@@ -52,6 +52,18 @@ class StoreItems {
         case .side: form(sideItems[index])
         }
     }
+    
+    func getMainItem() -> [StoreItem] {
+        return mainItems
+    }
+    
+    func getSoupItem() -> [StoreItem] {
+        return soupItems
+    }
+    
+    func getSideItem() -> [StoreItem] {
+        return sideItems
+    }
 }
 
 extension StoreItems {

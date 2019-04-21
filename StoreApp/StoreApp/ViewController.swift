@@ -43,6 +43,7 @@ extension ViewController {
     @objc func reloadMainSection() {
         let mainSection = IndexSet(integer: SectionTheme.main.rawValue)
         DispatchQueue.main.async {
+            self.tableView.reloadData()
             self.tableView.reloadSections(mainSection, with: .automatic)
         }
     }
@@ -50,6 +51,7 @@ extension ViewController {
     @objc func reloadSoupSection() {
         let soupSection = IndexSet(integer: SectionTheme.soup.rawValue)
         DispatchQueue.main.async {
+            self.tableView.reloadData()
             self.tableView.reloadSections(soupSection, with: .automatic)
         }
     }
@@ -57,6 +59,7 @@ extension ViewController {
     @objc func reloadSideSection() {
         let sideSection = IndexSet(integer: SectionTheme.side.rawValue)
         DispatchQueue.main.async {
+            self.tableView.reloadData()
             self.tableView.reloadSections(sideSection, with: .automatic)
         }
     }
