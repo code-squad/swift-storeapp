@@ -23,34 +23,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        registSetObserver()
         registReloadObserver()
         storeItems.getDataFromNetwork()
         tableView.delegate = storeAppDelegate
         tableView.dataSource = storeAppDataSource
-    }
-}
-
-extension ViewController {
-    private func registSetObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(setMainItem(notification:)), name: .getMain, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setSoupItem(notification:)), name: .getSoup, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setSideItem(notification:)), name: .getSide, object: nil)
-    }
-    
-    @objc func setMainItem(notification: NSNotification) {
-        guard let mainItem = notification.userInfo?["main"] as? [StoreItem] else { return }
-        storeItems.setMain(mainItem)
-    }
-    
-    @objc func setSoupItem(notification: NSNotification) {
-        guard let soupItem = notification.userInfo?["soup"] as? [StoreItem] else { return }
-        storeItems.setSoup(soupItem)
-    }
-    
-    @objc func setSideItem(notification: NSNotification) {
-        guard let sideItem = notification.userInfo?["side"] as? [StoreItem] else { return }
-        storeItems.setSide(sideItem)
     }
 }
 
@@ -63,16 +39,22 @@ extension ViewController {
     
     @objc func reloadMainSection() {
         let mainSection = IndexSet(integer: SectionTheme.main.rawValue)
-        self.tableView.reloadSections(mainSection, with: .automatic)
+        DispatchQueue.main.async {
+            self.tableView.reloadSections(mainSection, with: .automatic)
+        }
     }
     
     @objc func reloadSoupSection() {
         let soupSection = IndexSet(integer: SectionTheme.soup.rawValue)
-        self.tableView.reloadSections(soupSection, with: .automatic)
+        DispatchQueue.main.async {
+            self.tableView.reloadSections(soupSection, with: .automatic)
+        }
     }
     
     @objc func reloadSideSection() {
         let sideSection = IndexSet(integer: SectionTheme.side.rawValue)
-        self.tableView.reloadSections(sideSection, with: .automatic)
+        DispatchQueue.main.async {
+            self.tableView.reloadSections(sideSection, with: .automatic)
+        }
     }
 }
