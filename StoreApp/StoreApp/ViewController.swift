@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        storeTableView.register(UINib(nibName: StoreTableViewCell.nibName, bundle: nil),
+                                forCellReuseIdentifier: StoreTableViewCell.identifier)
         storeTableView.dataSource = storePresenter
     }
 }

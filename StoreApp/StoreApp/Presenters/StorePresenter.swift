@@ -20,7 +20,7 @@ extension StorePresenter: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "storeItemCell",
+        let cell = tableView.dequeueReusableCell(withIdentifier: StoreTableViewCell.identifier,
                                                  for: indexPath)
         return cell
     }
