@@ -18,15 +18,13 @@ struct NetworkHandler {
             guard error == nil else { return }
             guard let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 else { return }
             guard let parseData = JSONParser.parseJSONData(data) else { return }
-            DispatchQueue.main.async {
-                switch urlType {
-                case .main:
-                    NotificationCenter.default.post(name: .getMain, object: nil, userInfo: ["main": parseData.body])
-                case .soup:
-                    NotificationCenter.default.post(name: .getSoup, object: nil, userInfo: ["soup": parseData.body])
-                case .side:
-                    NotificationCenter.default.post(name: .getSide, object: nil, userInfo: ["side": parseData.body])
-                }
+            switch urlType {
+            case .main:
+                NotificationCenter.default.post(name: .getMain, object: nil, userInfo: ["main": parseData.body])
+            case .soup:
+                NotificationCenter.default.post(name: .getSoup, object: nil, userInfo: ["soup": parseData.body])
+            case .side:
+                NotificationCenter.default.post(name: .getSide, object: nil, userInfo: ["side": parseData.body])
             }
         }
         dataTask.resume()
