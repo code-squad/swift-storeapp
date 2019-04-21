@@ -9,6 +9,9 @@
 import UIKit
 
 class StoreTableViewCell: UITableViewCell {
+    
+    //MARK: - Properties
+    //MARK: IBOutlet
     @IBOutlet weak var menuImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailedDescriptionLabel: UILabel!
@@ -16,6 +19,11 @@ class StoreTableViewCell: UITableViewCell {
     @IBOutlet weak var naturalPriceLabel: UILabel!
     @IBOutlet weak var badgeStackView: UIStackView!
     
+    //MARK: Type
+    static let nibName = "StoreTableViewCell"
+    static let identifier = "storeTableViewCell"
+    
+    //MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,5 +34,4 @@ class StoreTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }
