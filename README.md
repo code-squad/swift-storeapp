@@ -346,6 +346,20 @@ struct NetworkHandler {
 
 
 
+**NetWork로 데이터를 불러와 TableView에 업데이트를 하는 도중 생긴 문제**
+
+![screen](./17.png)
+
+ 다음과 같은 에러가 뜨면서 앱이 종료되었다. 즉 Section안의 Row가 아직 생성되지 않았는데 데이터를 넣을려고 하고 있는 문제이다. 즉 데이터를 받아오면 그에 맞게 Section의 로우를 생성해주어야 한다.
+
+ 그리고 여기서 네트워크를 통해 병렬적으로 데이터를 받아올 때 문제가 발생한다. 병렬적으로 받아올 때, 받아오는 대로 `insertRows(at: indexPaths, with: .automatic)` 를 실행하게 되면, `TableViewDataSource` 의 메소드를 다시 전부 호출하게 되는데 이 때 다른 Section의 모델이 업데이트 되어버리면 위와 같이 아직 Section에 Row가 만들어지지 않았는데 넣기 때문에 위와 같은 에러가 발생한다.
+
+ 이를 해결하기 위해, 네트워크로 데이터를 받아오는 것은 병렬로 진행을 하지만 받아온 데이터를 모델에 Set하고 `TableView` 의 Row에 Insertion하는 과정은 `Serial` 하게 진행되도록 하였다. 즉, 한 모델에 데이터가 Set되고 `TableView` Insertion을 하는 동안은 다른 Model의 Set이 진행될 수 없도록 고쳐주었다.
+
+
+
+
+
 **실행화면**
 
 <img src="16.gif" height="500px"/>
