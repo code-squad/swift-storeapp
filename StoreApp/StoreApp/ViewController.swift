@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        registReloadObserver()
+        registSetObserver()
         registErrorObserver()
         storeItems.getDataFromNetwork()
         tableView.delegate = storeAppDelegate
@@ -34,45 +34,48 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
-    private func registReloadObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadMainSection), name: .setMain, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadSoupSection), name: .setSoup, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadSideSection), name: .setSide, object: nil)
+    private func registSetObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(setMainItem(notification:)), name: .getMain, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setSoupItem(notification:)), name: .getSoup, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setSideItem(notification:)), name: .getSide, object: nil)
     }
     
-    @objc func reloadMainSection(notification: NSNotification) {
-        guard let itemCount = notification.userInfo?["count"] as? Int else { return }
+    @objc func setMainItem(notification: NSNotification) {
+        guard let mainItems = notification.userInfo?["main"] as? [StoreItem] else { return }
         var indexPaths: [IndexPath] = []
-        for index in 0..<itemCount {
+        for index in 0..<mainItems.count {
             indexPaths.append(IndexPath(row: index, section: SectionTheme.main.rawValue))
         }
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
+            self.storeItems.setMainItem(mainItems)
             self.tableView.beginUpdates()
             self.tableView.insertRows(at: indexPaths, with: .automatic)
             self.tableView.endUpdates()
         }
     }
     
-    @objc func reloadSoupSection(notification: NSNotification) {
-        guard let itemCount = notification.userInfo?["count"] as? Int else { return }
+    @objc func setSoupItem(notification: NSNotification) {
+        guard let soupItems = notification.userInfo?["soup"] as? [StoreItem] else { return }
         var indexPaths: [IndexPath] = []
-        for index in 0..<itemCount {
+        for index in 0..<soupItems.count {
             indexPaths.append(IndexPath(row: index, section: SectionTheme.soup.rawValue))
         }
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
+            self.storeItems.setSoupItem(soupItems)
             self.tableView.beginUpdates()
             self.tableView.insertRows(at: indexPaths, with: .automatic)
             self.tableView.endUpdates()
         }
     }
     
-    @objc func reloadSideSection(notification: NSNotification) {
-        guard let itemCount = notification.userInfo?["count"] as? Int else { return }
+    @objc func setSideItem(notification: NSNotification) {
+        guard let sideItems = notification.userInfo?["side"] as? [StoreItem] else { return }
         var indexPaths: [IndexPath] = []
-        for index in 0..<itemCount {
+        for index in 0..<sideItems.count {
             indexPaths.append(IndexPath(row: index, section: SectionTheme.side.rawValue))
         }
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
+            self.storeItems.setSideItem(sideItems)
             self.tableView.beginUpdates()
             self.tableView.insertRows(at: indexPaths, with: .automatic)
             self.tableView.endUpdates()
