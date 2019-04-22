@@ -12,7 +12,7 @@ struct StoreItems {
     
     //MARK: - Properties
     //MARK: Models
-    private var storeItems = [StoreItem]()
+    private var storeItems: [StoreItem]
     
     //MARK: - Methods
     //MARK: Subscript
@@ -22,12 +22,8 @@ struct StoreItems {
     }
     
     //MARK: Initialization
-    init() {
-        guard let pathOfData = Bundle.main.path(forResource: "main", ofType: "json"),
-            let jsonData = try? Data(contentsOf: URL(fileURLWithPath: pathOfData),
-                                     options: .mappedIfSafe),
-            let items = try? JSONDecoder().decode([StoreItem].self, from: jsonData) else { return }
-        storeItems.append(contentsOf: items)
+    init(storeItems: [StoreItem]) {
+        self.storeItems = storeItems
     }
     
     //MARK: Instance

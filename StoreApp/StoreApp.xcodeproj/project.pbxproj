@@ -14,6 +14,7 @@
 		7D01B45D225C8A1200471C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D01B45B225C8A1200471C5F /* LaunchScreen.storyboard */; };
 		7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80E9225C8D09001828F5 /* StoreItems.swift */; };
 		7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80EB225C8D38001828F5 /* StoreItem.swift */; };
+		7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18270C226DDE840042C79F /* StoreItemManager.swift */; };
 		7D731E0F226D8D9900EBB6FC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D731E0E226D8D9900EBB6FC /* main.json */; };
 		7D937E31226AE84200989CA3 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D937E2F226AE84200989CA3 /* StoreTableViewCell.swift */; };
 		7D937E32226AE84200989CA3 /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */; };
@@ -32,6 +33,7 @@
 		7D01B45E225C8A1200471C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D0B80E9225C8D09001828F5 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		7D0B80EB225C8D38001828F5 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		7D18270C226DDE840042C79F /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
 		7D731E0E226D8D9900EBB6FC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		7D937E2F226AE84200989CA3 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
@@ -74,7 +76,6 @@
 				7D01B454225C8A1100471C5F /* ViewController.swift */,
 				7D01B456225C8A1100471C5F /* Main.storyboard */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
-				7DCB0D1A2269B61F00BE1F2F /* ViewProtocols */,
 				7DCB0D152269A9DA00BE1F2F /* Models */,
 				7DB7AA45226C5E2000EF6112 /* CustomUI */,
 				7D01B459225C8A1200471C5F /* Assets.xcassets */,
@@ -99,17 +100,11 @@
 		7DCB0D152269A9DA00BE1F2F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7D18270C226DDE840042C79F /* StoreItemManager.swift */,
 				7D0B80E9225C8D09001828F5 /* StoreItems.swift */,
 				7D0B80EB225C8D38001828F5 /* StoreItem.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		7DCB0D1A2269B61F00BE1F2F /* ViewProtocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewProtocols;
 			sourceTree = "<group>";
 		};
 		7DCB0D1B2269B62900BE1F2F /* Presenters */ = {
@@ -196,6 +191,7 @@
 				7D01B455225C8A1100471C5F /* ViewController.swift in Sources */,
 				7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */,
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
+				7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */,
 				7D01B453225C8A1100471C5F /* AppDelegate.swift in Sources */,
 				7DB7AA44226C5D2E00EF6112 /* BadgeStackView.swift in Sources */,
 				7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */,
