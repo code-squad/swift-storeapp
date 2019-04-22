@@ -10,13 +10,13 @@ import UIKit
 
 class StorePresenter: NSObject {
 
-    private let storeItems = StoreItems()
+    private let storeItems = StoreItemManager()
     
 }
 
 extension StorePresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems.count()
+        return storeItems.itemCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
