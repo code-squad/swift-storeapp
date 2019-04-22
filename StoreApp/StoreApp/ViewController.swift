@@ -27,7 +27,3 @@ class ViewController: UIViewController {
         storeTableView.dataSource = storePresenter
     }
 }
-
-extension ViewController: StoreTableView {
-    
-}
