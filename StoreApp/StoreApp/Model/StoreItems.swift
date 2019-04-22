@@ -55,19 +55,25 @@ class StoreItems {
 extension StoreItems {
     @objc func setMainItem(notification: NSNotification) {
         guard let mainItems = notification.userInfo?["main"] as? [StoreItem] else { return }
-        self.mainItems = mainItems
-        NotificationCenter.default.post(name: .setMain, object: nil)
+        CustomQueue.queue.sync {
+            self.mainItems = mainItems
+            NotificationCenter.default.post(name: .setMain, object: nil, userInfo: ["count": mainItems.count])
+        }
     }
     
     @objc func setSoupItem(notification: NSNotification) {
         guard let soupItems = notification.userInfo?["soup"] as? [StoreItem] else { return }
-        self.soupItems = soupItems
-        NotificationCenter.default.post(name: .setSoup, object: nil)
+        CustomQueue.queue.sync {
+            self.soupItems = soupItems
+            NotificationCenter.default.post(name: .setSoup, object: nil, userInfo: ["count": soupItems.count])
+        }
     }
     
     @objc func setSideItem(notification: NSNotification) {
         guard let sideItems = notification.userInfo?["side"] as? [StoreItem] else { return }
-        self.sideItems = sideItems
-        NotificationCenter.default.post(name: .setSide, object: nil)
+        CustomQueue.queue.sync {
+            self.sideItems = sideItems
+            NotificationCenter.default.post(name: .setSide, object: nil, userInfo: ["count": sideItems.count])
+        }
     }
 }
