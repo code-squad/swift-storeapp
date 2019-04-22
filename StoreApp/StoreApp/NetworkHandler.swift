@@ -34,4 +34,18 @@ struct NetworkHandler {
         }
         dataTask.resume()
     }
+    
+    static func downloadImage(from imageURL: String) {
+        guard let imageURL = URL(string: imageURL) else { return }
+        let session = URLSession(configuration: .default)
+        let request = URLRequest(url: imageURL)
+        
+        let downloadTask = session.downloadTask(with: request) { location, response, error in
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200, let location = location else {
+                NotificationCenter.default.post(name: .networkingError, object: nil)
+                return
+            }
+        }
+        downloadTask.resume()
+    }
 }

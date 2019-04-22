@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension NSNotification.Name {
+    static let setMain = NSNotification.Name("setMain")
+    static let setSoup = NSNotification.Name("setSoup")
+    static let setSide = NSNotification.Name("setSide")
+}
+
 class StoreItems {
     private var mainItems: [StoreItem] = []
     private var soupItems: [StoreItem] = []
@@ -15,6 +21,27 @@ class StoreItems {
     
     func getDataFromNetwork() {
         for url in ServerURL.allCases { NetworkHandler.getData(from: url) }
+    }
+    
+    func downloadMainImageFromNetwork() {
+        for mainItem in mainItems {
+            let imageURL = mainItem.getDTO().image
+            NetworkHandler.downloadImage(from: imageURL)
+        }
+    }
+    
+    func downloadSoupImageFromNetwork() {
+        for soupItem in soupItems {
+            let imageURL = soupItem.getDTO().image
+            NetworkHandler.downloadImage(from: imageURL)
+        }
+    }
+    
+    func downloadSideImageFromNetwork() {
+        for sideItem in sideItems {
+            let imageURL = sideItem.getDTO().image
+            NetworkHandler.downloadImage(from: imageURL)
+        }
     }
     
     func countCategory() -> Int {
@@ -41,13 +68,16 @@ class StoreItems {
     
     func setMainItem(_ items: [StoreItem]) {
         self.mainItems = items
+        NotificationCenter.default.post(name: .setMain, object: nil)
     }
     
     func setSoupItem(_ items: [StoreItem]) {
         self.soupItems = items
+        NotificationCenter.default.post(name: .setSoup, object: nil)
     }
     
     func setSideItem(_ items: [StoreItem]) {
         self.sideItems = items
+        NotificationCenter.default.post(name: .setSide, object: nil)
     }
 }
