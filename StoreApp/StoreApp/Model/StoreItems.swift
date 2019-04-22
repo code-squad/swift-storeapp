@@ -8,22 +8,10 @@
 
 import Foundation
 
-extension NSNotification.Name {
-    static let setMain = NSNotification.Name(rawValue: "setMain")
-    static let setSoup = NSNotification.Name(rawValue: "setSoup")
-    static let setSide = NSNotification.Name(rawValue: "setSide")
-}
-
 class StoreItems {
     private var mainItems: [StoreItem] = []
     private var soupItems: [StoreItem] = []
     private var sideItems: [StoreItem] = []
-    
-    init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(setMainItem(notification:)), name: .getMain, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setSoupItem(notification:)), name: .getSoup, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setSideItem(notification:)), name: .getSide, object: nil)
-    }
     
     func getDataFromNetwork() {
         for url in ServerURL.allCases { NetworkHandler.getData(from: url) }
@@ -50,30 +38,16 @@ class StoreItems {
         case .side: form(sideItems[index])
         }
     }
-}
-
-extension StoreItems {
-    @objc func setMainItem(notification: NSNotification) {
-        guard let mainItems = notification.userInfo?["main"] as? [StoreItem] else { return }
-        CustomQueue.queue.sync {
-            self.mainItems = mainItems
-            NotificationCenter.default.post(name: .setMain, object: nil, userInfo: ["count": mainItems.count])
-        }
+    
+    func setMainItem(_ items: [StoreItem]) {
+        self.mainItems = items
     }
     
-    @objc func setSoupItem(notification: NSNotification) {
-        guard let soupItems = notification.userInfo?["soup"] as? [StoreItem] else { return }
-        CustomQueue.queue.sync {
-            self.soupItems = soupItems
-            NotificationCenter.default.post(name: .setSoup, object: nil, userInfo: ["count": soupItems.count])
-        }
+    func setSoupItem(_ items: [StoreItem]) {
+        self.soupItems = items
     }
     
-    @objc func setSideItem(notification: NSNotification) {
-        guard let sideItems = notification.userInfo?["side"] as? [StoreItem] else { return }
-        CustomQueue.queue.sync {
-            self.sideItems = sideItems
-            NotificationCenter.default.post(name: .setSide, object: nil, userInfo: ["count": sideItems.count])
-        }
+    func setSideItem(_ items: [StoreItem]) {
+        self.sideItems = items
     }
 }
