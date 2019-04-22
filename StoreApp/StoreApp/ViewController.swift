@@ -40,27 +40,42 @@ extension ViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadSideSection), name: .setSide, object: nil)
     }
     
-    @objc func reloadMainSection() {
-        let mainSection = IndexSet(integer: SectionTheme.main.rawValue)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.tableView.reloadSections(mainSection, with: .automatic)
+    @objc func reloadMainSection(notification: NSNotification) {
+        guard let itemCount = notification.userInfo?["count"] as? Int else { return }
+        var indexPaths: [IndexPath] = []
+        for index in 0..<itemCount {
+            indexPaths.append(IndexPath(row: index, section: SectionTheme.main.rawValue))
+        }
+        DispatchQueue.main.sync {
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: indexPaths, with: .automatic)
+            self.tableView.endUpdates()
         }
     }
     
-    @objc func reloadSoupSection() {
-        let soupSection = IndexSet(integer: SectionTheme.soup.rawValue)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.tableView.reloadSections(soupSection, with: .automatic)
+    @objc func reloadSoupSection(notification: NSNotification) {
+        guard let itemCount = notification.userInfo?["count"] as? Int else { return }
+        var indexPaths: [IndexPath] = []
+        for index in 0..<itemCount {
+            indexPaths.append(IndexPath(row: index, section: SectionTheme.soup.rawValue))
+        }
+        DispatchQueue.main.sync {
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: indexPaths, with: .automatic)
+            self.tableView.endUpdates()
         }
     }
     
-    @objc func reloadSideSection() {
-        let sideSection = IndexSet(integer: SectionTheme.side.rawValue)
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.tableView.reloadSections(sideSection, with: .automatic)
+    @objc func reloadSideSection(notification: NSNotification) {
+        guard let itemCount = notification.userInfo?["count"] as? Int else { return }
+        var indexPaths: [IndexPath] = []
+        for index in 0..<itemCount {
+            indexPaths.append(IndexPath(row: index, section: SectionTheme.side.rawValue))
+        }
+        DispatchQueue.main.sync {
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: indexPaths, with: .automatic)
+            self.tableView.endUpdates()
         }
     }
 }
