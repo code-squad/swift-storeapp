@@ -23,6 +23,8 @@
 		7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */; };
 		7DF5BD87226EAB7B00C1E4C9 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD85226EAB7B00C1E4C9 /* soup.json */; };
 		7DF5BD88226EAB7B00C1E4C9 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD86226EAB7B00C1E4C9 /* side.json */; };
+		7DF5BD8C226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5BD8A226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift */; };
+		7DF5BD8D226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD8B226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresenter.swift; sourceTree = "<group>"; };
 		7DF5BD85226EAB7B00C1E4C9 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		7DF5BD86226EAB7B00C1E4C9 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		7DF5BD8A226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewHeaderCell.swift; sourceTree = "<group>"; };
+		7DF5BD8B226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewHeaderCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 		7DB7AA45226C5E2000EF6112 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				7DF5BD8A226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift */,
+				7DF5BD8B226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.xib */,
 				7D937E2F226AE84200989CA3 /* StoreTableViewCell.swift */,
 				7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */,
 				7DB7AA41226C598000EF6112 /* BadgeLabel.swift */,
@@ -193,6 +199,7 @@
 				7D01B45A225C8A1200471C5F /* Assets.xcassets in Resources */,
 				7DF5BD88226EAB7B00C1E4C9 /* side.json in Resources */,
 				7DF5BD87226EAB7B00C1E4C9 /* soup.json in Resources */,
+				7DF5BD8D226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.xib in Resources */,
 				7D01B458225C8A1100471C5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,6 +213,7 @@
 			files = (
 				7D01B455225C8A1100471C5F /* ViewController.swift in Sources */,
 				7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */,
+				7DF5BD8C226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift in Sources */,
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
 				7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */,
 				7D01B453225C8A1100471C5F /* AppDelegate.swift in Sources */,
