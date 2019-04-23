@@ -9,7 +9,13 @@
 import UIKit
 
 class StoreTableViewHeaderCell: UITableViewCell {
-
+    
+    //MARK: - Properties
+    //MARK: IBOutlet
+    @IBOutlet weak var sectionTitleLabel: UILabel!
+    @IBOutlet weak var sectionDescriptionLabel: UILabel!
+    
+    //MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
