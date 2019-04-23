@@ -15,6 +15,7 @@
 		7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80E9225C8D09001828F5 /* StoreItems.swift */; };
 		7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80EB225C8D38001828F5 /* StoreItem.swift */; };
 		7D1605AC226EF52900CB248B /* SpacingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1605AB226EF52900CB248B /* SpacingLabel.swift */; };
+		7D1605AE226EF86A00CB248B /* BorderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1605AD226EF86A00CB248B /* BorderLabel.swift */; };
 		7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18270C226DDE840042C79F /* StoreItemManager.swift */; };
 		7D731E0F226D8D9900EBB6FC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D731E0E226D8D9900EBB6FC /* main.json */; };
 		7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */; };
@@ -40,6 +41,7 @@
 		7D0B80E9225C8D09001828F5 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		7D0B80EB225C8D38001828F5 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		7D1605AB226EF52900CB248B /* SpacingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingLabel.swift; sourceTree = "<group>"; };
+		7D1605AD226EF86A00CB248B /* BorderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderLabel.swift; sourceTree = "<group>"; };
 		7D18270C226DDE840042C79F /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
 		7D731E0E226D8D9900EBB6FC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewHeaderView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */,
 				7D1605AB226EF52900CB248B /* SpacingLabel.swift */,
 				7DB7AA41226C598000EF6112 /* BadgeLabel.swift */,
+				7D1605AD226EF86A00CB248B /* BorderLabel.swift */,
 				7DB7AA43226C5D2E00EF6112 /* BadgeStackView.swift */,
 			);
 			path = CustomUI;
@@ -220,6 +223,7 @@
 				7D01B455225C8A1100471C5F /* ViewController.swift in Sources */,
 				7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */,
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
+				7D1605AE226EF86A00CB248B /* BorderLabel.swift in Sources */,
 				7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */,
 				7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */,
 				7DF5BD8F226EB39800C1E4C9 /* JSONFileNameOfItems.swift in Sources */,
