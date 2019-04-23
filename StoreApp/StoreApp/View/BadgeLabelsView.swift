@@ -19,6 +19,7 @@ class BadgeLabelsView: UIStackView {
         for label in badgeLabels {
             label.text = ""
             label.backgroundColor = UIColor.white
+            label.isHidden = true
         }
     }
     
