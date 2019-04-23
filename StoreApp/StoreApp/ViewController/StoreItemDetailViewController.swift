@@ -17,6 +17,9 @@ class StoreItemDetailViewController: UIViewController {
     
     @IBOutlet weak var detailSections: UIView!
     
+    @IBOutlet weak var myMainScrollView: MyMainScrollView!
+    
+    
     
     /// 파일저장객체
     let imageMaker = MyImageMaker()
@@ -49,6 +52,10 @@ class StoreItemDetailViewController: UIViewController {
         
         // 데이터가 추가되면 이미지를 추가한다
         self.imageMaker.saveFiles(urls: self.detailModel.thumb_images, completion: add)
+        
+        // 섹션 이미지도 추가한다
+        self.imageMaker.saveFiles(urls: self.detailModel.detail_section, completion: addSectionImage)
+        
     }
     
     /// url 점속 실패시 성공할때까지 반복
@@ -56,7 +63,7 @@ class StoreItemDetailViewController: UIViewController {
         // 실행 완료를 기다리지 않도록 디스패치 사용
         customSerialQueue.sync {
             // 전달받은 디테일해쉬를 디코드. 실패할경우 계속 시도한다
-            let urlLoading = MyDetailDataLoader.detailModelData(detailHash: self.detailHash, completion: makeItemDetail)
+            let urlLoading = MyDetailDataLoader.detailModelData(detailHash: self.detailHash,completion: makeItemDetail)
             // 실패하면 다시 시도
             if urlLoading == false {
                 tryConnectData(detailHash: detailHash)
@@ -66,19 +73,38 @@ class StoreItemDetailViewController: UIViewController {
     
     /// 풀패스를 받아서 이미지를 추출
     func imageFrom(imageFullPath: String) -> UIImage? {
-        return UIImage(contentsOfFile: imageFullPath)
+        guard let result = UIImage(contentsOfFile: imageFullPath) else {
+            // 추출 실패시
+            os_log("이미지 파일이 없습니다. : %@",imageFullPath)
+            return nil
+        }
+        return result
     }
     
     /// 이미지풀패스 를 받아서 스크롤뷰에 추가
     func add(imageFullPath: String){
         // 이미지를 파일에서 추출시도
         guard let loadedImage = imageFrom(imageFullPath: imageFullPath) else {
-            // 추출 실패시
-            os_log("이미지 파일이 없습니다. : %@",imageFullPath)
             return ()
         }
         // 추출한 이미지를 스크롤뷰에 추가
         self.myScrollView.add(image: loadedImage)
+    }
+    
+    /// 섹션 추가 함수
+    func addSectionImage(fullPath: String){
+        // 이미지 추출시도
+        guard let loadedImage = imageFrom(imageFullPath: fullPath) else {
+            return ()
+        }
+        
+        DispatchQueue.main.sync {
+            // 추출된 이미지로 이미지뷰 생성
+            let newImageView = UIImageView(image: loadedImage)
+            
+            // 메인스크롤뷰에 추가
+            self.myMainScrollView.add(targetView: newImageView)
+        }
     }
     
     override func viewDidLoad() {
