@@ -27,6 +27,6 @@ class ViewController: UIViewController {
         storeTableView.register(UINib(nibName: StoreTableViewHeaderCell.nibName, bundle: nil),
                                 forHeaderFooterViewReuseIdentifier: StoreTableViewHeaderCell.identifier)
         storeTableView.dataSource = storePresenter
-        
+        storeTableView.delegate = storePresenter
     }
 }

@@ -29,4 +29,6 @@ extension StorePresenter: UITableViewDataSource {
     }
 }
 
-
+extension StorePresenter: UITableViewDelegate {
+    
+}
