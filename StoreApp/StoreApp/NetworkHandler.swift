@@ -8,6 +8,10 @@
 
 import Foundation
 
+extension NSNotification.Name {
+    static let completeDownload = NSNotification.Name("completeDownload")
+}
+
 struct NetworkHandler {
     static func getData(from urlType: ServerURL) {
         guard let url = URL(string: ServerURL.server + urlType.rawValue) else { return }
@@ -35,7 +39,7 @@ struct NetworkHandler {
         dataTask.resume()
     }
     
-    static func downloadImage(from imageURL: String) {
+    static func downloadImage(from imageURL: String, of section: Int, at row: Int) {
         guard let imageURL = URL(string: imageURL) else { return }
         let session = URLSession(configuration: .default)
         let request = URLRequest(url: imageURL)
@@ -48,11 +52,9 @@ struct NetworkHandler {
             var cachePath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
             cachePath?.appendPathComponent(imageURL.lastPathComponent)
             guard let realCachePath = cachePath else { return }
-            do {
-                try FileManager.default.copyItem(at: location, to: realCachePath)
-            } catch {
-                NotificationCenter.default.post(name: .imageLoadingError, object: nil)
-            }
+
+            try? FileManager.default.copyItem(at: location, to: realCachePath)
+            NotificationCenter.default.post(name: .completeDownload, object: nil, userInfo: ["section": section, "row": row])
         }
         downloadTask.resume()
     }
