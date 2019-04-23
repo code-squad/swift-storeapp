@@ -83,9 +83,7 @@
 				7DCB0D152269A9DA00BE1F2F /* Models */,
 				7DB7AA45226C5E2000EF6112 /* CustomUI */,
 				7D01B459225C8A1200471C5F /* Assets.xcassets */,
-				7D731E0E226D8D9900EBB6FC /* main.json */,
-				7DF5BD86226EAB7B00C1E4C9 /* side.json */,
-				7DF5BD85226EAB7B00C1E4C9 /* soup.json */,
+				7DF5BD89226EACE900C1E4C9 /* JSON File */,
 				7D01B45B225C8A1200471C5F /* LaunchScreen.storyboard */,
 				7D01B45E225C8A1200471C5F /* Info.plist */,
 			);
@@ -119,6 +117,16 @@
 				7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */,
 			);
 			path = Presenters;
+			sourceTree = "<group>";
+		};
+		7DF5BD89226EACE900C1E4C9 /* JSON File */ = {
+			isa = PBXGroup;
+			children = (
+				7D731E0E226D8D9900EBB6FC /* main.json */,
+				7DF5BD86226EAB7B00C1E4C9 /* side.json */,
+				7DF5BD85226EAB7B00C1E4C9 /* soup.json */,
+			);
+			path = "JSON File";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
