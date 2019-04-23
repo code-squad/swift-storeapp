@@ -24,8 +24,8 @@ class ViewController: UIViewController {
         
         storeTableView.register(UINib(nibName: StoreTableViewCell.nibName, bundle: nil),
                                 forCellReuseIdentifier: StoreTableViewCell.identifier)
-        storeTableView.register(UINib(nibName: StoreTableViewHeaderCell.nibName, bundle: nil),
-                                forHeaderFooterViewReuseIdentifier: StoreTableViewHeaderCell.identifier)
+        storeTableView.register(UINib(nibName: StoreTableViewHeaderView.nibName, bundle: nil),
+                                forHeaderFooterViewReuseIdentifier: StoreTableViewHeaderView.identifier)
         storeTableView.dataSource = storePresenter
         storeTableView.delegate = storePresenter
     }

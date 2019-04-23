@@ -36,5 +36,9 @@ extension StorePresenter: UITableViewDataSource {
 }
 
 extension StorePresenter: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: StoreTableViewHeaderView.identifier)
 
+        return cell
+    }
 }
