@@ -9,7 +9,7 @@
 import Foundation
 
 struct JSONFileNameOfItems {
-    static let names = ["main",
-                        "side",
-                        "soup",]
+    static let names = ["main": SectionInfo(title: "메인반찬", description: "한그릇 뚝딱 메인 요리"),
+                        "side": SectionInfo(title: "국.찌게", description: "김이 모락모락 국.찌게"),
+                        "soup": SectionInfo(title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
 }

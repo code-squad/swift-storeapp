@@ -12,6 +12,7 @@ struct StoreItems {
     
     //MARK: - Properties
     //MARK: Models
+    let sectionInfo: SectionInfo
     private var storeItems: [StoreItem]
     
     //MARK: - Methods
@@ -22,7 +23,8 @@ struct StoreItems {
     }
     
     //MARK: Initialization
-    init(storeItems: [StoreItem]) {
+    init(sectionInfo: SectionInfo, storeItems: [StoreItem]) {
+        self.sectionInfo = sectionInfo
         self.storeItems = storeItems
     }
     
