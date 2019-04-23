@@ -14,7 +14,6 @@ class StoreTableViewHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var sectionTitleLabel: UILabel!
     @IBOutlet weak var sectionDescriptionLabel: UILabel!
     
-    
     //MARK: Type
     static let nibName = "StoreTableViewHeaderView"
     static let identifier = "storeTableViewHeaderView"

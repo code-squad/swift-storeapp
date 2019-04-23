@@ -20,13 +20,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="232" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfL-ou-JT8">
-                            <rect key="frame" x="104.66666666666667" y="17" width="23" height="10"/>
+                            <rect key="frame" x="104.66666666666667" y="17" width="22.666666666666671" height="9.6666666666666643"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="8"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juo-Bb-U75">
-                            <rect key="frame" x="97.333333333333329" y="33" width="37.666666666666671" height="17"/>
+                            <rect key="frame" x="97.333333333333329" y="32.666666666666664" width="37.666666666666671" height="17"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
