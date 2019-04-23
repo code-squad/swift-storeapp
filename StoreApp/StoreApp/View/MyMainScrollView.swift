@@ -38,11 +38,8 @@ class MyMainScrollView: UIScrollView {
         
         // 마지막 뷰 추출. 없으면 패스
         if let lastView = self.subviews.last {
-            // 오리진을 적용
-            lastViewBottomValue.y = lastView.frame.origin.y
-            
-            // 높이를 추가해서 밑단위치로 설정
-            lastViewBottomValue.y += lastView.frame.height
+            // 밑단을 적용
+            lastViewBottomValue.y += lastView.frame.maxY
         }
         
         // 추가뷰 y 좌표 수정
@@ -52,9 +49,16 @@ class MyMainScrollView: UIScrollView {
         self.addSubview(targetView)
         
         // 컨텐트 높이 증가
-        self.contentSize.height += targetView.frame.height
+        self.contentSize.height = targetView.frame.maxY
         
         // 로깅
-        os_log("섹션이미지 추가 완료 : %@", fullPath)
+        os_log("섹션이미지 추가 완료")
+    }
+    
+    /// 스토리보드로 추가한 뷰에 맞춰서 컨텐트 사이즈를 늘린다
+    func setting(){
+        if let lastSubView = self.subviews.last {
+            self.contentSize.height += lastSubView.frame.maxY
+        }
     }
 }
