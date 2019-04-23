@@ -24,23 +24,23 @@ class StoreItems {
     }
     
     func downloadMainImageFromNetwork() {
-        for mainItem in mainItems {
-            let imageURL = mainItem.getDTO().image
-            NetworkHandler.downloadImage(from: imageURL)
+        for index in 0..<mainItems.count {
+            let imageURL = mainItems[index].getDTO().image
+            NetworkHandler.downloadImage(from: imageURL, of: SectionTheme.main.rawValue, at: index)
         }
     }
     
     func downloadSoupImageFromNetwork() {
-        for soupItem in soupItems {
-            let imageURL = soupItem.getDTO().image
-            NetworkHandler.downloadImage(from: imageURL)
+        for index in 0..<soupItems.count {
+            let imageURL = soupItems[index].getDTO().image
+            NetworkHandler.downloadImage(from: imageURL, of: SectionTheme.soup.rawValue, at: index)
         }
     }
     
     func downloadSideImageFromNetwork() {
-        for sideItem in sideItems {
-            let imageURL = sideItem.getDTO().image
-            NetworkHandler.downloadImage(from: imageURL)
+        for index in 0..<sideItems.count {
+            let imageURL = sideItems[index].getDTO().image
+            NetworkHandler.downloadImage(from: imageURL, of: SectionTheme.side.rawValue, at: index)
         }
     }
     

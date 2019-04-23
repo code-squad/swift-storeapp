@@ -14,7 +14,6 @@ extension NSNotification.Name {
     static let getSide = NSNotification.Name("getSide")
     static let networkingError = NSNotification.Name("networkingError")
     static let parsingError = NSNotification.Name("parsingError")
-    static let imageLoadingError = NSNotification.Name("imageLoadingError")
 }
 
 class ViewController: UIViewController {
@@ -29,6 +28,7 @@ class ViewController: UIViewController {
         registGetObserver()
         registErrorObserver()
         registSetObserver()
+        registDownloadObserver()
         storeItems.getDataFromNetwork()
         tableView.delegate = storeAppDelegate
         tableView.dataSource = storeAppDataSource
@@ -109,7 +109,6 @@ extension ViewController {
     private func registErrorObserver () {
         NotificationCenter.default.addObserver(self, selector: #selector(appearNetworkingError), name: .networkingError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appearParsingError), name: .parsingError, object: nil)
-        NotificationCenter.default.addObserver(self, selector: <#T##Selector#>, name: .imageLoadingError, object: nil)
     }
     
     @objc func appearNetworkingError() {
@@ -126,13 +125,6 @@ extension ViewController {
         }
     }
     
-    @objc func appearLoadingError() {
-        let alertController = makeAlertController(title: "이미지 로딩 오류", message: "이미지를 로딩해오지 못했습니다.")
-        DispatchQueue.main.async {
-            self.present(alertController, animated: true, completion: nil)
-        }
-    }
-    
     private func makeAlertController(title: String, message: String) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -140,5 +132,20 @@ extension ViewController {
         alertController.addAction(alertCancel)
         alertController.addAction(alertAgain)
         return alertController
+    }
+}
+
+extension ViewController {
+    private func registDownloadObserver() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadCellImage(notification:)), name: .completeDownload, object: nil)
+    }
+    
+    @objc func reloadCellImage(notification: NSNotification) {
+        guard let reloadSection = notification.userInfo?["section"] as? Int else { return }
+        guard let reloadRow = notification.userInfo?["row"] as? Int else { return }
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: reloadRow, section: reloadSection)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
 }
