@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class SpacingLabel: UILabel {
 
     //MARK: - Properties
