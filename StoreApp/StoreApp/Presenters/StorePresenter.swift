@@ -38,8 +38,10 @@ extension StorePresenter: UITableViewDataSource {
 extension StorePresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: StoreTableViewHeaderView.identifier)
-
-        return cell
+        guard let sectionInfo = storeItems[section]?.sectionInfo,
+            let storeTableViewHeaderView = cell as? StoreTableViewHeaderView else { return nil }
+        storeTableViewHeaderView.show(with: sectionInfo)
+        return storeTableViewHeaderView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

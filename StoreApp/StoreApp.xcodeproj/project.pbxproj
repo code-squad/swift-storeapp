@@ -114,7 +114,6 @@
 				7DB7AA41226C598000EF6112 /* BadgeLabel.swift */,
 				7D1605AD226EF86A00CB248B /* BorderLabel.swift */,
 				7DB7AA43226C5D2E00EF6112 /* BadgeStackView.swift */,
-				7D1605AF226F02A100CB248B /* SectionInfo.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -125,6 +124,7 @@
 				7D18270C226DDE840042C79F /* StoreItemManager.swift */,
 				7D0B80E9225C8D09001828F5 /* StoreItems.swift */,
 				7D0B80EB225C8D38001828F5 /* StoreItem.swift */,
+				7D1605AF226F02A100CB248B /* SectionInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

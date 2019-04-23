@@ -22,19 +22,20 @@ struct StoreItemManager {
     
     //MARK: Initialization
     init() {
-        for name in JSONFileNameOfItems.names {
-            guard let items = fetchStoreItems(with: name) else { continue }
-            self.storeItems.append(items)
+        for (fileName, sectionInfo) in JSONFileNameOfItems.names {
+            guard let items = fetchStoreItems(with: fileName) else { continue }
+            let storeItems = StoreItems(sectionInfo: sectionInfo, storeItems: items)
+            self.storeItems.append(storeItems)
         }
     }
     
     //MARK: Private
-    private func fetchStoreItems(with resourceName: String) -> StoreItems? {
+    private func fetchStoreItems(with resourceName: String) -> [StoreItem]? {
         guard let pathOfData = Bundle.main.path(forResource: resourceName, ofType: "json"),
             let jsonData = try? Data(contentsOf: URL(fileURLWithPath: pathOfData),
                                      options: .mappedIfSafe),
             let items = try? JSONDecoder().decode([StoreItem].self, from: jsonData) else { return nil }
-        return StoreItems(storeItems: items)
+        return items
     }
     
     //MARK: Instance
