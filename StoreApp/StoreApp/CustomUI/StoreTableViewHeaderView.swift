@@ -19,7 +19,7 @@ class StoreTableViewHeaderView: UITableViewHeaderFooterView {
     static let nibName = "StoreTableViewHeaderView"
     static let identifier = "storeTableViewHeaderView"
     
-    //MARK: 
+    //MARK: Override
     override var reuseIdentifier: String? {
         return "storeTableViewHeaderView"
     }
