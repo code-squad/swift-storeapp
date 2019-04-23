@@ -363,3 +363,32 @@ struct NetworkHandler {
 **실행화면**
 
 <img src="16.gif" height="500px"/>
+
+
+
+
+
+### Step 6
+
+![screen](./19.png)
+
+* `GCD` 을 사용하여 병렬처리를 한다.
+* URL을 통해 파일을 저장한다.
+
+
+
+**이미지 파일 Download Task 이용하여 받기**
+
+ 이미지 파일을 URL을 통해 다운로드 받을 때, `URLSession` 에서 지원하는 Task 방식인 `Download Task` 을 활용하여 시도하였다. 우선 `Download Task` 역시 위의 `Data Task` 의 작동 방식과 동일하다.
+
+ 우선 `URLSession` 객체를 생성하고, 다운로드를 요청할 서버의 주소를 넣어 `URLRequest` 객체를 생성해주어야 한다. 그 후 `Download Task` 객체를 `URLRequest` 을 넣어 생성하여야 한다. 밑의 실제 코드를 통해 알아볼 것이다.
+
+```swift
+static func getData(from url: URL) {
+  let session = URLSession(configuration: .default)
+  let request = URLRequest(url: url)
+  
+  let downloadTask = session.downloadTask(with: request)
+}
+```
+

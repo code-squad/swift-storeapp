@@ -32,5 +32,14 @@ class StoreItemCell: UITableViewCell {
         descriptionLabel.text = itemDTO.description
         priceLabels.set(itemDTO.s_price, itemDTO.n_price)
         badgeLabels.set(itemDTO.badge)
+        guard let data = makeItemImage(from: itemDTO.image) else { return }
+        itemImage.image = UIImage(data: data)
+    }
+    
+    private func makeItemImage(from fileURL: String) -> Data? {
+        let fileName = FileName.getFileName(from: fileURL)
+        let cachePath = FileName.makeFullPath(with: fileName)
+        guard let fileFullPath = cachePath else { return nil }
+        return try? Data(contentsOf: fileFullPath)
     }
 }
