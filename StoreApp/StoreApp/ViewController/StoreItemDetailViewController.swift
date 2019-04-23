@@ -110,6 +110,9 @@ class StoreItemDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 메인스크롤뷰의 컨텐트를 늘린다
+        self.myMainScrollView.setting()
+        
         // 전달받은 디테일해쉬를 디코드. 실패할경우 계속 시도한다
         tryConnectData(detailHash: self.detailHash)
         
