@@ -388,7 +388,53 @@ static func getData(from url: URL) {
   let session = URLSession(configuration: .default)
   let request = URLRequest(url: url)
   
-  let downloadTask = session.downloadTask(with: request)
+  let downloadTask = session.downloadTask(with: request) {
+    location, response, error in 						// location: 데이터가 저장되는 Path
+    guard let response = response as? HTTPURLResponse, response.statusCode == 200, location = location else { return } // 데이터를 제대로 다운로드하였는지 확인
+  }
+  downloadTask.resume()
 }
 ```
+
+ 여기서 `resume()` 을 실행하게 되면 `Download Task` Main Thread와는 별개로 병렬적으로 실행되게 된다.
+
+
+
+**받은 데이터 tmp 폴더로부터 Caches 폴더로 이동**
+
+<img src="20.png" height="500px"/>
+
+ IOS의 샌드박스 구조를 보면 다음과 같다. 그럼 각 Container가 담당하는 역할들을 간단히 살펴보겠다.
+
+1. `Bundle Container` : 앱의 정보와 자료를 하나의 공간에 그룹화하여 저장한 디렉토리이다.
+
+2. `Data Container`
+
+   1) `Document` : 앱의 사용자들에게 보여주어야 하는 파일들 생성된 데이터를 저장할 때 사용한다.
+
+   2) `Library` : 사용자의 파일을 제외한 파일들이 저장되고 그들의 최상위 디렉토리이다. `UserDefault`, `Preferences`, `Caches` 등이 이곳에 저장되어 있다.
+
+   3) `tmp` : 앱이 실행되는 동안 생성되거나 사용되는 일시적인 파일들이 저장된다. 앱이 실행되지 않을 시 자동으로 비워지게 된다. 
+
+
+
+간단히 IOS의 샌드박스 구조를 보았다. `Download Task` 을 통해 받아온 파일들은 `tmp` 폴더에 저장되었다. 이것을 `Caches` 폴더로 옮기기 위해 `FileManager` Class를 활용하였다.
+
+```swift
+func copyFile(fileName: String) {
+  var cachePath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first											// IOS Caches 폴더의 URL을 받음
+  cachePath?.appendPathComponent(fileName)	// 저장할 파일이름을 URL에 추가
+  guard let realCachePath = cachePath else { return }
+  try? FileManager.default.copyItem(at: location, to: realCachePath)
+  // 복사해올 URL, 복사해서 옮길 URL을 입력하면 at -> to로 복사가 된다.
+}
+```
+
+
+
+
+
+**실행화면**
+
+<img src="18.gif" height="500px"/>
 
