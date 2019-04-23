@@ -8,15 +8,9 @@
 
 import UIKit
 
-class BadgeLabel: UILabel {
+class BadgeLabel: SpacingLabel {
     
     //MARK: - Properties
-    //MARK: Inset Value
-    private let topInset: CGFloat = 3
-    private let bottomInset: CGFloat = 3
-    private let leftInset: CGFloat = 3
-    private let rightInset: CGFloat = 3
-    
     //MARK: RGB Value
     private let redValue: CGFloat = 151
     private let greenValue: CGFloat = 91
@@ -42,11 +36,5 @@ class BadgeLabel: UILabel {
                                      green: greenValue / 255,
                                      blue: blueValue / 255,
                                      alpha: 1)
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        let size = super.intrinsicContentSize
-        return CGSize(width: size.width + leftInset + rightInset,
-                      height: size.height + topInset + bottomInset)
     }
 }

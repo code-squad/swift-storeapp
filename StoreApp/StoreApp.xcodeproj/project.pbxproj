@@ -14,6 +14,7 @@
 		7D01B45D225C8A1200471C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D01B45B225C8A1200471C5F /* LaunchScreen.storyboard */; };
 		7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80E9225C8D09001828F5 /* StoreItems.swift */; };
 		7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80EB225C8D38001828F5 /* StoreItem.swift */; };
+		7D1605AC226EF52900CB248B /* SpacingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1605AB226EF52900CB248B /* SpacingLabel.swift */; };
 		7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18270C226DDE840042C79F /* StoreItemManager.swift */; };
 		7D731E0F226D8D9900EBB6FC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D731E0E226D8D9900EBB6FC /* main.json */; };
 		7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */; };
@@ -38,6 +39,7 @@
 		7D01B45E225C8A1200471C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D0B80E9225C8D09001828F5 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		7D0B80EB225C8D38001828F5 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		7D1605AB226EF52900CB248B /* SpacingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingLabel.swift; sourceTree = "<group>"; };
 		7D18270C226DDE840042C79F /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
 		7D731E0E226D8D9900EBB6FC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewHeaderView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */,
 				7D937E2F226AE84200989CA3 /* StoreTableViewCell.swift */,
 				7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */,
+				7D1605AB226EF52900CB248B /* SpacingLabel.swift */,
 				7DB7AA41226C598000EF6112 /* BadgeLabel.swift */,
 				7DB7AA43226C5D2E00EF6112 /* BadgeStackView.swift */,
 			);
@@ -224,6 +227,7 @@
 				7DB7AA44226C5D2E00EF6112 /* BadgeStackView.swift in Sources */,
 				7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */,
 				7D937E31226AE84200989CA3 /* StoreTableViewCell.swift in Sources */,
+				7D1605AC226EF52900CB248B /* SpacingLabel.swift in Sources */,
 				7DB7AA42226C598000EF6112 /* BadgeLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
