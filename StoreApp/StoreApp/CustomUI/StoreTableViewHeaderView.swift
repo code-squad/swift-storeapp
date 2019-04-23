@@ -22,4 +22,16 @@ class StoreTableViewHeaderView: UITableViewHeaderFooterView {
     override var reuseIdentifier: String? {
         return "storeTableViewHeaderView"
     }
+    
+    //MARK: - Methods
+    //MARK: Instance
+    func show(with sectionInfo: SectionInfo) {
+        
+    }
+    
+    //MARK: Private
+    private func emptyAll() {
+        sectionTitleLabel.text = nil
+        sectionDescriptionLabel.text = nil
+    }
 }
