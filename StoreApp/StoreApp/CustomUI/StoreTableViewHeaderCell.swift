@@ -15,6 +15,10 @@ class StoreTableViewHeaderCell: UITableViewCell {
     @IBOutlet weak var sectionTitleLabel: UILabel!
     @IBOutlet weak var sectionDescriptionLabel: UILabel!
     
+    //MARK: Type
+    static let nibName = "StoreTableViewHeaderCell"
+    static let identifier = "storeTableViewHeaderCell"
+    
     //MARK: - Methods
     override func awakeFromNib() {
         super.awakeFromNib()
