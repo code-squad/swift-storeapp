@@ -28,5 +28,6 @@ class ViewController: UIViewController {
                                 forHeaderFooterViewReuseIdentifier: StoreTableViewHeaderView.identifier)
         storeTableView.dataSource = storePresenter
         storeTableView.delegate = storePresenter
+        storeTableView.separatorColor = .clear
     }
 }
