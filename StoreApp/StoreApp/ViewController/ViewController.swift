@@ -179,7 +179,7 @@ class ViewController: UIViewController {
             let detailTitle = self.dataSourceObject.title(indexPath: indexPath)
             storeItemDetailViewController.detailTitle = detailTitle
             
-        } // 세그 확인 실패시
+        } // segue 확인 실패시
         else {
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
