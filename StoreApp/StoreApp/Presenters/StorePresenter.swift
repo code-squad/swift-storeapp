@@ -16,6 +16,10 @@ class StorePresenter: NSObject {
 
 extension StorePresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return storeItems[section]?.count() ?? 0
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return storeItems.itemCount()
     }
     
@@ -23,12 +27,14 @@ extension StorePresenter: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: StoreTableViewCell.identifier,
                                                  for: indexPath)
         guard let storeTableViewCell = cell as? StoreTableViewCell,
+            let storeItems = storeItems[indexPath.section],
             let storeItem = storeItems[indexPath.row] else { return cell }
+        
         storeTableViewCell.show(with: storeItem)
         return storeTableViewCell
     }
 }
 
 extension StorePresenter: UITableViewDelegate {
-    
+
 }
