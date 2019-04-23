@@ -15,10 +15,7 @@ class StoreItemDetailViewController: UIViewController {
     /// 이미지 스크롤뷰
     @IBOutlet weak var myScrollView: MyScrollView!
     
-    @IBOutlet weak var detailSections: UIView!
-    
     @IBOutlet weak var myMainScrollView: MyMainScrollView!
-    
     
     
     /// 파일저장객체
@@ -30,15 +27,27 @@ class StoreItemDetailViewController: UIViewController {
     /// 커스텀 디스패치큐 생성
     let customSerialQueue = DispatchQueue(label: "customDispatch", qos: .default)
     
+    /// 네트워크 담당객체
+    let detailMaker = StoreItemDetailMaker()
+    
     
     // 세그를 통해 넘어오는 값
     var detailHash = ""
     var detailTitle = ""
     
+    /// 주문하기 버튼 액션
+    @IBAction func orderAction(_ sender: Any) {
+        let orderResult = OrderResult(customerName: "Drake", price: self.detailView.price.text! , menu: self.detailTitle)
+        
+        self.detailMaker.order(orderResult: orderResult)
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /// 데이터를 받아서 아이템디테일 모델을 생성하는 함수를 사용, 생성한다.
     private func makeItemDetail(data: Data){
         // 디테일모델 생성
-        guard let storeItemdetailModel = StoreItemDetailMaker.makeStoreItemDetailModel(anyData: data) else {
+        guard let storeItemdetailModel = self.detailMaker.makeStoreItemDetailModel(anyData: data) else {
             os_log("디테일모델 작성 실패")
             return ()
         }
@@ -107,7 +116,7 @@ class StoreItemDetailViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
         // 메인스크롤뷰의 컨텐트를 늘린다
@@ -117,6 +126,7 @@ class StoreItemDetailViewController: UIViewController {
         tryConnectData(detailHash: self.detailHash)
         
         
+        
         // end of viewDidLoad
     }
     
@@ -124,3 +134,4 @@ class StoreItemDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 }
+
