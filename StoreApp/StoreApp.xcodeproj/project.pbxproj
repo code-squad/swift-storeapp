@@ -25,6 +25,7 @@
 		7DF5BD88226EAB7B00C1E4C9 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD86226EAB7B00C1E4C9 /* side.json */; };
 		7DF5BD8C226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5BD8A226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift */; };
 		7DF5BD8D226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD8B226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.xib */; };
+		7DF5BD8F226EB39800C1E4C9 /* JSONFileNameOfItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF5BD8E226EB39800C1E4C9 /* JSONFileNameOfItems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		7DF5BD86226EAB7B00C1E4C9 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		7DF5BD8A226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewHeaderCell.swift; sourceTree = "<group>"; };
 		7DF5BD8B226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewHeaderCell.xib; sourceTree = "<group>"; };
+		7DF5BD8E226EB39800C1E4C9 /* JSONFileNameOfItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileNameOfItems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				7DCB0D152269A9DA00BE1F2F /* Models */,
 				7DB7AA45226C5E2000EF6112 /* CustomUI */,
 				7D01B459225C8A1200471C5F /* Assets.xcassets */,
+				7DF5BD8E226EB39800C1E4C9 /* JSONFileNameOfItems.swift */,
 				7DF5BD89226EACE900C1E4C9 /* JSON File */,
 				7D01B45B225C8A1200471C5F /* LaunchScreen.storyboard */,
 				7D01B45E225C8A1200471C5F /* Info.plist */,
@@ -216,6 +219,7 @@
 				7DF5BD8C226EAD3F00C1E4C9 /* StoreTableViewHeaderCell.swift in Sources */,
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
 				7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */,
+				7DF5BD8F226EB39800C1E4C9 /* JSONFileNameOfItems.swift in Sources */,
 				7D01B453225C8A1100471C5F /* AppDelegate.swift in Sources */,
 				7DB7AA44226C5D2E00EF6112 /* BadgeStackView.swift in Sources */,
 				7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */,
