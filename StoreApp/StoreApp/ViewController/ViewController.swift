@@ -16,6 +16,12 @@ extension Notification.Name {
     static let didDownloadImageFile = Notification.Name("didDownloadImageFile")
 }
 
+/// 디테일뷰컨의 주문완료 함수 구현을 위한 델리게이트
+protocol SendOrderDetailDelegate {
+    func SendOrderDetail(data: String)
+}
+
+
 class ViewController: UIViewController {
     /// 테이블뷰
     @IBOutlet weak var storeItemTableView: UITableView!
@@ -161,6 +167,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 세그 확인
         if segue.identifier == "showDetail" {
+            // 도착지의 뷰컨 클래스 확인
             guard let storeItemDetailViewController = segue.destination as? StoreItemDetailViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
