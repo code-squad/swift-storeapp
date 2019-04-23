@@ -45,6 +45,14 @@ struct NetworkHandler {
                 NotificationCenter.default.post(name: .networkingError, object: nil)
                 return
             }
+            var cachePath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+            cachePath?.appendPathComponent(imageURL.lastPathComponent)
+            guard let realCachePath = cachePath else { return }
+            do {
+                try FileManager.default.copyItem(at: location, to: realCachePath)
+            } catch {
+                NotificationCenter.default.post(name: .imageLoadingError, object: nil)
+            }
         }
         downloadTask.resume()
     }

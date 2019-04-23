@@ -14,6 +14,7 @@ extension NSNotification.Name {
     static let getSide = NSNotification.Name("getSide")
     static let networkingError = NSNotification.Name("networkingError")
     static let parsingError = NSNotification.Name("parsingError")
+    static let imageLoadingError = NSNotification.Name("imageLoadingError")
 }
 
 class ViewController: UIViewController {
@@ -108,6 +109,7 @@ extension ViewController {
     private func registErrorObserver () {
         NotificationCenter.default.addObserver(self, selector: #selector(appearNetworkingError), name: .networkingError, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appearParsingError), name: .parsingError, object: nil)
+        NotificationCenter.default.addObserver(self, selector: <#T##Selector#>, name: .imageLoadingError, object: nil)
     }
     
     @objc func appearNetworkingError() {
@@ -119,6 +121,13 @@ extension ViewController {
     
     @objc func appearParsingError() {
         let alertController = makeAlertController(title: "데이터 오류", message: "데이터를 변환하지 못했습니다.")
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func appearLoadingError() {
+        let alertController = makeAlertController(title: "이미지 로딩 오류", message: "이미지를 로딩해오지 못했습니다.")
         DispatchQueue.main.async {
             self.present(alertController, animated: true, completion: nil)
         }

@@ -169,7 +169,7 @@ static func searchPathFromBundle(of file: String) -> String? {
   let fileNameAndExtension = file.split(separator: ".").map { String.init($0) }
   guard fileNameAndExtension.count == 2 else { return nil }
   
-  // path함수를 사용하면 main 번들 내에 forResource: 에 인자로 넣어준 파일이름을 가지고 ofType: 의 확장자를 가		 진 파일의 Path를 찾아준다. 
+  // path함수를 사용하면 main 번들 내에 forResource: 에 인자로 넣어준 파일이름을 가지고 ofType: 의 확장자를 가진 파일의 Path를 찾아준다. 
   return Bundle.main.path(forResource: fileNameAndExtension[0], ofType: fileNameAndExtension[1])
 }
 ```
