@@ -22,8 +22,10 @@ struct StoreItemManager {
     
     //MARK: Initialization
     init() {
-        guard let items = fetchStoreItems(with: "main") else { return }
-        self.storeItems.append(items)
+        for name in JSONFileNameOfItems.names {
+            guard let items = fetchStoreItems(with: name) else { continue }
+            self.storeItems.append(items)
+        }
     }
     
     //MARK: Private
