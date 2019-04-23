@@ -26,7 +26,9 @@ class StoreTableViewHeaderView: UITableViewHeaderFooterView {
     //MARK: - Methods
     //MARK: Instance
     func show(with sectionInfo: SectionInfo) {
-        
+        emptyAll()
+        sectionTitleLabel.text = sectionInfo.title
+        sectionDescriptionLabel.text = sectionInfo.description
     }
     
     //MARK: Private
