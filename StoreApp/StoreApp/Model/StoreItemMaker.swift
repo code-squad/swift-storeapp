@@ -77,6 +77,7 @@ class StoreItemMaker {
             }
         return result
     }
+    
     /// 주문결과를 받아서 JSON data 로 리턴한다
     class private func makeJSONFrom(orderResult: OrderResult) -> Data? {
         
@@ -111,7 +112,7 @@ class StoreItemMaker {
         
         // 방식은 POST
         request.httpMethod = "POST"
-        
+        // 바디설정
         request.httpBody = orderResultJSON
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -136,8 +137,6 @@ class OrderResult: Codable {
     
     init(customerName: String, price: String, menu: String){
         self.text = "\(customerName) 님이 \(price)원 짜리 \(menu) 를 구입하셨습니다."
-        
-        os_log("%@", self.text)
     }
 }
 
