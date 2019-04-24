@@ -13,15 +13,16 @@ class SpacingLabel: UILabel {
 
     //MARK: - Properties
     //MARK: Inset Value
-    private let topInset: CGFloat = 3
-    private let bottomInset: CGFloat = 3
-    private let leftInset: CGFloat = 3
-    private let rightInset: CGFloat = 3
+    private let insets = UIEdgeInsets(top: 3,
+                                      left: 3,
+                                      bottom: 3,
+                                      right: 3)
     
     //MARK: - Methods
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
-        return CGSize(width: size.width + leftInset + rightInset,
-                      height: size.height + topInset + bottomInset)
+        
+        return CGSize(width: size.width + insets.left + insets.right,
+                      height: size.height + insets.top + insets.bottom)
     }
 }
