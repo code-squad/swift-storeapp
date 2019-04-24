@@ -21,8 +21,8 @@ struct StoreItemManager {
     }
     
     //MARK: Initialization
-    init() {
-        for (fileName, sectionInfo) in JSONFileNameOfItems.names {
+    init(initInfo: [String: SectionInfo]) {
+        for (fileName, sectionInfo) in initInfo {
             guard let items = fetchStoreItems(with: fileName) else { continue }
             let storeItems = StoreItems(sectionInfo: sectionInfo, storeItems: items)
             self.storeItems.append(storeItems)
