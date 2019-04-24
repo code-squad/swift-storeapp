@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		543AA21AF2E3D15263C1E225 /* Pods_StoreAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EA8C4F492F801211FD0D8E3 /* Pods_StoreAppUITests.framework */; };
 		D133AD745C9098B89DE021DE /* Pods_StoreAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401C48E18DD13A6D1B7CD2B2 /* Pods_StoreAppTests.framework */; };
+		D533287022702CC00085E3B7 /* MyStyleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D533286F22702CC00085E3B7 /* MyStyleMaker.swift */; };
 		D54109452249F9420047CDC6 /* StoreItemMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54109442249F9420047CDC6 /* StoreItemMaker.swift */; };
 		D5410947224A3F790047CDC6 /* StoreItemSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5410946224A3F790047CDC6 /* StoreItemSlot.swift */; };
 		D5439862224CAD1E00635C95 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = D5439860224CAD1E00635C95 /* side.json */; };
@@ -100,6 +101,7 @@
 		75270A19A6F22AF491DBCB7E /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		90BEDA9A35C62C4F558AA77C /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99803C212F73C7A918573DD1 /* Pods-StoreAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreAppUITests.release.xcconfig"; path = "Target Support Files/Pods-StoreAppUITests/Pods-StoreAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D533286F22702CC00085E3B7 /* MyStyleMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStyleMaker.swift; sourceTree = "<group>"; };
 		D54109442249F9420047CDC6 /* StoreItemMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemMaker.swift; sourceTree = "<group>"; };
 		D5410946224A3F790047CDC6 /* StoreItemSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemSlot.swift; sourceTree = "<group>"; };
 		D5439860224CAD1E00635C95 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				D5FCB4C1226471A500629DB0 /* StoreItemDetailView.swift */,
 				D5FB6B4922675C2400D75B46 /* MyScrollView.swift */,
 				D5FF6A25226EB19D00D2F1E1 /* MyMainScrollView.swift */,
+				D533286F22702CC00085E3B7 /* MyStyleMaker.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				D5449C6A225C7C9800DB9106 /* MyImageMaker.swift in Sources */,
 				D575547E2248E29E0000A3D1 /* AppDelegate.swift in Sources */,
 				D5FF6A26226EB19D00D2F1E1 /* MyMainScrollView.swift in Sources */,
+				D533287022702CC00085E3B7 /* MyStyleMaker.swift in Sources */,
 				D5FB6B4A22675C2400D75B46 /* MyScrollView.swift in Sources */,
 				D5FB6B46226704D500D75B46 /* StoreItemDetailModel.swift in Sources */,
 				D543986D224CCFEE00635C95 /* MyCustomHeader.swift in Sources */,
