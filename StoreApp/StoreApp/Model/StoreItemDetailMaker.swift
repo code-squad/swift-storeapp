@@ -68,8 +68,7 @@ class StoreItemDetailMaker {
         guard let orderResultJSON = makeJSONFrom(orderResult: orderResult) else { return }
         
         guard let orderResultDescription = String(data: orderResultJSON, encoding: .utf8) else { return }
-        os_log("httpBody : %@", orderResultDescription)
-//        let uncheckedURL = orderResultDescription + slackHookURL
+        
         let uncheckedURL = self.slackHookURL
         
         // url 을 작성한다
@@ -100,12 +99,8 @@ class StoreItemDetailMaker {
 }
 
 class OrderResult: Codable {
-    /// 주문자 이름
+    /// 주문결과 텍스트
     let text : String
-    /// 주문금액
-//    let price : String
-    /// 주문메뉴
-//    let menu : String
     
     init(customerName: String, price: String, menu: String){
         self.text = "\(customerName) 님이 \(price)원 짜리 \(menu) 를 구입하셨습니다."

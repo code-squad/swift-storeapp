@@ -25,7 +25,9 @@ class StoreItemDetailModel {
     
     var delivery_fee : String = ""
     
-    var prices : [String] = []
+//    var prices : [String] = []
+    var n_price = ""
+    var s_price = ""
     
     var detail_section : [String] = []
     
@@ -72,8 +74,17 @@ class StoreItemDetailModel {
         self.point = point
         self.delivery_info = delivery_info
         self.delivery_fee = delivery_fee
-        self.prices = prices
+//        self.prices = prices
         self.detail_section = detail_section
+        
+        // 가격이 두개일 경우 순서대로 할인전, 지금가격.
+        if prices.count > 1 {
+            self.s_price = prices[0]
+            self.n_price = prices[1]
+        } // 1개면 지금가격
+        else {
+            self.n_price = prices[0]
+        }
         
         // 설정 모두 완료
         return true
