@@ -118,7 +118,7 @@ extension ViewController {
     private func registDownloadObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadCellImage(notification:)), name: .completeDownload, object: nil)
     }
-    
+
     @objc func reloadCellImage(notification: NSNotification) {
         guard let reloadSection = notification.userInfo?["section"] as? Int else { return }
         guard let reloadRow = notification.userInfo?["row"] as? Int else { return }
