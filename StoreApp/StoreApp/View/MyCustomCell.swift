@@ -29,13 +29,6 @@ class MyCustomCell : UITableViewCell {
     @IBOutlet weak var badgeStackView: UIStackView!
     
     
-    /// 취소선 만드는 함수
-    private func makeStrikeThrough(text: String) -> NSMutableAttributedString{
-        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
-        attributeString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
-        return attributeString
-    }
-    
     /// storeItem 객체를 받아서 cell에 반영
     func inputCellData(storeItem: StoreItem){    
         // storeItem 을 받아서 각 변수에 입력한다
@@ -65,7 +58,8 @@ class MyCustomCell : UITableViewCell {
         }
         
         // 할인전 가격에 스타일 적용
-        self.n_price.attributedText = makeStrikeThrough(text: storeItem.n_price)
+        self.n_price.attributedText = MyStyleMaker.makeStrikeThrough(text: storeItem.n_price)
+        
     }
     
     /// 셀의 배지 초기화
