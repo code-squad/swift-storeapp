@@ -18,14 +18,13 @@ extension Notification.Name {
 
 /// 디테일뷰컨의 주문완료 함수 구현을 위한 델리게이트
 protocol SendOrderDetailDelegate {
-    func SendOrderDetail(data: String)
+    func SendOrderDetail(orderResult: OrderResult)
 }
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SendOrderDetailDelegate {
     /// 테이블뷰
     @IBOutlet weak var storeItemTableView: UITableView!
-    
     
     /// MyURLDataMaker 내부객체 선언
     let myDataLoader = MyDataLoader()
@@ -186,10 +185,19 @@ class ViewController: UIViewController {
             let detailTitle = self.dataSourceObject.title(indexPath: indexPath)
             storeItemDetailViewController.detailTitle = detailTitle
             
+            // 델리게이트 패턴 적용
+            storeItemDetailViewController.sendOrderDetail = self
+            
+            
         } // segue 확인 실패시
         else {
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
+    }
+    
+    
+    func SendOrderDetail(orderResult: OrderResult){
+        StoreItemMaker.post(orderResult: orderResult)
     }
     
     override func viewDidLoad() {

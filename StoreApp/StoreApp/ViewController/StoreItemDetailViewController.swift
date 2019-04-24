@@ -30,6 +30,9 @@ class StoreItemDetailViewController: UIViewController {
     /// 네트워크 담당객체
     let detailMaker = StoreItemDetailMaker()
     
+    /// 델리게이트패턴 구현
+    var sendOrderDetail : SendOrderDetailDelegate?
+    
     
     // 세그를 통해 넘어오는 값
     var detailHash = ""
@@ -37,12 +40,18 @@ class StoreItemDetailViewController: UIViewController {
     
     /// 주문하기 버튼 액션
     @IBAction func orderAction(_ sender: Any) {
-        let orderResult = OrderResult(customerName: "Drake", price: self.detailView.price.text! , menu: self.detailTitle)
+        // 주문결과 객체 생성
+        let orderResult = OrderResult(customerName: "Drake", price: self.detailView.n_price.text! , menu: self.detailTitle)
         
-        self.detailMaker.order(orderResult: orderResult)
+        // 주문결과를 post
+        self.sendOrderDetail?.SendOrderDetail(orderResult: orderResult)
         
+        // 주문완료되면 뷰컨을 닫는다
+        navigationController?.popViewController(animated: true)        
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
     
     /// 데이터를 받아서 아이템디테일 모델을 생성하는 함수를 사용, 생성한다.
     private func makeItemDetail(data: Data){
