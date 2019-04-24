@@ -52,8 +52,10 @@ struct NetworkHandler {
             var cachePath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
             cachePath?.appendPathComponent(imageURL.lastPathComponent)
             guard let realCachePath = cachePath else { return }
-
-            try? FileManager.default.copyItem(at: location, to: realCachePath)
+            
+            if !FileManager.default.fileExists(atPath: realCachePath.path) {
+                try? FileManager.default.copyItem(at: location, to: realCachePath)
+            }
             NotificationCenter.default.post(name: .completeDownload, object: nil, userInfo: ["section": section, "row": row])
         }
         downloadTask.resume()

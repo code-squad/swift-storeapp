@@ -16,11 +16,7 @@ class BadgeLabelsView: UIStackView {
     }
     
     private func makeHidden() {
-        for label in badgeLabels {
-            label.text = ""
-            label.backgroundColor = UIColor.white
-            label.isHidden = true
-        }
+        for label in badgeLabels { label.isHidden = true }
     }
     
     func set(_ badge: [String]?) {
