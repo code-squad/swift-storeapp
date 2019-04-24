@@ -68,16 +68,22 @@ class StoreItems {
     
     func setMainItem(_ items: [StoreItem]) {
         self.mainItems = items
-        NotificationCenter.default.post(name: .setMain, object: nil)
+        DispatchQueue.global().async {
+            self.downloadMainImageFromNetwork()
+        }
     }
     
     func setSoupItem(_ items: [StoreItem]) {
         self.soupItems = items
-        NotificationCenter.default.post(name: .setSoup, object: nil)
+        DispatchQueue.global().async {
+            self.downloadSoupImageFromNetwork()
+        }
     }
     
     func setSideItem(_ items: [StoreItem]) {
         self.sideItems = items
-        NotificationCenter.default.post(name: .setSide, object: nil)
+        DispatchQueue.global().async {
+            self.downloadSideImageFromNetwork()
+        }
     }
 }

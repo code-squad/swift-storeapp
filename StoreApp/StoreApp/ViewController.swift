@@ -27,7 +27,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         registGetObserver()
         registErrorObserver()
-        registSetObserver()
         registDownloadObserver()
         storeItems.getDataFromNetwork()
         tableView.delegate = storeAppDelegate
@@ -82,26 +81,6 @@ extension ViewController {
             self.tableView.insertRows(at: indexPaths, with: .automatic)
             self.tableView.endUpdates()
         }
-    }
-}
-
-extension ViewController {
-    private func registSetObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(downloadMainImage), name: .setMain, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(downloadSoupImage), name: .setSoup, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(downloadSideImage), name: .setSide, object: nil)
-    }
-    
-    @objc func downloadMainImage() {
-        storeItems.downloadMainImageFromNetwork()
-    }
-    
-    @objc func downloadSoupImage() {
-        storeItems.downloadSoupImageFromNetwork()
-    }
-    
-    @objc func downloadSideImage() {
-        storeItems.downloadSideImageFromNetwork()
     }
 }
 
