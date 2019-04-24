@@ -27,10 +27,10 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     @IBOutlet weak var storeItemTableView: UITableView!
     
     /// MyURLDataMaker 내부객체 선언
-    let myDataLoader = MyDataLoader()
+    private let myDataLoader = MyDataLoader()
     
     /// 커스텀 디스패치큐 생성
-    let customSerialQueue = DispatchQueue(label: "customSerial", qos: .default)
+    private let customSerialQueue = DispatchQueue(label: "customSerial", qos: .default)
     
     /// 데이터소스
     private let dataSourceObject = DataSourceObject()
@@ -47,7 +47,7 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     
     
     /// 헤더컨텐트 매니저 데이터를 데이터소스에 입력한다
-    func inputHeaderContent(dataSourceObject: DataSourceObject){
+    private func inputHeaderContent(dataSourceObject: DataSourceObject){
         // 헤더컨텐트 매니저 데이터 입력
         for count in 0..<allHeaderTitle.count {
             let myHeaderContent = MyHeaderContent(title: allHeaderTitle[count], text: allHedaerText[count])
@@ -56,13 +56,13 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     }
     
     /// 테이블뷰에 커스텀 헤더 등록
-    func inputCustomHeader(tableView: UITableView){
+    private func inputCustomHeader(tableView: UITableView){
         let headerNib = UINib.init(nibName: nibFileName, bundle: Bundle.main)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: nibFileName)
     }
     
     /// 노티 생성 함수
-    func makeNotificationObserver(){
+    private func makeNotificationObserver(){
         // 스토어아이템 추가시 노티
         NotificationCenter.default.addObserver(self, selector: #selector(afterSlotAdded(notification:)), name: .didAddStoreItemSlot, object: nil)
         // 이미지파일 다운로드 완료시 노티
@@ -70,7 +70,7 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     }
     
     /// 이미지파일 다운 완료시 이미지 파일을 셀에 적용
-    @objc func afterDownloadImageFile(notification: Notification){
+    @objc private func afterDownloadImageFile(notification: Notification){
         guard
             let fileName = notification.userInfo?["fileName"] as? String,
             let section = notification.userInfo?["section"] as? Int,
@@ -91,7 +91,7 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     }
     
     /// 슬롯추가됨 노티 포스트시 리로드 실행
-    @objc func afterSlotAdded(notification: Notification){
+    @objc private func afterSlotAdded(notification: Notification){
         os_log("슬롯추가됨 노티발생")
         
         // 인덱스를 받아서 해당 섹션 리로드
@@ -113,12 +113,12 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     }
     
     /// 다운로드 실패시 탈출 클로저
-    func didFailDownload(imageURL: String, section: Int, row: Int){
+    private func didFailDownload(imageURL: String, section: Int, row: Int){
         self.myImageMaker.save(imageURL: imageURL, section: section, row: row, completion: didFailDownload)
     }
     
     /// 데이터를 받아서 데이터소스에 입력하고 섹션을 리로드 한다. 비동기.
-    func toDataSourceAdd(data: Data, index: Int){
+    private func toDataSourceAdd(data: Data, index: Int){
         // 커스텀 동기 시작
         self.customSerialQueue.sync {
             // 받은 데이터를 스토어아이템 배열로 변형
@@ -140,7 +140,7 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     }
     
     /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
-    func dataSourceDataFrom(url: String, index: Int){
+    private func dataSourceDataFrom(url: String, index: Int){
         // url 리스트에 연결 시도
         if self.myDataLoader.dataFrom(unCheckedURL: self.myDataLoader.jsonURLList[index],
                                       index: index,
@@ -154,7 +154,7 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     }
     
     /// URL list, 데이터소스, data add 함수를 넣어서 url 에서 data 를 데이터소스에 넣는다
-    func dataSourceDataListFrom(urlList: [String]){
+    private func dataSourceDataListFrom(urlList: [String]){
         // url 리스트 카운팅
         for count in 0..<urlList.count {
             // url 리스트에 연결 시도
@@ -188,14 +188,13 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
             // 델리게이트 패턴 적용
             storeItemDetailViewController.sendOrderDetail = self
             
-            
         } // segue 확인 실패시
         else {
-            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+            os_log("Unexpected Segue Identifier : %@", segue.identifier ?? "Identifier 없음")
         }
     }
     
-    
+    /// 주문결과 객체를 받아서 POST 함수로 전달한다 
     func SendOrderDetail(orderResult: OrderResult){
         StoreItemMaker.post(orderResult: orderResult)
     }

@@ -34,7 +34,7 @@ class StoreItemDetailViewController: UIViewController {
     var sendOrderDetail : SendOrderDetailDelegate?
     
     
-    // 세그를 통해 넘어오는 값
+    /// 세그를 통해 넘어오는 값
     var detailHash = ""
     var detailTitle = ""
     
@@ -51,8 +51,6 @@ class StoreItemDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
-    
     /// 데이터를 받아서 아이템디테일 모델을 생성하는 함수를 사용, 생성한다.
     private func makeItemDetail(data: Data){
         // 디테일모델 생성
@@ -66,7 +64,7 @@ class StoreItemDetailViewController: UIViewController {
         self.detailModel = storeItemdetailModel
         // 모델을 생성해서 뷰에 적용시켜준다
         detailView.setting(model: storeItemdetailModel)
-        os_log("모델 데이터 적용 완료")
+        os_log("상세모델 데이터 적용 완료")
         
         // 데이터가 추가되면 이미지를 추가한다
         self.imageMaker.saveFiles(urls: self.detailModel.thumb_images, completion: add)
@@ -90,7 +88,7 @@ class StoreItemDetailViewController: UIViewController {
     }
     
     /// 풀패스를 받아서 이미지를 추출
-    func imageFrom(imageFullPath: String) -> UIImage? {
+    private func imageFrom(imageFullPath: String) -> UIImage? {
         guard let result = UIImage(contentsOfFile: imageFullPath) else {
             // 추출 실패시
             os_log("이미지 파일이 없습니다. : %@",imageFullPath)
@@ -100,7 +98,7 @@ class StoreItemDetailViewController: UIViewController {
     }
     
     /// 이미지풀패스 를 받아서 스크롤뷰에 추가
-    func add(imageFullPath: String){
+    private func add(imageFullPath: String){
         // 이미지를 파일에서 추출시도
         guard let loadedImage = imageFrom(imageFullPath: imageFullPath) else {
             return ()
@@ -110,7 +108,7 @@ class StoreItemDetailViewController: UIViewController {
     }
     
     /// 섹션 추가 함수
-    func addSectionImage(fullPath: String){
+    private func addSectionImage(fullPath: String){
         // 이미지 추출시도
         guard let loadedImage = imageFrom(imageFullPath: fullPath) else {
             return ()
@@ -133,8 +131,6 @@ class StoreItemDetailViewController: UIViewController {
         
         // 전달받은 디테일해쉬를 디코드. 실패할경우 계속 시도한다
         tryConnectData(detailHash: self.detailHash)
-        
-        
         
         // end of viewDidLoad
     }
