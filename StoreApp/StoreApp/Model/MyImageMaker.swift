@@ -105,39 +105,32 @@ class MyImageMaker {
         
         // downloadTask 시작
         let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
-            if let tempLocalUrl = tempLocalUrl, error == nil {
-                // 연결 시도가 성공한다면
-                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    // 로깅용 형변환
-                    let statusCodeString = String(statusCode)
-                    // 연결 성공 로깅
-                    os_log("Successfully downloaded. Status code: %@",statusCodeString)
+            guard  let tempLocalUrl = tempLocalUrl, error == nil else {
+                os_log("Error took place while downloading a file. Error description: %@", (error?.localizedDescription)!)
+                return ()
+            }
+            
+            // 파일 다운로드 복사 작업 시작
+            do {
+                // 같은이름의 파일이 있다면 받지 않는다.
+                if FileManager.default.fileExists(atPath: destinationFileUrl.path) {
+                    os_log("기존파일 존재. 다운로드 패스 : %@", fileName)
+                } // 없다면 새 파일 다운로드
+                else {
+                    // 다운로드 시도
+                    try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
+                    os_log("다운로드 성공 : %@", fileName)
                 }
-                // 파일 다운로드 복사 작업 시작
-                do {
-                    // 같은이름의 파일이 있다면 받지 않는다.
-                    if FileManager.default.fileExists(atPath: destinationFileUrl.path) {
-                        os_log("기존파일 존재. 다운로드 패스 : %@", fileName)
-                    } // 없다면 새 파일 다운로드
-                    else {
-                        // 다운로드 시도
-                        try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
-                        os_log("다운로드 성공 : %@", fileName)
-                    }
-                    
-                    // 다운로드 성공 노티를 위한 인포 작성
-                    let userInfo: [String : Any] = ["fileName" : destinationFileUrl.path, "section" : section, "row" : row]
-                    
-                    // 다운로드 성공 노티 포스트
-                    NotificationCenter.default.post(name: .didDownloadImageFile, object: self, userInfo: userInfo)
-                    
-                } // 파일복사 작업 실패시
-                catch (let writeError) {
-                    os_log("Error creating a file %@ : %@", destinationFileUrl.path, writeError.localizedDescription)
-                }
-                // 웹 연결 실패시
-            } else {
-                os_log("Error took place while downloading a file. Error description: %@", (error?.localizedDescription)!);
+                
+                // 다운로드 성공 노티를 위한 인포 작성
+                let userInfo: [String : Any] = ["fileName" : destinationFileUrl.path, "section" : section, "row" : row]
+                
+                // 다운로드 성공 노티 포스트
+                NotificationCenter.default.post(name: .didDownloadImageFile, object: self, userInfo: userInfo)
+                
+            } // 파일복사 작업 실패시
+            catch (let writeError) {
+                os_log("Error creating a file %@ : %@", destinationFileUrl.path, writeError.localizedDescription)
             }
         }
         task.resume()
@@ -171,37 +164,32 @@ class MyImageMaker {
         
         // downloadTask 시작
         let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
-            if let tempLocalUrl = tempLocalUrl, error == nil {
-                // 연결 시도가 성공한다면
-                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    // 로깅용 형변환
-                    let statusCodeString = String(statusCode)
-                    // 연결 성공 로깅
-                    os_log("Successfully downloaded. Status code: %@",statusCodeString)
-                }
-                // 파일 다운로드 복사 작업 시작
-                do {
-                    // 같은이름의 파일이 있다면 받지 않는다.
-                    if FileManager.default.fileExists(atPath: destinationFileUrl.path) {
-                        os_log("기존파일 존재. 다운로드 패스 : %@", fileName)
-                    } // 없다면 새 파일 다운로드
-                    else {
-                        // 다운로드 시도
-                        try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
-                        os_log("다운로드 성공 : %@", fileName)
-                    }
-                    
-                    // 다운로드 완료
-                    completion(destinationFileUrl.path)
-                    
-                } // 파일복사 작업 실패시
-                catch (let writeError) {
-                    os_log("Error creating a file %@ : %@", destinationFileUrl.path, writeError.localizedDescription)
-                }
+            guard let tempLocalUrl = tempLocalUrl, error == nil else {
                 // 웹 연결 실패시
-            } else {
                 os_log("Error took place while downloading a file. Error description: %@", (error?.localizedDescription)!);
+                return ()
             }
+            
+            // 파일 다운로드 복사 작업 시작
+            do {
+                // 같은이름의 파일이 있다면 받지 않는다.
+                if FileManager.default.fileExists(atPath: destinationFileUrl.path) {
+                    os_log("기존파일 존재. 다운로드 패스 : %@", fileName)
+                } // 없다면 새 파일 다운로드
+                else {
+                    // 다운로드 시도
+                    try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
+                    os_log("다운로드 성공 : %@", fileName)
+                }
+                
+                // 다운로드 완료
+                completion(destinationFileUrl.path)
+                
+            } // 파일복사 작업 실패시
+            catch (let writeError) {
+                os_log("Error creating a file %@ : %@", destinationFileUrl.path, writeError.localizedDescription)
+            }
+            
         }
         task.resume()
     }
