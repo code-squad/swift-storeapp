@@ -32,7 +32,7 @@ class StoreItemDetailViewController: UIViewController {
     private let detailMaker = StoreItemDetailMaker()
     
     /// 델리게이트패턴 구현
-    var sendOrderDetail : SendOrderDetailDelegate?
+    var sendOrderDetailDeligate : SendOrderDetailDelegate?
     
     
     /// 세그를 통해 넘어오는 값
@@ -45,7 +45,7 @@ class StoreItemDetailViewController: UIViewController {
         let orderResult = OrderResult(customerName: "Drake", price: self.detailView.n_price.text! , menu: self.detailTitle)
         
         // 주문결과를 post
-        self.sendOrderDetail?.SendOrderDetail(orderResult: orderResult)
+        self.sendOrderDetailDeligate?.SendOrderDetail(orderResult: orderResult)
         
         // 주문완료되면 뷰컨을 닫는다
         navigationController?.popViewController(animated: true)        

@@ -186,7 +186,7 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
             storeItemDetailViewController.detailTitle = detailTitle
             
             // 델리게이트 패턴 적용
-            storeItemDetailViewController.sendOrderDetail = self
+            storeItemDetailViewController.sendOrderDetailDeligate = self
             storeItemDetailViewController.imageMaker = self.myImageMaker
             
         } // segue 확인 실패시
