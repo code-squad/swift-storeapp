@@ -27,6 +27,23 @@ class MyNetworkWorker {
         }
     }
     
+    /// request 를 받아서 task 를 진행한다
+    private class func doTask(request: URLRequest){
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                os_log("error: %@", error as CVarArg)
+            } else {
+                if let response = response as? HTTPURLResponse {
+                    os_log("statusCode: %@", String(response.statusCode))
+                }
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    os_log("data: %@", dataString)
+                }
+            }
+        }
+        task.resume()
+    }
+    
     
     /// 주문내역을 post 방식으로 보낸다
     class func post(orderResult: OrderResult){
@@ -46,18 +63,6 @@ class MyNetworkWorker {
         // 바디설정
         request.httpBody = orderResultJSON
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                os_log("error: %@", error as CVarArg)
-            } else {
-                if let response = response as? HTTPURLResponse {
-                    os_log("statusCode: %@", String(response.statusCode))
-                }
-                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    os_log("data: %@", dataString)
-                }
-            }
-        }
-        task.resume()
+        doTask(request: request)
     }
 }
