@@ -187,6 +187,7 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
             
             // 델리게이트 패턴 적용
             storeItemDetailViewController.sendOrderDetail = self
+            storeItemDetailViewController.imageMaker = self.myImageMaker
             
         } // segue 확인 실패시
         else {

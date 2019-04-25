@@ -9,6 +9,7 @@
 import UIKit
 import os.log
 
+
 class MyImageMaker {
     /// 섹션 카운트
     private var maxSectionCount = 0
@@ -16,8 +17,8 @@ class MyImageMaker {
     /// url 배열들
     private var savedURLsList : [[String]] = []
     
-    // Create destination URL
-    let folderUrl: URL =  FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first as URL!
+    /// Create destination URL. 캐시폴더.
+    private let folderUrl: URL =  FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first as URL!
     
     /// 섹션 카운트 초기값 선언
     func setMaxSectionCount(count: Int){
