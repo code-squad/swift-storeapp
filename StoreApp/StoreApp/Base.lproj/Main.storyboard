@@ -296,9 +296,8 @@
                                     <constraint firstItem="pzK-vP-8TY" firstAttribute="width" secondItem="Pk4-4J-8bs" secondAttribute="width" id="zQd-FD-leG"/>
                                 </constraints>
                             </scrollView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TYs-CL-xLV">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TYs-CL-xLV">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem title="주문하기" width="410.66666666666669" id="ZkK-Fh-Wm6">
@@ -311,10 +310,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Pk4-4J-8bs" firstAttribute="height" secondItem="Q8N-xL-8wH" secondAttribute="height" id="KH6-zX-VrC"/>
+                            <constraint firstItem="TYs-CL-xLV" firstAttribute="top" secondItem="Pk4-4J-8bs" secondAttribute="bottom" id="KX7-Fo-fup"/>
                             <constraint firstItem="Pk4-4J-8bs" firstAttribute="trailing" secondItem="Q8N-xL-8wH" secondAttribute="trailing" id="aHh-mn-r8g"/>
                             <constraint firstItem="Pk4-4J-8bs" firstAttribute="top" secondItem="Q8N-xL-8wH" secondAttribute="top" id="cN7-5E-ynk"/>
+                            <constraint firstAttribute="trailing" secondItem="TYs-CL-xLV" secondAttribute="trailing" id="cvc-Dd-m9r"/>
+                            <constraint firstAttribute="bottom" secondItem="TYs-CL-xLV" secondAttribute="bottom" id="deQ-zh-LDL"/>
                             <constraint firstItem="Pk4-4J-8bs" firstAttribute="leading" secondItem="Q8N-xL-8wH" secondAttribute="leading" id="i5r-85-Pj5"/>
+                            <constraint firstItem="TYs-CL-xLV" firstAttribute="leading" secondItem="lly-xZ-ot9" secondAttribute="leading" id="x76-Bp-JMD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q8N-xL-8wH"/>
                     </view>
@@ -324,6 +326,7 @@
                         <outlet property="detailView" destination="eX8-9F-hND" id="Lrf-ps-apw"/>
                         <outlet property="myMainScrollView" destination="Pk4-4J-8bs" id="5aj-In-IXz"/>
                         <outlet property="myScrollView" destination="pzK-vP-8TY" id="Ye6-0h-Xw0"/>
+                        <outlet property="myToolBar" destination="TYs-CL-xLV" id="Etb-7Q-ZBv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pXV-Jk-tI2" userLabel="First Responder" sceneMemberID="firstResponder"/>
