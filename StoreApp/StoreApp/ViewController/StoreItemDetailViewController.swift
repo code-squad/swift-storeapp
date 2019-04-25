@@ -124,13 +124,14 @@ class StoreItemDetailViewController: UIViewController {
         guard let loadedImage = imageFrom(imageFullPath: fullPath) else {
             return ()
         }
-        
-        DispatchQueue.main.sync {
-            // 추출된 이미지로 이미지뷰 생성
-            let newImageView = UIImageView(image: loadedImage)
-            
-            // 메인스크롤뷰에 추가
-            self.myMainScrollView.add(targetView: newImageView)
+        customSerialQueue.sync {
+            DispatchQueue.main.async {
+                // 추출된 이미지로 이미지뷰 생성
+                let newImageView = UIImageView(image: loadedImage)
+                
+                // 메인스크롤뷰에 추가
+                self.myMainScrollView.add(targetView: newImageView)
+            }
         }
     }
     
