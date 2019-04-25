@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class StorePresenter: NSObject {
 
@@ -54,5 +55,16 @@ extension StorePresenter: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let items = storeItems[indexPath.section],
+            let item = items[indexPath.row] else { return }
+        if let toast = ToastCenter.default.currentToast {
+            toast.cancel()
+        }
+        Toast(text: "타이틀 메뉴: \(item.title)\n가격: \(item.s_price)",
+              delay: 0,
+              duration: Delay.short).show()
     }
 }
