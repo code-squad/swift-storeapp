@@ -113,12 +113,8 @@ class MyImageMaker {
             
             // 파일 다운로드 복사 작업 시작
             do {
-                // 같은이름의 파일이 있다면 받지 않는다.
-                if FileManager.default.fileExists(atPath: destinationFileUrl.path) {
-                    os_log("기존파일 존재. 다운로드 패스 : %@", fileName)
-                } // 없다면 새 파일 다운로드
-                else {
-                    // 다운로드 시도
+                // 같은이름의 파일이 존재하지 않는다면 다운로드. 있다면 패스.
+                if FileManager.default.fileExists(atPath: destinationFileUrl.path) == false {
                     try FileManager.default.copyItem(at: tempLocalUrl, to: destinationFileUrl)
                     os_log("다운로드 성공 : %@", fileName)
                 }
