@@ -168,15 +168,18 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
         if segue.identifier == "showDetail" {
             // 도착지의 뷰컨 클래스 확인
             guard let storeItemDetailViewController = segue.destination as? StoreItemDetailViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
+                os_log("Unexpected destination: %@", segue.destination.description)
+                return ()
             }
             // 선택된 뷰가 셀인지 체크
             guard let selectedCell = sender as? MyCustomCell else {
-                fatalError("Unexpected sender: \(String(describing: sender))")
+                os_log("Unexpected sender: %@", String(describing: sender))
+                return ()
             }
             // 셀에서 인덱스 패스 추출
             guard let indexPath = self.storeItemTableView.indexPath(for: selectedCell) else {
-                fatalError("The selected cell is not being displayed by the table")
+                os_log("The selected cell is not being displayed by the table")
+                return ()
             }
             
             // 값을 넘겨준다.
