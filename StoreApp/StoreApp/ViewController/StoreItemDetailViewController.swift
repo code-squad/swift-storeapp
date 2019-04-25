@@ -119,7 +119,7 @@ class StoreItemDetailViewController: UIViewController {
             let newImageView = UIImageView(image: loadedImage)
             
             // 메인스크롤뷰에 추가
-            self.myMainScrollView.add(targetView: newImageView)
+            self.myMainScrollView.addSubview(newImageView)
         }
     }
     

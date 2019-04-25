@@ -196,7 +196,7 @@ class ViewController: UIViewController, SendOrderDetailDelegate {
     
     /// 주문결과 객체를 받아서 POST 함수로 전달한다 
     func SendOrderDetail(orderResult: OrderResult){
-        StoreItemMaker.post(orderResult: orderResult)
+        MyNetworkWorker.post(orderResult: orderResult)
     }
     
     override func viewDidLoad() {
