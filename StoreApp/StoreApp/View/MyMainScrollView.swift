@@ -10,8 +10,8 @@ import UIKit
 import os.log
 
 class MyMainScrollView: UIScrollView {
-    /// 뷰를 받아서 비율유지하면서 가로를 자신길이에 맞춘다
-    private func resize(targetView: UIView) -> CGSize {
+    /// 뷰를 받아서 비율유지하면서 가로를 self 길이에 맞춘다
+    private func reSize(targetView: UIView){
         // 결과용 사이즈 선언
         var resultSize = CGSize()
         
@@ -24,14 +24,14 @@ class MyMainScrollView: UIScrollView {
         // 비율에 맞춰서 세로 설정
         resultSize.height = self.frame.width * ratioFromAddedView
         
-        // 결과리턴
-        return resultSize
+        // 결과 적용
+        targetView.frame.size = resultSize
     }
 
     /// 뷰를 받아서 해당 뷰 사이즈만큼 컨텐트 높이를 늘리고 입력뷰 사이즈 조절 후 마지막 뷰 밑에 위치시킨다
     func add(targetView: UIView){
         // 추가뷰 프레임 사이즈 수정
-        targetView.frame.size = resize(targetView: targetView)
+        reSize(targetView: targetView)
         
         // 마지막 서브뷰의 바텀 선언
         var lastViewBottomValue = CGPoint(x: 0, y: 0)
