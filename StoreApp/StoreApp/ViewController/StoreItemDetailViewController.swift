@@ -51,6 +51,8 @@ class StoreItemDetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    
     /// 데이터를 받아서 아이템디테일 모델을 생성하는 함수를 사용, 생성한다.
     private func makeItemDetail(data: Data){
         // 디테일모델 생성
@@ -62,9 +64,16 @@ class StoreItemDetailViewController: UIViewController {
         storeItemdetailModel.set(title: self.detailTitle)
         // 모델 설정
         self.detailModel = storeItemdetailModel
-        // 모델을 생성해서 뷰에 적용시켜준다
-        detailView.set(model: storeItemdetailModel)
-        os_log("상세모델 데이터 적용 완료")
+        
+        DispatchQueue.main.async {
+            self.detailView.adCopy.text = self.detailModel.product_description
+            self.detailView.point.text = self.detailModel.point
+            self.detailView.delivery_price.text = self.detailModel.delivery_fee
+            self.detailView.title.text = self.detailModel.title
+            self.detailView.n_price.text = self.detailModel.n_price
+            self.detailView.s_price.attributedText = MyStyleMaker.makeStrikeThrough(text: self.detailModel.s_price)
+            os_log("상세모델 데이터 적용 완료")
+        }
         
         // 데이터가 추가되면 이미지를 추가한다
         self.imageMaker.saveFiles(urls: self.detailModel.thumb_images, completion: add)
