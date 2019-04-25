@@ -19,24 +19,24 @@ class StoreItemDetailViewController: UIViewController {
     
     
     /// 파일저장객체
-    let imageMaker = MyImageMaker()
+    private let imageMaker = MyImageMaker()
     
     /// 디테일모델
-    var detailModel = StoreItemDetailModel()
+    private var detailModel = StoreItemDetailModel()
     
     /// 커스텀 디스패치큐 생성
-    let customSerialQueue = DispatchQueue(label: "customDispatch", qos: .default)
+    private let customSerialQueue = DispatchQueue(label: "customDispatch", qos: .default)
     
     /// 네트워크 담당객체
-    let detailMaker = StoreItemDetailMaker()
+    private let detailMaker = StoreItemDetailMaker()
     
     /// 델리게이트패턴 구현
-    var sendOrderDetail : SendOrderDetailDelegate?
+    private var sendOrderDetail : SendOrderDetailDelegate?
     
     
     /// 세그를 통해 넘어오는 값
-    var detailHash = ""
-    var detailTitle = ""
+    private var detailHash = ""
+    private var detailTitle = ""
     
     /// 주문하기 버튼 액션
     @IBAction func orderAction(_ sender: Any) {
