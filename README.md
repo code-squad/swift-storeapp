@@ -68,3 +68,11 @@ height: size.height + topInset + bottomInset)
 ### 실행화면
 
 <img width="400" src="https://user-images.githubusercontent.com/38850628/56567105-2bec3400-65ef-11e9-8659-67b9317efde2.gif">
+
+## step04. CocoaPod
+
+### 배운내용
+
+### 실행화면
+
+<img width="400" src="https://user-images.githubusercontent.com/38850628/56709282-61ae2b80-675b-11e9-8cf8-2ec4b6a38db3.gif">
