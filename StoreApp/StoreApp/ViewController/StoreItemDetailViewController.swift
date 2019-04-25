@@ -63,7 +63,7 @@ class StoreItemDetailViewController: UIViewController {
         // 모델 설정
         self.detailModel = storeItemdetailModel
         // 모델을 생성해서 뷰에 적용시켜준다
-        detailView.setting(model: storeItemdetailModel)
+        detailView.set(model: storeItemdetailModel)
         os_log("상세모델 데이터 적용 완료")
         
         // 데이터가 추가되면 이미지를 추가한다
@@ -119,7 +119,7 @@ class StoreItemDetailViewController: UIViewController {
             let newImageView = UIImageView(image: loadedImage)
             
             // 메인스크롤뷰에 추가
-            self.myMainScrollView.addSubview(newImageView)
+            self.myMainScrollView.add(targetView: newImageView)
         }
     }
     
@@ -127,7 +127,7 @@ class StoreItemDetailViewController: UIViewController {
         super.viewDidLoad()
         
         // 메인스크롤뷰의 컨텐트를 늘린다
-        self.myMainScrollView.setting()
+        self.myMainScrollView.setContentHeight(targetView: self.detailView)
         
         // 전달받은 디테일해쉬를 디코드. 실패할경우 계속 시도한다
         tryConnectData(detailHash: self.detailHash)

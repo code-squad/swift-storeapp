@@ -18,8 +18,8 @@ class StoreItemDetailView: UIView {
     @IBOutlet weak var delivery_price:UILabel!
 
     
-    func setting(model: StoreItemDetailModel){
-        DispatchQueue.main.async {            
+    func set(model: StoreItemDetailModel){
+//        DispatchQueue.main.async {
             self.adCopy.text = model.product_description
             self.point.text = model.point
             self.delivery_price.text = model.delivery_fee
@@ -27,7 +27,7 @@ class StoreItemDetailView: UIView {
             self.n_price.text = model.n_price
             self.s_price.attributedText = MyStyleMaker.makeStrikeThrough(text: model.s_price)
             
-        }
+//        }
     }
     
     
