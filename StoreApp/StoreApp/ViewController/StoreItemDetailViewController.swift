@@ -17,6 +17,7 @@ class StoreItemDetailViewController: UIViewController {
     
     @IBOutlet weak var myMainScrollView: MyMainScrollView!
     
+    @IBOutlet weak var myToolBar: UIToolbar!
     
     /// 파일저장객체
     var imageMaker : MyImageMaker? = nil
@@ -88,10 +89,11 @@ class StoreItemDetailViewController: UIViewController {
         // 실행 완료를 기다리지 않도록 디스패치 사용
         customSerialQueue.sync {
             // 전달받은 디테일해쉬를 디코드. 실패할경우 계속 시도한다
-            let urlLoading = MyDetailDataLoader.detailModelData(detailHash: self.detailHash,completion: makeItemDetail)
+            var urlLoadingResult = false
+            
             // 실패하면 다시 시도
-            if urlLoading == false {
-                tryConnectData(detailHash: detailHash)
+            while urlLoadingResult == false {
+                urlLoadingResult = MyDetailDataLoader.detailModelData(detailHash: self.detailHash,completion: makeItemDetail)
             }
         }        
     }
@@ -136,7 +138,7 @@ class StoreItemDetailViewController: UIViewController {
         super.viewDidLoad()
         
         // 메인스크롤뷰의 컨텐트를 늘린다
-        self.myMainScrollView.setContentHeight(targetView: self.detailView)
+        self.myMainScrollView.setContentHeight(detailViewContoller: self)
         
         // 전달받은 디테일해쉬를 디코드. 실패할경우 계속 시도한다
         tryConnectData(detailHash: self.detailHash)
