@@ -55,26 +55,20 @@ class StoreItemMaker {
         }
         os_log("data 에서 json 추출")
         // json 데이터를 배열로 추출
-        if let jsonDict = jsonResult as? [String : Any] {
-            
-            if let jsonList = jsonDict["body"] as? Array<[String : Any]> {
-                // json 배열의 모든 객체를 추가시도
-                result = makeStoreItemList(jsonArray: jsonList)
-                
-                os_log("json data -> StoreItem 배열로 생성 성공")
-                
-                // 추가가 성공하면 리턴
-                return result
-            }
-            
-        } // json 을 추출은 했지만 스토어아이템 배열화 실패시
-        else {
+        guard let jsonDict = jsonResult as? [String : Any] else {
+            // json 을 추출은 했지만 스토어아이템 배열화 실패시
             os_log("스토어아이템 배열화 실패")
             return result
         }
+        
+        if let jsonList = jsonDict["body"] as? Array<[String : Any]> {
+            // json 배열의 모든 객체를 추가시도
+            result = makeStoreItemList(jsonArray: jsonList)
+            
+            os_log("json data -> StoreItem 배열로 생성 성공")
+        }
         return result
-    }
-    
+    }    
 }
 
 class OrderResult: Codable {
