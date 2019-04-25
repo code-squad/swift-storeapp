@@ -19,7 +19,7 @@ class StoreItemDetailViewController: UIViewController {
     
     
     /// 파일저장객체
-    private let imageMaker = MyImageMaker()
+    var imageMaker : MyImageMaker? = nil
     
     /// 디테일모델
     private var detailModel = StoreItemDetailModel()
@@ -31,12 +31,12 @@ class StoreItemDetailViewController: UIViewController {
     private let detailMaker = StoreItemDetailMaker()
     
     /// 델리게이트패턴 구현
-    private var sendOrderDetail : SendOrderDetailDelegate?
+    var sendOrderDetail : SendOrderDetailDelegate?
     
     
     /// 세그를 통해 넘어오는 값
-    private var detailHash = ""
-    private var detailTitle = ""
+    var detailHash = ""
+    var detailTitle = ""
     
     /// 주문하기 버튼 액션
     @IBAction func orderAction(_ sender: Any) {
@@ -76,10 +76,10 @@ class StoreItemDetailViewController: UIViewController {
         }
         
         // 데이터가 추가되면 이미지를 추가한다
-        self.imageMaker.saveFiles(urls: self.detailModel.thumb_images, completion: add)
+        self.imageMaker?.saveFiles(urls: self.detailModel.thumb_images, completion: add)
         
         // 섹션 이미지도 추가한다
-        self.imageMaker.saveFiles(urls: self.detailModel.detail_section, completion: addSectionImage)
+        self.imageMaker?.saveFiles(urls: self.detailModel.detail_section, completion: addSectionImage)
         
     }
     
