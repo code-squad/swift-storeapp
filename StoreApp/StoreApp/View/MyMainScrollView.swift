@@ -48,7 +48,7 @@ class MyMainScrollView: UIScrollView {
         targetView.frame.origin = fitOrigin(targetView: targetView)
         
         // 컨텐트 높이 증가
-        self.contentSize.height = targetView.frame.maxY
+        self.contentSize.height += targetView.frame.height
     }
     
     /// 뷰를 받아서 해당 뷰 사이즈만큼 컨텐트 높이를 늘리고 입력뷰 사이즈 조절 후 마지막 뷰 밑에 위치시킨다
@@ -64,7 +64,7 @@ class MyMainScrollView: UIScrollView {
     }
     
     /// 스토리보드로 추가한 뷰에 맞춰서 컨텐트 사이즈를 늘린다
-    func setContentHeight(targetView: UIView){
-        self.contentSize.height += targetView.frame.maxY
+    func setContentHeight(detailViewContoller: StoreItemDetailViewController){
+        self.contentSize.height += detailViewContoller.detailView.frame.maxY
     }
 }
