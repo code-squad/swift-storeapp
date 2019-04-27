@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StoreItemManager {
+class StoreItemManager {
     
     //MARK: - Properties
     private var storeItems = [StoreItems]()
@@ -41,5 +41,17 @@ struct StoreItemManager {
     //MARK: Instance
     func itemCount() -> Int {
         return storeItems.count
+    }
+    
+    func update(with updateInfo: [String: String]) {
+        let commonURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
+        for (fileName, sectionTitle) in updateInfo {
+            let fetcher = JSONDataFetcher()
+            guard let url = URL(string: commonURL + fileName),
+                let items = storeItems.first(where: {$0.sectionInfo.title == sectionTitle}) else { continue }
+            fetcher.load(with: url) { (data) in
+                items.update(with: data)
+            }
+        }
     }
 }
