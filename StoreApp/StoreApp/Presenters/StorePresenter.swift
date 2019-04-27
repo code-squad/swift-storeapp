@@ -19,8 +19,17 @@ class StorePresenter: NSObject {
                         "soup": SectionInfo(title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
         self.storeItems = StoreItemManager(initInfo: initInfo)
         super.init()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadSection),
+                                               name: .storeItemsDidUpdate,
+                                               object: nil)
     }
     
+    @objc func reloadSection(_ noti: Notification) {
+        guard let userInfo = noti.userInfo,
+            let section = userInfo[UserInfoKey.section] as? Int else { return }
+        
+    }
 }
 
 extension StorePresenter: UITableViewDataSource {

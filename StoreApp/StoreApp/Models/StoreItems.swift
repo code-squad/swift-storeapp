@@ -33,16 +33,12 @@ class StoreItems {
         return storeItems.count
     }
     
-    func update(with data: Data) {
+    func update(with data: Data) -> Bool {
         let decoder = JSONDecoder()
         guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
             let jsonData = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
-            let items = try? decoder.decode([StoreItem].self, from: jsonData) else { return }
+            let items = try? decoder.decode([StoreItem].self, from: jsonData) else { return false }
         self.storeItems = items
-        NotificationCenter.default.post(name: .storeItemsDidUpdate, object: self)
+        return true
     }
-}
-
-extension NSNotification.Name {
-    static let storeItemsDidUpdate = Notification.Name("storeItemsDidUpdate")
 }

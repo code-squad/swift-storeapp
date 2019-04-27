@@ -49,9 +49,23 @@ class StoreItemManager {
             let fetcher = JSONDataFetcher()
             guard let url = URL(string: commonURL + fileName),
                 let items = storeItems.first(where: {$0.sectionInfo.title == sectionTitle}) else { continue }
-            fetcher.load(with: url) { (data) in
-                items.update(with: data)
+            let updateWithData: (Data) -> Void = { data in
+                if items.update(with: data),
+                    let section = self.storeItems.firstIndex(where: {$0 === items}) {
+                    NotificationCenter.default.post(name: .storeItemsDidUpdate,
+                                                    object: self,
+                                                    userInfo: [UserInfoKey.section: Int(section)])
+                }
             }
+            fetcher.load(with: url, completion: updateWithData)
         }
     }
+}
+
+extension NSNotification.Name {
+    static let storeItemsDidUpdate = Notification.Name("storeItemsDidUpdate")
+}
+
+struct UserInfoKey {
+    static let section = "section"
 }
