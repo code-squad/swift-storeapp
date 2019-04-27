@@ -10,6 +10,8 @@ import UIKit
 import Toaster
 
 class StorePresenter: NSObject {
+    
+    private weak var storeTableView: StoreTableView?
 
     private let storeItems: StoreItemManager
     
@@ -28,7 +30,16 @@ class StorePresenter: NSObject {
     @objc func reloadSection(_ noti: Notification) {
         guard let userInfo = noti.userInfo,
             let section = userInfo[UserInfoKey.section] as? Int else { return }
+        storeTableView?.reload(section: section)
         
+    }
+    
+    func attach(storeTableView: StoreTableView) {
+        self.storeTableView = storeTableView
+    }
+    
+    func detachStoreTableView() {
+        self.storeTableView = nil
     }
 }
 
