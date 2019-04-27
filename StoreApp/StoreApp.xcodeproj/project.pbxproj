@@ -12,6 +12,8 @@
 		7D01B458225C8A1100471C5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D01B456225C8A1100471C5F /* Main.storyboard */; };
 		7D01B45A225C8A1200471C5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D01B459225C8A1200471C5F /* Assets.xcassets */; };
 		7D01B45D225C8A1200471C5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D01B45B225C8A1200471C5F /* LaunchScreen.storyboard */; };
+		7D01BA3C22744E2800D80226 /* JSONDataFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D01BA3B22744E0D00D80226 /* JSONDataFetcher.framework */; };
+		7D01BA3D22744E2800D80226 /* JSONDataFetcher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7D01BA3B22744E0D00D80226 /* JSONDataFetcher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80E9225C8D09001828F5 /* StoreItems.swift */; };
 		7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0B80EB225C8D38001828F5 /* StoreItem.swift */; };
 		7D1605AC226EF52900CB248B /* SpacingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1605AB226EF52900CB248B /* SpacingLabel.swift */; };
@@ -20,7 +22,6 @@
 		7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18270C226DDE840042C79F /* StoreItemManager.swift */; };
 		7D33758F22718E760068B980 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33758E22718E760068B980 /* ViewController.swift */; };
 		7D731E0F226D8D9900EBB6FC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D731E0E226D8D9900EBB6FC /* main.json */; };
-		7D89271A22741E7800F9F2B0 /* JSONDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89271922741E7800F9F2B0 /* JSONDataFetcher.swift */; };
 		7D89271C227444A900F9F2B0 /* StoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89271B227444A900F9F2B0 /* StoreTableView.swift */; };
 		7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */; };
 		7D9371CC226EE06B0094C9B3 /* StoreTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */; };
@@ -33,6 +34,37 @@
 		7DF5BD88226EAB7B00C1E4C9 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD86226EAB7B00C1E4C9 /* side.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7D01BA3A22744E0D00D80226 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D01BA3622744E0D00D80226 /* JSONDataFetcher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7DA09F0B22744D2600912176;
+			remoteInfo = JSONDataFetcher;
+		};
+		7D01BA3E22744E2800D80226 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D01BA3622744E0D00D80226 /* JSONDataFetcher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DA09F0A22744D2600912176;
+			remoteInfo = JSONDataFetcher;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7D01BA4022744E2800D80226 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7D01BA3D22744E2800D80226 /* JSONDataFetcher.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		305854AFB02FFC5E5CD5B9C3 /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4251A6339DDD65821F0BE55E /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -42,6 +74,7 @@
 		7D01B459225C8A1200471C5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D01B45C225C8A1200471C5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D01B45E225C8A1200471C5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D01BA3622744E0D00D80226 /* JSONDataFetcher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSONDataFetcher.xcodeproj; path = ../../../../Desktop/JSONDataFetcher/JSONDataFetcher.xcodeproj; sourceTree = "<group>"; };
 		7D0B80E9225C8D09001828F5 /* StoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItems.swift; sourceTree = "<group>"; };
 		7D0B80EB225C8D38001828F5 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		7D1605AB226EF52900CB248B /* SpacingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingLabel.swift; sourceTree = "<group>"; };
@@ -50,7 +83,6 @@
 		7D18270C226DDE840042C79F /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
 		7D33758E22718E760068B980 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7D731E0E226D8D9900EBB6FC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
-		7D89271922741E7800F9F2B0 /* JSONDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataFetcher.swift; sourceTree = "<group>"; };
 		7D89271B227444A900F9F2B0 /* StoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableView.swift; sourceTree = "<group>"; };
 		7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewHeaderView.swift; sourceTree = "<group>"; };
 		7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewHeaderView.xib; sourceTree = "<group>"; };
@@ -69,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D01BA3C22744E2800D80226 /* JSONDataFetcher.framework in Frameworks */,
 				32A5FC091CF326311F52EE1D /* Pods_StoreApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +120,7 @@
 		7D01B446225C8A1100471C5F = {
 			isa = PBXGroup;
 			children = (
+				7D01BA3622744E0D00D80226 /* JSONDataFetcher.xcodeproj */,
 				7D01B451225C8A1100471C5F /* StoreApp */,
 				7D01B450225C8A1100471C5F /* Products */,
 				CDEAF3B80B81DBE1B06F76EF /* Pods */,
@@ -108,7 +142,6 @@
 				7D01B452225C8A1100471C5F /* AppDelegate.swift */,
 				7D33758E22718E760068B980 /* ViewController.swift */,
 				7D01B456225C8A1100471C5F /* Main.storyboard */,
-				7D89271922741E7800F9F2B0 /* JSONDataFetcher.swift */,
 				7D89271D227444CC00F9F2B0 /* ViewProtocol */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
 				7DCB0D152269A9DA00BE1F2F /* Models */,
@@ -119,6 +152,14 @@
 				7D01B45E225C8A1200471C5F /* Info.plist */,
 			);
 			path = StoreApp;
+			sourceTree = "<group>";
+		};
+		7D01BA3722744E0D00D80226 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D01BA3B22744E0D00D80226 /* JSONDataFetcher.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7D89271D227444CC00F9F2B0 /* ViewProtocol */ = {
@@ -194,10 +235,12 @@
 				7D01B44C225C8A1100471C5F /* Frameworks */,
 				7D01B44D225C8A1100471C5F /* Resources */,
 				D1C5C0B03F9745ACCDDA5B0D /* [CP] Embed Pods Frameworks */,
+				7D01BA4022744E2800D80226 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7D01BA3F22744E2800D80226 /* PBXTargetDependency */,
 			);
 			name = StoreApp;
 			productName = StoreApp;
@@ -230,12 +273,28 @@
 			mainGroup = 7D01B446225C8A1100471C5F;
 			productRefGroup = 7D01B450225C8A1100471C5F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7D01BA3722744E0D00D80226 /* Products */;
+					ProjectRef = 7D01BA3622744E0D00D80226 /* JSONDataFetcher.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7D01B44E225C8A1100471C5F /* StoreApp */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7D01BA3B22744E0D00D80226 /* JSONDataFetcher.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSONDataFetcher.framework;
+			remoteRef = 7D01BA3A22744E0D00D80226 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7D01B44D225C8A1100471C5F /* Resources */ = {
@@ -314,7 +373,6 @@
 				7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */,
 				7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */,
 				7D01B453225C8A1100471C5F /* AppDelegate.swift in Sources */,
-				7D89271A22741E7800F9F2B0 /* JSONDataFetcher.swift in Sources */,
 				7DB7AA44226C5D2E00EF6112 /* BadgeStackView.swift in Sources */,
 				7D33758F22718E760068B980 /* ViewController.swift in Sources */,
 				7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */,
@@ -326,6 +384,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7D01BA3F22744E2800D80226 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JSONDataFetcher;
+			targetProxy = 7D01BA3E22744E2800D80226 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7D01B456225C8A1100471C5F /* Main.storyboard */ = {
@@ -467,6 +533,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 305854AFB02FFC5E5CD5B9C3 /* Pods-StoreApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JZW6GB7MS9;
@@ -486,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4251A6339DDD65821F0BE55E /* Pods-StoreApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JZW6GB7MS9;
