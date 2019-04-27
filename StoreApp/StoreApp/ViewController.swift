@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     //MARK: - Properties
     //MARK: IBOutlet
     @IBOutlet weak var storeTableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     
     //MARK: Presenter
     private let storePresenter = StorePresenter()
@@ -30,6 +31,13 @@ class ViewController: UIViewController {
         storeTableView.separatorColor = .clear
         
         storePresenter.attach(storeTableView: self)
+        
+        storeTableView.refreshControl = refreshControl
+        storeTableView.refreshControl?.addTarget(self, action: #selector(updateStoreItems), for: .valueChanged)
+    }
+    
+    @objc func updateStoreItems() {
+        storePresenter.updateStoreItems()
     }
 }
 
@@ -37,6 +45,7 @@ extension ViewController: StoreTableView {
     func reload(section: Int) {
         DispatchQueue.main.sync {
             self.storeTableView.reloadSections(IndexSet(integer: section), with: .none)
+            self.refreshControl.endRefreshing()
         }
     }
 }

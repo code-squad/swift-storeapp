@@ -41,6 +41,13 @@ class StorePresenter: NSObject {
     func detachStoreTableView() {
         self.storeTableView = nil
     }
+    
+    func updateStoreItems() {
+        let updateInfo = ["main": "메인반찬",
+                          "side": "국.찌게",
+                          "soup": "밑반찬",]
+        storeItems.update(with: updateInfo)
+    }
 }
 
 extension StorePresenter: UITableViewDataSource {
