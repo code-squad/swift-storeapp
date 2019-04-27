@@ -30,3 +30,9 @@ class ViewController: UIViewController {
         storeTableView.separatorColor = .clear
     }
 }
+
+extension ViewController: StoreTableView {
+    func reload(section: Int) {
+        storeTableView.reloadSections(IndexSet(integer: section), with: .none)
+    }
+}
