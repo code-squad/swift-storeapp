@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         storeTableView.refreshControl?.addTarget(self, action: #selector(updateStoreItems), for: .valueChanged)
     }
     
+    //MARK: Objc
     @objc func updateStoreItems() {
         storePresenter.updateStoreItems()
     }

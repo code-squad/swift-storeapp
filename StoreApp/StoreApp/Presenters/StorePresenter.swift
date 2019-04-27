@@ -11,10 +11,15 @@ import Toaster
 
 class StorePresenter: NSObject {
     
+    //MARK: - Properties
+    //MARK: View
     private weak var storeTableView: StoreTableView?
 
+    //MARK: Model
     private let storeItems: StoreItemManager
     
+    //MARK: - Methods
+    //MARK: Initialization
     override init() {
         let initInfo = ["main": SectionInfo(title: "메인반찬", description: "한그릇 뚝딱 메인 요리"),
                         "side": SectionInfo(title: "국.찌게", description: "김이 모락모락 국.찌게"),
@@ -24,9 +29,10 @@ class StorePresenter: NSObject {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadSection),
                                                name: .storeItemsDidUpdate,
-                                               object: nil)
+                                               object: storeItems)
     }
     
+    //MARK: Objc
     @objc func reloadSection(_ noti: Notification) {
         guard let userInfo = noti.userInfo,
             let section = userInfo[UserInfoKey.section] as? Int else { return }
@@ -34,6 +40,7 @@ class StorePresenter: NSObject {
         
     }
     
+    //MARK: Presenter
     func attach(storeTableView: StoreTableView) {
         self.storeTableView = storeTableView
     }
@@ -42,6 +49,7 @@ class StorePresenter: NSObject {
         self.storeTableView = nil
     }
     
+    //MARK: Instance
     func updateStoreItems() {
         let updateInfo = ["main": "메인반찬",
                           "side": "국.찌게",
@@ -90,7 +98,7 @@ extension StorePresenter: UITableViewDelegate {
         if let toast = ToastCenter.default.currentToast {
             toast.cancel()
         }
-        Toast(text: "타이틀 메뉴: \(item.title)\n가격: \(item.s_price)",
+        Toast(text: "제목: \(item.title)\n가격: \(item.s_price)",
               delay: 0,
               duration: Delay.short).show()
     }
