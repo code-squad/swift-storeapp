@@ -39,5 +39,10 @@ class StoreItems {
             let jsonData = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
             let items = try? decoder.decode([StoreItem].self, from: jsonData) else { return }
         self.storeItems = items
+        NotificationCenter.default.post(name: .storeItemsDidUpdate, object: self)
     }
+}
+
+extension NSNotification.Name {
+    static let storeItemsDidUpdate = Notification.Name("storeItemsDidUpdate")
 }
