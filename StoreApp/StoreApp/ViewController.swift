@@ -30,3 +30,7 @@ class ViewController: UIViewController {
         storeTableView.separatorColor = .clear
     }
 }
+
+extension ViewController: StoreTableView {
+    
+}

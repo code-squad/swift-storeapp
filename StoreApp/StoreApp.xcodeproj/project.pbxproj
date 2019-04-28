@@ -19,6 +19,7 @@
 		7D1605B0226F02A100CB248B /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1605AF226F02A100CB248B /* SectionInfo.swift */; };
 		7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18270C226DDE840042C79F /* StoreItemManager.swift */; };
 		7D33758F22718E760068B980 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33758E22718E760068B980 /* ViewController.swift */; };
+		7D4E05882275D65E000882E4 /* StoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E05872275D65E000882E4 /* StoreTableView.swift */; };
 		7D731E0F226D8D9900EBB6FC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D731E0E226D8D9900EBB6FC /* main.json */; };
 		7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */; };
 		7D9371CC226EE06B0094C9B3 /* StoreTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */; };
@@ -47,6 +48,7 @@
 		7D1605AF226F02A100CB248B /* SectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
 		7D18270C226DDE840042C79F /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
 		7D33758E22718E760068B980 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7D4E05872275D65E000882E4 /* StoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableView.swift; sourceTree = "<group>"; };
 		7D731E0E226D8D9900EBB6FC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewHeaderView.swift; sourceTree = "<group>"; };
 		7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewHeaderView.xib; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				7D01B452225C8A1100471C5F /* AppDelegate.swift */,
 				7D33758E22718E760068B980 /* ViewController.swift */,
 				7D01B456225C8A1100471C5F /* Main.storyboard */,
+				7D4E05892275D672000882E4 /* ViewProtocol */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
 				7DCB0D152269A9DA00BE1F2F /* Models */,
 				7DB7AA45226C5E2000EF6112 /* CustomUI */,
@@ -113,6 +116,14 @@
 				7D01B45E225C8A1200471C5F /* Info.plist */,
 			);
 			path = StoreApp;
+			sourceTree = "<group>";
+		};
+		7D4E05892275D672000882E4 /* ViewProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				7D4E05872275D65E000882E4 /* StoreTableView.swift */,
+			);
+			path = ViewProtocol;
 			sourceTree = "<group>";
 		};
 		7DB7AA45226C5E2000EF6112 /* CustomUI */ = {
@@ -165,7 +176,6 @@
 				305854AFB02FFC5E5CD5B9C3 /* Pods-StoreApp.debug.xcconfig */,
 				4251A6339DDD65821F0BE55E /* Pods-StoreApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -307,6 +317,7 @@
 				7D937E31226AE84200989CA3 /* StoreTableViewCell.swift in Sources */,
 				7D1605AC226EF52900CB248B /* SpacingLabel.swift in Sources */,
 				7DB7AA42226C598000EF6112 /* BadgeLabel.swift in Sources */,
+				7D4E05882275D65E000882E4 /* StoreTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
