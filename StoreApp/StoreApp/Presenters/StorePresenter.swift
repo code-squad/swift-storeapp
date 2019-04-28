@@ -35,7 +35,9 @@ class StorePresenter: NSObject {
     
     //MARK: Objc
     @objc func reloadTableSection(_ noti: Notification) {
-        
+        guard let object = noti.object as? StoreItems,
+            let index = storeItems.index(of: object) else { return }
+        storeTableView?.reload(section: index)
     }
     
     //MARK: Presenter
