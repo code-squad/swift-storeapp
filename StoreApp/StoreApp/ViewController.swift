@@ -28,6 +28,8 @@ class ViewController: UIViewController {
         storeTableView.dataSource = storePresenter
         storeTableView.delegate = storePresenter
         storeTableView.separatorColor = .clear
+        
+        storePresenter.attach(storeTableView: self)
     }
 }
 
