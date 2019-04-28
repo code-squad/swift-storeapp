@@ -11,8 +11,15 @@ import Toaster
 
 class StorePresenter: NSObject {
 
+    //MARK: - Properties
+    //MARK: Views
+    private weak var storeTableView: StoreTableView?
+    
+    //MARK: Models
     private let storeItems: StoreItemManager
     
+    //MARK: - Methods
+    //MARK: Initialization
     override init() {
         let initInfo = ["main": SectionInfo(title: "메인반찬", description: "한그릇 뚝딱 메인 요리"),
                         "side": SectionInfo(title: "국.찌게", description: "김이 모락모락 국.찌게"),
@@ -26,8 +33,18 @@ class StorePresenter: NSObject {
                                                object: nil)
     }
     
+    //MARK: Objc
     @objc func reloadTableSection(_ noti: Notification) {
         
+    }
+    
+    //MARK: Presenter
+    func attach(storeTableView: StoreTableView) {
+        self.storeTableView = storeTableView
+    }
+    
+    func detachStoreTableView() {
+        self.storeTableView = nil
     }
 }
 
