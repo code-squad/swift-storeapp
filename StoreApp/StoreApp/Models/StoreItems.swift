@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct StoreItems {
+class StoreItems {
     
     //MARK: - Properties
     //MARK: Models
     let sectionInfo: SectionInfo
-    private var storeItems: [StoreItem]
+    private var storeItems = [StoreItem]()
     
     //MARK: - Methods
     //MARK: Subscript
@@ -23,9 +23,19 @@ struct StoreItems {
     }
     
     //MARK: Initialization
-    init(sectionInfo: SectionInfo, storeItems: [StoreItem]) {
+    init(sectionInfo: SectionInfo, fileName: String) {
         self.sectionInfo = sectionInfo
-        self.storeItems = storeItems
+        let commonURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
+        guard let url = URL(string: commonURL + fileName) else { return }
+        let fetcher = JSONDataFetcher()
+        let decoder = JSONDecoder()
+        let completion: (Data) -> Void = { data in
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                let data = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
+                let items = try? decoder.decode([StoreItem].self, from: data) else { return }
+            self.storeItems.append(contentsOf: items)
+        }
+        fetcher.load(url: url, completion: completion)
     }
     
     //MARK: Instance
