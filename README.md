@@ -99,3 +99,23 @@ height: size.height + topInset + bottomInset)
 ### 실행화면
 
 <img width="400" src="https://user-images.githubusercontent.com/38850628/56709282-61ae2b80-675b-11e9-8cf8-2ec4b6a38db3.gif">
+
+## step05. Network 프로그래밍
+
+### 배운내용
+
+#### `UIRefreshControl`에 대해서 배웠습니다.
+
+```swift
+tableView.refreshControl = UIRefreshControl()
+tableView.refreshControl?.addTarget(self, action: #selector(updateStoreItems), for: .valueChanged)
+```
+
+#### 코코아터치 프레임워크를 추가하고 사용하는 방법을 배웠습니다.
+
+- `Embedded Binaries`에 추가해서 사용하면 됩니다.
+- 프레임워크를 만들때는 접근레벨을 잘 적용해줘야 합니다.
+
+### 실행화면
+
+<img width="400" src="https://user-images.githubusercontent.com/38850628/56865312-a0680e00-6a07-11e9-989a-21ec9aef7fae.gif">
