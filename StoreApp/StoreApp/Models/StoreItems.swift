@@ -24,10 +24,10 @@ class StoreItems {
     }
     
     //MARK: Initialization
-    init(sectionInfo: SectionInfo, fileName: String) {
-        self.sectionInfo = sectionInfo
+    init(storeItemsInitInfo: StoreItemsInitInfo) {
+        self.sectionInfo = storeItemsInitInfo.sectionInfo
         let commonURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
-        guard let url = URL(string: commonURL + fileName) else { return }
+        guard let url = URL(string: commonURL + storeItemsInitInfo.fileName) else { return }
         let fetcher = JSONDataFetcher()
         let decoder = JSONDecoder()
         let completion: (Data) -> Void = { data in

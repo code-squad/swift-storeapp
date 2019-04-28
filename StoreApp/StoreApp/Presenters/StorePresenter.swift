@@ -21,10 +21,10 @@ class StorePresenter: NSObject {
     //MARK: - Methods
     //MARK: Initialization
     override init() {
-        let initInfo = ["main": SectionInfo(title: "메인반찬", description: "한그릇 뚝딱 메인 요리"),
-                        "soup": SectionInfo(title: "국.찌게", description: "김이 모락모락 국.찌게"),
-                        "side": SectionInfo(title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
-        self.storeItems = StoreItemManager(initInfo: initInfo)
+        let initInfoArray = [StoreItemsInitInfo(fileName: "main", title: "메인반찬", description: "한그릇 뚝딱 메인 요리"),
+                             StoreItemsInitInfo(fileName: "soup", title: "국.찌게", description: "김이 모락모락 국.찌게"),
+                             StoreItemsInitInfo(fileName: "side", title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
+        self.storeItems = StoreItemManager(initInfoArray: initInfoArray)
         super.init()
         
         NotificationCenter.default.addObserver(self,
