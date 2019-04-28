@@ -9,5 +9,5 @@
 import Foundation
 
 protocol StoreTableView {
-    
+    func reload(section: Int)
 }
