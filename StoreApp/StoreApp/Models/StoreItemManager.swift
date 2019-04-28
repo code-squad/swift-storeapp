@@ -21,9 +21,9 @@ class StoreItemManager {
     }
     
     //MARK: Initialization
-    init(initInfo: [String: SectionInfo]) {
-        for (fileName, sectionInfo) in initInfo {
-            let storeItems = StoreItems(sectionInfo: sectionInfo, fileName: fileName)
+    init(initInfoArray: [StoreItemsInitInfo]) {
+        for initInfo in initInfoArray {
+            let storeItems = StoreItems(storeItemsInitInfo: initInfo)
             self.storeItems.append(storeItems)
         }
     }
