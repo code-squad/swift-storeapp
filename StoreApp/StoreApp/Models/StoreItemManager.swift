@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StoreItemManager {
+class StoreItemManager {
     
     //MARK: - Properties
     private var storeItems = [StoreItems]()
@@ -23,19 +23,9 @@ struct StoreItemManager {
     //MARK: Initialization
     init(initInfo: [String: SectionInfo]) {
         for (fileName, sectionInfo) in initInfo {
-            guard let items = fetchStoreItems(with: fileName) else { continue }
-            let storeItems = StoreItems(sectionInfo: sectionInfo, storeItems: items)
+            let storeItems = StoreItems(sectionInfo: sectionInfo, fileName: fileName)
             self.storeItems.append(storeItems)
         }
-    }
-    
-    //MARK: Private
-    private func fetchStoreItems(with resourceName: String) -> [StoreItem]? {
-        guard let pathOfData = Bundle.main.path(forResource: resourceName, ofType: "json"),
-            let jsonData = try? Data(contentsOf: URL(fileURLWithPath: pathOfData),
-                                     options: .mappedIfSafe),
-            let items = try? JSONDecoder().decode([StoreItem].self, from: jsonData) else { return nil }
-        return items
     }
     
     //MARK: Instance
