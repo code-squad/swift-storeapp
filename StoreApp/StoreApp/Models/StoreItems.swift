@@ -34,7 +34,7 @@ class StoreItems {
                 let data = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
                 let items = try? decoder.decode([StoreItem].self, from: data) else { return }
             self.storeItems.append(contentsOf: items)
-            NotificationCenter.default.post(name: .storeItemsDidUpdate, object: nil)
+            NotificationCenter.default.post(name: .storeItemsDidUpdate, object: self)
         }
         fetcher.load(url: url, completion: completion)
     }

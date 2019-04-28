@@ -32,4 +32,8 @@ class StoreItemManager {
     func itemCount() -> Int {
         return storeItems.count
     }
+    
+    func index(of items: StoreItems) -> Int? {
+        return storeItems.firstIndex(where: {$0 === items})
+    }
 }
