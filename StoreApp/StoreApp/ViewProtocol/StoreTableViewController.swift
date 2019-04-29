@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol StoreTableView: AnyObject {
+protocol StoreTableViewController: AnyObject {
     func reload(section: Int)
 }
