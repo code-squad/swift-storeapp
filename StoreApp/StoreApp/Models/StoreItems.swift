@@ -29,15 +29,11 @@ class StoreItems {
         let commonURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
         guard let url = URL(string: commonURL + storeItemsInitInfo.fileName) else { return }
         let fetcher = JSONDataFetcher()
-        let decoder = JSONDecoder()
-        let completion: (Data) -> Void = { data in
-            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                let data = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
-                let items = try? decoder.decode([StoreItem].self, from: data) else { return }
-            self.storeItems.append(contentsOf: items)
+        let completion: ([StoreItem]) -> Void = { storeItems in
+            self.storeItems.append(contentsOf: storeItems)
             NotificationCenter.default.post(name: .storeItemsDidUpdate, object: self)
         }
-        fetcher.load(url: url, completion: completion)
+        fetcher.fetchStoreItems(url: url, completion: completion)
     }
     
     //MARK: Instance
@@ -48,4 +44,16 @@ class StoreItems {
 
 extension NSNotification.Name {
     static let storeItemsDidUpdate = NSNotification.Name("storeItemsDidUpdate")
+}
+
+extension JSONDataFetcher {
+    func fetchStoreItems(url: URL, completion: @escaping ([StoreItem]) -> Void) {
+        load(url: url) { (data) in
+            let decoder = JSONDecoder()
+            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                let data = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
+                let items = try? decoder.decode([StoreItem].self, from: data) else { return }
+            completion(items)
+        }
+    }
 }
