@@ -21,9 +21,9 @@ class StoreItemManager {
     }
     
     //MARK: Initialization
-    init(variousInitInfo: [StoreItemsInitInfo]) {
-        for initInfo in variousInitInfo {
-            let storeItems = StoreItems(storeItemsInitInfo: initInfo)
+    init(variousSectionInfo: [SectionInfo]) {
+        for sectionInfo in variousSectionInfo {
+            let storeItems = StoreItems(storeItemsInitInfo: sectionInfo)
             self.storeItemManager.append(storeItems)
         }
     }

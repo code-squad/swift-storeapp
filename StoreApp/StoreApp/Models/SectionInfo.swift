@@ -9,6 +9,7 @@
 import Foundation
 
 struct SectionInfo {
+    let fileName: String
     let title: String
     let description: String
 }
