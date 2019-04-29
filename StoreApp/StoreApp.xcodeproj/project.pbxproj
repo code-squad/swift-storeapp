@@ -19,7 +19,7 @@
 		7D1605B0226F02A100CB248B /* SectionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1605AF226F02A100CB248B /* SectionInfo.swift */; };
 		7D18270D226DDE840042C79F /* StoreItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D18270C226DDE840042C79F /* StoreItemManager.swift */; };
 		7D33758F22718E760068B980 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D33758E22718E760068B980 /* ViewController.swift */; };
-		7D4E05882275D65E000882E4 /* StoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E05872275D65E000882E4 /* StoreTableView.swift */; };
+		7D4E05882275D65E000882E4 /* StoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4E05872275D65E000882E4 /* StoreTableViewController.swift */; };
 		7D5524702275E4810033273D /* JSONDataFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D55246F2275E46B0033273D /* JSONDataFetcher.framework */; };
 		7D5524712275E4810033273D /* JSONDataFetcher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7D55246F2275E46B0033273D /* JSONDataFetcher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7D5524762275F05E0033273D /* StoreItemsInitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5524752275F05E0033273D /* StoreItemsInitInfo.swift */; };
@@ -82,7 +82,7 @@
 		7D1605AF226F02A100CB248B /* SectionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionInfo.swift; sourceTree = "<group>"; };
 		7D18270C226DDE840042C79F /* StoreItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemManager.swift; sourceTree = "<group>"; };
 		7D33758E22718E760068B980 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7D4E05872275D65E000882E4 /* StoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableView.swift; sourceTree = "<group>"; };
+		7D4E05872275D65E000882E4 /* StoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewController.swift; sourceTree = "<group>"; };
 		7D55246A2275E46B0033273D /* JSONDataFetcher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JSONDataFetcher.xcodeproj; path = ../../../../Desktop/JSONDataFetcher/JSONDataFetcher.xcodeproj; sourceTree = "<group>"; };
 		7D5524752275F05E0033273D /* StoreItemsInitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemsInitInfo.swift; sourceTree = "<group>"; };
 		7D731E0E226D8D9900EBB6FC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		7D4E05892275D672000882E4 /* ViewProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				7D4E05872275D65E000882E4 /* StoreTableView.swift */,
+				7D4E05872275D65E000882E4 /* StoreTableViewController.swift */,
 			);
 			path = ViewProtocol;
 			sourceTree = "<group>";
@@ -383,7 +383,7 @@
 				7D937E31226AE84200989CA3 /* StoreTableViewCell.swift in Sources */,
 				7D1605AC226EF52900CB248B /* SpacingLabel.swift in Sources */,
 				7DB7AA42226C598000EF6112 /* BadgeLabel.swift in Sources */,
-				7D4E05882275D65E000882E4 /* StoreTableView.swift in Sources */,
+				7D4E05882275D65E000882E4 /* StoreTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

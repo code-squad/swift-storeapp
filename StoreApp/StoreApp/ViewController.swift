@@ -29,11 +29,11 @@ class ViewController: UIViewController {
         storeTableView.delegate = storePresenter
         storeTableView.separatorColor = .clear
         
-        storePresenter.attach(storeTableView: self)
+        storePresenter.attach(storeTableViewCotroller: self)
     }
 }
 
-extension ViewController: StoreTableView {
+extension ViewController: StoreTableViewController {
     func reload(section: Int) {
         DispatchQueue.main.sync {
             storeTableView.reloadSections(IndexSet(integer: section),

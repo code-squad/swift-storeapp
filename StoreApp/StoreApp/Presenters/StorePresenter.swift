@@ -13,7 +13,7 @@ class StorePresenter: NSObject {
 
     //MARK: - Properties
     //MARK: Views
-    private weak var storeTableView: StoreTableView?
+    private weak var storeTableViewController: StoreTableViewController?
     
     //MARK: Models
     private let storeItems: StoreItemManager
@@ -37,16 +37,16 @@ class StorePresenter: NSObject {
     @objc func reloadTableSection(_ noti: Notification) {
         guard let object = noti.object as? StoreItems,
             let index = storeItems.index(of: object) else { return }
-        storeTableView?.reload(section: index)
+        storeTableViewController?.reload(section: index)
     }
     
     //MARK: Presenter
-    func attach(storeTableView: StoreTableView) {
-        self.storeTableView = storeTableView
+    func attach(storeTableViewCotroller: StoreTableViewController) {
+        self.storeTableViewController = storeTableViewCotroller
     }
     
     func detachStoreTableView() {
-        self.storeTableView = nil
+        self.storeTableViewController = nil
     }
 }
 
