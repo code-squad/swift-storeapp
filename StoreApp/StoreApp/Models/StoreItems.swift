@@ -26,14 +26,12 @@ class StoreItems {
     //MARK: Initialization
     init(storeItemsInitInfo: SectionInfo) {
         self.sectionInfo = storeItemsInitInfo
-        let commonURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
-        guard let url = URL(string: commonURL + storeItemsInitInfo.fileName) else { return }
         let fetcher = JSONDataFetcher()
         let completion: ([StoreItem]) -> Void = { storeItems in
             self.storeItems.append(contentsOf: storeItems)
             NotificationCenter.default.post(name: .storeItemsDidUpdate, object: self)
         }
-        fetcher.fetchStoreItems(url: url, completion: completion)
+        fetcher.fetchStoreItems(fileName: storeItemsInitInfo.fileName, completion: completion)
     }
     
     //MARK: Instance
@@ -47,7 +45,9 @@ extension NSNotification.Name {
 }
 
 extension JSONDataFetcher {
-    func fetchStoreItems(url: URL, completion: @escaping ([StoreItem]) -> Void) {
+    func fetchStoreItems(fileName: String, completion: @escaping ([StoreItem]) -> Void) {
+        let commonURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
+        guard let url = URL(string: commonURL + fileName) else { return }
         load(url: url) { (data) in
             let decoder = JSONDecoder()
             guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
