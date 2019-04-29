@@ -11,29 +11,29 @@ import Foundation
 class StoreItemManager {
     
     //MARK: - Properties
-    private var storeItems = [StoreItems]()
+    private var storeItemManager = [StoreItems]()
 
     //MARK: - Methods
     //MARK: Subscript
     subscript(index: Int) -> StoreItems? {
-        guard 0 <= index, index < storeItems.count else { return nil }
-        return storeItems[index]
+        guard 0 <= index, index < storeItemManager.count else { return nil }
+        return storeItemManager[index]
     }
     
     //MARK: Initialization
     init(initInfoArray: [StoreItemsInitInfo]) {
         for initInfo in initInfoArray {
             let storeItems = StoreItems(storeItemsInitInfo: initInfo)
-            self.storeItems.append(storeItems)
+            self.storeItemManager.append(storeItems)
         }
     }
     
     //MARK: Instance
     func itemCount() -> Int {
-        return storeItems.count
+        return storeItemManager.count
     }
     
     func index(of items: StoreItems) -> Int? {
-        return storeItems.firstIndex(where: {$0 === items})
+        return storeItemManager.firstIndex(where: {$0 === items})
     }
 }
