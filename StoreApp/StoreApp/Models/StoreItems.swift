@@ -28,8 +28,11 @@ class StoreItems {
         self.sectionInfo = storeItemsInitInfo
         let fetcher = JSONDataFetcher()
         let completion: ([StoreItem]) -> Void = { storeItems in
-            self.storeItems.append(contentsOf: storeItems)
-            NotificationCenter.default.post(name: .storeItemsDidUpdate, object: self)
+            let appendItems = { () -> Void in
+                self.storeItems.append(contentsOf: storeItems)
+            }
+            let userInfo = [UserInfoKey.appendItems: appendItems]
+            NotificationCenter.default.post(name: .storeItemsWillUpdate, object: self, userInfo: userInfo)
         }
         fetcher.fetchStoreItems(fileName: storeItemsInitInfo.fileName, completion: completion)
     }
@@ -41,7 +44,7 @@ class StoreItems {
 }
 
 extension NSNotification.Name {
-    static let storeItemsDidUpdate = NSNotification.Name("storeItemsDidUpdate")
+    static let storeItemsWillUpdate = NSNotification.Name("storeItemsDidUpdate")
 }
 
 extension JSONDataFetcher {
@@ -56,4 +59,8 @@ extension JSONDataFetcher {
             completion(items)
         }
     }
+}
+
+struct UserInfoKey {
+    static let appendItems = "appendItems"
 }

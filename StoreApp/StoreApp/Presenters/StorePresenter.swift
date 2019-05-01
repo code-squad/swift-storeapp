@@ -29,15 +29,20 @@ class StorePresenter: NSObject {
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadTableSection),
-                                               name: .storeItemsDidUpdate,
+                                               name: .storeItemsWillUpdate,
                                                object: nil)
     }
     
     //MARK: Objc
     @objc func reloadTableSection(_ noti: Notification) {
         guard let object = noti.object as? StoreItems,
-            let index = storeItems.index(of: object) else { return }
-        storeTableViewController?.reload(section: index)
+            let index = storeItems.index(of: object),
+            let userInfo = noti.userInfo,
+            let appendItems = userInfo[UserInfoKey.appendItems] as? () -> Void else { return }
+        DispatchQueue.main.async {
+            appendItems()
+            self.storeTableViewController?.reload(section: index)
+        }
     }
     
     //MARK: Presenter
