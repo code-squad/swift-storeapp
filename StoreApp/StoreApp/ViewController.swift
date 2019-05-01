@@ -35,9 +35,7 @@ class ViewController: UIViewController {
 
 extension ViewController: StoreTableViewController {
     func reload(section: Int) {
-        DispatchQueue.main.async {
-            self.storeTableView.reloadSections(IndexSet(integer: section),
-                                               with: .none)
-        }
+        self.storeTableView.reloadSections(IndexSet(integer: section),
+                                           with: .none)
     }
 }
