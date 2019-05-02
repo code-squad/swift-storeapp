@@ -68,6 +68,10 @@
                                     <constraint firstAttribute="width" priority="749" constant="6" id="aIN-1X-aab"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="PQO-9t-lrE">
+                                <rect key="frame" x="41" y="41" width="20" height="20"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -75,6 +79,7 @@
                             <constraint firstItem="3Sh-GN-qBy" firstAttribute="top" secondItem="r2A-m4-8uu" secondAttribute="top" constant="8" id="2tD-HI-sQJ"/>
                             <constraint firstAttribute="bottom" secondItem="r2A-m4-8uu" secondAttribute="bottom" constant="8" id="Iee-dd-qPz"/>
                             <constraint firstItem="r2A-m4-8uu" firstAttribute="leading" secondItem="UPm-tc-jYr" secondAttribute="leading" constant="8" id="NqE-JW-1uS"/>
+                            <constraint firstItem="PQO-9t-lrE" firstAttribute="centerX" secondItem="r2A-m4-8uu" secondAttribute="centerX" id="PtD-bp-seq"/>
                             <constraint firstAttribute="trailing" secondItem="3Sh-GN-qBy" secondAttribute="trailing" constant="12" id="RsK-VN-Qeg"/>
                             <constraint firstItem="VvV-22-7Uf" firstAttribute="leading" secondItem="3Sh-GN-qBy" secondAttribute="leading" id="TyY-Gr-4I1"/>
                             <constraint firstItem="3qj-hx-K4t" firstAttribute="top" secondItem="VvV-22-7Uf" secondAttribute="bottom" constant="8" id="WcM-qz-ZTf"/>
@@ -84,6 +89,7 @@
                             <constraint firstItem="ven-e8-PvF" firstAttribute="top" secondItem="3qj-hx-K4t" secondAttribute="bottom" constant="4" id="lpx-rJ-Fn4"/>
                             <constraint firstItem="3Sh-GN-qBy" firstAttribute="leading" secondItem="r2A-m4-8uu" secondAttribute="trailing" constant="10" id="s27-MH-3Us"/>
                             <constraint firstItem="r2A-m4-8uu" firstAttribute="top" secondItem="UPm-tc-jYr" secondAttribute="top" constant="8" id="tUc-bT-NyS"/>
+                            <constraint firstItem="PQO-9t-lrE" firstAttribute="centerY" secondItem="r2A-m4-8uu" secondAttribute="centerY" id="wV1-nU-uis"/>
                             <constraint firstItem="VvV-22-7Uf" firstAttribute="trailing" secondItem="3Sh-GN-qBy" secondAttribute="trailing" id="wma-Ed-gPS"/>
                         </constraints>
                     </view>
@@ -99,6 +105,7 @@
             <connections>
                 <outlet property="badgeStackView" destination="ven-e8-PvF" id="DpS-0T-Rvd"/>
                 <outlet property="detailedDescriptionLabel" destination="VvV-22-7Uf" id="pGE-XN-9zn"/>
+                <outlet property="imageLoadingIndicator" destination="PQO-9t-lrE" id="F5O-Nx-Esu"/>
                 <outlet property="menuImageView" destination="r2A-m4-8uu" id="xob-At-uyB"/>
                 <outlet property="naturalPriceLabel" destination="Nbp-3d-rNX" id="3pv-qv-nkQ"/>
                 <outlet property="salePriceLabel" destination="VM3-JN-ImD" id="eyA-Il-muz"/>
