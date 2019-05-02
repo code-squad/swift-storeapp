@@ -18,6 +18,7 @@ class StoreTableViewCell: UITableViewCell {
     @IBOutlet weak var naturalPriceLabel: UILabel!
     @IBOutlet weak var salePriceLabel: UILabel!
     @IBOutlet weak var badgeStackView: BadgeStackView!
+    @IBOutlet weak var imageLoadingIndicator: UIActivityIndicatorView!
     
     //MARK: Type
     static let nibName = "StoreTableViewCell"
