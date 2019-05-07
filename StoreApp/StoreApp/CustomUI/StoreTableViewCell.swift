@@ -28,6 +28,7 @@ class StoreTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        menuImageView.layer.cornerRadius = menuImageView.frame.width / 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -50,6 +51,8 @@ class StoreTableViewCell: UITableViewCell {
             badgeStackView.addBadges(badges)
             badgeStackView.isHidden = false
         }
+        let imageName = storeItem.image.lastPathComponent()
+        menuImageView.setItemImage(with: imageName)
     }
     
     //MARK: Private
@@ -80,4 +83,20 @@ extension String {
                                                      attributes: attributes)
         return strikeThroughString
     }
+    
+    func lastPathComponent() -> String {
+        return NSString(string: self).lastPathComponent
+    }
 }
+
+extension UIImageView {
+    func setItemImage(with name: String) {
+        guard let url = try? FileManager.default.url(for: .cachesDirectory,
+                                                     in: .userDomainMask,
+                                                     appropriateFor: nil,
+                                                     create: false),
+            let data = try? Data(contentsOf: url.appendingPathComponent(name)) else { return }
+       self.image = UIImage(data: data)
+    }
+}
+
