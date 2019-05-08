@@ -56,36 +56,20 @@ extension JSONDataFetcher {
             guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                 let data = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
                 let items = try? decoder.decode([StoreItem].self, from: data) else { return }
+            items.downloadImages()
             completion(items)
-            for item in items {
-                if let url = URL(string: item.image) {
-                    self.downloadImage(with: url)
-                }
-            }
         }
-    }
-    
-    private func downloadImage(with url: URL) {
-        URLSession.shared.downloadTask(with: url) { (fileURL, response, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            guard let fileURL = fileURL,
-                let response = response as? HTTPURLResponse,
-                (200...299) ~= response.statusCode,
-                let cacheURL = try? FileManager.default.url(for: .cachesDirectory,
-                                                            in: .userDomainMask,
-                                                            appropriateFor: nil,
-                                                            create: false) else { return }
-            
-            let savedURL = cacheURL.appendingPathComponent(url.lastPathComponent)
-            try? FileManager.default.moveItem(at: fileURL, to: savedURL)
-        }.resume()
     }
 }
 
 struct UserInfoKey {
     static let appendItems = "appendItems"
+}
+
+extension Array where Element == StoreItem {
+    func downloadImages() {
+        for item in self {
+            item.downloadImage()
+        }
+    }
 }

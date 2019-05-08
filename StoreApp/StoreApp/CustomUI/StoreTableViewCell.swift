@@ -83,10 +83,6 @@ extension String {
                                                      attributes: attributes)
         return strikeThroughString
     }
-    
-    func lastPathComponent() -> String {
-        return NSString(string: self).lastPathComponent
-    }
 }
 
 extension UIImageView {
