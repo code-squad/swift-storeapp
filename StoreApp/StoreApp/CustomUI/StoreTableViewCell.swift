@@ -87,12 +87,9 @@ extension String {
 
 extension UIImageView {
     func setItemImage(with name: String) {
-        guard let url = try? FileManager.default.url(for: .cachesDirectory,
-                                                     in: .userDomainMask,
-                                                     appropriateFor: nil,
-                                                     create: false),
+        guard let url = URL.cachesDirectory(),
             let data = try? Data(contentsOf: url.appendingPathComponent(name)) else { return }
-       self.image = UIImage(data: data)
+        self.image = UIImage(data: data)
     }
 }
 
