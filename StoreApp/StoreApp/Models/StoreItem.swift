@@ -21,7 +21,10 @@ struct StoreItem: Decodable {
     let badge: [String]?
     
     func downloadImage() {
-        guard let imageURL = URL(string: image) else { return }
+        guard let imageURL = URL(string: image),
+            let cacheURL = URL.cachesDirectory() else { return }
+        let imagePath = cacheURL.appendingPathComponent(image.lastPathComponent())
+        guard FileManager.default.fileExists(atPath: imagePath.path) == false else { return }
         let jsonFetcher = JSONDataFetcher()
         jsonFetcher.downloadImage(with: imageURL)
     }
@@ -38,10 +41,7 @@ extension JSONDataFetcher {
             guard let fileURL = fileURL,
                 let response = response as? HTTPURLResponse,
                 (200...299) ~= response.statusCode,
-                let cacheURL = try? FileManager.default.url(for: .cachesDirectory,
-                                                            in: .userDomainMask,
-                                                            appropriateFor: nil,
-                                                            create: false) else { return }
+                let cacheURL = URL.cachesDirectory() else { return }
             
             let savedURL = cacheURL.appendingPathComponent(url.lastPathComponent)
             try? FileManager.default.moveItem(at: fileURL, to: savedURL)
@@ -52,5 +52,15 @@ extension JSONDataFetcher {
 extension String {
     func lastPathComponent() -> String {
         return NSString(string: self).lastPathComponent
+    }
+}
+
+extension URL {
+    static func cachesDirectory() -> URL? {
+        let cacheURL = try? FileManager.default.url(for: .cachesDirectory,
+                                                    in: .userDomainMask,
+                                                    appropriateFor: nil,
+                                                    create: false)
+        return cacheURL
     }
 }
