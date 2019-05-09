@@ -45,6 +45,12 @@ extension JSONDataFetcher {
             
             let savedURL = cacheURL.appendingPathComponent(url.lastPathComponent)
             try? FileManager.default.moveItem(at: fileURL, to: savedURL)
+            
+            let userInfo = [UserInfoKey.imageName: url.lastPathComponent]
+            NotificationCenter.default.post(name: .imageDidDownload,
+                                            object: nil,
+                                            userInfo: userInfo)
+            
             }.resume()
     }
 }
@@ -63,4 +69,12 @@ extension URL {
                                                     create: false)
         return cacheURL
     }
+}
+
+extension NSNotification.Name {
+    static let imageDidDownload = NSNotification.Name("imageDidDownload")
+}
+
+extension UserInfoKey {
+    static let imageName = "imageName"
 }
