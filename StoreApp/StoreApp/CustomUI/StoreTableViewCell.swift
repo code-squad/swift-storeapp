@@ -52,9 +52,11 @@ class StoreTableViewCell: UITableViewCell {
             badgeStackView.isHidden = false
         }
         let imageName = storeItem.image.lastPathComponent()
-        menuImageView.setItemImage(with: imageName)
+        if menuImageView.setItemImage(with: imageName) {
+            imageLoadingIndicator.stopAnimating()
+        }
     }
-    
+
     //MARK: Private
     private func emptyAll() {
         menuImageView.image = nil
@@ -65,6 +67,7 @@ class StoreTableViewCell: UITableViewCell {
         salePriceLabel.text = nil
         badgeStackView.removeAllArrangedSubviews()
         badgeStackView.isHidden = true
+        imageLoadingIndicator.startAnimating()
     }
 }
 
@@ -86,10 +89,11 @@ extension String {
 }
 
 extension UIImageView {
-    func setItemImage(with name: String) {
+    func setItemImage(with name: String) -> Bool {
         guard let url = URL.cachesDirectory(),
-            let data = try? Data(contentsOf: url.appendingPathComponent(name)) else { return }
+            let data = try? Data(contentsOf: url.appendingPathComponent(name)) else { return false }
         self.image = UIImage(data: data)
+        return true
     }
 }
 
