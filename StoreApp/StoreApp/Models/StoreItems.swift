@@ -41,10 +41,22 @@ class StoreItems {
     func count() -> Int {
         return storeItems.count
     }
+    
+    func postReloadRow(section: Int, imageName: String) {
+        for row in storeItems.startIndex..<storeItems.endIndex {
+            guard storeItems[row].image.lastPathComponent() == imageName else { continue }
+            let userInfo = [UserInfoKey.indexPathWillReload: IndexPath(row: row,
+                                                                       section: section)]
+            NotificationCenter.default.post(name: .rowWillReload,
+                                            object: nil,
+                                            userInfo: userInfo)
+        }
+    }
 }
 
 extension NSNotification.Name {
     static let storeItemsWillUpdate = NSNotification.Name("storeItemsDidUpdate")
+    static let rowWillReload = NSNotification.Name("rowWillReload")
 }
 
 extension JSONDataFetcher {
@@ -64,6 +76,7 @@ extension JSONDataFetcher {
 
 struct UserInfoKey {
     static let appendItems = "appendItems"
+    static let indexPathWillReload = "indexPathWillReload"
 }
 
 extension Array where Element == StoreItem {

@@ -10,4 +10,5 @@ import Foundation
 
 protocol StoreTableViewController: AnyObject {
     func reload(section: Int)
+    func reload(indexPath: IndexPath)
 }

@@ -26,6 +26,20 @@ class StoreItemManager {
             let storeItems = StoreItems(storeItemsInitInfo: sectionInfo)
             self.storeItemManager.append(storeItems)
         }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(makeToPostReloadRow),
+                                               name: .imageDidDownload,
+                                               object: nil)
+    }
+    
+    @objc func makeToPostReloadRow(_ noti: Notification) {
+        guard let userInfo = noti.userInfo,
+            let imageName = userInfo[UserInfoKey.imageName] as? String else { return }
+        for section in storeItemManager.startIndex..<storeItemManager.endIndex {
+            let items = storeItemManager[section]
+            items.postReloadRow(section: section, imageName: imageName)
+        }
     }
     
     //MARK: Instance

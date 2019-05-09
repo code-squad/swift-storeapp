@@ -31,6 +31,11 @@ class StorePresenter: NSObject {
                                                selector: #selector(reloadTableSection),
                                                name: .storeItemsWillUpdate,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadTableRow),
+                                               name: .rowWillReload,
+                                               object: nil)
     }
     
     //MARK: Objc
@@ -42,6 +47,14 @@ class StorePresenter: NSObject {
         DispatchQueue.main.async {
             appendItems()
             self.storeTableViewController?.reload(section: index)
+        }
+    }
+    
+    @objc func reloadTableRow(_ noti: Notification) {
+        guard let userInfo = noti.userInfo,
+            let indexPath = userInfo[UserInfoKey.indexPathWillReload] as? IndexPath else { return }
+        DispatchQueue.main.async {
+            self.storeTableViewController?.reload(indexPath: indexPath)
         }
     }
     

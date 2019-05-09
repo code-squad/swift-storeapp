@@ -38,4 +38,9 @@ extension ViewController: StoreTableViewController {
         self.storeTableView.reloadSections(IndexSet(integer: section),
                                            with: .none)
     }
+    
+    func reload(indexPath: IndexPath) {
+        self.storeTableView.reloadRows(at: [indexPath],
+                                       with: .none)
+    }
 }
