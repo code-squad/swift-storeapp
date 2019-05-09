@@ -300,6 +300,10 @@ dispatch group over
 
 ### 배운내용
 
+#### 파일을 다운로드하는 방법을 배웠습니다.
+
+- 처음에 다운로드하면 해당 파일이 `tmp`폴더에 들어가있는데 그것을 `copyItem`이나 `moveItem`을 통해서 꺼내줘야한다!(아니면 사라짐)
+
 ### 실행화면
 
 <img width="400" src="https://user-images.githubusercontent.com/38850628/57454757-91ede200-72a4-11e9-9944-24db1d0e4f9b.gif">
