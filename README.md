@@ -292,8 +292,14 @@ dispatch group over
 
 ```
 
-
-
 ### 실행화면
 
 <img width="400" src="https://user-images.githubusercontent.com/38850628/56865312-a0680e00-6a07-11e9-989a-21ec9aef7fae.gif">
+
+## step06. 병렬처리
+
+### 배운내용
+
+### 실행화면
+
+<img width="400" src="https://user-images.githubusercontent.com/38850628/57454757-91ede200-72a4-11e9-9944-24db1d0e4f9b.gif">
