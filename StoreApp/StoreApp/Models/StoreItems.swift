@@ -74,11 +74,6 @@ extension JSONDataFetcher {
     }
 }
 
-struct UserInfoKey {
-    static let appendItems = "appendItems"
-    static let indexPathWillReload = "indexPathWillReload"
-}
-
 extension Array where Element == StoreItem {
     func downloadImages() {
         for item in self {

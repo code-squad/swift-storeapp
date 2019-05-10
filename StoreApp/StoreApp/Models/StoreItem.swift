@@ -74,7 +74,3 @@ extension URL {
 extension NSNotification.Name {
     static let imageDidDownload = NSNotification.Name("imageDidDownload")
 }
-
-extension UserInfoKey {
-    static let imageName = "imageName"
-}
