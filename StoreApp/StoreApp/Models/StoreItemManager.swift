@@ -36,9 +36,9 @@ class StoreItemManager {
     @objc func makeToPostReloadRow(_ noti: Notification) {
         guard let userInfo = noti.userInfo,
             let imageName = userInfo[UserInfoKey.imageName] as? String else { return }
-        for section in storeItemManager.startIndex..<storeItemManager.endIndex {
-            let items = storeItemManager[section]
-            items.postReloadRow(section: section, imageName: imageName)
+        for items in storeItemManager {
+            guard let index = storeItemManager.firstIndex(where: {$0 === items}) else { return }
+            items.postReloadRow(section: Int(index), imageName: imageName)
         }
     }
     
