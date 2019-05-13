@@ -19,23 +19,3 @@ struct StoreItem: Decodable {
     let s_price: String
     let badge: [String]?
 }
-
-extension String {
-    func lastPathComponent() -> String {
-        return NSString(string: self).lastPathComponent
-    }
-}
-
-extension URL {
-    static func cachesDirectory() -> URL? {
-        let cacheURL = try? FileManager.default.url(for: .cachesDirectory,
-                                                    in: .userDomainMask,
-                                                    appropriateFor: nil,
-                                                    create: false)
-        return cacheURL
-    }
-}
-
-extension NSNotification.Name {
-    static let imageDidDownload = NSNotification.Name("imageDidDownload")
-}
