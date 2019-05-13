@@ -43,9 +43,9 @@ class StoreItems {
     }
     
     func postReloadRow(section: Int, imageName: String) {
-        for row in storeItems.startIndex..<storeItems.endIndex {
-            guard storeItems[row].image.lastPathComponent() == imageName else { continue }
-            let userInfo = [UserInfoKey.indexPathWillReload: IndexPath(row: row,
+        for (index, item) in storeItems.enumerated() {
+            guard item.image.lastPathComponent() == imageName else { continue }
+            let userInfo = [UserInfoKey.indexPathWillReload: IndexPath(row: index,
                                                                        section: section)]
             NotificationCenter.default.post(name: .rowWillReload,
                                             object: nil,
