@@ -104,4 +104,11 @@ extension Array where Element == StoreItem {
             jsonFetcher.downloadImage(with: imageURL)
         }
     }
+    
+    func imageURLs() -> [ImageURL] {
+        return self.compactMap { item -> ImageURL? in
+            guard let url = URL(string: item.image) else { return nil }
+            return ImageURL(url: url)
+        }
+    }
 }
