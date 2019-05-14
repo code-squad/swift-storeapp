@@ -63,7 +63,8 @@ extension JSONDataFetcher {
             guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
                 let data = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
                 let items = try? decoder.decode([StoreItem].self, from: data) else { return }
-            items.downloadImages()
+            let urls = items.imageURLs()
+            urls.downloadImages()
             completion(items)
         }
     }
@@ -93,22 +94,18 @@ extension JSONDataFetcher {
 }
 
 extension Array where Element == StoreItem {
-    func downloadImages() {
-        for item in self {
-            let image = item.image
-            guard let imageURL = URL(string: image),
-                let cacheURL = URL.cachesDirectory() else { return }
-            let imagePath = cacheURL.appendingPathComponent(image.lastPathComponent())
-            guard FileManager.default.fileExists(atPath: imagePath.path) == false else { return }
-            let jsonFetcher = JSONDataFetcher()
-            jsonFetcher.downloadImage(with: imageURL)
-        }
-    }
-    
     func imageURLs() -> [ImageURL] {
         return self.compactMap { item -> ImageURL? in
             guard let url = URL(string: item.image) else { return nil }
             return ImageURL(url: url)
+        }
+    }
+}
+
+extension Array where Element == ImageURL {
+    func downloadImages() {
+        for url in self {
+            url.downloadImage()
         }
     }
 }
