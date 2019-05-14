@@ -7,7 +7,16 @@
 //
 
 import Foundation
+import JSONDataFetcher
 
 struct ImageURL {
     let url: URL
+    
+    func downloadImage() {
+        guard let cacheURL = URL.cachesDirectory() else { return }
+        let imagePath = cacheURL.appendingPathComponent(url.lastPathComponent)
+        guard FileManager.default.fileExists(atPath: imagePath.path) == false else { return }
+        let jsonFetcher = JSONDataFetcher()
+        jsonFetcher.downloadImage(with: url)
+    }
 }
