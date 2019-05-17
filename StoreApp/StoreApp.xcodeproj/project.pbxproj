@@ -35,6 +35,7 @@
 		7DF5BD87226EAB7B00C1E4C9 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD85226EAB7B00C1E4C9 /* soup.json */; };
 		7DF5BD88226EAB7B00C1E4C9 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD86226EAB7B00C1E4C9 /* side.json */; };
 		7DFCD1FB228B0A3D0063762F /* ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DFCD1FA228B0A3D0063762F /* ImageURL.swift */; };
+		7DFCD277228E6A9D0063762F /* DetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DFCD276228E6A9D0063762F /* DetailViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		7DF5BD85226EAB7B00C1E4C9 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		7DF5BD86226EAB7B00C1E4C9 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		7DFCD1FA228B0A3D0063762F /* ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURL.swift; sourceTree = "<group>"; };
+		7DFCD276228E6A9D0063762F /* DetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailViewController.storyboard; sourceTree = "<group>"; };
 		FD9DD6EC624E1EA33FB8D85D /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,6 +150,7 @@
 				7D01B452225C8A1100471C5F /* AppDelegate.swift */,
 				7D33758E22718E760068B980 /* ViewController.swift */,
 				7D01B456225C8A1100471C5F /* Main.storyboard */,
+				7DFCD276228E6A9D0063762F /* DetailViewController.storyboard */,
 				7D72EB332285431F00D0957D /* UserInfoKey.swift */,
 				7D5B9ACE2289561600F1EFDC /* Extensions.swift */,
 				7D4E05892275D672000882E4 /* ViewProtocol */,
@@ -317,6 +320,7 @@
 				7D01B45A225C8A1200471C5F /* Assets.xcassets in Resources */,
 				7DF5BD88226EAB7B00C1E4C9 /* side.json in Resources */,
 				7DF5BD87226EAB7B00C1E4C9 /* soup.json in Resources */,
+				7DFCD277228E6A9D0063762F /* DetailViewController.storyboard in Resources */,
 				7D01B458225C8A1100471C5F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
