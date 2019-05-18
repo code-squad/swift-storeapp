@@ -13,7 +13,11 @@ class StorePresenter: NSObject {
 
     //MARK: - Properties
     //MARK: Views
-    private weak var storeTableViewController: StoreTableViewController?
+    private weak var storeTableViewController: StoreTableViewController? {
+        didSet {
+            detailRouter.viewController = storeTableViewController
+        }
+    }
     
     //MARK: Models
     private let storeItems: StoreItemManager
@@ -115,5 +119,7 @@ extension StorePresenter: UITableViewDelegate {
         Toast(text: "타이틀 메뉴: \(item.title)\n가격: \(item.s_price)",
               delay: 0,
               duration: Delay.short).show()
+        guard let detailHash = storeItems[indexPath.section]?[indexPath.row]?.detail_hash else { return }
+        detailRouter.presentViewController(detailHash: detailHash)
     }
 }
