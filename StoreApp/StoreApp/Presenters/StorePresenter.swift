@@ -28,10 +28,9 @@ class StorePresenter: NSObject {
                                   SectionInfo(fileName: "soup", title: "국.찌게", description: "김이 모락모락 국.찌게"),
                                   SectionInfo(fileName: "side", title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
         self.storeItems = StoreItemManager(variousSectionInfo: variousSectionInfo)
-        self.detailRouter = DetailRouter()
+        self.detailRouter = DetailRouter(storeViewController: storeTableViewController)
         super.init()
         
-        self.detailRouter.presenter = self
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadTableSection),
                                                name: .storeItemsWillUpdate,
