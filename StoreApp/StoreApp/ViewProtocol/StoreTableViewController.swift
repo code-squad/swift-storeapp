@@ -6,9 +6,9 @@
 //  Copyright © 2019 hngfu. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol StoreTableViewController: AnyObject {
+protocol StoreTableViewController: UIViewController {
     func reload(section: Int)
     func reload(indexPath: IndexPath)
 }
