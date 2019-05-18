@@ -208,9 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				7D33758E22718E760068B980 /* ViewController.swift */,
-				7D01B456225C8A1100471C5F /* Main.storyboard */,
 				7DAEC42E228EA37400CA4430 /* DetailViewController.swift */,
-				7DFCD276228E6A9D0063762F /* DetailViewController.storyboard */,
+				7DBB60BE228FFC2A00256626 /* Storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,6 +220,15 @@
 				7DBB60B6228FE46800256626 /* DetailRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		7DBB60BE228FFC2A00256626 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7D01B456225C8A1100471C5F /* Main.storyboard */,
+				7DFCD276228E6A9D0063762F /* DetailViewController.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		7DCB0D152269A9DA00BE1F2F /* Models */ = {
