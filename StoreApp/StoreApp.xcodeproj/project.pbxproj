@@ -156,17 +156,14 @@
 			isa = PBXGroup;
 			children = (
 				7D01B452225C8A1100471C5F /* AppDelegate.swift */,
-				7D33758E22718E760068B980 /* ViewController.swift */,
-				7D01B456225C8A1100471C5F /* Main.storyboard */,
-				7DAEC42E228EA37400CA4430 /* DetailViewController.swift */,
-				7DFCD276228E6A9D0063762F /* DetailViewController.storyboard */,
-				7D72EB332285431F00D0957D /* UserInfoKey.swift */,
 				7D5B9ACE2289561600F1EFDC /* Extensions.swift */,
-				7DBB60B6228FE46800256626 /* DetailRouter.swift */,
+				7D72EB332285431F00D0957D /* UserInfoKey.swift */,
 				7DBB60B8228FF01800256626 /* StoryboardNames.swift */,
+				7DBB60BC228FFB2200256626 /* View */,
 				7D4E05892275D672000882E4 /* ViewProtocol */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
 				7DCB0D152269A9DA00BE1F2F /* Models */,
+				7DBB60BD228FFB5C00256626 /* Router */,
 				7DB7AA45226C5E2000EF6112 /* CustomUI */,
 				7D01B459225C8A1200471C5F /* Assets.xcassets */,
 				7DF5BD89226EACE900C1E4C9 /* JSON File */,
@@ -205,6 +202,25 @@
 				7DB7AA43226C5D2E00EF6112 /* BadgeStackView.swift */,
 			);
 			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		7DBB60BC228FFB2200256626 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D33758E22718E760068B980 /* ViewController.swift */,
+				7D01B456225C8A1100471C5F /* Main.storyboard */,
+				7DAEC42E228EA37400CA4430 /* DetailViewController.swift */,
+				7DFCD276228E6A9D0063762F /* DetailViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7DBB60BD228FFB5C00256626 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				7DBB60B6228FE46800256626 /* DetailRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		7DCB0D152269A9DA00BE1F2F /* Models */ = {
