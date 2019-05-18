@@ -19,10 +19,10 @@ class DetailRouter {
     static func assembleModule() -> UIViewController? {
         let storyboard = UIStoryboard(name: StoryboardNames.detailViewController,
                                       bundle: nil)
-        guard let navigationController = storyboard.instantiateViewController(withIdentifier: StoryboardNames.detailViewNavigationControllerID) as? UINavigationController,
-            let detailViewController = navigationController.topViewController as? DetailViewController else { return nil }
+        let id = StoryboardNames.detailViewControllerID
+        guard let detailViewController = storyboard.instantiateViewController(withIdentifier: id) as? DetailViewController else { return nil }
         
-        return navigationController
+        return detailViewController
     }
     
     func presentViewController(detailHash: String) {
