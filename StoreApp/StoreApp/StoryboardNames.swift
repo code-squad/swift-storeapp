@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct StoryboardNames {
+    static let detailViewController = "DetailViewController"
+    static let detailViewNavigationControllerID = "detailViewNavigationController"
+}
