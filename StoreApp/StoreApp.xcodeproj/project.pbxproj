@@ -32,6 +32,7 @@
 		7DAEC42F228EA37400CA4430 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAEC42E228EA37400CA4430 /* DetailViewController.swift */; };
 		7DB7AA42226C598000EF6112 /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7AA41226C598000EF6112 /* BadgeLabel.swift */; };
 		7DB7AA44226C5D2E00EF6112 /* BadgeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB7AA43226C5D2E00EF6112 /* BadgeStackView.swift */; };
+		7DBB60B7228FE46800256626 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB60B6228FE46800256626 /* DetailRouter.swift */; };
 		7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */; };
 		7DF5BD87226EAB7B00C1E4C9 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD85226EAB7B00C1E4C9 /* soup.json */; };
 		7DF5BD88226EAB7B00C1E4C9 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF5BD86226EAB7B00C1E4C9 /* side.json */; };
@@ -98,6 +99,7 @@
 		7DAEC42E228EA37400CA4430 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7DB7AA41226C598000EF6112 /* BadgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLabel.swift; sourceTree = "<group>"; };
 		7DB7AA43226C5D2E00EF6112 /* BadgeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeStackView.swift; sourceTree = "<group>"; };
+		7DBB60B6228FE46800256626 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresenter.swift; sourceTree = "<group>"; };
 		7DF5BD85226EAB7B00C1E4C9 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		7DF5BD86226EAB7B00C1E4C9 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				7DFCD276228E6A9D0063762F /* DetailViewController.storyboard */,
 				7D72EB332285431F00D0957D /* UserInfoKey.swift */,
 				7D5B9ACE2289561600F1EFDC /* Extensions.swift */,
+				7DBB60B6228FE46800256626 /* DetailRouter.swift */,
 				7D4E05892275D672000882E4 /* ViewProtocol */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
 				7DCB0D152269A9DA00BE1F2F /* Models */,
@@ -385,6 +388,7 @@
 				7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */,
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
 				7D1605B0226F02A100CB248B /* SectionInfo.swift in Sources */,
+				7DBB60B7228FE46800256626 /* DetailRouter.swift in Sources */,
 				7D1605AE226EF86A00CB248B /* BorderLabel.swift in Sources */,
 				7D72EB342285431F00D0957D /* UserInfoKey.swift in Sources */,
 				7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */,

@@ -168,6 +168,9 @@
                                 <state key="normal" title="주문하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="touchUpOrderButton:" destination="Nm6-0O-qoE" eventType="touchUpInside" id="j8g-PV-CJB"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -192,7 +195,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Pif-1r-OWz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f9U-is-cQw" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="detailViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="f9U-is-cQw" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y7l-s2-j5p">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
