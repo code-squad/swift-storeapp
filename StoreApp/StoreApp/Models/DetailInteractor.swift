@@ -19,6 +19,5 @@ class DetailInteractor {
         let decoder = JSONDecoder()
         guard let detailInfo = try? decoder.decode(DetailInfo.self, from: body) else { return nil}
         self.detailInfo = detailInfo
-        print(detailInfo)
     }
 }
