@@ -56,8 +56,7 @@ class StoreItems {
 
 extension JSONDataFetcher {
     func fetchStoreItems(fileName: String, completion: @escaping ([StoreItem]) -> Void) {
-        let commonURL = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
-        guard let url = URL(string: commonURL + fileName) else { return }
+        guard let url = URL(string: Configuration.URL.storeItems + fileName) else { return }
         load(url: url) { (data) in
             let decoder = JSONDecoder()
             guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
