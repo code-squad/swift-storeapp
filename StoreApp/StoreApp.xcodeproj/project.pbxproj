@@ -25,6 +25,7 @@
 		7D5B9ACF2289561600F1EFDC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5B9ACE2289561600F1EFDC /* Extensions.swift */; };
 		7D72EB342285431F00D0957D /* UserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D72EB332285431F00D0957D /* UserInfoKey.swift */; };
 		7D731E0F226D8D9900EBB6FC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D731E0E226D8D9900EBB6FC /* main.json */; };
+		7D7A8E242291129B00A2B9AB /* DetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A8E232291129B00A2B9AB /* DetailViewControllerDelegate.swift */; };
 		7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */; };
 		7D9371CC226EE06B0094C9B3 /* StoreTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */; };
 		7D937E31226AE84200989CA3 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D937E2F226AE84200989CA3 /* StoreTableViewCell.swift */; };
@@ -94,6 +95,7 @@
 		7D5B9ACE2289561600F1EFDC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7D72EB332285431F00D0957D /* UserInfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoKey.swift; sourceTree = "<group>"; };
 		7D731E0E226D8D9900EBB6FC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		7D7A8E232291129B00A2B9AB /* DetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerDelegate.swift; sourceTree = "<group>"; };
 		7D9371C9226EE0570094C9B3 /* StoreTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewHeaderView.swift; sourceTree = "<group>"; };
 		7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewHeaderView.xib; sourceTree = "<group>"; };
 		7D937E2F226AE84200989CA3 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				7D5B9ACE2289561600F1EFDC /* Extensions.swift */,
 				7D72EB332285431F00D0957D /* UserInfoKey.swift */,
 				7DBB60B8228FF01800256626 /* StoryboardNames.swift */,
+				7D7A8E232291129B00A2B9AB /* DetailViewControllerDelegate.swift */,
 				7DBB60BC228FFB2200256626 /* View */,
 				7D4E05892275D672000882E4 /* ViewProtocol */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
@@ -421,6 +424,7 @@
 				7DBB60B7228FE46800256626 /* DetailRouter.swift in Sources */,
 				7D1605AE226EF86A00CB248B /* BorderLabel.swift in Sources */,
 				7DBB60BB228FF31C00256626 /* DetailPresenter.swift in Sources */,
+				7D7A8E242291129B00A2B9AB /* DetailViewControllerDelegate.swift in Sources */,
 				7DBB60B9228FF01800256626 /* StoryboardNames.swift in Sources */,
 				7D72EB342285431F00D0957D /* UserInfoKey.swift in Sources */,
 				7D9371CA226EE0570094C9B3 /* StoreTableViewHeaderView.swift in Sources */,
