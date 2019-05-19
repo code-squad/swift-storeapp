@@ -11,10 +11,10 @@ import UIKit
 class DetailViewController: UIViewController {
     
     weak var delegate: DetailViewControllerDelegate?
+    var detailPresenter: DetailPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
