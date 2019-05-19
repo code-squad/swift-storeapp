@@ -10,15 +10,16 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    weak var delegate: DetailViewControllerDelegate?
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
     @IBAction func touchUpOrderButton(_ sender: UIButton) {
+        delegate?.post(orderMessage: "")
+        self.navigationController?.popViewController(animated: true)
     }
 }
