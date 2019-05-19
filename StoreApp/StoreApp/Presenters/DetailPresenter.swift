@@ -9,5 +9,6 @@
 import Foundation
 
 class DetailPresenter {
-    
+    weak var detailViewController: DetailViewController?
+    var detailInteractor: DetailInteractor?
 }
