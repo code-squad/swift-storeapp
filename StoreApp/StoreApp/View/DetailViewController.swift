@@ -26,6 +26,22 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        detailPresenter?.initViewController()
+    }
+    
+    func show(with detailInfo: DetailInfo) {
+        descriptionLabel.text = detailInfo.product_description
+        pointLabel.text = detailInfo.point
+        deliveryInfoLabel.text = detailInfo.delivery_info
+        deliveryFeeLabel.text = detailInfo.delivery_fee
+        if let salePrice = detailInfo.prices.last {
+            salePriceLabel.text = salePrice
+        }
+        if detailInfo.prices.count == 2,
+            let naturalPrice = detailInfo.prices.first {
+            naturalPriceLabel.attributedText = naturalPrice.strikeThrough()
+            naturalPriceLabel.isHidden = false
+        }
     }
 
     @IBAction func touchUpOrderButton(_ sender: UIButton) {

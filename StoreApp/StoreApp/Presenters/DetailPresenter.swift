@@ -11,4 +11,9 @@ import Foundation
 class DetailPresenter {
     weak var detailViewController: DetailViewController?
     var detailInteractor: DetailInteractor?
+    
+    func initViewController() {
+        guard let detailInfo = detailInteractor?.detailInfo else { return }
+        detailViewController?.show(with: detailInfo)
+    }
 }

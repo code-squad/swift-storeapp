@@ -10,7 +10,7 @@ import Foundation
 import JSONDataFetcher
 
 class DetailInteractor {
-    private let detailInfo: DetailInfo
+    let detailInfo: DetailInfo
 
     init?(hash: String) {
         guard let url = URL(string: Configuration.URL.detail + hash),
