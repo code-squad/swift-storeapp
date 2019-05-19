@@ -1,8 +1,8 @@
 //
-//  UserInfoKey.swift
+//  Configuration.swift
 //  StoreApp
 //
-//  Created by 조재흥 on 19. 5. 10..
+//  Created by 조재흥 on 19. 5. 19..
 //  Copyright © 2019 hngfu. All rights reserved.
 //
 
@@ -12,4 +12,10 @@ struct UserInfoKey {
     static let appendItems = "appendItems"
     static let indexPathWillReload = "indexPathWillReload"
     static let imageName = "imageName"
+}
+
+
+struct StoryboardNames {
+    static let detailViewController = "DetailViewController"
+    static let detailViewControllerID = "detailViewController"
 }
