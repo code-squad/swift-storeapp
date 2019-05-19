@@ -59,8 +59,7 @@ extension JSONDataFetcher {
         guard let url = URL(string: Configuration.URL.storeItems + fileName) else { return }
         load(url: url) { (data) in
             let decoder = JSONDecoder()
-            guard let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                let data = try? JSONSerialization.data(withJSONObject: json["body"], options: []),
+            guard let data = JSONSerialization.body(with: data, name: "body"),
                 let items = try? decoder.decode([StoreItem].self, from: data) else { return }
             let urls = items.imageURLs()
             urls.downloadImages()
