@@ -10,6 +10,16 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var pointLabel: UILabel!
+    @IBOutlet weak var deliveryInfoLabel: UILabel!
+    @IBOutlet weak var deliveryFeeLabel: UILabel!
+    @IBOutlet weak var naturalPriceLabel: UILabel!
+    @IBOutlet weak var salePriceLabel: UILabel!
+    @IBOutlet weak var thumbScrollView: UIScrollView!
+    @IBOutlet weak var detailStackView: UIStackView!
+    
     weak var delegate: DetailViewControllerDelegate?
     var detailPresenter: DetailPresenter?
     
