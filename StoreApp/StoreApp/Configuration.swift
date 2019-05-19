@@ -23,6 +23,8 @@ struct StoryboardNames {
 
 struct Configuration {
     
+    static let userName = "흥푸"
+    
     //MARK: - Configuration.URL
     struct URL {
         static let storeItems = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
