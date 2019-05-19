@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol DetailViewControllerDelegate {
+protocol DetailViewControllerDelegate: AnyObject {
     func post(orderMessage: String)
 }
