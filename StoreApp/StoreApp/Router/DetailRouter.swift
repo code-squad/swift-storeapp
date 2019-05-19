@@ -16,17 +16,22 @@ class DetailRouter {
         self.viewController = storeViewController
     }
     
-    static func assembleModule() -> UIViewController? {
+    static func assembleModule(hash: String) -> UIViewController? {
         let storyboard = UIStoryboard(name: StoryboardNames.detailViewController,
                                       bundle: nil)
         let id = StoryboardNames.detailViewControllerID
-        guard let detailViewController = storyboard.instantiateViewController(withIdentifier: id) as? DetailViewController else { return nil }
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: id) as? DetailViewController,
+            let interactor = DetailInteractor(hash: hash) else { return nil }
+        let presenter = DetailPresenter()
+        viewController.detailPresenter = presenter
+        presenter.detailViewController = viewController
+        presenter.detailInteractor = interactor
         
-        return detailViewController
+        return viewController
     }
     
     func presentViewController(detailHash: String) {
-        guard let detailViewController = DetailRouter.assembleModule() else { return }
+        guard let detailViewController = DetailRouter.assembleModule(hash: detailHash) else { return }
         self.viewController?.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
