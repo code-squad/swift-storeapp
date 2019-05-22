@@ -44,6 +44,7 @@ class DetailViewController: UIViewController {
             naturalPriceLabel.isHidden = false
         }
         showThumbScrollView(with: detailInfo.thumb_images)
+        showDetailStackView(with: detailInfo.detail_section)
     }
     
     private func showThumbScrollView(with imageURLs: [String]) {
@@ -69,7 +70,27 @@ class DetailViewController: UIViewController {
             jsonDataFetcher.load(url: url, completion: successHandler)
         }
     }
-
+    
+    private func showDetailStackView(with imageURLs: [String]) {
+        for imageURL in imageURLs {
+            let imageView = UIImageView()
+            let successHandler = { [unowned imageView](data: Data) -> Void in
+                guard let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    imageView.image = image
+                    imageView.sizeToFit()
+                    let ratio = CGFloat(imageView.frame.height / imageView.frame.width)
+                    imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor,
+                                                      multiplier: ratio).isActive = true
+                }
+            }
+            guard let url = URL(string: imageURL) else { continue }
+            let jsonDataFetcher = JSONDataFetcher()
+            detailStackView.addArrangedSubview(imageView)
+            jsonDataFetcher.load(url: url, completion: successHandler)
+        }
+    }
+    
     @IBAction func touchUpOrderButton(_ sender: UIButton) {
         delegate?.post(orderMessage: "")
         self.navigationController?.popViewController(animated: true)
