@@ -140,7 +140,7 @@
                                                     <constraint firstItem="P4U-HB-1uQ" firstAttribute="top" secondItem="7u4-bf-5e7" secondAttribute="bottom" constant="10" id="yi0-3j-ras"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="EA4-Ks-avj">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EA4-Ks-avj">
                                                 <rect key="frame" x="0.0" y="521.5" width="375" height="65.5"/>
                                             </stackView>
                                         </subviews>
