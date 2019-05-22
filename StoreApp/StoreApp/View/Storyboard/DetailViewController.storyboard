@@ -27,7 +27,7 @@
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJH-ZW-gAT">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="300" id="uAE-RQ-4x3"/>
+                                                    <constraint firstAttribute="width" secondItem="qJH-ZW-gAT" secondAttribute="height" multiplier="5:4" id="LBy-bO-8To"/>
                                                 </constraints>
                                             </scrollView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVl-rp-djl">
