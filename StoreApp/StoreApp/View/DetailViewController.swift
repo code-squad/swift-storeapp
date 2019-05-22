@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JSONDataFetcher
 
 class DetailViewController: UIViewController {
     
@@ -41,6 +42,31 @@ class DetailViewController: UIViewController {
             let naturalPrice = detailInfo.prices.first {
             naturalPriceLabel.attributedText = naturalPrice.strikeThrough()
             naturalPriceLabel.isHidden = false
+        }
+        showThumbScrollView(with: detailInfo.thumb_images)
+    }
+    
+    private func showThumbScrollView(with imageURLs: [String]) {
+        DispatchQueue.main.async {
+            self.thumbScrollView.contentSize.width = self.thumbScrollView.frame.width * CGFloat(imageURLs.count)
+        }
+        for (index, imageURL) in imageURLs.enumerated() {
+            let successHandler = { (data: Data) -> Void in
+                guard let image = UIImage(data: data) else { return }
+                DispatchQueue.main.async {
+                    let imageView = UIImageView(image: image)
+                    let xPosition = self.thumbScrollView.frame.width * CGFloat(index)
+                    imageView.frame = CGRect(x: xPosition,
+                                             y: 0,
+                                             width: self.thumbScrollView.frame.width,
+                                             height: self.thumbScrollView.frame.height)
+                    imageView.contentMode = .scaleAspectFill
+                    self.thumbScrollView.addSubview(imageView)
+                }
+            }
+            let jsonDataFetcher = JSONDataFetcher()
+            guard let url = URL(string: imageURL) else { continue }
+            jsonDataFetcher.load(url: url, completion: successHandler)
         }
     }
 
