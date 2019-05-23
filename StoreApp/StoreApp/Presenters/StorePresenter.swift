@@ -127,6 +127,14 @@ extension StorePresenter: UITableViewDelegate {
               duration: Delay.short).show()
         guard let detailHash = storeItems[indexPath.section]?[indexPath.row]?.detail_hash,
             let cell = tableView.cellForRow(at: indexPath) as? StoreTableViewCell else { return }
-        detailRouter.presentViewController(detailHash: detailHash, title: cell.titleLabel.text)
+        detailRouter.presentViewController(detailHash: detailHash, title: cell.titleLabel.text, delegate: self)
+    }
+}
+
+extension StorePresenter: DetailViewControllerDelegate {
+    
+    func post(orderMessage: String) {
+        let poster = WebHookPoster()
+        poster.post(message: orderMessage)
     }
 }
