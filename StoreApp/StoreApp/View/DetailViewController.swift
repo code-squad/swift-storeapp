@@ -95,7 +95,11 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func touchUpOrderButton(_ sender: UIButton) {
-        delegate?.post(orderMessage: "")
+        let userName = Configuration.userName
+        guard let price = salePriceLabel.text,
+            let title = titleLabel.text else { return }
+        let message = "\(userName) - \(price) - \(title)"
+        delegate?.post(orderMessage: message)
         self.navigationController?.popViewController(animated: true)
     }
 }
