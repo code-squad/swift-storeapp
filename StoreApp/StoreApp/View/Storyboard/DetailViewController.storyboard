@@ -146,15 +146,15 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EA4-Ks-avj">
-                                                <rect key="frame" x="0.0" y="521.5" width="375" height="65.5"/>
+                                                <rect key="frame" x="12" y="521.5" width="351" height="65.5"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="KVl-rp-djl" firstAttribute="leading" secondItem="Aen-Px-3vZ" secondAttribute="leading" constant="22" id="33J-1H-oLm"/>
-                                            <constraint firstItem="EA4-Ks-avj" firstAttribute="leading" secondItem="Aen-Px-3vZ" secondAttribute="leading" id="5Jg-pt-5wW"/>
+                                            <constraint firstItem="EA4-Ks-avj" firstAttribute="leading" secondItem="Aen-Px-3vZ" secondAttribute="leading" constant="12" id="5Jg-pt-5wW"/>
                                             <constraint firstItem="EA4-Ks-avj" firstAttribute="top" secondItem="KVl-rp-djl" secondAttribute="bottom" id="H7M-uV-Vtx"/>
-                                            <constraint firstAttribute="trailing" secondItem="EA4-Ks-avj" secondAttribute="trailing" id="I3g-94-x73"/>
+                                            <constraint firstAttribute="trailing" secondItem="EA4-Ks-avj" secondAttribute="trailing" constant="12" id="I3g-94-x73"/>
                                             <constraint firstItem="qJH-ZW-gAT" firstAttribute="width" secondItem="Aen-Px-3vZ" secondAttribute="width" id="Oso-Zt-E6x"/>
                                             <constraint firstItem="qJH-ZW-gAT" firstAttribute="leading" secondItem="Aen-Px-3vZ" secondAttribute="leading" id="Ytp-fx-grP"/>
                                             <constraint firstAttribute="trailing" secondItem="qJH-ZW-gAT" secondAttribute="trailing" id="puH-cf-CMJ"/>
