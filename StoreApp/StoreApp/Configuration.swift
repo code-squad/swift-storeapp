@@ -28,6 +28,9 @@ struct Configuration {
     //MARK: - Configuration.URL
     struct URL {
         static let storeItems = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
+        
         static let detail = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/detail/"
+        
+        static let webHookURL = "https://hooks.slack.com/services/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"
     }
 }
