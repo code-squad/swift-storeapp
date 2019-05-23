@@ -21,6 +21,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var thumbScrollView: UIScrollView!
     @IBOutlet weak var detailStackView: UIStackView!
     
+    var titleText: String!
+    
     weak var delegate: DetailViewControllerDelegate?
     var detailPresenter: DetailPresenter?
     
@@ -31,6 +33,7 @@ class DetailViewController: UIViewController {
     }
     
     func show(with detailInfo: DetailInfo) {
+        titleLabel.text = titleText
         descriptionLabel.text = detailInfo.product_description
         pointLabel.text = detailInfo.point
         deliveryInfoLabel.text = detailInfo.delivery_info
