@@ -30,9 +30,10 @@ class DetailRouter {
         return viewController
     }
     
-    func presentViewController(detailHash: String, title: String?) {
+    func presentViewController(detailHash: String, title: String?, delegate: DetailViewControllerDelegate) {
         guard let detailViewController = DetailRouter.assembleModule(hash: detailHash) else { return }
         self.viewController?.navigationController?.pushViewController(detailViewController, animated: true)
         detailViewController.titleText = title
+        detailViewController.delegate = delegate
     }
 }
