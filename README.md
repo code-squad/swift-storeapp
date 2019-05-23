@@ -307,3 +307,14 @@ dispatch group over
 ### 실행화면
 
 <img width="400" src="https://user-images.githubusercontent.com/38850628/57454757-91ede200-72a4-11e9-9944-24db1d0e4f9b.gif">
+
+## step07. 상품 상세화면 전환
+
+### 배운내용
+
+
+
+### 실행화면
+
+<img width="400" src="https://user-images.githubusercontent.com/38850628/58293206-84d20680-7dff-11e9-8b41-1bf2dd55201b.gif">
+<img width="400" src="https://user-images.githubusercontent.com/38850628/58293521-aed7f880-7e00-11e9-8d1f-b3b40b72042c.png">
