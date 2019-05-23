@@ -16,7 +16,7 @@ class DetailRouter {
         self.viewController = storeViewController
     }
     
-    static func assembleModule(hash: String) -> UIViewController? {
+    static func assembleModule(hash: String) -> DetailViewController? {
         let storyboard = UIStoryboard(name: StoryboardNames.detailViewController,
                                       bundle: nil)
         let id = StoryboardNames.detailViewControllerID
@@ -30,8 +30,9 @@ class DetailRouter {
         return viewController
     }
     
-    func presentViewController(detailHash: String) {
+    func presentViewController(detailHash: String, title: String?) {
         guard let detailViewController = DetailRouter.assembleModule(hash: detailHash) else { return }
         self.viewController?.navigationController?.pushViewController(detailViewController, animated: true)
+        detailViewController.titleText = title
     }
 }
