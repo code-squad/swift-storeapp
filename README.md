@@ -310,11 +310,9 @@ dispatch group over
 
 ## step07. 상품 상세화면 전환
 
-### 배운내용
-
-
-
 ### 실행화면
 
 <img width="400" src="https://user-images.githubusercontent.com/38850628/58293206-84d20680-7dff-11e9-8b41-1bf2dd55201b.gif">
+
+`'주문하기'`버튼을 touchUp하면 슬랙 webHook으로 해당 정보를 upload합니다.
 <img width="400" src="https://user-images.githubusercontent.com/38850628/58293521-aed7f880-7e00-11e9-8d1f-b3b40b72042c.png">
