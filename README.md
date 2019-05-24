@@ -314,5 +314,5 @@ dispatch group over
 
 <img width="400" src="https://user-images.githubusercontent.com/38850628/58293206-84d20680-7dff-11e9-8b41-1bf2dd55201b.gif">
 
-`'주문하기'`버튼을 touchUp하면 슬랙 webHook으로 해당 정보를 upload합니다.
+`'주문하기'`버튼을 touchUp하면 슬랙 webHook으로 해당 주문을 Post Request합니다.
 <img width="400" src="https://user-images.githubusercontent.com/38850628/58293521-aed7f880-7e00-11e9-8d1f-b3b40b72042c.png">
