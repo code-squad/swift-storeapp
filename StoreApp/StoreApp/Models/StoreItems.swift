@@ -31,6 +31,11 @@ class StoreItems {
             let appendItems = { () -> Void in
                 self.storeItems.append(contentsOf: storeItems)
             }
+            for storeItem in storeItems {
+                guard let url = URL(string: storeItem.image) else { continue }
+                let cacheManager = CacheManager()
+                cacheManager.cachingImage(with: url)
+            }
             let userInfo = [UserInfoKey.appendItems: appendItems]
             NotificationCenter.default.post(name: .storeItemsWillUpdate, object: self, userInfo: userInfo)
         }
@@ -60,26 +65,7 @@ extension JSONDataFetcher {
         load(url: url) { (data) in
             let decoder = JSONDecoder()
             guard let storeItemJSON = try? decoder.decode(StoreItemJSON.self, from: data) else { return }
-            let urls = storeItemJSON.body.imageURLs()
-            urls.downloadImages()
             completion(storeItemJSON.body)
-        }
-    }
-}
-
-extension Array where Element == StoreItem {
-    func imageURLs() -> [ImageURL] {
-        return self.compactMap { item -> ImageURL? in
-            guard let url = URL(string: item.image) else { return nil }
-            return ImageURL(url: url)
-        }
-    }
-}
-
-extension Array where Element == ImageURL {
-    func downloadImages() {
-        for url in self {
-            url.downloadImage()
         }
     }
 }
