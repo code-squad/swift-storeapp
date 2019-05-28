@@ -14,10 +14,9 @@ class DetailInteractor {
 
     init?(hash: String) {
         guard let url = URL(string: Configuration.URL.detail + hash),
-            let data = try? Data(contentsOf: url),
-            let body = JSONSerialization.body(with: data, name: "data") else { return nil }
+            let data = try? Data(contentsOf: url) else { return nil }
         let decoder = JSONDecoder()
-        guard let detailInfo = try? decoder.decode(DetailInfo.self, from: body) else { return nil}
-        self.detailInfo = detailInfo
+        guard let detailJSON = try? decoder.decode(DetailJSON.self, from: data) else { return nil}
+        self.detailInfo = detailJSON.data
     }
 }
