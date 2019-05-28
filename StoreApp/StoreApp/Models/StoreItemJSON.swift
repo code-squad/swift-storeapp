@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct StoreItemJSON: Decodable {
+    let statusCode: Int
+    let body: [StoreItem]
+}
