@@ -29,11 +29,3 @@ extension NSNotification.Name {
     static let rowWillReload = NSNotification.Name("rowWillReload")
     static let imageDidDownload = NSNotification.Name("imageDidDownload")
 }
-
-extension JSONSerialization {
-    static func body(with data: Data, name: String) -> Data? {
-        guard let json = try? self.jsonObject(with: data, options: []) as? [String: Any],
-            let data = try? self.data(withJSONObject: json[name], options: []) else { return nil }
-        return data
-    }
-}
