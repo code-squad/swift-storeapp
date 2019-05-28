@@ -25,9 +25,6 @@ class StorePresenter: NSObject {
     //MARK: Routers
     private let detailRouter: DetailRouter
     
-    //MARK: Helpers
-    private let storeItemsMutex = NSLock()
-    
     //MARK: - Methods
     //MARK: Initialization
     override init() {
@@ -56,11 +53,9 @@ class StorePresenter: NSObject {
             let userInfo = noti.userInfo,
             let appendItems = userInfo[UserInfoKey.appendItems] as? () -> Void else { return }
         
-        storeItemsMutex.lock()
-        appendItems()
         DispatchQueue.main.async {
+            appendItems()
             self.storeTableViewController?.reload(section: index)
-            self.storeItemsMutex.unlock()
         }
     }
     
