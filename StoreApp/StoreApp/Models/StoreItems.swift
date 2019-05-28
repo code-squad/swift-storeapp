@@ -31,13 +31,13 @@ class StoreItems {
             let appendItems = { () -> Void in
                 self.storeItems.append(contentsOf: storeItems)
             }
+            let userInfo = [UserInfoKey.appendItems: appendItems]
+            NotificationCenter.default.post(name: .storeItemsWillUpdate, object: self, userInfo: userInfo)
             for storeItem in storeItems {
                 guard let url = URL(string: storeItem.image) else { continue }
                 let cacheManager = CacheManager()
                 cacheManager.cachingImage(with: url)
             }
-            let userInfo = [UserInfoKey.appendItems: appendItems]
-            NotificationCenter.default.post(name: .storeItemsWillUpdate, object: self, userInfo: userInfo)
         }
         fetcher.fetchStoreItems(fileName: storeItemsInitInfo.fileName, completion: completion)
     }
