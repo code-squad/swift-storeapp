@@ -13,17 +13,13 @@ class StorePresenter: NSObject {
 
     //MARK: - Properties
     //MARK: Views
-    private weak var storeTableViewController: StoreTableViewController? {
-        didSet {
-            detailRouter.viewController = storeTableViewController
-        }
-    }
+    private weak var storeTableViewController: StoreTableViewController?
     
     //MARK: Models
     private let storeItems: StoreItemManager
     
     //MARK: Routers
-    private let detailRouter: DetailRouter
+    private var detailRouter: DetailRouter?
     
     //MARK: - Methods
     //MARK: Initialization
@@ -32,8 +28,8 @@ class StorePresenter: NSObject {
                                   SectionInfo(fileName: "soup", title: "국.찌게", description: "김이 모락모락 국.찌게"),
                                   SectionInfo(fileName: "side", title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
         self.storeItems = StoreItemManager(variousSectionInfo: variousSectionInfo)
-        self.detailRouter = DetailRouter(storeViewController: storeTableViewController)
         super.init()
+        self.detailRouter = DetailRouter(navigationController: self)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadTableSection),
@@ -122,7 +118,7 @@ extension StorePresenter: UITableViewDelegate {
               duration: Delay.short).show()
         guard let detailHash = storeItems[indexPath.section]?[indexPath.row]?.detail_hash,
             let cell = tableView.cellForRow(at: indexPath) as? StoreTableViewCell else { return }
-        detailRouter.presentViewController(detailHash: detailHash, title: cell.titleLabel.text, delegate: self)
+        detailRouter?.presentViewController(detailHash: detailHash, title: cell.titleLabel.text, delegate: self)
     }
 }
 
@@ -131,5 +127,11 @@ extension StorePresenter: DetailViewControllerDelegate {
     func post(orderMessage: String) {
         let poster = WebHookPoster()
         poster.post(message: orderMessage)
+    }
+}
+
+extension StorePresenter: Navigation {
+    func push(viewController: UIViewController) {
+        self.storeTableViewController?.navigationController?.pushViewController(viewController, animated: true)
     }
 }
