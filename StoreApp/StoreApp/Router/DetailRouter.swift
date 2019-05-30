@@ -10,10 +10,10 @@ import UIKit
 
 class DetailRouter {
     
-    weak var viewController: StoreTableViewController?
+    private var navigationController: Navigation?
     
-    init(storeViewController: StoreTableViewController?) {
-        self.viewController = storeViewController
+    init(navigationController: Navigation?) {
+        self.navigationController = navigationController
     }
     
     static func assembleModule(hash: String) -> DetailViewController? {
@@ -32,7 +32,7 @@ class DetailRouter {
     
     func presentViewController(detailHash: String, title: String?, delegate: DetailViewControllerDelegate) {
         guard let detailViewController = DetailRouter.assembleModule(hash: detailHash) else { return }
-        self.viewController?.navigationController?.pushViewController(detailViewController, animated: true)
+        self.navigationController?.push(viewController: detailViewController)
         detailViewController.titleText = title
         detailViewController.delegate = delegate
     }

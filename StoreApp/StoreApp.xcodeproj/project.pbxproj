@@ -30,6 +30,7 @@
 		7D9371CC226EE06B0094C9B3 /* StoreTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */; };
 		7D937E31226AE84200989CA3 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D937E2F226AE84200989CA3 /* StoreTableViewCell.swift */; };
 		7D937E32226AE84200989CA3 /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */; };
+		7D9EC050229FAE0300A58EC4 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC04F229FAE0300A58EC4 /* Navigation.swift */; };
 		7DA71836229145530041497D /* DetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71835229145530041497D /* DetailInfo.swift */; };
 		7DA71838229148BF0041497D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71837229148BF0041497D /* Configuration.swift */; };
 		7DAE16B32296A63300BF1372 /* WebHookPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE16B22296A63300BF1372 /* WebHookPoster.swift */; };
@@ -105,6 +106,7 @@
 		7D9371CB226EE06B0094C9B3 /* StoreTableViewHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewHeaderView.xib; sourceTree = "<group>"; };
 		7D937E2F226AE84200989CA3 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
+		7D9EC04F229FAE0300A58EC4 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		7DA71835229145530041497D /* DetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfo.swift; sourceTree = "<group>"; };
 		7DA71837229148BF0041497D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		7DAE16B22296A63300BF1372 /* WebHookPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHookPoster.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				7DAE16B22296A63300BF1372 /* WebHookPoster.swift */,
 				7DD3F91A229D1EB500F78409 /* Downloader.swift */,
 				7DD3F91C229D27DA00F78409 /* CacheManager.swift */,
+				7D9EC04F229FAE0300A58EC4 /* Navigation.swift */,
 				7DBB60BC228FFB2200256626 /* View */,
 				7D4E05892275D672000882E4 /* ViewProtocol */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
@@ -438,6 +441,7 @@
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
 				7D1605B0226F02A100CB248B /* SectionInfo.swift in Sources */,
 				7DBB60B7228FE46800256626 /* DetailRouter.swift in Sources */,
+				7D9EC050229FAE0300A58EC4 /* Navigation.swift in Sources */,
 				7D1605AE226EF86A00CB248B /* BorderLabel.swift in Sources */,
 				7DBB60BB228FF31C00256626 /* DetailPresenter.swift in Sources */,
 				7D7A8E242291129B00A2B9AB /* DetailViewControllerDelegate.swift in Sources */,
