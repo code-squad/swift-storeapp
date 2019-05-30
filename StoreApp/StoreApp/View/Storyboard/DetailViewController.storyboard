@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aen-Px-3vZ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJH-ZW-gAT">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qJH-ZW-gAT" customClass="ThumbScrollView" customModule="StoreApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="qJH-ZW-gAT" secondAttribute="height" multiplier="5:4" id="LBy-bO-8To"/>
@@ -211,7 +211,7 @@
                         <outlet property="naturalPriceLabel" destination="iVQ-44-TR5" id="taX-L9-720"/>
                         <outlet property="pointLabel" destination="T73-kC-EIj" id="hY9-1i-73i"/>
                         <outlet property="salePriceLabel" destination="RRM-9K-df0" id="KfI-7h-nzd"/>
-                        <outlet property="thumbScrollView" destination="qJH-ZW-gAT" id="WIQ-Zt-jyc"/>
+                        <outlet property="thumbScrollView" destination="qJH-ZW-gAT" id="lWt-0e-KRt"/>
                         <outlet property="titleLabel" destination="iCn-RB-V2m" id="tKT-1C-W4j"/>
                     </connections>
                 </viewController>

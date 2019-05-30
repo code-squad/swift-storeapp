@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     @IBOutlet weak var naturalPriceLabel: UILabel!
     @IBOutlet weak var salePriceLabel: UILabel!
-    @IBOutlet weak var thumbScrollView: UIScrollView!
+    @IBOutlet weak var thumbScrollView: ThumbScrollView!
     @IBOutlet weak var detailStackView: UIStackView!
     
     var titleText: String!
@@ -51,9 +51,7 @@ class DetailViewController: UIViewController {
     }
     
     private func showThumbScrollView(with imageURLs: [String]) {
-        DispatchQueue.main.async {
-            self.thumbScrollView.contentSize.width = self.thumbScrollView.frame.width * CGFloat(imageURLs.count)
-        }
+        thumbScrollView.setContentSize(imageURLs.count)
         for (index, imageURL) in imageURLs.enumerated() {
             let successHandler = { (data: Data) -> Void in
                 guard let image = UIImage(data: data) else { return }
