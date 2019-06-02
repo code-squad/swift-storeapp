@@ -145,7 +145,7 @@
                                                     <constraint firstItem="Dmi-bf-XlP" firstAttribute="top" secondItem="T73-kC-EIj" secondAttribute="bottom" constant="10" id="xI7-ZD-8C5"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EA4-Ks-avj">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="EA4-Ks-avj" customClass="DetailStackView" customModule="StoreApp" customModuleProvider="target">
                                                 <rect key="frame" x="12" y="521.5" width="351" height="65.5"/>
                                             </stackView>
                                         </subviews>

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import JSONDataFetcher
 
 class DetailViewController: UIViewController {
     
@@ -19,7 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var naturalPriceLabel: UILabel!
     @IBOutlet weak var salePriceLabel: UILabel!
     @IBOutlet weak var thumbScrollView: ThumbScrollView!
-    @IBOutlet weak var detailStackView: UIStackView!
+    @IBOutlet weak var detailStackView: DetailStackView!
     
     var titleText: String!
     
@@ -46,50 +45,8 @@ class DetailViewController: UIViewController {
             naturalPriceLabel.attributedText = naturalPrice.strikeThrough()
             naturalPriceLabel.isHidden = false
         }
-        showThumbScrollView(with: detailInfo.thumb_images)
-        showDetailStackView(with: detailInfo.detail_section)
-    }
-    
-    private func showThumbScrollView(with imageURLs: [String]) {
-        thumbScrollView.setContentSize(imageURLs.count)
-        for (index, imageURL) in imageURLs.enumerated() {
-            let successHandler = { (data: Data) -> Void in
-                guard let image = UIImage(data: data) else { return }
-                DispatchQueue.main.async {
-                    let imageView = UIImageView(image: image)
-                    let xPosition = self.thumbScrollView.frame.width * CGFloat(index)
-                    imageView.frame = CGRect(x: xPosition,
-                                             y: 0,
-                                             width: self.thumbScrollView.frame.width,
-                                             height: self.thumbScrollView.frame.height)
-                    imageView.contentMode = .scaleAspectFill
-                    self.thumbScrollView.addSubview(imageView)
-                }
-            }
-            let jsonDataFetcher = JSONDataFetcher()
-            guard let url = URL(string: imageURL) else { continue }
-            jsonDataFetcher.load(url: url, completion: successHandler)
-        }
-    }
-    
-    private func showDetailStackView(with imageURLs: [String]) {
-        for imageURL in imageURLs {
-            let imageView = UIImageView()
-            let successHandler = { [unowned imageView](data: Data) -> Void in
-                guard let image = UIImage(data: data) else { return }
-                DispatchQueue.main.async {
-                    imageView.image = image
-                    imageView.sizeToFit()
-                    let ratio = CGFloat(imageView.frame.height / imageView.frame.width)
-                    imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor,
-                                                      multiplier: ratio).isActive = true
-                }
-            }
-            guard let url = URL(string: imageURL) else { continue }
-            let jsonDataFetcher = JSONDataFetcher()
-            detailStackView.addArrangedSubview(imageView)
-            jsonDataFetcher.load(url: url, completion: successHandler)
-        }
+        thumbScrollView.show(with: detailInfo.thumb_images)
+        detailStackView.show(with: detailInfo.detail_section)
     }
     
     @IBAction func touchUpOrderButton(_ sender: UIButton) {

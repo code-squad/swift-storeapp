@@ -32,6 +32,7 @@
 		7D937E32226AE84200989CA3 /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */; };
 		7D9EC050229FAE0300A58EC4 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC04F229FAE0300A58EC4 /* Navigation.swift */; };
 		7D9EC055229FB6F000A58EC4 /* ThumbScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC054229FB6F000A58EC4 /* ThumbScrollView.swift */; };
+		7D9EC057229FBC4B00A58EC4 /* DetailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC056229FBC4B00A58EC4 /* DetailStackView.swift */; };
 		7DA71836229145530041497D /* DetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71835229145530041497D /* DetailInfo.swift */; };
 		7DA71838229148BF0041497D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71837229148BF0041497D /* Configuration.swift */; };
 		7DAE16B32296A63300BF1372 /* WebHookPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE16B22296A63300BF1372 /* WebHookPoster.swift */; };
@@ -109,6 +110,7 @@
 		7D937E30226AE84200989CA3 /* StoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		7D9EC04F229FAE0300A58EC4 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		7D9EC054229FB6F000A58EC4 /* ThumbScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbScrollView.swift; sourceTree = "<group>"; };
+		7D9EC056229FBC4B00A58EC4 /* DetailStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStackView.swift; sourceTree = "<group>"; };
 		7DA71835229145530041497D /* DetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfo.swift; sourceTree = "<group>"; };
 		7DA71837229148BF0041497D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		7DAE16B22296A63300BF1372 /* WebHookPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHookPoster.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				7D1605AD226EF86A00CB248B /* BorderLabel.swift */,
 				7DB7AA43226C5D2E00EF6112 /* BadgeStackView.swift */,
 				7D9EC054229FB6F000A58EC4 /* ThumbScrollView.swift */,
+				7D9EC056229FBC4B00A58EC4 /* DetailStackView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				7DD3F91B229D1EB500F78409 /* Downloader.swift in Sources */,
 				7D1605AC226EF52900CB248B /* SpacingLabel.swift in Sources */,
 				7DB7AA42226C598000EF6112 /* BadgeLabel.swift in Sources */,
+				7D9EC057229FBC4B00A58EC4 /* DetailStackView.swift in Sources */,
 				7D4E05882275D65E000882E4 /* StoreTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
