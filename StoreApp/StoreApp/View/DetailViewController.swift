@@ -23,13 +23,29 @@ class DetailViewController: UIViewController {
     var titleText: String!
     
     weak var delegate: DetailViewControllerDelegate?
-    var detailPresenter: DetailPresenter?
+    var detailPresenter: DetailPresenter? {
+        didSet {
+            detailPresenter?.attach(detailView: self)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         detailPresenter?.initViewController()
     }
+    
+    @IBAction func touchUpOrderButton(_ sender: UIButton) {
+        let userName = Configuration.userName
+        guard let price = salePriceLabel.text,
+            let title = titleLabel.text else { return }
+        let message = "\(userName) - \(price) - \(title)"
+        delegate?.post(orderMessage: message)
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension DetailViewController: DetailView {
     
     func show(with detailInfo: DetailInfo) {
         titleLabel.text = titleText
@@ -47,14 +63,5 @@ class DetailViewController: UIViewController {
         }
         thumbScrollView.show(with: detailInfo.thumb_images)
         detailStackView.show(with: detailInfo.detail_section)
-    }
-    
-    @IBAction func touchUpOrderButton(_ sender: UIButton) {
-        let userName = Configuration.userName
-        guard let price = salePriceLabel.text,
-            let title = titleLabel.text else { return }
-        let message = "\(userName) - \(price) - \(title)"
-        delegate?.post(orderMessage: message)
-        self.navigationController?.popViewController(animated: true)
     }
 }

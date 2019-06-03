@@ -33,6 +33,7 @@
 		7D9EC050229FAE0300A58EC4 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC04F229FAE0300A58EC4 /* Navigation.swift */; };
 		7D9EC055229FB6F000A58EC4 /* ThumbScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC054229FB6F000A58EC4 /* ThumbScrollView.swift */; };
 		7D9EC057229FBC4B00A58EC4 /* DetailStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC056229FBC4B00A58EC4 /* DetailStackView.swift */; };
+		7D9EC05A22A55B4D00A58EC4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9EC05922A55B4D00A58EC4 /* DetailView.swift */; };
 		7DA71836229145530041497D /* DetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71835229145530041497D /* DetailInfo.swift */; };
 		7DA71838229148BF0041497D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA71837229148BF0041497D /* Configuration.swift */; };
 		7DAE16B32296A63300BF1372 /* WebHookPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAE16B22296A63300BF1372 /* WebHookPoster.swift */; };
@@ -111,6 +112,7 @@
 		7D9EC04F229FAE0300A58EC4 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		7D9EC054229FB6F000A58EC4 /* ThumbScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbScrollView.swift; sourceTree = "<group>"; };
 		7D9EC056229FBC4B00A58EC4 /* DetailStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStackView.swift; sourceTree = "<group>"; };
+		7D9EC05922A55B4D00A58EC4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		7DA71835229145530041497D /* DetailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfo.swift; sourceTree = "<group>"; };
 		7DA71837229148BF0041497D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		7DAE16B22296A63300BF1372 /* WebHookPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHookPoster.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				7DD3F91A229D1EB500F78409 /* Downloader.swift */,
 				7DD3F91C229D27DA00F78409 /* CacheManager.swift */,
 				7D9EC04F229FAE0300A58EC4 /* Navigation.swift */,
+				7D9EC05922A55B4D00A58EC4 /* DetailView.swift */,
 				7DBB60BC228FFB2200256626 /* View */,
 				7D4E05892275D672000882E4 /* ViewProtocol */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
@@ -460,6 +463,7 @@
 				7DA71838229148BF0041497D /* Configuration.swift in Sources */,
 				7DAE16B32296A63300BF1372 /* WebHookPoster.swift in Sources */,
 				7D01B453225C8A1100471C5F /* AppDelegate.swift in Sources */,
+				7D9EC05A22A55B4D00A58EC4 /* DetailView.swift in Sources */,
 				7DB7AA44226C5D2E00EF6112 /* BadgeStackView.swift in Sources */,
 				7DAEC42F228EA37400CA4430 /* DetailViewController.swift in Sources */,
 				7D33758F22718E760068B980 /* ViewController.swift in Sources */,

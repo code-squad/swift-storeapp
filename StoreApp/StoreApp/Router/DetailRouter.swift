@@ -22,10 +22,8 @@ class DetailRouter {
         let id = StoryboardNames.detailViewControllerID
         guard let viewController = storyboard.instantiateViewController(withIdentifier: id) as? DetailViewController,
             let interactor = DetailInteractor(hash: hash) else { return nil }
-        let presenter = DetailPresenter()
+        let presenter = DetailPresenter(detailInteractor: interactor)
         viewController.detailPresenter = presenter
-        presenter.detailViewController = viewController
-        presenter.detailInteractor = interactor
         
         return viewController
     }
