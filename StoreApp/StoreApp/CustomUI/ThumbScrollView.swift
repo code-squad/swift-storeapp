@@ -28,7 +28,12 @@ class ThumbScrollView: UIScrollView {
         guard let url = URL(string: imageURL) else { return }
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.sd_setImage(with: url)
+        imageView.sd_setImage(with: url) { (_, error, _, _) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+        }
         DispatchQueue.main.async {
             let xPosition = self.frame.width * CGFloat(index)
             imageView.frame = CGRect(x: xPosition,
