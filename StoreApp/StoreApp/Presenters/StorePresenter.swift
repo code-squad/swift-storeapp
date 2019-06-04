@@ -21,6 +21,9 @@ class StorePresenter: NSObject {
     //MARK: Routers
     private var detailRouter: DetailRouter?
     
+    //MARK: Helpers
+    private let sectionTaskGroup = DispatchGroup()
+    
     //MARK: - Methods
     //MARK: Initialization
     override init() {
@@ -48,10 +51,12 @@ class StorePresenter: NSObject {
             let index = storeItems.index(of: object),
             let userInfo = noti.userInfo,
             let appendItems = userInfo[UserInfoKey.appendItems] as? () -> Void else { return }
-        
+        sectionTaskGroup.wait()
+        sectionTaskGroup.enter()
+        appendItems()
         DispatchQueue.main.async {
-            appendItems()
             self.storeTableViewController?.reload(section: index)
+            self.sectionTaskGroup.leave()
         }
     }
     
