@@ -29,3 +29,9 @@ extension NSNotification.Name {
     static let rowWillReload = NSNotification.Name("rowWillReload")
     static let imageDidDownload = NSNotification.Name("imageDidDownload")
 }
+
+extension NetworkStatus {
+    func isConnect() -> Bool {
+        return self != NotReachable
+    }
+}
