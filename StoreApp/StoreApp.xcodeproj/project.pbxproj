@@ -24,6 +24,7 @@
 		7D5524712275E4810033273D /* JSONDataFetcher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7D55246F2275E46B0033273D /* JSONDataFetcher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7D5B9ACF2289561600F1EFDC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5B9ACE2289561600F1EFDC /* Extensions.swift */; };
 		7D69654E22AE5FA500C5C601 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69654D22AE5FA500C5C601 /* Reachability.m */; };
+		7D69655122AE7C4700C5C601 /* BorderColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69655022AE7C4600C5C601 /* BorderColorView.swift */; };
 		7D731E0F226D8D9900EBB6FC /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D731E0E226D8D9900EBB6FC /* main.json */; };
 		7D7A8E242291129B00A2B9AB /* DetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A8E232291129B00A2B9AB /* DetailViewControllerDelegate.swift */; };
 		7D7A8E2622911EE900A2B9AB /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A8E2522911EE900A2B9AB /* DetailInteractor.swift */; };
@@ -106,6 +107,7 @@
 		7D69654B22AE5FA400C5C601 /* StoreApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StoreApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		7D69654C22AE5FA500C5C601 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		7D69654D22AE5FA500C5C601 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		7D69655022AE7C4600C5C601 /* BorderColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderColorView.swift; sourceTree = "<group>"; };
 		7D731E0E226D8D9900EBB6FC /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		7D7A8E232291129B00A2B9AB /* DetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerDelegate.swift; sourceTree = "<group>"; };
 		7D7A8E2522911EE900A2B9AB /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				7D4E05872275D65E000882E4 /* StoreTableViewController.swift */,
+				7D69655022AE7C4600C5C601 /* BorderColorView.swift */,
 			);
 			path = ViewProtocol;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				7D9EC050229FAE0300A58EC4 /* Navigation.swift in Sources */,
 				7D9EC055229FB6F000A58EC4 /* ThumbScrollView.swift in Sources */,
 				7D1605AE226EF86A00CB248B /* BorderLabel.swift in Sources */,
+				7D69655122AE7C4700C5C601 /* BorderColorView.swift in Sources */,
 				7DBB60BB228FF31C00256626 /* DetailPresenter.swift in Sources */,
 				7D7A8E242291129B00A2B9AB /* DetailViewControllerDelegate.swift in Sources */,
 				7DD3F919229D127200F78409 /* StoreItemJSON.swift in Sources */,
