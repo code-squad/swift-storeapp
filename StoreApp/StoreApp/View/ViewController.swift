@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     //MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.layer.borderWidth = 3
 
         storeTableView.register(UINib(nibName: StoreTableViewCell.nibName, bundle: nil),
                                 forCellReuseIdentifier: StoreTableViewCell.identifier)
@@ -30,6 +32,7 @@ class ViewController: UIViewController {
         storeTableView.separatorColor = .clear
         
         storePresenter.attach(storeTableViewCotroller: self)
+        storePresenter.attach(netStatusView: self)
     }
 }
 
@@ -42,5 +45,11 @@ extension ViewController: StoreTableViewController {
     func reload(indexPath: IndexPath) {
         self.storeTableView.reloadRows(at: [indexPath],
                                        with: .none)
+    }
+}
+
+extension ViewController: BorderColorView {
+    func change(borderColor: CGColor) {
+        self.view.layer.borderColor = borderColor
     }
 }
