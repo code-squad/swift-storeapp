@@ -14,6 +14,7 @@ class StorePresenter: NSObject {
     //MARK: - Properties
     //MARK: Views
     private weak var storeTableViewController: StoreTableViewController?
+    private weak var borderColorView: BorderColorView?
     
     //MARK: Models
     private let storeItems: StoreItemManager
@@ -23,6 +24,7 @@ class StorePresenter: NSObject {
     
     //MARK: Helpers
     private let sectionTaskGroup = DispatchGroup()
+    private let reachability = Reachability.forInternetConnection()
     
     //MARK: - Methods
     //MARK: Initialization
@@ -33,6 +35,8 @@ class StorePresenter: NSObject {
         self.storeItems = StoreItemManager(variousSectionInfo: variousSectionInfo)
         super.init()
         self.detailRouter = DetailRouter(navigationController: self)
+        changeBorderColor()
+        reachability?.startNotifier()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadTableSection),
@@ -43,6 +47,11 @@ class StorePresenter: NSObject {
                                                selector: #selector(reloadTableRow),
                                                name: .rowWillReload,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeBorderColor(_:)),
+                                               name: .reachabilityChanged,
+                                               object: reachability)
     }
     
     //MARK: Objc
@@ -68,6 +77,18 @@ class StorePresenter: NSObject {
         }
     }
     
+    @objc func changeBorderColor(_ noti: Notification) {
+        changeBorderColor()
+    }
+    
+    private func changeBorderColor() {
+        guard let netStatus = reachability?.currentReachabilityStatus() else { return }
+        let color: CGColor = netStatus.isConnect() ? #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1) : #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        DispatchQueue.main.async {
+            self.borderColorView?.change(borderColor: color)
+        }
+    }
+    
     //MARK: Presenter
     func attach(storeTableViewCotroller: StoreTableViewController) {
         self.storeTableViewController = storeTableViewCotroller
@@ -75,6 +96,14 @@ class StorePresenter: NSObject {
     
     func detachStoreTableView() {
         self.storeTableViewController = nil
+    }
+    
+    func attach(netStatusView: BorderColorView) {
+        self.borderColorView = netStatusView
+    }
+    
+    func detachNetStatusView() {
+        self.borderColorView = nil
     }
 }
 
