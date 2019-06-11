@@ -32,7 +32,12 @@ class StorePresenter: NSObject {
         let variousSectionInfo = [SectionInfo(fileName: "main", title: "메인반찬", description: "한그릇 뚝딱 메인 요리"),
                                   SectionInfo(fileName: "soup", title: "국.찌게", description: "김이 모락모락 국.찌게"),
                                   SectionInfo(fileName: "side", title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
-        self.storeItems = StoreItemManager(variousSectionInfo: variousSectionInfo)
+        if let netStatus = reachability?.currentReachabilityStatus(),
+            netStatus.isConnect() {
+            self.storeItems = StoreItemManager(variousSectionInfo: variousSectionInfo)
+        } else {
+            self.storeItems = StoreItemManager(variousDefaultSectionInfo: variousSectionInfo)
+        }
         super.init()
         self.detailRouter = DetailRouter(navigationController: self)
         changeBorderColor()
