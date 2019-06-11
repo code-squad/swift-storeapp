@@ -11,4 +11,5 @@ import UIKit
 protocol StoreTableViewController: UIViewController {
     func reload(section: Int)
     func reload(indexPath: IndexPath)
+    func reload()
 }
