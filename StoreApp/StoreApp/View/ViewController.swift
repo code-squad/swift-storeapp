@@ -37,6 +37,10 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: StoreTableViewController {
+    func reload() {
+        self.storeTableView.reloadData()
+    }
+    
     func reload(section: Int) {
         self.storeTableView.reloadSections(IndexSet(integer: section),
                                            with: .none)
