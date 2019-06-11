@@ -28,6 +28,7 @@ extension NSNotification.Name {
     static let storeItemsWillUpdate = NSNotification.Name("storeItemsDidUpdate")
     static let rowWillReload = NSNotification.Name("rowWillReload")
     static let imageDidDownload = NSNotification.Name("imageDidDownload")
+    static let storeItemsDidRemove = NSNotification.Name("storeItemsDidRemove")
 }
 
 extension NetworkStatus {
