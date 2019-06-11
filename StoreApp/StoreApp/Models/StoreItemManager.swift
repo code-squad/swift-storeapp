@@ -26,7 +26,18 @@ class StoreItemManager {
             let storeItems = StoreItems(storeItemsInitInfo: sectionInfo)
             self.storeItemManager.append(storeItems)
         }
-        
+        commonInit()
+    }
+    
+    init(variousDefaultSectionInfo: [SectionInfo]) {
+        for sectionInfo in variousDefaultSectionInfo {
+            let storeItems = StoreItems(defaultFileInfo: sectionInfo)
+            self.storeItemManager.append(storeItems)
+        }
+        commonInit()
+    }
+    
+    private func commonInit() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(makeToPostReloadRow),
                                                name: .imageDidDownload,
