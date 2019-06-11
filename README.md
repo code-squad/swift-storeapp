@@ -316,3 +316,17 @@ dispatch group over
 
 `'주문하기'`버튼을 touchUp하면 슬랙 webHook으로 해당 주문을 Post Request합니다.
 <img width="400" src="https://user-images.githubusercontent.com/38850628/58293521-aed7f880-7e00-11e9-8d1f-b3b40b72042c.png">
+
+## step08. 연결성 확인 Reachability
+
+### 배운내용
+
+#### Objective-C 파일을 Swift 프로젝트에서 사용하는 법을 배웠습니다.
+
+사용할 `.h`, `.m` 파일을 넣고  
+`StoreApp-Bridging-Header.h` 파일을 만들어줍니다.  
+그리고 브릿징 헤더파일에 사용할 헤더파일을 import해주면 사용이 가능합니다.
+
+### 실행화면
+
+<img width="400" src="https://user-images.githubusercontent.com/38850628/59249615-265eb200-8c60-11e9-8e0a-e10e7d0a5b00.gif">
