@@ -54,9 +54,14 @@ class StorePresenter: NSObject {
                                                object: nil)
         
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(changeBorderColor(_:)),
+                                               selector: #selector(updateStatus(_:)),
                                                name: .reachabilityChanged,
                                                object: reachability)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadTableView(_:)),
+                                               name: .storeItemsDidRemove,
+                                               object: nil)
     }
     
     //MARK: Objc
@@ -82,8 +87,18 @@ class StorePresenter: NSObject {
         }
     }
     
-    @objc func changeBorderColor(_ noti: Notification) {
+    @objc func updateStatus(_ noti: Notification) {
         changeBorderColor()
+        if let netStatus = reachability?.currentReachabilityStatus(),
+            netStatus.isConnect() {
+            updateStoreItems()
+        }
+    }
+    
+    @objc func reloadTableView(_ noti: Notification) {
+        DispatchQueue.main.async {
+            self.storeTableViewController?.reload()
+        }
     }
     
     private func changeBorderColor() {
@@ -92,6 +107,13 @@ class StorePresenter: NSObject {
         DispatchQueue.main.async {
             self.borderColorView?.change(borderColor: color)
         }
+    }
+    
+    private func updateStoreItems() {
+        let variousSectionInfo = [SectionInfo(fileName: "main", title: "메인반찬", description: "한그릇 뚝딱 메인 요리"),
+                                  SectionInfo(fileName: "soup", title: "국.찌게", description: "김이 모락모락 국.찌게"),
+                                  SectionInfo(fileName: "side", title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
+        self.storeItems.update(with: variousSectionInfo)
     }
     
     //MARK: Presenter

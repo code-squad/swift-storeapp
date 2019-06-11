@@ -60,4 +60,13 @@ class StoreItemManager {
     func index(of items: StoreItems) -> Int? {
         return storeItemManager.firstIndex(where: {$0 === items})
     }
+    
+    func update(with variousSectionInfo: [SectionInfo]) {
+        self.storeItemManager.removeAll()
+        NotificationCenter.default.post(name: .storeItemsDidRemove, object: nil)
+        for sectionInfo in variousSectionInfo {
+            let storeItems = StoreItems(storeItemsInitInfo: sectionInfo)
+            self.storeItemManager.append(storeItems)
+        }
+    }
 }
