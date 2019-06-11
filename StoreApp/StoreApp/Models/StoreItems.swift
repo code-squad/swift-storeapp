@@ -42,6 +42,15 @@ class StoreItems {
         fetcher.fetchStoreItems(fileName: storeItemsInitInfo.fileName, completion: completion)
     }
     
+    init(defaultFileInfo: SectionInfo) {
+        self.sectionInfo = defaultFileInfo
+        guard let pathOfData = Bundle.main.path(forResource: defaultFileInfo.fileName,
+                                                ofType: "json"),
+            let jsonData = try? Data(contentsOf: URL(fileURLWithPath: pathOfData)),
+            let items = try? JSONDecoder().decode([StoreItem].self, from: jsonData) else { return }
+        storeItems.append(contentsOf: items)
+    }
+    
     //MARK: Instance
     func count() -> Int {
         return storeItems.count
