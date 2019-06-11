@@ -45,6 +45,7 @@
 		7DBB60B7228FE46800256626 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB60B6228FE46800256626 /* DetailRouter.swift */; };
 		7DBB60BB228FF31C00256626 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB60BA228FF31C00256626 /* DetailPresenter.swift */; };
 		7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */; };
+		7DD14D7A22AF9B3100A0169E /* ReachabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD14D7922AF9B3100A0169E /* ReachabilityViewController.swift */; };
 		7DD3F917229D122C00F78409 /* DetailJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3F916229D122C00F78409 /* DetailJSON.swift */; };
 		7DD3F919229D127200F78409 /* StoreItemJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3F918229D127200F78409 /* StoreItemJSON.swift */; };
 		7DD3F91B229D1EB500F78409 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3F91A229D1EB500F78409 /* Downloader.swift */; };
@@ -128,6 +129,7 @@
 		7DBB60B6228FE46800256626 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		7DBB60BA228FF31C00256626 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresenter.swift; sourceTree = "<group>"; };
+		7DD14D7922AF9B3100A0169E /* ReachabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityViewController.swift; sourceTree = "<group>"; };
 		7DD3F916229D122C00F78409 /* DetailJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailJSON.swift; sourceTree = "<group>"; };
 		7DD3F918229D127200F78409 /* StoreItemJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemJSON.swift; sourceTree = "<group>"; };
 		7DD3F91A229D1EB500F78409 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		7DBB60BC228FFB2200256626 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7DD14D7922AF9B3100A0169E /* ReachabilityViewController.swift */,
 				7D33758E22718E760068B980 /* ViewController.swift */,
 				7DAEC42E228EA37400CA4430 /* DetailViewController.swift */,
 				7DBB60BE228FFC2A00256626 /* Storyboard */,
@@ -460,6 +463,7 @@
 			files = (
 				7D0B80EA225C8D09001828F5 /* StoreItems.swift in Sources */,
 				7DD3F917229D122C00F78409 /* DetailJSON.swift in Sources */,
+				7DD14D7A22AF9B3100A0169E /* ReachabilityViewController.swift in Sources */,
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
 				7D1605B0226F02A100CB248B /* SectionInfo.swift in Sources */,
 				7DBB60B7228FE46800256626 /* DetailRouter.swift in Sources */,

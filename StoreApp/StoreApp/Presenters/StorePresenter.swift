@@ -40,7 +40,6 @@ class StorePresenter: NSObject {
         }
         super.init()
         self.detailRouter = DetailRouter(navigationController: self)
-        changeBorderColor()
         reachability?.startNotifier()
         
         NotificationCenter.default.addObserver(self,
@@ -88,7 +87,6 @@ class StorePresenter: NSObject {
     }
     
     @objc func updateStatus(_ noti: Notification) {
-        changeBorderColor()
         if let netStatus = reachability?.currentReachabilityStatus(),
             netStatus.isConnect() {
             updateStoreItems()
@@ -98,14 +96,6 @@ class StorePresenter: NSObject {
     @objc func reloadTableView(_ noti: Notification) {
         DispatchQueue.main.async {
             self.storeTableViewController?.reload()
-        }
-    }
-    
-    private func changeBorderColor() {
-        guard let netStatus = reachability?.currentReachabilityStatus() else { return }
-        let color: CGColor = netStatus.isConnect() ? #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1) : #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        DispatchQueue.main.async {
-            self.borderColorView?.change(borderColor: color)
         }
     }
     
