@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ViewController: ReachabilityViewController {
+class ViewController: UIViewController {
     
     //MARK: - Properties
     //MARK: IBOutlet
