@@ -30,9 +30,3 @@ extension NSNotification.Name {
     static let imageDidDownload = NSNotification.Name("imageDidDownload")
     static let storeItemsDidRemove = NSNotification.Name("storeItemsDidRemove")
 }
-
-extension NetworkStatus {
-    func isConnect() -> Bool {
-        return self != NotReachable
-    }
-}
