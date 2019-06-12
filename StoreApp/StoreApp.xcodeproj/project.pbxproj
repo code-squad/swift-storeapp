@@ -45,6 +45,7 @@
 		7DBB60B7228FE46800256626 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB60B6228FE46800256626 /* DetailRouter.swift */; };
 		7DBB60BB228FF31C00256626 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB60BA228FF31C00256626 /* DetailPresenter.swift */; };
 		7DCB0D172269AA4B00BE1F2F /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */; };
+		7DCE8E2322B0A7A000467775 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE8E2222B0A7A000467775 /* NetworkStatus.swift */; };
 		7DD3F917229D122C00F78409 /* DetailJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3F916229D122C00F78409 /* DetailJSON.swift */; };
 		7DD3F919229D127200F78409 /* StoreItemJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3F918229D127200F78409 /* StoreItemJSON.swift */; };
 		7DD3F91B229D1EB500F78409 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD3F91A229D1EB500F78409 /* Downloader.swift */; };
@@ -128,6 +129,7 @@
 		7DBB60B6228FE46800256626 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		7DBB60BA228FF31C00256626 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		7DCB0D162269AA4B00BE1F2F /* StorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresenter.swift; sourceTree = "<group>"; };
+		7DCE8E2222B0A7A000467775 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		7DD3F916229D122C00F78409 /* DetailJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailJSON.swift; sourceTree = "<group>"; };
 		7DD3F918229D127200F78409 /* StoreItemJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemJSON.swift; sourceTree = "<group>"; };
 		7DD3F91A229D1EB500F78409 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				7D9EC05922A55B4D00A58EC4 /* DetailView.swift */,
 				7D69654C22AE5FA500C5C601 /* Reachability.h */,
 				7D69654D22AE5FA500C5C601 /* Reachability.m */,
+				7DCE8E2222B0A7A000467775 /* NetworkStatus.swift */,
 				7DBB60BC228FFB2200256626 /* View */,
 				7D4E05892275D672000882E4 /* ViewProtocol */,
 				7DCB0D1B2269B62900BE1F2F /* Presenters */,
@@ -462,6 +465,7 @@
 				7DD3F917229D122C00F78409 /* DetailJSON.swift in Sources */,
 				7D0B80EC225C8D38001828F5 /* StoreItem.swift in Sources */,
 				7D1605B0226F02A100CB248B /* SectionInfo.swift in Sources */,
+				7DCE8E2322B0A7A000467775 /* NetworkStatus.swift in Sources */,
 				7DBB60B7228FE46800256626 /* DetailRouter.swift in Sources */,
 				7D9EC050229FAE0300A58EC4 /* Navigation.swift in Sources */,
 				7D9EC055229FB6F000A58EC4 /* ThumbScrollView.swift in Sources */,
