@@ -26,13 +26,16 @@ class DetailViewController: UIViewController {
     var detailPresenter: DetailPresenter? {
         didSet {
             detailPresenter?.attach(detailView: self)
+            detailPresenter?.attach(borderColorView: self)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.layer.borderWidth = 3
         detailPresenter?.initViewController()
+        
     }
     
     @IBAction func touchUpOrderButton(_ sender: UIButton) {
@@ -63,5 +66,11 @@ extension DetailViewController: DetailView {
         }
         thumbScrollView.show(with: detailInfo.thumb_images)
         detailStackView.show(with: detailInfo.detail_section)
+    }
+}
+
+extension DetailViewController: BorderColorView {
+    func change(borderColor: CGColor) {
+        self.view.layer.borderColor = borderColor
     }
 }
