@@ -24,7 +24,6 @@ class StorePresenter: NSObject {
     
     //MARK: Helpers
     private let sectionTaskGroup = DispatchGroup()
-    private let reachability = Reachability.forInternetConnection()
     
     //MARK: - Methods
     //MARK: Initialization
@@ -32,8 +31,8 @@ class StorePresenter: NSObject {
         let variousSectionInfo = [SectionInfo(fileName: "main", title: "메인반찬", description: "한그릇 뚝딱 메인 요리"),
                                   SectionInfo(fileName: "soup", title: "국.찌게", description: "김이 모락모락 국.찌게"),
                                   SectionInfo(fileName: "side", title: "밑반찬", description: "언제 먹어도 든든한 밑반찬"),]
-        if let netStatus = reachability?.currentReachabilityStatus(),
-            netStatus.isConnect() {
+        
+        if NetworkStatus.shared.isConnected() {
             self.storeItems = StoreItemManager(variousSectionInfo: variousSectionInfo)
         } else {
             self.storeItems = StoreItemManager(variousDefaultSectionInfo: variousSectionInfo)
@@ -41,7 +40,6 @@ class StorePresenter: NSObject {
         super.init()
         self.detailRouter = DetailRouter(navigationController: self)
         changeBorderColor()
-        reachability?.startNotifier()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadTableSection),
@@ -56,7 +54,7 @@ class StorePresenter: NSObject {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateStatus(_:)),
                                                name: .reachabilityChanged,
-                                               object: reachability)
+                                               object: nil)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadTableView(_:)),
@@ -89,8 +87,7 @@ class StorePresenter: NSObject {
     
     @objc func updateStatus(_ noti: Notification) {
         changeBorderColor()
-        if let netStatus = reachability?.currentReachabilityStatus(),
-            netStatus.isConnect() {
+        if NetworkStatus.shared.isConnected() {
             updateStoreItems()
         }
     }
@@ -102,8 +99,7 @@ class StorePresenter: NSObject {
     }
     
     private func changeBorderColor() {
-        guard let netStatus = reachability?.currentReachabilityStatus() else { return }
-        let color: CGColor = netStatus.isConnect() ? #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1) : #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        let color: CGColor = NetworkStatus.shared.isConnected() ? #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1) : #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
         DispatchQueue.main.async {
             self.borderColorView?.change(borderColor: color)
         }
