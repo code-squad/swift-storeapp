@@ -9,12 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var storeItems: StoreItems?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        storeItems = JsonReceiver.getJson()
+        
     }
-
-
 }
 
