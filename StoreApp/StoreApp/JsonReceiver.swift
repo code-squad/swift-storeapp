@@ -23,8 +23,6 @@ struct JsonReceiver {
                 return
             }
             
-            print(data)
-            
             let decoder: JSONDecoder = JSONDecoder()
             do {
                 storeItems =  try decoder.decode(StoreItems.self, from: data)
