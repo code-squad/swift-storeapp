@@ -15,6 +15,7 @@
 		3372D78523222A56007BD7CA /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D78423222A56007BD7CA /* StoreItem.swift */; };
 		3372D7872322A9AF007BD7CA /* JsonReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D7862322A9AF007BD7CA /* JsonReceiver.swift */; };
 		3372D7892322A9ED007BD7CA /* URLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D7882322A9ED007BD7CA /* URLString.swift */; };
+		3372D78B2322B14D007BD7CA /* StoreItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3372D78423222A56007BD7CA /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		3372D7862322A9AF007BD7CA /* JsonReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReceiver.swift; sourceTree = "<group>"; };
 		3372D7882322A9ED007BD7CA /* URLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLString.swift; sourceTree = "<group>"; };
+		3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				3372D77223221A45007BD7CA /* AppDelegate.swift */,
 				3372D77423221A45007BD7CA /* ViewController.swift */,
+				3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */,
 				3372D77623221A45007BD7CA /* Main.storyboard */,
 				3372D77923221A4D007BD7CA /* Assets.xcassets */,
 				3372D77B23221A4D007BD7CA /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 				3372D7872322A9AF007BD7CA /* JsonReceiver.swift in Sources */,
 				3372D78523222A56007BD7CA /* StoreItem.swift in Sources */,
 				3372D77523221A45007BD7CA /* ViewController.swift in Sources */,
+				3372D78B2322B14D007BD7CA /* StoreItemTableViewCell.swift in Sources */,
 				3372D77323221A45007BD7CA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
