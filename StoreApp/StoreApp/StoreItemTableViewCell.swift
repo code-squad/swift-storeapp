@@ -19,9 +19,9 @@ class StoreItemTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        Title = nil
-        Description = nil
-        Price = nil
+        Title.text = nil
+        Description.text = nil
+        Price.text = nil
     }
     
     func putInfo(_ storeItem: StoreItem) {
