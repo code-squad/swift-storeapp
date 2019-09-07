@@ -27,6 +27,6 @@ class StoreItemTableViewCell: UITableViewCell {
     func putInfo(_ storeItem: StoreItem) {
         self.Title.text = storeItem.title
         self.Description.text = storeItem.storeItemDescription
-        self.Price.text = storeItem.nPrice
+        self.Price.text = storeItem.sPrice
     }
 }
