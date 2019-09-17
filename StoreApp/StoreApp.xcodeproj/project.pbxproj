@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330F3BC12330BF7100DD5823 /* StoreItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330F3BC02330BF7100DD5823 /* StoreItemDataSource.swift */; };
 		3372D77323221A45007BD7CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D77223221A45007BD7CA /* AppDelegate.swift */; };
 		3372D77523221A45007BD7CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D77423221A45007BD7CA /* ViewController.swift */; };
 		3372D77823221A45007BD7CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3372D77623221A45007BD7CA /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		330F3BC02330BF7100DD5823 /* StoreItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemDataSource.swift; sourceTree = "<group>"; };
 		3372D76F23221A45007BD7CA /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3372D77223221A45007BD7CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3372D77423221A45007BD7CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				3372D78423222A56007BD7CA /* StoreItem.swift */,
 				3372D7862322A9AF007BD7CA /* JsonReceiver.swift */,
 				3372D7882322A9ED007BD7CA /* URLString.swift */,
+				330F3BC02330BF7100DD5823 /* StoreItemDataSource.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330F3BC12330BF7100DD5823 /* StoreItemDataSource.swift in Sources */,
 				3372D7892322A9ED007BD7CA /* URLString.swift in Sources */,
 				3372D7872322A9AF007BD7CA /* JsonReceiver.swift in Sources */,
 				3372D78523222A56007BD7CA /* StoreItem.swift in Sources */,

@@ -8,29 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
-    var storeItems: StoreItems?
+class ViewController: UIViewController {
+    let storeItemDataSrouce = StoreItemDataSource()
     @IBOutlet weak var storeItemTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        storeItems = JsonReceiver.getJson()
-        storeItemTableView.dataSource = self
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems?.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "storeItemCell", for: indexPath) as! StoreItemTableViewCell
-        
-        if let storeItem = storeItems?[indexPath.row] {
-            cell.putInfo(storeItem)
-        }
-        
-        return cell
+        storeItemTableView.dataSource = storeItemDataSrouce
     }
 }
 
