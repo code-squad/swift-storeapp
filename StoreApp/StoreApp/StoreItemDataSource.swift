@@ -9,7 +9,7 @@
 import UIKit
 
 class StoreItemDataSource: NSObject, UITableViewDataSource {
-    var storeItems = JsonReceiver.getJson()
+    var storeItems = JSONReceiver.getJson()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return storeItems.count

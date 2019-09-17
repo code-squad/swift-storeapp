@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JsonReceiver {
+struct JSONReceiver {
     static func getJson() -> StoreItems {
         var storeItems = StoreItems()
         let semaphore = DispatchSemaphore(value: 0)

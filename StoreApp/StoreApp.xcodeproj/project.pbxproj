@@ -14,7 +14,7 @@
 		3372D77A23221A4D007BD7CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3372D77923221A4D007BD7CA /* Assets.xcassets */; };
 		3372D77D23221A4D007BD7CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3372D77B23221A4D007BD7CA /* LaunchScreen.storyboard */; };
 		3372D78523222A56007BD7CA /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D78423222A56007BD7CA /* StoreItem.swift */; };
-		3372D7872322A9AF007BD7CA /* JsonReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D7862322A9AF007BD7CA /* JsonReceiver.swift */; };
+		3372D7872322A9AF007BD7CA /* JSONReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D7862322A9AF007BD7CA /* JSONReceiver.swift */; };
 		3372D7892322A9ED007BD7CA /* URLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D7882322A9ED007BD7CA /* URLString.swift */; };
 		3372D78B2322B14D007BD7CA /* StoreItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 		3372D77C23221A4D007BD7CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3372D77E23221A4D007BD7CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3372D78423222A56007BD7CA /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
-		3372D7862322A9AF007BD7CA /* JsonReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReceiver.swift; sourceTree = "<group>"; };
+		3372D7862322A9AF007BD7CA /* JSONReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReceiver.swift; sourceTree = "<group>"; };
 		3372D7882322A9ED007BD7CA /* URLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLString.swift; sourceTree = "<group>"; };
 		3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,7 +72,7 @@
 				3372D77B23221A4D007BD7CA /* LaunchScreen.storyboard */,
 				3372D77E23221A4D007BD7CA /* Info.plist */,
 				3372D78423222A56007BD7CA /* StoreItem.swift */,
-				3372D7862322A9AF007BD7CA /* JsonReceiver.swift */,
+				3372D7862322A9AF007BD7CA /* JSONReceiver.swift */,
 				3372D7882322A9ED007BD7CA /* URLString.swift */,
 				330F3BC02330BF7100DD5823 /* StoreItemDataSource.swift */,
 			);
@@ -152,7 +152,7 @@
 			files = (
 				330F3BC12330BF7100DD5823 /* StoreItemDataSource.swift in Sources */,
 				3372D7892322A9ED007BD7CA /* URLString.swift in Sources */,
-				3372D7872322A9AF007BD7CA /* JsonReceiver.swift in Sources */,
+				3372D7872322A9AF007BD7CA /* JSONReceiver.swift in Sources */,
 				3372D78523222A56007BD7CA /* StoreItem.swift in Sources */,
 				3372D77523221A45007BD7CA /* ViewController.swift in Sources */,
 				3372D78B2322B14D007BD7CA /* StoreItemTableViewCell.swift in Sources */,
