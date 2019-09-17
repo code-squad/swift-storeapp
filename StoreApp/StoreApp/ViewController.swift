@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource {
     var storeItems: StoreItems?
     @IBOutlet weak var storeItemTableView: UITableView!
     
@@ -16,7 +16,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         
         storeItems = JsonReceiver.getJson()
-        storeItemTableView.delegate = self
         storeItemTableView.dataSource = self
     }
     
