@@ -18,7 +18,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         storeItems = JsonReceiver.getJson()
         storeItemTableView.delegate = self
         storeItemTableView.dataSource = self
-        storeItemTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
