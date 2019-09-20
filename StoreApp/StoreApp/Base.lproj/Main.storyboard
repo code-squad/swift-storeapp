@@ -60,6 +60,11 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="foM-0W-JEt" secondAttribute="height" multiplier="1:1" id="1b8-cq-7uT"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="40"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEv-Dw-sWm" userLabel="Price">
                                                     <rect key="frame" x="99" y="52" width="44" height="19.5"/>
