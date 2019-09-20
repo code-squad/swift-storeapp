@@ -13,6 +13,7 @@ class StoreItemTableViewCell: UITableViewCell {
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var Price: UILabel!
     @IBOutlet weak var nPrice: UILabel!
+    @IBOutlet weak var badge: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +25,7 @@ class StoreItemTableViewCell: UITableViewCell {
         Description.text = nil
         Price.text = nil
         nPrice.text = nil
+        badge.text = nil
     }
     
     func putInfo(_ storeItem: StoreItem) {
@@ -35,6 +37,10 @@ class StoreItemTableViewCell: UITableViewCell {
             let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: nPrice)
             attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
             self.nPrice.attributedText = attributeString
+        }
+        
+        if let badgeName = storeItem.badge?.first {
+            self.badge.text = badgeName
         }
     }
 }

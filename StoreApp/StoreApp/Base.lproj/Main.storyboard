@@ -47,11 +47,10 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XA-mq-WHv">
-                                                    <rect key="frame" x="99.5" y="73" width="265.5" height="17.5"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XA-mq-WHv">
+                                                    <rect key="frame" x="99.5" y="69.5" width="0.0" height="0.0"/>
                                                     <color key="backgroundColor" red="0.34322455530000001" green="0.2124155164" blue="0.46669048070000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -74,11 +73,13 @@
                                                 <constraint firstAttribute="bottom" secondItem="foM-0W-JEt" secondAttribute="bottom" constant="10" id="65q-pB-DPl"/>
                                                 <constraint firstItem="16L-TR-8Gn" firstAttribute="leading" secondItem="foM-0W-JEt" secondAttribute="trailing" constant="10" id="7O0-j4-cZT"/>
                                                 <constraint firstItem="foM-0W-JEt" firstAttribute="leading" secondItem="8kp-zV-kPF" secondAttribute="leading" constant="10" id="AVr-XI-L7Z"/>
+                                                <constraint firstItem="4XA-mq-WHv" firstAttribute="leading" secondItem="Rla-Db-fZR" secondAttribute="leading" id="Bdo-Zp-Apg"/>
                                                 <constraint firstItem="Rla-Db-fZR" firstAttribute="leading" secondItem="16L-TR-8Gn" secondAttribute="leading" id="I2t-la-Zc3"/>
                                                 <constraint firstItem="16L-TR-8Gn" firstAttribute="top" secondItem="8kp-zV-kPF" secondAttribute="top" constant="10" id="LYJ-RD-uJJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="16L-TR-8Gn" secondAttribute="trailing" constant="10" id="Tnn-uG-QVT"/>
                                                 <constraint firstItem="TEv-Dw-sWm" firstAttribute="centerY" secondItem="qr3-Kk-YC2" secondAttribute="centerY" priority="999" id="UaS-Fc-vhD"/>
                                                 <constraint firstItem="qr3-Kk-YC2" firstAttribute="leading" secondItem="Rla-Db-fZR" secondAttribute="leading" id="UnI-tj-uBj"/>
+                                                <constraint firstItem="4XA-mq-WHv" firstAttribute="top" secondItem="TEv-Dw-sWm" secondAttribute="bottom" constant="1.5" id="YPW-OP-hdM"/>
                                                 <constraint firstItem="Rla-Db-fZR" firstAttribute="top" secondItem="16L-TR-8Gn" secondAttribute="bottom" constant="1" id="nEC-Ng-gIf"/>
                                                 <constraint firstItem="qr3-Kk-YC2" firstAttribute="top" secondItem="Rla-Db-fZR" secondAttribute="bottom" constant="1" id="p0X-sC-qLm"/>
                                                 <constraint firstItem="TEv-Dw-sWm" firstAttribute="leading" secondItem="qr3-Kk-YC2" secondAttribute="trailing" priority="999" constant="1" id="qFi-0S-6Qi"/>
@@ -89,6 +90,7 @@
                                             <outlet property="Description" destination="Rla-Db-fZR" id="VQb-bP-YuM"/>
                                             <outlet property="Price" destination="TEv-Dw-sWm" id="q2D-B5-dxB"/>
                                             <outlet property="Title" destination="16L-TR-8Gn" id="1BG-6h-07z"/>
+                                            <outlet property="badge" destination="4XA-mq-WHv" id="bnY-9h-wBp"/>
                                             <outlet property="nPrice" destination="qr3-Kk-YC2" id="lBb-Y5-VOY"/>
                                         </connections>
                                     </tableViewCell>
