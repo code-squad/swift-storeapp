@@ -32,7 +32,9 @@ class StoreItemTableViewCell: UITableViewCell {
         self.Price.text = storeItem.sPrice
         
         if let nPrice = storeItem.nPrice {
-            self.nPrice.text = nPrice
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: nPrice)
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
+            self.nPrice.attributedText = attributeString
         }
     }
 }
