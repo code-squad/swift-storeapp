@@ -34,12 +34,6 @@ class StoreItemTableViewCell: UITableViewCell {
         self.Description.text = storeItem.storeItemDescription
         self.Price.text = storeItem.sPrice
         
-        if let nPrice = storeItem.nPrice {
-            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: nPrice)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
-            self.nPrice.attributedText = attributeString
-        }
-        
         if let badgeName = storeItem.badge?.first {
             self.badge.text = badgeName
         }
@@ -47,6 +41,14 @@ class StoreItemTableViewCell: UITableViewCell {
         if let image = loadImage(from: storeItem.image) {
             self.itemImageView.image = image
         }
+        
+        guard let nPrice = storeItem.nPrice else {
+            return
+        }
+        
+        let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: nPrice)
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
+        self.nPrice.attributedText = attributeString
     }
     
     private func loadImage(from imageUrl: String) -> UIImage? {
