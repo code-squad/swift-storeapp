@@ -32,24 +32,35 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="II3-tg-vGT">
                                                     <rect key="frame" x="99.5" y="11" width="265.5" height="79.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16L-TR-8Gn" userLabel="Title">
-                                                            <rect key="frame" x="0.0" y="0.0" width="265.5" height="39"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16L-TR-8Gn" userLabel="Title">
+                                                            <rect key="frame" x="0.0" y="0.0" width="265.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rla-Db-fZR" userLabel="Description">
-                                                            <rect key="frame" x="0.0" y="40" width="265.5" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rla-Db-fZR" userLabel="Description">
+                                                            <rect key="frame" x="0.0" y="21.5" width="265.5" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEv-Dw-sWm" userLabel="Price">
-                                                            <rect key="frame" x="0.0" y="58" width="265.5" height="21.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
-                                                            <color key="textColor" red="0.3720228672" green="0.63788384200000003" blue="0.70589703319999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="INH-7e-99C">
+                                                            <rect key="frame" x="0.0" y="39.5" width="265.5" height="40"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qr3-Kk-YC2" userLabel="nPrice">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="216.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEv-Dw-sWm" userLabel="Price">
+                                                                    <rect key="frame" x="216.5" y="0.0" width="49" height="21.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                                                    <color key="textColor" red="0.3720228672" green="0.63788384200000003" blue="0.70589703319999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foM-0W-JEt">
@@ -73,59 +84,6 @@
                                             <outlet property="Description" destination="Rla-Db-fZR" id="VQb-bP-YuM"/>
                                             <outlet property="Price" destination="TEv-Dw-sWm" id="q2D-B5-dxB"/>
                                             <outlet property="Title" destination="16L-TR-8Gn" id="1BG-6h-07z"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="storeItemHaveDiscountPriceCell" id="bMb-Tj-ihg" userLabel="StoreItem" customClass="StoreItemTableViewCellHaveDiscountPrice" customModule="StoreApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="128" width="375" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bMb-Tj-ihg" id="Psp-eq-7qi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="QPz-gT-8gP">
-                                                    <rect key="frame" x="99.5" y="11" width="265.5" height="79.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UI-hv-DXF" userLabel="Title">
-                                                            <rect key="frame" x="0.0" y="0.0" width="265.5" height="39"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PsT-0N-dpL" userLabel="Description">
-                                                            <rect key="frame" x="0.0" y="40" width="265.5" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vN6-94-wTf" userLabel="Price">
-                                                            <rect key="frame" x="0.0" y="58" width="265.5" height="21.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
-                                                            <color key="textColor" red="0.3720228672" green="0.63788384200000003" blue="0.70589703319999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RoM-Vk-DQT">
-                                                    <rect key="frame" x="10" y="10" width="118" height="79"/>
-                                                    <color key="backgroundColor" red="0.062745098040000002" green="1" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="RoM-Vk-DQT" secondAttribute="height" multiplier="1:1" id="0Ii-4N-FMb"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="RoM-Vk-DQT" secondAttribute="bottom" constant="10" id="CYR-S4-Y1T"/>
-                                                <constraint firstItem="RoM-Vk-DQT" firstAttribute="leading" secondItem="Psp-eq-7qi" secondAttribute="leading" constant="10" id="DVk-1p-5aT"/>
-                                                <constraint firstItem="QPz-gT-8gP" firstAttribute="leading" secondItem="RoM-Vk-DQT" secondAttribute="trailing" constant="10" id="Dls-BS-ITF"/>
-                                                <constraint firstItem="RoM-Vk-DQT" firstAttribute="top" secondItem="Psp-eq-7qi" secondAttribute="top" constant="10" id="FNO-Dw-urf"/>
-                                                <constraint firstItem="QPz-gT-8gP" firstAttribute="height" secondItem="RoM-Vk-DQT" secondAttribute="height" id="V1b-kr-UHA"/>
-                                                <constraint firstAttribute="trailing" secondItem="QPz-gT-8gP" secondAttribute="trailing" constant="10" id="Wfc-am-nzI"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="Description" destination="PsT-0N-dpL" id="8lW-Qc-vQj"/>
-                                            <outlet property="Price" destination="vN6-94-wTf" id="VyO-3a-juw"/>
-                                            <outlet property="Title" destination="3UI-hv-DXF" id="eyv-4q-87t"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
