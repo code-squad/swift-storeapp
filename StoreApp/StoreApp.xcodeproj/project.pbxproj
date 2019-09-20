@@ -53,6 +53,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		334D9AF423349794001681D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				330F3BC02330BF7100DD5823 /* StoreItemDataSource.swift */,
+				3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3372D76623221A45007BD7CA = {
 			isa = PBXGroup;
 			children = (
@@ -72,17 +81,16 @@
 		3372D77123221A45007BD7CA /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				334D9AF423349794001681D5 /* View */,
 				334D9AF323349605001681D5 /* Model */,
 				3372D77223221A45007BD7CA /* AppDelegate.swift */,
 				3372D77423221A45007BD7CA /* ViewController.swift */,
-				3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */,
 				3372D77623221A45007BD7CA /* Main.storyboard */,
 				3372D77923221A4D007BD7CA /* Assets.xcassets */,
 				3372D77B23221A4D007BD7CA /* LaunchScreen.storyboard */,
 				3372D77E23221A4D007BD7CA /* Info.plist */,
 				3372D7862322A9AF007BD7CA /* JSONReceiver.swift */,
 				3372D7882322A9ED007BD7CA /* URLString.swift */,
-				330F3BC02330BF7100DD5823 /* StoreItemDataSource.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
