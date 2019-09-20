@@ -91,6 +91,7 @@
                                             <outlet property="Price" destination="TEv-Dw-sWm" id="q2D-B5-dxB"/>
                                             <outlet property="Title" destination="16L-TR-8Gn" id="1BG-6h-07z"/>
                                             <outlet property="badge" destination="4XA-mq-WHv" id="bnY-9h-wBp"/>
+                                            <outlet property="itemImageView" destination="foM-0W-JEt" id="4LP-22-4oN"/>
                                             <outlet property="nPrice" destination="qr3-Kk-YC2" id="lBb-Y5-VOY"/>
                                         </connections>
                                     </tableViewCell>
