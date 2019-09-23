@@ -13,7 +13,7 @@ struct JSONReceiver {
         var storeItems = StoreItems()
         let semaphore = DispatchSemaphore(value: 0)
         
-        guard let url = URL(string: URLString.StoreItem.rawValue) else {
+        guard let url = URL(string: URLString.main.rawValue) else {
             return storeItems
         }
         
