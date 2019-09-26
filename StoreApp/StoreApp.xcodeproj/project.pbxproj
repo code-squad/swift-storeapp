@@ -17,6 +17,7 @@
 		3372D7872322A9AF007BD7CA /* JSONReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D7862322A9AF007BD7CA /* JSONReceiver.swift */; };
 		3372D7892322A9ED007BD7CA /* URLString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D7882322A9ED007BD7CA /* URLString.swift */; };
 		3372D78B2322B14D007BD7CA /* StoreItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */; };
+		339A75F32339E9BC00ABEE1E /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339A75F22339E9BC00ABEE1E /* HeaderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3372D7862322A9AF007BD7CA /* JSONReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReceiver.swift; sourceTree = "<group>"; };
 		3372D7882322A9ED007BD7CA /* URLString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLString.swift; sourceTree = "<group>"; };
 		3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemTableViewCell.swift; sourceTree = "<group>"; };
+		339A75F22339E9BC00ABEE1E /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				330F3BC02330BF7100DD5823 /* StoreItemDataSource.swift */,
+				339A75F22339E9BC00ABEE1E /* HeaderTableViewCell.swift */,
 				3372D78A2322B14D007BD7CA /* StoreItemTableViewCell.swift */,
 			);
 			path = View;
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				339A75F32339E9BC00ABEE1E /* HeaderTableViewCell.swift in Sources */,
 				330F3BC12330BF7100DD5823 /* StoreItemDataSource.swift in Sources */,
 				3372D7892322A9ED007BD7CA /* URLString.swift in Sources */,
 				3372D7872322A9AF007BD7CA /* JSONReceiver.swift in Sources */,

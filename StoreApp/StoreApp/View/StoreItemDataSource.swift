@@ -8,10 +8,24 @@
 
 import UIKit
 
-class StoreItemDataSource: NSObject, UITableViewDataSource {
-    var storeItems = JSONReceiver.getJson()
+class StoreItemDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+    var storeItems = [StoreItem]()
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let urlString = URLString(call: section)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! HeaderTableViewCell
+        cell.putInfo(title: urlString.getHeaderTitle(), description: urlString.getHeaderDescription())
+        
+        return cell
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let urlString = URLString(call: section)
+        storeItems = JSONReceiver.getJson(urlString: urlString)
         return storeItems.count
     }
     
