@@ -9,11 +9,11 @@
 import Foundation
 
 struct JSONReceiver {
-    static func getJson() -> StoreItems {
+    static func getJson(urlString: URLString) -> StoreItems {
         var storeItems = StoreItems()
         let semaphore = DispatchSemaphore(value: 0)
         
-        guard let url = URL(string: URLString.main.rawValue) else {
+        guard let url = URL(string: urlString.rawValue) else {
             return storeItems
         }
         
