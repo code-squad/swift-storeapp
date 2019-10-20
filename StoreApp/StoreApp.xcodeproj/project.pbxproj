@@ -13,6 +13,7 @@
 		A783ED28235CAC6E001D91E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A783ED27235CAC6E001D91E0 /* Assets.xcassets */; };
 		A783ED2B235CAC6E001D91E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A783ED29235CAC6E001D91E0 /* LaunchScreen.storyboard */; };
 		A783ED34235CB300001D91E0 /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED33235CB300001D91E0 /* StoreItemCell.swift */; };
+		A783ED37235CB62E001D91E0 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = A783ED36235CB62E001D91E0 /* main.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A783ED2A235CAC6E001D91E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A783ED2C235CAC6E001D91E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A783ED33235CB300001D91E0 /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCell.swift; sourceTree = "<group>"; };
+		A783ED36235CB62E001D91E0 /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		A783ED1F235CAC6D001D91E0 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				A783ED35235CB61A001D91E0 /* Resource */,
 				A783ED32235CB2DD001D91E0 /* View */,
 				A783ED20235CAC6D001D91E0 /* AppDelegate.swift */,
 				A783ED22235CAC6D001D91E0 /* ViewController.swift */,
@@ -73,6 +76,14 @@
 				A783ED33235CB300001D91E0 /* StoreItemCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A783ED35235CB61A001D91E0 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				A783ED36235CB62E001D91E0 /* main.json */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +146,7 @@
 			files = (
 				A783ED2B235CAC6E001D91E0 /* LaunchScreen.storyboard in Resources */,
 				A783ED28235CAC6E001D91E0 /* Assets.xcassets in Resources */,
+				A783ED37235CB62E001D91E0 /* main.json in Resources */,
 				A783ED26235CAC6D001D91E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
