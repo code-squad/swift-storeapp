@@ -15,9 +15,9 @@ struct StoreItem: Decodable {
     var deliveryType: [String]
     var title: String
     var description: String
-    var nPrice: String
     var sPrice: String
-    var badge: [String]
+    var nPrice: String?
+    var badge: [String]?
 
     enum CodingKeys: String, CodingKey {
         case detailHash = "detail_hash"
@@ -26,4 +26,5 @@ struct StoreItem: Decodable {
         case sPrice = "s_price"
         case image, alt, title, description, badge
     }
+
 }

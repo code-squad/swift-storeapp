@@ -20,12 +20,29 @@ class ItemListViewController: UIViewController {
         super.viewDidLoad()
 
         setupTebleView()
+        setupItemData()
     }
 
     // MARK: Functions
     func setupTebleView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
+    }
+
+    func setupItemData() {
+        guard let url = Bundle.main.url(forResource: "main", withExtension: "json") else {
+            debugPrint("json file is not exist")
+            return
+        }
+
+        guard let jsonData = try? Data(contentsOf: url) else {
+            debugPrint("Fail to convert to jsondata")
+            return
+        }
+
+        if let itemList = try? JSONDecoder().decode([StoreItem].self, from: jsonData) {
+            self.itemList = itemList
+        }
     }
 
 }
