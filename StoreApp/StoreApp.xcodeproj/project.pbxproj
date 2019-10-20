@@ -16,6 +16,7 @@
 		A783ED3A235CB692001D91E0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED39235CB692001D91E0 /* StoreItem.swift */; };
 		A783ED3D235CBA40001D91E0 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED3C235CBA40001D91E0 /* ItemListViewController.swift */; };
 		A783ED41235CC860001D91E0 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED40235CC860001D91E0 /* BadgeView.swift */; };
+		A783ED43235CCD7F001D91E0 /* ItemHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED42235CCD7F001D91E0 /* ItemHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A783ED39235CB692001D91E0 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		A783ED3C235CBA40001D91E0 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		A783ED40235CC860001D91E0 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		A783ED42235CCD7F001D91E0 /* ItemHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				A783ED33235CB300001D91E0 /* StoreItemCell.swift */,
 				A783ED40235CC860001D91E0 /* BadgeView.swift */,
+				A783ED42235CCD7F001D91E0 /* ItemHeaderCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				A783ED34235CB300001D91E0 /* StoreItemCell.swift in Sources */,
 				A783ED41235CC860001D91E0 /* BadgeView.swift in Sources */,
 				A783ED3D235CBA40001D91E0 /* ItemListViewController.swift in Sources */,
+				A783ED43235CCD7F001D91E0 /* ItemHeaderCell.swift in Sources */,
 				A783ED3A235CB692001D91E0 /* StoreItem.swift in Sources */,
 				A783ED21235CAC6D001D91E0 /* AppDelegate.swift in Sources */,
 			);
