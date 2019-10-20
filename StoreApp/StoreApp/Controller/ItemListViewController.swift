@@ -72,6 +72,11 @@ extension ItemListViewController: UITableViewDataSource {
 // MARK: UITableViewDelegate Extension
 extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
+        let header = tableView.dequeueReusableCell(withIdentifier: "ItemHeaderCell") as? ItemHeaderCell
+        return header ?? nil
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
     }
 }

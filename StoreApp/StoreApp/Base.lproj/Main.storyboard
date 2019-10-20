@@ -95,6 +95,46 @@
                                             <outlet property="titleLabel" destination="0Y9-cP-exL" id="fjh-Ty-j5l"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemHeaderCell" rowHeight="93" id="zSo-IO-bYh" customClass="ItemHeaderCell" customModule="StoreApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="168" width="414" height="93"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zSo-IO-bYh" id="gYC-RF-f8O">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="92.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-zv-snY">
+                                                    <rect key="frame" x="105.5" y="19" width="203.5" height="54.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="밑반찬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MjV-PQ-1Cb">
+                                                            <rect key="frame" x="79.5" y="0.0" width="44.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="언제 먹어도 든든한 밑반찬" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-ba-2MG">
+                                                            <rect key="frame" x="0.0" y="30.5" width="203.5" height="24"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="54.5" id="2YK-QQ-DcA"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fP9-zv-snY" firstAttribute="centerX" secondItem="gYC-RF-f8O" secondAttribute="centerX" id="9JG-la-xHP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fP9-zv-snY" secondAttribute="bottom" constant="8.5" id="Gca-uN-61I"/>
+                                                <constraint firstItem="fP9-zv-snY" firstAttribute="top" secondItem="gYC-RF-f8O" secondAttribute="topMargin" constant="8" id="NCa-ax-hw4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="subTitleLabel" destination="MjV-PQ-1Cb" id="zWr-QX-fsr"/>
+                                            <outlet property="titleLabel" destination="QZb-ba-2MG" id="Jjb-72-3c7"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
