@@ -62,6 +62,8 @@ extension ItemListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
+        let item = self.itemList[indexPath.row]
+        itemCell.configure(with: item)
         return itemCell
     }
 

@@ -19,4 +19,19 @@ class StoreItemCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+
+    func configure(with item: StoreItem) {
+        self.titleLabel.text = item.title
+        self.detailLabel.text = item.description
+        if let nPrice = item.nPrice {
+            self.originPriceLabel.isHidden = false
+            self.originPriceLabel.text = nPrice
+        } else {
+            self.originPriceLabel.isHidden = true
+        }
+
+        self.discountedPriceLabel.text = item.sPrice
+        self.badgeView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        item.badge?.forEach { self.badgeView.addArrangedSubview(BadgeView(title: " \($0) ")) }
+    }
 }
