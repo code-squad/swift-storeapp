@@ -9,7 +9,6 @@
 import UIKit
 
 class TableViewModel: NSObject, UITableViewDataSource {
-//    var storeItemsArray = Array<Dictionary<String, Any>>()
     var storeItems = Array<StoreItem>()
     
     override init() {
@@ -23,10 +22,6 @@ class TableViewModel: NSObject, UITableViewDataSource {
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
                     guard let data = data else { return }
-                    
-                    // endcoding String
-        //            let dataAsString = String(data: data, encoding: .utf8)
-        //            print(dataAsString!)
                     
                     let jsonDecoder = JSONDecoder()
                     jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -82,14 +77,4 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 132
     }
-    
-    //MARK:- TableView DataSource
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 2
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! StoreItemCell
-//        return cell
-//    }
 }
