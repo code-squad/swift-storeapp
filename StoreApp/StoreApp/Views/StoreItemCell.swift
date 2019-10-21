@@ -46,6 +46,9 @@ class StoreItemCell: UITableViewCell {
             attributedString.append(NSAttributedString(string: "\(spaceBetweenPrices)\(item.sPrice)", attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy), .foregroundColor: #colorLiteral(red: 0.1703471243, green: 0.7560165524, blue: 0.737252295, alpha: 1)]))
             self.normalPriceLabel.attributedText = attributedString
             
+            // badge
+            badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+            
             if let badges = item.badge {
                 var badgeViews = [UITextView]()
                 
@@ -67,10 +70,10 @@ class StoreItemCell: UITableViewCell {
                     
                     badgeViews.append(badgeTextView)
                 }
-                badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+                
                 badgeViews.forEach({ badgeStackView.addArrangedSubview($0)})
             } else {
-                badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+                // trick
                 badgeStackView.addArrangedSubview(CustomBadgeTextView(text: "none"))
             }
         }
