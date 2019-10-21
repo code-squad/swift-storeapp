@@ -46,6 +46,7 @@ class TableViewModel: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! StoreItemCell
         cell.item = storeItems[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
 }

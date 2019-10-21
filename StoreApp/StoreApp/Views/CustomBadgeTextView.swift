@@ -16,6 +16,7 @@ class CustomBadgeTextView: UITextView {
         textAlignment = .center
         isScrollEnabled = false
         isEditable = false
+        isSelectable = false
         font = .systemFont(ofSize: 14)
         textColor = .white
         backgroundColor = .white
