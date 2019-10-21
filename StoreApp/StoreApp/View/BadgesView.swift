@@ -13,22 +13,22 @@ class BadgesView: UIStackView {
         super.init(frame: frame)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    required init(coder: NSCoder) {
+        super.init(coder: coder)
     }
 
     func configure(badgeItems: [String]) {
         self.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        badgeItems.forEach { self.addArrangedSubview(createBadge(title: " \($0) ")) }
-    }
+        badgeItems
+            .map({ title in
+                let badgeLabel = UILabel()
 
-    func createBadge(title: String) -> UILabel {
-        let label = UILabel()
+                badgeLabel.text = "  \(title)  "
+                badgeLabel.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+                badgeLabel.textColor = .white
 
-        self.text = title
-        self.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        self.textColor = .white
-
-        return label
+                return badgeLabel
+            })
+            .forEach { self.addArrangedSubview($0) }
     }
 }

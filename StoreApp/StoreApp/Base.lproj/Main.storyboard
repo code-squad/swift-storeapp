@@ -61,7 +61,7 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mmQ-Ph-dvo">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mmQ-Ph-dvo" customClass="BadgesView" customModule="StoreApp" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="86" width="50" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="1Ml-fH-jZN"/>
@@ -87,7 +87,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="badgeView" destination="mmQ-Ph-dvo" id="fo3-Jy-qz5"/>
+                                            <outlet property="badgesView" destination="mmQ-Ph-dvo" id="WdP-6h-z5l"/>
                                             <outlet property="detailLabel" destination="gEn-Sy-S1h" id="6Db-Aa-Rti"/>
                                             <outlet property="discountedPriceLabel" destination="9Hm-81-8RS" id="Kc7-5K-8yj"/>
                                             <outlet property="itemImageView" destination="Gum-Dz-dcq" id="Cbd-OZ-h3k"/>
