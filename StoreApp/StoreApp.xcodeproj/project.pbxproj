@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3858312C235DA201007C0F50 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 3858312B235DA201007C0F50 /* main.json */; };
+		3858312E235E2A99007C0F50 /* CustomBadgeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3858312D235E2A99007C0F50 /* CustomBadgeTextView.swift */; };
 		38896D54235D741400B2A00D /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38896D53235D741400B2A00D /* StoreItemCell.swift */; };
 		38A16E46235D7BA9006766C0 /* StoreItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A16E45235D7BA9006766C0 /* StoreItemViewController.swift */; };
 		38A16E4B235D868E006766C0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A16E4A235D868E006766C0 /* StoreItem.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		3858312B235DA201007C0F50 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		3858312D235E2A99007C0F50 /* CustomBadgeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBadgeTextView.swift; sourceTree = "<group>"; };
 		38896D53235D741400B2A00D /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreItemCell.swift; path = StoreApp/Views/StoreItemCell.swift; sourceTree = SOURCE_ROOT; };
 		38A16E45235D7BA9006766C0 /* StoreItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemViewController.swift; sourceTree = "<group>"; };
 		38A16E4A235D868E006766C0 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				38896D53235D741400B2A00D /* StoreItemCell.swift */,
 				38A16E4C235D9408006766C0 /* StoreItemHeaderCell.swift */,
+				3858312D235E2A99007C0F50 /* CustomBadgeTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3858312E235E2A99007C0F50 /* CustomBadgeTextView.swift in Sources */,
 				38A16E4D235D9408006766C0 /* StoreItemHeaderCell.swift in Sources */,
 				38A16E4B235D868E006766C0 /* StoreItem.swift in Sources */,
 				38E44EFF235CA2C5001FBCE5 /* AppDelegate.swift in Sources */,
