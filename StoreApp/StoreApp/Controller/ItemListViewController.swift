@@ -13,60 +13,20 @@ class ItemListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     // MARK: Outlets
-    var itemList = [StoreItem]()
+    let itemListTableViewModel = ItemListTableViewModel()
 
     // MARK: Life cycles
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTebleView()
-        setupItemData()
     }
 
     // MARK: Functions
     func setupTebleView() {
-        self.tableView.dataSource = self
+        self.tableView.dataSource = itemListTableViewModel
         self.tableView.delegate = self
     }
-
-    func setupItemData() {
-        guard let url = Bundle.main.url(forResource: "main", withExtension: "json") else {
-            debugPrint("json file is not exist")
-            return
-        }
-
-        guard let jsonData = try? Data(contentsOf: url) else {
-            debugPrint("Fail to convert to jsondata")
-            return
-        }
-
-        if let itemList = try? JSONDecoder().decode([StoreItem].self, from: jsonData) {
-            self.itemList = itemList
-        }
-    }
-
-}
-
-// MARK: UITableViewDataSource Extension
-extension ItemListViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemList.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let itemCell = tableView.dequeueReusableCell(withIdentifier: "StoreItemCell", for: indexPath) as? StoreItemCell else {
-            return UITableViewCell()
-        }
-
-        let item = self.itemList[indexPath.row]
-        itemCell.configure(with: item)
-        return itemCell
-    }
-
 }
 
 // MARK: UITableViewDelegate Extension
