@@ -14,7 +14,7 @@ class StoreItemCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var originPriceLabel: UILabel!
     @IBOutlet weak var discountedPriceLabel: UILabel!
-    @IBOutlet weak var badgeView: UIStackView!
+    @IBOutlet weak var badgesView: BadgesView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +23,7 @@ class StoreItemCell: UITableViewCell {
     func configure(with item: StoreItem) {
         self.titleLabel.text = item.title
         self.detailLabel.text = item.description
+        
         if let nPrice = item.nPrice {
             self.originPriceLabel.isHidden = false
             self.originPriceLabel.text = nPrice
@@ -31,7 +32,9 @@ class StoreItemCell: UITableViewCell {
         }
 
         self.discountedPriceLabel.text = item.sPrice
-        self.badgeView.arrangedSubviews.forEach { $0.removeFromSuperview() }
-        item.badge?.forEach { self.badgeView.addArrangedSubview(BadgeView(title: " \($0) ")) }
+
+        if let badgeItems = item.badge {
+            self.badgesView.configure(badgeItems: badgeItems)
+        }
     }
 }
