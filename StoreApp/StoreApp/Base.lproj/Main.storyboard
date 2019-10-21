@@ -77,7 +77,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="143" height="101"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fft-3c-3Ej">
-                                                            <rect key="frame" x="159" y="4.5" width="223" height="92.5"/>
+                                                            <rect key="frame" x="159" y="6.5" width="223" height="88"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="H46-dV-5rt" userLabel="Item Info StackView">
                                                                     <rect key="frame" x="0.0" y="0.0" width="208.5" height="36.5"/>
@@ -97,24 +97,18 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vPI-p3-ZRm" userLabel="price StackView">
-                                                                    <rect key="frame" x="0.0" y="44.5" width="117.5" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="44.5" width="47" height="16"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8,500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ba8-V4-Aod">
-                                                                            <rect key="frame" x="0.0" y="2" width="47" height="16"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="47" height="16"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8,500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVs-mo-5YZ">
-                                                                            <rect key="frame" x="51" y="0.0" width="66.5" height="20.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                                                            <color key="textColor" red="0.3730114698" green="0.74517607689999998" blue="0.73333710429999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEf-uS-0IM">
-                                                                    <rect key="frame" x="0.0" y="73" width="39.5" height="19.5"/>
+                                                                    <rect key="frame" x="0.0" y="68.5" width="39.5" height="19.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -134,7 +128,6 @@
                                             <outlet property="descriptionLabel" destination="X2U-Sc-PT6" id="LCi-gb-RZl"/>
                                             <outlet property="itemImageView" destination="yht-mU-yIf" id="opJ-MW-co8"/>
                                             <outlet property="normalPriceLabel" destination="ba8-V4-Aod" id="Gog-12-cIc"/>
-                                            <outlet property="salePriceLabel" destination="kVs-mo-5YZ" id="TNQ-ep-jph"/>
                                             <outlet property="titleLabel" destination="KVX-ez-78t" id="hda-gY-yXe"/>
                                         </connections>
                                     </tableViewCell>

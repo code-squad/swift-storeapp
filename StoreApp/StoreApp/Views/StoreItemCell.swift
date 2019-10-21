@@ -14,19 +14,13 @@ class StoreItemCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var normalPriceLabel: UILabel!
-    @IBOutlet weak var salePriceLabel: UILabel!
     
     var item: StoreItem! {
         didSet {
             self.titleLabel.text = item.title
             self.descriptionLabel.text = item.description
             
-//            self.salePriceLabel.text = item.sPrice
-            
-            self.salePriceLabel.text = ""
-            
-            // attributeString??
-            
+            // attributeString for priceLabels
             var spaceBetweenPrices = ""
             
             var attributedString = NSMutableAttributedString()
