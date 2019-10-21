@@ -9,9 +9,14 @@
 import UIKit
 
 class ItemHeaderCell: UITableViewCell {
+    // MARK: Constants
+    static let height: CGFloat = 100
+
+    // MARK: Outlets
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
 
+    // MARK: Life cycles
     override func awakeFromNib() {
         super.awakeFromNib()
     }

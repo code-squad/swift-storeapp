@@ -77,6 +77,6 @@ extension ItemListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return ItemHeaderCell.height
     }
 }
