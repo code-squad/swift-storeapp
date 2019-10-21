@@ -71,16 +71,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="TwV-bs-UKh">
-                                                    <rect key="frame" x="16" y="13.5" width="382" height="101"/>
+                                                    <rect key="frame" x="16" y="12.5" width="382" height="103.5"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dduck" translatesAutoresizingMaskIntoConstraints="NO" id="yht-mU-yIf">
-                                                            <rect key="frame" x="0.0" y="0.0" width="143" height="101"/>
+                                                            <rect key="frame" x="0.0" y="1" width="143" height="101"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fft-3c-3Ej">
-                                                            <rect key="frame" x="159" y="6.5" width="223" height="88"/>
+                                                            <rect key="frame" x="159" y="0.0" width="223" height="103.5"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="H46-dV-5rt" userLabel="Item Info StackView">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="208.5" height="36.5"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="H46-dV-5rt" userLabel="Item Info StackView">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="208.5" height="38.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[집밥의완성] 엄마손 떡볶이" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVX-ez-78t">
                                                                             <rect key="frame" x="0.0" y="0.0" width="173" height="19.5"/>
@@ -89,17 +89,17 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="엄마의 쫄깃하고 매콤한 레시피 그대로" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2U-Sc-PT6">
-                                                                            <rect key="frame" x="0.0" y="19.5" width="208.5" height="17"/>
+                                                                            <rect key="frame" x="0.0" y="21.5" width="208.5" height="17"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                             <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vPI-p3-ZRm" userLabel="price StackView">
-                                                                    <rect key="frame" x="0.0" y="44.5" width="47" height="16"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vPI-p3-ZRm" userLabel="price StackView">
+                                                                    <rect key="frame" x="0.0" y="46.5" width="47" height="16"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8,500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ba8-V4-Aod">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="8,500원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ba8-V4-Aod">
                                                                             <rect key="frame" x="0.0" y="0.0" width="47" height="16"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,12 +107,18 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEf-uS-0IM">
-                                                                    <rect key="frame" x="0.0" y="68.5" width="39.5" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="TEO-pV-zvi" userLabel="badge StackView">
+                                                                    <rect key="frame" x="0.0" y="70.5" width="58.5" height="33"/>
+                                                                    <subviews>
+                                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="론칭특가" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcu-en-guE">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="58.5" height="33"/>
+                                                                            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                        </textView>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -125,6 +131,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="badgeStackView" destination="TEO-pV-zvi" id="Vxa-wo-0WT"/>
                                             <outlet property="descriptionLabel" destination="X2U-Sc-PT6" id="LCi-gb-RZl"/>
                                             <outlet property="itemImageView" destination="yht-mU-yIf" id="opJ-MW-co8"/>
                                             <outlet property="normalPriceLabel" destination="ba8-V4-Aod" id="Gog-12-cIc"/>
