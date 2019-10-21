@@ -13,13 +13,30 @@ class StoreItemCell: UITableViewCell {
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var normalPriceLabel: UILabel!
+    @IBOutlet weak var salePriceLabel: UILabel!
     
     var item: StoreItem! {
         didSet {
             self.titleLabel.text = item.title
             self.descriptionLabel.text = item.description
-            self.priceLabel.text = item.sPrice
+            
+//            self.salePriceLabel.text = item.sPrice
+            
+            self.salePriceLabel.text = ""
+            
+            // attributeString??
+            
+            var spaceBetweenPrices = ""
+            
+            var attributedString = NSMutableAttributedString()
+            if let normalPrice = item.nPrice {
+                spaceBetweenPrices = "  "
+                attributedString = NSMutableAttributedString(string: normalPrice)
+                attributedString.addAttribute(.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
+            }
+            attributedString.append(NSAttributedString(string: "\(spaceBetweenPrices)\(item.sPrice)", attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy), .foregroundColor: #colorLiteral(red: 0.1703471243, green: 0.7560165524, blue: 0.737252295, alpha: 1)]))
+            self.normalPriceLabel.attributedText = attributedString
         }
     }
     
@@ -36,6 +53,5 @@ class StoreItemCell: UITableViewCell {
         itemImageView.clipsToBounds = true
         itemImageView.frame.size = CGSize(width: itemImageViewWidth, height: itemImageViewWidth)
         itemImageView.layer.cornerRadius = itemImageViewWidth / 2
-        itemImageView.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
     }
 }
