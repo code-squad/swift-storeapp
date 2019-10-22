@@ -9,7 +9,7 @@
 import UIKit
 
 class ItemListTableViewModel: NSObject, UITableViewDataSource {
-    var itemList = [StoreItem]()
+    var itemList = [[StoreItem]]()
 
     override init() {
         if let itemList = StoreItem.getAllStoreItem() {
@@ -18,11 +18,11 @@ class ItemListTableViewModel: NSObject, UITableViewDataSource {
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return itemList.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemList.count
+        return itemList[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,7 +30,7 @@ class ItemListTableViewModel: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let item = self.itemList[indexPath.row]
+        let item = self.itemList[indexPath.section][indexPath.row]
         itemCell.configure(with: item)
         return itemCell
     }
