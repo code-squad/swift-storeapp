@@ -20,18 +20,22 @@ class TableViewModel: NSObject, UITableViewDataSource {
     fileprivate func decodeJSON() {
         guard let url = Bundle.main.url(forResource: "main", withExtension: "json") else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-                    guard let data = data else { return }
-                    
-                    let jsonDecoder = JSONDecoder()
-                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                    
-                    do {
-                        self.storeItems = try jsonDecoder.decode([StoreItem].self, from: data)
-                    } catch let jsonErr {
-                        print("Error in Serialization", jsonErr)
-                    }
-                }.resume()
+        URLSession.shared.dataTask(with: url) { (data, _, err) in
+            if let err = err {
+                print("Failed to request data", err)
+            }
+            
+            guard let data = data else { return }
+            
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            do {
+                self.storeItems = try jsonDecoder.decode([StoreItem].self, from: data)
+            } catch let jsonErr {
+                print("Error in Serialization", jsonErr)
+            }
+        }.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
