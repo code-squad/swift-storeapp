@@ -2,9 +2,7 @@
 
 > step1
 
-JSON Decoding
+- JSON Decoding
 
-Layout
-
-
+- Layout using Autolayout
 
