@@ -35,14 +35,15 @@ class StoreItemCell: UITableViewCell {
             self.descriptionLabel.text = item.description
             
             // attributeString for priceLabels
-            var spaceBetweenPrices = ""
-            
+            var spaceBetweenPrices: String
+
             var attributedString = NSMutableAttributedString()
             if let normalPrice = item.nPrice {
                 spaceBetweenPrices = "  "
                 attributedString = NSMutableAttributedString(string: normalPrice)
                 attributedString.addAttribute(.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
             }
+            spaceBetweenPrices = ""
             attributedString.append(NSAttributedString(string: "\(spaceBetweenPrices)\(item.sPrice)", attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy), .foregroundColor: #colorLiteral(red: 0.1703471243, green: 0.7560165524, blue: 0.737252295, alpha: 1)]))
             self.normalPriceLabel.attributedText = attributedString
             
