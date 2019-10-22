@@ -9,6 +9,12 @@
 import Foundation
 
 struct StoreItem: Decodable {
+    // MARK: Constants
+    struct Constants {
+        static let jsonFileNames = ["main", "soup", "side"]
+    }
+
+    // MARK: Properties
     var detailHash: String
     var image: String
     var alt: String
@@ -27,23 +33,26 @@ struct StoreItem: Decodable {
         case image, alt, title, description, badge
     }
 
-    static func getAllStoreItem() -> [StoreItem]? {
-        guard let url = Bundle.main.url(forResource: "main", withExtension: "json") else {
-            debugPrint("json file is not exist")
-            return nil
-        }
+    // MARK: Functions
+    static func getAllStoreItem() -> [[StoreItem]]? {
+        return Constants.jsonFileNames.map { fileName in
+            guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
+                debugPrint("json file is not exist")
+                return []
+            }
 
-        guard let jsonData = try? Data(contentsOf: url) else {
-            debugPrint("Fail to convert to jsondata")
-            return nil
-        }
+            guard let jsonData = try? Data(contentsOf: url) else {
+                debugPrint("Fail to convert to jsondata")
+                return []
+            }
 
-        guard let itemList = try? JSONDecoder().decode([StoreItem].self, from: jsonData) else {
-            debugPrint("Fail to decode jsondata")
-            return nil
-        }
+            guard let itemList = try? JSONDecoder().decode([StoreItem].self, from: jsonData) else {
+                debugPrint("Fail to decode jsondata")
+                return []
+            }
 
-        return itemList
+            return itemList
+        }
     }
 
 }
