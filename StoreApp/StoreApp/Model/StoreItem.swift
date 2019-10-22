@@ -12,6 +12,11 @@ struct StoreItem: Decodable {
     // MARK: Constants
     struct Constants {
         static let jsonFileNames = ["main", "soup", "side"]
+        static let headerInfo = [
+            ["subTitle": "메인반찬", "title": "한그릇 뚝딱 메인 요리"],
+            ["subTitle": "국.찌게", "title": "김이 모락모락 국.찌게"],
+            ["subTitle": "밑반찬", "title": "언제 먹어도 든든한 밑반찬"]
+        ]
     }
 
     // MARK: Properties

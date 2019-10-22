@@ -32,11 +32,19 @@ class ItemListViewController: UIViewController {
 // MARK: UITableViewDelegate Extension
 extension ItemListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableCell(withIdentifier: "ItemHeaderCell") as? ItemHeaderCell
-        return header ?? nil
+        guard let header = tableView.dequeueReusableCell(withIdentifier: "ItemHeaderCell") as? ItemHeaderCell else {
+            debugPrint("Fail: convert to ItemHeaderCell")
+            return nil
+        }
+
+        let headerInfo = StoreItem.Constants.headerInfo[section]
+        if let title = headerInfo[ItemHeaderCell.Constant.title], let subTitle = headerInfo[ItemHeaderCell.Constant.subTitle] {
+            header.configure(title: title, subTitle: subTitle)
+        }
+        return header
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return ItemHeaderCell.height
+        return ItemHeaderCell.Constant.height
     }
 }
