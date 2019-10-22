@@ -34,4 +34,8 @@ class ItemListTableViewModel: NSObject, UITableViewDataSource {
         itemCell.configure(with: item)
         return itemCell
     }
+
+    func getItem(in section: Int, row: Int) -> StoreItem {
+        return self.itemList[section][row]
+    }
 }
