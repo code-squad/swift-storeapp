@@ -18,6 +18,8 @@
 		A783ED3D235CBA40001D91E0 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED3C235CBA40001D91E0 /* ItemListViewController.swift */; };
 		A783ED41235CC860001D91E0 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED40235CC860001D91E0 /* BadgesView.swift */; };
 		A783ED43235CCD7F001D91E0 /* ItemHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED42235CCD7F001D91E0 /* ItemHeaderCell.swift */; };
+		A7A53C25235F6ACC00F5C98A /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = A7A53C24235F6ACC00F5C98A /* soup.json */; };
+		A7A53C27235F6AEB00F5C98A /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = A7A53C26235F6AEB00F5C98A /* side.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		A783ED3C235CBA40001D91E0 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		A783ED40235CC860001D91E0 /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 		A783ED42235CCD7F001D91E0 /* ItemHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemHeaderCell.swift; sourceTree = "<group>"; };
+		A7A53C24235F6ACC00F5C98A /* soup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		A7A53C26235F6AEB00F5C98A /* side.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				A783ED36235CB62E001D91E0 /* main.json */,
+				A7A53C24235F6ACC00F5C98A /* soup.json */,
+				A7A53C26235F6AEB00F5C98A /* side.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -172,9 +178,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A53C25235F6ACC00F5C98A /* soup.json in Resources */,
 				A783ED2B235CAC6E001D91E0 /* LaunchScreen.storyboard in Resources */,
 				A783ED28235CAC6E001D91E0 /* Assets.xcassets in Resources */,
 				A783ED37235CB62E001D91E0 /* main.json in Resources */,
+				A7A53C27235F6AEB00F5C98A /* side.json in Resources */,
 				A783ED26235CAC6D001D91E0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
