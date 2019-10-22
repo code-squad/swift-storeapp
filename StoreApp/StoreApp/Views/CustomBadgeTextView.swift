@@ -18,8 +18,8 @@ class CustomBadgeTextView: UITextView {
         isEditable = false
         isSelectable = false
         font = .systemFont(ofSize: 14)
-        textColor = .white
-        backgroundColor = .white
+        textColor = UIColor(named: "BadgeWhite")
+        backgroundColor = UIColor(named: "BadgeWhite")
         textContainerInset = .init(top: 2, left: 2, bottom: 2, right: 2)
         sizeToFit()
     }

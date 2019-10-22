@@ -54,16 +54,18 @@ class StoreItemCell: UITableViewCell {
                 
                 badges.forEach { (badgeString) in
                     let badgeTextView = CustomBadgeTextView(text: badgeString)
+                    badgeTextView.textColor = .white
                     
                     switch Badge.fromString(badgeString) {
                     case .EventPrice:
-                        badgeTextView.backgroundColor = #colorLiteral(red: 0.6633180976, green: 0.4506880641, blue: 0.7471640706, alpha: 1)
+                        badgeTextView.backgroundColor = UIColor(named: "BadgePurple")
                     case .FreeGift:
-                        badgeTextView.backgroundColor = #colorLiteral(red: 0.9738679528, green: 0.7125977874, blue: 0, alpha: 1)
+                        badgeTextView.backgroundColor = UIColor(named: "BadgeYellow")
                     case .SpecialPrice:
-                        badgeTextView.backgroundColor = #colorLiteral(red: 0.6633180976, green: 0.4506880641, blue: 0.7471640706, alpha: 1)
+                        badgeTextView.backgroundColor = UIColor(named: "BadgePurple")
                     case .SoldOut:
-                        badgeTextView.backgroundColor = #colorLiteral(red: 0.1999788582, green: 0.2000134587, blue: 0.1999712586, alpha: 1)
+                        badgeTextView.backgroundColor = UIColor(named: "BadgeDarkGray")
+//                        badgeTextView.backgroundColor = #colorLiteral(red: 0.1999788582, green: 0.2000134587, blue: 0.1999712586, alpha: 1)
                     case .UNKNOWN: break
                     @unknown default: break
                     }
