@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ItemListViewController: UIViewController {
     // MARK: Outlets
@@ -46,5 +47,10 @@ extension ItemListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return ItemHeaderCell.Constant.height
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = self.itemListTableViewModel.getItem(in: indexPath.section, row: indexPath.row)
+        Toast(text: "\(item.title) \(item.sPrice)").show()
     }
 }
