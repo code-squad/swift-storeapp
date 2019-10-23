@@ -8,9 +8,19 @@
 
 import Foundation
 
-func loadItem() {
-    let f_path = Bundle.main.path(forResource: "main", ofType: "json")!
-    let data = try! Data(contentsOf:URL(fileURLWithPath: f_path),options: .mappedIfSafe)
-    let store_item = try? JSONDecoder().decode([StoreItem].self,from:data)
-    print(store_item)
+class JsonHelper {
+    static func loadItem() -> [StoreItem]? {
+        guard let f_path = Bundle.main.path(forResource: "main_item", ofType: "json"),
+            let data = try? Data(contentsOf: URL(fileURLWithPath: f_path),options: .mappedIfSafe) else { return nil }
+        
+        print("path :\(f_path)")
+        print("data :\(data)")
+        
+        do {
+            return try JSONDecoder().decode([StoreItem].self,from:data)
+        }catch {
+            print("error : \(error.localizedDescription)")
+            return nil
+        }
+    }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C555D3B236039F8005B2C61 /* LoadJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C555D3A236039F8005B2C61 /* LoadJsonData.swift */; };
+		7C819D9A23605E8D006B7E14 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C819D9923605E8D006B7E14 /* CustomCell.swift */; };
 		7CEA07D7235D7BE700BE633F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA07D6235D7BE700BE633F /* AppDelegate.swift */; };
 		7CEA07D9235D7BE700BE633F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA07D8235D7BE700BE633F /* ViewController.swift */; };
 		7CEA07DC235D7BE700BE633F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CEA07DA235D7BE700BE633F /* Main.storyboard */; };
@@ -15,7 +16,7 @@
 		7CEA07E1235D7BE900BE633F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CEA07DF235D7BE900BE633F /* LaunchScreen.storyboard */; };
 		7CEA07EC235D7BEA00BE633F /* StoreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA07EB235D7BEA00BE633F /* StoreAppTests.swift */; };
 		7CEA07F7235D7BEA00BE633F /* StoreAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA07F6235D7BEA00BE633F /* StoreAppUITests.swift */; };
-		7CEA0805235D97D100BE633F /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEA0804235D97D100BE633F /* main.json */; };
+		7CEA0805235D97D100BE633F /* main_item.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEA0804235D97D100BE633F /* main_item.json */; };
 		7CEA0807235D98E300BE633F /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA0806235D98E300BE633F /* Models.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		7C555D3A236039F8005B2C61 /* LoadJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadJsonData.swift; sourceTree = "<group>"; };
+		7C819D9923605E8D006B7E14 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		7CEA07D3235D7BE700BE633F /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEA07D6235D7BE700BE633F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CEA07D8235D7BE700BE633F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +53,7 @@
 		7CEA07F2235D7BEA00BE633F /* StoreAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEA07F6235D7BEA00BE633F /* StoreAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAppUITests.swift; sourceTree = "<group>"; };
 		7CEA07F8235D7BEA00BE633F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CEA0804235D97D100BE633F /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		7CEA0804235D97D100BE633F /* main_item.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main_item.json; sourceTree = "<group>"; };
 		7CEA0806235D98E300BE633F /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,9 +111,10 @@
 				7CEA07DD235D7BE900BE633F /* Assets.xcassets */,
 				7CEA07DF235D7BE900BE633F /* LaunchScreen.storyboard */,
 				7CEA07E2235D7BE900BE633F /* Info.plist */,
-				7CEA0804235D97D100BE633F /* main.json */,
+				7CEA0804235D97D100BE633F /* main_item.json */,
 				7CEA0806235D98E300BE633F /* Models.swift */,
 				7C555D3A236039F8005B2C61 /* LoadJsonData.swift */,
+				7C819D9923605E8D006B7E14 /* CustomCell.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -240,7 +243,7 @@
 			files = (
 				7CEA07E1235D7BE900BE633F /* LaunchScreen.storyboard in Resources */,
 				7CEA07DE235D7BE900BE633F /* Assets.xcassets in Resources */,
-				7CEA0805235D97D100BE633F /* main.json in Resources */,
+				7CEA0805235D97D100BE633F /* main_item.json in Resources */,
 				7CEA07DC235D7BE700BE633F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +273,7 @@
 				7C555D3B236039F8005B2C61 /* LoadJsonData.swift in Sources */,
 				7CEA07D9235D7BE700BE633F /* ViewController.swift in Sources */,
 				7CEA07D7235D7BE700BE633F /* AppDelegate.swift in Sources */,
+				7C819D9A23605E8D006B7E14 /* CustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
