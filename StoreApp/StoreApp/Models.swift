@@ -8,7 +8,7 @@
 
 import Foundation
 
-//MARK: - StoreItem
+//MARK: - StoreItem Models
 struct StoreItem:Decodable {
     let detailHash: String?
     let StoreImage: String?
