@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+//        super.viewDidLoad()
+        loadItem()
         // Do any additional setup after loading the view.
     }
-
-
+    
 }
 

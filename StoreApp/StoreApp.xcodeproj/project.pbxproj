@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C555D3B236039F8005B2C61 /* LoadJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C555D3A236039F8005B2C61 /* LoadJsonData.swift */; };
 		7CEA07D7235D7BE700BE633F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA07D6235D7BE700BE633F /* AppDelegate.swift */; };
 		7CEA07D9235D7BE700BE633F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEA07D8235D7BE700BE633F /* ViewController.swift */; };
 		7CEA07DC235D7BE700BE633F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CEA07DA235D7BE700BE633F /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C555D3A236039F8005B2C61 /* LoadJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadJsonData.swift; sourceTree = "<group>"; };
 		7CEA07D3235D7BE700BE633F /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEA07D6235D7BE700BE633F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CEA07D8235D7BE700BE633F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,14 +103,15 @@
 		7CEA07D5235D7BE700BE633F /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CEA07DA235D7BE700BE633F /* Main.storyboard */,
 				7CEA07D6235D7BE700BE633F /* AppDelegate.swift */,
 				7CEA07D8235D7BE700BE633F /* ViewController.swift */,
-				7CEA07DA235D7BE700BE633F /* Main.storyboard */,
 				7CEA07DD235D7BE900BE633F /* Assets.xcassets */,
 				7CEA07DF235D7BE900BE633F /* LaunchScreen.storyboard */,
 				7CEA07E2235D7BE900BE633F /* Info.plist */,
 				7CEA0804235D97D100BE633F /* main.json */,
 				7CEA0806235D98E300BE633F /* Models.swift */,
+				7C555D3A236039F8005B2C61 /* LoadJsonData.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CEA0807235D98E300BE633F /* Models.swift in Sources */,
+				7C555D3B236039F8005B2C61 /* LoadJsonData.swift in Sources */,
 				7CEA07D9235D7BE700BE633F /* ViewController.swift in Sources */,
 				7CEA07D7235D7BE700BE633F /* AppDelegate.swift in Sources */,
 			);
