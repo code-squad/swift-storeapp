@@ -21,6 +21,7 @@
 		38E44F06235CA2C5001FBCE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E44F04235CA2C5001FBCE5 /* Main.storyboard */; };
 		38E44F08235CA2C6001FBCE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E44F07235CA2C6001FBCE5 /* Assets.xcassets */; };
 		38E44F0B235CA2C6001FBCE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E44F09235CA2C6001FBCE5 /* LaunchScreen.storyboard */; };
+		5358A5447EB64F26E013F38A /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52205F4BADB65EBBDC56F43 /* Pods_StoreApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,9 @@
 		38E44F07235CA2C6001FBCE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38E44F0A235CA2C6001FBCE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38E44F0C235CA2C6001FBCE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7170B214896C7F9E5289EDB7 /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
+		8124233D83B72B318C944BCC /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C52205F4BADB65EBBDC56F43 /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5358A5447EB64F26E013F38A /* Pods_StoreApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 			children = (
 				38E44EFD235CA2C5001FBCE5 /* StoreApp */,
 				38E44EFC235CA2C5001FBCE5 /* Products */,
+				4867EB25BCA5F1C67D6B9FF9 /* Pods */,
+				EC17D1B1B52FB14AACE6915D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +122,24 @@
 			path = StoreApp;
 			sourceTree = "<group>";
 		};
+		4867EB25BCA5F1C67D6B9FF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8124233D83B72B318C944BCC /* Pods-StoreApp.debug.xcconfig */,
+				7170B214896C7F9E5289EDB7 /* Pods-StoreApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EC17D1B1B52FB14AACE6915D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C52205F4BADB65EBBDC56F43 /* Pods_StoreApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38E44F0F235CA2C6001FBCE5 /* Build configuration list for PBXNativeTarget "StoreApp" */;
 			buildPhases = (
+				80384CAC9E9CEE9B843847F7 /* [CP] Check Pods Manifest.lock */,
 				38E44EF7235CA2C5001FBCE5 /* Sources */,
 				38E44EF8235CA2C5001FBCE5 /* Frameworks */,
 				38E44EF9235CA2C5001FBCE5 /* Resources */,
+				BF20341E552733CE6AFBB476 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,6 +210,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		80384CAC9E9CEE9B843847F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StoreApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF20341E552733CE6AFBB476 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StoreApp/Pods-StoreApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StoreApp/Pods-StoreApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StoreApp/Pods-StoreApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		38E44EF7235CA2C5001FBCE5 /* Sources */ = {
@@ -338,6 +407,7 @@
 		};
 		38E44F10235CA2C6001FBCE5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8124233D83B72B318C944BCC /* Pods-StoreApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -356,6 +426,7 @@
 		};
 		38E44F11235CA2C6001FBCE5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7170B214896C7F9E5289EDB7 /* Pods-StoreApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

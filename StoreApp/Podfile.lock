@@ -1,0 +1,16 @@
+PODS:
+  - Toaster (2.2.0)
+
+DEPENDENCIES:
+  - Toaster
+
+SPEC REPOS:
+  trunk:
+    - Toaster
+
+SPEC CHECKSUMS:
+  Toaster: c1a81b376edcc2470157b4d1ee1e9341d3b96455
+
+PODFILE CHECKSUM: ec010b9961667c22f8dc434a066d87dad41c7475
+
+COCOAPODS: 1.8.1
