@@ -33,53 +33,57 @@ class StoreItemCell: UITableViewCell {
         didSet {
             self.titleLabel.text = item.title
             self.descriptionLabel.text = item.description
-            
-            // attributeString for priceLabels
-            var spaceBetweenPrices: String
-
-            var attributedString = NSMutableAttributedString()
-            if let normalPrice = item.nPrice {
-                spaceBetweenPrices = "  "
-                attributedString = NSMutableAttributedString(string: normalPrice)
-                attributedString.addAttribute(.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
-            }
-            spaceBetweenPrices = ""
-            attributedString.append(NSAttributedString(string: "\(spaceBetweenPrices)\(item.sPrice)", attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy), .foregroundColor: #colorLiteral(red: 0.1703471243, green: 0.7560165524, blue: 0.737252295, alpha: 1)]))
-            self.normalPriceLabel.attributedText = attributedString
-            
-            // badge
-            badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
-            
-            if let badges = item.badge {
-                var badgeViews = [UITextView]()
-                
-                badges.forEach { (badgeString) in
-                    let badgeTextView = CustomBadgeTextView(text: badgeString)
-                    badgeTextView.textColor = .white
-                    
-                    switch Badge.fromString(badgeString) {
-                    case .EventPrice:
-                        badgeTextView.backgroundColor = UIColor(named: "BadgePurple")
-                    case .FreeGift:
-                        badgeTextView.backgroundColor = UIColor(named: "BadgeYellow")
-                    case .SpecialPrice:
-                        badgeTextView.backgroundColor = UIColor(named: "BadgePurple")
-                    case .SoldOut:
-                        badgeTextView.backgroundColor = UIColor(named: "BadgeDarkGray")
-//                        badgeTextView.backgroundColor = #colorLiteral(red: 0.1999788582, green: 0.2000134587, blue: 0.1999712586, alpha: 1)
-                    case .UNKNOWN: break
-                    @unknown default: break
-                    }
-                    
-                    badgeViews.append(badgeTextView)
-                }
-                
-                badgeViews.forEach({ badgeStackView.addArrangedSubview($0)})
-            } else {
-                // trick
-                badgeStackView.addArrangedSubview(CustomBadgeTextView(text: "none"))
-            }
+            rendering()
         }
+    }
+    
+    fileprivate func rendering() {
+        
+        var spaceBetweenPrices = ""
+        var attributedString = NSMutableAttributedString()
+        
+        if let normalPrice = item.nPrice {
+            spaceBetweenPrices = " "
+            attributedString = NSMutableAttributedString(string: normalPrice)
+            attributedString.addAttribute(.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
+        }
+        
+        attributedString.append(NSAttributedString(string: "\(spaceBetweenPrices)\(item.sPrice)", attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .heavy), .foregroundColor: #colorLiteral(red: 0.1703471243, green: 0.7560165524, blue: 0.737252295, alpha: 1)]))
+        self.normalPriceLabel.attributedText = attributedString
+        
+        badgeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+        
+        if let badges = item.badge {
+            var badgeViews = [UITextView]()
+            
+            badges.forEach { (badgeName) in
+                let badgeTextView = CustomBadgeTextView(text: badgeName)
+                badgeTextView.textColor = .white
+                badgeTextView.backgroundColor = colorOfBadge(badgeName)
+                badgeViews.append(badgeTextView)
+            }
+            
+            badgeViews.forEach({ badgeStackView.addArrangedSubview($0)})
+        } else {
+            // trick
+            badgeStackView.addArrangedSubview(CustomBadgeTextView(text: "none"))
+        }
+    }
+    
+    fileprivate func colorOfBadge(_ name: String) -> UIColor {
+        var color: UIColor! = .white
+        switch Badge.fromString(name) {
+        case .EventPrice:
+            color = UIColor(named: "BadgePurple")
+        case .FreeGift:
+            color = UIColor(named: "BadgeYellow")
+        case .SpecialPrice:
+            color = UIColor(named: "BadgePurple")
+        case .SoldOut:
+            color = UIColor(named: "BadgeDarkGray")
+        case .UNKNOWN: break
+        }
+        return color
     }
     
     // init 과 awakeFromNib 차이점??
