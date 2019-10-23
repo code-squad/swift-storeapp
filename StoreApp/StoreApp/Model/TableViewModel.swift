@@ -18,8 +18,9 @@ class TableViewModel: NSObject, UITableViewDataSource {
         decodeJSON()
     }
     
+    let jsonFilenames = ["main", "soup", "side"]
+    
     fileprivate func decodeJSON() {
-        let jsonFilenames = ["main", "soup", "side"]
         let jsonUrls = jsonFilenames.map { Bundle.main.url(forResource: $0, withExtension: "json") }
         jsonUrls.forEach { (url) in
             guard let url = url else { return }
@@ -43,9 +44,9 @@ class TableViewModel: NSObject, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    private func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! StoreItemHeaderCell
-        cell.setupHeader()
+        jsonFilenames.forEach({ cell.setupHeader($0) })
         return cell
     }
     
