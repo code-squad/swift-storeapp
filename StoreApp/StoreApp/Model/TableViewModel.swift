@@ -44,10 +44,8 @@ class TableViewModel: NSObject, UITableViewDataSource {
         }
     }
     
-    private func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! StoreItemHeaderCell
-        jsonFilenames.forEach({ cell.setupHeader($0) })
-        return cell
+    func itemOf(section: Int, row: Int) -> StoreItem {
+        return sections[section][row]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

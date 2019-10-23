@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class StoreItemViewController: UIViewController, UITableViewDelegate {
 
@@ -19,6 +20,16 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
         storeItemTableView.dataSource = tableViewModel
         storeItemTableView.delegate = self
         storeItemTableView.separatorStyle = .none
+    }
+    
+    private func showToaster(title: String, price: String) {
+        let toast = Toast(text: "\(title)은 \(price)입니다.")
+        toast.show()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storeItem = tableViewModel.itemOf(section: indexPath.section, row: indexPath.row)
+        showToaster(title: storeItem.title, price: storeItem.sPrice)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
