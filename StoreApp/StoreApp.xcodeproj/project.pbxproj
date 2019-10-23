@@ -10,6 +10,8 @@
 		3858312C235DA201007C0F50 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 3858312B235DA201007C0F50 /* main.json */; };
 		3858312E235E2A99007C0F50 /* CustomBadgeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3858312D235E2A99007C0F50 /* CustomBadgeTextView.swift */; };
 		38583132236004CA007C0F50 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38583131236004CA007C0F50 /* TableViewModel.swift */; };
+		38583135236077B4007C0F50 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 38583133236077B4007C0F50 /* side.json */; };
+		38583136236077B4007C0F50 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 38583134236077B4007C0F50 /* soup.json */; };
 		38896D54235D741400B2A00D /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38896D53235D741400B2A00D /* StoreItemCell.swift */; };
 		38A16E46235D7BA9006766C0 /* StoreItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A16E45235D7BA9006766C0 /* StoreItemViewController.swift */; };
 		38A16E4B235D868E006766C0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A16E4A235D868E006766C0 /* StoreItem.swift */; };
@@ -25,6 +27,8 @@
 		3858312B235DA201007C0F50 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		3858312D235E2A99007C0F50 /* CustomBadgeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBadgeTextView.swift; sourceTree = "<group>"; };
 		38583131236004CA007C0F50 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		38583133236077B4007C0F50 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
+		38583134236077B4007C0F50 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
 		38896D53235D741400B2A00D /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreItemCell.swift; path = StoreApp/Views/StoreItemCell.swift; sourceTree = SOURCE_ROOT; };
 		38A16E45235D7BA9006766C0 /* StoreItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemViewController.swift; sourceTree = "<group>"; };
 		38A16E4A235D868E006766C0 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				38896D52235D73A100B2A00D /* Views */,
 				38896D51235D739900B2A00D /* ViewControllers */,
 				3858312B235DA201007C0F50 /* main.json */,
+				38583133236077B4007C0F50 /* side.json */,
+				38583134236077B4007C0F50 /* soup.json */,
 				38E44EFE235CA2C5001FBCE5 /* AppDelegate.swift */,
 				38E44F00235CA2C5001FBCE5 /* SceneDelegate.swift */,
 				38E44F04235CA2C5001FBCE5 /* Main.storyboard */,
@@ -167,9 +173,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38583135236077B4007C0F50 /* side.json in Resources */,
 				38E44F0B235CA2C6001FBCE5 /* LaunchScreen.storyboard in Resources */,
 				38E44F08235CA2C6001FBCE5 /* Assets.xcassets in Resources */,
 				3858312C235DA201007C0F50 /* main.json in Resources */,
+				38583136236077B4007C0F50 /* soup.json in Resources */,
 				38E44F06235CA2C5001FBCE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
