@@ -21,6 +21,12 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
         storeItemTableView.separatorStyle = .none
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! StoreItemHeaderCell
+        cell.setupHeader(tableViewModel.jsonFilenames[section])
+        return cell
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
