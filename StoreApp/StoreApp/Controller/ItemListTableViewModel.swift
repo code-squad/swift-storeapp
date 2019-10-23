@@ -9,12 +9,12 @@
 import UIKit
 
 class ItemListTableViewModel: NSObject, UITableViewDataSource {
-    var itemList = [[StoreItem]]()
+    var itemList = [StoreItemList]()
 
     override init() {
-        if let itemList = StoreItem.getAllStoreItem() {
-            self.itemList = itemList
-        }
+        let itemList = StoreItemList.Constants.jsonFileNames.compactMap({ StoreItemList(itemCategoryName: $0) })
+        self.itemList = itemList
+
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -22,7 +22,7 @@ class ItemListTableViewModel: NSObject, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemList[section].count
+        return itemList[section].getCount()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,12 +30,12 @@ class ItemListTableViewModel: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let item = self.itemList[indexPath.section][indexPath.row]
+        let item = self.itemList[indexPath.section].getStoreItem(indexPath.row)
         itemCell.configure(with: item)
         return itemCell
     }
 
     func getItem(in section: Int, row: Int) -> StoreItem {
-        return self.itemList[section][row]
+        return self.itemList[section].getStoreItem(row)
     }
 }

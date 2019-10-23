@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7F3558D523052D699C44E24C /* Pods_StoreApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92500A6F8F7B83A388104EE0 /* Pods_StoreApp.framework */; };
+		A704E32C2360B79300C6DD59 /* StoreItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A704E32B2360B79300C6DD59 /* StoreItemService.swift */; };
+		A704E32E2360B90B00C6DD59 /* StoreItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A704E32D2360B90B00C6DD59 /* StoreItemList.swift */; };
 		A718DB6D235E055D00D292D2 /* ItemListTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A718DB6C235E055D00D292D2 /* ItemListTableViewModel.swift */; };
 		A783ED21235CAC6D001D91E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A783ED20235CAC6D001D91E0 /* AppDelegate.swift */; };
 		A783ED26235CAC6D001D91E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A783ED24235CAC6D001D91E0 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		1C9170EDBEBF656F23818F94 /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		515FF9C5AA917D2A0BB9378A /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
 		92500A6F8F7B83A388104EE0 /* Pods_StoreApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoreApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A704E32B2360B79300C6DD59 /* StoreItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemService.swift; sourceTree = "<group>"; };
+		A704E32D2360B90B00C6DD59 /* StoreItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemList.swift; sourceTree = "<group>"; };
 		A718DB6C235E055D00D292D2 /* ItemListTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewModel.swift; sourceTree = "<group>"; };
 		A783ED1D235CAC6D001D91E0 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A783ED20235CAC6D001D91E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,8 +66,15 @@
 				515FF9C5AA917D2A0BB9378A /* Pods-StoreApp.debug.xcconfig */,
 				1C9170EDBEBF656F23818F94 /* Pods-StoreApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A704E32A2360B77D00C6DD59 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A704E32B2360B79300C6DD59 /* StoreItemService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		A783ED14235CAC6D001D91E0 = {
@@ -87,6 +98,7 @@
 		A783ED1F235CAC6D001D91E0 /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				A704E32A2360B77D00C6DD59 /* Network */,
 				A783ED3B235CB9F6001D91E0 /* Controller */,
 				A783ED38235CB683001D91E0 /* Model */,
 				A783ED35235CB61A001D91E0 /* Resource */,
@@ -124,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				A783ED39235CB692001D91E0 /* StoreItem.swift */,
+				A704E32D2360B90B00C6DD59 /* StoreItemList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -263,12 +276,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A704E32E2360B90B00C6DD59 /* StoreItemList.swift in Sources */,
 				A783ED34235CB300001D91E0 /* StoreItemCell.swift in Sources */,
 				A783ED41235CC860001D91E0 /* BadgesView.swift in Sources */,
 				A783ED3D235CBA40001D91E0 /* ItemListViewController.swift in Sources */,
 				A783ED43235CCD7F001D91E0 /* ItemHeaderCell.swift in Sources */,
 				A783ED3A235CB692001D91E0 /* StoreItem.swift in Sources */,
 				A783ED21235CAC6D001D91E0 /* AppDelegate.swift in Sources */,
+				A704E32C2360B79300C6DD59 /* StoreItemService.swift in Sources */,
 				A718DB6D235E055D00D292D2 /* ItemListTableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

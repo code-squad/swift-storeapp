@@ -38,7 +38,7 @@ extension ItemListViewController: UITableViewDelegate {
             return nil
         }
 
-        let headerInfo = StoreItem.Constants.headerInfo[section]
+        let headerInfo = StoreItemList.Constants.headerInfo[section]
         if let title = headerInfo[ItemHeaderCell.Constant.title], let subTitle = headerInfo[ItemHeaderCell.Constant.subTitle] {
             header.configure(title: title, subTitle: subTitle)
         }
