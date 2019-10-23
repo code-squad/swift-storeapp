@@ -10,7 +10,6 @@ import UIKit
 
 class TableViewModel: NSObject, UITableViewDataSource {
     private var sections = Array<Array<StoreItem>>()
-    private var storeItems = Array<StoreItem>()
     
     override init() {
         super.init()
@@ -59,7 +58,6 @@ class TableViewModel: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! StoreItemCell
         cell.item = sections[indexPath.section][indexPath.row]
-//        cell.item = storeItems[indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
