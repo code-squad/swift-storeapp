@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         ItemsTableVIew.reloadData()
         // Do any additional setup after loading the view.
     }
+
 }
 
 extension ViewController{
@@ -45,16 +46,16 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell,
-            let items = self.items, items.count > indexPath.row else { return UITableViewCell() }
-        
-        cell.labelTitle.text = items[indexPath.row].title
-        cell.labelDescription.text = items[indexPath.row].Description
-        cell.labelNprice.text = items[indexPath.row].nPrice
-        cell.labelNprice.attributedText = cell.labelNprice.text?.strikeThrough()
-        cell.labelSprice.text = items[indexPath.row].sPrice
+            let items = self.items, items.count > indexPath.row else { return ItemCell() }
+            cell.config(model: items[indexPath.row])
         return cell
+//        cell.labelTitle.text = items[indexPath.row].title
+//        cell.labelDescription.text = items[indexPath.row].Description
+//        cell.labelNprice.text = items[indexPath.row].nPrice
+//        cell.labelNprice.attributedText = cell.labelNprice.text?.strikeThrough()
+//        cell.labelSprice.text = items[indexPath.row].sPrice
     }
 }
+
 
