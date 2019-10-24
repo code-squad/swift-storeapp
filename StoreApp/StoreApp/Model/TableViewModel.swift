@@ -9,7 +9,7 @@
 import UIKit
 
 class TableViewModel: NSObject, UITableViewDataSource {
-    private var sections = Array<Array<StoreItem>>()
+    private var storeItemsArray = Array<Array<StoreItem>>()
     
     override init() {
         super.init()
@@ -35,7 +35,7 @@ class TableViewModel: NSObject, UITableViewDataSource {
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 
                 do {
-                    self.sections.append(try jsonDecoder.decode([StoreItem].self, from: data))
+                    self.storeItemsArray.append(try jsonDecoder.decode([StoreItem].self, from: data))
                 } catch let jsonErr {
                     print("Error in Serialization", jsonErr)
                 }
@@ -44,20 +44,20 @@ class TableViewModel: NSObject, UITableViewDataSource {
     }
     
     func itemOf(section: Int, row: Int) -> StoreItem {
-        return sections[section][row]
+        return storeItemsArray[section][row]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return storeItemsArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].count
+        return storeItemsArray[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! StoreItemCell
-        cell.item = sections[indexPath.section][indexPath.row]
+        cell.item = storeItemsArray[indexPath.section][indexPath.row]
         cell.selectionStyle = .none
         return cell
     }
