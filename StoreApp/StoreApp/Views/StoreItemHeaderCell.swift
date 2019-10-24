@@ -13,6 +13,10 @@ class StoreItemHeaderCell: UITableViewCell {
     @IBOutlet weak var headerCategories: UIButton!
     @IBOutlet weak var headerTitle: UILabel!
     
+    private let mainDictionary = ["sectionName": "main", "categoryName": "메인반찬", "title": "한그릇 뚝딱 메인 요리"]
+    private let soupDictionary = ["sectionName": "soup", "categoryName": "국・찌개", "title": "김이 모락모락 국.찌개"]
+    private let sideDictionary = ["sectionName": "side", "categoryName": "밑반찬", "title": "언제 먹어도 든든한 밑반찬"]
+    
     func setupHeader(_ sectionName: String) {
         headerCategories.layer.borderColor = UIColor.lightGray.cgColor
         headerCategories.layer.borderWidth = 1
@@ -21,15 +25,15 @@ class StoreItemHeaderCell: UITableViewCell {
         var title: String = ""
         
         switch sectionName {
-        case "main":
-            categoryName = "메인반찬"
-            title = "한그릇 뚝딱 메인 요리"
-        case "soup":
-            categoryName = "국・찌개"
-            title = "김이 모락모락 국.찌개"
-        case "side":
-            categoryName = "밑반찬"
-            title = "언제 먹어도 든든한 밑반찬"
+        case mainDictionary["sectionName"]:
+            categoryName = mainDictionary["categoryName"] ?? ""
+            title = mainDictionary["title"] ?? ""
+        case soupDictionary["sectionName"]:
+            categoryName = soupDictionary["categoryName"] ?? ""
+            title = soupDictionary["title"] ?? ""
+        case sideDictionary["sectionName"]:
+            categoryName = sideDictionary["categoryName"] ?? ""
+            title = sideDictionary["title"] ?? ""
         default:
             break
         }
