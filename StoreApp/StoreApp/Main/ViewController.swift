@@ -9,22 +9,33 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let item = Item()
+    var item: Item = Item()
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            let nib = UINib(nibName: "MainTableViewCell", bundle: nil)
-            tableView.register(nib, forCellReuseIdentifier: "menuCell")
+            let nib = UINib(nibName: "MainTableViewCell",
+                            bundle: nil)
+            tableView.register(nib,
+                               forCellReuseIdentifier: "menuCell")
+            let sectionNib = UINib(nibName: "SectionCell", bundle: nil)
+            tableView.register(sectionNib,
+                               forCellReuseIdentifier: "sectionCell")
             item.items = decode()
             tableView.dataSource = item
-            tableView.delegate = self
+            tableView.delegate = item
         }
     }
-}
-
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+    
+    func decode ()  -> [Foods]?{
+        let decoder = JSONDecoder()
+        guard let dataAsset = NSDataAsset(name: "main") else { return nil }
+        do {
+            return try decoder.decode([Foods].self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
     }
+    
 }
 
