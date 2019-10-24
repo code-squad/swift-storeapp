@@ -12,7 +12,7 @@ import Toaster
 class StoreItemViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var storeItemTableView: UITableView!
-    let tableViewModel = TableViewModel()
+    private let tableViewModel = TableViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
