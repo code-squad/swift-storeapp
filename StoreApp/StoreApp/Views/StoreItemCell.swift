@@ -34,6 +34,7 @@ class StoreItemCell: UITableViewCell {
             self.titleLabel.text = item.title
             self.descriptionLabel.text = item.description
             rendering()
+            
         }
     }
     
