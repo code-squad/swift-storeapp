@@ -11,15 +11,29 @@ import Toaster
 
 class StoreItemViewController: UIViewController, UITableViewDelegate {
 
-    @IBOutlet weak var storeItemTableView: UITableView!
+    @IBOutlet weak var tableview: UITableView!
     private let tableViewModel = TableViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        storeItemTableView.dataSource = tableViewModel
-        storeItemTableView.delegate = self
-        storeItemTableView.separatorStyle = .none
+        tableViewModel.storeItemViewController = self
+        tableview.dataSource = tableViewModel
+        tableview.delegate = self
+        tableview.separatorStyle = .none
+    }
+    
+    func updateTableView() {
+        DispatchQueue.main.async {
+            self.tableview.reloadData()
+        }
+    }
+    
+    func updateTableView(indexPath: Int) {
+        tableview.reloadSections(IndexSet(integer: indexPath), with: .right)
+        DispatchQueue.main.async {
+            self.tableview.reloadData()
+        }
     }
     
     private func showToaster(title: String, price: String) {
@@ -36,10 +50,6 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! StoreItemHeaderCell
         cell.setupHeader(tableViewModel.jsonFilenames[section])
         return cell
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
     }
     
     //MARK:- Height of Header, Row

@@ -8,8 +8,23 @@
 
 import UIKit
 
+struct BaseAPIResponse<StoreItem: Decodable>: Decodable {
+    let statusCode: Int
+    let body: [StoreItem]
+}
+
 class TableViewModel: NSObject, UITableViewDataSource {
-    private var storeItemsArray = Array<Array<StoreItem>>()
+    private let defaultSession = URLSession(configuration: .default)
+    private let session = URLSession.shared
+    var storeItemViewController: StoreItemViewController?
+    
+    private var storeItemsArray = Array<Array<StoreItem>>() {
+        didSet {
+            print("storeItemsArray. index:", self.storeItemsArray.count - 1)
+            storeItemViewController?.updateTableView()
+//            storeItemViewController?.updateTableView(indexPath: self.storeItemsArray.count - 1)
+        }
+    }
     
     override init() {
         super.init()
@@ -18,26 +33,26 @@ class TableViewModel: NSObject, UITableViewDataSource {
     }
     
     let jsonFilenames = ["main", "soup", "side"]
+    let jsonUrl = "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/"
     
     fileprivate func decodeJSON() {
-        let jsonUrls = jsonFilenames.map { Bundle.main.url(forResource: $0, withExtension: "json") }
-        jsonUrls.forEach { (url) in
+        let URLComponentsArray = jsonFilenames.map({ jsonUrl + $0 }).map({ URLComponents(string: $0) })
+        
+        URLComponentsArray.map({ $0?.url }).forEach { (url) in
             guard let url = url else { return }
             
-            URLSession.shared.dataTask(with: url) { (data, _, err) in
-                if let err = err {
-                    print("Failed to request data", err)
-                }
-                
+            session.dataTask(with: url) { (data, response, error) in
                 guard let data = data else { return }
                 
                 let jsonDecoder = JSONDecoder()
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 
                 do {
-                    self.storeItemsArray.append(try jsonDecoder.decode([StoreItem].self, from: data))
+                    let baseAPIResponse = try jsonDecoder.decode(BaseAPIResponse<StoreItem>.self, from: data)
+                    self.storeItemsArray.append(baseAPIResponse.body)
+                
                 } catch let jsonErr {
-                    print("Error in Serialization", jsonErr)
+                    print("Error in decoding json", jsonErr)
                 }
             }.resume()
         }
@@ -48,10 +63,12 @@ class TableViewModel: NSObject, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        print("numberOfSection:", storeItemsArray.count)
         return storeItemsArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("numberOfRowsInSection")
         return storeItemsArray[section].count
     }
     
