@@ -69,15 +69,15 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="forceLeftToRight" reuseIdentifier="" id="RL0-mm-qyt">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" semanticContentAttribute="forceLeftToRight" reuseIdentifier="ItemEventBadgeCell" id="RL0-mm-qyt" customClass="ItemEventBadgeCell" customModule="StoreApp" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="55" height="26"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fyQ-rh-Q9X">
                                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="26"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nt3-yQ-oYV">
-                                                                        <rect key="frame" x="6" y="2" width="42" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nt3-yQ-oYV">
+                                                                        <rect key="frame" x="-53" y="0.0" width="160" height="25"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
@@ -86,10 +86,14 @@
                                                                 </subviews>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="55" height="26"/>
+                                                            <connections>
+                                                                <outlet property="badge" destination="Nt3-yQ-oYV" id="qgN-6M-34B"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="Oy8-Lj-SZ4" id="MIX-WD-4JQ"/>
+                                                        <outlet property="dataSource" destination="Oy8-Lj-SZ4" id="Toi-nS-2VS"/>
+                                                        <outlet property="delegate" destination="Oy8-Lj-SZ4" id="8ZQ-sf-vMw"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -114,7 +118,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="BadgeCollectionView" destination="RIX-aF-W7w" id="wMa-cV-SO8"/>
+                                            <outlet property="badgeCollectionView" destination="RIX-aF-W7w" id="fOH-C5-i5i"/>
                                             <outlet property="labelDescription" destination="jfv-cS-9t5" id="O1t-53-ZOc"/>
                                             <outlet property="labelNprice" destination="Ltw-xJ-OQ9" id="oO0-2J-i8D"/>
                                             <outlet property="labelSprice" destination="zPf-YS-hWB" id="Nto-MU-ESa"/>
