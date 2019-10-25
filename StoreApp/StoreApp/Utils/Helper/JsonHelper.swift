@@ -1,5 +1,5 @@
 //
-//  LoadJsonData.swift
+//  JsonHelper.swift
 //  StoreApp
 //
 //  Created by Hongdonghyun on 2019/10/23.

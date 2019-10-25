@@ -34,6 +34,11 @@ extension String {
 extension ItemCell {
     func config(model:StoreItem) {
         self.item = model
+        self.labelTitle.text = model.title
+        self.labelDescription.text = model.Description
+        self.labelNprice.text = model.nPrice
+        self.labelNprice.attributedText = self.labelNprice.text?.strikeThrough()
+        self.labelSprice.text = model.sPrice
         self.badgeCollectionView.reloadData()
     }
 }
@@ -49,13 +54,9 @@ extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
         
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemEventBadgeCell", for: indexPath) as? ItemEventBadgeCell,
-            let array = self.item.badge else { return ItemEventBadgeCell() }
-        self.labelTitle.text = self.item.title
-        self.labelTitle.text = self.item.title
-        self.labelDescription.text = item.Description
-        self.labelNprice.text = item.nPrice
-        self.labelNprice.attributedText = self.labelNprice.text?.strikeThrough()
-        self.labelSprice.text = item.sPrice
+            let badges = self.item.badge,
+            badges.count > indexPath.row else { return ItemEventBadgeCell() }
+        cell.badge.text = badges[indexPath.row]
         return cell
         
     }
