@@ -42,11 +42,6 @@ extension ViewController: UITableViewDataSource {
             let items = self.items, items.count > indexPath.row else { return ItemCell() }
             cell.config(model: items[indexPath.row])
         return cell
-//        cell.labelTitle.text = items[indexPath.row].title
-//        cell.labelDescription.text = items[indexPath.row].Description
-//        cell.labelNprice.text = items[indexPath.row].nPrice
-//        cell.labelNprice.attributedText = cell.labelNprice.text?.strikeThrough()
-//        cell.labelSprice.text = items[indexPath.row].sPrice
     }
 }
 

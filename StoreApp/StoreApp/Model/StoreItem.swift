@@ -1,5 +1,5 @@
 //
-//  Models.swift
+//  StoreItem.swift
 //  StoreApp
 //
 //  Created by Hongdonghyun on 2019/10/21.
