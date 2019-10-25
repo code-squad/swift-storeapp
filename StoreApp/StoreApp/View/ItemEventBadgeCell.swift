@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: - ItemEventBadge
 class ItemEventBadgeCell: UICollectionViewCell {
     @IBOutlet weak var badge: UILabel!
 }

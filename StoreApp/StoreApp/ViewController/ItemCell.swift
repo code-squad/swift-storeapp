@@ -8,9 +8,8 @@
 
 import UIKit
 
-//MARK: - CustomCell
+//MARK: - ItemCell
 class ItemCell: UITableViewCell {
-
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var labelSprice: UILabel!
@@ -18,9 +17,6 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var badgeCollectionView: UICollectionView!
     var item: StoreItem!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 }
 
 extension String {
@@ -43,7 +39,11 @@ extension ItemCell {
     }
 }
 
-extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ItemCell: UICollectionViewDelegate{
+    
+}
+
+extension ItemCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let models = self.item,
             let badgeItems = models.badge else { return 0 }
@@ -51,8 +51,6 @@ extension ItemCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemEventBadgeCell", for: indexPath) as? ItemEventBadgeCell,
             let badges = self.item.badge,
             badges.count > indexPath.row else { return ItemEventBadgeCell() }
