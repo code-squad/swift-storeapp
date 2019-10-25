@@ -10,7 +10,12 @@ import UIKit
 import Foundation
 class MainTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var cellImageVIew: UIImageView!
+    @IBOutlet weak var cellImageVIew: UIImageView! {
+        didSet {
+            cellImageVIew.backgroundColor = .red
+            cellImageVIew.contentMode = .scaleAspectFill
+        }
+    }
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var nPriceLabel: UILabel!

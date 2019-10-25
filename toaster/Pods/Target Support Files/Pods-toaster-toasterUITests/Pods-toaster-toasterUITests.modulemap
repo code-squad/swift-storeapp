@@ -1,0 +1,6 @@
+framework module Pods_toaster_toasterUITests {
+  umbrella header "Pods-toaster-toasterUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

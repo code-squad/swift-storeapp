@@ -1,0 +1,989 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03281BC29A477E0D9ED40FF507206CBA /* Pods-toaster-toasterUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CABF5B0C1DEEE4EDC843A555D62CFC93 /* Pods-toaster-toasterUITests-dummy.m */; };
+		1C3B4E3E3110D82D71CE8C6F7568C51C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950B64BEB39CC506B65115EE95302D64 /* Foundation.framework */; };
+		23AD9C846E8E67C7603CC09EC24A98F8 /* Toaster-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ABE4E7790FA2A6BEF3E65DD20F492B5 /* Toaster-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		342A82732EB42E300EF63417F55E3C48 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178F90F43EBC09FD0ADCC5912F2D5D6 /* ToastView.swift */; };
+		59C8A859BF0D96DD377BF07F47E69641 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950B64BEB39CC506B65115EE95302D64 /* Foundation.framework */; };
+		6C3F745FE28960B9699EF46E1B81D914 /* Pods-toaster-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A5146F317F4917691CB6F174D9C13B6 /* Pods-toaster-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		75B329D48C0A3C90078D54E12F3545D1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94B711F48381480FD8532DE9A03D494 /* Toast.swift */; };
+		8A0A653CD9FAA128B349CF83F4B09345 /* ToastWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0B620BD4A5979694D623E0E74A2DC8 /* ToastWindow.swift */; };
+		8D03B5706C51EFAB22148F8ABDAB7303 /* Toaster-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241D59622BEDD55545F6BF5A62DCBDC /* Toaster-dummy.m */; };
+		AB7FBBF690E69DC26F2CC097DB139BF0 /* Pods-toaster-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECE46CC824B66C7FD7D1F9F77EB2F54 /* Pods-toaster-dummy.m */; };
+		ADC672D32FC715604B7D6EE5BFF558DA /* Pods-toaster-toasterUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E9C6BA3DA7D666ABE8B6114EAA8AA5D /* Pods-toaster-toasterUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3D00B26D2280517D0FDDDF5C47A4AF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950B64BEB39CC506B65115EE95302D64 /* Foundation.framework */; };
+		BB1E7C3C090E66F43025018B2890E63D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950B64BEB39CC506B65115EE95302D64 /* Foundation.framework */; };
+		BFA9AFACE094FAFDFF9B7E3A9DAA9B7E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBCD5169B524477639A9A41855A47F99 /* QuartzCore.framework */; };
+		C278931D70A95E1B62CF33DE431436DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F545AB76C9016ECAD7D83A1129E704 /* UIKit.framework */; };
+		CBC27F3832D11E3144CE31A52AEED38C /* Toaster.h in Headers */ = {isa = PBXBuildFile; fileRef = 53844E82AD8CE56756EE606B869F7262 /* Toaster.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC994E2A4BD4A1D754EF5F4188EAD440 /* Pods-toasterTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F47C8507E40DDB2933B1401AC4C39CC4 /* Pods-toasterTests-dummy.m */; };
+		D6AE1202D1E149B6AB9175595FEDC7D1 /* Pods-toasterTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EC70FAED65A2E3535463A84F8D1C8A3A /* Pods-toasterTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE2B76A1015936D3B867283CD72FB55E /* ToastCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF19AEC8B881C0A202D4B053A735EA67 /* ToastCenter.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F47D214824E7B9227DE49B46C942BDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3DE3F2EC0C90439A58DA959DF6890CA;
+			remoteInfo = "Pods-toaster";
+		};
+		663ACCD40C8E2361040AF89CD7A08FA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B90AB98A7BC6A346D671B36DB990DAC2;
+			remoteInfo = Toaster;
+		};
+		A35EE0069440A6BAA110C9BC5223A7A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B90AB98A7BC6A346D671B36DB990DAC2;
+			remoteInfo = Toaster;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03A6FC51780F7BE56B3B80825B1D11E7 /* Pods-toaster-toasterUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-toaster-toasterUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		10E7A3212D92AB9C5DBAE1E4BB9A89F5 /* Toaster-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toaster-prefix.pch"; sourceTree = "<group>"; };
+		1241D59622BEDD55545F6BF5A62DCBDC /* Toaster-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Toaster-dummy.m"; sourceTree = "<group>"; };
+		12922500774EB7A45C88072E08AEFB6B /* Pods-toaster-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-toaster-acknowledgements.plist"; sourceTree = "<group>"; };
+		1530D98AB9252AEB7E97819C4D303C22 /* Pods-toaster-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-toaster-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1562AE910243C80A01A4DCDB44BFB90A /* Pods-toasterTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-toasterTests.modulemap"; sourceTree = "<group>"; };
+		16D671C36437C7AF93F6A661BB5FA964 /* Pods-toaster-toasterUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-toaster-toasterUITests-Info.plist"; sourceTree = "<group>"; };
+		181BEB201B9B463606B907D0CB29FE72 /* Pods-toaster-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-toaster-frameworks.sh"; sourceTree = "<group>"; };
+		19F5661729A458C814DFAE98CAF130CC /* Pods_toaster_toasterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_toaster_toasterUITests.framework; path = "Pods-toaster-toasterUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ABE4E7790FA2A6BEF3E65DD20F492B5 /* Toaster-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Toaster-umbrella.h"; sourceTree = "<group>"; };
+		1C7907CE4C90660467348D1C7B1346EB /* Pods-toasterTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-toasterTests-Info.plist"; sourceTree = "<group>"; };
+		1F0B620BD4A5979694D623E0E74A2DC8 /* ToastWindow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToastWindow.swift; path = Sources/ToastWindow.swift; sourceTree = "<group>"; };
+		2A5146F317F4917691CB6F174D9C13B6 /* Pods-toaster-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-toaster-umbrella.h"; sourceTree = "<group>"; };
+		2E9C6BA3DA7D666ABE8B6114EAA8AA5D /* Pods-toaster-toasterUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-toaster-toasterUITests-umbrella.h"; sourceTree = "<group>"; };
+		43EA33CE4B97C54C52066AA775B2CC75 /* Pods-toaster.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-toaster.release.xcconfig"; sourceTree = "<group>"; };
+		49F545AB76C9016ECAD7D83A1129E704 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		53844E82AD8CE56756EE606B869F7262 /* Toaster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Toaster.h; path = Sources/Toaster.h; sourceTree = "<group>"; };
+		54D0298E7FF1BE2CCF547EF0A9C56982 /* Pods_toaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_toaster.framework; path = "Pods-toaster.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A7A790C0A07D1F8E86F7E8BA2394951 /* Toaster-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Toaster-Info.plist"; sourceTree = "<group>"; };
+		5F5EA149B874CD5E145009CB945FC6DE /* Pods-toaster-toasterUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-toaster-toasterUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		6557EDD8E96F16BD56F3E2D5B52582BF /* Pods-toaster.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-toaster.modulemap"; sourceTree = "<group>"; };
+		7701B5B15A8FB220E32E9B0BBF092EBE /* Pods_toasterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_toasterTests.framework; path = "Pods-toasterTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D9B41ED17205F1FE1275AD208DF024C /* Toaster.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Toaster.xcconfig; sourceTree = "<group>"; };
+		92E0D73A3A4823EE7FE517CB578B9B11 /* Pods-toasterTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-toasterTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		950B64BEB39CC506B65115EE95302D64 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9C0D96CA35BEAB464C509B3F3B1C57EA /* Pods-toaster-toasterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-toaster-toasterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9D0E6187CC92749144E214590B2FD6D5 /* Toaster.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Toaster.modulemap; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9ECE46CC824B66C7FD7D1F9F77EB2F54 /* Pods-toaster-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-toaster-dummy.m"; sourceTree = "<group>"; };
+		A0FB879A2BEC904A7934F903201CD61B /* Pods-toasterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-toasterTests.release.xcconfig"; sourceTree = "<group>"; };
+		ADA775A0499664E041690E0BC2BCAF3D /* Pods-toaster-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-toaster-Info.plist"; sourceTree = "<group>"; };
+		AE7AF5D989A1D95B6E18B24C4BCB816F /* Pods-toaster-toasterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-toaster-toasterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AF19AEC8B881C0A202D4B053A735EA67 /* ToastCenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToastCenter.swift; path = Sources/ToastCenter.swift; sourceTree = "<group>"; };
+		B178F90F43EBC09FD0ADCC5912F2D5D6 /* ToastView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToastView.swift; path = Sources/ToastView.swift; sourceTree = "<group>"; };
+		BD810337F4A305D60D9250A197AA1EF1 /* Toaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Toaster.framework; path = Toaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CABF5B0C1DEEE4EDC843A555D62CFC93 /* Pods-toaster-toasterUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-toaster-toasterUITests-dummy.m"; sourceTree = "<group>"; };
+		CBCD5169B524477639A9A41855A47F99 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		CFB2514E000B37CBF221C6E39459F31C /* Pods-toaster.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-toaster.debug.xcconfig"; sourceTree = "<group>"; };
+		D399D5FF2A97341A1EE6ADDCCA17770E /* Pods-toasterTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-toasterTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		D94B711F48381480FD8532DE9A03D494 /* Toast.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = Sources/Toast.swift; sourceTree = "<group>"; };
+		DAB4FBFD55B28BDB35AF1D0D455E7513 /* Pods-toasterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-toasterTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E44C3FBAA952A50CC40422ED358CBAF8 /* Pods-toaster-toasterUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-toaster-toasterUITests.modulemap"; sourceTree = "<group>"; };
+		EC70FAED65A2E3535463A84F8D1C8A3A /* Pods-toasterTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-toasterTests-umbrella.h"; sourceTree = "<group>"; };
+		EF66B0530943DF0C09D538E22516F434 /* Pods-toaster-toasterUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-toaster-toasterUITests-frameworks.sh"; sourceTree = "<group>"; };
+		F47C8507E40DDB2933B1401AC4C39CC4 /* Pods-toasterTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-toasterTests-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4143AF422794CDA4792331EED460BF28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C3B4E3E3110D82D71CE8C6F7568C51C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46257FD41AA1D666DF8498FE68D0E812 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB1E7C3C090E66F43025018B2890E63D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59DC16357C95CEBA60F5C908236DB454 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3D00B26D2280517D0FDDDF5C47A4AF8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E6038795C21DE8E937C131A272900FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59C8A859BF0D96DD377BF07F47E69641 /* Foundation.framework in Frameworks */,
+				BFA9AFACE094FAFDFF9B7E3A9DAA9B7E /* QuartzCore.framework in Frameworks */,
+				C278931D70A95E1B62CF33DE431436DE /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03C5C200A0787E300053CFA8F53CA094 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C18BABFF9523A33465B5A91496FF0C3D /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		080CECC57295622FB8AD5A6F717AD18D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E86ABF0DBC8ABA676757903F5CBD46E7 /* Toaster */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		162EB6B05C51D0E3E11E334FF3F5E11C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D0E6187CC92749144E214590B2FD6D5 /* Toaster.modulemap */,
+				8D9B41ED17205F1FE1275AD208DF024C /* Toaster.xcconfig */,
+				1241D59622BEDD55545F6BF5A62DCBDC /* Toaster-dummy.m */,
+				5A7A790C0A07D1F8E86F7E8BA2394951 /* Toaster-Info.plist */,
+				10E7A3212D92AB9C5DBAE1E4BB9A89F5 /* Toaster-prefix.pch */,
+				1ABE4E7790FA2A6BEF3E65DD20F492B5 /* Toaster-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Toaster";
+			sourceTree = "<group>";
+		};
+		5DC6EE2FD4F05A76A751922B758327BB /* Pods-toaster */ = {
+			isa = PBXGroup;
+			children = (
+				6557EDD8E96F16BD56F3E2D5B52582BF /* Pods-toaster.modulemap */,
+				1530D98AB9252AEB7E97819C4D303C22 /* Pods-toaster-acknowledgements.markdown */,
+				12922500774EB7A45C88072E08AEFB6B /* Pods-toaster-acknowledgements.plist */,
+				9ECE46CC824B66C7FD7D1F9F77EB2F54 /* Pods-toaster-dummy.m */,
+				181BEB201B9B463606B907D0CB29FE72 /* Pods-toaster-frameworks.sh */,
+				ADA775A0499664E041690E0BC2BCAF3D /* Pods-toaster-Info.plist */,
+				2A5146F317F4917691CB6F174D9C13B6 /* Pods-toaster-umbrella.h */,
+				CFB2514E000B37CBF221C6E39459F31C /* Pods-toaster.debug.xcconfig */,
+				43EA33CE4B97C54C52066AA775B2CC75 /* Pods-toaster.release.xcconfig */,
+			);
+			name = "Pods-toaster";
+			path = "Target Support Files/Pods-toaster";
+			sourceTree = "<group>";
+		};
+		71F6AF9E62B1E564737E187AA2558857 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5DC6EE2FD4F05A76A751922B758327BB /* Pods-toaster */,
+				AB7B38208CC96E7D3A6AE80A303785A0 /* Pods-toaster-toasterUITests */,
+				7A4D53F1CDF5CF718C3F0C86BEDCC906 /* Pods-toasterTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7A4D53F1CDF5CF718C3F0C86BEDCC906 /* Pods-toasterTests */ = {
+			isa = PBXGroup;
+			children = (
+				1562AE910243C80A01A4DCDB44BFB90A /* Pods-toasterTests.modulemap */,
+				D399D5FF2A97341A1EE6ADDCCA17770E /* Pods-toasterTests-acknowledgements.markdown */,
+				92E0D73A3A4823EE7FE517CB578B9B11 /* Pods-toasterTests-acknowledgements.plist */,
+				F47C8507E40DDB2933B1401AC4C39CC4 /* Pods-toasterTests-dummy.m */,
+				1C7907CE4C90660467348D1C7B1346EB /* Pods-toasterTests-Info.plist */,
+				EC70FAED65A2E3535463A84F8D1C8A3A /* Pods-toasterTests-umbrella.h */,
+				DAB4FBFD55B28BDB35AF1D0D455E7513 /* Pods-toasterTests.debug.xcconfig */,
+				A0FB879A2BEC904A7934F903201CD61B /* Pods-toasterTests.release.xcconfig */,
+			);
+			name = "Pods-toasterTests";
+			path = "Target Support Files/Pods-toasterTests";
+			sourceTree = "<group>";
+		};
+		A67705A4F5A0F69EF8AA92791A94E707 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54D0298E7FF1BE2CCF547EF0A9C56982 /* Pods_toaster.framework */,
+				19F5661729A458C814DFAE98CAF130CC /* Pods_toaster_toasterUITests.framework */,
+				7701B5B15A8FB220E32E9B0BBF092EBE /* Pods_toasterTests.framework */,
+				BD810337F4A305D60D9250A197AA1EF1 /* Toaster.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB7B38208CC96E7D3A6AE80A303785A0 /* Pods-toaster-toasterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E44C3FBAA952A50CC40422ED358CBAF8 /* Pods-toaster-toasterUITests.modulemap */,
+				03A6FC51780F7BE56B3B80825B1D11E7 /* Pods-toaster-toasterUITests-acknowledgements.markdown */,
+				5F5EA149B874CD5E145009CB945FC6DE /* Pods-toaster-toasterUITests-acknowledgements.plist */,
+				CABF5B0C1DEEE4EDC843A555D62CFC93 /* Pods-toaster-toasterUITests-dummy.m */,
+				EF66B0530943DF0C09D538E22516F434 /* Pods-toaster-toasterUITests-frameworks.sh */,
+				16D671C36437C7AF93F6A661BB5FA964 /* Pods-toaster-toasterUITests-Info.plist */,
+				2E9C6BA3DA7D666ABE8B6114EAA8AA5D /* Pods-toaster-toasterUITests-umbrella.h */,
+				AE7AF5D989A1D95B6E18B24C4BCB816F /* Pods-toaster-toasterUITests.debug.xcconfig */,
+				9C0D96CA35BEAB464C509B3F3B1C57EA /* Pods-toaster-toasterUITests.release.xcconfig */,
+			);
+			name = "Pods-toaster-toasterUITests";
+			path = "Target Support Files/Pods-toaster-toasterUITests";
+			sourceTree = "<group>";
+		};
+		C18BABFF9523A33465B5A91496FF0C3D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				950B64BEB39CC506B65115EE95302D64 /* Foundation.framework */,
+				CBCD5169B524477639A9A41855A47F99 /* QuartzCore.framework */,
+				49F545AB76C9016ECAD7D83A1129E704 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				03C5C200A0787E300053CFA8F53CA094 /* Frameworks */,
+				080CECC57295622FB8AD5A6F717AD18D /* Pods */,
+				A67705A4F5A0F69EF8AA92791A94E707 /* Products */,
+				71F6AF9E62B1E564737E187AA2558857 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		E86ABF0DBC8ABA676757903F5CBD46E7 /* Toaster */ = {
+			isa = PBXGroup;
+			children = (
+				D94B711F48381480FD8532DE9A03D494 /* Toast.swift */,
+				AF19AEC8B881C0A202D4B053A735EA67 /* ToastCenter.swift */,
+				53844E82AD8CE56756EE606B869F7262 /* Toaster.h */,
+				B178F90F43EBC09FD0ADCC5912F2D5D6 /* ToastView.swift */,
+				1F0B620BD4A5979694D623E0E74A2DC8 /* ToastWindow.swift */,
+				162EB6B05C51D0E3E11E334FF3F5E11C /* Support Files */,
+			);
+			name = Toaster;
+			path = Toaster;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0D0B3361C0B862E7CB8721A3C2F2EBC7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C3F745FE28960B9699EF46E1B81D914 /* Pods-toaster-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19A7157A2F3CC83B89E64FCD731C21E9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23AD9C846E8E67C7603CC09EC24A98F8 /* Toaster-umbrella.h in Headers */,
+				CBC27F3832D11E3144CE31A52AEED38C /* Toaster.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B9F7AB4DD3BA72D2A63C09BC805DFE1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6AE1202D1E149B6AB9175595FEDC7D1 /* Pods-toasterTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5573A6561B0AD47359AEF697D8F9885A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADC672D32FC715604B7D6EE5BFF558DA /* Pods-toaster-toasterUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0AF8C0181B38319B84FBAEB6EC6E19AC /* Pods-toaster-toasterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEED0B526C3AB1B3FD04CB30F3B71E88 /* Build configuration list for PBXNativeTarget "Pods-toaster-toasterUITests" */;
+			buildPhases = (
+				5573A6561B0AD47359AEF697D8F9885A /* Headers */,
+				008E776FA22CE9CCA3573DA274C6B87B /* Sources */,
+				4143AF422794CDA4792331EED460BF28 /* Frameworks */,
+				57BF34F9372816E1B0CA41AC0A938BFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B64BD42E421B838978C0277764417A8F /* PBXTargetDependency */,
+			);
+			name = "Pods-toaster-toasterUITests";
+			productName = "Pods-toaster-toasterUITests";
+			productReference = 19F5661729A458C814DFAE98CAF130CC /* Pods_toaster_toasterUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6F4EB47AC9EA44DFDC148B2AA63E26CC /* Pods-toasterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F513328F502E09C309F07E4FEA879A67 /* Build configuration list for PBXNativeTarget "Pods-toasterTests" */;
+			buildPhases = (
+				2B9F7AB4DD3BA72D2A63C09BC805DFE1 /* Headers */,
+				14E600AF58776D47C39001F96137B9E8 /* Sources */,
+				46257FD41AA1D666DF8498FE68D0E812 /* Frameworks */,
+				6612DE69D36BB2CF0E36CFDEF087003E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE32116A662AC617739547725828E5DE /* PBXTargetDependency */,
+			);
+			name = "Pods-toasterTests";
+			productName = "Pods-toasterTests";
+			productReference = 7701B5B15A8FB220E32E9B0BBF092EBE /* Pods_toasterTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B90AB98A7BC6A346D671B36DB990DAC2 /* Toaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F7D586D0C9967BE7BE79E98769B7FD9 /* Build configuration list for PBXNativeTarget "Toaster" */;
+			buildPhases = (
+				19A7157A2F3CC83B89E64FCD731C21E9 /* Headers */,
+				F9790E768E3E826C36ED0CC3086AD472 /* Sources */,
+				7E6038795C21DE8E937C131A272900FA /* Frameworks */,
+				E07C304D71053DD6D19451E5160B0DD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Toaster;
+			productName = Toaster;
+			productReference = BD810337F4A305D60D9250A197AA1EF1 /* Toaster.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E3DE3F2EC0C90439A58DA959DF6890CA /* Pods-toaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C605C3E4ACF511C5DA7DF2C8D98C05DB /* Build configuration list for PBXNativeTarget "Pods-toaster" */;
+			buildPhases = (
+				0D0B3361C0B862E7CB8721A3C2F2EBC7 /* Headers */,
+				8E5BA6B8910CB5B7B587AE8B758E0FCA /* Sources */,
+				59DC16357C95CEBA60F5C908236DB454 /* Frameworks */,
+				13422F04581BE3D820847D6612D2CDC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CCA65E50012A5C4B3AC3BB2F866D4B2 /* PBXTargetDependency */,
+			);
+			name = "Pods-toaster";
+			productName = "Pods-toaster";
+			productReference = 54D0298E7FF1BE2CCF547EF0A9C56982 /* Pods_toaster.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = A67705A4F5A0F69EF8AA92791A94E707 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3DE3F2EC0C90439A58DA959DF6890CA /* Pods-toaster */,
+				0AF8C0181B38319B84FBAEB6EC6E19AC /* Pods-toaster-toasterUITests */,
+				6F4EB47AC9EA44DFDC148B2AA63E26CC /* Pods-toasterTests */,
+				B90AB98A7BC6A346D671B36DB990DAC2 /* Toaster */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13422F04581BE3D820847D6612D2CDC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		57BF34F9372816E1B0CA41AC0A938BFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6612DE69D36BB2CF0E36CFDEF087003E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E07C304D71053DD6D19451E5160B0DD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		008E776FA22CE9CCA3573DA274C6B87B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03281BC29A477E0D9ED40FF507206CBA /* Pods-toaster-toasterUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14E600AF58776D47C39001F96137B9E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC994E2A4BD4A1D754EF5F4188EAD440 /* Pods-toasterTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E5BA6B8910CB5B7B587AE8B758E0FCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB7FBBF690E69DC26F2CC097DB139BF0 /* Pods-toaster-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9790E768E3E826C36ED0CC3086AD472 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75B329D48C0A3C90078D54E12F3545D1 /* Toast.swift in Sources */,
+				EE2B76A1015936D3B867283CD72FB55E /* ToastCenter.swift in Sources */,
+				8D03B5706C51EFAB22148F8ABDAB7303 /* Toaster-dummy.m in Sources */,
+				342A82732EB42E300EF63417F55E3C48 /* ToastView.swift in Sources */,
+				8A0A653CD9FAA128B349CF83F4B09345 /* ToastWindow.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CCA65E50012A5C4B3AC3BB2F866D4B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toaster;
+			target = B90AB98A7BC6A346D671B36DB990DAC2 /* Toaster */;
+			targetProxy = A35EE0069440A6BAA110C9BC5223A7A9 /* PBXContainerItemProxy */;
+		};
+		B64BD42E421B838978C0277764417A8F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Toaster;
+			target = B90AB98A7BC6A346D671B36DB990DAC2 /* Toaster */;
+			targetProxy = 663ACCD40C8E2361040AF89CD7A08FA6 /* PBXContainerItemProxy */;
+		};
+		CE32116A662AC617739547725828E5DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-toaster";
+			target = E3DE3F2EC0C90439A58DA959DF6890CA /* Pods-toaster */;
+			targetProxy = 0F47D214824E7B9227DE49B46C942BDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1B8530F20F32FC64721B80552BDC650A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAB4FBFD55B28BDB35AF1D0D455E7513 /* Pods-toasterTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-toasterTests/Pods-toasterTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-toasterTests/Pods-toasterTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		510B057D2E9F059C50D52DA5D90F3ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7BACAD58F0CC622F243D710574C8A3B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C0D96CA35BEAB464C509B3F3B1C57EA /* Pods-toaster-toasterUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-toaster-toasterUITests/Pods-toaster-toasterUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-toaster-toasterUITests/Pods-toaster-toasterUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		804E13245C9FBBE6A340C555CA8B2B4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A36BE01109D3D58E0A96F3FCC4C97672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFB2514E000B37CBF221C6E39459F31C /* Pods-toaster.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-toaster/Pods-toaster-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-toaster/Pods-toaster.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C974F4E36035CE5E5E9D01160FEA8EA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D9B41ED17205F1FE1275AD208DF024C /* Toaster.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Toaster/Toaster-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toaster/Toaster-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Toaster/Toaster.modulemap";
+				PRODUCT_MODULE_NAME = Toaster;
+				PRODUCT_NAME = Toaster;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D9D733E76884A99E8F770D616C2FDAFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE7AF5D989A1D95B6E18B24C4BCB816F /* Pods-toaster-toasterUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-toaster-toasterUITests/Pods-toaster-toasterUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-toaster-toasterUITests/Pods-toaster-toasterUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E413722AEF1D56511B6B9A76D6A9ECDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D9B41ED17205F1FE1275AD208DF024C /* Toaster.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Toaster/Toaster-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Toaster/Toaster-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Toaster/Toaster.modulemap";
+				PRODUCT_MODULE_NAME = Toaster;
+				PRODUCT_NAME = Toaster;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F3D7CFAF9210464C98E1B5A9C93C0E70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0FB879A2BEC904A7934F903201CD61B /* Pods-toasterTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-toasterTests/Pods-toasterTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-toasterTests/Pods-toasterTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FE48C2FAC0622187A6425167DFC2A3FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43EA33CE4B97C54C52066AA775B2CC75 /* Pods-toaster.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-toaster/Pods-toaster-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-toaster/Pods-toaster.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				804E13245C9FBBE6A340C555CA8B2B4C /* Debug */,
+				510B057D2E9F059C50D52DA5D90F3ACF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F7D586D0C9967BE7BE79E98769B7FD9 /* Build configuration list for PBXNativeTarget "Toaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E413722AEF1D56511B6B9A76D6A9ECDA /* Debug */,
+				C974F4E36035CE5E5E9D01160FEA8EA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C605C3E4ACF511C5DA7DF2C8D98C05DB /* Build configuration list for PBXNativeTarget "Pods-toaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A36BE01109D3D58E0A96F3FCC4C97672 /* Debug */,
+				FE48C2FAC0622187A6425167DFC2A3FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F513328F502E09C309F07E4FEA879A67 /* Build configuration list for PBXNativeTarget "Pods-toasterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B8530F20F32FC64721B80552BDC650A /* Debug */,
+				F3D7CFAF9210464C98E1B5A9C93C0E70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEED0B526C3AB1B3FD04CB30F3B71E88 /* Build configuration list for PBXNativeTarget "Pods-toaster-toasterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9D733E76884A99E8F770D616C2FDAFA /* Debug */,
+				7BACAD58F0CC622F243D710574C8A3B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

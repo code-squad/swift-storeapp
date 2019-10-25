@@ -8,9 +8,18 @@
 
 import UIKit
 
-func request(text: String) -> UIImage? {
-    guard let url = URL(string: text),
-    let data = try? Data(contentsOf: url) else { return UIImage() }
-    let cellImage = UIImage(data: data)
-    return cellImage
+
+func requestURL(text: String, completion: @escaping (_: UIImage?) -> Void) {
+    guard let url = URL(string: text) else { return }
+    let session = URLSession(configuration: .default)
+    let dataTask = session.dataTask(with: url) { data, _, error in
+        if let error = error {
+            print(error.localizedDescription)
+        }
+        guard let data = data else { return }
+        DispatchQueue.main.async {
+            completion(UIImage(data: data))
+        }
+    }
+    dataTask.resume()
 }

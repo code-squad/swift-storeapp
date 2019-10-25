@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toaster
 
 class ViewController: UIViewController {
     var item: Item = Item()
@@ -17,25 +18,14 @@ class ViewController: UIViewController {
                             bundle: nil)
             tableView.register(nib,
                                forCellReuseIdentifier: "menuCell")
-            let sectionNib = UINib(nibName: "SectionCell", bundle: nil)
+            let sectionNib = UINib(nibName: "SectionCell",
+                                   bundle: nil)
             tableView.register(sectionNib,
                                forCellReuseIdentifier: "sectionCell")
-            item.items = decode()
+            
             tableView.dataSource = item
             tableView.delegate = item
         }
     }
-    
-    func decode ()  -> [Foods]?{
-        let decoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "main") else { return nil }
-        do {
-            return try decoder.decode([Foods].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
-    }
-    
 }
 
