@@ -23,8 +23,9 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableCell(withIdentifier: "HeaderCell") as! HeaderCell
-        header.category?.text = "국, 찌개"
-        header.title?.text = "김이 모락 모락나는 국, 찌개"
+        let headerData = menuModel.menuList[section]
+        header.category?.text = headerData.category ?? ""
+        header.title?.text = headerData.title ?? ""
         return header
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

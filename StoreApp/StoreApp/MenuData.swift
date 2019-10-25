@@ -10,36 +10,29 @@ import Foundation
 import UIKit
 
 class MenuDataSource : NSObject, UITableViewDataSource {
-    private var menuList = Array<StoreItem>()
-    subscript(index: Int) -> StoreItem? {
-        get {
-            return menuList.count > index ? self.menuList[index] : nil
-        }
-        set(newValue) {
-            self.menuList[index] = newValue!
-        }
-    }
+    var menuList = Array<MenuItem>()
     override init(){
-        let url = Bundle.main.url(forResource: "main", withExtension: "json")!
-        let jsonData = try? Data.init(contentsOf: url)
-        let decoder = JSONDecoder()
-        menuList = try! decoder.decode([StoreItem].self, from : jsonData!)
+        super.init()
+        ["main", "soup", "side"].forEach{ v in
+            self.loadData(fileName: v)
+        }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return menuList.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuList.count
+        return menuList[section].items.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell : MenuCell
-        let menuData = menuList[indexPath.row]
+        let menu = menuList[indexPath.section]
+        let item = menu[indexPath.row]!
         cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
-        cell.title.text = menuData.title
-        cell.desc.text = menuData.description
-        cell.salePrice.attributedText = strokeLabel(text: menuData.n_price ?? "")
-        cell.originalPrice.text = menuData.s_price
-        menuData.badge?.forEach({ v in
+        cell.title.text = item.title
+        cell.desc.text = item.description
+        cell.salePrice.attributedText = strokeLabel(text: item.n_price ?? "")
+        cell.originalPrice.text = item.s_price
+        item.badge?.forEach({ v in
             cell.badges.addArrangedSubview(badgeLabel(text:v))
         })
         return cell
@@ -58,5 +51,12 @@ class MenuDataSource : NSObject, UITableViewDataSource {
         let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: text)
         attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributeString.length))
         return attributeString
+    }
+    
+    private func loadData(fileName:String){
+            let url = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "json")!
+            let jsonData = try? Data.init(contentsOf: url)
+            let decoder = JSONDecoder()
+            menuList.append(try! decoder.decode(MenuItem.self, from : jsonData!))
     }
 }
