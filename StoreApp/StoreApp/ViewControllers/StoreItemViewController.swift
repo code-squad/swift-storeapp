@@ -25,22 +25,12 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
         tableview.separatorStyle = .none
     }
     
+    private var headerSectionName = [String]()
+    
     @objc fileprivate func onDidReceiveData(_ notification: Notification) {
-        guard let userInfoDict = notification.userInfo, let storeItems = userInfoDict["storeItems"] else { return }
-        tableViewModel.storeItemsArray.append(storeItems as! [StoreItem])
-        DispatchQueue.main.async {
-            self.tableview.reloadData()
-        }
-    }
-    
-    func updateTableView() {
-        DispatchQueue.main.async {
-            self.tableview.reloadData()
-        }
-    }
-    
-    func updateTableView(indexPath: Int) {
-        tableview.reloadSections(IndexSet(integer: indexPath), with: .right)
+        guard let userInfoDict = notification.userInfo else { return }
+        tableViewModel.storeItemsArray.append(userInfoDict["json"] as! [StoreItem])
+        headerSectionName.append(userInfoDict["section"] as! String)
         DispatchQueue.main.async {
             self.tableview.reloadData()
         }
@@ -58,7 +48,7 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! StoreItemHeaderCell
-        cell.setupHeader(networkModule.jsonFilenames[section])
+        cell.setupHeader(headerSectionName[section])
         return cell
     }
     
