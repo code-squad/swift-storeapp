@@ -13,14 +13,24 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableview: UITableView!
     private let tableViewModel = TableViewModel()
+    private let networkModule = NetworkModule()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableViewModel.storeItemViewController = self
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidReceiveData), name: NSNotification.Name(rawValue: "getData"), object: nil)
+        
         tableview.dataSource = tableViewModel
         tableview.delegate = self
         tableview.separatorStyle = .none
+    }
+    
+    @objc fileprivate func onDidReceiveData(_ notification: Notification) {
+        guard let userInfoDict = notification.userInfo, let storeItems = userInfoDict["storeItems"] else { return }
+        tableViewModel.storeItemsArray.append(storeItems as! [StoreItem])
+        DispatchQueue.main.async {
+            self.tableview.reloadData()
+        }
     }
     
     func updateTableView() {
@@ -48,7 +58,7 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! StoreItemHeaderCell
-        cell.setupHeader(tableViewModel.jsonFilenames[section])
+        cell.setupHeader(networkModule.jsonFilenames[section])
         return cell
     }
     
