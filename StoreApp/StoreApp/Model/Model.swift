@@ -11,7 +11,9 @@ import Toaster
 class Item: NSObject {
     var items: [Foods] = []
     var tbView: UITableView = UITableView()
-    
+//    let didReceiveFoodNotification = Notification.Name("didReceiveFood")
+//    let didReceiveImageNotification = Notification.Name("didReceiveImage")
+
     subscript(index: Int) -> Foods? {
         return items[index]
     }
@@ -21,21 +23,39 @@ class Item: NSObject {
         requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main") { food in
             self.items.append(food)
             self.tbView.reloadData()
+//            NotificationCenter.default.addObserver(self,
+//                                                   selector: #selector(self.didReceiveFoodNotification(_:)),
+//                                                   name: self.didReceiveFoodNotification,
+//                                                   object: nil)
         }
         requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup") { food in
             self.items.append(food)
-        self.tbView.reloadData()
+            self.tbView.reloadData()
+//            NotificationCenter.default.addObserver(self,
+//                                                   selector: #selector(self.didReceiveFoodNotification(_:)),
+//                                                   name: self.didReceiveFoodNotification,
+//                                                   object: nil)
         }
         requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/side") { food in
             self.items.append(food)
-        self.tbView.reloadData()
+            self.tbView.reloadData()
+//            NotificationCenter.default.addObserver(self,
+//                                                   selector: #selector(self.didReceiveFoodNotification(_:)),
+//                                                   name: self.didReceiveFoodNotification,
+//                                                   object: nil)
         }
     }
     
-    func ab(tableView: UITableView,_: @escaping () -> Void) {
-        tableView.reloadData()
+    @objc func didReceiveFoodNotification(_ notification: Notification) {
+        guard let food = notification.userInfo?["food"] as? Foods else { return }
+        items.append(food)
     }
-
+    
+    @objc func didReceiveImageNotification(_ notification: Notification) -> UIImage {
+        guard let image = notification.userInfo?["image"] as? UIImage else { return UIImage() }
+        return image
+    }
+    
     func setCellConfigure(food: Foods, indexPath: IndexPath, cell: MainTableViewCell) {
         let storeItem = food[indexPath.row]
         cell.titleLabel.text = storeItem.title
@@ -44,6 +64,7 @@ class Item: NSObject {
         cell.setNPrice(nPrice: storeItem.nPrice)
         requestURL(text: storeItem.image) { image in
             cell.cellImageVIew.image = image
+//            cell.cellImageVIew.image = NotificationCenter.default.addObserver(self, selector: #selector(didReceiveImageNotification(_:)), name: self.didReceiveImageNotification, object: nil)
         }
     }
 }

@@ -25,11 +25,6 @@ class ViewController: UIViewController {
             tableView.delegate = item
             tableView.dataSource = item
         }
-        
-    }
-    
-    func sendTableView(completion: @escaping (UITableView) -> Void) {
-        completion(tableView)
     }
 }
 
