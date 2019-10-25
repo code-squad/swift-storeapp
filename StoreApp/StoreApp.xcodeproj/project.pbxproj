@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		38583132236004CA007C0F50 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38583131236004CA007C0F50 /* TableViewModel.swift */; };
 		38583135236077B4007C0F50 /* side.json in Resources */ = {isa = PBXBuildFile; fileRef = 38583133236077B4007C0F50 /* side.json */; };
 		38583136236077B4007C0F50 /* soup.json in Resources */ = {isa = PBXBuildFile; fileRef = 38583134236077B4007C0F50 /* soup.json */; };
+		385F63BC2362C06D00A92CFB /* NetworkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385F63BB2362C06D00A92CFB /* NetworkModule.swift */; };
 		38896D54235D741400B2A00D /* StoreItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38896D53235D741400B2A00D /* StoreItemCell.swift */; };
 		38A16E46235D7BA9006766C0 /* StoreItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A16E45235D7BA9006766C0 /* StoreItemViewController.swift */; };
 		38A16E4B235D868E006766C0 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A16E4A235D868E006766C0 /* StoreItem.swift */; };
@@ -30,6 +31,7 @@
 		38583131236004CA007C0F50 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		38583133236077B4007C0F50 /* side.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = side.json; sourceTree = "<group>"; };
 		38583134236077B4007C0F50 /* soup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = soup.json; sourceTree = "<group>"; };
+		385F63BB2362C06D00A92CFB /* NetworkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModule.swift; sourceTree = "<group>"; };
 		38896D53235D741400B2A00D /* StoreItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StoreItemCell.swift; path = StoreApp/Views/StoreItemCell.swift; sourceTree = SOURCE_ROOT; };
 		38A16E45235D7BA9006766C0 /* StoreItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemViewController.swift; sourceTree = "<group>"; };
 		38A16E4A235D868E006766C0 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				38A16E4A235D868E006766C0 /* StoreItem.swift */,
 				38583131236004CA007C0F50 /* TableViewModel.swift */,
+				385F63BB2362C06D00A92CFB /* NetworkModule.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,7 +131,6 @@
 				8124233D83B72B318C944BCC /* Pods-StoreApp.debug.xcconfig */,
 				7170B214896C7F9E5289EDB7 /* Pods-StoreApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -266,6 +268,7 @@
 				38896D54235D741400B2A00D /* StoreItemCell.swift in Sources */,
 				38E44F01235CA2C5001FBCE5 /* SceneDelegate.swift in Sources */,
 				38A16E46235D7BA9006766C0 /* StoreItemViewController.swift in Sources */,
+				385F63BC2362C06D00A92CFB /* NetworkModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
