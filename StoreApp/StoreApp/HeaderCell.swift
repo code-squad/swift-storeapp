@@ -11,17 +11,15 @@ import UIKit
 class HeaderCell: UITableViewCell {
     @IBOutlet weak var category: UILabelPadding!
     @IBOutlet weak var title: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         category.sizeToFit()
         category.layer.borderColor = UIColor.lightGray.cgColor
         category.layer.borderWidth = 1
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setData(title:String, category:String){
+        self.title.text = title
+        self.category.text = category
     }
-
 }
