@@ -8,11 +8,14 @@
 
 import Foundation
 
+//MARK: - JsonHelper
 class JsonHelper {
-    static func loadItem() -> [StoreItem]? {
-        guard let f_path = Bundle.main.path(forResource: "main_item", ofType: "json"),
+    
+    static func loadItem(resource:String,file_type:String) -> [StoreItem]? {
+        guard let f_path = Bundle.main.path(forResource: resource, ofType: file_type),
             let data = try? Data(contentsOf: URL(fileURLWithPath: f_path),options: .mappedIfSafe) else { return nil }
         
+        // Debug
         print("path :\(f_path)")
         print("data :\(data)")
         

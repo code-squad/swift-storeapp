@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 
+//MARK: - ViewController
 class ViewController: UIViewController {
 
     @IBOutlet weak var ItemsTableVIew: UITableView!
@@ -16,14 +17,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.items = JsonHelper.loadItem()
-        ItemsTableVIew.reloadData()
-        // Do any additional setup after loading the view.
+        self.items = JsonHelper.loadItem(resource:"main_item",file_type:"json")
     }
-
-}
-
-extension ViewController{
 
 }
 
@@ -36,11 +31,12 @@ extension ViewController: UITableViewDataSource {
         guard let items = items else { return 0 }
         return items.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell,
-            let items = self.items, items.count > indexPath.row else { return ItemCell() }
-            cell.config(model: items[indexPath.row])
+            let items = self.items, items.count > indexPath.row else { return ItemCell()
+        }
+        cell.config(model: items[indexPath.row])
         return cell
     }
 }
