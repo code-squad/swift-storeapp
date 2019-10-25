@@ -9,17 +9,33 @@ import UIKit
 import Toaster
 
 class Item: NSObject {
-    var items: [Foods]?
+    var items: [Foods] = []
+    var tbView: UITableView = UITableView()
     
     subscript(index: Int) -> Foods? {
-        return items?[index]
+        return items[index]
     }
     
     override init() {
         super.init()
-        items = decode()
+        requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main") { food in
+            self.items.append(food)
+            self.tbView.reloadData()
+        }
+        requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup") { food in
+            self.items.append(food)
+        self.tbView.reloadData()
+        }
+        requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/side") { food in
+            self.items.append(food)
+        self.tbView.reloadData()
+        }
     }
     
+    func ab(tableView: UITableView,_: @escaping () -> Void) {
+        tableView.reloadData()
+    }
+
     func setCellConfigure(food: Foods, indexPath: IndexPath, cell: MainTableViewCell) {
         let storeItem = food[indexPath.row]
         cell.titleLabel.text = storeItem.title
@@ -30,33 +46,21 @@ class Item: NSObject {
             cell.cellImageVIew.image = image
         }
     }
-    
-    func decode ()  -> [Foods]?{
-        let decoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "main") else { return nil }
-        do {
-            return try decoder.decode([Foods].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-            return nil
-        }
-    }
 }
 
 extension Item: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        guard let item = items else { return 0 }
-        return item.count
+        tbView = tableView
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let items = items else { return 0 }
         let item = items[section]
-        return item.item.count
+        return item.body.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as? MainTableViewCell, let items = items else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as? MainTableViewCell else { return UITableViewCell() }
         if indexPath.section == 0 {
             setCellConfigure(food: items[0], indexPath: indexPath, cell: cell)
         } else if indexPath.section == 1 {
@@ -80,25 +84,31 @@ extension Item: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let sectionCell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as? SectionCell,
-            let items = items else { return UIView() }
+        guard let sectionCell = tableView.dequeueReusableCell(withIdentifier: "sectionCell") as? SectionCell else { return UIView() }
         sectionCell.backgroundColor = .white
-        sectionCell.sectionTitleLabel.text = items[section].sectionHeader
-        sectionCell.sectionDetailLabel.text = items[section].sectionDetail
+        if items[section].body.first?.title == "[미노리키친] 규동 250g" {
+            sectionCell.sectionTitleLabel.text = "메인반찬"
+            sectionCell.sectionDetailLabel.text = "한그릇 뚝딱 메인 요리"
+        } else if items[section].body.first?.title == "[수하동] 특곰탕 850g" {
+            sectionCell.sectionTitleLabel.text = "국.찌게"
+            sectionCell.sectionDetailLabel.text = "김이 모락모락 국.찌게"
+        } else {
+            sectionCell.sectionTitleLabel.text = "밑반찬"
+            sectionCell.sectionDetailLabel.text = "언제 먹어도 든든한 밑반찬"
+        }
         return sectionCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let items = items else { return }
         // Toast가 지금 버그가 있어서 화면에 제대로 보여주는지는 확인하지 못했습니다.
         if indexPath.section == 0 {
-            let message = items[0].item[indexPath.row].sPrice
+            let message = items[0].body[indexPath.row].sPrice
             Toast(text: message, delay: 0, duration: 2).show()
         } else if indexPath.section == 1 {
-            let message = items[1].item[indexPath.row].sPrice
+            let message = items[1].body[indexPath.row].sPrice
             Toast(text: message, delay: 0, duration: 2).show()
         } else {
-            let message = items[2].item[indexPath.row].sPrice
+            let message = items[2].body[indexPath.row].sPrice
             Toast(text: message, delay: 0, duration: 2).show()
         }
     }

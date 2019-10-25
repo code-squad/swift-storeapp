@@ -22,10 +22,14 @@ class ViewController: UIViewController {
                                    bundle: nil)
             tableView.register(sectionNib,
                                forCellReuseIdentifier: "sectionCell")
-            
-            tableView.dataSource = item
             tableView.delegate = item
+            tableView.dataSource = item
         }
+        
+    }
+    
+    func sendTableView(completion: @escaping (UITableView) -> Void) {
+        completion(tableView)
     }
 }
 

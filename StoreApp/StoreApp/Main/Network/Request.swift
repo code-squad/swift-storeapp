@@ -8,6 +8,24 @@
 
 import UIKit
 
+let decoder = JSONDecoder()
+
+func requestJson(text: String, completionHandler: @escaping (Foods) -> Void) {
+    guard let url = URL(string: text) else { return }
+    let request = URLRequest(url: url)
+    let dataTask = URLSession(configuration: .default).dataTask(with: request) { (data, _, error) in
+        if let error = error {
+            print(error.localizedDescription)
+        }
+        if let data = data {
+            guard let apiResponse = try? decoder.decode(Foods.self, from: data) else { return }
+            DispatchQueue.main.async {
+                completionHandler(apiResponse)
+            }
+        }
+    }
+    dataTask.resume()
+}
 
 func requestURL(text: String, completion: @escaping (_: UIImage?) -> Void) {
     guard let url = URL(string: text) else { return }

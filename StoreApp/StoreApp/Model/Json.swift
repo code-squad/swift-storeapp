@@ -9,10 +9,8 @@
 import UIKit
 
 struct Foods: Codable {
-    let section: String
-    let sectionHeader: String
-    let sectionDetail: String
-    let item: [StoreItem]
+    let statusCode: Int
+    let body: [StoreItem]
     
     struct StoreItem: Codable {
         let detailHash: String
@@ -38,7 +36,7 @@ struct Foods: Codable {
         }
     }
     subscript (index: Int) -> StoreItem {
-        return item[index]
+        return body[index]
     }
 }
 
