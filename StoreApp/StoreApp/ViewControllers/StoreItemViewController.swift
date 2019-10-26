@@ -29,7 +29,8 @@ class StoreItemViewController: UIViewController, UITableViewDelegate {
     
     @objc fileprivate func onDidReceiveData(_ notification: Notification) {
         guard let userInfoDict = notification.userInfo else { return }
-        tableViewModel.storeItemsArray.append(userInfoDict["json"] as! [StoreItem])
+        let storeItems = userInfoDict["json"] as! [StoreItem]
+        tableViewModel.storeItemsArray.append(storeItems)
         headerSections.append(userInfoDict["section"] as! String)
         DispatchQueue.main.async {
             self.tableview.reloadData()
