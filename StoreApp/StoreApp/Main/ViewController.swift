@@ -24,8 +24,19 @@ class ViewController: UIViewController {
                                forCellReuseIdentifier: "sectionCell")
             tableView.delegate = item
             tableView.dataSource = item
+            requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main") { food in
+                self.item.items.append(food)
+                self.tableView.reloadData()
+            }
+            requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup") { food in
+                self.item.items.append(food)
+                self.tableView.reloadData()
+            }
+            requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/side") { food in
+                self.item.items.append(food)
+                self.tableView.reloadData()
+            }
         }
-        
     }
     
     func sendTableView(completion: @escaping (UITableView) -> Void) {

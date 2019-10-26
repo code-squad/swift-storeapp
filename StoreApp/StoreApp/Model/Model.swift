@@ -16,26 +16,6 @@ class Item: NSObject {
         return items[index]
     }
     
-    override init() {
-        super.init()
-        requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/main") { food in
-            self.items.append(food)
-            self.tbView.reloadData()
-        }
-        requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/soup") { food in
-            self.items.append(food)
-        self.tbView.reloadData()
-        }
-        requestJson(text: "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/side") { food in
-            self.items.append(food)
-        self.tbView.reloadData()
-        }
-    }
-    
-    func ab(tableView: UITableView,_: @escaping () -> Void) {
-        tableView.reloadData()
-    }
-
     func setCellConfigure(food: Foods, indexPath: IndexPath, cell: MainTableViewCell) {
         let storeItem = food[indexPath.row]
         cell.titleLabel.text = storeItem.title
