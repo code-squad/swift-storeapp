@@ -10,7 +10,6 @@ import Toaster
 
 class Item: NSObject {
     var items: [Foods] = []
-    var tbView: UITableView = UITableView()
     
     subscript(index: Int) -> Foods? {
         return items[index]
@@ -30,7 +29,6 @@ class Item: NSObject {
 
 extension Item: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        tbView = tableView
         return items.count
     }
     

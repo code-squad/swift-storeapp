@@ -38,9 +38,5 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    func sendTableView(completion: @escaping (UITableView) -> Void) {
-        completion(tableView)
-    }
 }
 
