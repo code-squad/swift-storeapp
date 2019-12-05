@@ -17,6 +17,7 @@
 		FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD76C2398D88B0059C735 /* ReuseIdentifiers.swift */; };
 		FA7FD7702398DA980059C735 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD76F2398DA980059C735 /* StoreItem.swift */; };
 		FA7FD772239909BA0059C735 /* StoreColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD771239909BA0059C735 /* StoreColor.swift */; };
+		FA7FD77423991ECD0059C735 /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD77323991ECD0059C735 /* String+Attributed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FA7FD76C2398D88B0059C735 /* ReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiers.swift; sourceTree = "<group>"; };
 		FA7FD76F2398DA980059C735 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 		FA7FD771239909BA0059C735 /* StoreColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreColor.swift; sourceTree = "<group>"; };
+		FA7FD77323991ECD0059C735 /* String+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributed.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				FA7FD76C2398D88B0059C735 /* ReuseIdentifiers.swift */,
+				FA7FD77323991ECD0059C735 /* String+Attributed.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				FA7FD76A2398D5B30059C735 /* FeedViewController.swift in Sources */,
 				FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */,
 				FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */,
+				FA7FD77423991ECD0059C735 /* String+Attributed.swift in Sources */,
 				FA7FD772239909BA0059C735 /* StoreColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
