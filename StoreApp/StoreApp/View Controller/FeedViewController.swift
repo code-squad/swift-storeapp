@@ -10,6 +10,10 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    var storeItems: [StoreItem] = []
+    
     // MARK: - Outlets
     
     @IBOutlet weak var feedTableView: UITableView!
@@ -20,8 +24,20 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         
         setUpAttributes()
+        decodeJSON()
     }
 
+    
+    private func decodeJSON() {
+        let jsonDecoder = JSONDecoder()
+        guard let dataAsset = NSDataAsset(name: "main") else { return }
+        do {
+            storeItems = try jsonDecoder.decode([StoreItem].self, from: dataAsset.data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
 
 // MARK: - Attributes
