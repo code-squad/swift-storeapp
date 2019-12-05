@@ -16,6 +16,7 @@
 		FA7FD76A2398D5B30059C735 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD7692398D5B30059C735 /* FeedViewController.swift */; };
 		FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD76C2398D88B0059C735 /* ReuseIdentifiers.swift */; };
 		FA7FD7702398DA980059C735 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD76F2398DA980059C735 /* StoreItem.swift */; };
+		FA7FD772239909BA0059C735 /* StoreColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD771239909BA0059C735 /* StoreColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FA7FD7692398D5B30059C735 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FA7FD76C2398D88B0059C735 /* ReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiers.swift; sourceTree = "<group>"; };
 		FA7FD76F2398DA980059C735 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
+		FA7FD771239909BA0059C735 /* StoreColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				FA7FD75523979A9E0059C735 /* Assets.xcassets */,
 				FA7FD75723979A9E0059C735 /* LaunchScreen.storyboard */,
 				FA7FD75A23979A9E0059C735 /* Info.plist */,
+				FA7FD771239909BA0059C735 /* StoreColor.swift */,
 			);
 			path = StoreApp;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				FA7FD76A2398D5B30059C735 /* FeedViewController.swift in Sources */,
 				FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */,
 				FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */,
+				FA7FD772239909BA0059C735 /* StoreColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
