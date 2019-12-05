@@ -48,11 +48,19 @@ extension FeedViewController {
     }
     
     private func setUpTableView() {
+        let categoryHeaderView = UINib(nibName: FeedCategoryHeaderView.reuseID, bundle: nil)
+        feedTableView.register(categoryHeaderView, forHeaderFooterViewReuseIdentifier: FeedCategoryHeaderView.reuseID)
+        
         let feedCell = UINib(nibName: FeedListCell.reuseID, bundle: nil)
         feedTableView.register(feedCell, forCellReuseIdentifier: FeedListCell.reuseID)
         
-        feedTableView.dataSource = self
         feedTableView.separatorStyle = .none
+        feedTableView.sectionHeaderHeight = UITableView.automaticDimension
+        feedTableView.estimatedSectionHeaderHeight = 80.0
+        feedTableView.showsVerticalScrollIndicator = false
+        
+        feedTableView.dataSource = self
+        feedTableView.delegate = self
     }
 }
 
@@ -70,5 +78,15 @@ extension FeedViewController: UITableViewDataSource {
         let storeItem = storeItems[indexPath.row]
         cell.configure(storeItem)
         return cell
+    }
+}
+
+extension FeedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: FeedCategoryHeaderView.reuseID) as? FeedCategoryHeaderView else {
+            return .init()
+        }
+        
+        return headerView
     }
 }

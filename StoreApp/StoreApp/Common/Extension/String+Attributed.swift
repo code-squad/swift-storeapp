@@ -6,7 +6,7 @@
 //  Copyright © 2019 cmindy. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     func centerLineStyle(text: String,
