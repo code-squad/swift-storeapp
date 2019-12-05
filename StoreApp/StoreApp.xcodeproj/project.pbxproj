@@ -84,6 +84,7 @@
 		FA7FD76023979C0F0059C735 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				FA7FD78023992D5E0059C735 /* View */,
 				FA7FD76123979C160059C735 /* Cell */,
 				FA7FD7692398D5B30059C735 /* FeedViewController.swift */,
 				FA7FD75223979A9A0059C735 /* Main.storyboard */,
@@ -96,8 +97,6 @@
 			children = (
 				FA7FD76223979C430059C735 /* FeedListCell.swift */,
 				FA7FD76323979C430059C735 /* FeedListCell.xib */,
-				FA7FD77C2399241F0059C735 /* FeedCategoryHeaderView.swift */,
-				FA7FD77E2399242F0059C735 /* FeedCategoryHeaderView.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -158,6 +157,15 @@
 				FA7FD771239909BA0059C735 /* StoreColor.swift */,
 			);
 			path = Color;
+			sourceTree = "<group>";
+		};
+		FA7FD78023992D5E0059C735 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA7FD77C2399241F0059C735 /* FeedCategoryHeaderView.swift */,
+				FA7FD77E2399242F0059C735 /* FeedCategoryHeaderView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
