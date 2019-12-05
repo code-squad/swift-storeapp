@@ -51,4 +51,23 @@ extension FeedListCell {
         priceLabel.textColor = StoreColor.teal
     }
 }
+
+// MARK: - Configures
+
+extension FeedListCell {
+    func configure(_ storeItem: StoreItem) {
+        titleLabel.text = storeItem.title
+        descriptionLabel.text = storeItem.description
+        priceLabel.text = storeItem.newPrice
+        
+        if let oldPriceText = storeItem.oldPrice,
+            let newPriceText = storeItem.newPrice {
+            let priceText = "\(oldPriceText) \(newPriceText)"
+            priceLabel.attributedText = priceText.centerLineStyle(text: priceText,
+                                                                  changeText: oldPriceText,
+                                                                  centerLine: true,
+                                                                  font: UIFont.systemFont(ofSize: 13.0, weight: .regular),
+                                                                  color: .lightGray)
+        }
+    }
 }
