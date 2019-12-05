@@ -60,13 +60,15 @@ extension FeedViewController {
 
 extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return storeItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedListCell.reuseID, for: indexPath) as? FeedListCell else {
             return .init()
         }
+        let storeItem = storeItems[indexPath.row]
+        cell.configure(storeItem)
         return cell
     }
 }
