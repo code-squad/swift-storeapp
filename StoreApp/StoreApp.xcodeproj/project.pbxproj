@@ -15,6 +15,7 @@
 		FA7FD76523979C430059C735 /* FeedListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD76323979C430059C735 /* FeedListCell.xib */; };
 		FA7FD76A2398D5B30059C735 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD7692398D5B30059C735 /* FeedViewController.swift */; };
 		FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD76C2398D88B0059C735 /* ReuseIdentifiers.swift */; };
+		FA7FD7702398DA980059C735 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD76F2398DA980059C735 /* StoreItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FA7FD76323979C430059C735 /* FeedListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedListCell.xib; sourceTree = "<group>"; };
 		FA7FD7692398D5B30059C735 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		FA7FD76C2398D88B0059C735 /* ReuseIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiers.swift; sourceTree = "<group>"; };
+		FA7FD76F2398DA980059C735 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				FA7FD76023979C0F0059C735 /* View */,
 				FA7FD74C23979A9A0059C735 /* AppDelegate.swift */,
 				FA7FD7682398D54D0059C735 /* View Controller */,
+				FA7FD76E2398DA1F0059C735 /* Model */,
 				FA7FD76B2398D82F0059C735 /* Extensions */,
 				FA7FD75223979A9A0059C735 /* Main.storyboard */,
 				FA7FD75523979A9E0059C735 /* Assets.xcassets */,
@@ -103,6 +106,14 @@
 				FA7FD76C2398D88B0059C735 /* ReuseIdentifiers.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FA7FD76E2398DA1F0059C735 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA7FD76F2398DA980059C735 /* StoreItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7FD76423979C430059C735 /* FeedListCell.swift in Sources */,
+				FA7FD7702398DA980059C735 /* StoreItem.swift in Sources */,
 				FA7FD76A2398D5B30059C735 /* FeedViewController.swift in Sources */,
 				FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */,
 				FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */,
