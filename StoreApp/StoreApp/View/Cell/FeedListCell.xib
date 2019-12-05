@@ -90,6 +90,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="0Gc-Jq-BIq" id="iDj-uZ-Bls"/>
+                <outlet property="priceLabel" destination="ZWP-bh-SSk" id="tL3-mG-ofR"/>
+                <outlet property="thumbImageView" destination="Ca5-bd-S6B" id="g80-pe-3Wp"/>
+                <outlet property="titleLabel" destination="ijv-gn-kXj" id="aT0-6b-eP6"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="168.21589205397302"/>
         </tableViewCell>
     </objects>
