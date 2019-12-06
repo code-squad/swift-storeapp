@@ -9,7 +9,6 @@ import Foundation
 
 struct StubDataService: DataServable {
     
-    
     private let sampleData = Dummy.storeData
     
     func fetchData<E: EndPoint, D: Decodable>(_ endPoint: E,
