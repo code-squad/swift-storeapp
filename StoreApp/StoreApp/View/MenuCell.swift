@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Then
 
 final class MenuCell: UITableViewCell, Reusable {
     
@@ -16,8 +17,7 @@ final class MenuCell: UITableViewCell, Reusable {
     private let titleLabel = UILabel()
     private let detailLabel = UILabel()
     private let priceLabel = UILabel()
-    private let discountedPriceLabel = UILabel()
-    private let badgesStackView = UIStackView()
+    private let salePriceLabel = UILabel()
     private let badgesListView = BadgeListView()
     
     // MARK: - Initializer
@@ -33,10 +33,22 @@ final class MenuCell: UITableViewCell, Reusable {
     }
     
     // MARK: - Life Cycle
-    override func updateConstraints() {
-        super.updateConstraints()
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
         
         setUpConstraints()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        menuImageView.image = nil
+        titleLabel.text = nil
+        detailLabel.text = nil
+        priceLabel.attributedText = nil
+        salePriceLabel.text = nil
+        badgesListView.subviews.forEach { $0.removeFromSuperview() }
     }
 }
 
@@ -44,8 +56,24 @@ final class MenuCell: UITableViewCell, Reusable {
 
 extension MenuCell {
     
-    func configure() {
+    func configure(_ menu: Menu) {
+        if let price = menu.price {
+            let price = NSMutableAttributedString(string: price)
+            price.beauty.align(.center).strikethrough(1)
+            priceLabel.attributedText = price
+        }
         
+        menu.badge?.compactMap {
+            guard let style = BadgeView.Style($0) else { return nil }
+            return BadgeView(style: style, text: $0)
+        }
+        .forEach { badgesListView.addSubview($0) }
+        
+        menu.do {
+            titleLabel.text = $0.title
+            detailLabel.text = $0.detail
+            salePriceLabel.text = $0.salePrice
+        }
     }
 }
 
@@ -59,8 +87,8 @@ extension MenuCell {
             $0.addSubview(titleLabel)
             $0.addSubview(detailLabel)
             $0.addSubview(priceLabel)
-            $0.addSubview(discountedPriceLabel)
-            $0.addSubview(badgesStackView)
+            $0.addSubview(salePriceLabel)
+            $0.addSubview(badgesListView)
         }
         
         titleLabel.do {
@@ -77,7 +105,7 @@ extension MenuCell {
             $0.textColor = .lightGray
         }
         
-        discountedPriceLabel.do {
+        salePriceLabel.do {
             $0.font = .discountedPriceFont
             $0.textColor = .mint
         }
@@ -95,27 +123,26 @@ extension MenuCell {
             $0.leading.equalTo(menuImageView.snp.trailing).offset(10)
             $0.height.equalTo(menuImageView.snp.height).dividedBy(5)
         }
-
+        
         detailLabel.snp.updateConstraints {
             $0.leading.height.trailing.equalTo(titleLabel)
             $0.top.equalTo(titleLabel.snp.bottom).offset(4)
         }
-
+        
         priceLabel.snp.updateConstraints {
             $0.leading.equalTo(titleLabel)
             $0.height.equalTo(titleLabel)
             $0.top.equalTo(detailLabel.snp.bottom).offset(4)
-            $0.width.equalTo(titleLabel).dividedBy(4)
-        }
-
-        discountedPriceLabel.snp.updateConstraints {
-            $0.leading.equalTo(priceLabel.snp.trailing).offset(10)
-            $0.height.equalTo(titleLabel)
-            $0.top.equalTo(detailLabel.snp.bottom).offset(4)
-            $0.width.equalTo(titleLabel).dividedBy(4)
         }
         
-        badgesStackView.snp.updateConstraints {
+        salePriceLabel.snp.updateConstraints {
+            $0.leading.equalTo(priceLabel.snp.trailing)
+                .offset(priceLabel.text == nil ? 0 : 10)
+            $0.height.equalTo(titleLabel)
+            $0.top.equalTo(detailLabel.snp.bottom).offset(4)
+        }
+        
+        badgesListView.snp.updateConstraints {
             $0.height.leading.trailing.equalTo(titleLabel)
             $0.top.equalTo(priceLabel.snp.bottom).offset(5)
         }
