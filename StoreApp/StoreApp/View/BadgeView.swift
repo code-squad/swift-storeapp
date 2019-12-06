@@ -18,4 +18,59 @@ class BadgeView: UILabel {
     }
     */
 
+// MARK: - BadgeView.Style
+
+extension BadgeView {
+    
+    enum Style: CaseIterable {
+        case soldOut
+        case bargainPrice
+        case gift
+        
+        
+        init?(_ title: String) {
+            for style in Style.allCases {
+                if title.hasSuffix(style.keyWord) {
+                    self = style
+                    return
+                }
+            }
+            return nil
+        }
+        
+        
+        var bgColor: UIColor {
+            switch self {
+            case .soldOut:
+                return .badgeBlack
+            case .bargainPrice:
+                return .badgePurple
+            case .gift:
+                return .badgeYellow
+            }
+        }
+        
+        var textColor: UIColor {
+            return .white
+        }
+        
+        var align: NSTextAlignment {
+            return .center
+        }
+        
+        var font: UIFont {
+            return .badgeFont
+        }
+        
+        var keyWord: String {
+            switch self {
+            case .soldOut:
+                return "품절"
+            case .bargainPrice:
+                return "특가"
+            case .gift :
+                return "증정"
+            }
+        }
+    }
 }
