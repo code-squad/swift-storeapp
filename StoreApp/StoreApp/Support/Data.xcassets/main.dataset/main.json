@@ -36,7 +36,8 @@
     "delivery_type": ["새벽배송", "전국택배"],
     "title": "[옹가솜씨] 꽁치간장조림 240g",
     "description": "생강 향이 산뜻한",
-    "s_price": "5,800원"
+    "s_price": "5,800원",
+    "badge": ["품절"]
   },
   {
     "detail_hash": "H077F",
@@ -47,7 +48,7 @@
     "description": "큼지막하고 살집 많은 동태 한 마리로 만든 코다리구이입니다.",
     "n_price": "7,500",
     "s_price": "6,750원",
-    "badge": ["론칭특가"]
+    "badge": ["론칭특가","이벤트특가"]
   },
   {
     "detail_hash": "H4665",
@@ -56,7 +57,8 @@
     "delivery_type": ["새벽배송", "전국택배"],
     "title": "[남도애꽃] 반건조 문어조림 120g",
     "description": "씹을수록 감칠맛나는 문어살의 쫄깃함",
-    "s_price": "4,600원"
+    "s_price": "4,600원",
+    "badge": ["사은품증정"]
   },
   {
     "detail_hash": "H1AA9",
