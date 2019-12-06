@@ -194,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				0EB548B8239A828C00C88B1D /* DataServable.swift */,
-				0EB548BA239A832900C88B1D /* StubDataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -246,6 +245,7 @@
 		0EB548BC239A83D800C88B1D /* Testing */ = {
 			isa = PBXGroup;
 			children = (
+				0EB548BA239A832900C88B1D /* StubDataService.swift */,
 				0EB548BD239A83E300C88B1D /* Dummy.swift */,
 			);
 			path = Testing;
