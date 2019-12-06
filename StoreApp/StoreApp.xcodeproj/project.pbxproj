@@ -12,7 +12,6 @@
 		0EB548682396DAEF00C88B1D /* StoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548672396DAEF00C88B1D /* StoreListViewController.swift */; };
 		0EB5486D2396DAF100C88B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB5486C2396DAF100C88B1D /* Assets.xcassets */; };
 		0EB548702396DAF100C88B1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB5486E2396DAF100C88B1D /* LaunchScreen.storyboard */; };
-		0EB5487E2396E2E100C88B1D /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 0EB5487D2396E2E100C88B1D /* main.json */; };
 		0EB548822396E9B300C88B1D /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548812396E9B300C88B1D /* MenuCell.swift */; };
 		0EB548852396EAE000C88B1D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548842396EAE000C88B1D /* Reusable.swift */; };
 		0EB548872396EB1F00C88B1D /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548862396EB1F00C88B1D /* UITableView+.swift */; };
@@ -27,6 +26,10 @@
 		0EB548A4239A142700C88B1D /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548A3239A142700C88B1D /* HTTP.swift */; };
 		0EB548A7239A1A3E00C88B1D /* URLRequestConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548A6239A1A3E00C88B1D /* URLRequestConvertible.swift */; };
 		0EB548A9239A1A6D00C88B1D /* URLRequest+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548A8239A1A6D00C88B1D /* URLRequest+.swift */; };
+		0EB548AB239A1DE300C88B1D /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB548AA239A1DE300C88B1D /* Color.xcassets */; };
+		0EB548AD239A1DFC00C88B1D /* Data.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB548AC239A1DFC00C88B1D /* Data.xcassets */; };
+		0EB548B1239A7E9800C88B1D /* BeautyStringDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548B0239A7E9800C88B1D /* BeautyStringDSL.swift */; };
+		0EB548B3239A7EB500C88B1D /* NSMutableAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548B2239A7EB500C88B1D /* NSMutableAttributedString+.swift */; };
 		95008C7359707C3D8B1BC7D6 /* libPods-StoreApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E78C15ACEF67391FCBA1A3 /* libPods-StoreApp.a */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +41,6 @@
 		0EB5486C2396DAF100C88B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB5486F2396DAF100C88B1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EB548712396DAF100C88B1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0EB5487D2396E2E100C88B1D /* main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		0EB548812396E9B300C88B1D /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		0EB548842396EAE000C88B1D /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		0EB548862396EB1F00C88B1D /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
@@ -53,6 +55,10 @@
 		0EB548A3239A142700C88B1D /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		0EB548A6239A1A3E00C88B1D /* URLRequestConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConvertible.swift; sourceTree = "<group>"; };
 		0EB548A8239A1A6D00C88B1D /* URLRequest+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+.swift"; sourceTree = "<group>"; };
+		0EB548AA239A1DE300C88B1D /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		0EB548AC239A1DFC00C88B1D /* Data.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Data.xcassets; sourceTree = "<group>"; };
+		0EB548B0239A7E9800C88B1D /* BeautyStringDSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeautyStringDSL.swift; sourceTree = "<group>"; };
+		0EB548B2239A7EB500C88B1D /* NSMutableAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+.swift"; sourceTree = "<group>"; };
 		233ED99D917DFFDA99CA149B /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		738885012FB17AF683FC0069 /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F8E78C15ACEF67391FCBA1A3 /* libPods-StoreApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoreApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +97,7 @@
 		0EB548622396DAEF00C88B1D /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				0EB548AE239A1E4B00C88B1D /* Support */,
 				0EB5489623992C5300C88B1D /* ViewModel */,
 				0EB5488C23979F3200C88B1D /* Model */,
 				0EB5487F2396E33E00C88B1D /* Common */,
@@ -99,7 +106,6 @@
 				0EB5487A2396E24300C88B1D /* View */,
 				0EB548632396DAEF00C88B1D /* AppDelegate.swift */,
 				0EB548652396DAEF00C88B1D /* SceneDelegate.swift */,
-				0EB5486C2396DAF100C88B1D /* Assets.xcassets */,
 				0EB5486E2396DAF100C88B1D /* LaunchScreen.storyboard */,
 				0EB548712396DAF100C88B1D /* Info.plist */,
 			);
@@ -139,19 +145,11 @@
 		0EB5487F2396E33E00C88B1D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0EB548AF239A7E7D00C88B1D /* BeautyString */,
 				0EB5488F2397A1DA00C88B1D /* Asset */,
 				0EB548832396EAC500C88B1D /* Extensions */,
-				0EB548802396E34700C88B1D /* Dummy */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		0EB548802396E34700C88B1D /* Dummy */ = {
-			isa = PBXGroup;
-			children = (
-				0EB5487D2396E2E100C88B1D /* main.json */,
-			);
-			path = Dummy;
 			sourceTree = "<group>";
 		};
 		0EB548832396EAC500C88B1D /* Extensions */ = {
@@ -226,6 +224,25 @@
 				0EB548A8239A1A6D00C88B1D /* URLRequest+.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		0EB548AE239A1E4B00C88B1D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				0EB5486C2396DAF100C88B1D /* Assets.xcassets */,
+				0EB548AA239A1DE300C88B1D /* Color.xcassets */,
+				0EB548AC239A1DFC00C88B1D /* Data.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		0EB548AF239A7E7D00C88B1D /* BeautyString */ = {
+			isa = PBXGroup;
+			children = (
+				0EB548B0239A7E9800C88B1D /* BeautyStringDSL.swift */,
+				0EB548B2239A7EB500C88B1D /* NSMutableAttributedString+.swift */,
+			);
+			path = BeautyString;
 			sourceTree = "<group>";
 		};
 		905DB3D16DFAEA38193CAAE2 /* Frameworks */ = {
@@ -304,9 +321,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EB5487E2396E2E100C88B1D /* main.json in Resources */,
 				0EB548702396DAF100C88B1D /* LaunchScreen.storyboard in Resources */,
 				0EB5486D2396DAF100C88B1D /* Assets.xcassets in Resources */,
+				0EB548AB239A1DE300C88B1D /* Color.xcassets in Resources */,
+				0EB548AD239A1DFC00C88B1D /* Data.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,9 +361,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EB548A9239A1A6D00C88B1D /* URLRequest+.swift in Sources */,
+				0EB548B3239A7EB500C88B1D /* NSMutableAttributedString+.swift in Sources */,
 				0EB548A4239A142700C88B1D /* HTTP.swift in Sources */,
 				0EB548A2239A121F00C88B1D /* DecodingService.swift in Sources */,
 				0EB5489F2399324700C88B1D /* EndPoint.swift in Sources */,
+				0EB548B1239A7E9800C88B1D /* BeautyStringDSL.swift in Sources */,
 				0EB5488E2397A13F00C88B1D /* BadgeView.swift in Sources */,
 				0EB548682396DAEF00C88B1D /* StoreListViewController.swift in Sources */,
 				0EB548932399206000C88B1D /* UIFont+.swift in Sources */,
