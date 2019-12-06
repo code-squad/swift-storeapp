@@ -137,6 +137,7 @@
 		0EB5487C2396E28A00C88B1D /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				0EB548BC239A83D800C88B1D /* Testing */,
 				0EB548A5239A1A2600C88B1D /* Helper */,
 				0EB548A02399325E00C88B1D /* Router */,
 				0EB5489D2399323600C88B1D /* EndPoint */,
@@ -148,7 +149,6 @@
 		0EB5487F2396E33E00C88B1D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0EB548BC239A83D800C88B1D /* Testing */,
 				0EB548AF239A7E7D00C88B1D /* BeautyString */,
 				0EB5488F2397A1DA00C88B1D /* Asset */,
 				0EB548832396EAC500C88B1D /* Extensions */,
