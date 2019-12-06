@@ -18,6 +18,7 @@ final class MenuCell: UITableViewCell, Reusable {
     private let priceLabel = UILabel()
     private let discountedPriceLabel = UILabel()
     private let badgesStackView = UIStackView()
+    private let badgesListView = BadgeListView()
     
     // MARK: - Initializer
     
