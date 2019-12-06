@@ -45,6 +45,7 @@ extension BadgeView {
         case bargainPrice
         case gift
         
+        // MARK: - Initializer
         
         init?(_ title: String) {
             for style in Style.allCases {
@@ -56,6 +57,7 @@ extension BadgeView {
             return nil
         }
         
+        // MARK: - Attributes
         
         var bgColor: UIColor {
             switch self {
