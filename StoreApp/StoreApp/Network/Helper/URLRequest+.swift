@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+extension URLRequest {
+    
+    init(_ url: URL, path: String, method: HTTP.Method, headers: HTTP.Headers) {
+        self.init(url: url.appendingPathComponent(path))
+        
+        self.httpMethod = method.rawValue
+        self.allHTTPHeaderFields = headers
+    }
+}
