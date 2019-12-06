@@ -88,3 +88,21 @@ extension StoreListViewController {
 }
 
 
+// MARK: - UITableViewDataSource
+
+extension StoreListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel?.numOfMenusInCategory(section) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(with: MenuCell.self, for: indexPath),
+            let menu = viewModel?[menu: indexPath]
+            else { return .init() }
+        
+        cell.configure(menu)
+        return cell
+    }
+}
