@@ -42,9 +42,9 @@ final class StoreListViewController: UIViewController, StoreListViewPresentable 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        setUpLayout()
+        setUpConstraints()
     }
-
+    
 }
 
 // MARK: - Attrubutes & Layouts
@@ -55,10 +55,18 @@ extension StoreListViewController {
         self.view.do {
             $0.addSubview(storeTableView)
         }
+        
+        self.storeTableView.do {
+            $0.register(MenuCell.self, forCellReuseIdentifier: MenuCell.reuseId)
+            $0.dataSource = self
+            $0.rowHeight = UITableView.automaticDimension
+        }
     }
     
-    private func setUpLayout() {
-        storeTableView.frame = self.view.safeAreaLayoutGuide.layoutFrame
+    private func setUpConstraints() {
+        storeTableView.snp.makeConstraints {
+            $0.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
     }
 }
 
