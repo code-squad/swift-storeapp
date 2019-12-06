@@ -9,6 +9,7 @@ import Then
 import UIKit
 
 class BeautyStringDSL {
+    
     private var string: NSMutableAttributedString
     private var range: NSRange
     private var paragraphStyle: NSMutableParagraphStyle = .init()

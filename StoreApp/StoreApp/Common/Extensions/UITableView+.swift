@@ -10,7 +10,8 @@ import UIKit
 
 extension UITableView {
     
-    func dequeueReusableCell<Cell: Reusable>(with cellType: Cell.Type, for indexPath: IndexPath) -> Cell? {
+    func dequeueReusableCell<Cell: Reusable>(with cellType: Cell.Type,
+                                             for indexPath: IndexPath) -> Cell? {
         return dequeueReusableCell(withIdentifier: cellType.reuseId, for: indexPath) as? Cell
     }
 }

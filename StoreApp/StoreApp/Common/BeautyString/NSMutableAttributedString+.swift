@@ -9,6 +9,7 @@
 import Foundation
 
 extension NSMutableAttributedString {
+    
     var beauty: BeautyStringDSL {
         return BeautyStringDSL(self)
     }
