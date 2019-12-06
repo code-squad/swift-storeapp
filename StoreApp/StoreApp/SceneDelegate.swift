@@ -21,9 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController().then {
-            $0.viewControllers.append(StoreListViewController())
-        }
+//        window?.rootViewController = UINavigationController().then {
+//            $0.viewControllers.append(StoreListViewController())
+//        }
+        window?.backgroundColor = .white
+        window?.rootViewController = StoreListViewController()
         window?.makeKeyAndVisible()
     }
 
