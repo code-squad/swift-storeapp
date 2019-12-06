@@ -7,16 +7,34 @@
 //
 
 import UIKit
+import SnapKit
 
 class BadgeView: UILabel {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    // MARK: - Properties
+    
+    override var intrinsicContentSize: CGSize {
+        var contentSize = super.intrinsicContentSize
+        contentSize.height += 10
+        contentSize.width += 10
+        return contentSize
     }
-    */
+    
+    // MARK: - initializer
+    
+    convenience init(style: Style, text: String) {
+        self.init(frame: .zero)
+        
+        let attributedText = NSMutableAttributedString(string: text)
+        self.backgroundColor = style.bgColor
+        attributedText.beauty
+            .fgColor(style.textColor)
+            .align(style.align)
+            .font(style.font)
+        
+        self.attributedText = attributedText
+    }
+}
 
 // MARK: - BadgeView.Style
 
