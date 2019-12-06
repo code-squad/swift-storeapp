@@ -42,6 +42,7 @@ final class StoreListViewModel: StoreListViewBindable {
     
     init(service: DataServable) {
         self.service = service
+        fetchData()
     }
     
     // MARK: - Methods
@@ -66,4 +67,21 @@ final class StoreListViewModel: StoreListViewBindable {
         return store.menus[indexPath.row]
     }
     
+}
+
+// MARK: - Fetch
+
+extension StoreListViewModel {
+    
+    private func fetchData() {
+        service.fetchData(Dummy.endPoint) {
+            [weak self] (result: Result<[Menu], Error>)  in
+            switch result {
+            case .success(let menus):
+                self?.stores.append(Store(title: "타이틀", menus: menus))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
