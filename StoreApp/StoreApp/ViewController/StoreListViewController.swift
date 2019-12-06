@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import SnapKit
 import Then
 
 protocol StoreListViewPresentable: UIViewController {
     
     var viewModel: StoreListViewBindable? { get set }
 }
+
+final class StoreListViewController: UIViewController, StoreListViewPresentable {
     
     // MARK: - UI
     
-    private let storeTableView = UITableView(frame: .zero)
+    private let storeTableView = UITableView()
+    
+    // MARK: Properties
+    
+    var viewModel: StoreListViewBindable? {
+        didSet { bindViewModel() }
+    }
     
     // MARK: - Life Cycle
     
@@ -52,4 +61,22 @@ extension StoreListViewController {
         storeTableView.frame = self.view.safeAreaLayoutGuide.layoutFrame
     }
 }
+
+// MARK: - Bind
+
+extension StoreListViewController {
+    
+    private func bindViewModel() {
+        guard let viewModel = viewModel else { return }
+        
+        viewModel.dataDidLoad = { [weak self ] in
+            self?.storeTableView.reloadData()
+        }
+        
+        viewModel.dataDidUpadated = { [weak self ] in
+            self?.storeTableView.reloadData()
+        }
+    }
+}
+
 
