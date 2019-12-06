@@ -2,7 +2,9 @@
 
 
 
-### STEP 1 - 2
+### STEP 1 - 2  
+
+##### 진행기간(2019/12/4 ~ 2019/12/7)
 
 <img width="300" alt="스크린샷 2019-12-07 오전 12 36 17" src="https://user-images.githubusercontent.com/39197978/70334875-96ee3080-1889-11ea-8843-86225abf59df.png">
 
