@@ -9,7 +9,10 @@
 import UIKit
 import Then
 
-class StoreListViewController: UIViewController {
+protocol StoreListViewPresentable: UIViewController {
+    
+    var viewModel: StoreListViewBindable? { get set }
+}
     
     // MARK: - UI
     
