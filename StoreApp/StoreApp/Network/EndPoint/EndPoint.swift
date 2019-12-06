@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol EndPoint: URLRequestConvertible {
+    
+    var baseURL: URL { get }
+    var method: HTTP.Method { get }
+    var task: HTTP.Task { get }
+    var headers: HTTP.Headers? { get }
+}
