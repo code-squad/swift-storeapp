@@ -20,18 +20,18 @@ struct Menu: Decodable {
     let title: String
     let detail: String
     let price: String?
-    let discountedPrice: String
+    let salePrice: String
     let badge: [String]?
 
     // MARK: - CodingKeys
     
     enum CodingKeys: String, CodingKey {
-        case imageURL
+        case imageURL = "image"
         case deliveryType = "delivery_type"
         case title
         case detail = "description"
         case price = "n_price"
-        case discountedPrice = "s_price"
+        case salePrice = "s_price"
         case badge
     }
 }
