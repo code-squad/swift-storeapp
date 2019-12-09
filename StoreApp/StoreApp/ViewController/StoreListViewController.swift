@@ -48,10 +48,16 @@ extension StoreListViewController {
             $0.addSubview(storeTableView)
         }
         
-        self.storeTableView.do {
-            $0.register(MenuCell.self, forCellReuseIdentifier: MenuCell.reuseId)
+        storeTableView.do {
+            $0.register(MenuCell.self,
+                        forCellReuseIdentifier: MenuCell.reuseId)
+            $0.register(CategoryHeaderView.self,
+                        forHeaderFooterViewReuseIdentifier: CategoryHeaderView.reuseId)
             $0.dataSource = self
+            $0.delegate = self
             $0.rowHeight = UITableView.automaticDimension
+            $0.sectionHeaderHeight = 70
+            $0.separatorStyle = .none
         }
     }
     
@@ -84,6 +90,10 @@ extension StoreListViewController {
 
 extension StoreListViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel?.numOfCategories() ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.numOfMenusInCategory(section) ?? 0
     }
@@ -96,5 +106,22 @@ extension StoreListViewController: UITableViewDataSource {
         
         cell.configure(menu)
         return cell
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+
+extension StoreListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard
+            let categoryHeader = tableView.dequeueReusableHeaderFooterView(with: CategoryHeaderView.self),
+            let category = viewModel?[category: section]
+            else { return nil }
+        
+        categoryHeader.configure(category: category)
+        return categoryHeader
     }
 }
