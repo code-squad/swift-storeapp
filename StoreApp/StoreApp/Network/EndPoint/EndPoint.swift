@@ -14,4 +14,5 @@ protocol EndPoint: URLRequestConvertible {
     var method: HTTP.Method { get }
     var task: HTTP.Task { get }
     var headers: HTTP.Headers? { get }
+    var sampleData: Data? { get }
 }
