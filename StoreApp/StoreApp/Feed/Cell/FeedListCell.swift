@@ -16,6 +16,7 @@ class FeedListCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var badgeCollectionView: UICollectionView!
     
     // MARK: - Life Cycle
     
@@ -32,6 +33,7 @@ extension FeedListCell {
     private func setUpAttributes() {
         setUpImageView()
         setUpLabels()
+        setUpCollectionView()
     }
     
     private func setUpImageView() {
@@ -49,6 +51,17 @@ extension FeedListCell {
         
         priceLabel.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
         priceLabel.textColor = StoreColor.teal
+    }
+    
+    private func setUpCollectionView() {
+        let listCell = UINib(nibName: BadgeListCell.reuseID, bundle: nil)
+        badgeCollectionView.register(listCell, forCellWithReuseIdentifier: BadgeListCell.reuseID)
+        
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        badgeCollectionView.collectionViewLayout = flowLayout
+        badgeCollectionView.showsHorizontalScrollIndicator = false
+        badgeCollectionView.dataSource = self
     }
 }
 

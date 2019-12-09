@@ -55,9 +55,25 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kbd-HJ-Qpm">
                                 <rect key="frame" x="122" y="84.5" width="190" height="24"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yDt-la-eYK">
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="24"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="tH2-r9-wXL">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                    </collectionView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yDt-la-eYK" secondAttribute="bottom" id="0EC-6o-fa8"/>
+                                    <constraint firstItem="yDt-la-eYK" firstAttribute="leading" secondItem="Kbd-HJ-Qpm" secondAttribute="leading" id="am8-4U-0u4"/>
                                     <constraint firstAttribute="height" constant="24" id="dLJ-FM-xnf"/>
+                                    <constraint firstItem="yDt-la-eYK" firstAttribute="top" secondItem="Kbd-HJ-Qpm" secondAttribute="top" id="uU3-5g-yov"/>
+                                    <constraint firstAttribute="trailing" secondItem="yDt-la-eYK" secondAttribute="trailing" id="wvv-1m-pT9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -91,6 +107,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="badgeCollectionView" destination="yDt-la-eYK" id="hGG-Kc-7L1"/>
                 <outlet property="descriptionLabel" destination="0Gc-Jq-BIq" id="iDj-uZ-Bls"/>
                 <outlet property="priceLabel" destination="ZWP-bh-SSk" id="tL3-mG-ofR"/>
                 <outlet property="thumbImageView" destination="Ca5-bd-S6B" id="g80-pe-3Wp"/>
