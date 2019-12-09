@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - StoreListViewDataSource
 
-protocol StoreListViewDataSource : AnyObject {
+protocol StoreListViewDataSource: AnyObject {
     
     func numOfCategories() -> Int
     func numOfMenusInCategory(_ category: Int) -> Int
@@ -21,7 +21,7 @@ protocol StoreListViewDataSource : AnyObject {
 
 // MARK: - StoreListViewInteractable
 
-protocol StoreListViewInteractable {
+protocol StoreListViewInteractable: AnyObject {
     
     var dataDidLoad: (() -> Void)? { get set }
     var dataDidUpadated: (() -> Void)? { get set }

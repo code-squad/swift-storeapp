@@ -25,10 +25,6 @@ final class StoreListViewController: UIViewController, StoreListViewPresentable 
     
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
