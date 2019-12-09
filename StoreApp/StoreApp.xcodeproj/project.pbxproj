@@ -33,6 +33,7 @@
 		0EB548BB239A832900C88B1D /* StubDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548BA239A832900C88B1D /* StubDataService.swift */; };
 		0EB548BE239A83E300C88B1D /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548BD239A83E300C88B1D /* Dummy.swift */; };
 		0EB548C0239A9D8C00C88B1D /* BadgeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548BF239A9D8C00C88B1D /* BadgeListView.swift */; };
+		0EBAB4D9239E47CD00F1FB20 /* StoreListViewBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAB4D8239E47CD00F1FB20 /* StoreListViewBindable.swift */; };
 		95008C7359707C3D8B1BC7D6 /* libPods-StoreApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E78C15ACEF67391FCBA1A3 /* libPods-StoreApp.a */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		0EB548BA239A832900C88B1D /* StubDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubDataService.swift; sourceTree = "<group>"; };
 		0EB548BD239A83E300C88B1D /* Dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dummy.swift; sourceTree = "<group>"; };
 		0EB548BF239A9D8C00C88B1D /* BadgeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeListView.swift; sourceTree = "<group>"; };
+		0EBAB4D8239E47CD00F1FB20 /* StoreListViewBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreListViewBindable.swift; sourceTree = "<group>"; };
 		233ED99D917DFFDA99CA149B /* Pods-StoreApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.release.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.release.xcconfig"; sourceTree = "<group>"; };
 		738885012FB17AF683FC0069 /* Pods-StoreApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreApp.debug.xcconfig"; path = "Target Support Files/Pods-StoreApp/Pods-StoreApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F8E78C15ACEF67391FCBA1A3 /* libPods-StoreApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoreApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				0EB5489723992C7000C88B1D /* StoreListViewModel.swift */,
+				0EBAB4D8239E47CD00F1FB20 /* StoreListViewBindable.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				0EB548B9239A828C00C88B1D /* DataServable.swift in Sources */,
 				0EB548BE239A83E300C88B1D /* Dummy.swift in Sources */,
 				0EB548A9239A1A6D00C88B1D /* URLRequest+.swift in Sources */,
+				0EBAB4D9239E47CD00F1FB20 /* StoreListViewBindable.swift in Sources */,
 				0EB548B3239A7EB500C88B1D /* NSMutableAttributedString+.swift in Sources */,
 				0EB548BB239A832900C88B1D /* StubDataService.swift in Sources */,
 				0EB548A4239A142700C88B1D /* HTTP.swift in Sources */,

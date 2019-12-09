@@ -9,19 +9,8 @@
 import Foundation
 import UIKit
 
-typealias Store = (title: String, menus: [Menu])
 
-protocol StoreListViewBindable: AnyObject {
-    
-    var dataDidLoad: (() -> Void)? { get set }
-    var dataDidUpadated: (() -> Void)? { get set }
-    
-    func numOfCategories() -> Int
-    func numOfMenusInCategory(_ category: Int) -> Int
-    
-    subscript(category index: Int) -> String { get }
-    subscript(menu indexPath: IndexPath) -> Menu { get }
-}
+typealias Store = (title: String, menus: [Menu])
 
 final class StoreListViewModel: StoreListViewBindable {
     
