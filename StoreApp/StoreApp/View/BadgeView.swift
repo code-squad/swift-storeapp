@@ -21,17 +21,23 @@ class BadgeView: UILabel {
     }
     
     // MARK: - initializer
-    
     convenience init(style: Style, text: String) {
         self.init(frame: .zero)
         
-        let attributedText = NSMutableAttributedString(string: text)
+        configure(style: style, text: text)
+    }
+    
+    func configure(style: Style, text: String) {
+        
         self.backgroundColor = style.bgColor
+        self.layer.borderColor = style.borderColor.cgColor
+        self.layer.borderWidth = 1
+        
+        let attributedText = NSMutableAttributedString(string: text)
         attributedText.beauty
             .fgColor(style.textColor)
             .align(style.align)
             .font(style.font)
-        
         self.attributedText = attributedText
     }
 }
@@ -44,17 +50,18 @@ extension BadgeView {
         case soldOut
         case bargainPrice
         case gift
+        case none
         
         // MARK: - Initializer
         
-        init?(_ title: String) {
+        init(_ title: String) {
             for style in Style.allCases {
                 if title.hasSuffix(style.keyWord) {
                     self = style
                     return
                 }
             }
-            return nil
+            self = .none
         }
         
         // MARK: - Attributes
@@ -67,11 +74,31 @@ extension BadgeView {
                 return .badgePurple
             case .gift:
                 return .badgeYellow
+            case .none:
+                return .white
             }
         }
         
         var textColor: UIColor {
-            return .white
+            switch self {
+            case .none:
+                return .lightGray
+            default:
+                return .white
+            }
+        }
+        
+        var borderColor: UIColor {
+            switch self {
+            case .soldOut:
+                return .badgeBlack
+            case .bargainPrice:
+                return .badgePurple
+            case .gift:
+                return .badgeYellow
+            case .none:
+                return .lightGray
+            }
         }
         
         var align: NSTextAlignment {
@@ -90,6 +117,8 @@ extension BadgeView {
                 return "특가"
             case .gift :
                 return "증정"
+            case .none:
+                return ""
             }
         }
     }

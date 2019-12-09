@@ -10,7 +10,7 @@ import UIKit
 
 class BeautyStringDSL {
     
-    private var string: NSMutableAttributedString
+    var string: NSMutableAttributedString
     private var range: NSRange
     private var paragraphStyle: NSMutableParagraphStyle = .init()
     
