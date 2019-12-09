@@ -20,6 +20,8 @@
 		FA7FD77423991ECD0059C735 /* String+Attributed.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD77323991ECD0059C735 /* String+Attributed.swift */; };
 		FA7FD77D2399241F0059C735 /* FeedCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD77C2399241F0059C735 /* FeedCategoryHeaderView.swift */; };
 		FA7FD77F2399242F0059C735 /* FeedCategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD77E2399242F0059C735 /* FeedCategoryHeaderView.xib */; };
+		FA7FD78323992E560059C735 /* BadgeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD78123992E560059C735 /* BadgeListCell.swift */; };
+		FA7FD78423992E560059C735 /* BadgeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD78223992E560059C735 /* BadgeListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		FA7FD77323991ECD0059C735 /* String+Attributed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Attributed.swift"; sourceTree = "<group>"; };
 		FA7FD77C2399241F0059C735 /* FeedCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCategoryHeaderView.swift; sourceTree = "<group>"; };
 		FA7FD77E2399242F0059C735 /* FeedCategoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCategoryHeaderView.xib; sourceTree = "<group>"; };
+		FA7FD78123992E560059C735 /* BadgeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeListCell.swift; sourceTree = "<group>"; };
+		FA7FD78223992E560059C735 /* BadgeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 			children = (
 				FA7FD76223979C430059C735 /* FeedListCell.swift */,
 				FA7FD76323979C430059C735 /* FeedListCell.xib */,
+				FA7FD78123992E560059C735 /* BadgeListCell.swift */,
+				FA7FD78223992E560059C735 /* BadgeListCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA7FD77F2399242F0059C735 /* FeedCategoryHeaderView.xib in Resources */,
+				FA7FD78423992E560059C735 /* BadgeListCell.xib in Resources */,
 				FA7FD75923979A9E0059C735 /* LaunchScreen.storyboard in Resources */,
 				FA7FD76523979C430059C735 /* FeedListCell.xib in Resources */,
 				FA7FD75623979A9E0059C735 /* Assets.xcassets in Resources */,
@@ -246,6 +253,7 @@
 				FA7FD76A2398D5B30059C735 /* FeedViewController.swift in Sources */,
 				FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */,
 				FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */,
+				FA7FD78323992E560059C735 /* BadgeListCell.swift in Sources */,
 				FA7FD77D2399241F0059C735 /* FeedCategoryHeaderView.swift in Sources */,
 				FA7FD77423991ECD0059C735 /* String+Attributed.swift in Sources */,
 				FA7FD772239909BA0059C735 /* StoreColor.swift in Sources */,
