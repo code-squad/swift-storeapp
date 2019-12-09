@@ -29,7 +29,9 @@ final class MenuCell: UITableViewCell, Reusable {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        
+        setUpAttributes()
     }
     
     // MARK: - Life Cycle
