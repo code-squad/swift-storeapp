@@ -21,3 +21,5 @@ extension ReusableID {
 extension UITableViewCell: ReusableID { }
 
 extension UITableViewHeaderFooterView: ReusableID { }
+
+extension UICollectionViewCell: ReusableID { }

@@ -84,3 +84,17 @@ extension FeedListCell {
         }
     }
 }
+
+extension FeedListCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeListCell.reuseID, for: indexPath) as? BadgeListCell else {
+            return .init()
+        }
+        
+        return cell
+    }
+}
