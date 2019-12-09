@@ -10,7 +10,7 @@
 
 
 
-#### 공부한 내용
+#### 공부한 내용 👨‍💻
 
 - `intrinsicContentSize` 사이즈를 이용한 컨텐트와 border 사이에 간격을 넣을 수 있게 구현
 
@@ -60,10 +60,85 @@ priceLabel.attributedText = price
 
 
 
-
+---
 
 ### STEP3 - 커스텀 헤더 뷰 구현
 
 ##### 진행기간(2019/12/9 ~ 2019/12/10)
 
 <img width="340" alt="스크린샷 2019-12-10 오전 5 07 25" src="https://user-images.githubusercontent.com/39197978/70468777-0aeb3b80-1b0b-11ea-8cec-cc28fc1d39a2.png">
+
+
+
+#### 공부한 내용👨‍💻
+
+- **CustomHeaderView** 구현
+
+  - `BadgeView` 재사용을 위한 구현
+
+  
+
+- `Category ` 별로 다른 `EndPoint`구현을 위해 데코레이터 패턴을 적용한 ` MulitEndPoint` 구현
+
+  - `EndPoint.swift`
+
+  - ```swift
+    protocol EndPoint: URLRequestConvertible {
+        
+        var baseURL: URL { get }
+        var method: HTTP.Method { get }
+        var task: HTTP.Task { get }
+        var headers: HTTP.Headers? { get }
+        var sampleData: Data? { get }
+    }
+    
+    ```
+
+  - `MultiEndPoint.swift`
+
+    ```swift
+    // MARK: - MultiEndPoint
+    
+    enum MultiEndPoint {
+        
+        case endPoint(EndPoint)
+        
+        var endPoint: EndPoint {
+            switch self {
+            case .endPoint(let endPoint):
+                return endPoint
+            }
+        }
+    }
+    
+    // MARK: - EndPoint
+    
+    extension MultiEndPoint: EndPoint {
+        
+        var baseURL: URL {
+            return endPoint.baseURL
+        }
+        
+        var method: HTTP.Method {
+            return endPoint.method
+        }
+        
+        var task: HTTP.Task {
+            return endPoint.task
+        }
+        
+        var headers: HTTP.Headers? {
+            endPoint.headers
+        }
+        
+        func asURLRequest() -> URLRequest {
+            return endPoint.asURLRequest()
+        }
+        
+        var sampleData: Data? {
+            return endPoint.sampleData
+        }
+    }
+    ```
+
+    
