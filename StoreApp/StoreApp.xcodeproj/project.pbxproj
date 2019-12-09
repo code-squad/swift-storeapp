@@ -15,7 +15,7 @@
 		0EB548822396E9B300C88B1D /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548812396E9B300C88B1D /* MenuCell.swift */; };
 		0EB548852396EAE000C88B1D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548842396EAE000C88B1D /* Reusable.swift */; };
 		0EB548872396EB1F00C88B1D /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548862396EB1F00C88B1D /* UITableView+.swift */; };
-		0EB548892396ED5600C88B1D /* StoreHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548882396ED5600C88B1D /* StoreHeaderView.swift */; };
+		0EB548892396ED5600C88B1D /* CategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548882396ED5600C88B1D /* CategoryHeaderView.swift */; };
 		0EB5488E2397A13F00C88B1D /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB5488D2397A13F00C88B1D /* BadgeView.swift */; };
 		0EB548912397A1EE00C88B1D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548902397A1EE00C88B1D /* UIColor+.swift */; };
 		0EB548932399206000C88B1D /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548922399206000C88B1D /* UIFont+.swift */; };
@@ -51,7 +51,7 @@
 		0EB548812396E9B300C88B1D /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		0EB548842396EAE000C88B1D /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		0EB548862396EB1F00C88B1D /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
-		0EB548882396ED5600C88B1D /* StoreHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreHeaderView.swift; sourceTree = "<group>"; };
+		0EB548882396ED5600C88B1D /* CategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderView.swift; sourceTree = "<group>"; };
 		0EB5488D2397A13F00C88B1D /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		0EB548902397A1EE00C88B1D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		0EB548922399206000C88B1D /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				0EB548812396E9B300C88B1D /* MenuCell.swift */,
-				0EB548882396ED5600C88B1D /* StoreHeaderView.swift */,
+				0EB548882396ED5600C88B1D /* CategoryHeaderView.swift */,
 				0EB5488D2397A13F00C88B1D /* BadgeView.swift */,
 				0EB548BF239A9D8C00C88B1D /* BadgeListView.swift */,
 			);
@@ -404,7 +404,7 @@
 				0EBAB4DB239E490400F1FB20 /* StoreListViewPresentable.swift in Sources */,
 				0EB5489823992C7000C88B1D /* StoreListViewModel.swift in Sources */,
 				0EB548852396EAE000C88B1D /* Reusable.swift in Sources */,
-				0EB548892396ED5600C88B1D /* StoreHeaderView.swift in Sources */,
+				0EB548892396ED5600C88B1D /* CategoryHeaderView.swift in Sources */,
 				0EB548912397A1EE00C88B1D /* UIColor+.swift in Sources */,
 				0EB548A7239A1A3E00C88B1D /* URLRequestConvertible.swift in Sources */,
 			);
