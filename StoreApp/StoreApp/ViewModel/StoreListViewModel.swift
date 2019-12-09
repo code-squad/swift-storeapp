@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-typealias Store = (title: String, menus: [Menu])
+typealias Store = (category: Category, menus: [Menu])
 
 final class StoreListViewModel: StoreListViewBindable {
     
@@ -46,9 +46,9 @@ final class StoreListViewModel: StoreListViewBindable {
     
     // MARK: - Subscripts
     
-    subscript(category index: Int) -> String {
+    subscript(category index: Int) -> Category {
         let store = stores[index]
-        return store.title
+        return store.category
     }
     
     subscript(menu indexPath: IndexPath) -> Menu {
@@ -63,11 +63,31 @@ final class StoreListViewModel: StoreListViewBindable {
 extension StoreListViewModel {
     
     private func fetchData() {
-        service.fetchData(Dummy.endPoint) {
+        service.fetchData(DummyMain.endPoint) {
             [weak self] (result: Result<[Menu], Error>)  in
             switch result {
             case .success(let menus):
-                self?.stores.append(Store(title: "타이틀", menus: menus))
+                self?.stores.append(Store(category: .main, menus: menus))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        service.fetchData(DummySoup.endPoint) {
+            [weak self] (result: Result<[Menu], Error>)  in
+            switch result {
+            case .success(let menus):
+                self?.stores.append(Store(category: .soup, menus: menus))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        service.fetchData(DummySide.endPoint) {
+            [weak self] (result: Result<[Menu], Error>)  in
+            switch result {
+            case .success(let menus):
+                self?.stores.append(Store(category: .side, menus: menus))
             case .failure(let error):
                 print(error.localizedDescription)
             }
