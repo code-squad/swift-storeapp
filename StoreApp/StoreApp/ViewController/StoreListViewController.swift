@@ -10,10 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-protocol StoreListViewPresentable: UIViewController {
-    
-    var viewModel: StoreListViewBindable? { get set }
-}
 
 final class StoreListViewController: UIViewController, StoreListViewPresentable {
     
