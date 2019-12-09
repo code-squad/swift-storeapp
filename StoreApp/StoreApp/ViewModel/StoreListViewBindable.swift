@@ -15,7 +15,7 @@ protocol StoreListViewDataSource: AnyObject {
     func numOfCategories() -> Int
     func numOfMenusInCategory(_ category: Int) -> Int
     
-    subscript(category index: Int) -> String { get }
+    subscript(category index: Int) -> Category { get }
     subscript(menu indexPath: IndexPath) -> Menu { get }
 }
 
