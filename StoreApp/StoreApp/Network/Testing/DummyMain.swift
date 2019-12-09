@@ -8,13 +8,16 @@
 
 import UIKit
 
-enum Dummy {
-    static let storeData = NSDataAsset(name: "main")!.data
+enum DummyMain {
+    
+    static let mainMenuData = NSDataAsset(name: "main")!.data
+    static let soupMenuData = NSDataAsset(name: "soup")!.data
+    static let sideMenuData = NSDataAsset(name: "side")!.data
     
     case endPoint
 }
 
-extension Dummy: EndPoint {
+extension DummyMain: EndPoint {
     
     var baseURL: URL {
         return URL(string: "")!
