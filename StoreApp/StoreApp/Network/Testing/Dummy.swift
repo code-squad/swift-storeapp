@@ -38,7 +38,7 @@ extension DummyMain: EndPoint {
     }
     
     var sampleData: Data? {
-        return NSDataAsset(name: "side")!.data
+        return NSDataAsset(name: "main")!.data
     }
 }
 
@@ -72,7 +72,7 @@ extension DummySoup: EndPoint {
     }
     
     var sampleData: Data? {
-        return NSDataAsset(name: "side")!.data
+        return NSDataAsset(name: "soup")!.data
     }
 }
 
