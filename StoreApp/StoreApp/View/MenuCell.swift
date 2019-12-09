@@ -66,7 +66,7 @@ extension MenuCell {
         }
         
         menu.badge?.compactMap {
-            guard let style = BadgeView.Style($0) else { return nil }
+            let style = BadgeView.Style($0)
             return BadgeView(style: style, text: $0)
         }
         .forEach { badgesListView.addSubview($0) }

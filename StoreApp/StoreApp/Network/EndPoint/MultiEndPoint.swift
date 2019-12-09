@@ -14,6 +14,13 @@ import Foundation
 enum MultiEndPoint {
     
     case endPoint(EndPoint)
+    
+    var endPoint: EndPoint {
+        switch self {
+        case .endPoint(let endPoint):
+            return endPoint
+        }
+    }
 }
 
 // MARK: - EndPoint
@@ -38,13 +45,6 @@ extension MultiEndPoint: EndPoint {
     
     func asURLRequest() -> URLRequest {
         return endPoint.asURLRequest()
-    }
-    
-    var endPoint: EndPoint {
-        switch self {
-        case .endPoint(let endPoint):
-            return endPoint
-        }
     }
     
     var sampleData: Data? {
