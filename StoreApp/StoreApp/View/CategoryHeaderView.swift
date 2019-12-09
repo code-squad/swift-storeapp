@@ -13,8 +13,12 @@ import SnapKit
 
 class CategoryHeaderView: UITableViewHeaderFooterView {
     
+    // MARK: - UI
+    
     let badgeView: BadgeView = BadgeView(style: .none, text: "")
     let titleLabel: UILabel = UILabel()
+    
+    // MARK: - Initializer
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -26,6 +30,7 @@ class CategoryHeaderView: UITableViewHeaderFooterView {
         super.init(coder: coder)
     }
     
+    // MARK: - Life Cycle
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
