@@ -60,3 +60,10 @@ priceLabel.attributedText = price
 
 
 
+
+
+### STEP3 - 커스텀 헤더 뷰 구현
+
+##### 진행기간(2019/12/9 ~ 2019/12/10)
+
+<img width="340" alt="스크린샷 2019-12-10 오전 5 07 25" src="https://user-images.githubusercontent.com/39197978/70468777-0aeb3b80-1b0b-11ea-8cec-cc28fc1d39a2.png">
