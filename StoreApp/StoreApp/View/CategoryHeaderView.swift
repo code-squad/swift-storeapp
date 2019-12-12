@@ -24,6 +24,8 @@ class CategoryHeaderView: UITableViewHeaderFooterView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        setUpAttributes()
     }
     
     
