@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E2F3C9323A2A315004EECDB /* StoreTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F3C9223A2A315004EECDB /* StoreTableViewManager.swift */; };
 		0EB548642396DAEF00C88B1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548632396DAEF00C88B1D /* AppDelegate.swift */; };
 		0EB548662396DAEF00C88B1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548652396DAEF00C88B1D /* SceneDelegate.swift */; };
 		0EB548682396DAEF00C88B1D /* StoreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB548672396DAEF00C88B1D /* StoreListViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E2F3C9223A2A315004EECDB /* StoreTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewManager.swift; sourceTree = "<group>"; };
 		0EB548602396DAEF00C88B1D /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EB548632396DAEF00C88B1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EB548652396DAEF00C88B1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E2F3C9123A2A2E4004EECDB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0E2F3C9223A2A315004EECDB /* StoreTableViewManager.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		0EB548572396DAEF00C88B1D = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		0EB5487B2396E26000C88B1D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				0E2F3C9123A2A2E4004EECDB /* Helper */,
 				0EB548672396DAEF00C88B1D /* StoreListViewController.swift */,
 				0EBAB4DA239E490400F1FB20 /* StoreListViewPresentable.swift */,
 			);
@@ -382,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EB548B9239A828C00C88B1D /* DataServable.swift in Sources */,
+				0E2F3C9323A2A315004EECDB /* StoreTableViewManager.swift in Sources */,
 				0EB548BE239A83E300C88B1D /* DummyAPI.swift in Sources */,
 				0EB548A9239A1A6D00C88B1D /* URLRequest+.swift in Sources */,
 				0EBAB4D9239E47CD00F1FB20 /* StoreListViewBindable.swift in Sources */,

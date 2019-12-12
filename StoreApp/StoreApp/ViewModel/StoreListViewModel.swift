@@ -56,7 +56,6 @@ final class StoreListViewModel: StoreListViewBindable {
         let store = stores[indexPath.section]
         return store.menus[indexPath.row]
     }
-    
 }
 
 // MARK: - Fetch
@@ -64,7 +63,6 @@ final class StoreListViewModel: StoreListViewBindable {
 extension StoreListViewModel {
     
     private func fetchData() {
-        
         service.fetchData(DummyAPI.main) {
             [weak self] (result: Result<[Menu], Error>)  in
             switch result {
