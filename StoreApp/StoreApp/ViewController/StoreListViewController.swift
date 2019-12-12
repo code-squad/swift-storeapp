@@ -17,11 +17,16 @@ final class StoreListViewController: UIViewController, StoreListViewPresentable 
     
     private let storeTableView = UITableView()
     
-    // MARK: Properties
+    // MARK: - Dependencies
     
     var viewModel: StoreListViewBindable? {
         didSet { bindViewModel() }
     }
+    
+    // MARK: - Properties
+    
+    let storeTableViewManager = StoreTableViewManager()
+    
     
     // MARK: - Life Cycle
     
@@ -53,8 +58,8 @@ extension StoreListViewController {
                         forCellReuseIdentifier: MenuCell.reuseId)
             $0.register(CategoryHeaderView.self,
                         forHeaderFooterViewReuseIdentifier: CategoryHeaderView.reuseId)
-            $0.dataSource = self
-            $0.delegate = self
+            $0.dataSource = storeTableViewManager
+            $0.delegate = storeTableViewManager
             $0.rowHeight = UITableView.automaticDimension
             $0.sectionHeaderHeight = 70
             $0.separatorStyle = .none
@@ -75,6 +80,8 @@ extension StoreListViewController {
     private func bindViewModel() {
         guard let viewModel = viewModel else { return }
         
+        storeTableViewManager.stores = viewModel
+        
         viewModel.dataDidLoad = { [weak self] in
             self?.storeTableView.reloadData()
         }
@@ -88,48 +95,9 @@ extension StoreListViewController {
                                           message: error.localizedDescription,
                                           preferredStyle: .alert)
             alert.do {
-                $0.addAction(.init(title: "OK", style: .cancel, handler: nil))
+                $0.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self?.present($0, animated: true, completion: nil)
             }
         }
-    }
-}
-
-
-// MARK: - UITableViewDataSource
-
-extension StoreListViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.numOfCategories() ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.numOfMenusInCategory(section) ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(with: MenuCell.self, for: indexPath),
-            let menu = viewModel?[menu: indexPath]
-            else { return .init() }
-        
-        cell.configure(menu)
-        return cell
-    }
-}
-
-// MARK: - UITableViewDelegate
-
-extension StoreListViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard
-            let categoryHeader = tableView.dequeueReusableHeaderFooterView(with: CategoryHeaderView.self),
-            let category = viewModel?[category: section]
-            else { return nil }
-        
-        categoryHeader.configure(category: category)
-        return categoryHeader
     }
 }
