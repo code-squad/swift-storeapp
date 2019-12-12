@@ -117,7 +117,6 @@ extension StoreListViewController: UITableViewDataSource {
         cell.configure(menu)
         return cell
     }
-    
 }
 
 // MARK: - UITableViewDelegate
@@ -125,7 +124,6 @@ extension StoreListViewController: UITableViewDataSource {
 extension StoreListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         guard
             let categoryHeader = tableView.dequeueReusableHeaderFooterView(with: CategoryHeaderView.self),
             let category = viewModel?[category: section]
