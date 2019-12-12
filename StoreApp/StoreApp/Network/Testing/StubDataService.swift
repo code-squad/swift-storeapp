@@ -9,9 +9,8 @@ import Foundation
 
 struct StubDataService: DataServable {
     
-    
-    func fetchData<E: EndPoint, D: Decodable>(_ endPoint: E,
-                                              completion: @escaping (Result<D, Error>) -> Void)  {
+    func fetchData<D: Decodable>(_ endPoint: EndPoint,
+                                 completion: @escaping (Result<D, Error>) -> Void)  {
         
         guard let data = endPoint.sampleData else { return }
         

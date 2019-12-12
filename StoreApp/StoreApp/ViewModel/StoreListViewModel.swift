@@ -26,6 +26,7 @@ final class StoreListViewModel: StoreListViewBindable {
     
     var dataDidLoad: (() -> Void)?
     var dataDidUpadated: (() -> Void)?
+    var errorDidOccured: ((Error) -> Void)?
     
     // MARK: - Initializer
     
@@ -63,33 +64,34 @@ final class StoreListViewModel: StoreListViewBindable {
 extension StoreListViewModel {
     
     private func fetchData() {
-        service.fetchData(DummyMain.endPoint) {
+        
+        service.fetchData(DummyAPI.main) {
             [weak self] (result: Result<[Menu], Error>)  in
             switch result {
             case .success(let menus):
                 self?.stores.append(Store(category: .main, menus: menus))
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.errorDidOccured?(error)
             }
         }
         
-        service.fetchData(DummySoup.endPoint) {
+        service.fetchData(DummyAPI.soup) {
             [weak self] (result: Result<[Menu], Error>)  in
             switch result {
             case .success(let menus):
                 self?.stores.append(Store(category: .soup, menus: menus))
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.errorDidOccured?(error)
             }
         }
         
-        service.fetchData(DummySide.endPoint) {
+        service.fetchData(DummyAPI.side) {
             [weak self] (result: Result<[Menu], Error>)  in
             switch result {
             case .success(let menus):
                 self?.stores.append(Store(category: .side, menus: menus))
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.errorDidOccured?(error)
             }
         }
     }

@@ -11,6 +11,5 @@ import Foundation
 
 protocol DataServable {
     
-    func fetchData<E: EndPoint, D: Decodable>(_ endPoint: E,
-                                              completion: @escaping (Result<D, Error>) -> Void)
+    func fetchData<D: Decodable>(_ endPoint: EndPoint, completion: @escaping (Result<D, Error>) -> Void)
 }
