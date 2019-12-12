@@ -75,12 +75,22 @@ extension StoreListViewController {
     private func bindViewModel() {
         guard let viewModel = viewModel else { return }
         
-        viewModel.dataDidLoad = { [weak self ] in
+        viewModel.dataDidLoad = { [weak self] in
             self?.storeTableView.reloadData()
         }
         
-        viewModel.dataDidUpadated = { [weak self ] in
+        viewModel.dataDidUpadated = { [weak self] in
             self?.storeTableView.reloadData()
+        }
+        
+        viewModel.errorDidOccured = { [weak self] error in
+            let alert = UIAlertController(title: "네트워크 오류",
+                                          message: error.localizedDescription,
+                                          preferredStyle: .alert)
+            alert.do {
+                $0.addAction(.init(title: "OK", style: .cancel, handler: nil))
+                self?.present($0, animated: true, completion: nil)
+            }
         }
     }
 }
