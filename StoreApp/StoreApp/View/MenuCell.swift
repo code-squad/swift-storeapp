@@ -45,12 +45,7 @@ final class MenuCell: UITableViewCell, Reusable {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        menuImageView.image = nil
-        titleLabel.text = nil
-        detailLabel.text = nil
-        priceLabel.attributedText = nil
-        salePriceLabel.text = nil
-        badgesListView.subviews.forEach { $0.removeFromSuperview() }
+        clear()
     }
 }
 
@@ -76,6 +71,16 @@ extension MenuCell {
             detailLabel.text = $0.detail
             salePriceLabel.text = $0.salePrice
         }
+    }
+    
+    private func clear() {
+        
+        menuImageView.image = nil
+        titleLabel.text = nil
+        detailLabel.text = nil
+        priceLabel.attributedText = nil
+        salePriceLabel.text = nil
+        badgesListView.subviews.forEach { $0.removeFromSuperview() }
     }
 }
 
