@@ -111,7 +111,7 @@
 		0EB548622396DAEF00C88B1D /* StoreApp */ = {
 			isa = PBXGroup;
 			children = (
-				0EB548AE239A1E4B00C88B1D /* Support */,
+				0EB548AE239A1E4B00C88B1D /* Resource */,
 				0EB5489623992C5300C88B1D /* ViewModel */,
 				0EB5488C23979F3200C88B1D /* Model */,
 				0EB5487F2396E33E00C88B1D /* Common */,
@@ -238,14 +238,14 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		0EB548AE239A1E4B00C88B1D /* Support */ = {
+		0EB548AE239A1E4B00C88B1D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				0EB5486C2396DAF100C88B1D /* Assets.xcassets */,
 				0EB548AA239A1DE300C88B1D /* Color.xcassets */,
 				0EB548AC239A1DFC00C88B1D /* Data.xcassets */,
 			);
-			path = Support;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		0EB548AF239A7E7D00C88B1D /* BeautyString */ = {

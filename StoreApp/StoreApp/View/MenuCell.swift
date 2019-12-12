@@ -74,7 +74,6 @@ extension MenuCell {
     }
     
     private func clear() {
-        
         menuImageView.image = nil
         titleLabel.text = nil
         detailLabel.text = nil
