@@ -47,6 +47,12 @@ final class MenuCell: UITableViewCell, Reusable {
         
         clear()
     }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        
+        setUpConstraints()
+    }
 }
 
 // MARK: - Configure
@@ -71,6 +77,7 @@ extension MenuCell {
             detailLabel.text = $0.detail
             salePriceLabel.text = $0.salePrice
         }
+        updateConstraints()
     }
     
     private func clear() {
