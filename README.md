@@ -141,4 +141,21 @@ priceLabel.attributedText = price
     }
     ```
 
+- `DispatchGroup` , 순서가 보장되게 구현
+
+  - `DispatchQueue` 를 `.serial`  하게 하여, 비동기적으로 요청은 하되 순서를 보장하게 구현하였다.
+
+  - ```swift
+     let dispatchGroup = DispatchGroup()
+     let serialQueue = DispatchQueue(label: "store.fetch", qos: .default)
+    ```
+
+  - `DispatchGroup`를 이용해서, 모든 Task가 완료된다음 completion을 1번만 호출하게 구현하였다.
+
+  - ```swift
+    dispatchGroup.notify(queue: .global()) {
+                completion(.success(stores))
+            }
+    ```
+
     
