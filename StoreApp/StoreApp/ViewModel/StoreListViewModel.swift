@@ -63,31 +63,11 @@ final class StoreListViewModel: StoreListViewBindable {
 extension StoreListViewModel {
     
     private func fetchData() {
-        service.fetchData(DummyAPI.main) {
-            [weak self] (result: Result<[Menu], Error>)  in
+        service.fetchData { [weak self] result in
             switch result {
-            case .success(let menus):
-                self?.stores.append(Store(category: .main, menus: menus))
-            case .failure(let error):
-                self?.errorDidOccured?(error)
-            }
-        }
-        
-        service.fetchData(DummyAPI.soup) {
-            [weak self] (result: Result<[Menu], Error>)  in
-            switch result {
-            case .success(let menus):
-                self?.stores.append(Store(category: .soup, menus: menus))
-            case .failure(let error):
-                self?.errorDidOccured?(error)
-            }
-        }
-        
-        service.fetchData(DummyAPI.side) {
-            [weak self] (result: Result<[Menu], Error>)  in
-            switch result {
-            case .success(let menus):
-                self?.stores.append(Store(category: .side, menus: menus))
+            case .success(let stores):
+                self?.stores = stores
+                self?.dataDidLoad?()
             case .failure(let error):
                 self?.errorDidOccured?(error)
             }
