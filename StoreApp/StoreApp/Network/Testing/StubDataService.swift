@@ -9,8 +9,8 @@ import Foundation
 
 struct StubDataService: DataServable {
     
-    let dispatchGroup = DispatchGroup()
-    let serialQueue = DispatchQueue(label: "store.fetch", qos: .default)
+    private let dispatchGroup = DispatchGroup()
+    private let serialQueue = DispatchQueue(label: "store.fetch", qos: .default)
     
     func fetchData(completion: @escaping (Result<[Store], Error>) -> Void) {
         var stores: [Store] = []
