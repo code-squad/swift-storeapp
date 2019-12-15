@@ -30,14 +30,6 @@ struct StoreItem: Codable {
     }
 }
 
-struct ItemDeliveryType: Codable {
-    let type: String
-}
-
-struct ItemBadge: Codable {
-    let badge: String
-}
-
 /*
  [{
      "detail_hash": "HBDEF",
