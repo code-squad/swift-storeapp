@@ -54,10 +54,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kbd-HJ-Qpm">
-                                <rect key="frame" x="122" y="84.5" width="190" height="24"/>
+                                <rect key="frame" x="122" y="78.5" width="190" height="30"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yDt-la-eYK">
-                                        <rect key="frame" x="0.0" y="0.0" width="190" height="24"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yDt-la-eYK">
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="30"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="4" minimumInteritemSpacing="4" id="tH2-r9-wXL">
                                             <size key="itemSize" width="50" height="50"/>
@@ -71,7 +71,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="yDt-la-eYK" secondAttribute="bottom" id="0EC-6o-fa8"/>
                                     <constraint firstItem="yDt-la-eYK" firstAttribute="leading" secondItem="Kbd-HJ-Qpm" secondAttribute="leading" id="am8-4U-0u4"/>
-                                    <constraint firstAttribute="height" constant="24" id="dLJ-FM-xnf"/>
+                                    <constraint firstAttribute="height" constant="30" id="dLJ-FM-xnf"/>
                                     <constraint firstItem="yDt-la-eYK" firstAttribute="top" secondItem="Kbd-HJ-Qpm" secondAttribute="top" id="uU3-5g-yov"/>
                                     <constraint firstAttribute="trailing" secondItem="yDt-la-eYK" secondAttribute="trailing" id="wvv-1m-pT9"/>
                                 </constraints>
@@ -79,7 +79,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Kbd-HJ-Qpm" firstAttribute="top" secondItem="ZWP-bh-SSk" secondAttribute="bottom" constant="8" id="2NM-EO-iXN"/>
+                            <constraint firstItem="Kbd-HJ-Qpm" firstAttribute="top" secondItem="ZWP-bh-SSk" secondAttribute="bottom" constant="2" id="2NM-EO-iXN"/>
                             <constraint firstAttribute="bottom" secondItem="NuX-Li-Uw6" secondAttribute="bottom" constant="8" id="55r-6k-T7B"/>
                             <constraint firstItem="0Gc-Jq-BIq" firstAttribute="top" secondItem="ijv-gn-kXj" secondAttribute="bottom" constant="4" id="7Fu-Wz-qjQ"/>
                             <constraint firstItem="NuX-Li-Uw6" firstAttribute="leading" secondItem="2L7-ke-uEH" secondAttribute="leading" constant="8" id="8iv-R2-791"/>
