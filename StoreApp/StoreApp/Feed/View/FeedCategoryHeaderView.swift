@@ -12,7 +12,7 @@ class FeedCategoryHeaderView: UITableViewHeaderFooterView {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     // MARK: - Life Cycle
@@ -32,11 +32,11 @@ extension FeedCategoryHeaderView {
     }
     
     private func setUpLabels() {
-        categoryLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
-        categoryLabel.textColor = .lightGray
-        categoryLabel.textAlignment = .center
-        categoryLabel.layer.borderColor = UIColor.lightGray.cgColor
-        categoryLabel.layer.borderWidth = 1.0
+        titleLabel.font = UIFont.systemFont(ofSize: 13.0, weight: .light)
+        titleLabel.textColor = .lightGray
+        titleLabel.textAlignment = .center
+        titleLabel.layer.borderColor = UIColor.lightGray.cgColor
+        titleLabel.layer.borderWidth = 1.0
         
         descriptionLabel.font = UIFont.systemFont(ofSize: 20.0, weight: .bold)
         descriptionLabel.textColor = .black
@@ -48,7 +48,7 @@ extension FeedCategoryHeaderView {
 
 extension FeedCategoryHeaderView {
     func configure(_ category: StoreItemCategory) {
-        categoryLabel.text = category.titleText
+        titleLabel.text = category.titleText
         descriptionLabel.text = category.descriptionText
     }
 }
