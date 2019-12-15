@@ -68,16 +68,6 @@ extension FeedViewController {
         feedTableView.showsVerticalScrollIndicator = false
         
         feedTableView.dataSource = dataSource
-        feedTableView.delegate = self
-    }
-}
-
-extension FeedViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: FeedCategoryHeaderView.reuseID) as? FeedCategoryHeaderView else {
-            return .init()
-        }
-        
-        return headerView
+        feedTableView.delegate = dataSource
     }
 }

@@ -48,6 +48,18 @@ class FeedViewDataSource: NSObject, UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
+
+extension FeedViewDataSource: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: FeedCategoryHeaderView.reuseID) as? FeedCategoryHeaderView else {
+            return .init()
+        }
+        let category = feedSections[section].category
+        headerView.configure(category)
+        return headerView
+    }
+}
 
 // MARK: - Methods
 
