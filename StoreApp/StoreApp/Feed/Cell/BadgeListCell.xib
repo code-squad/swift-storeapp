@@ -10,57 +10,57 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BadgeListCell" customModule="StoreApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="43" height="33"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="50" height="22"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="43" height="33"/>
+                <rect key="frame" x="0.0" y="0.0" width="50" height="22"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Euo-fK-mS0">
-                        <rect key="frame" x="0.0" y="0.0" width="43" height="33"/>
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="22"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qji-Br-GZh">
-                                <rect key="frame" x="0.0" y="0.0" width="43" height="33"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="22"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSP-uV-WKB">
-                                        <rect key="frame" x="2" y="2" width="39" height="29"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Labelㅣㅣㅣㅣㅣ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSP-uV-WKB">
+                                        <rect key="frame" x="4" y="4" width="42" height="14"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="zSP-uV-WKB" secondAttribute="bottom" constant="2" id="47c-vc-bIO"/>
-                                    <constraint firstItem="zSP-uV-WKB" firstAttribute="leading" secondItem="Qji-Br-GZh" secondAttribute="leading" constant="2" id="L0a-hd-n5v"/>
-                                    <constraint firstAttribute="trailing" secondItem="zSP-uV-WKB" secondAttribute="trailing" constant="2" id="mBN-ge-PIE"/>
-                                    <constraint firstItem="zSP-uV-WKB" firstAttribute="top" secondItem="Qji-Br-GZh" secondAttribute="top" constant="2" id="r9a-fO-BN6"/>
+                                    <constraint firstItem="zSP-uV-WKB" firstAttribute="leading" secondItem="Qji-Br-GZh" secondAttribute="leading" constant="4" id="N0h-He-gVm"/>
+                                    <constraint firstAttribute="trailing" secondItem="zSP-uV-WKB" secondAttribute="trailing" constant="4" id="cHw-k2-dR0"/>
+                                    <constraint firstItem="zSP-uV-WKB" firstAttribute="top" secondItem="Qji-Br-GZh" secondAttribute="top" constant="4" id="ddc-gb-AFl"/>
+                                    <constraint firstAttribute="bottom" secondItem="zSP-uV-WKB" secondAttribute="bottom" constant="4" id="uPQ-pu-hG2"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Qji-Br-GZh" secondAttribute="bottom" id="86v-Io-rHz"/>
-                            <constraint firstItem="Qji-Br-GZh" firstAttribute="top" secondItem="Euo-fK-mS0" secondAttribute="top" id="NOV-fo-spE"/>
-                            <constraint firstAttribute="trailing" secondItem="Qji-Br-GZh" secondAttribute="trailing" id="jI8-Pr-H4h"/>
-                            <constraint firstItem="Qji-Br-GZh" firstAttribute="leading" secondItem="Euo-fK-mS0" secondAttribute="leading" id="zIx-ZK-FhP"/>
+                            <constraint firstAttribute="trailing" secondItem="Qji-Br-GZh" secondAttribute="trailing" id="Akl-pG-hzb"/>
+                            <constraint firstAttribute="bottom" secondItem="Qji-Br-GZh" secondAttribute="bottom" id="h8Y-46-ylR"/>
+                            <constraint firstItem="Qji-Br-GZh" firstAttribute="top" secondItem="Euo-fK-mS0" secondAttribute="top" id="lRE-4v-P85"/>
+                            <constraint firstItem="Qji-Br-GZh" firstAttribute="leading" secondItem="Euo-fK-mS0" secondAttribute="leading" id="lZb-OT-gBB"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Euo-fK-mS0" secondAttribute="bottom" id="6uB-r3-2Ps"/>
-                <constraint firstAttribute="trailing" secondItem="Euo-fK-mS0" secondAttribute="trailing" id="I6F-jQ-55x"/>
-                <constraint firstItem="Euo-fK-mS0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="M42-X8-TcH"/>
-                <constraint firstItem="Euo-fK-mS0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fr0-qA-n82"/>
+                <constraint firstItem="Euo-fK-mS0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="29S-0q-axI"/>
+                <constraint firstAttribute="bottom" secondItem="Euo-fK-mS0" secondAttribute="bottom" id="Yl9-ln-lxz"/>
+                <constraint firstAttribute="trailing" secondItem="Euo-fK-mS0" secondAttribute="trailing" id="faD-cf-CYy"/>
+                <constraint firstItem="Euo-fK-mS0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="y6D-nI-iuP"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="43" height="33"/>
+            <size key="customSize" width="52" height="25"/>
             <connections>
                 <outlet property="badgeLabel" destination="zSP-uV-WKB" id="aui-IT-VAm"/>
                 <outlet property="badgeView" destination="Qji-Br-GZh" id="L6V-Ev-jtl"/>
             </connections>
-            <point key="canvasLocation" x="180.43478260869566" y="108.81696428571428"/>
+            <point key="canvasLocation" x="185.50724637681162" y="111.16071428571428"/>
         </collectionViewCell>
     </objects>
 </document>

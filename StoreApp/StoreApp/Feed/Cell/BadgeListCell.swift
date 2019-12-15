@@ -22,18 +22,34 @@ class BadgeListCell: UICollectionViewCell {
         
         setUpAttributes()
     }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        super.preferredLayoutAttributesFitting(layoutAttributes)
 
+        setNeedsLayout()
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var newFrame = layoutAttributes.frame
+        newFrame.size = size
+        layoutAttributes.frame = newFrame
+        return layoutAttributes
+    }
 }
 
 // MARK: - Attributes
 
 extension BadgeListCell {
     private func setUpAttributes() {
+        setUpBackgroundView()
         setUpLabel()
     }
     
+    private func setUpBackgroundView() {
+        badgeView.backgroundColor = StoreColor.purple
+    }
+    
     private func setUpLabel() {
-        badgeLabel.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
+        badgeLabel.font = UIFont.systemFont(ofSize: 12.0, weight: .medium)
         badgeLabel.textColor = .white
     }
 }

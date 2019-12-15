@@ -40,7 +40,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="GzY-kL-cMS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6FT-kd-bc8"/>
                 <constraint firstAttribute="bottom" secondItem="GzY-kL-cMS" secondAttribute="bottom" id="BDm-vL-p2d"/>

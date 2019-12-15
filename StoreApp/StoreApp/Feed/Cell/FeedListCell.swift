@@ -62,6 +62,9 @@ extension FeedListCell {
         
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
+        flowLayout.estimatedItemSize = CGSize(width: 50.0, height: 30.0)
+        flowLayout.itemSize = UICollectionViewFlowLayout.automaticSize
+        
         badgeCollectionView.collectionViewLayout = flowLayout
         badgeCollectionView.showsHorizontalScrollIndicator = false
         badgeCollectionView.dataSource = dataSource
