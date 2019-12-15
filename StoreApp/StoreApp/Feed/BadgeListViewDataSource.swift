@@ -9,6 +9,7 @@
 import UIKit
 
 class BadgeListViewDataSource: NSObject, UICollectionViewDataSource {
+    
     // MARK: - Properties
     
     var badges: [String]? {
