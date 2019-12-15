@@ -9,6 +9,7 @@
 import UIKit
 
 class FeedListCell: UITableViewCell {
+    
     // MARK: - Properties
     
     private var dataSource = BadgeListViewDataSource()
