@@ -12,8 +12,7 @@ class FeedViewController: UIViewController {
 
     // MARK: - Properties
     
-    var storeItems: [StoreItem] = []
-    var dataSource = FeedViewDataSource()
+    private var presenter = FeedViewPresenter()
     
     // MARK: - Outlets
     
@@ -67,7 +66,7 @@ extension FeedViewController {
         feedTableView.estimatedSectionHeaderHeight = 80.0
         feedTableView.showsVerticalScrollIndicator = false
         
-        feedTableView.dataSource = dataSource
-        feedTableView.delegate = dataSource
+        feedTableView.dataSource = presenter
+        feedTableView.delegate = presenter
     }
 }

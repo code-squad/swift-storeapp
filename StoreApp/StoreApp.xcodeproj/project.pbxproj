@@ -26,7 +26,7 @@
 		FA7FD77F2399242F0059C735 /* FeedCategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD77E2399242F0059C735 /* FeedCategoryHeaderView.xib */; };
 		FA7FD78323992E560059C735 /* BadgeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD78123992E560059C735 /* BadgeListCell.swift */; };
 		FA7FD78423992E560059C735 /* BadgeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD78223992E560059C735 /* BadgeListCell.xib */; };
-		FAA571B7239F909800C7B301 /* FeedViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA571B6239F909800C7B301 /* FeedViewDataSource.swift */; };
+		FAA571B7239F909800C7B301 /* FeedViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA571B6239F909800C7B301 /* FeedViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,7 @@
 		FA7FD77E2399242F0059C735 /* FeedCategoryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCategoryHeaderView.xib; sourceTree = "<group>"; };
 		FA7FD78123992E560059C735 /* BadgeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeListCell.swift; sourceTree = "<group>"; };
 		FA7FD78223992E560059C735 /* BadgeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeListCell.xib; sourceTree = "<group>"; };
-		FAA571B6239F909800C7B301 /* FeedViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewDataSource.swift; sourceTree = "<group>"; };
+		FAA571B6239F909800C7B301 /* FeedViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 				FA7FD78023992D5E0059C735 /* View */,
 				FA7FD76123979C160059C735 /* Cell */,
 				FA7FD7692398D5B30059C735 /* FeedViewController.swift */,
-				FAA571B6239F909800C7B301 /* FeedViewDataSource.swift */,
+				FAA571B6239F909800C7B301 /* FeedViewPresenter.swift */,
 				FA01676F23A68FCC003FC0ED /* BadgeListViewDataSource.swift */,
 				FA7FD75223979A9A0059C735 /* Main.storyboard */,
 				FA01676D23A68D12003FC0ED /* FeedEvent.swift */,
@@ -266,7 +266,7 @@
 				FA7FD76423979C430059C735 /* FeedListCell.swift in Sources */,
 				FA7FD7702398DA980059C735 /* StoreItem.swift in Sources */,
 				FA01677223A69DB5003FC0ED /* StoreItemCategory.swift in Sources */,
-				FAA571B7239F909800C7B301 /* FeedViewDataSource.swift in Sources */,
+				FAA571B7239F909800C7B301 /* FeedViewPresenter.swift in Sources */,
 				FA7FD76A2398D5B30059C735 /* FeedViewController.swift in Sources */,
 				FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */,
 				FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */,
