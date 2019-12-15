@@ -13,6 +13,7 @@ class FeedViewController: UIViewController {
     // MARK: - Properties
     
     var storeItems: [StoreItem] = []
+    var dataSource = FeedViewDataSource()
     
     // MARK: - Outlets
     
@@ -24,18 +25,8 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         
         setUpAttributes()
-        decodeJSON()
     }
-
     
-    private func decodeJSON() {
-        let jsonDecoder = JSONDecoder()
-        guard let dataAsset = NSDataAsset(name: "main") else { return }
-        do {
-            storeItems = try jsonDecoder.decode([StoreItem].self, from: dataAsset.data)
-        } catch {
-            print(error.localizedDescription)
-        }
     }
     
 }
@@ -59,25 +50,8 @@ extension FeedViewController {
         feedTableView.estimatedSectionHeaderHeight = 80.0
         feedTableView.showsVerticalScrollIndicator = false
         
-        feedTableView.dataSource = self
+        feedTableView.dataSource = dataSource
         feedTableView.delegate = self
-    }
-}
-
-// MARK: - UITableViewDataSource
-
-extension FeedViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeItems.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedListCell.reuseID, for: indexPath) as? FeedListCell else {
-            return .init()
-        }
-        let storeItem = storeItems[indexPath.row]
-        cell.configure(storeItem)
-        return cell
     }
 }
 
