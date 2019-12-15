@@ -63,7 +63,7 @@ extension FeedViewController {
         
         feedTableView.separatorStyle = .none
         feedTableView.sectionHeaderHeight = UITableView.automaticDimension
-        feedTableView.estimatedSectionHeaderHeight = 80.0
+        feedTableView.estimatedSectionHeaderHeight = 70.0
         feedTableView.showsVerticalScrollIndicator = false
         
         feedTableView.dataSource = presenter
