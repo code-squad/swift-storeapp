@@ -24,11 +24,28 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addObservers()
         setUpAttributes()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
+    // MARK: - Methods
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadTableView),
+                                               name: FeedEvent.itemDidUpdated.name,
+                                               object: nil)
+    }
+    
+    // MARK: - Events
+    
+    @objc private func reloadTableView() {
+        feedTableView.reloadData()
+    }
 }
 
 // MARK: - Attributes
