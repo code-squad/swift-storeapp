@@ -1,5 +1,5 @@
 //
-//  FeedViewDataSource.swift
+//  FeedViewPresenter.swift
 //  StoreApp
 //
 //  Created by CHOMINJI on 2019/12/10.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedViewDataSource: NSObject, UITableViewDataSource {
+class FeedViewPresenter: NSObject {
 
     // MARK: - Section
     
@@ -26,9 +26,27 @@ class FeedViewDataSource: NSObject, UITableViewDataSource {
         
         decodeJSON(assets: StoreItemCategory.allCases)
     }
+
+    // MARK: - Methods
     
-    // MARK: - UITableViewDataSource
-    
+    private func decodeJSON(assets: [StoreItemCategory]) {
+        let jsonDecoder = JSONDecoder()
+        
+        assets.forEach { asset in
+            guard let dataAsset = NSDataAsset(name: asset.rawValue) else { return }
+            do {
+                let storeItems = try jsonDecoder.decode([StoreItem].self, from: dataAsset.data)
+                feedSections.append(FeedSection(category: asset, storeItems: storeItems))
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        NotificationCenter.default.post(name: FeedEvent.itemDidUpdated.name, object: nil)
+    }
+}
+// MARK: - UITableViewDataSource
+
+extension FeedViewPresenter: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return feedSections.count
     }
@@ -50,7 +68,7 @@ class FeedViewDataSource: NSObject, UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension FeedViewDataSource: UITableViewDelegate {
+extension FeedViewPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: FeedCategoryHeaderView.reuseID) as? FeedCategoryHeaderView else {
             return .init()
@@ -58,24 +76,5 @@ extension FeedViewDataSource: UITableViewDelegate {
         let category = feedSections[section].category
         headerView.configure(category)
         return headerView
-    }
-}
-
-// MARK: - Methods
-
-extension FeedViewDataSource {
-    private func decodeJSON(assets: [StoreItemCategory]) {
-        let jsonDecoder = JSONDecoder()
-        
-        assets.forEach { asset in
-            guard let dataAsset = NSDataAsset(name: asset.rawValue) else { return }
-            do {
-                let storeItems = try jsonDecoder.decode([StoreItem].self, from: dataAsset.data)
-                feedSections.append(FeedSection(category: asset, storeItems: storeItems))
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        NotificationCenter.default.post(name: FeedEvent.itemDidUpdated.name, object: nil)
     }
 }
