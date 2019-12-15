@@ -41,7 +41,7 @@ extension BadgeListCell {
 // MARK: - Configure
 
 extension BadgeListCell {
-    func configure(_ title: String) {
+    func configure(_ title: String?) {
         badgeLabel.text = title
     }
 }
