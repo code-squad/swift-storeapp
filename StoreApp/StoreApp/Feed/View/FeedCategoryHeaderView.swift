@@ -43,3 +43,12 @@ extension FeedCategoryHeaderView {
         descriptionLabel.textAlignment = .center
     }
 }
+
+// MARK: - Configures
+
+extension FeedCategoryHeaderView {
+    func configure(_ category: StoreItemCategory) {
+        categoryLabel.text = category.titleText
+        descriptionLabel.text = category.descriptionText
+    }
+}
