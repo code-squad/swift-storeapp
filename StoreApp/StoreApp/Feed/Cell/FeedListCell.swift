@@ -9,6 +9,9 @@
 import UIKit
 
 class FeedListCell: UITableViewCell {
+    // MARK: - Properties
+    
+    private var dataSource = BadgeListViewDataSource()
     
     // MARK: - Outlets
     
@@ -61,7 +64,7 @@ extension FeedListCell {
         flowLayout.scrollDirection = .horizontal
         badgeCollectionView.collectionViewLayout = flowLayout
         badgeCollectionView.showsHorizontalScrollIndicator = false
-        badgeCollectionView.dataSource = self
+        badgeCollectionView.dataSource = dataSource
     }
 }
 
@@ -82,19 +85,10 @@ extension FeedListCell {
                                                                   font: UIFont.systemFont(ofSize: 13.0, weight: .regular),
                                                                   color: .lightGray)
         }
-    }
-}
-
-extension FeedListCell: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BadgeListCell.reuseID, for: indexPath) as? BadgeListCell else {
-            return .init()
-        }
         
-        return cell
+        dataSource.badges = storeItem.badges
+        dataSource.dataDidUpdated = {
+            self.badgeCollectionView.reloadData()
+        }
     }
 }

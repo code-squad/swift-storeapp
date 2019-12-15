@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA01676C23A68C78003FC0ED /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01676B23A68C78003FC0ED /* NotificationHelper.swift */; };
 		FA01676E23A68D12003FC0ED /* FeedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01676D23A68D12003FC0ED /* FeedEvent.swift */; };
+		FA01677023A68FCC003FC0ED /* BadgeListViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01676F23A68FCC003FC0ED /* BadgeListViewDataSource.swift */; };
 		FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD74C23979A9A0059C735 /* AppDelegate.swift */; };
 		FA7FD75423979A9A0059C735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD75223979A9A0059C735 /* Main.storyboard */; };
 		FA7FD75623979A9E0059C735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD75523979A9E0059C735 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		FA01676B23A68C78003FC0ED /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		FA01676D23A68D12003FC0ED /* FeedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedEvent.swift; sourceTree = "<group>"; };
+		FA01676F23A68FCC003FC0ED /* BadgeListViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BadgeListViewDataSource.swift; path = StoreApp/Feed/BadgeListViewDataSource.swift; sourceTree = SOURCE_ROOT; };
 		FA7FD74923979A9A0059C735 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7FD74C23979A9A0059C735 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA7FD75323979A9A0059C735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				FA7FD76123979C160059C735 /* Cell */,
 				FA7FD7692398D5B30059C735 /* FeedViewController.swift */,
 				FAA571B6239F909800C7B301 /* FeedViewDataSource.swift */,
+				FA01676F23A68FCC003FC0ED /* BadgeListViewDataSource.swift */,
 				FA7FD75223979A9A0059C735 /* Main.storyboard */,
 				FA01676D23A68D12003FC0ED /* FeedEvent.swift */,
 			);
@@ -264,6 +267,7 @@
 				FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */,
 				FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */,
 				FA7FD78323992E560059C735 /* BadgeListCell.swift in Sources */,
+				FA01677023A68FCC003FC0ED /* BadgeListViewDataSource.swift in Sources */,
 				FA7FD77D2399241F0059C735 /* FeedCategoryHeaderView.swift in Sources */,
 				FA01676E23A68D12003FC0ED /* FeedEvent.swift in Sources */,
 				FA7FD77423991ECD0059C735 /* String+Attributed.swift in Sources */,
