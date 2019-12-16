@@ -65,6 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA01679523A7B09B003FC0ED /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				FA01677123A69DB5003FC0ED /* StoreItemCategory.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		FA01679623A7B17A003FC0ED /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FA7FD76F2398DA980059C735 /* StoreItem.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		FA7FD74023979A9A0059C735 = {
 			isa = PBXGroup;
 			children = (
@@ -132,8 +148,8 @@
 		FA7FD76E2398DA1F0059C735 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FA7FD76F2398DA980059C735 /* StoreItem.swift */,
-				FA01677123A69DB5003FC0ED /* StoreItemCategory.swift */,
+				FA01679523A7B09B003FC0ED /* Domain */,
+				FA01679623A7B17A003FC0ED /* Entity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
