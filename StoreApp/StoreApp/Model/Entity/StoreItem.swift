@@ -13,8 +13,8 @@ struct StoreItem: Codable {
     let image: String
     let title: String
     let description: String
-    let oldPrice: String?
-    let newPrice: String?
+    let originalPrice: String?
+    let discountedPrice: String?
     let deliveryTypes: [String]
     let badges: [String]?
     
@@ -23,8 +23,8 @@ struct StoreItem: Codable {
         case image
         case title
         case description
-        case oldPrice = "n_price"
-        case newPrice = "s_price"
+        case originalPrice = "n_price"
+        case discountedPrice = "s_price"
         case deliveryTypes = "delivery_type"
         case badges = "badge"
     }

@@ -78,10 +78,10 @@ extension FeedListCell {
     func configure(_ storeItem: StoreItem) {
         titleLabel.text = storeItem.title
         descriptionLabel.text = storeItem.description
-        priceLabel.text = storeItem.newPrice
+        priceLabel.text = storeItem.discountedPrice
         
-        if let oldPriceText = storeItem.oldPrice,
-            let newPriceText = storeItem.newPrice {
+        if let oldPriceText = storeItem.originalPrice,
+            let newPriceText = storeItem.discountedPrice {
             let priceText = "\(oldPriceText) \(newPriceText)"
             priceLabel.attributedText = priceText.centerLineStyle(text: priceText,
                                                                   changeText: oldPriceText,
