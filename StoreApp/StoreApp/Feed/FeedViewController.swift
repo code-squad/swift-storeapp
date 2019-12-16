@@ -12,7 +12,12 @@ class FeedViewController: UIViewController {
 
     // MARK: - Properties
     
-    private var presenter = FeedViewPresenter()
+    var presenter: FeedViewPresenter? {
+        didSet {
+            loadViewIfNeeded()
+            presenter?.fetchFeed()
+        }
+    }
     
     // MARK: - Outlets
     
