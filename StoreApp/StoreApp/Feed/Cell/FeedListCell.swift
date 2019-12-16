@@ -80,14 +80,15 @@ extension FeedListCell {
         descriptionLabel.text = storeItem.description
         priceLabel.text = storeItem.discountedPrice
         
-        if let oldPriceText = storeItem.originalPrice,
-            let newPriceText = storeItem.discountedPrice {
-            let priceText = "\(oldPriceText) \(newPriceText)"
-            priceLabel.attributedText = priceText.centerLineStyle(text: priceText,
-                                                                  changeText: oldPriceText,
-                                                                  centerLine: true,
-                                                                  font: UIFont.systemFont(ofSize: 13.0, weight: .regular),
-                                                                  color: .lightGray)
+        if let originalPriceText = storeItem.originalPrice,
+            let discountedPriceText = storeItem.discountedPrice {
+            let priceText = "\(originalPriceText) \(discountedPriceText)"
+            let styledText = Style()
+                .centerLine(.single)
+                .font(.systemFont(ofSize: 13.0, weight: .regular))
+                .color(.lightGray)
+                .apply(text: priceText, changingText: originalPriceText)
+            priceLabel.attributedText = styledText
         }
         
         dataSource.badges = storeItem.badges
