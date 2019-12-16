@@ -158,4 +158,65 @@ priceLabel.attributedText = price
             }
     ```
 
-    
+#### 피드백 🧐
+
+```
+서비스 코드에 DummyMain 이나 DummySoup 을 써야만 하나요?
+Dummy-가 붙으면 어떤 용도일까요?
+임시로 쓰는건지 정상적인지 코드로 하드코딩하기 보다는 어떤 데이터를 처리할 지 상위에서 지정해주는 게 좋습니다. 그러면 ViewModel을 의존성을 주입해서 테스트 가능해지니까요.
+```
+
+- **받는 쪽은 추상적으로 받되, 주입해주는 쪽이 구체타입을 결정해서 주입하게 구현해야다고 느꼈다.**
+
+<br>
+
+---
+
+
+
+<br>
+
+### STEP4 - Cocoa Pods
+
+- **Cocoa Pods**
+
+  - 프로젝트의 라이브러리 의존성을 관리한다
+  - Swift/Objectieve - C  프로젝트를 위한 의존성관리자
+
+- **Dependency manager**
+
+  - 서드파티 의존성을 쉽게 더하거나, 제거하거나, 업데이트를 쉽게 할 수 있게 만드는 도구
+  - dependency manager makes it easy to add, remove, update and manage third-party dependencies used by your app.
+
+- **Podfile**
+
+  - 프로젝트내에 하나 또는 여러개의 타겟의 의존성의 명세
+
+  - **Podfile.lock  - pod install 시 해당 버전을 잡아두어 의존하는 라이브러리가 업데이트되어도 기존 버전 유지가능**
+
+    - Form
+
+  - ```ruby
+    target 'MyApp' do
+      use_frameworks!
+      pod 'Alamofire', '~> 3.0'
+    end
+    ```
+
+- **Target**
+  - build할 product와 product를 build 하기 위한 instruction들을 포함한다.
+  - Target 하나는 하나의 Project만을 가진다.
+- **Project**
+  - Source code, including header files and implementation files
+  - Libraries and frameworks, internal and external
+  - Resource files
+  - Image files
+  - Interface Builder (nib) files
+- **workspace**
+  - 프로젝트 여러개를 포함하는 작업공간
+- **build configuration**
+  - product 의 build 과정에서 수행되야만 하는 것들에 대한 정보를 포함한다. 
+  - Build Setting + Build phase 가 위에 해당된다.
+  - Build setting 은 setting title (타이틀) / definition (설정 값) 으로 나뉜다. 
+- **scheme**
+  - Build , test ,  Run 등 Target Product에 할 행동
