@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedCategoryHeaderView: UITableViewHeaderFooterView {
+class FeedCategoryHeaderView: UITableViewHeaderFooterView, ReusableID {
 
     // MARK: - Outlets
     
