@@ -13,6 +13,7 @@
 		FA01677223A69DB5003FC0ED /* StoreItemCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01677123A69DB5003FC0ED /* StoreItemCategory.swift */; };
 		FA01679823A7B3B5003FC0ED /* FeedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01679723A7B3B5003FC0ED /* FeedSection.swift */; };
 		FA01679A23A7B47C003FC0ED /* FeedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01679923A7B47C003FC0ED /* FeedError.swift */; };
+		FA01679C23A7BCED003FC0ED /* FeedDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01679B23A7BCED003FC0ED /* FeedDataProvider.swift */; };
 		FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7FD74C23979A9A0059C735 /* AppDelegate.swift */; };
 		FA7FD75423979A9A0059C735 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD75223979A9A0059C735 /* Main.storyboard */; };
 		FA7FD75623979A9E0059C735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7FD75523979A9E0059C735 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		FA01677123A69DB5003FC0ED /* StoreItemCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCategory.swift; sourceTree = "<group>"; };
 		FA01679723A7B3B5003FC0ED /* FeedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSection.swift; sourceTree = "<group>"; };
 		FA01679923A7B47C003FC0ED /* FeedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedError.swift; sourceTree = "<group>"; };
+		FA01679B23A7BCED003FC0ED /* FeedDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDataProvider.swift; sourceTree = "<group>"; };
 		FA7FD74923979A9A0059C735 /* StoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7FD74C23979A9A0059C735 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA7FD75323979A9A0059C735 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				FA7FD76123979C160059C735 /* Cell */,
 				FA7FD7692398D5B30059C735 /* FeedViewController.swift */,
 				FAA571B6239F909800C7B301 /* FeedViewPresenter.swift */,
+				FA01679B23A7BCED003FC0ED /* FeedDataProvider.swift */,
 				FA01676F23A68FCC003FC0ED /* BadgeListViewDataSource.swift */,
 				FA7FD75223979A9A0059C735 /* Main.storyboard */,
 				FA01676D23A68D12003FC0ED /* FeedEvent.swift */,
@@ -295,6 +298,7 @@
 				FA7FD74D23979A9A0059C735 /* AppDelegate.swift in Sources */,
 				FA7FD76D2398D88B0059C735 /* ReuseIdentifiers.swift in Sources */,
 				FA7FD78323992E560059C735 /* BadgeListCell.swift in Sources */,
+				FA01679C23A7BCED003FC0ED /* FeedDataProvider.swift in Sources */,
 				FA01677023A68FCC003FC0ED /* BadgeListViewDataSource.swift in Sources */,
 				FA7FD77D2399241F0059C735 /* FeedCategoryHeaderView.swift in Sources */,
 				FA01676E23A68D12003FC0ED /* FeedEvent.swift in Sources */,
