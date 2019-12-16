@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedListCell: UITableViewCell {
+class FeedListCell: UITableViewCell, ReusableID {
     
     // MARK: - Properties
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BadgeListCell: UICollectionViewCell {
+class BadgeListCell: UICollectionViewCell, ReusableID {
     
     // MARK: - Outlets
     

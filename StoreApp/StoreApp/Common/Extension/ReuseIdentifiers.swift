@@ -17,9 +17,3 @@ extension ReusableID {
         return String(describing: self)
     }
 }
-
-extension UITableViewCell: ReusableID { }
-
-extension UITableViewHeaderFooterView: ReusableID { }
-
-extension UICollectionViewCell: ReusableID { }
