@@ -10,40 +10,29 @@ import UIKit
 
 class FeedViewPresenter: NSObject {
 
-    // MARK: - Section
-    
-    struct FeedSection {
-        let category: StoreItemCategory
-        let storeItems: [StoreItem]
-    }
-
     // MARK: - Properties
     
+    private var feedProvider: FeedDataProvider
     private var feedSections: [FeedSection] = []
     
-    override init() {
-        super.init()
-        
-        decodeJSON(assets: StoreItemCategory.allCases)
+    init(feedDataProvider: FeedDataProvider) {
+        self.feedProvider = feedDataProvider
     }
-
-    // MARK: - Methods
     
-    private func decodeJSON(assets: [StoreItemCategory]) {
-        let jsonDecoder = JSONDecoder()
-        
-        assets.forEach { asset in
-            guard let dataAsset = NSDataAsset(name: asset.rawValue) else { return }
-            do {
-                let storeItems = try jsonDecoder.decode([StoreItem].self, from: dataAsset.data)
-                feedSections.append(FeedSection(category: asset, storeItems: storeItems))
-            } catch {
-                print(error.localizedDescription)
+    func fetchFeed() {
+        feedProvider.request(assets: StoreItemCategory.allCases) { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let sections):
+                strongSelf.feedSections = sections
+                NotificationCenter.default.post(name: FeedEvent.itemDidUpdated.name, object: nil)
+            case .failure(let error):
+                print(error.message)
             }
         }
-        NotificationCenter.default.post(name: FeedEvent.itemDidUpdated.name, object: nil)
     }
 }
+
 // MARK: - UITableViewDataSource
 
 extension FeedViewPresenter: UITableViewDataSource {
