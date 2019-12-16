@@ -48,7 +48,10 @@ class FeedViewController: UIViewController {
     // MARK: - Events
     
     @objc private func reloadTableView() {
-        feedTableView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.feedTableView.reloadData()
+        }
     }
 }
 
