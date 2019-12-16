@@ -14,7 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if let rootViewController = window?.rootViewController as? FeedViewController {
+            let feedViewPresenter = FeedViewPresenter(feedDataProvider: FeedDataProvider())
+            rootViewController.presenter = feedViewPresenter
+        }
         return true
     }
 
