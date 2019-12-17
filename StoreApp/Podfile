@@ -4,6 +4,7 @@
 target 'StoreApp' do
 	pod 'Then'
 	pod 'SnapKit'
+	pod 'Toaster'
   # Pods for StoreApp
 
 end
