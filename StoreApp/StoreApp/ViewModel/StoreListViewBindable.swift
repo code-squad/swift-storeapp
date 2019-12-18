@@ -19,6 +19,11 @@ protocol StoreListViewDataSource: AnyObject {
     subscript(menu indexPath: IndexPath) -> Menu { get }
 }
 
+protocol StoreListViewDelegate: AnyObject {
+    
+    func select(at indexPath: IndexPath)
+}
+
 // MARK: - StoreListViewInteractable
 
 protocol StoreListViewInteractable: AnyObject {
@@ -31,6 +36,6 @@ protocol StoreListViewInteractable: AnyObject {
 
 // MARK: - StoreListViewBindable
 
-protocol StoreListViewBindable: StoreListViewDataSource, StoreListViewInteractable {
+protocol StoreListViewBindable: StoreListViewDataSource, StoreListViewDelegate, StoreListViewInteractable {
     
 }

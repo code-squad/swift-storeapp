@@ -57,6 +57,11 @@ final class StoreListViewModel: StoreListViewBindable {
         let store = stores[indexPath.section]
         return store.menus[indexPath.row]
     }
+    
+    func select(at indexPath: IndexPath) {
+        let menu = self[menu: indexPath]
+        self.dataDidSelected?(menu)
+    }
 }
 
 // MARK: - Fetch
