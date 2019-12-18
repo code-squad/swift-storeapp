@@ -27,6 +27,7 @@ final class StoreListViewModel: StoreListViewBindable {
     var dataDidLoad: (() -> Void)?
     var dataDidUpadated: (() -> Void)?
     var errorDidOccured: ((Error) -> Void)?
+    var dataDidSelected: ((Menu) -> Void)?
     
     // MARK: - Initializer
     
