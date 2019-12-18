@@ -12,7 +12,7 @@ import UIKit
 
 class StoreTableViewManager: NSObject {
     
-    weak var stores: StoreListViewDataSource?
+    weak var stores: StoreListViewBindable?
 }
 
 // MARK: - UITableViewDataSource
@@ -31,7 +31,7 @@ extension StoreTableViewManager: UITableViewDataSource {
         guard
             let cell = tableView.dequeueReusableCell(with: MenuCell.self, for: indexPath),
             let menu = stores?[menu: indexPath]
-            else { return .init() }
+            else { return MenuCell() }
         
         cell.configure(menu)
         return cell
@@ -50,5 +50,9 @@ extension StoreTableViewManager: UITableViewDelegate {
         
         categoryHeader.configure(category: category)
         return categoryHeader
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        stores?.select(at: indexPath)
     }
 }
