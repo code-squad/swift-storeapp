@@ -26,6 +26,7 @@ protocol StoreListViewInteractable: AnyObject {
     var dataDidLoad: (() -> Void)? { get set }
     var dataDidUpadated: (() -> Void)? { get set }
     var errorDidOccured: ((Error) -> Void)? { get set }
+    var dataDidSelected: ((Menu) -> Void)? { get set }
 }
 
 // MARK: - StoreListViewBindable
