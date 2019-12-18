@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Then
+import Toaster
 
 
 final class StoreListViewController: UIViewController, StoreListViewPresentable {
@@ -27,7 +28,6 @@ final class StoreListViewController: UIViewController, StoreListViewPresentable 
     
     let storeTableViewManager = StoreTableViewManager()
     
-    
     // MARK: - Life Cycle
     
     override func viewWillLayoutSubviews() {
@@ -41,7 +41,6 @@ final class StoreListViewController: UIViewController, StoreListViewPresentable 
         
         setUpConstraints()
     }
-    
 }
 
 // MARK: - Attrubutes & Layouts
@@ -97,6 +96,14 @@ extension StoreListViewController {
             alert.do {
                 $0.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                 self?.present($0, animated: true, completion: nil)
+            }
+        }
+        
+        viewModel.dataDidSelected = { menu in
+            let description = "\(menu.title)\n\(menu.salePrice)"
+
+            DispatchQueue.main.async {
+                Toast(text: description, duration: Delay.short).show()
             }
         }
     }
